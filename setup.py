@@ -19,7 +19,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='cuenca',
-    version=version.__version__,
+    version=version.CLIENT_VERSION,
     author='Cuenca',
     author_email='dev@cuenca.com',
     description='Cuenca API Client',
@@ -28,7 +28,7 @@ setup(
     url='https://github.com/cuenca-mx/cuenca-python',
     packages=find_packages(),
     python_requires='>=3.7',
-    install_requires=['requests>=2.21.0,<2.22.0'],
+    install_requires=['requests>=2.21.0,<2.22.0', 'pydantic==1.4'],
     setup_requires=['pytest-runner'],
     tests_require=test_requires,
     extras_require=dict(test=test_requires),
