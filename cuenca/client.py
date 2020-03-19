@@ -64,7 +64,12 @@ class Client:
     ) -> Dict[str, Any]:
         url = self.base_url + endpoint
         response = self.session.request(
-            method, url, headers=self.headers, json=data or {}, **kwargs
+            method,
+            url,
+            auth=(self.api_key, self.api_secret),
+            headers=self.headers,
+            json=data or {},
+            **kwargs,
         )
         self._check_response(response)
         return response.json()

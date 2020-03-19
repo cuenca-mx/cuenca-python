@@ -1,6 +1,6 @@
 import datetime as dt
 from dataclasses import dataclass
-from typing import ClassVar
+from typing import ClassVar, List, Optional
 
 from pydantic import BaseModel, PositiveInt, StrictStr
 
@@ -42,6 +42,19 @@ class Transferencia(Resource):
         return cls(**resp)
 
     @classmethod
-    def get(cls, id: str) -> 'Transferencia':
+    def retrieve(cls, id: str) -> 'Transferencia':
         resp = cls._client.get(f'{cls._endpoint}/{id}')
         return cls(**resp)
+
+    def refresh(self):
+        tr = self.retrieve(self.id)
+        for attr, value in tr.__dict__.items():
+            setattr(self, attr, value)
+
+    @classmethod
+    def list(cls, idempotency_key: Optional[str]) -> List['Transferencia']:
+        url = cls._endpoint
+        if idempotency_key:
+            url += f'?idempotency_key={idempotency_key}'
+        resp = cls._client.get(url)
+        return [cls(**tr) for tr in resp]
