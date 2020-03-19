@@ -18,7 +18,7 @@ transferencia.refresh()
 ```
 
 
-## Retrieve by id
+## Retrieve by `id`
 
 ```python
 from cuenca import Client
