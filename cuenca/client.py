@@ -38,8 +38,8 @@ class Client:
         self.session = Session()
         self.api_key = api_key or os.environ['CUENCA_API_KEY']
         self.api_secret = api_secret or os.environ['CUENCA_API_SECRET']
-        self.webhook_secret = (
-            webhook_secret or os.environ['CUENCA_WEBHOOK_SECRET']
+        self.webhook_secret = webhook_secret or os.getenv(
+            'CUENCA_WEBHOOK_SECRET'
         )
         if sandbox:
             self.base_url = SANDBOX_URL
