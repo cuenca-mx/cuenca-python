@@ -16,7 +16,7 @@ jobs:
       - name: Lint
         run: make lint
 
-  test:
+  pytest:
     runs-on: ubuntu-latest
     strategy:
       matrix:
