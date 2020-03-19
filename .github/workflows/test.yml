@@ -1,4 +1,4 @@
-name: cuenca
+name: test
 
 on: [push]
 
