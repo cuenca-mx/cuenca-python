@@ -12,4 +12,26 @@ transferencia = client.transferencias.create(
     concepto='sending money',
     idempotency_key='unique string',
 )
+
+# To get updated status (estado)
+transferencia.refresh()
+```
+
+
+## Retrieve by id
+
+```python
+from cuenca import Client
+
+client = Client()
+transferencia = client.transferencias.retrieve('tr_123')
+```
+
+## Retrieve by `idempotency_key`
+
+```python
+from cuenca import Client
+
+client = Client()
+transferencia = client.transferencias.list(idempotency_key='unique string')[0]
 ```
