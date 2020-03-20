@@ -27,6 +27,8 @@ setup(
     long_description_content_type='text/markdown',
     url='https://github.com/cuenca-mx/cuenca-python',
     packages=find_packages(),
+    include_package_data=True,
+    package_data=dict(cuenca=['py.typed']),
     python_requires='>=3.6',
     install_requires=[
         'requests>=2.21.0,<2.22.0',
