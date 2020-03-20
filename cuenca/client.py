@@ -16,9 +16,9 @@ class Client:
     base_url: str
     api_key: str
     api_secret: str
-    headers = Dict[str, str]
-    session = Session
     webhook_secret: str
+    headers: Dict[str, str]
+    session: Session
 
     # resources
     transferencias: ClassVar = Transferencia
