@@ -31,6 +31,7 @@ setup(
     package_data=dict(cuenca=['py.typed']),
     python_requires='>=3.6',
     install_requires=[
+        'clabe>=1.0.0,<1.1.0'
         'requests>=2.21.0,<2.22.0',
         'pydantic==1.4',
         'iso8601>=0.1.12,<0.2.0',

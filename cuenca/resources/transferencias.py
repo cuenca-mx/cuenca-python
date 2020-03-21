@@ -2,6 +2,7 @@ import datetime as dt
 from dataclasses import dataclass
 from typing import ClassVar, List, Optional
 
+from clabe import Clabe
 from pydantic import BaseModel, PositiveInt, StrictStr
 
 from ..types import Estado
@@ -9,7 +10,7 @@ from .base import Resource
 
 
 class TransferenciaRequest(BaseModel):
-    clabe: str
+    clabe: Clabe
     monto: PositiveInt
     concepto: StrictStr
     idempotency_key: str
