@@ -3,7 +3,7 @@ from typing import Any, ClassVar, Dict, Optional
 
 from requests import Response, Session
 
-from .resources import Transferencia
+from .resources import Transfer
 from .resources.base import Resource
 from .version import API_VERSION, CLIENT_VERSION
 
@@ -21,7 +21,7 @@ class Client:
     session: Session
 
     # resources
-    transferencias: ClassVar = Transferencia
+    transfers: ClassVar = Transfer
 
     def __init__(
         self,

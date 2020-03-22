@@ -6,15 +6,15 @@
 from cuenca import Client
 
 client = Client()
-transferencia = client.transferencias.create(
+transfer = client.transfers.create(
     clabe='646180157042875763',
-    monto=12345,  # Mx$123.45
-    concepto='sending money',
+    amount=12345,  # Mx$123.45
+    descriptor='sending money',  # As it'll appear for the customer
     idempotency_key='unique string',
 )
 
 # To get updated status (estado)
-transferencia.refresh()
+transfer.refresh()
 ```
 
 
@@ -24,7 +24,7 @@ transferencia.refresh()
 from cuenca import Client
 
 client = Client()
-transferencia = client.transferencias.retrieve('tr_123')
+transfer = client.transfers.retrieve('tr_123')
 ```
 
 ## Retrieve by `idempotency_key`
@@ -33,5 +33,5 @@ transferencia = client.transferencias.retrieve('tr_123')
 from cuenca import Client
 
 client = Client()
-transferencia = client.transferencias.list(idempotency_key='unique string')[0]
+transfer = client.transfers.list(idempotency_key='unique string')[0]
 ```

@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class Estado(str, Enum):
-    pendiente = 'pendiente'
-    exitosa = 'exitosa'
-    fallida = 'fallida'
+class Status(str, Enum):
+    pending = 'pending'
+    succeeded = 'succeeded'
+    failed = 'failed'

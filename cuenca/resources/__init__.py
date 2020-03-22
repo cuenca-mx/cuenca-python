@@ -1,4 +1,4 @@
-__all__ = ['Transferencia']
+__all__ = ['Transfer']
 
 
-from .transferencias import Transferencia
+from .transfers import Transfer
