@@ -13,12 +13,12 @@ SANDBOX_URL = 'https://sandbox.cuenca.com'
 
 class Client:
 
-    base_url: str
-    api_key: str
-    api_secret: str
-    webhook_secret: str
-    headers: Dict[str, str]
-    session: Session
+    _base_url: str
+    _api_key: str
+    _api_secret: str
+    _webhook_secret: str
+    _headers: Dict[str, str]
+    _session: Session
 
     # resources
     api_keys: ClassVar[type] = ApiKey
@@ -32,20 +32,20 @@ class Client:
         api_version: str = API_VERSION,
         sandbox: bool = False,
     ):
-        self.headers = {
+        self._headers = {
             'X-Cuenca-Api-Version': api_version,
             'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
         }
-        self.session = Session()
-        self.api_key = api_key or os.environ['CUENCA_API_KEY']
-        self.api_secret = api_secret or os.environ['CUENCA_API_SECRET']
-        self.webhook_secret = webhook_secret or os.getenv(
+        self._session = Session()
+        self._api_key = api_key or os.environ['CUENCA_API_KEY']
+        self._api_secret = api_secret or os.environ['CUENCA_API_SECRET']
+        self._webhook_secret = webhook_secret or os.getenv(
             'CUENCA_WEBHOOK_SECRET'
         )
         if sandbox:
-            self.base_url = SANDBOX_URL
+            self._base_url = SANDBOX_URL
         else:
-            self.base_url = API_URL
+            self._base_url = API_URL
         Resource._client = self
 
     def get(self, endpoint: str, **kwargs: Any) -> Dict[str, Any]:
@@ -63,12 +63,12 @@ class Client:
         data: Optional[Dict[str, Any]] = None,
         **kwargs,
     ) -> Dict[str, Any]:
-        url = self.base_url + endpoint
-        response = self.session.request(
+        url = self._base_url + endpoint
+        response = self._session.request(
             method,
             url,
-            auth=(self.api_key, self.api_secret),
-            headers=self.headers,
+            auth=(self._api_key, self._api_secret),
+            headers=self._headers,
             json=data or {},
             **kwargs,
         )
