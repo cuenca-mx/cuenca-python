@@ -1,4 +1,4 @@
-__all__ = ['Transfer']
+__all__ = ['ApiKey', 'Transfer']
 
-
+from .api_keys import ApiKey
 from .transfers import Transfer

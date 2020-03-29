@@ -3,7 +3,7 @@ from typing import Any, ClassVar, Dict, Optional
 
 from requests import Response, Session
 
-from .resources import Transfer
+from .resources import ApiKey, Transfer
 from .resources.base import Resource
 from .version import API_VERSION, CLIENT_VERSION
 
@@ -21,7 +21,8 @@ class Client:
     session: Session
 
     # resources
-    transfers: ClassVar = Transfer
+    api_keys: ClassVar[type] = ApiKey
+    transfers: ClassVar[type] = Transfer
 
     def __init__(
         self,
@@ -59,7 +60,7 @@ class Client:
         self,
         method: str,
         endpoint: str,
-        data: Optional[Dict[str, Any]],
+        data: Optional[Dict[str, Any]] = None,
         **kwargs,
     ) -> Dict[str, Any]:
         url = self.base_url + endpoint

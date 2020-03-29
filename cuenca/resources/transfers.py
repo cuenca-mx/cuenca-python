@@ -43,16 +43,6 @@ class Transfer(Resource):
         return cls(**resp)
 
     @classmethod
-    def retrieve(cls, id: str) -> 'Transfer':
-        resp = cls._client.get(f'{cls._endpoint}/{id}')
-        return cls(**resp)
-
-    def refresh(self):
-        tr = self.retrieve(self.id)
-        for attr, value in tr.__dict__.items():
-            setattr(self, attr, value)
-
-    @classmethod
     def list(cls, idempotency_key: Optional[str]) -> List['Transfer']:
         url = cls._endpoint
         if idempotency_key:
