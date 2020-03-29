@@ -1,7 +1,7 @@
 import os
 from typing import Any, ClassVar, Dict, Optional
 
-from requests import Response, Session
+from requests import Request, Response, Session
 
 from .resources import ApiKey, Transfer
 from .resources.base import Resource
@@ -63,17 +63,18 @@ class Client:
         data: Optional[Dict[str, Any]] = None,
         **kwargs,
     ) -> Dict[str, Any]:
-        url = self._base_url + endpoint
-        response = self._session.request(
-            method,
-            url,
-            auth=(self._api_key, self._api_secret),
+        req = Request(
+            method=method,
+            url=self._base_url + endpoint,
             headers=self._headers,
-            json=data or {},
-            **kwargs,
+            auth=(self._api_key, self._api_secret),
+            **kwargs
         )
-        self._check_response(response)
-        return response.json()
+        if data:
+            req.json = data
+        resp = self._session.send(req.prepare())
+        self._check_response(resp)
+        return resp.json()
 
     def _check_response(self, response: Response):
         if response.ok:
