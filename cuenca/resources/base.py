@@ -11,8 +11,12 @@ class Resource:
 
     def __post_init__(self) -> None:
         for attr, value in self.__dict__.items():
-            if attr.endswith('_at'):
-                setattr(self, attr, iso8601.parse_date(value))
+            if attr.endswith('_at') and value:
+                setattr(
+                    self,
+                    attr,
+                    iso8601.parse_date(value, default_timezone=None),
+                )
 
     @classmethod
     def retrieve(cls, id: str) -> 'Resource':
