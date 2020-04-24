@@ -1,17 +1,18 @@
 import datetime as dt
-from dataclasses import dataclass
-from typing import ClassVar, List, Optional
+from typing import ClassVar, List, Set
+from urllib.parse import urlencode
 
 from clabe import Clabe
-from pydantic import BaseModel, PositiveInt, StrictStr
+from pydantic import BaseModel, StrictStr
+from pydantic.dataclasses import dataclass
 
-from ..types import Status
+from ..types import Status, StrictPositiveInt
 from .base import Resource
 
 
 class TransferRequest(BaseModel):
-    clabe: Clabe
-    amount: PositiveInt
+    account_number: Clabe
+    amount: StrictPositiveInt
     descriptor: StrictStr
     idempotency_key: str
 
@@ -19,11 +20,15 @@ class TransferRequest(BaseModel):
 @dataclass
 class Transfer(Resource):
     _endpoint: ClassVar[str] = '/transfers'
+    _query_parameters: ClassVar[Set[str]] = {
+        'account_number',
+        'idempotency_key',
+    }
 
     id: str
     created_at: dt.datetime
     updated_at: dt.datetime
-    clabe: str
+    account_number: str
     amount: int
     descriptor: str
     idempotency_key: str
@@ -31,10 +36,14 @@ class Transfer(Resource):
 
     @classmethod
     def create(
-        cls, clabe: str, amount: int, descriptor: str, idempotency_key: str
+        cls,
+        account_number: str,
+        amount: int,
+        descriptor: str,
+        idempotency_key: str,
     ) -> 'Transfer':
         req = TransferRequest(
-            clabe=clabe,
+            account_number=account_number,
             amount=amount,
             descriptor=descriptor,
             idempotency_key=idempotency_key,
@@ -43,9 +52,19 @@ class Transfer(Resource):
         return cls(**resp)
 
     @classmethod
-    def list(cls, idempotency_key: Optional[str]) -> List['Transfer']:
+    def list(cls, **query) -> List['Transfer']:
+        """
+        Currently accepted query values:
+        - account_number
+        - idempotency_key
+        """
         url = cls._endpoint
-        if idempotency_key:
-            url += f'?idempotency_key={idempotency_key}'
+        if query:
+            unaccepted = set(query.keys()) - cls._query_parameters
+            if unaccepted:
+                raise ValueError(
+                    f'{unaccepted} are not accepted query parameters'
+                )
+            url += '?' + urlencode(query)
         resp = cls._client.get(url)
         return [cls(**tr) for tr in resp]

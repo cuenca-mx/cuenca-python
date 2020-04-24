@@ -17,7 +17,6 @@ class Client:
     _api_key: str
     _api_secret: str
     _webhook_secret: str
-    _headers: Dict[str, str]
     _session: Session
 
     # resources
@@ -32,11 +31,13 @@ class Client:
         api_version: str = API_VERSION,
         sandbox: bool = False,
     ):
-        self._headers = {
-            'X-Cuenca-Api-Version': api_version,
-            'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
-        }
         self._session = Session()
+        self._session.headers.update(
+            {
+                'X-Cuenca-Api-Version': api_version,
+                'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
+            }
+        )
         self._api_key = api_key or os.environ['CUENCA_API_KEY']
         self._api_secret = api_secret or os.environ['CUENCA_API_SECRET']
         self._webhook_secret = webhook_secret or os.getenv(
@@ -66,9 +67,8 @@ class Client:
         req = Request(
             method=method,
             url=self._base_url + endpoint,
-            headers=self._headers,
             auth=(self._api_key, self._api_secret),
-            **kwargs
+            **kwargs,
         )
         if data:
             req.json = data

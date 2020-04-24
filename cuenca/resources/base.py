@@ -1,22 +1,11 @@
 from dataclasses import dataclass
 from typing import ClassVar
 
-import iso8601
-
 
 @dataclass
 class Resource:
-    _client: ClassVar['cuenca.Client']  # type: ignore
+    _client: ClassVar['cuenca.Client']  # noqa: F821
     _endpoint: ClassVar[str]
-
-    def __post_init__(self) -> None:
-        for attr, value in self.__dict__.items():
-            if attr.endswith('_at') and value:
-                setattr(
-                    self,
-                    attr,
-                    iso8601.parse_date(value, default_timezone=None),
-                )
 
     @classmethod
     def retrieve(cls, id: str) -> 'Resource':
