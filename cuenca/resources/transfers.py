@@ -1,6 +1,5 @@
 import datetime as dt
-from typing import ClassVar, List, Set
-from urllib.parse import urlencode
+from typing import ClassVar
 
 from clabe import Clabe
 from pydantic import BaseModel, StrictStr
@@ -19,11 +18,8 @@ class TransferRequest(BaseModel):
 
 @dataclass
 class Transfer(Resource):
-    _endpoint: ClassVar[str] = '/transfers'
-    _query_parameters: ClassVar[Set[str]] = {
-        'account_number',
-        'idempotency_key',
-    }
+    _endpoint: ClassVar = '/transfers'
+    _query_params: ClassVar = {'account_number', 'idempotency_key'}
 
     id: str
     created_at: dt.datetime
@@ -50,21 +46,3 @@ class Transfer(Resource):
         )
         resp = cls._client.post(cls._endpoint, data=req.dict())
         return cls(**resp)
-
-    @classmethod
-    def list(cls, **query) -> List['Transfer']:
-        """
-        Currently accepted query values:
-        - account_number
-        - idempotency_key
-        """
-        url = cls._endpoint
-        if query:
-            unaccepted = set(query.keys()) - cls._query_parameters
-            if unaccepted:
-                raise ValueError(
-                    f'{unaccepted} are not accepted query parameters'
-                )
-            url += '?' + urlencode(query)
-        resp = cls._client.get(url)
-        return [cls(**tr) for tr in resp]

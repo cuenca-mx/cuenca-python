@@ -57,6 +57,14 @@ class Client:
     ) -> Dict[str, Any]:
         return self.request('post', endpoint, data, **kwargs)
 
+    def delete(
+        self,
+        endpoint: str,
+        data: Optional[Dict[str, Any]] = None,
+        **kwargs: Any,
+    ) -> Dict[str, Any]:
+        return self.request('delete', endpoint, data, **kwargs)
+
     def request(
         self,
         method: str,
