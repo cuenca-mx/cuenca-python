@@ -9,7 +9,7 @@ from cuenca import Client
 
 client = Client()
 transfer = client.transfers.create(
-    clabe='646180157042875763',
+    account_number='646180157042875763',
     amount=12345,  # Mx$123.45
     descriptor='sending money',  # As it'll appear for the customer
     idempotency_key='unique string',
