@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Tuple, Optional
+from typing import ClassVar, Optional, Tuple
 
 from pydantic.dataclasses import dataclass
 
