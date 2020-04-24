@@ -33,5 +33,5 @@ transfer = client.transfers.retrieve('tr_123')
 from cuenca import Client
 
 client = Client()
-transfer = client.transfers.list(idempotency_key='unique string')[0]
+transfer = client.transfers.query(idempotency_key='unique string')[0]
 ```
