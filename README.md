@@ -42,7 +42,7 @@ transfers = client.transfers.query(account_number='646180157000000004')
 
 ## Api Keys
 
-## Roll the `ApiKey`
+### Roll the `ApiKey`
 
 ```python
 from cuenca import Client
