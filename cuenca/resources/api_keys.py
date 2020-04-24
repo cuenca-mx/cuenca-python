@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional
+from typing import ClassVar, Tuple, Optional
 
 from pydantic.dataclasses import dataclass
 
@@ -28,23 +28,32 @@ class ApiKey(Resource):
         resp = cls._client.post()
         return cls(**resp)
 
-    def deactivate(self, minutes: int = 0) -> None:
-        """
-        deactivate an ApiKey in a certain number of minutes. If minutes is
-        negative, the API will treat it the same as 0
-        """
-        resp = self._client.delete(self._endpoint, dict(minutes=minutes))
-        self.deactivated_at = resp['deactivated_at']
-
-    def roll(self, minutes: int = 0) -> 'ApiKey':
+    @classmethod
+    def roll(cls, minutes: int = 0) -> Tuple['ApiKey', 'ApiKey']:
         """
         1. create a new ApiKey
-        2. deactivate prior ApiKey in a certain number of minutes
-        3. configure client with new ApiKey
-        4. return new ApiKey
+        2. configure client with new ApiKey
+        3. deactivate prior ApiKey in a certain number of minutes
+        4. return both ApiKeys
         """
-        new = self.create()
-        self.deactivate(minutes)
-        self._client._api_key = new.id
-        self._client._secret_key = new.secret
-        return new
+        client = cls._client
+        old_id = client._api_key
+        new = cls.create()
+        # have to use the new key to deactivate the old key
+        client._api_key = new.id
+        client._secret_key = new.secret
+        old = cls.deactivate(old_id, minutes)
+        return old, new
+
+    @classmethod
+    def deactivate(cls, api_key_id: str, minutes: int = 0) -> 'ApiKey':
+        """
+        deactivate an ApiKey in a certain number of minutes. If minutes is
+        negative, the API will treat it the same as 0. You can't deactivate
+        the same key with which the client is configured, since that'd risk
+        locking you out. The deactivated key is returned so that you have the
+        exact deactivated_at time.
+        """
+        url = cls._endpoint + f'/{api_key_id}'
+        resp = cls._client.delete(url, dict(minutes=minutes))
+        return cls(**resp)

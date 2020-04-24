@@ -1,6 +1,8 @@
 # Cuenca – Python client library
 
-## Create transfer
+## Transfers
+
+### Create transfer
 
 ```python
 from cuenca import Client
@@ -18,7 +20,7 @@ transfer.refresh()
 ```
 
 
-## Retrieve by `id`
+### Retrieve by `id`
 
 ```python
 from cuenca import Client
@@ -27,11 +29,26 @@ client = Client()
 transfer = client.transfers.retrieve('tr_123')
 ```
 
-## Retrieve by `idempotency_key`
+### Query by `idempotency_key` or an `account_number`
 
 ```python
 from cuenca import Client
 
 client = Client()
 transfer = client.transfers.query(idempotency_key='unique string')[0]
+
+transfers = client.transfers.query(account_number='646180157000000004')
+```
+
+## Api Keys
+
+## Roll the `ApiKey`
+
+```python
+from cuenca import Client
+
+client = Client()
+
+# create new key and deactive old key in 60 mins
+old_key, new_key = client.api_keys.roll(60)
 ```
