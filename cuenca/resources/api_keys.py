@@ -3,13 +3,14 @@ from typing import ClassVar, Optional, Tuple
 
 from pydantic.dataclasses import dataclass
 
+from ..conn import client
 from .base import Resource
 
 
 @dataclass
 class ApiKey(Resource):
-    _endpoint: ClassVar = '/api_keys'
-    _query_params: ClassVar = {}
+    _endpoint: ClassVar = f'/api_keys'
+    _query_params: ClassVar = set()
 
     id: str
     secret: str
@@ -36,12 +37,10 @@ class ApiKey(Resource):
         3. deactivate prior ApiKey in a certain number of minutes
         4. return both ApiKeys
         """
-        client = cls._client
-        old_id = client._api_key
+        old_id = client.auth[0]
         new = cls.create()
         # have to use the new key to deactivate the old key
-        client._api_key = new.id
-        client._secret_key = new.secret
+        client.configure(new.id, new.secret)
         old = cls.deactivate(old_id, minutes)
         return old, new
 
@@ -55,5 +54,5 @@ class ApiKey(Resource):
         exact deactivated_at time.
         """
         url = cls._endpoint + f'/{api_key_id}'
-        resp = cls._client.delete(url, dict(minutes=minutes))
+        resp = client.delete(url, dict(minutes=minutes))
         return cls(**resp)

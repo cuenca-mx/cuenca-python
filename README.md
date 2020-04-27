@@ -5,10 +5,11 @@
 ### Create transfer
 
 ```python
-from cuenca import Client
+import cuenca
 
-client = Client()
-transfer = client.transfers.create(
+cuenca.configure(sandbox=True)  # if using sandbox
+
+transfer = cuenca.Transfer.create(
     account_number='646180157042875763',
     amount=12345,  # Mx$123.45
     descriptor='sending money',  # As it'll appear for the customer
@@ -23,21 +24,19 @@ transfer.refresh()
 ### Retrieve by `id`
 
 ```python
-from cuenca import Client
+import cuenca
 
-client = Client()
-transfer = client.transfers.retrieve('tr_123')
+transfer = cuenca.Transfer.retrieve('tr_123')
 ```
 
 ### Query by `idempotency_key` or an `account_number`
 
 ```python
-from cuenca import Client
+import cuenca
 
-client = Client()
-transfer = client.transfers.query(idempotency_key='unique string')[0]
+transfer = cuenca.Transfer.query(idempotency_key='unique string').one()
 
-transfers = client.transfers.query(account_number='646180157000000004')
+transfers = cuenca.Transfer.query(account_number='646180157000000004')
 ```
 
 ## Api Keys
@@ -45,10 +44,8 @@ transfers = client.transfers.query(account_number='646180157000000004')
 ### Roll the `ApiKey`
 
 ```python
-from cuenca import Client
-
-client = Client()
+import cuenca
 
 # create new key and deactive old key in 60 mins
-old_key, new_key = client.api_keys.roll(60)
+old_key, new_key = cuenca.ApiKey.roll(60)
 ```

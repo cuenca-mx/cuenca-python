@@ -1,6 +1,8 @@
-__all__ = ['__version__', 'Client', 'Transfer']
+__all__ = ['__version__', 'ApiKey', 'Transfer', 'configure', 'conn']
 
 
-from .client import Client
-from .resources import Transfer
-from .version import CLIENT_VERSION as __version__
+from . import conn
+from .resources import ApiKey, Transfer
+from .version import __version__
+
+configure = conn.client.configure
