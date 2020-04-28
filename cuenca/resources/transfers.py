@@ -5,7 +5,7 @@ from clabe import Clabe
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
-from ..conn import client
+from ..http import session
 from ..types import Status, StrictPositiveInt
 from .base import Resource
 
@@ -45,5 +45,5 @@ class Transfer(Resource):
             descriptor=descriptor,
             idempotency_key=idempotency_key,
         )
-        resp = client.post(cls._endpoint, data=req.dict())
+        resp = session.post(cls._endpoint, data=req.dict())
         return cls(**resp)

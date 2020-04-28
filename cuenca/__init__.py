@@ -1,8 +1,8 @@
-__all__ = ['__version__', 'ApiKey', 'Transfer', 'configure', 'conn']
+__all__ = ['__version__', 'ApiKey', 'Transfer', 'configure']
 
 
-from . import conn
+from .http import session
 from .resources import ApiKey, Transfer
 from .version import __version__
 
-configure = conn.client.configure
+configure = session.configure

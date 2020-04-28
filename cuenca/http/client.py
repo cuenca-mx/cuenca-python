@@ -1,7 +1,8 @@
 import os
 from typing import Any, Dict, Optional, Tuple
 
-from requests import Response, Session
+import requests
+from requests import Response
 
 from ..version import API_VERSION, CLIENT_VERSION
 
@@ -9,15 +10,15 @@ API_URL = 'https://api.cuenca.com'
 SANDBOX_URL = 'https://sandbox.cuenca.com'
 
 
-class HttpClient:
+class Session:
 
     base_url: str
     auth: Tuple[str, str]
     webhook_secret: Optional[str]
-    session: Session
+    session: requests.Session
 
     def __init__(self):
-        self.session = Session()
+        self.session = requests.Session()
         self.session.headers.update(
             {
                 'X-Cuenca-Api-Version': API_VERSION,
@@ -82,7 +83,8 @@ class HttpClient:
         self._check_response(resp)
         return resp.json()
 
-    def _check_response(self, response: Response):
+    @staticmethod
+    def _check_response(response: Response):
         if response.ok:
             return
         response.raise_for_status()

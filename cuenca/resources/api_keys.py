@@ -3,7 +3,7 @@ from typing import ClassVar, Optional, Tuple
 
 from pydantic.dataclasses import dataclass
 
-from ..conn import client
+from ..http import session
 from .base import Resource
 
 
@@ -54,5 +54,5 @@ class ApiKey(Resource):
         exact deactivated_at time.
         """
         url = cls._endpoint + f'/{api_key_id}'
-        resp = client.delete(url, dict(minutes=minutes))
+        resp = session.delete(url, dict(minutes=minutes))
         return cls(**resp)

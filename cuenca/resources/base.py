@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import ClassVar
 
-from ..conn import client
+from ..http import session
 
 
 @dataclass
@@ -11,7 +11,7 @@ class Resource:
 
     @classmethod
     def retrieve(cls, id: str) -> 'Resource':
-        resp = client.get(f'{cls._endpoint}/{id}')
+        resp = session.get(f'{cls._endpoint}/{id}')
         return cls(**resp)
 
     def refresh(self):
