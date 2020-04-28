@@ -29,14 +29,33 @@ import cuenca
 transfer = cuenca.Transfer.retrieve('tr_123')
 ```
 
-### Query by `idempotency_key` or an `account_number`
+### Query by `idempotency_key`, `account_number` and `status`
+
+Results are always returned in descending order of `created_at`
+
+The methods that can be used:
+- `one()` - returns a single result. Raises `NoResultFound` if there are no
+results and `MultipleResultsFound` if there are more than one
+- `first()` - returns the first result or `None` if there aren't any
+- `all()` - returns a generator of all matching results. Pagination is handled
+automatically as you iterate over the response
+- `count()` - returns an integer with the count of the matching results
 
 ```python
 import cuenca
+from cuenca.types import Status
 
-transfer = cuenca.Transfer.query(idempotency_key='unique string').one()
+# find the unique transfer using the idempotency key
+transfer = cuenca.Transfer.one(idempotency_key='unique string')
 
-transfers = cuenca.Transfer.query(account_number='646180157000000004')
+# returns a generator of all succeeded transfers to the specific account
+transfers = cuenca.Transfer.all(
+    account_number='646180157000000004',
+    status=Status.succeeded
+)
+
+# the total number of succeeded transfers
+count = cuenca.Transfer.count(status=Status.succeeded)
 ```
 
 ## Api Keys
