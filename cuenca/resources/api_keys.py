@@ -37,10 +37,10 @@ class ApiKey(Resource):
         3. deactivate prior ApiKey in a certain number of minutes
         4. return both ApiKeys
         """
-        old_id = client.auth[0]
+        old_id = session.auth[0]
         new = cls.create()
         # have to use the new key to deactivate the old key
-        client.configure(new.id, new.secret)
+        session.configure(new.id, new.secret)
         old = cls.deactivate(old_id, minutes)
         return old, new
 

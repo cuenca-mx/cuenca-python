@@ -68,6 +68,4 @@ class Resource:
             return
         unaccepted = set(query_params.keys()) - cls._query_params
         if unaccepted:
-            raise ValueError(
-                f'{unaccepted} are not accepted query parameters'
-            )
+            raise ValueError(f'{unaccepted} are not accepted query parameters')
