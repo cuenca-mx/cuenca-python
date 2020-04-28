@@ -9,6 +9,11 @@ class Status(str, Enum):
     failed = 'failed'
 
 
+class Network(str, Enum):
+    spei = 'spei'
+    internal = 'internal'
+
+
 class StrictPositiveInt(StrictInt, PositiveInt):
     """
     - StrictInt: ensures a float isn't passed in by accident

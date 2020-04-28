@@ -6,7 +6,7 @@ from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
 from ..http import session
-from ..types import Status, StrictPositiveInt
+from ..types import Network, Status, StrictPositiveInt
 from .base import Resource
 
 
@@ -30,6 +30,7 @@ class Transfer(Resource):
     descriptor: str
     idempotency_key: str
     status: Status
+    network: Network
 
     @classmethod
     def create(
