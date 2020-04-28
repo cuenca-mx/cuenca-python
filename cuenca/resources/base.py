@@ -57,7 +57,7 @@ class Resource:
         cls._check_query_params(query_params)
         next_page_url = f'{cls._endpoint}?{urlencode(query_params)}'
         while next_page_url:
-            page = session.get(next)
+            page = session.get(next_page_url)
             next_page_url = page['next']
             items = page['items']
             yield from (cls(**item) for item in items)
