@@ -21,7 +21,7 @@ class ApiKey(Resource):
     def active(self) -> bool:
         return (
             self.deactivated_at is None
-            or self.deactivated_at >= dt.datetime.utcnow()
+            or self.deactivated_at > dt.datetime.utcnow()
         )
 
     @classmethod
