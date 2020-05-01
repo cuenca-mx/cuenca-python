@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar
+from typing import ClassVar, Optional
 
 from clabe import Clabe
 from pydantic import BaseModel, StrictStr
@@ -31,6 +31,7 @@ class Transfer(Resource):
     idempotency_key: str
     status: Status
     network: Network
+    tracking_key: Optional[str] = None
 
     @classmethod
     def create(
