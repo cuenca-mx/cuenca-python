@@ -26,7 +26,7 @@ class ApiKey(Resource):
 
     @classmethod
     def create(cls) -> 'ApiKey':
-        resp = session.post()
+        resp = session.post(cls._endpoint)
         return cls(**resp)
 
     @classmethod
