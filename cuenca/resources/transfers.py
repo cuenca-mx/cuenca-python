@@ -13,7 +13,7 @@ from .base import Resource
 class TransferRequest(BaseModel):
     account_number: Clabe
     amount: StrictPositiveInt  # in centavos
-    descriptor: StrictStr  # concepto
+    descriptor: StrictStr  # how it'll appear for the recipient
     idempotency_key: str  # must be unique for each transfer
 
 
@@ -27,7 +27,7 @@ class Transfer(Resource):
     updated_at: dt.datetime
     account_number: str
     amount: int  # in centavos
-    descriptor: str  # concepto
+    descriptor: str  # how it'll appear for the recipient
     idempotency_key: str
     status: Status
     network: Network
@@ -43,7 +43,7 @@ class Transfer(Resource):
     ) -> 'Transfer':
         """
         - amount: needs to be in centavos (not pesos)
-        - descriptor: for SPEI is the concepto
+        - descriptor: how it'll appear for the recipient
         - idempotency_key: must be unique for each transfer to avoid duplicates
         """
         req = TransferRequest(
