@@ -9,7 +9,7 @@ from .base import Resource
 
 @dataclass
 class ApiKey(Resource):
-    _endpoint: ClassVar = f'/api_keys'
+    _endpoint: ClassVar = '/api_keys'
     _query_params: ClassVar = set()
 
     id: str
@@ -21,7 +21,7 @@ class ApiKey(Resource):
     def active(self) -> bool:
         return (
             self.deactivated_at is None
-            or self.deactivated_at >= dt.tdatetime.utcnow()
+            or self.deactivated_at >= dt.datetime.utcnow()
         )
 
     @classmethod
