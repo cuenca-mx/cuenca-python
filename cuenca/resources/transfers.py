@@ -20,7 +20,7 @@ class TransferRequest(BaseModel):
 @dataclass
 class Transfer(Resource):
     _endpoint: ClassVar = f'/transfers'
-    _query_params: ClassVar = {'account_number', 'idempotency_key'}
+    _query_params: ClassVar = {'account_number', 'idempotency_key', 'status'}
 
     id: str
     created_at: dt.datetime
