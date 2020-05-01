@@ -12,9 +12,9 @@ from .base import Resource
 
 class TransferRequest(BaseModel):
     account_number: Clabe
-    amount: StrictPositiveInt
-    descriptor: StrictStr
-    idempotency_key: str
+    amount: StrictPositiveInt  # in centavos
+    descriptor: StrictStr  # concepto
+    idempotency_key: str  # must be unique for each transfer
 
 
 @dataclass
@@ -26,12 +26,12 @@ class Transfer(Resource):
     created_at: dt.datetime
     updated_at: dt.datetime
     account_number: str
-    amount: int
-    descriptor: str
+    amount: int  # in centavos
+    descriptor: str  # concepto
     idempotency_key: str
     status: Status
     network: Network
-    tracking_key: Optional[str] = None
+    tracking_key: Optional[str] = None  # clave rastreo
 
     @classmethod
     def create(
@@ -41,6 +41,11 @@ class Transfer(Resource):
         descriptor: str,
         idempotency_key: str,
     ) -> 'Transfer':
+        """
+        - amount: needs to be in centavos (not pesos)
+        - descriptor: for SPEI is the concepto
+        - idempotency_key: must be unique for each transfer to avoid duplicates
+        """
         req = TransferRequest(
             account_number=account_number,
             amount=amount,
