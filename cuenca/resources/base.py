@@ -28,7 +28,7 @@ class Resource:
         resp = session.get(cls._endpoint, query_params)
         items = resp['items']
         len_items = len(items)
-        if len_items == 0:
+        if not len_items:
             raise NoResultFound
         if len_items > 1:
             raise MultipleResultsFound
