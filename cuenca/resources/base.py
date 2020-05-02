@@ -42,8 +42,7 @@ class Retrievable(Resource):
 
 class Creatable(Resource):
     @classmethod
-    def create(cls, data: OptionalDict = None) -> Resource:
-        data = data or {}
+    def create(cls, **data) -> Resource:
         resp = session.post(cls._endpoint, data)
         return cls._from_dict(resp)
 
