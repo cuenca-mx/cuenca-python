@@ -4,7 +4,6 @@ from urllib.parse import urlencode
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import session
-from ..types import OptionalDict
 
 
 @dataclass
