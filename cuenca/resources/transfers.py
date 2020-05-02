@@ -38,13 +38,23 @@ class Transfer(Creatable, Listable, Retrievable):
         account_number: str,
         amount: int,
         descriptor: str,
-        idempotency_key: str,
+        idempotency_key: Optional[str] = None,
     ) -> 'Transfer':
         """
         - amount: needs to be in centavos (not pesos)
         - descriptor: how it'll appear for the recipient
         - idempotency_key: must be unique for each transfer to avoid duplicates
+
+        The recommended idempotency_key scheme:
+        1. create a transfer entry in your own database with the status
+            created
+        2. call this method with the unique id from your database as the
+            idempotency_key
+        3. update your database with the status pending or submitted after
+            receiving a response from this method
         """
+        if not idempotency_key:
+            idempotency_key = cls._gen_idempotency_key(account_number, amount)
         req = TransferRequest(
             account_number=account_number,
             amount=amount,
@@ -52,3 +62,12 @@ class Transfer(Creatable, Listable, Retrievable):
             idempotency_key=idempotency_key,
         )
         return super().create(req.dict())
+
+    @staticmethod
+    def _gen_idempotency_key(account_number: str, amount: int) -> str:
+        """
+        We *strongly* recommend using your own internal transfer id as the
+        idempotency_key, but this provides some level of protection against
+        submitting duplicate transfers
+        """
+        return f'{dt.datetime.utcnow().date()}:{account_number}:{amount}'
