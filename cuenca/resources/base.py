@@ -1,5 +1,5 @@
-from dataclasses import dataclass
-from typing import ClassVar, Generator, Optional
+from dataclasses import dataclass, fields
+from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
 from ..exc import MultipleResultsFound, NoResultFound
@@ -11,12 +11,28 @@ from ..types import OptionalDict
 class Resource:
     _endpoint: ClassVar[str]
 
+    @classmethod
+    def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> 'Resource':
+        cls._filter_excess_fields(obj_dict)
+        return cls(**obj_dict)
+
+    @classmethod
+    def _filter_excess_fields(cls, obj_dict):
+        """
+        dataclasses don't allow __init__ to be called with excess fields. This
+        method allows the API to add fields in the response body without
+        breaking the client
+        """
+        excess = set(obj_dict.keys()) - {f.name for f in fields(cls)}
+        for f in excess:
+            del obj_dict[f]
+
 
 class Retrievable(Resource):
     @classmethod
-    def retrieve(cls, id: str) -> 'Resource':
+    def retrieve(cls, id: str) -> Resource:
         resp = session.get(f'{cls._endpoint}/{id}')
-        return cls(**resp)
+        return cls._from_dict(resp)
 
     def refresh(self):
         new = self.retrieve(self.id)
@@ -26,17 +42,17 @@ class Retrievable(Resource):
 
 class Creatable(Resource):
     @classmethod
-    def create(cls, data: OptionalDict = None):
+    def create(cls, data: OptionalDict = None) -> Resource:
         data = data or {}
         resp = session.post(cls._endpoint, data)
-        return cls(**resp)
+        return cls._from_dict(resp)
 
 
 class Listable(Resource):
     _query_params: ClassVar[set]
 
     @classmethod
-    def one(cls, **query_params) -> 'Resource':
+    def one(cls, **query_params) -> Resource:
         cls._check_query_params(query_params)
         query_params['page_size'] = 2
         resp = session.get(cls._endpoint, query_params)
@@ -46,10 +62,10 @@ class Listable(Resource):
             raise NoResultFound
         if len_items > 1:
             raise MultipleResultsFound
-        return items[0]
+        return cls._from_dict(items[0])
 
     @classmethod
-    def first(cls, **query_params) -> Optional['Resource']:
+    def first(cls, **query_params) -> Optional[Resource]:
         cls._check_query_params(query_params)
         query_params['page_size'] = 1
         resp = session.get(cls._endpoint, query_params)
@@ -57,7 +73,7 @@ class Listable(Resource):
             item = resp['items'][0]
         except IndexError:
             item = None
-        return item
+        return cls._from_dict(item)
 
     @classmethod
     def count(cls, **query_params) -> int:
@@ -67,12 +83,12 @@ class Listable(Resource):
         return resp['count']
 
     @classmethod
-    def all(cls, **query_params) -> Generator['Resource']:
+    def all(cls, **query_params) -> Generator[Resource]:
         cls._check_query_params(query_params)
         next_page_url = f'{cls._endpoint}?{urlencode(query_params)}'
         while next_page_url:
             page = session.get(next_page_url)
-            yield from (cls(**item) for item in page['items'])
+            yield from (cls._from_dict(item) for item in page['items'])
             next_page_url = page['next']
 
     @classmethod

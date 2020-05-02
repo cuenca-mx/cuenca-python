@@ -66,7 +66,7 @@ class Transfer(Creatable, Listable, Retrievable):
     @staticmethod
     def _gen_idempotency_key(account_number: str, amount: int) -> str:
         """
-        We *strongly* recommend using your own internal transfer id as the
+        We *strongly* recommend using your own internal database id as the
         idempotency_key, but this provides some level of protection against
         submitting duplicate transfers
         """

@@ -54,4 +54,4 @@ class ApiKey(Creatable, Listable, Retrievable):
         """
         url = cls._endpoint + f'/{api_key_id}'
         resp = session.delete(url, dict(minutes=minutes))
-        return cls(**resp)
+        return cls._from_dict(resp)
