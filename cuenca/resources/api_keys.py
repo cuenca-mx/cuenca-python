@@ -4,11 +4,11 @@ from typing import ClassVar, Optional, Tuple
 from pydantic.dataclasses import dataclass
 
 from ..http import session
-from .base import Creatable, Listable, Retrievable
+from .base import Creatable, Queryable, Retrievable
 
 
 @dataclass
-class ApiKey(Creatable, Listable, Retrievable):
+class ApiKey(Creatable, Queryable, Retrievable):
     _endpoint: ClassVar = '/api_keys'
     _query_params: ClassVar = set()
 

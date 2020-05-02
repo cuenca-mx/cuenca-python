@@ -48,7 +48,7 @@ class Creatable(Resource):
         return cls._from_dict(resp)
 
 
-class Listable(Resource):
+class Queryable(Resource):
     _query_params: ClassVar[set]
 
     @classmethod
