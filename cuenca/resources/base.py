@@ -1,9 +1,10 @@
-from dataclasses import dataclass, fields
+from dataclasses import asdict, dataclass, fields
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import session
+from .utils import DictFactory
 
 
 @dataclass
@@ -25,6 +26,9 @@ class Resource:
         excess = set(obj_dict.keys()) - {f.name for f in fields(cls)}
         for f in excess:
             del obj_dict[f]
+
+    def to_dict(self):
+        return asdict(self, dict_factory=DictFactory)
 
 
 class Retrievable(Resource):
