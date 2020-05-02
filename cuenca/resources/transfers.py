@@ -5,9 +5,8 @@ from clabe import Clabe
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
-from ..http import session
 from ..types import Network, Status, StrictPositiveInt
-from .base import Resource
+from .base import Creatable, Listable, Retrievable
 
 
 class TransferRequest(BaseModel):
@@ -18,7 +17,7 @@ class TransferRequest(BaseModel):
 
 
 @dataclass
-class Transfer(Resource):
+class Transfer(Creatable, Listable, Retrievable):
     _endpoint: ClassVar = '/transfers'
     _query_params: ClassVar = {'account_number', 'idempotency_key', 'status'}
 
@@ -52,5 +51,4 @@ class Transfer(Resource):
             descriptor=descriptor,
             idempotency_key=idempotency_key,
         )
-        resp = session.post(cls._endpoint, data=req.dict())
-        return cls(**resp)
+        return super().create(req.dict())

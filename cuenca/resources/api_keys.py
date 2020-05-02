@@ -4,11 +4,11 @@ from typing import ClassVar, Optional, Tuple
 from pydantic.dataclasses import dataclass
 
 from ..http import session
-from .base import Resource
+from .base import Creatable, Listable, Retrievable
 
 
 @dataclass
-class ApiKey(Resource):
+class ApiKey(Creatable, Listable, Retrievable):
     _endpoint: ClassVar = '/api_keys'
     _query_params: ClassVar = set()
 
@@ -26,8 +26,7 @@ class ApiKey(Resource):
 
     @classmethod
     def create(cls) -> 'ApiKey':
-        resp = session.post(cls._endpoint)
-        return cls(**resp)
+        return super().create()
 
     @classmethod
     def roll(cls, minutes: int = 0) -> Tuple['ApiKey', 'ApiKey']:

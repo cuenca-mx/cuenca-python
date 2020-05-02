@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import ClassVar, Generator, Optional
+from typing import Any, ClassVar, Dict, Generator, Optional
 from urllib.parse import urlencode
 
 from ..exc import MultipleResultsFound, NoResultFound
@@ -9,8 +9,9 @@ from ..http import session
 @dataclass
 class Resource:
     _endpoint: ClassVar[str]
-    _query_params: ClassVar[set]
 
+
+class Retrievable(Resource):
     @classmethod
     def retrieve(cls, id: str) -> 'Resource':
         resp = session.get(f'{cls._endpoint}/{id}')
@@ -20,6 +21,18 @@ class Resource:
         new = self.retrieve(self.id)
         for attr, value in new.__dict__.items():
             setattr(self, attr, value)
+
+
+class Creatable(Resource):
+    @classmethod
+    def create(cls, data: Optional[Dict[str, Any]] = None):
+        data = data or {}
+        resp = session.post(cls._endpoint, data)
+        return cls(**resp)
+
+
+class Listable(Resource):
+    _query_params: ClassVar[set]
 
     @classmethod
     def one(cls, **query_params) -> 'Resource':
