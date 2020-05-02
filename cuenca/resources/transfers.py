@@ -61,7 +61,7 @@ class Transfer(Creatable, Queryable, Retrievable):
             descriptor=descriptor,
             idempotency_key=idempotency_key,
         )
-        return super().create(req.dict())
+        return super().create(**req.dict())
 
     @staticmethod
     def _gen_idempotency_key(account_number: str, amount: int) -> str:
