@@ -1,6 +1,9 @@
 from enum import Enum
+from typing import Dict, Optional, Union
 
 from pydantic import PositiveInt, StrictInt
+
+OptionalDict = Optional[Dict[str, Union[int, str]]]
 
 
 class Status(str, Enum):

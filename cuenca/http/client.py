@@ -4,6 +4,7 @@ from typing import Any, Dict, Optional, Tuple
 import requests
 from requests import Response
 
+from ..types import OptionalDict
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_URL = 'https://api.cuenca.com'
@@ -54,7 +55,7 @@ class Session:
                 self.base_url = API_URL
 
     def get(
-        self, endpoint: str, params: Optional[Dict[str, Any]] = None
+        self, endpoint: str, params: OptionalDict = None
     ) -> Dict[str, Any]:
         return self.request('get', endpoint, params=params)
 
@@ -62,7 +63,7 @@ class Session:
         return self.request('post', endpoint, data=data)
 
     def delete(
-        self, endpoint: str, data: Optional[Dict[str, Any]] = None
+        self, endpoint: str, data: OptionalDict = None
     ) -> Dict[str, Any]:
         return self.request('delete', endpoint, data=data)
 
@@ -70,8 +71,8 @@ class Session:
         self,
         method: str,
         endpoint: str,
-        params: Optional[Dict[str, Any]] = None,
-        data: Optional[Dict[str, Any]] = None,
+        params: OptionalDict = None,
+        data: OptionalDict = None,
         **kwargs,
     ) -> Dict[str, Any]:
         resp = self.session.request(

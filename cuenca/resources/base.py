@@ -1,9 +1,10 @@
 from dataclasses import dataclass
-from typing import Any, ClassVar, Dict, Generator, Optional
+from typing import ClassVar, Generator, Optional
 from urllib.parse import urlencode
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import session
+from ..types import OptionalDict
 
 
 @dataclass
@@ -25,7 +26,7 @@ class Retrievable(Resource):
 
 class Creatable(Resource):
     @classmethod
-    def create(cls, data: Optional[Dict[str, Any]] = None):
+    def create(cls, data: OptionalDict = None):
         data = data or {}
         resp = session.post(cls._endpoint, data)
         return cls(**resp)
