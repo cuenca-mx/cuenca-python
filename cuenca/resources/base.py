@@ -56,7 +56,7 @@ class Queryable(Resource):
     @classmethod
     def one(cls, **query_params) -> Resource:
         cls._check_query_params(query_params)
-        query_params['page_size'] = 2
+        query_params['limit'] = 2
         resp = session.get(cls._endpoint, query_params)
         items = resp['items']
         len_items = len(items)
@@ -69,7 +69,7 @@ class Queryable(Resource):
     @classmethod
     def first(cls, **query_params) -> Optional[Resource]:
         cls._check_query_params(query_params)
-        query_params['page_size'] = 1
+        query_params['limit'] = 1
         resp = session.get(cls._endpoint, query_params)
         try:
             item = resp['items'][0]
