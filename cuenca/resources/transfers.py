@@ -14,6 +14,7 @@ class TransferRequest(BaseModel):
     account_number: Clabe
     amount: StrictPositiveInt  # in centavos
     descriptor: StrictStr  # how it'll appear for the recipient
+    receiver_name: str
     idempotency_key: str  # must be unique for each transfer
 
 
@@ -40,6 +41,7 @@ class Transfer(Creatable, Queryable, Retrievable):
         account_number: str,
         amount: int,
         descriptor: str,
+        receiver_name: str,
         idempotency_key: Optional[str] = None,
     ) -> 'Transfer':
         """
@@ -61,6 +63,7 @@ class Transfer(Creatable, Queryable, Retrievable):
             account_number=account_number,
             amount=amount,
             descriptor=descriptor,
+            receiver_name=receiver_name,
             idempotency_key=idempotency_key,
         )
         return super().create(**req.dict())
