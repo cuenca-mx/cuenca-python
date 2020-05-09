@@ -85,7 +85,7 @@ class Queryable(Resource):
         return resp['count']
 
     @classmethod
-    def all(cls, **query_params) -> Generator[Resource]:
+    def all(cls, **query_params):
         cls._check_query_params(query_params)
         next_page_url = f'{cls._endpoint}?{urlencode(query_params)}'
         while next_page_url:

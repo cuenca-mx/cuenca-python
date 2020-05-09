@@ -32,7 +32,7 @@ class Transfer(Creatable, Queryable, Retrievable):
     descriptor: str  # how it'll appear for the recipient
     idempotency_key: str
     status: Status
-    network: Network
+    network: Optional[Network] = None
     tracking_key: Optional[str] = None  # clave rastreo
 
     @classmethod
