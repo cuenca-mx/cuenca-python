@@ -10,6 +10,7 @@ from .base import Creatable, Queryable, Retrievable
 
 
 class TransferRequest(BaseModel):
+    recipient_name: StrictStr
     account_number: Clabe
     amount: StrictPositiveInt  # in centavos
     descriptor: StrictStr  # how it'll appear for the recipient
@@ -24,6 +25,7 @@ class Transfer(Creatable, Queryable, Retrievable):
     id: str
     created_at: dt.datetime
     updated_at: dt.datetime
+    recipient_name: str
     account_number: str
     amount: int  # in centavos
     descriptor: str  # how it'll appear for the recipient

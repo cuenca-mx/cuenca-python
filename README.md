@@ -10,6 +10,7 @@ import cuenca
 cuenca.configure(sandbox=True)  # if using sandbox
 
 transfer = cuenca.Transfer.create(
+    recipient_name='Benito Juárez',
     account_number='646180157042875763',
     amount=12345,  # Mx$123.45
     descriptor='sending money',  # As it'll appear for the customer
