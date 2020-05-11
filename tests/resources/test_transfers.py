@@ -12,7 +12,7 @@ def test_transfers_create():
         account_number='646180157034181180',
         amount=10000,
         descriptor='Mi primer transferencia',
-        receiver_name='Rogelio Lopez',
+        recipient_name='Rogelio Lopez',
         idempotency_key='my_custom_id',
     )
     assert transfer.id is not None
