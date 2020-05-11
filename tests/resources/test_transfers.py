@@ -87,9 +87,9 @@ def test_transfers_count():
 
 @pytest.mark.vcr
 def test_client_errors():
+    # Invalid params
     with pytest.raises(ValueError):
         Transfer.one(invalid_param='invalid_param')
-
-    with pytest.raises(HTTPError) as ex:
+    # Unauthorized client
+    with pytest.raises(HTTPError):
         Transfer.one()
-    assert 'Unauthorized' in str(ex)
