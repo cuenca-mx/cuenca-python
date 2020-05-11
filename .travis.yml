@@ -1,0 +1,7 @@
+notifications:
+  slack: cuencafinance:Vb7c4Zn7YCpT0wGjOFDwYQUM
+language: python
+python: 3.8
+sudo: required
+script:
+  - make test
