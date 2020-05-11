@@ -44,15 +44,12 @@ class Session:
         client library and configure it later. It's also useful when rolling
         the api key
         """
-        api_key = api_key or os.environ['CUENCA_API_KEY']
-        api_secret = api_secret or os.environ['CUENCA_API_SECRET']
-        self.auth = (api_key, api_secret)
+        self.auth = (api_key or self.auth[0], api_secret or self.auth[1])
         self.webhook_secret = webhook_secret or self.webhook_secret
-        if sandbox is not None:
-            if sandbox:
-                self.base_url = SANDBOX_URL
-            else:
-                self.base_url = API_URL
+        if sandbox is False:
+            self.base_url = API_URL
+        elif sandbox is True:
+            self.base_url = SANDBOX_URL
 
     def get(
         self, endpoint: str, params: OptionalDict = None
