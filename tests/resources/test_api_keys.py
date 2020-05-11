@@ -1,3 +1,5 @@
+import datetime as dt
+
 import pytest
 
 from cuenca import ApiKey
@@ -49,3 +51,18 @@ def test_api_key_roll_keys(test_client: Session):
     assert new_keys.active
     auth_key, auth_secret = test_client.auth
     assert new_keys.id == auth_key
+
+
+def test_api_key_to_dict():
+    created = dt.datetime.utcnow()
+    api_key: ApiKey = ApiKey(
+        id='12345', secret='********', created_at=created, deactivated_at=None,
+    )
+    api_key_dict = dict(
+        id='12345',
+        secret='********',
+        created_at=created.isoformat(),
+        deactivated_at=None,
+    )
+
+    assert api_key_dict == api_key.to_dict()

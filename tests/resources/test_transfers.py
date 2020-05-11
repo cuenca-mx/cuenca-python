@@ -1,4 +1,5 @@
 import pytest
+from requests import HTTPError
 
 from cuenca import Transfer
 from cuenca.exc import MultipleResultsFound, NoResultFound
@@ -13,7 +14,7 @@ def test_transfers_create():
         amount=10000,
         descriptor='Mi primer transferencia',
         recipient_name='Rogelio Lopez',
-        idempotency_key='my_custom_id',
+        # idempotency_key='your_own_key',
     )
     assert transfer.id is not None
     assert transfer.idempotency_key is not None
@@ -75,5 +76,20 @@ def test_transfers_all():
 @pytest.mark.vcr
 @pytest.mark.usefixtures('test_client')
 def test_transfers_count():
+    # Count all items
+    count = Transfer.count()
+    assert count == 42
+
+    # Count with filters
     count = Transfer.count(status=Status.succeeded)
-    assert count > 0
+    assert count == 4
+
+
+@pytest.mark.vcr
+def test_client_errors():
+    with pytest.raises(ValueError):
+        Transfer.one(invalid_param='invalid_param')
+
+    with pytest.raises(HTTPError) as ex:
+        Transfer.one()
+    assert '401 Client Error: Unauthorized' in str(ex)
