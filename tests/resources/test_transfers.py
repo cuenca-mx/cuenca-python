@@ -61,3 +61,19 @@ def test_transfers_first():
     assert transfer.account_number == account
     transfer = Transfer.first(account_number='bad_account')
     assert transfer is None
+
+
+@pytest.mark.vcr
+@pytest.mark.usefixtures('test_client')
+def test_transfers_all():
+    all_transfers = Transfer.all(status=Status.succeeded.value)
+
+    for transfer in all_transfers:
+        assert transfer.status == Status.succeeded
+
+
+@pytest.mark.vcr
+@pytest.mark.usefixtures('test_client')
+def test_transfers_count():
+    count = Transfer.count(status=Status.succeeded)
+    assert count > 0

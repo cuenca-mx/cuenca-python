@@ -18,7 +18,7 @@ interactions:
     uri: https://sandbox.cuenca.com/transfers/TROIxvw5kJTBeYvEyuIe9Fgg==
   response:
     body:
-      string: '{"id":"TROIxvw5kJTBeYvEyuIe9Fgg==","created_at":"2020-05-07T16:57:55.833000","updated_at":"2020-05-07T16:57:55.872000","account_number":"646180157034181180","receiver_name":null,"amount":10000,"descriptor":"Transferencia
+      string: '{"id":"TROIxvw5kJTBeYvEyuIe9Fgg==","created_at":"2020-05-07T16:57:55.833000","updated_at":"2020-05-07T16:57:55.872000","account_number":"646180157034181180","recipient_name":"test","amount":10000,"descriptor":"Transferencia
         Demo","idempotency_key":"idempotency_key_8","status":"pending","network":null,"tracking_key":null}'
     headers:
       Connection:

@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers?status=succeeded&count=1
+  response:
+    body:
+      string: '{"count":4}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '11'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 21:18:47 GMT
+      Via:
+      - 1.1 cd53a52a61fcb7bda797ab2120f02410.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - ypLgHw4w4J36dAdVR23eoYwvRYRSJG8eTDLxVkcKNhEWPC6wispVHQ==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb9c137-c9085b72db233fccda2ef072;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYsgqGyFoAMFhWg=
+      x-amzn-RequestId:
+      - 25a49c87-0a8a-424b-93db-ea84987a5eab
+    status:
+      code: 200
+      message: OK
+version: 1
