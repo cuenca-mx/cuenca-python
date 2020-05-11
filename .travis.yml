@@ -6,10 +6,10 @@ install: make install-test
 
 cache: pip
 
-#script:
-#  - export PYTHONPATH=`pwd`
-#  - make lint
-#  - pytest --vcr-record=none
+script:
+  - export PYTHONPATH=`pwd`
+  - make lint
+  - pytest --vcr-record=none
 
 jobs:
   include:
