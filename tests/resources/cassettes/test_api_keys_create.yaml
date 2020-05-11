@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/api_keys
+  response:
+    body:
+      string: '{"id":"PKjtv8Qn-3Tp2Eh1bBzXphOg==","created_at":"2020-05-11T18:25:36.369866","secret":"fcLkDkymPF9nJloQfEbYwnBthMtrwFssxyuzpMs-qIDEnmJNAr8nC3_xkC-MY-reV6WjT10DLwpF_v_G4MqBPw","deactivated_at":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '197'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 18:25:38 GMT
+      Via:
+      - 1.1 991cddfa34f7096aab42079b287a0629.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - C3GZwW0t28QJ75J-3Md6RzRHjehrab6-GVSBYzCli7UMhu6rsPoY0w==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb998a0-5b85148fe075039e951ce376;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYTJEE4iIAMFyDA=
+      x-amzn-RequestId:
+      - 98c2462c-9c8f-4f04-a590-fc76d96cdca2
+    status:
+      code: 201
+      message: Created
+version: 1

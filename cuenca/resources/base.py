@@ -74,7 +74,7 @@ class Queryable(Resource):
         try:
             item = resp['items'][0]
         except IndexError:
-            item = None
+            return None
         return cls._from_dict(item)
 
     @classmethod
@@ -85,7 +85,7 @@ class Queryable(Resource):
         return resp['count']
 
     @classmethod
-    def all(cls, **query_params):
+    def all(cls, **query_params) -> Generator:
         cls._check_query_params(query_params)
         next_page_url = f'{cls._endpoint}?{urlencode(query_params)}'
         while next_page_url:

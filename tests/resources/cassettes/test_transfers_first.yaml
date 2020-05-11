@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers?account_number=646180157013244941&limit=1
+  response:
+    body:
+      string: '{"items":[{"id":"TRGtslEptDT0-_cVVLmXojBg==","created_at":"2020-05-08T23:12:25.042000","updated_at":"2020-05-08T23:12:28.854000","account_number":"646180157013244941","receiver_name":"pach
+        85d91ea6-76b6-49ab-913b-0481e8df7379","amount":8888,"descriptor":"lambda","idempotency_key":"b2bf01cb-da5f-4a42-9462-23078b81b6ea","status":"failed","network":null,"tracking_key":null}],"next_page_url":"/transfers?account_number=646180157013244941&created_before=2020-05-08T23%3A12%3A25.042000&limit=1&count=False"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '504'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 18:21:41 GMT
+      Via:
+      - 1.1 fb8e6daa39bc4124e46750734008822c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - HYeLiUbglrXQqpCaUNSzv4_ySICvrBMaeM-dtJiutm4nTyKrZKJz8A==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb997b5-450d92fbc5af694a8baf43af;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYSkUGDhIAMFY6Q=
+      x-amzn-RequestId:
+      - ccd8399e-0714-4ce7-a46a-5d7a554f85e4
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers?account_number=bad_account&limit=1
+  response:
+    body:
+      string: '{"items":[],"next_page_url":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 18:21:41 GMT
+      Via:
+      - 1.1 fb8e6daa39bc4124e46750734008822c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - FRm5o3iRXnATqXkoBmnNKXa7B6lttiVDeh2JBXyBiqmLiwi5nvJPIQ==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb997b5-b5322857a5dcc2fdd9793714;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYSkXF25oAMFYCw=
+      x-amzn-RequestId:
+      - 81840d9f-0a46-42b3-88c1-077036d457cb
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -4,7 +4,7 @@ from cuenca import ApiKey
 from cuenca.http import Session
 
 
-@pytest.mark.skip('oaxaca.sandbox is not ready')
+@pytest.mark.vcr
 @pytest.mark.usefixtures('test_client')
 def test_api_keys_create():
     api_key = ApiKey.create()
@@ -13,7 +13,7 @@ def test_api_keys_create():
     assert api_key.active
 
 
-@pytest.mark.skip('oaxaca.sandbox is not ready')
+@pytest.mark.vcr
 @pytest.mark.usefixtures('test_client')
 def test_api_keys_retrieve():
     id_key = 'PKUvRwK7imQK2JcjJV91iEzg=='
@@ -22,10 +22,10 @@ def test_api_keys_retrieve():
     assert api_key.secret == '********'
 
 
-@pytest.mark.skip('oaxaca.sandbox is not ready')
+@pytest.mark.vcr
 @pytest.mark.usefixtures('test_client')
 def test_api_key_deactivate():
-    id_key = 'PK7Xylj0o2S1mvWUie36NWSA=='
+    id_key = 'PKyyRnEL0XS6iHeSi2_8DDPA=='
     api_key: ApiKey = ApiKey.retrieve(id_key)
     assert api_key.active
 
@@ -39,7 +39,7 @@ def test_api_key_deactivate():
     assert not api_key.active
 
 
-@pytest.mark.skip('oaxaca.sandbox is not ready')
+@pytest.mark.vcr
 def test_api_key_roll_keys(test_client: Session):
     auth_key, auth_secret = test_client.auth
     old_keys, new_keys = ApiKey.roll(0)
