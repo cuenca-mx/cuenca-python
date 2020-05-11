@@ -92,4 +92,4 @@ def test_client_errors():
 
     with pytest.raises(HTTPError) as ex:
         Transfer.one()
-    assert '401 Client Error: Unauthorized' in str(ex)
+    assert 'Unauthorized' in str(ex)
