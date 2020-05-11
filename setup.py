@@ -11,7 +11,7 @@ test_requires = [
     'black',
     'isort[pipfile]',
     'flake8',
-    'coveralls'
+    'coveralls',
 ]
 
 with open('README.md', 'r') as f:
