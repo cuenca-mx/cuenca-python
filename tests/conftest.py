@@ -2,7 +2,6 @@ import pytest
 
 import cuenca
 
-
 cuenca.configure(sandbox=True)
 
 

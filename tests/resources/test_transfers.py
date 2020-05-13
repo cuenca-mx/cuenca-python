@@ -7,14 +7,12 @@ from cuenca.types import Network, Status
 
 
 @pytest.mark.vcr
-@pytest.mark.usefixtures('test_client')
 def test_transfers_create():
     transfer = Transfer.create(
         account_number='646180157034181180',
         amount=10000,
         descriptor='Mi primer transferencia',
         recipient_name='Rogelio Lopez',
-        # idempotency_key='your_own_key',
     )
     assert transfer.id is not None
     assert transfer.idempotency_key is not None
@@ -27,7 +25,6 @@ def test_transfers_create():
 
 
 @pytest.mark.vcr
-@pytest.mark.usefixtures('test_client')
 def test_transfers_retrieve():
     id_transfer = 'TROIxvw5kJTBeYvEyuIe9Fgg=='
     transfer: Transfer = Transfer.retrieve(id_transfer)
@@ -36,7 +33,6 @@ def test_transfers_retrieve():
 
 
 @pytest.mark.vcr
-@pytest.mark.usefixtures('test_client')
 def test_transfers_one():
     key = 'idempotency_key_1'
     transfer: Transfer = Transfer.one(idempotency_key=key)
@@ -44,7 +40,6 @@ def test_transfers_one():
 
 
 @pytest.mark.vcr
-@pytest.mark.usefixtures('test_client')
 def test_transfers_one_errors():
     with pytest.raises(NoResultFound):
         Transfer.one(idempotency_key='wrong_key')
@@ -54,7 +49,6 @@ def test_transfers_one_errors():
 
 
 @pytest.mark.vcr
-@pytest.mark.usefixtures('test_client')
 def test_transfers_first():
     account = '646180157013244941'
     transfer = Transfer.first(account_number=account)
@@ -65,7 +59,6 @@ def test_transfers_first():
 
 
 @pytest.mark.vcr
-@pytest.mark.usefixtures('test_client')
 def test_transfers_all():
     all_transfers = Transfer.all(status=Status.succeeded.value)
 
@@ -74,7 +67,6 @@ def test_transfers_all():
 
 
 @pytest.mark.vcr
-@pytest.mark.usefixtures('test_client')
 def test_transfers_count():
     # Count all items
     count = Transfer.count()

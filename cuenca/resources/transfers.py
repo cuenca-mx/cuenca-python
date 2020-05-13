@@ -14,7 +14,6 @@ class TransferRequest(BaseModel):
     account_number: Clabe
     amount: StrictPositiveInt  # in centavos
     descriptor: StrictStr  # how it'll appear for the recipient
-    recipient_name: str
     idempotency_key: str  # must be unique for each transfer
 
 

@@ -3,7 +3,7 @@ import datetime as dt
 import pytest
 
 from cuenca import ApiKey
-from cuenca.http import Session
+from cuenca.http import session
 
 
 @pytest.mark.vcr
@@ -39,14 +39,14 @@ def test_api_key_deactivate():
 
 
 @pytest.mark.vcr
-def test_api_key_roll_keys(test_client: Session):
-    auth_key, auth_secret = test_client.auth
+def test_api_key_roll_keys():
+    auth_key, auth_secret = session.auth
     old_keys, new_keys = ApiKey.roll(0)
 
     assert old_keys.id == auth_key
     assert not old_keys.active
     assert new_keys.active
-    auth_key, auth_secret = test_client.auth
+    auth_key, auth_secret = session.auth
     assert new_keys.id == auth_key
 
 
