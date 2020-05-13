@@ -74,8 +74,9 @@ class Queryable(Resource):
         try:
             item = resp['items'][0]
         except IndexError:
-            return None
-        return cls._from_dict(item)
+            ...
+        else:
+            return cls._from_dict(item)
 
     @classmethod
     def count(cls, **query_params) -> int:
