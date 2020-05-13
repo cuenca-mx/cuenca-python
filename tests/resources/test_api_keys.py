@@ -7,7 +7,6 @@ from cuenca.http import Session
 
 
 @pytest.mark.vcr
-@pytest.mark.usefixtures('test_client')
 def test_api_keys_create():
     api_key = ApiKey.create()
     assert api_key.id is not None
@@ -16,7 +15,6 @@ def test_api_keys_create():
 
 
 @pytest.mark.vcr
-@pytest.mark.usefixtures('test_client')
 def test_api_keys_retrieve():
     id_key = 'PKUvRwK7imQK2JcjJV91iEzg=='
     api_key: ApiKey = ApiKey.retrieve(id_key)
@@ -25,7 +23,6 @@ def test_api_keys_retrieve():
 
 
 @pytest.mark.vcr
-@pytest.mark.usefixtures('test_client')
 def test_api_key_deactivate():
     id_key = 'PKyyRnEL0XS6iHeSi2_8DDPA=='
     api_key: ApiKey = ApiKey.retrieve(id_key)
