@@ -1,5 +1,4 @@
 import pytest
-from requests import HTTPError
 
 from cuenca import Transfer
 from cuenca.exc import MultipleResultsFound, NoResultFound
@@ -77,11 +76,6 @@ def test_transfers_count():
     assert count == 4
 
 
-@pytest.mark.vcr
-def test_client_errors():
-    # Invalid params
+def test_invalid_params():
     with pytest.raises(ValueError):
         Transfer.one(invalid_param='invalid_param')
-    # Unauthorized client
-    with pytest.raises(HTTPError):
-        Transfer.one()

@@ -63,3 +63,18 @@ def test_api_key_to_dict():
     )
 
     assert api_key_dict == api_key.to_dict()
+
+
+def test_api_key_from_dict():
+    api_keys_dict = dict(
+        id='123455',
+        secret='*********',
+        created_at=dt.datetime.utcnow(),
+        deactivated_at=None,
+        extra_field_1='not necessary',
+        extra_field_2=12345,
+    )
+    api_key = ApiKey._from_dict(api_keys_dict)
+    assert not hasattr(api_key, 'extra_field_1')
+    assert not hasattr(api_key, 'extra_field_2')
+    assert api_key.id is not None

@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: null
+    body: '{}'
     headers:
       Accept:
       - '*/*'
@@ -10,12 +10,16 @@ interactions:
       - DUMMY
       Connection:
       - keep-alive
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
       User-Agent:
-      - cuenca-python/0.0.1dev0
+      - cuenca-python/0.0.2dev0
       X-Cuenca-Api-Version:
       - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/transfers?limit=2
+    method: POST
+    uri: https://api.cuenca.com/api_keys
   response:
     body:
       string: '{"Code":"UnauthorizedError","Message":"UnauthorizedError: Wrong creds"}'
@@ -27,21 +31,21 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 May 2020 22:15:24 GMT
+      - Thu, 14 May 2020 03:30:43 GMT
       Via:
-      - 1.1 430c98a561662ce110d7e2e105bbcbed.cloudfront.net (CloudFront)
+      - 1.1 5c58021efde9831dc4a4b288db2f5256.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 3AIlvPT3g90NXxXTDYT8hhGQRp-bgJP4WDhDQJ9qBVbvX8gPQGmMig==
+      - rCbapXA22ztNBD-TrY9YvjAWupeTqPLuiBoGyX4qh9xz44U5y6rp1w==
       X-Amz-Cf-Pop:
       - DFW3-C1
       X-Amzn-Trace-Id:
-      - Root=1-5eb9ce7c-a6858671b640fa3767416ca3;Sampled=0
+      - Root=1-5ebcbb61-a371ad289b02ea22a93466be;Sampled=0
       X-Cache:
       - Error from cloudfront
       x-amz-apigw-id:
-      - MY0zhHwEIAMFf6Q=
+      - MgI3QHg-oAMFykQ=
       x-amzn-RequestId:
-      - 606fa6b6-987b-4c54-b6ee-2e5820227e10
+      - a099594c-cec8-4459-9330-c68db0a34841
     status:
       code: 401
       message: Unauthorized
