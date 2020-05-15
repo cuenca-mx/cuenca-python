@@ -6,7 +6,8 @@ version = SourceFileLoader('version', 'cuenca/version.py').load_module()
 
 test_requires = [
     'black',
-    'coverage<5' 'flake8',
+    'coverage<5',
+    'flake8',
     'isort[pipfile]',
     'pytest',
     'pytest-vcr',
