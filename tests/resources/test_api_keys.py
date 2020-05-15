@@ -3,7 +3,6 @@ import datetime as dt
 import pytest
 
 from cuenca import ApiKey
-from cuenca.http import session
 
 
 @pytest.mark.vcr
