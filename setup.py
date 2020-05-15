@@ -5,13 +5,12 @@ from setuptools import find_packages, setup
 version = SourceFileLoader('version', 'cuenca/version.py').load_module()
 
 test_requires = [
+    'black',
+    'coverage<5' 'flake8',
+    'isort[pipfile]',
     'pytest',
     'pytest-vcr',
     'pytest-cov',
-    'black',
-    'isort[pipfile]',
-    'flake8',
-    'coveralls',
 ]
 
 with open('README.md', 'r') as f:

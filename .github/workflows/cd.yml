@@ -13,11 +13,10 @@ jobs:
             python-version: 3.7
       - name: Install twine
         run: |
-          python3 -m pip install --user --upgrade setuptools wheel
-          python3 -m pip install --user --upgrade twine
+          pip install -qU setuptools wheel twine
       - name: Generating distribution archives
         run: |
-          python3 setup.py sdist bdist_wheel
+          python setup.py sdist bdist_wheel
       - name: Publish distribution 📦 to PyPI
           if: startsWith(github.event.ref, 'refs/tags')
           uses: pypa/gh-action-pypi-publish@master
