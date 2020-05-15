@@ -32,7 +32,6 @@ def test_api_key_deactivate():
     assert disabled.deactivated_at is not None
     assert not disabled.active
 
-    assert api_key.active
     api_key.refresh()
     assert not api_key.active
 
@@ -48,7 +47,6 @@ def test_api_key_to_dict():
         created_at=created.isoformat(),
         deactivated_at=None,
     )
-
     assert api_key_dict == api_key.to_dict()
 
 
