@@ -38,18 +38,6 @@ def test_api_key_deactivate():
     assert not api_key.active
 
 
-@pytest.mark.vcr
-def test_api_key_roll_keys():
-    session.configure(api_key='test', api_secret='test', sandbox=True)
-    old_keys, new_keys = ApiKey.roll(0)
-
-    assert old_keys.id == 'test'
-    assert not old_keys.active
-    assert new_keys.active
-    auth_key, auth_secret = session.auth
-    assert new_keys.id == auth_key
-
-
 def test_api_key_to_dict():
     created = dt.datetime.utcnow()
     api_key: ApiKey = ApiKey(

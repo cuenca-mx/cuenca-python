@@ -61,11 +61,15 @@ count = cuenca.Transfer.count(status=Status.succeeded)
 
 ## Api Keys
 
-### Roll the `ApiKey`
-
+### Create new `ApiKey` and deactivate old
 ```python
 import cuenca
 
-# create new key and deactive old key in 60 mins
-old_key, new_key = cuenca.ApiKey.roll(60)
+# Create new ApiKey
+new = cuenca.ApiKey.create()
+
+# Have to use the new key to deactivate the old key
+old_id = cuenca.session.auth[0]
+cuenca.session.configure(new.id, new.secret)
+cuenca.ApiKey.deactivate(old_id, minutes)
 ```

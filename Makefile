@@ -17,7 +17,6 @@ install-test:
 
 test: clean install-test lint
 		python setup.py test
-		coveralls
 
 format:
 		$(isort)
