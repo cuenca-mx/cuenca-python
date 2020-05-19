@@ -1,3 +1,4 @@
+import datetime as dt
 from enum import Enum
 from typing import Dict, Optional, Union
 
@@ -24,3 +25,13 @@ class StrictPositiveInt(StrictInt, PositiveInt):
     """
 
     ...
+
+
+class SantizedDict(dict):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for k, v in self.items():
+            if isinstance(v, dt.date):
+                self[k] = v.isoformat()
+            elif isinstance(v, Enum):
+                self[k] = v.value
