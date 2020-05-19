@@ -75,6 +75,14 @@ def test_transfers_count():
     assert count == 4
 
 
+@pytest.mark.vcr
+def test_transfers_count_vs_all():
+    assert Transfer.count(status=Status.succeeded) == len(
+        list(Transfer.all(status=Status.succeeded))
+    )
+    assert Transfer.count() == len(list(Transfer.all()))
+
+
 def test_invalid_params():
     with pytest.raises(ValueError):
         Transfer.one(invalid_param='invalid_param')
