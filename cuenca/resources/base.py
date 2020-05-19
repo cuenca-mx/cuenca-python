@@ -1,4 +1,5 @@
 from dataclasses import asdict, dataclass, fields
+from enum import Enum
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
@@ -88,6 +89,9 @@ class Queryable(Resource):
     @classmethod
     def all(cls, **query_params) -> Generator[Resource, None, None]:
         cls._check_query_params(query_params)
+        for k, v in query_params.items():
+            if isinstance(v, Enum):
+                query_params[k] = v.value
         next_page_url = f'{cls._endpoint}?{urlencode(query_params)}'
         while next_page_url:
             page = session.get(next_page_url)
