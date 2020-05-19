@@ -1,5 +1,4 @@
 from dataclasses import asdict, dataclass, fields
-from enum import Enum
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
