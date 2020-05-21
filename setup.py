@@ -12,6 +12,7 @@ test_requires = [
     'pytest',
     'pytest-vcr',
     'pytest-cov',
+    'mypy',
 ]
 
 with open('README.md', 'r') as f:
