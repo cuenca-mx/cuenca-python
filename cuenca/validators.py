@@ -1,30 +1,27 @@
 import datetime as dt
-from typing import TYPE_CHECKING, Optional, Union
+from typing import Optional
 
-from pydantic import BaseModel, Extra, validator
+from pydantic import BaseModel, Extra, PositiveInt, StrictInt
 from pydantic.types import ConstrainedInt
-from pydantic.validators import int_validator, number_size_validator
+
+from .types import sanitize_dict
+from .typing import DictStrAny
 
 MAX_PAGE_LIMIT = 100
 
 
-if TYPE_CHECKING:
-    from pydantic.typing import CallableGenerator
+class StrictPositiveInt(StrictInt, PositiveInt):
+    """
+    - StrictInt: ensures a float isn't passed in by accident
+    - PositiveInt: ensures the value is above 0
+    """
+
+    ...
 
 
 class Limit(ConstrainedInt):
     ge = 0
     le = MAX_PAGE_LIMIT
-
-    @classmethod
-    def __get_validators__(cls) -> 'CallableGenerator':
-        yield int_validator
-        yield cls.bound_value
-        yield number_size_validator
-
-    @classmethod
-    def bound_value(cls, limit: int) -> int:
-        return min(cls.ge, max(cls.le, limit))
 
 
 class QueryParams(BaseModel):
@@ -35,20 +32,12 @@ class QueryParams(BaseModel):
     class Config:
         extra = Extra.forbid
 
-    @validator('count')
-    def _validate_count(cls, count: Union[bool, int, str]) -> bool:
-        if count == '1':
-            count = True
-        elif count == '0':
-            count = False
-        else:
-            count = bool(count)
-        return count
-
-    def dict(self, *args, **kwargs):
-        return super().dict(
-            exclude_none=True, exclude_unset=True, exclude={'count'}
-        )
+    def dict(self, *args, **kwargs) -> DictStrAny:
+        d = super().dict(exclude_none=True, exclude_unset=True)
+        if self.count:
+            d['count'] = 1
+        sanitize_dict(d)
+        return d
 
 
 class TransferQuery(QueryParams):
@@ -58,4 +47,4 @@ class TransferQuery(QueryParams):
 
 
 class ApiKeyQuery(QueryParams):
-    active: Optional[bool]
+    active: Optional[bool] = None

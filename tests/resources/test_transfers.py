@@ -60,9 +60,8 @@ def test_transfers_first():
 
 @pytest.mark.vcr
 def test_transfers_all():
-    all_transfers = Transfer.all(status=Status.succeeded)
-    for transfer in all_transfers:
-        assert transfer.status == Status.succeeded
+    transfers = Transfer.all(status=Status.succeeded)
+    assert all([tr.status is Status.succeeded for tr in transfers])
 
 
 @pytest.mark.vcr

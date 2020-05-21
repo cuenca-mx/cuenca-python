@@ -1,5 +1,5 @@
 from dataclasses import asdict, dataclass, fields
-from typing import ClassVar, Dict, Generator, Optional, Type, Union
+from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
 from ..exc import MultipleResultsFound, NoResultFound
@@ -52,13 +52,12 @@ class Creatable(Resource):
 
 
 class Queryable(Resource):
-    _query_params: ClassVar[Type[QueryParams]]
+    _query_params: ClassVar = QueryParams
 
     @classmethod
     def one(cls, **query_params) -> Resource:
-        cls._check_query_params(query_params)
-        query_params['limit'] = 2
-        resp = session.get(cls._endpoint, query_params)
+        q = cls._query_params(limit=2, **query_params)
+        resp = session.get(cls._endpoint, q.dict())
         items = resp['items']
         len_items = len(items)
         if not len_items:
@@ -69,9 +68,8 @@ class Queryable(Resource):
 
     @classmethod
     def first(cls, **query_params) -> Optional[Resource]:
-        cls._check_query_params(query_params)
-        query_params['limit'] = 1
-        resp = session.get(cls._endpoint, query_params)
+        q = cls._query_params(limit=1, **query_params)
+        resp = session.get(cls._endpoint, q.dict())
         try:
             item = resp['items'][0]
         except IndexError:
@@ -81,24 +79,15 @@ class Queryable(Resource):
 
     @classmethod
     def count(cls, **query_params) -> int:
-        cls._check_query_params(query_params)
-        query_params['count'] = 1
-        resp = session.get(cls._endpoint, query_params)
+        q = cls._query_params(count=True, **query_params)
+        resp = session.get(cls._endpoint, q.dict())
         return resp['count']
 
     @classmethod
     def all(cls, **query_params) -> Generator[Resource, None, None]:
-        cls._check_query_params(query_params)
-        next_page_url = (
-            f'{cls._endpoint}?{urlencode(SantizedDict(query_params))}'
-        )
+        q = cls._query_params(**query_params)
+        next_page_url = f'{cls._endpoint}?{urlencode(q.dict())}'
         while next_page_url:
             page = session.get(next_page_url)
             yield from (cls._from_dict(item) for item in page['items'])
             next_page_url = page['next_page_url']
-
-    @classmethod
-    def _check_query_params(cls, query_params):
-        if not query_params:
-            return
-        cls._query_params(**query_params)

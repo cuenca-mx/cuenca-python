@@ -4,7 +4,7 @@ from typing import Any, Dict, Optional, Tuple
 import requests
 from requests import Response
 
-from ..types import OptionalDict
+from ..typing import OptionalDict
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_URL = 'https://api.cuenca.com'

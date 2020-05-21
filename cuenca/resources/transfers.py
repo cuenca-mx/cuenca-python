@@ -5,8 +5,8 @@ from clabe import Clabe
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
-from ..types import Network, Status, StrictPositiveInt
-from ..validators import TransferQuery
+from ..types import Network, Status
+from ..validators import StrictPositiveInt, TransferQuery
 from .base import Creatable, Queryable, Retrievable
 
 
