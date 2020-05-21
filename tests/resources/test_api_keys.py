@@ -15,7 +15,7 @@ def test_api_keys_create():
 
 @pytest.mark.vcr
 def test_api_keys_retrieve():
-    id_key = 'PKUvRwK7imQK2JcjJV91iEzg=='
+    id_key = 'test'
     api_key: ApiKey = ApiKey.retrieve(id_key)
     assert api_key.id == id_key
     assert api_key.secret == '********'
@@ -23,7 +23,7 @@ def test_api_keys_retrieve():
 
 @pytest.mark.vcr
 def test_api_key_deactivate():
-    id_key = 'PKyyRnEL0XS6iHeSi2_8DDPA=='
+    id_key = 'test'
     api_key: ApiKey = ApiKey.retrieve(id_key)
     assert api_key.active
 

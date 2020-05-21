@@ -15,10 +15,10 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/api_keys/PKyyRnEL0XS6iHeSi2_8DDPA==
+    uri: https://sandbox.cuenca.com/api_keys/test
   response:
     body:
-      string: '{"id":"PKyyRnEL0XS6iHeSi2_8DDPA==","created_at":"2020-05-11T17:20:25.603000","secret":"********","deactivated_at":null}'
+      string: '{"id":"test","created_at":"2020-05-11T17:20:25.603000","secret":"********","deactivated_at":null}'
     headers:
       Connection:
       - keep-alive
@@ -65,10 +65,10 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: DELETE
-    uri: https://sandbox.cuenca.com/api_keys/PKyyRnEL0XS6iHeSi2_8DDPA==
+    uri: https://sandbox.cuenca.com/api_keys/test
   response:
     body:
-      string: '{"id":"PKyyRnEL0XS6iHeSi2_8DDPA==","created_at":"2020-05-11T17:20:25.603000","secret":"********","deactivated_at":"2020-05-11T18:30:35.210967"}'
+      string: '{"id":"test","created_at":"2020-05-11T17:20:25.603000","secret":"********","deactivated_at":"2020-05-11T18:30:35.210967"}'
     headers:
       Connection:
       - keep-alive
@@ -111,10 +111,10 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/api_keys/PKyyRnEL0XS6iHeSi2_8DDPA==
+    uri: https://sandbox.cuenca.com/api_keys/test
   response:
     body:
-      string: '{"id":"PKyyRnEL0XS6iHeSi2_8DDPA==","created_at":"2020-05-11T17:20:25.603000","secret":"********","deactivated_at":"2020-05-11T18:30:35.210000"}'
+      string: '{"id":"test","created_at":"2020-05-11T17:20:25.603000","secret":"********","deactivated_at":"2020-05-11T18:30:35.210000"}'
     headers:
       Connection:
       - keep-alive

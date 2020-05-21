@@ -25,7 +25,7 @@ def test_transfers_create():
 
 @pytest.mark.vcr
 def test_transfers_retrieve():
-    id_transfer = 'TROIxvw5kJTBeYvEyuIe9Fgg=='
+    id_transfer = 'test'
     transfer: Transfer = Transfer.retrieve(id_transfer)
     assert transfer.id == id_transfer
     assert transfer.status is not None
