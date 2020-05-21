@@ -30,7 +30,7 @@ class QueryParams(BaseModel):
     created_before: Optional[dt.datetime] = None
 
     class Config:
-        extra = Extra.forbid
+        extra = Extra.forbid  # raise ValidationError if there are extra fields
 
     def dict(self, *args, **kwargs) -> DictStrAny:
         d = super().dict(exclude_none=True, exclude_unset=True)
