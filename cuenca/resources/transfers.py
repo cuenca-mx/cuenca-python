@@ -6,6 +6,7 @@ from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
 from ..types import Network, Status, StrictPositiveInt
+from ..validators import TransferQuery
 from .base import Creatable, Queryable, Retrievable
 
 
@@ -20,7 +21,7 @@ class TransferRequest(BaseModel):
 @dataclass
 class Transfer(Creatable, Queryable, Retrievable):
     _endpoint: ClassVar = '/transfers'
-    _query_params: ClassVar = {'account_number', 'idempotency_key', 'status'}
+    _query_params: ClassVar = TransferQuery
 
     id: str
     created_at: dt.datetime

@@ -1,10 +1,11 @@
 from dataclasses import asdict, dataclass, fields
-from typing import ClassVar, Dict, Generator, Optional, Union
+from typing import ClassVar, Dict, Generator, Optional, Type, Union
 from urllib.parse import urlencode
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import session
 from ..types import SantizedDict
+from ..validators import QueryParams
 
 
 @dataclass
@@ -51,7 +52,7 @@ class Creatable(Resource):
 
 
 class Queryable(Resource):
-    _query_params: ClassVar[set]
+    _query_params: ClassVar[Type[QueryParams]]
 
     @classmethod
     def one(cls, **query_params) -> Resource:
@@ -100,6 +101,4 @@ class Queryable(Resource):
     def _check_query_params(cls, query_params):
         if not query_params:
             return
-        unaccepted = set(query_params.keys()) - cls._query_params
-        if unaccepted:
-            raise ValueError(f'{unaccepted} are not accepted query parameters')
+        cls._query_params(**query_params)

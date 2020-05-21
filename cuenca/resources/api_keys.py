@@ -4,13 +4,14 @@ from typing import ClassVar, Optional
 from pydantic.dataclasses import dataclass
 
 from ..http import session
+from ..validators import ApiKeyQuery
 from .base import Creatable, Queryable, Retrievable
 
 
 @dataclass
 class ApiKey(Creatable, Queryable, Retrievable):
     _endpoint: ClassVar = '/api_keys'
-    _query_params: ClassVar = set()
+    _query_params: ClassVar = ApiKeyQuery
 
     id: str
     secret: str

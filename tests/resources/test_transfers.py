@@ -1,4 +1,5 @@
 import pytest
+from pydantic import ValidationError
 
 from cuenca import Transfer
 from cuenca.exc import MultipleResultsFound, NoResultFound
@@ -84,5 +85,6 @@ def test_transfers_count_vs_all():
 
 
 def test_invalid_params():
-    with pytest.raises(ValueError):
+    with pytest.raises(ValidationError) as e:
         Transfer.one(invalid_param='invalid_param')
+    assert 'extra fields not permitted' in str(e)
