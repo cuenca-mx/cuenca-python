@@ -45,9 +45,12 @@ class Transfer(Creatable, Queryable, Retrievable):
         idempotency_key: Optional[str] = None,
     ) -> 'Transfer':
         """
-        - amount: needs to be in centavos (not pesos)
-        - descriptor: how it'll appear for the recipient
-        - idempotency_key: must be unique for each transfer to avoid duplicates
+        :param account_number: CLABE
+        :param amount: needs to be in centavos (not pesos)
+        :param descriptor: how it'll appear for the recipient
+        :param recipient_name: name of recipient
+        :param idempotency_key: must be unique for each transfer to avoid
+            duplicates
 
         The recommended idempotency_key scheme:
         1. create a transfer entry in your own database with the status
@@ -66,7 +69,7 @@ class Transfer(Creatable, Queryable, Retrievable):
             recipient_name=recipient_name,
             idempotency_key=idempotency_key,
         )
-        return super().create(**req.dict())
+        return super()._create(**req.dict())
 
     @staticmethod
     def _gen_idempotency_key(account_number: str, amount: int) -> str:
