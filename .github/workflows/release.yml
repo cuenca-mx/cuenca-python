@@ -1,6 +1,6 @@
 name: release
 
-on: release
+on: push
 
 jobs:
   publish-pypi:
