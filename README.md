@@ -13,15 +13,17 @@ import cuenca
 
 cuenca.configure(sandbox=True)  # if using sandbox
 
+local_transfer_id = '078efdc20bab456285437309c4b75673'
+
 transfer = cuenca.Transfer.create(
     recipient_name='Benito Juárez',
     account_number='646180157042875763',
     amount=12345,  # Mx$123.45
     descriptor='sending money',  # As it'll appear for the customer
-    idempotency_key='unique string',
+    idempotency_key=local_transfer_id
 )
 
-# To get updated status (estado)
+# To get updated status
 transfer.refresh()
 ```
 
@@ -51,7 +53,8 @@ import cuenca
 from cuenca.types import Status
 
 # find the unique transfer using the idempotency key
-transfer = cuenca.Transfer.one(idempotency_key='unique string')
+local_transfer_id = '078efdc20bab456285437309c4b75673'
+transfer = cuenca.Transfer.one(idempotency_key=local_transfer_id)
 
 # returns a generator of all succeeded transfers to the specific account
 transfers = cuenca.Transfer.all(
@@ -75,5 +78,5 @@ new = cuenca.ApiKey.create()
 # Have to use the new key to deactivate the old key
 old_id = cuenca.session.auth[0]
 cuenca.session.configure(new.id, new.secret)
-cuenca.ApiKey.deactivate(old_id, minutes)
+cuenca.ApiKey.deactivate(old_id, 60)  # revoke prior API key in an hour
 ```
