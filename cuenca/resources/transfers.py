@@ -5,7 +5,8 @@ from clabe import Clabe
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
-from ..types import Network, Status, StrictPositiveInt
+from ..types import Network, Status
+from ..validators import StrictPositiveInt, TransferQuery
 from .base import Creatable, Queryable, Retrievable
 
 
@@ -20,7 +21,7 @@ class TransferRequest(BaseModel):
 @dataclass
 class Transfer(Creatable, Queryable, Retrievable):
     _endpoint: ClassVar = '/transfers'
-    _query_params: ClassVar = {'account_number', 'idempotency_key', 'status'}
+    _query_params: ClassVar = TransferQuery
 
     id: str
     created_at: dt.datetime
@@ -40,12 +41,16 @@ class Transfer(Creatable, Queryable, Retrievable):
         account_number: str,
         amount: int,
         descriptor: str,
+        recipient_name: str,
         idempotency_key: Optional[str] = None,
     ) -> 'Transfer':
         """
-        - amount: needs to be in centavos (not pesos)
-        - descriptor: how it'll appear for the recipient
-        - idempotency_key: must be unique for each transfer to avoid duplicates
+        :param account_number: CLABE
+        :param amount: needs to be in centavos (not pesos)
+        :param descriptor: how it'll appear for the recipient
+        :param recipient_name: name of recipient
+        :param idempotency_key: must be unique for each transfer to avoid
+            duplicates
 
         The recommended idempotency_key scheme:
         1. create a transfer entry in your own database with the status
@@ -61,9 +66,10 @@ class Transfer(Creatable, Queryable, Retrievable):
             account_number=account_number,
             amount=amount,
             descriptor=descriptor,
+            recipient_name=recipient_name,
             idempotency_key=idempotency_key,
         )
-        return super().create(**req.dict())
+        return cls._create(**req.dict())
 
     @staticmethod
     def _gen_idempotency_key(account_number: str, amount: int) -> str:

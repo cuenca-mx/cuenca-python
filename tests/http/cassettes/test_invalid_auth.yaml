@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.0.2dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://api.cuenca.com/api_keys
+  response:
+    body:
+      string: '{"Code":"UnauthorizedError","Message":"UnauthorizedError: Wrong creds"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '71'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 14 May 2020 03:30:43 GMT
+      Via:
+      - 1.1 5c58021efde9831dc4a4b288db2f5256.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - rCbapXA22ztNBD-TrY9YvjAWupeTqPLuiBoGyX4qh9xz44U5y6rp1w==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5ebcbb61-a371ad289b02ea22a93466be;Sampled=0
+      X-Cache:
+      - Error from cloudfront
+      x-amz-apigw-id:
+      - MgI3QHg-oAMFykQ=
+      x-amzn-RequestId:
+      - a099594c-cec8-4459-9330-c68db0a34841
+    status:
+      code: 401
+      message: Unauthorized
+version: 1

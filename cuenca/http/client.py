@@ -1,10 +1,10 @@
 import os
-from typing import Any, Dict, Optional, Tuple
+from typing import Optional, Tuple
 
 import requests
 from requests import Response
 
-from ..types import OptionalDict
+from ..typing import ClientRequestParams, DictStrAny, OptionalDict
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_URL = 'https://api.cuenca.com'
@@ -52,26 +52,24 @@ class Session:
             self.base_url = SANDBOX_URL
 
     def get(
-        self, endpoint: str, params: OptionalDict = None
-    ) -> Dict[str, Any]:
+        self, endpoint: str, params: ClientRequestParams = None,
+    ) -> DictStrAny:
         return self.request('get', endpoint, params=params)
 
-    def post(self, endpoint: str, data: Dict[str, Any]) -> Dict[str, Any]:
+    def post(self, endpoint: str, data: DictStrAny) -> DictStrAny:
         return self.request('post', endpoint, data=data)
 
-    def delete(
-        self, endpoint: str, data: OptionalDict = None
-    ) -> Dict[str, Any]:
+    def delete(self, endpoint: str, data: OptionalDict = None) -> DictStrAny:
         return self.request('delete', endpoint, data=data)
 
     def request(
         self,
         method: str,
         endpoint: str,
-        params: OptionalDict = None,
+        params: ClientRequestParams = None,
         data: OptionalDict = None,
         **kwargs,
-    ) -> Dict[str, Any]:
+    ) -> DictStrAny:
         resp = self.session.request(
             method=method,
             url=self.base_url + endpoint,

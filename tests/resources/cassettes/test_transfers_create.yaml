@@ -1,0 +1,102 @@
+interactions:
+- request:
+    body: '{"account_number": "646180157034181180", "amount": 10000, "descriptor":
+      "Mi primer transferencia", "recipient_name": "Rogelio Lopez", "idempotency_key":
+      "my_custom_id"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '167'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/transfers
+  response:
+    body:
+      string: '{"id":"TRykH9-lXrS6iJocclOl4ATQ==","created_at":"2020-05-11T18:41:00.332534","updated_at":"2020-05-11T18:41:00.352103","account_number":"646180157034181180","recipient_name":"Rogelio
+        Lopez","amount":10000,"descriptor":"Mi primer transferencia","idempotency_key":"my_custom_id","status":"pending","network":"internal","tracking_key":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '330'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 18:41:02 GMT
+      Via:
+      - 1.1 10d5043185168ff98a7c4be514b70521.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - sdzCZsXYzDxhVRAqhkB5wtcsXzTWjyARU842u5XDEo_qg8gyW8uIQw==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb99c3c-54fdb29188beac4b8d3c9fac;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYVZbGDfIAMFogw=
+      x-amzn-RequestId:
+      - b488f64c-4a76-4a45-9405-301ae5456791
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers/TRykH9-lXrS6iJocclOl4ATQ==
+  response:
+    body:
+      string: '{"id":"TRykH9-lXrS6iJocclOl4ATQ==","created_at":"2020-05-11T18:41:00.332000","updated_at":"2020-05-11T18:41:01.352000","account_number":"646180157034181180","recipient_name":"Rogelio
+        Lopez","amount":10000,"descriptor":"Mi primer transferencia","idempotency_key":"my_custom_id","status":"succeeded","network":"internal","tracking_key":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '338'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 18:43:54 GMT
+      Via:
+      - 1.1 10d5043185168ff98a7c4be514b70521.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - E6tp7iuaCI5cBUAzt5i_RlxRJlnT_YSHes0csCR9017weDY79ybrPA==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb99ce8-bffe2150b0d161402b4dabe0;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYV0UGTUIAMFZRQ=
+      x-amzn-RequestId:
+      - 6904c847-bb49-4ac7-bdcc-b2f97d201602
+    status:
+      code: 200
+      message: OK
+version: 1

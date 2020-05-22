@@ -4,7 +4,8 @@ from urllib.parse import urlencode
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import session
-from .utils import DictFactory
+from ..types import SantizedDict
+from ..validators import QueryParams
 
 
 @dataclass
@@ -28,7 +29,7 @@ class Resource:
             del obj_dict[f]
 
     def to_dict(self):
-        return asdict(self, dict_factory=DictFactory)
+        return asdict(self, dict_factory=SantizedDict)
 
 
 class Retrievable(Resource):
@@ -45,19 +46,18 @@ class Retrievable(Resource):
 
 class Creatable(Resource):
     @classmethod
-    def create(cls, **data) -> Resource:
+    def _create(cls, **data) -> Resource:
         resp = session.post(cls._endpoint, data)
         return cls._from_dict(resp)
 
 
 class Queryable(Resource):
-    _query_params: ClassVar[set]
+    _query_params: ClassVar = QueryParams
 
     @classmethod
     def one(cls, **query_params) -> Resource:
-        cls._check_query_params(query_params)
-        query_params['limit'] = 2
-        resp = session.get(cls._endpoint, query_params)
+        q = cls._query_params(limit=2, **query_params)
+        resp = session.get(cls._endpoint, q.dict())
         items = resp['items']
         len_items = len(items)
         if not len_items:
@@ -68,35 +68,27 @@ class Queryable(Resource):
 
     @classmethod
     def first(cls, **query_params) -> Optional[Resource]:
-        cls._check_query_params(query_params)
-        query_params['limit'] = 1
-        resp = session.get(cls._endpoint, query_params)
+        q = cls._query_params(limit=1, **query_params)
+        resp = session.get(cls._endpoint, q.dict())
         try:
             item = resp['items'][0]
         except IndexError:
-            item = None
-        return cls._from_dict(item)
+            rv = None
+        else:
+            rv = cls._from_dict(item)
+        return rv
 
     @classmethod
     def count(cls, **query_params) -> int:
-        cls._check_query_params(query_params)
-        query_params['count'] = 1
-        resp = session.get(cls._endpoint, query_params)
+        q = cls._query_params(count=True, **query_params)
+        resp = session.get(cls._endpoint, q.dict())
         return resp['count']
 
     @classmethod
-    def all(cls, **query_params) -> Generator[Resource]:
-        cls._check_query_params(query_params)
-        next_page_url = f'{cls._endpoint}?{urlencode(query_params)}'
+    def all(cls, **query_params) -> Generator[Resource, None, None]:
+        q = cls._query_params(**query_params)
+        next_page_url = f'{cls._endpoint}?{urlencode(q.dict())}'
         while next_page_url:
             page = session.get(next_page_url)
             yield from (cls._from_dict(item) for item in page['items'])
-            next_page_url = page['next']
-
-    @classmethod
-    def _check_query_params(cls, query_params):
-        if not query_params:
-            return
-        unaccepted = set(query_params.keys()) - cls._query_params
-        if unaccepted:
-            raise ValueError(f'{unaccepted} are not accepted query parameters')
+            next_page_url = page['next_page_url']

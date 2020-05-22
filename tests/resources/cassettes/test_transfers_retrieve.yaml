@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers/test
+  response:
+    body:
+      string: '{"id":"test","created_at":"2020-05-07T16:57:55.833000","updated_at":"2020-05-07T16:57:55.872000","account_number":"646180157034181180","recipient_name":"test","amount":10000,"descriptor":"Transferencia
+        Demo","idempotency_key":"idempotency_key_8","status":"pending","network":"internal","tracking_key":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '319'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 18:21:39 GMT
+      Via:
+      - 1.1 a77dd74bb9c72f0eb05ce504c2023f4b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - V2d_0m9spKIgvzBujSYKWtd-Jg3SZGEpEkJp7N-p2UpwtXOhDLJyJQ==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb997b3-01558c80140598007bc62d80;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYSkFFJMIAMFYIA=
+      x-amzn-RequestId:
+      - 8e8a5645-dc24-4872-ba0e-62833248cfcd
+    status:
+      code: 200
+      message: OK
+version: 1

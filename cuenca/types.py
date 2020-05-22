@@ -1,9 +1,5 @@
+import datetime as dt
 from enum import Enum
-from typing import Dict, Optional, Union
-
-from pydantic import PositiveInt, StrictInt
-
-OptionalDict = Optional[Dict[str, Union[int, str]]]
 
 
 class Status(str, Enum):
@@ -17,10 +13,15 @@ class Network(str, Enum):
     internal = 'internal'
 
 
-class StrictPositiveInt(StrictInt, PositiveInt):
-    """
-    - StrictInt: ensures a float isn't passed in by accident
-    - PositiveInt: ensures the value is above 0
-    """
+def sanitize_dict(d: dict):
+    for k, v in d.items():
+        if isinstance(v, dt.date):
+            d[k] = v.isoformat()
+        elif isinstance(v, Enum):
+            d[k] = v.value
 
-    ...
+
+class SantizedDict(dict):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        sanitize_dict(self)

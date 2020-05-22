@@ -1,0 +1,94 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers?count=1
+  response:
+    body:
+      string: '{"count":42}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '12'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 21:59:35 GMT
+      Via:
+      - 1.1 07a8524ef9b19a43fbf0b8e522dc9942.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - YEJCUb_jGNiB2JBr0mdtjnuprilReCnO9TYqSeDXHGcsXiPIYEPdXw==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb9cac5-d19de4cbc893054ad3fb0c34;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYye2HO0IAMFsvQ=
+      x-amzn-RequestId:
+      - 159511b5-3d76-4e5f-8f23-bfe889dbf1ac
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers?status=succeeded&count=1
+  response:
+    body:
+      string: '{"count":4}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '11'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 21:59:45 GMT
+      Via:
+      - 1.1 07a8524ef9b19a43fbf0b8e522dc9942.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Fi2jEuLM8RQjSimNd0VEO6X_q4-oeIcAP6xOknl-etGwebUcWVJ_Ag==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb9cad1-d519ac7f613a7f6bfcd99e93;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYygsEE0oAMFpQQ=
+      x-amzn-RequestId:
+      - ce2ca60e-3b6d-4c3e-a471-bd2bac298b86
+    status:
+      code: 200
+      message: OK
+version: 1

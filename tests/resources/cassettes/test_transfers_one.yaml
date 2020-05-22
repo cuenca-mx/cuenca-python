@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers?idempotency_key=idempotency_key_1&limit=2
+  response:
+    body:
+      string: '{"items":[{"id":"TR6sozlFsTQsGxzwQfWm5N_g==","created_at":"2020-05-07T17:01:30.774000","updated_at":"2020-05-07T17:01:30.794000","account_number":"646180157034181180","recipient_name":"test","amount":10000,"descriptor":"Transferencia
+        Demo","idempotency_key":"idempotency_key_1","status":"pending","network":"internal","tracking_key":null}],"next_page_url":"/transfers?idempotency_key=idempotency_key_1&created_before=2020-05-07T17%3A01%3A30.774000&limit=2&count=False"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '460'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 18:21:40 GMT
+      Via:
+      - 1.1 991cddfa34f7096aab42079b287a0629.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - ArZfCoaAzFFoOAWAUyy7cy2Wr1x7cXlufbUHMWPAmLHgD6e6O00hPA==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb997b4-64d09900003c7c004f33aa00;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYSkKE6IIAMFY0g=
+      x-amzn-RequestId:
+      - 2024b44b-6111-477d-8cd9-0f4b1043f197
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,16 +1,17 @@
 import datetime as dt
-from typing import ClassVar, Optional, Tuple
+from typing import ClassVar, Optional
 
 from pydantic.dataclasses import dataclass
 
 from ..http import session
+from ..validators import ApiKeyQuery
 from .base import Creatable, Queryable, Retrievable
 
 
 @dataclass
 class ApiKey(Creatable, Queryable, Retrievable):
     _endpoint: ClassVar = '/api_keys'
-    _query_params: ClassVar = set()
+    _query_params: ClassVar = ApiKeyQuery
 
     id: str
     secret: str
@@ -26,22 +27,7 @@ class ApiKey(Creatable, Queryable, Retrievable):
 
     @classmethod
     def create(cls) -> 'ApiKey':
-        return super().create()
-
-    @classmethod
-    def roll(cls, minutes: int = 0) -> Tuple['ApiKey', 'ApiKey']:
-        """
-        1. create a new ApiKey
-        2. configure client with new ApiKey
-        3. deactivate prior ApiKey in a certain number of minutes
-        4. return both ApiKeys
-        """
-        old_id = session.auth[0]
-        new = cls.create()
-        # have to use the new key to deactivate the old key
-        session.configure(new.id, new.secret)
-        old = cls.deactivate(old_id, minutes)
-        return old, new
+        return cls._create()
 
     @classmethod
     def deactivate(cls, api_key_id: str, minutes: int = 0) -> 'ApiKey':

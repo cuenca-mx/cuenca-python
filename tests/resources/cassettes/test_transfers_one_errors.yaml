@@ -1,0 +1,96 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers?idempotency_key=wrong_key&limit=2
+  response:
+    body:
+      string: '{"items":[],"next_page_url":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 18:21:40 GMT
+      Via:
+      - 1.1 4e6b2f68c53dbedd5953c188691cfdf3.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Dick_0sNbtPgK-n-KHkgA6qwLTmUqj4XmOdkeZMXQ2P4erhbvgpi-g==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb997b4-ea5859e058405fe0f2ca68e0;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYSkPEs0IAMFhPw=
+      x-amzn-RequestId:
+      - 9b6c0958-932a-48bf-bd9c-d839baf8d428
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.0.1dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers?status=pending&limit=2
+  response:
+    body:
+      string: '{"items":[{"id":"TRIeJD25AJTCaaqd5mvSz-hA==","created_at":"2020-05-08T22:48:19.624000","updated_at":"2020-05-08T22:48:19.643000","account_number":"646180157013244941","recipient_name":"test
+        ec941f79-0c0f-4c1a-9648-4ca221103b9b","amount":8888,"descriptor":"lambda","idempotency_key":"ee3d8fbb-e2b6-4c81-94ea-b4ff240a2913","status":"pending","network":"internal","tracking_key":null},{"id":"TRo4iQvJD5TreE51v3_cVLlA==","created_at":"2020-05-08T19:53:29.917000","updated_at":"2020-05-08T19:53:29.937000","account_number":"646180157013244941","recipient_name":"pach
+        31fe4f55-b7c8-49a5-bec4-460e62b94cf9","amount":8888,"descriptor":"lambda","idempotency_key":"972a5034-91de-4fb8-99a2-9733afc4065b","status":"pending","network":"internal","tracking_key":null}],"next_page_url":"/transfers?created_before=2020-05-08T19%3A53%3A29.917000&status=pending&limit=2&count=False"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '851'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 May 2020 18:21:40 GMT
+      Via:
+      - 1.1 4e6b2f68c53dbedd5953c188691cfdf3.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - KiXqqSIngsMZVG4wNJWgwhqB5Z94b3wlIIv0OYr3IBv0LwQAQ9zxig==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5eb997b4-11eedcdc59b40aea5ed9e1c2;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - MYSkRENGoAMFmgw=
+      x-amzn-RequestId:
+      - 84de0e41-4beb-435e-b1c1-cc68350dcc57
+    status:
+      code: 200
+      message: OK
+version: 1
