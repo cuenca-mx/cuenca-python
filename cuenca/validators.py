@@ -20,7 +20,7 @@ class StrictPositiveInt(StrictInt, PositiveInt):
 
 
 class Limit(ConstrainedInt):
-    ge = 0
+    gt = 0
     le = MAX_PAGE_LIMIT
 
 
