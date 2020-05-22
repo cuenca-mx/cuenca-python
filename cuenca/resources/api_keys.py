@@ -27,7 +27,7 @@ class ApiKey(Creatable, Queryable, Retrievable):
 
     @classmethod
     def create(cls) -> 'ApiKey':
-        return super()._create()
+        return cls._create()
 
     @classmethod
     def deactivate(cls, api_key_id: str, minutes: int = 0) -> 'ApiKey':
