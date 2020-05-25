@@ -17,6 +17,7 @@ class Resource:
         ...
 
     id: str
+    uri: str
     created_at: dt.datetime
 
     @classmethod
