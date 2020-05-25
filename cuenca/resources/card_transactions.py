@@ -26,4 +26,4 @@ class CardTransaction(Transaction):
         self._get_related_card_transactions.cache_clear()
         super().refresh()
 
-    related_card_transaction_uris = property(_get_related_card_transactions)
+    related_card_transactions = property(_get_related_card_transactions)
