@@ -15,15 +15,16 @@ class CardTransaction(Transaction):
     card_last4: str
     card_type: CardType
 
+    @property  # type: ignore
     @lru_cache()
-    def _get_related_card_transactions(self) -> List['CardTransaction']:
+    def related_card_transactions(self) -> List['CardTransaction']:
         related = []
         for uri in self.related_card_transaction_uris:
             related.append(retrieve_uri(uri))
         return related
 
-    def refresh(self):
-        self._get_related_card_transactions.cache_clear()
-        super().refresh()
-
-    related_card_transactions = property(_get_related_card_transactions)
+    def __hash__(self) -> int:
+        """
+        This ensures that the lru_cache doesn't use stale information
+        """
+        return hash((self.id, tuple(self.related_card_transaction_uris)))
