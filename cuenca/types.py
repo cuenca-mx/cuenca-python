@@ -9,9 +9,15 @@ class Status(str, Enum):
     failed = 'failed'
 
 
-class Network(str, Enum):
-    spei = 'spei'
+class TransferNetwork(str, Enum):
     internal = 'internal'
+    spei = 'spei'
+
+
+class DepositNetwork(str, Enum):
+    cash = 'cash'
+    internal = 'internal'
+    spei = 'spei'
 
 
 def sanitize_dict(d: dict):

@@ -31,6 +31,7 @@ class QueryParams(BaseModel):
     count: bool = False
     limit: Optional[Limit] = None
     created_before: Optional[dt.datetime] = None
+    created_after: Optional[dt.datetime] = None
 
     class Config:
         extra = Extra.forbid  # raise ValidationError if there are extra fields
@@ -43,10 +44,13 @@ class QueryParams(BaseModel):
         return d
 
 
-class TransferQuery(QueryParams):
+class TransactionQuery(QueryParams):
+    status: Optional[str] = None
+
+
+class TransferQuery(TransactionQuery):
     account_number: Optional[str] = None
     idempotency_key: Optional[str] = None
-    status: Optional[str] = None
 
 
 class ApiKeyQuery(QueryParams):

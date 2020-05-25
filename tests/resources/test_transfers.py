@@ -4,7 +4,7 @@ from pydantic import ValidationError
 from cuenca import Transfer
 from cuenca.exc import MultipleResultsFound, NoResultFound
 from cuenca.resources.transfers import TransferRequest
-from cuenca.types import Network, Status
+from cuenca.types import Status, TransferNetwork
 
 
 @pytest.mark.vcr
@@ -19,7 +19,7 @@ def test_transfers_create():
     assert transfer.idempotency_key is not None
     assert transfer.status
     assert transfer.status == Status.submitted
-    assert transfer.network == Network.internal
+    assert transfer.network == TransferNetwork.internal
     # Some seconds later
     transfer.refresh()
     assert transfer.status == Status.succeeded
@@ -49,7 +49,7 @@ def test_transfers_create_many():
         assert transfer.idempotency_key is not None
         assert transfer.status
         assert transfer.status == Status.submitted
-        assert transfer.network == Network.internal
+        assert transfer.network == TransferNetwork.internal
 
 
 @pytest.mark.vcr

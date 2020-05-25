@@ -5,13 +5,13 @@ from urllib.parse import urlencode
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import session
-from ..types import SantizedDict
-from ..validators import QueryParams
+from ..types import SantizedDict, Status
+from ..validators import QueryParams, TransactionQuery
 
 
 @dataclass
 class Resource:
-    _endpoint: ClassVar[str]
+    _resource: ClassVar[str]
 
     def __init__(self, **_):  # pragma no cover
         ...
@@ -42,7 +42,7 @@ class Resource:
 class Retrievable(Resource):
     @classmethod
     def retrieve(cls, id: str) -> Resource:
-        resp = session.get(f'{cls._endpoint}/{id}')
+        resp = session.get(f'/{cls._resource}/{id}')
         return cls._from_dict(resp)
 
     def refresh(self):
@@ -54,7 +54,7 @@ class Retrievable(Resource):
 class Creatable(Resource):
     @classmethod
     def _create(cls, **data) -> Resource:
-        resp = session.post(cls._endpoint, data)
+        resp = session.post(cls._resource, data)
         return cls._from_dict(resp)
 
 
@@ -64,7 +64,7 @@ class Queryable(Resource):
     @classmethod
     def one(cls, **query_params) -> Resource:
         q = cls._query_params(limit=2, **query_params)
-        resp = session.get(cls._endpoint, q.dict())
+        resp = session.get(cls._resource, q.dict())
         items = resp['items']
         len_items = len(items)
         if not len_items:
@@ -76,7 +76,7 @@ class Queryable(Resource):
     @classmethod
     def first(cls, **query_params) -> Optional[Resource]:
         q = cls._query_params(limit=1, **query_params)
-        resp = session.get(cls._endpoint, q.dict())
+        resp = session.get(cls._resource, q.dict())
         try:
             item = resp['items'][0]
         except IndexError:
@@ -88,14 +88,23 @@ class Queryable(Resource):
     @classmethod
     def count(cls, **query_params) -> int:
         q = cls._query_params(count=True, **query_params)
-        resp = session.get(cls._endpoint, q.dict())
+        resp = session.get(cls._resource, q.dict())
         return resp['count']
 
     @classmethod
     def all(cls, **query_params) -> Generator[Resource, None, None]:
         q = cls._query_params(**query_params)
-        next_page_url = f'{cls._endpoint}?{urlencode(q.dict())}'
+        next_page_url = f'{cls._resource}?{urlencode(q.dict())}'
         while next_page_url:
             page = session.get(next_page_url)
             yield from (cls._from_dict(item) for item in page['items'])
             next_page_url = page['next_page_url']
+
+
+@dataclass
+class Transaction(Retrievable, Queryable):
+    _query_params: ClassVar = TransactionQuery
+
+    amount: int  # in centavos
+    status: Status
+    descriptor: str  # how it appears for the customer

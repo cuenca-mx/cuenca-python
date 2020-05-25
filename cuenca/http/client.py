@@ -1,5 +1,6 @@
 import os
 from typing import Optional, Tuple
+from urllib.parse import urljoin
 
 import requests
 from requests import Response
@@ -72,7 +73,7 @@ class Session:
     ) -> DictStrAny:
         resp = self.session.request(
             method=method,
-            url=self.base_url + endpoint,
+            url=self.base_url + urljoin('/', endpoint),
             auth=self.auth,
             json=data,
             params=params,
