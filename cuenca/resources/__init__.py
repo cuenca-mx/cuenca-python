@@ -21,6 +21,6 @@ from .resources import RESOURCES
 from .transfers import Transfer
 
 # this allows us to use retrieve_uri(uri)
-resources = (local for local in locals() if isinstance(local, Resource))
+resources = (local for local in locals() if issubclass(local, Resource))
 for resource_cls in resources:
     RESOURCES[resource_cls._resource] = resource_cls
