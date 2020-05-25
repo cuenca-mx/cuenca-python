@@ -8,7 +8,7 @@ from .resources import retrieve_uri
 
 
 class Deposit(Transaction):
-    _resource: ClassVar = 'commissions'
+    _resource: ClassVar = 'deposits'
 
     network: DepositNetwork
     source_uri: str
