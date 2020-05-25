@@ -13,9 +13,7 @@ class ApiKey(Creatable, Queryable, Retrievable):
     _endpoint: ClassVar = '/api_keys'
     _query_params: ClassVar = ApiKeyQuery
 
-    id: str
     secret: str
-    created_at: dt.datetime
     deactivated_at: Optional[dt.datetime]
 
     @property

@@ -23,8 +23,6 @@ class Transfer(Creatable, Queryable, Retrievable):
     _endpoint: ClassVar = '/transfers'
     _query_params: ClassVar = TransferQuery
 
-    id: str
-    created_at: dt.datetime
     updated_at: dt.datetime
     recipient_name: str
     account_number: str

@@ -1,3 +1,4 @@
+import datetime as dt
 from dataclasses import asdict, dataclass, fields
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
@@ -14,6 +15,9 @@ class Resource:
 
     def __init__(self, **_):  # pragma no cover
         ...
+
+    id: str
+    created_at: dt.datetime
 
     @classmethod
     def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> 'Resource':
