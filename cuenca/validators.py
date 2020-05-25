@@ -30,6 +30,7 @@ class Limit(ConstrainedInt):
 class QueryParams(BaseModel):
     count: bool = False
     limit: Optional[Limit] = None
+    user: Optional[str] = None
     created_before: Optional[dt.datetime] = None
     created_after: Optional[dt.datetime] = None
 
