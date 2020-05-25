@@ -2,6 +2,29 @@ import datetime as dt
 from enum import Enum
 
 
+class CardNetwork(str, Enum):
+    atm = 'atm'
+    visa = 'visa'
+
+
+class CardTransactionType(str, Enum):
+    auth = 'auth'
+    capture = 'capture'
+    refund = 'refund'
+    void = 'void'
+
+
+class CardType(str, Enum):
+    physical = 'physical'
+    virtual = 'virtual'
+
+
+class DepositNetwork(str, Enum):
+    cash = 'cash'
+    internal = 'internal'
+    spei = 'spei'
+
+
 class Status(str, Enum):
     created = 'created'
     submitted = 'submitted'
@@ -10,12 +33,6 @@ class Status(str, Enum):
 
 
 class TransferNetwork(str, Enum):
-    internal = 'internal'
-    spei = 'spei'
-
-
-class DepositNetwork(str, Enum):
-    cash = 'cash'
     internal = 'internal'
     spei = 'spei'
 

@@ -38,6 +38,9 @@ class Resource:
     def to_dict(self):
         return asdict(self, dict_factory=SantizedDict)
 
+    def __hash__(self):
+        return hash((self._resource, self.id))
+
 
 class Retrievable(Resource):
     @classmethod
