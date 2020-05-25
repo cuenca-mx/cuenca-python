@@ -9,6 +9,7 @@ class BalanceEntry(Retrievable, Queryable):
     _resource: ClassVar = 'balance_entries'
 
     amount: int
+    descriptor: str
     rolling_balance: int  # negative in the case of a debit
     transaction_uri: str
 
