@@ -1,11 +1,11 @@
 from functools import lru_cache
 from typing import ClassVar
 
-from .base import Queryable, Retrievable
+from .base import Cacheable, Queryable, Retrievable
 from .resources import retrieve_uri
 
 
-class BalanceEntry(Retrievable, Queryable):
+class BalanceEntry(Retrievable, Queryable, Cacheable):
     _resource: ClassVar = 'balance_entries'
 
     amount: int

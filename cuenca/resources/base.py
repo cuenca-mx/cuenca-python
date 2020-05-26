@@ -1,5 +1,6 @@
 import datetime as dt
 from dataclasses import asdict, dataclass, fields
+from functools import lru_cache
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
@@ -102,6 +103,13 @@ class Queryable(Resource):
             page = session.get(next_page_url)
             yield from (cls._from_dict(item) for item in page['items'])
             next_page_url = page['next_page_url']
+
+
+class Cacheable(Retrievable):
+    @classmethod
+    @lru_cache()
+    def retrieve(cls, id: str) -> Resource:
+        return super().retrieve(id)
 
 
 @dataclass

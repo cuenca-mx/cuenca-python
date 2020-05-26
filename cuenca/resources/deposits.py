@@ -3,11 +3,11 @@ from typing import ClassVar
 
 from ..types import DepositNetwork
 from .accounts import Account
-from .base import Transaction
+from .base import Cacheable, Transaction
 from .resources import retrieve_uri
 
 
-class Deposit(Transaction):
+class Deposit(Transaction, Cacheable):
     _resource: ClassVar = 'deposits'
 
     network: DepositNetwork
