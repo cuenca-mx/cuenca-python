@@ -1,9 +1,9 @@
 from typing import ClassVar
 
-from .base import Queryable, Retrievable
+from .base import Cacheable, Queryable
 
 
-class Account(Retrievable, Queryable):
+class Account(Cacheable, Queryable):
     _resource: ClassVar = 'accounts'
 
     name: str
