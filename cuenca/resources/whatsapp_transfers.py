@@ -20,7 +20,7 @@ class WhatsappTransfer(Transaction):
     expires_at: dt.datetime
     # defined after the transfer has been claimed
     destination_uri: Optional[str]
-    network: TransferNetwork
+    network: Optional[TransferNetwork]
     tracking_key: Optional[str]  # clave rastreo if network is SPEI
 
     @property  # type: ignore
