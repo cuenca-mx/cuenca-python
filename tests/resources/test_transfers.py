@@ -17,7 +17,7 @@ def test_transfers_create():
     assert transfer.id is not None
     assert transfer.idempotency_key is not None
     assert transfer.status
-    assert transfer.status == Status.pending
+    assert transfer.status == Status.submitted
     # Some seconds latter
     transfer.refresh()
     assert transfer.status == Status.succeeded
@@ -45,7 +45,7 @@ def test_transfers_one_errors():
         Transfer.one(idempotency_key='wrong_key')
 
     with pytest.raises(MultipleResultsFound):
-        Transfer.one(status=Status.pending)
+        Transfer.one(status=Status.submitted)
 
 
 @pytest.mark.vcr

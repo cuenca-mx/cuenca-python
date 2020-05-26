@@ -51,6 +51,7 @@ class Transfer(Creatable, Queryable, Retrievable):
         :param recipient_name: name of recipient
         :param idempotency_key: must be unique for each transfer to avoid
             duplicates
+        :return: Transfer object
 
         The recommended idempotency_key scheme:
         1. create a transfer entry in your own database with the status
