@@ -8,6 +8,7 @@ __all__ = [
     'Commission',
     'Deposit',
     'Transfer',
+    'WhatsappTransfer',
     'configure',
 ]
 
@@ -22,6 +23,7 @@ from .resources import (
     Commission,
     Deposit,
     Transfer,
+    WhatsappTransfer,
 )
 from .version import __version__
 
