@@ -8,9 +8,9 @@ from .resources import retrieve_uri
 class BalanceEntry(Cacheable, Queryable):
     _resource: ClassVar = 'balance_entries'
 
-    amount: int
+    amount: int  # negative in the case of a debit
     descriptor: str
-    rolling_balance: int  # negative in the case of a debit
+    rolling_balance: int
     transaction_uri: str
 
     @property  # type: ignore
