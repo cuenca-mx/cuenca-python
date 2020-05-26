@@ -27,4 +27,10 @@ class CardTransaction(Transaction):
         """
         This ensures that the lru_cache doesn't use stale information
         """
-        return hash((self.id, tuple(self.related_card_transaction_uris)))
+        return hash(
+            (
+                self._resource,
+                self.id,
+                tuple(self.related_card_transaction_uris),
+            )
+        )
