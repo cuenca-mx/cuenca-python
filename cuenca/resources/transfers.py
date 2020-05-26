@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional
+from typing import ClassVar, Optional, cast
 
 from clabe import Clabe
 from pydantic import BaseModel, StrictStr
@@ -70,8 +70,7 @@ class Transfer(Creatable, Queryable, Retrievable):
             recipient_name=recipient_name,
             idempotency_key=idempotency_key,
         )
-        resource = cls._create(**req.dict())
-        return cls(**resource.to_dict())
+        return cast('Transfer', cls._create(**req.dict()))
 
     @staticmethod
     def _gen_idempotency_key(account_number: str, amount: int) -> str:
