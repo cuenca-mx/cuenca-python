@@ -12,7 +12,7 @@ from ..validators import QueryParams
 class Resource:
     _endpoint: ClassVar[str]
 
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs):  # pragma no cover
         for attr, value in kwargs.items():
             setattr(self, attr, value)
 
