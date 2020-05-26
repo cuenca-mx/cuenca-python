@@ -57,7 +57,7 @@ class Transfer(Creatable, Queryable, Retrievable):
             created
         2. call this method with the unique id from your database as the
             idempotency_key
-        3. update your database with the status pending or submitted after
+        3. update your database with the status created or submitted after
             receiving a response from this method
         """
         if not idempotency_key:
