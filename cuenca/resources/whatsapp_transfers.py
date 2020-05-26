@@ -21,7 +21,7 @@ class WhatsappTransfer(Transaction):
     # defined after the transfer has been claimed
     destination_uri: Optional[str]
     network: TransferNetwork
-    tracking_key: Optional[str] = None  # clave rastreo if network is SPEI
+    tracking_key: Optional[str]  # clave rastreo if network is SPEI
 
     @property  # type: ignore
     @lru_cache()
