@@ -1,11 +1,14 @@
 from functools import lru_cache
 from typing import ClassVar, List
 
+from pydantic.dataclasses import dataclass
+
 from ..types import CardNetwork, CardTransactionType, CardType
 from .base import Transaction
 from .resources import retrieve_uri
 
 
+@dataclass
 class CardTransaction(Transaction):
     _resource: ClassVar = 'card_transactions'
 

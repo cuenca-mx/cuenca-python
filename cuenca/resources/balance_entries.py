@@ -1,10 +1,13 @@
 from functools import lru_cache
 from typing import ClassVar
 
+from pydantic.dataclasses import dataclass
+
 from .base import Cacheable, Queryable
 from .resources import retrieve_uri
 
 
+@dataclass
 class BalanceEntry(Cacheable, Queryable):
     _resource: ClassVar = 'balance_entries'
 
