@@ -70,7 +70,8 @@ class Transfer(Creatable, Queryable, Retrievable):
             recipient_name=recipient_name,
             idempotency_key=idempotency_key,
         )
-        return cls._create(**req.dict())
+        resource = cls._create(**req.dict())
+        return cls(**resource.to_dict())
 
     @staticmethod
     def _gen_idempotency_key(account_number: str, amount: int) -> str:

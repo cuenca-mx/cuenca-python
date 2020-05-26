@@ -26,7 +26,7 @@ lint:
 	flake8 $(PROJECT) tests setup.py
 	$(isort) --check-only
 	$(black) --check
-#	mypy $(PROJECT) tests
+	mypy $(PROJECT) tests
 
 clean:
 	rm -rf `find . -name __pycache__`
