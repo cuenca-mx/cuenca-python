@@ -14,6 +14,7 @@ from ..validators import QueryParams, TransactionQuery
 class Resource:
     _resource: ClassVar[str]
 
+    # purely for MyPy
     def __init__(self, **_):  # pragma no cover
         ...
 
