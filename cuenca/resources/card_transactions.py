@@ -1,5 +1,5 @@
 from functools import lru_cache
-from typing import ClassVar, List
+from typing import ClassVar, List, cast
 
 from pydantic.dataclasses import dataclass
 
@@ -23,7 +23,7 @@ class CardTransaction(Transaction):
     def related_card_transactions(self) -> List['CardTransaction']:
         related = []
         for uri in self.related_card_transaction_uris:
-            related.append(retrieve_uri(uri))
+            related.append(cast('CardTransaction', retrieve_uri(uri)))
         return related
 
     def __hash__(self) -> int:

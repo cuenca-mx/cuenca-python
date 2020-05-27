@@ -1,5 +1,5 @@
 from functools import lru_cache
-from typing import ClassVar
+from typing import ClassVar, cast
 
 from ..types import DepositNetwork
 from .accounts import Account
@@ -17,4 +17,4 @@ class Deposit(Transaction, Cacheable):
     @property  # type: ignore
     @lru_cache()
     def source(self) -> Account:
-        return retrieve_uri(self.source_uri)
+        return cast(Account, retrieve_uri(self.source_uri))
