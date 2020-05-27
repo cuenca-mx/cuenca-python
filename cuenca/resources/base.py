@@ -12,9 +12,8 @@ from ..validators import QueryParams
 class Resource:
     _endpoint: ClassVar[str]
 
-    def __init__(self, **kwargs):  # pragma no cover
-        for attr, value in kwargs.items():
-            setattr(self, attr, value)
+    def __init__(self, **_):  # pragma no cover
+        ...
 
     @classmethod
     def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> 'Resource':
