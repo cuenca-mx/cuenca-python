@@ -12,6 +12,10 @@ from ..validators import QueryParams
 class Resource:
     _endpoint: ClassVar[str]
 
+    def __init__(self, **kwargs):  # pragma no cover
+        for attr, value in kwargs.items():
+            setattr(self, attr, value)
+
     @classmethod
     def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> 'Resource':
         cls._filter_excess_fields(obj_dict)

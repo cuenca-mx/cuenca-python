@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional
+from typing import ClassVar, Optional, cast
 
 from pydantic.dataclasses import dataclass
 
@@ -27,7 +27,7 @@ class ApiKey(Creatable, Queryable, Retrievable):
 
     @classmethod
     def create(cls) -> 'ApiKey':
-        return cls._create()
+        return cast('ApiKey', cls._create())
 
     @classmethod
     def deactivate(cls, api_key_id: str, minutes: int = 0) -> 'ApiKey':
@@ -40,4 +40,4 @@ class ApiKey(Creatable, Queryable, Retrievable):
         """
         url = cls._endpoint + f'/{api_key_id}'
         resp = session.delete(url, dict(minutes=minutes))
-        return cls._from_dict(resp)
+        return cast('ApiKey', cls._from_dict(resp))
