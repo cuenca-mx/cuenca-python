@@ -14,6 +14,7 @@ from .resources import retrieve_uri
 class WhatsappTransfer(Transaction):
     _resource: ClassVar = 'whatsapp_transfers'
 
+    updated_at: dt.datetime
     recipient_name: str
     phone_number: str
     claim_url: str
