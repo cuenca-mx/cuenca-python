@@ -28,7 +28,7 @@ class Transfer(Transaction, Creatable):
     account_number: str
     idempotency_key: str
     network: TransferNetwork
-    tracking_key: Optional[str] = None  # clave rastreo if network is SPEI
+    tracking_key: Optional[str]  # clave rastreo if network is SPEI
 
     @classmethod
     def create(
