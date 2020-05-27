@@ -10,8 +10,9 @@ from .resources import retrieve_uri
 class Deposit(Transaction, Cacheable):
     _resource: ClassVar = 'deposits'
 
-    network: DepositNetwork
     source_uri: str
+    network: DepositNetwork
+    tracking_key: Optional[str]  # clave rastreo if network is SPEI
 
     @property  # type: ignore
     @lru_cache()
