@@ -5,9 +5,9 @@ from clabe import Clabe
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
+from ..types import TransferNetwork
 from ..validators import PaymentCardNumber, StrictPositiveInt, TransferQuery
 from .base import Creatable, Transaction
-from ..types import TransferNetwork
 
 
 class TransferRequest(BaseModel):

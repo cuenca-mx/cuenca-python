@@ -1,5 +1,5 @@
 from functools import lru_cache
-from typing import ClassVar, cast
+from typing import ClassVar, Optional, cast
 
 from ..types import DepositNetwork
 from .accounts import Account
