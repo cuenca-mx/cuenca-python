@@ -4,6 +4,23 @@
 [![codecov](https://codecov.io/gh/cuenca-mx/cuenca-python/branch/master/graph/badge.svg)](https://codecov.io/gh/cuenca-mx/cuenca-python)
 [![PyPI](https://img.shields.io/pypi/v/cuenca.svg)](https://pypi.org/project/cuenca/)
 
+# Installation
+
+`pip install cuenca`
+
+# Authentication
+
+The preferred way to configure the credentials for the client is to set the
+`CUENCA_API_KEY` and `CUENCA_API_SECRET` environment variables. The client
+library will automatically configure based on the values of those variables.
+
+To configure manually:
+```python
+import cuenca
+
+cuenca.configure(api_key='PKxxxx', api_secret='yyyyyy')
+```
+
 ## Transfers
 
 ### Create transfer
@@ -17,7 +34,7 @@ local_transfer_id = '078efdc20bab456285437309c4b75673'
 
 transfer = cuenca.Transfer.create(
     recipient_name='Benito Juárez',
-    account_number='646180157042875763',
+    account_number='646180157042875763',  # CLABE or card number
     amount=12345,  # Mx$123.45
     descriptor='sending money',  # As it'll appear for the customer
     idempotency_key=local_transfer_id

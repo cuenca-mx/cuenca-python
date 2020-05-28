@@ -1,8 +1,11 @@
 import datetime as dt
-from typing import Optional
+from typing import ClassVar, Optional
 
 from pydantic import BaseModel, Extra, PositiveInt, StrictInt
-from pydantic.types import ConstrainedInt
+from pydantic.types import (
+    ConstrainedInt,
+    PaymentCardNumber as PydanticPaymentCardNumber,
+)
 
 from .types import sanitize_dict
 from .typing import DictStrAny
@@ -48,3 +51,8 @@ class TransferQuery(QueryParams):
 
 class ApiKeyQuery(QueryParams):
     active: Optional[bool] = None
+
+
+class PaymentCardNumber(PydanticPaymentCardNumber):
+    min_length: ClassVar[int] = 16
+    max_length: ClassVar[int] = 16

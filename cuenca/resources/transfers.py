@@ -1,18 +1,18 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, List, Optional, Union, cast
 
 from clabe import Clabe
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
 from ..types import Network, Status
-from ..validators import StrictPositiveInt, TransferQuery
+from ..validators import PaymentCardNumber, StrictPositiveInt, TransferQuery
 from .base import Creatable, Queryable, Retrievable
 
 
 class TransferRequest(BaseModel):
     recipient_name: StrictStr
-    account_number: Clabe
+    account_number: Union[Clabe, PaymentCardNumber]
     amount: StrictPositiveInt  # in centavos
     descriptor: StrictStr  # how it'll appear for the recipient
     idempotency_key: str  # must be unique for each transfer
@@ -71,6 +71,12 @@ class Transfer(Creatable, Queryable, Retrievable):
             idempotency_key=idempotency_key,
         )
         return cast('Transfer', cls._create(**req.dict()))
+
+    @classmethod
+    def create_many(cls, requests: List[TransferRequest]) -> List['Transfer']:
+        return [
+            cast('Transfer', cls._create(**req.dict())) for req in requests
+        ]
 
     @staticmethod
     def _gen_idempotency_key(account_number: str, amount: int) -> str:
