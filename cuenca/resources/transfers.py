@@ -70,7 +70,11 @@ class Transfer(Creatable, Queryable, Retrievable):
             recipient_name=recipient_name,
             idempotency_key=idempotency_key,
         )
-        return cast('Transfer', cls._create(**req.dict()))
+        return cast('Transfer', cls.create_using_request(req))
+
+    @classmethod
+    def create_using_request(cls, request: TransferRequest) -> 'Transfer':
+        return cast('Transfer', cls._create(**request.dict()))
 
     @staticmethod
     def _gen_idempotency_key(account_number: str, amount: int) -> str:
