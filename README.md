@@ -4,7 +4,7 @@
 [![codecov](https://codecov.io/gh/cuenca-mx/cuenca-python/branch/master/graph/badge.svg)](https://codecov.io/gh/cuenca-mx/cuenca-python)
 [![PyPI](https://img.shields.io/pypi/v/cuenca.svg)](https://pypi.org/project/cuenca/)
 
-# Installation 
+# Installation
 
 `pip install cuenca`
 
