@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, Union, cast
+from typing import ClassVar, List, Optional, Union, cast
 
 from clabe import Clabe
 from pydantic import BaseModel, StrictStr
@@ -70,11 +70,13 @@ class Transfer(Creatable, Queryable, Retrievable):
             recipient_name=recipient_name,
             idempotency_key=idempotency_key,
         )
-        return cast('Transfer', cls.create_using_request(req))
+        return cast('Transfer', cls._create(**req.dict()))
 
     @classmethod
-    def create_using_request(cls, request: TransferRequest) -> 'Transfer':
-        return cast('Transfer', cls._create(**request.dict()))
+    def create_many(cls, requests: List[TransferRequest]) -> List['Transfer']:
+        return [
+            cast('Transfer', cls._create(**req.dict())) for req in requests
+        ]
 
     @staticmethod
     def _gen_idempotency_key(account_number: str, amount: int) -> str:
