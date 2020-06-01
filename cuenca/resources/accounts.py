@@ -9,6 +9,6 @@ from .base import Cacheable, Queryable
 class Account(Cacheable, Queryable):
     _resource: ClassVar = 'accounts'
 
-    name: str
+    name: str  # legal name provided by institution
     account_number: str
     institution_name: str

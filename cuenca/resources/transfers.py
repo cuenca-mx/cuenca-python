@@ -1,4 +1,5 @@
 import datetime as dt
+from functools import lru_cache
 from typing import ClassVar, List, Optional, Union, cast
 
 from clabe import Clabe
@@ -7,7 +8,9 @@ from pydantic.dataclasses import dataclass
 
 from ..types import TransferNetwork
 from ..validators import PaymentCardNumber, StrictPositiveInt, TransferQuery
+from .accounts import Account
 from .base import Creatable, Transaction
+from .resources import retrieve_uri
 
 
 class TransferRequest(BaseModel):
@@ -29,6 +32,16 @@ class Transfer(Transaction, Creatable):
     idempotency_key: str
     network: TransferNetwork
     tracking_key: Optional[str]  # clave rastreo if network is SPEI
+    destination_uri: Optional[str]  # defined after confirmation of receipt
+
+    @property  # type: ignore
+    @lru_cache()
+    def source(self) -> Optional[Account]:
+        if self.destination_uri is None:
+            acct = None
+        else:
+            acct = cast(Account, retrieve_uri(self.destination_uri))
+        return acct
 
     @classmethod
     def create(
