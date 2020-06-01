@@ -27,29 +27,39 @@ def test_transfers_create():
 
 @pytest.mark.vcr
 def test_transfers_create_many():
-    transfer_requests = [
+    valid = [
         TransferRequest(
             account_number='646180157034181180',
             amount=10000,
             descriptor='Mi primer transferencia',
             recipient_name='Rogelio Lopez',
-            idempotency_key='081e71c19f8640048090b7cd740205b1',
+            idempotency_key='35b241e25814445faf25c9cbcfc388a5',
         ),
         TransferRequest(
             account_number='646180157034181180',
             amount=10001,
-            descriptor='Mi primer transferencia',
+            descriptor='Mi segundo transferencia',
             recipient_name='Rogelio Lopez',
-            idempotency_key='64850742e0c14bc1b93e4b762f072592',
+            idempotency_key='dc15fc432a734724ab1e5884a4a24a2b',
         ),
     ]
-    transfers = Transfer.create_many(transfer_requests)
-    for transfer in transfers:
-        assert transfer.id is not None
-        assert transfer.idempotency_key is not None
-        assert transfer.status
-        assert transfer.status == Status.submitted
-        assert transfer.network == Network.internal
+    invalid = [
+        TransferRequest(
+            # BIN doesn't belong to any MX banks
+            account_number='4050000000000001',
+            amount=10002,
+            descriptor='Mi transferencia invalida',
+            recipient_name='Rogelio Lopez',
+            idempotency_key='4a92e77054ba4e369a134e400f7c313d',
+        ),
+    ]
+    transfers = Transfer.create_many(valid + invalid)
+    assert {req.idempotency_key for req in valid} == {
+        tr.idempotency_key for tr in transfers['submitted']
+    }
+    assert all([tr.status == 'submitted' for tr in transfers['submitted']])
+    assert len(transfers['errors']) == 1
+    assert transfers['errors'][0]['request'] == invalid[0]
 
 
 @pytest.mark.vcr
