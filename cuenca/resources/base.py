@@ -14,12 +14,11 @@ from ..validators import QueryParams, TransactionQuery
 class Resource:
     _resource: ClassVar[str]
 
+    id: str
+
     # purely for MyPy
     def __init__(self, **_):  # pragma no cover
         ...
-
-    id: str
-    created_at: dt.datetime
 
     @classmethod
     def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> 'Resource':
@@ -65,6 +64,8 @@ class Creatable(Resource):
 
 class Queryable(Resource):
     _query_params: ClassVar = QueryParams
+
+    created_at: dt.datetime
 
     @classmethod
     def one(cls, **query_params) -> Resource:
