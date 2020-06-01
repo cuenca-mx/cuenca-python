@@ -5,9 +5,9 @@ from clabe import Clabe
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
-from ..types import Network, Status
+from ..types import TransferNetwork
 from ..validators import PaymentCardNumber, StrictPositiveInt, TransferQuery
-from .base import Creatable, Queryable, Retrievable
+from .base import Creatable, Transaction
 
 
 class TransferRequest(BaseModel):
@@ -19,21 +19,16 @@ class TransferRequest(BaseModel):
 
 
 @dataclass
-class Transfer(Creatable, Queryable, Retrievable):
-    _endpoint: ClassVar = '/transfers'
+class Transfer(Transaction, Creatable):
+    _resource: ClassVar = 'transfers'
     _query_params: ClassVar = TransferQuery
 
-    id: str
-    created_at: dt.datetime
     updated_at: dt.datetime
     recipient_name: str
     account_number: str
-    amount: int  # in centavos
-    descriptor: str  # how it'll appear for the recipient
     idempotency_key: str
-    status: Status
-    network: Network
-    tracking_key: Optional[str] = None  # clave rastreo
+    network: TransferNetwork
+    tracking_key: Optional[str]  # clave rastreo if network is SPEI
 
     @classmethod
     def create(
