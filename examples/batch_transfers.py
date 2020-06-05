@@ -1,8 +1,11 @@
 import argparse
 import csv
+import logging
 from dataclasses import fields
 
 from cuenca.resources.transfers import Transfer, TransferRequest
+
+logging.basicConfig(level=logging.INFO, format='cuenca-python: %(message)s')
 
 
 def main():
@@ -23,8 +26,10 @@ def main():
         fieldnames = [field.name for field in fields(Transfer)]
         writer = csv.DictWriter(f, fieldnames)
         writer.writeheader()
-        for tr in transfers:
+        for tr in transfers['submitted']:
             writer.writerow(tr.to_dict())
+    for error in transfers['errors']:
+        logging.info(f'REQUEST: {error["request"]}, ERROR: {error["error"]}')
 
 
 if __name__ == '__main__':
