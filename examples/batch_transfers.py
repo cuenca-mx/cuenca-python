@@ -1,7 +1,7 @@
 import argparse
 import csv
-from dataclasses import fields
 import logging
+from dataclasses import fields
 
 from cuenca.resources.transfers import Transfer, TransferRequest
 
