@@ -1,10 +1,10 @@
 import pytest
+from cuenca_validations.types import Status, TransferNetwork
 from pydantic import ValidationError
 
 from cuenca import Transfer
 from cuenca.exc import MultipleResultsFound, NoResultFound
 from cuenca.resources.transfers import TransferRequest
-from cuenca.types import Status, TransferNetwork
 
 
 @pytest.mark.vcr

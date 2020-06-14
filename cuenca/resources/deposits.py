@@ -1,7 +1,8 @@
 from functools import lru_cache
 from typing import ClassVar, Optional, cast
 
-from ..types import DepositNetwork
+from cuenca_validations.types import DepositNetwork
+
 from .accounts import Account
 from .base import Cacheable, Transaction
 from .resources import retrieve_uri

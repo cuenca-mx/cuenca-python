@@ -4,10 +4,11 @@ from functools import lru_cache
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
+from cuenca_validations.types import SantizedDict, Status
+from cuenca_validations.validators import QueryParams, TransactionQuery
+
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import session
-from ..types import SantizedDict, Status
-from ..validators import QueryParams, TransactionQuery
 
 
 @dataclass

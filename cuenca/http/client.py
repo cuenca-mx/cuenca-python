@@ -3,9 +3,13 @@ from typing import Optional, Tuple
 from urllib.parse import urljoin
 
 import requests
+from cuenca_validations.typing import (
+    ClientRequestParams,
+    DictStrAny,
+    OptionalDict,
+)
 from requests import Response
 
-from ..typing import ClientRequestParams, DictStrAny, OptionalDict
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_URL = 'https://api.cuenca.com'

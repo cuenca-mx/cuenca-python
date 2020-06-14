@@ -3,11 +3,15 @@ from functools import lru_cache
 from typing import ClassVar, List, Optional, Union, cast
 
 from clabe import Clabe
+from cuenca_validations.types import TransferNetwork
+from cuenca_validations.validators import (
+    PaymentCardNumber,
+    StrictPositiveInt,
+    TransferQuery,
+)
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
-from ..types import TransferNetwork
-from ..validators import PaymentCardNumber, StrictPositiveInt, TransferQuery
 from .accounts import Account
 from .base import Creatable, Transaction
 from .resources import retrieve_uri

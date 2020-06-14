@@ -2,9 +2,9 @@ import datetime as dt
 from functools import lru_cache
 from typing import ClassVar, Optional, cast
 
+from cuenca_validations.types import TransferNetwork
 from pydantic.dataclasses import dataclass
 
-from ..types import TransferNetwork
 from .accounts import Account
 from .base import Transaction
 from .resources import retrieve_uri
