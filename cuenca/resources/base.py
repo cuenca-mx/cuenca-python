@@ -63,6 +63,7 @@ class Creatable(Resource):
         return cls._from_dict(resp)
 
 
+@dataclass
 class Queryable(Resource):
     _query_params: ClassVar = QueryParams
 
