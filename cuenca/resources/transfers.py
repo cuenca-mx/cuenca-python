@@ -3,6 +3,7 @@ from typing import ClassVar, List, Optional, Union, cast
 
 from clabe import Clabe
 from cuenca_validations.types import TransferNetwork
+from cuenca_validations.typing import DictStrAny
 from cuenca_validations.validators import (
     PaymentCardNumber,
     StrictPositiveInt,
@@ -10,7 +11,9 @@ from cuenca_validations.validators import (
 )
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
+from requests import HTTPError
 
+from ..exc import CuencaException
 from .accounts import Account
 from .base import Creatable, Transaction
 from .resources import retrieve_uri
@@ -83,10 +86,16 @@ class Transfer(Transaction, Creatable):
         return cast('Transfer', cls._create(**req.dict()))
 
     @classmethod
-    def create_many(cls, requests: List[TransferRequest]) -> List['Transfer']:
-        return [
-            cast('Transfer', cls._create(**req.dict())) for req in requests
-        ]
+    def create_many(cls, requests: List[TransferRequest]) -> DictStrAny:
+        transfers: DictStrAny = dict(submitted=[], errors=[])
+        for req in requests:
+            try:
+                transfer = cls._create(**req.dict())
+            except (CuencaException, HTTPError) as e:
+                transfers['errors'].append(dict(request=req, error=e))
+            else:
+                transfers['submitted'].append(cast('Transfer', transfer))
+        return transfers
 
     @staticmethod
     def _gen_idempotency_key(account_number: str, amount: int) -> str:
