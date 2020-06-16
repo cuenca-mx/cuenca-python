@@ -1,5 +1,4 @@
 import datetime as dt
-from functools import lru_cache
 from typing import ClassVar, List, Optional, Union, cast
 
 from clabe import Clabe
@@ -39,8 +38,7 @@ class Transfer(Transaction, Creatable):
     destination_uri: Optional[str]  # defined after confirmation of receipt
 
     @property  # type: ignore
-    @lru_cache()
-    def source(self) -> Optional[Account]:
+    def destination(self) -> Optional[Account]:
         if self.destination_uri is None:
             acct = None
         else:

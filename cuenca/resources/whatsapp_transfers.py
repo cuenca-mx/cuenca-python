@@ -1,5 +1,4 @@
 import datetime as dt
-from functools import lru_cache
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import TransferNetwork
@@ -25,7 +24,6 @@ class WhatsappTransfer(Transaction):
     tracking_key: Optional[str]  # clave rastreo if network is SPEI
 
     @property  # type: ignore
-    @lru_cache()
     def destination(self) -> Optional[Account]:
         if self.destination_uri is None:
             dest = None
@@ -33,5 +31,5 @@ class WhatsappTransfer(Transaction):
             dest = cast(Account, retrieve_uri(self.destination_uri))
         return dest
 
-    def __hash__(self):
+    def __hash__(self):  # pragma no cover
         return hash((self._resource, self.id, self.destination_uri))

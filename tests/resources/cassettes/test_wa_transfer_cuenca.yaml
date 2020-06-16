@@ -1,0 +1,97 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.2.0.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/whatsapp_transfers/SW01
+  response:
+    body:
+      string: '{"id":"SW01","created_at":"2020-06-16T05:09:50.213000","amount":10000,"status":"succeeded","descriptor":"Whatsapp
+        Transfer Internal","updated_at":"2020-06-17T05:09:50.213000","recipient_name":"Rogelio
+        Lopez","phone_number":"+525520304050","claim_url":"https://cuenca.com/recibirdinero/ST01","expires_at":"2020-06-18T05:09:50.213000","destination_uri":"/accounts/LA01","network":"internal","tracking_key":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '409'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 16 Jun 2020 05:16:01 GMT
+      Via:
+      - 1.1 2184222b7474def616ba5f5378894854.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - MB5pJj6ti9kpTbqJpM3J49YjQtvqvlCYhSVLUQ_U10nFujnMEFqduQ==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5ee85591-6afbd84d456cf612bab41b15;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - ONJOwGq_oAMFqHQ=
+      x-amzn-RequestId:
+      - 4b303dc6-6dd7-480a-b4ed-aff508bac89f
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.2.0.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/accounts/LA01
+  response:
+    body:
+      string: '{"id":"LA01","created_at":"2020-06-03T02:43:53.922000","name":"Rogelio
+        Lopez","account_number":"646180157034181180","institution_name":"Cuenca"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '144'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 16 Jun 2020 05:16:01 GMT
+      Via:
+      - 1.1 2184222b7474def616ba5f5378894854.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - jqM7A2lwYGNl_3jL-72dJFfPbezcMZFJiqsP-BeL8oPyWqE8sIYupg==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5ee85591-cec2fb00bcdd127bdcee9ced;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - ONJOyFL7IAMFfHQ=
+      x-amzn-RequestId:
+      - 5247df6a-4bc1-431e-8893-a588d28f20ec
+    status:
+      code: 200
+      message: OK
+version: 1

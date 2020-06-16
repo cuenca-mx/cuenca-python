@@ -20,9 +20,13 @@ def test_transfers_create():
     assert transfer.status
     assert transfer.status == Status.submitted
     assert transfer.network == TransferNetwork.internal
+    account = transfer.destination
+    assert account is None
     # Some seconds later
     transfer.refresh()
     assert transfer.status == Status.succeeded
+    account = transfer.destination
+    assert account is not None
 
 
 @pytest.mark.vcr

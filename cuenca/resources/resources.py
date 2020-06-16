@@ -1,4 +1,5 @@
 import re
+from functools import lru_cache
 from typing import Dict, cast
 
 from .base import Retrievable
@@ -7,6 +8,7 @@ ENDPOINT_RE = re.compile(r'.*/(?P<resource>[a-z]+)/(?P<id>.+)$')
 RESOURCES: Dict[str, Retrievable] = {}  # set in ./__init__.py after imports
 
 
+@lru_cache()
 def retrieve_uri(uri: str) -> Retrievable:
     m = ENDPOINT_RE.match(uri)
     if not m:

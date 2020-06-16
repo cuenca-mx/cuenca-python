@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.2.0.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/whatsapp_transfers/SW02
+  response:
+    body:
+      string: '{"id":"SW02","created_at":"2020-06-16T05:09:50.213000","amount":20000,"status":"submitted","descriptor":"Whatsapp
+        Transfer","updated_at":"2020-06-16T05:09:50.213000","recipient_name":"Frida
+        Kahlo","phone_number":"+525590807060","claim_url":"https://cuenca.com/recibirdinero/ST02","expires_at":"2020-06-23T05:09:50.213000","destination_uri":null,"network":"internal","tracking_key":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '386'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 16 Jun 2020 05:22:25 GMT
+      Via:
+      - 1.1 0ebc2f68fb8980f92268a1050b4bc29b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - tm5_Hi6KevQ2fXgXo_d6_xP0k3mTD1kti5n2jQEX0lCsFm7msL15jw==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5ee85710-0c97d5c61937fdd70b86c485;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - ONKKqHnBoAMFxyA=
+      x-amzn-RequestId:
+      - ca387f5b-221b-48c5-98db-448917bfd0d2
+    status:
+      code: 200
+      message: OK
+version: 1

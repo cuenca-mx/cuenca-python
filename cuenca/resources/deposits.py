@@ -1,4 +1,4 @@
-from functools import lru_cache
+from dataclasses import dataclass
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import DepositNetwork
@@ -8,6 +8,7 @@ from .base import Cacheable, Transaction
 from .resources import retrieve_uri
 
 
+@dataclass
 class Deposit(Transaction, Cacheable):
     _resource: ClassVar = 'deposits'
 
@@ -16,7 +17,6 @@ class Deposit(Transaction, Cacheable):
     tracking_key: Optional[str]  # clave rastreo if network is SPEI
 
     @property  # type: ignore
-    @lru_cache()
     def source(self) -> Optional[Account]:
         if self.source_uri is None:  # cash deposit
             acct = None

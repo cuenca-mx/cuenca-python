@@ -1,4 +1,3 @@
-from functools import lru_cache
 from typing import ClassVar
 
 from pydantic.dataclasses import dataclass
@@ -17,6 +16,5 @@ class BalanceEntry(Cacheable, Queryable):
     transaction_uri: str
 
     @property  # type: ignore
-    @lru_cache()
     def transaction(self):
         return retrieve_uri(self.transaction_uri)
