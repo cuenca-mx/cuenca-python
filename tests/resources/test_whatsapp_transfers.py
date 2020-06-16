@@ -21,9 +21,7 @@ def test_wa_transfer_spei():
     wa_transfer: WhatsappTransfer = WhatsappTransfer.retrieve(id_wa)
     assert wa_transfer.id == id_wa
     assert wa_transfer.network == TransferNetwork.spei
-    account = wa_transfer.destination
-    assert account is not None
-    assert account.id.startswith('BA')
+    assert wa_transfer.destination_uri
 
 
 @pytest.mark.vcr
