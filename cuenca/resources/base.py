@@ -1,6 +1,5 @@
 import datetime as dt
 from dataclasses import asdict, dataclass, fields
-from functools import lru_cache
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
@@ -18,7 +17,7 @@ class Resource:
     id: str
 
     # purely for MyPy
-    def __init__(self, **_):  # pragma no cover
+    def __init__(self, **_):  # pragma: no cover
         ...
 
     @classmethod
@@ -39,9 +38,6 @@ class Resource:
 
     def to_dict(self):
         return asdict(self, dict_factory=SantizedDict)
-
-    def __hash__(self):  # pragma no cover
-        return hash((self._resource, self.id))
 
 
 class Retrievable(Resource):
@@ -107,13 +103,6 @@ class Queryable(Resource):
             page = session.get(next_page_url)
             yield from (cls._from_dict(item) for item in page['items'])
             next_page_url = page['next_page_url']
-
-
-class Cacheable(Retrievable):
-    @classmethod
-    @lru_cache()
-    def retrieve(cls, id: str) -> Resource:
-        return super().retrieve(id)
 
 
 @dataclass

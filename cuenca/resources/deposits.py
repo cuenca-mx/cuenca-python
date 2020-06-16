@@ -4,12 +4,12 @@ from typing import ClassVar, Optional, cast
 from cuenca_validations.types import DepositNetwork
 
 from .accounts import Account
-from .base import Cacheable, Transaction
+from .base import Transaction
 from .resources import retrieve_uri
 
 
 @dataclass
-class Deposit(Transaction, Cacheable):
+class Deposit(Transaction):
     _resource: ClassVar = 'deposits'
 
     network: DepositNetwork

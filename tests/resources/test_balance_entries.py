@@ -9,8 +9,5 @@ def test_balance_entry_retrieve():
     balance_entry: BalanceEntry = BalanceEntry.retrieve(id_entry)
     assert balance_entry.id == id_entry
 
-    transaction = balance_entry.transaction
-    assert transaction.id in balance_entry.transaction_uri
-
-    # Second call don't produce a new request
-    transaction = balance_entry.transaction
+    txn = balance_entry.transaction
+    assert balance_entry.transaction_uri == f'/{txn._resource}/{txn.id}'

@@ -30,6 +30,3 @@ class WhatsappTransfer(Transaction):
         else:
             dest = cast(Account, retrieve_uri(self.destination_uri))
         return dest
-
-    def __hash__(self):  # pragma no cover
-        return hash((self._resource, self.id, self.destination_uri))

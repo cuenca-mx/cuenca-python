@@ -2,11 +2,11 @@ from typing import ClassVar
 
 from pydantic.dataclasses import dataclass
 
-from .base import Cacheable, Queryable
+from .base import Queryable, Retrievable
 
 
 @dataclass
-class Account(Cacheable, Queryable):
+class Account(Retrievable, Queryable):
     _resource: ClassVar = 'accounts'
 
     name: str  # legal name provided by institution
