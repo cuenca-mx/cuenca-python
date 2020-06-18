@@ -1,6 +1,6 @@
 import datetime as dt
 
-from cuenca.types import SantizedDict, Status
+from cuenca_validations.types import SantizedDict, Status
 
 
 def test_sanitized_dict():

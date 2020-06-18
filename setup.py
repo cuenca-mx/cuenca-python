@@ -13,6 +13,7 @@ test_requires = [
     'pytest-vcr',
     'pytest-cov',
     'mypy',
+    'cuenca-validations==0.0.2',
 ]
 
 with open('README.md', 'r') as f:
@@ -37,6 +38,8 @@ setup(
         'requests>=2.21.0,<2.22.0',
         'pydantic>=1.5,<1.6',
         'dataclasses>=0.6;python_version<"3.7"',
+        'sphinx',
+        'cuenca-validations==0.0.2',
     ],
     setup_requires=['pytest-runner'],
     tests_require=test_requires,

@@ -1,8 +1,7 @@
 import datetime as dt
 
 import pytest
-
-from cuenca.validators import QueryParams
+from cuenca_validations.validators import QueryParams
 
 
 @pytest.mark.parametrize(

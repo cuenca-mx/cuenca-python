@@ -1,24 +1,14 @@
 import datetime as dt
-from typing import ClassVar, List, Optional, Union, cast
+from typing import ClassVar, List, Optional, cast
 
-from clabe import Clabe
-from pydantic import BaseModel, StrictStr
+from cuenca_validations.types import Status, TransferNetwork
+from cuenca_validations.typing import DictStrAny
+from cuenca_validations.validators import TransferQuery, TransferRequest
 from pydantic.dataclasses import dataclass
 from requests import HTTPError
 
 from ..exc import CuencaException
-from ..types import Network, Status
-from ..typing import DictStrAny
-from ..validators import PaymentCardNumber, StrictPositiveInt, TransferQuery
 from .base import Creatable, Queryable, Retrievable
-
-
-class TransferRequest(BaseModel):
-    recipient_name: StrictStr
-    account_number: Union[Clabe, PaymentCardNumber]
-    amount: StrictPositiveInt  # in centavos
-    descriptor: StrictStr  # how it'll appear for the recipient
-    idempotency_key: str  # must be unique for each transfer
 
 
 @dataclass
@@ -35,7 +25,7 @@ class Transfer(Creatable, Queryable, Retrievable):
     descriptor: str  # how it'll appear for the recipient
     idempotency_key: str
     status: Status
-    network: Network
+    network: TransferNetwork
     tracking_key: Optional[str] = None  # clave rastreo
 
     @classmethod

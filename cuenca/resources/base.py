@@ -2,10 +2,11 @@ from dataclasses import asdict, dataclass, fields
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
+from cuenca_validations.types import SantizedDict
+from cuenca_validations.validators import QueryParams
+
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import session
-from ..types import SantizedDict
-from ..validators import QueryParams
 
 
 @dataclass

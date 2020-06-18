@@ -3,7 +3,9 @@ import csv
 import logging
 from dataclasses import fields
 
-from cuenca.resources.transfers import Transfer, TransferRequest
+from cuenca_validations.validators import TransferRequest
+
+from cuenca.resources.transfers import Transfer
 
 logging.basicConfig(level=logging.INFO, format='cuenca-python: %(message)s')
 
