@@ -36,6 +36,7 @@ setup(
         'clabe>=1.0.0,<1.3.0',
         'requests>=2.21.0,<2.25.0',
         'pydantic>=1.5,<1.6',
+        'cuenca-validations>=0.2.3,<0.3.0',
         'dataclasses>=0.6;python_version<"3.7"',
     ],
     setup_requires=['pytest-runner'],
