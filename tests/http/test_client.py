@@ -11,3 +11,4 @@ def test_invalid_auth():
     with pytest.raises(CuencaResponseException) as e:
         session.post('/api_keys', dict())
     assert e.value.status_code == 401
+    assert str(e.value)

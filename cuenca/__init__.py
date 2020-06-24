@@ -1,8 +1,24 @@
-__all__ = ['__version__', 'ApiKey', 'Transfer', 'configure']
+__all__ = [
+    '__version__',
+    'ApiKey',
+    'Account',
+    'BalanceEntry',
+    'Deposit',
+    'Transfer',
+    'WhatsappTransfer',
+    'configure',
+]
 
 
 from .http import session
-from .resources import ApiKey, Transfer
+from .resources import (
+    Account,
+    ApiKey,
+    BalanceEntry,
+    Deposit,
+    Transfer,
+    WhatsappTransfer,
+)
 from .version import __version__
 
 configure = session.configure

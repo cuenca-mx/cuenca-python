@@ -1,21 +1,19 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
+from cuenca_validations import ApiKeyQuery
 from pydantic.dataclasses import dataclass
 
 from ..http import session
-from ..validators import ApiKeyQuery
 from .base import Creatable, Queryable, Retrievable
 
 
 @dataclass
 class ApiKey(Creatable, Queryable, Retrievable):
-    _endpoint: ClassVar = '/api_keys'
+    _resource: ClassVar = 'api_keys'
     _query_params: ClassVar = ApiKeyQuery
 
-    id: str
     secret: str
-    created_at: dt.datetime
     deactivated_at: Optional[dt.datetime]
 
     @property
@@ -38,6 +36,6 @@ class ApiKey(Creatable, Queryable, Retrievable):
         locking you out. The deactivated key is returned so that you have the
         exact deactivated_at time.
         """
-        url = cls._endpoint + f'/{api_key_id}'
+        url = cls._resource + f'/{api_key_id}'
         resp = session.delete(url, dict(minutes=minutes))
         return cast('ApiKey', cls._from_dict(resp))

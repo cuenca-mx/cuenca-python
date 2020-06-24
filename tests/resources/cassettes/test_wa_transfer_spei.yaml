@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.2.0.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/whatsapp_transfers/SW03
+  response:
+    body:
+      string: '{"id":"SW03","created_at":"2020-06-16T05:09:50.213000","amount":50000,"status":"submitted","descriptor":"Whatsapp
+        Transfer SPEI","updated_at":"2020-06-17T05:09:50.213000","recipient_name":"Diego
+        Rivera","phone_number":"+525590807060","claim_url":"https://cuenca.com/recibirdinero/ST03","expires_at":"2020-06-19T05:09:50.213000","destination_uri":"/accounts/BA01","network":"spei","tracking_key":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '400'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 16 Jun 2020 05:20:44 GMT
+      Via:
+      - 1.1 891b1deb65550a4f9d40f2585712c586.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 8muGOoMkVdh67CSUPwlliswN0PaH3MlaUTfcD69jslHjh8wzUXXU6A==
+      X-Amz-Cf-Pop:
+      - DFW3-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5ee856ac-f74e55503e85bb107dddaaf8;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - ONJ66EE7IAMFgeg=
+      x-amzn-RequestId:
+      - 7ebd8823-8bec-4d13-a939-b34dbfe405a4
+    status:
+      code: 200
+      message: OK
+version: 1

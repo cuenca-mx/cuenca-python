@@ -1,10 +1,10 @@
 import pytest
+from cuenca_validations.types import Status, TransferNetwork
 from pydantic import ValidationError
 
 from cuenca import Transfer
 from cuenca.exc import MultipleResultsFound, NoResultFound
 from cuenca.resources.transfers import TransferRequest
-from cuenca.types import Network, Status
 
 
 @pytest.mark.vcr
@@ -19,13 +19,16 @@ def test_transfers_create():
     assert transfer.idempotency_key is not None
     assert transfer.status
     assert transfer.status == Status.submitted
-    assert transfer.network == Network.internal
+    assert transfer.network == TransferNetwork.internal
+    account = transfer.destination
+    assert account is None
     # Some seconds later
     transfer.refresh()
     assert transfer.status == Status.succeeded
+    account = transfer.destination
+    assert account is not None
 
 
-@pytest.mark.xfail(reason='API is returning status failed')
 @pytest.mark.vcr
 def test_transfers_create_many():
     valid = [
@@ -34,14 +37,14 @@ def test_transfers_create_many():
             amount=10000,
             descriptor='Mi primer transferencia',
             recipient_name='Rogelio Lopez',
-            idempotency_key='35b241e25814445faf25c9cbcfc388a5',
+            idempotency_key='35b241e25814445faf25c9cbcfc388a6',
         ),
         TransferRequest(
             account_number='646180157034181180',
             amount=10001,
             descriptor='Mi segundo transferencia',
             recipient_name='Rogelio Lopez',
-            idempotency_key='dc15fc432a734724ab1e5884a4a24a2b',
+            idempotency_key='dc15fc432a734724ab1e5884a4a24a2c',
         ),
     ]
     invalid = [
@@ -51,7 +54,7 @@ def test_transfers_create_many():
             amount=10002,
             descriptor='Mi transferencia invalida',
             recipient_name='Rogelio Lopez',
-            idempotency_key='4a92e77054ba4e369a134e400f7c313d',
+            idempotency_key='4a92e77054ba4e369a134e400f7c313e',
         ),
     ]
     transfers = Transfer.create_many(valid + invalid)

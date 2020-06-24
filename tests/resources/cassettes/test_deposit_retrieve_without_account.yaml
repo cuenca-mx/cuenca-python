@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.2.0.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/deposits/CD01
+  response:
+    body:
+      string: '{"id":"CD01","created_at":"2020-06-03T03:07:36.338000","amount":10000,"status":"succeeded","descriptor":
+      "Cash deposit","source_uri":null,"network":"cash","tracking_key":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '190'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 16 Jun 2020 04:32:12 GMT
+      Via:
+      - 1.1 738c4d7519e726c557e6997ecf719e4b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - n-SxoX81W8zQF21F88udV6ZRcUdLdzVrg13H8k3IU8iX8Romx4uKUA==
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amzn-Trace-Id:
+      - Root=1-5ee84b4b-c226db00ef999cb24a3b0dda;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - ONCz4FjtIAMF8OA=
+      x-amzn-RequestId:
+      - 2ed6fc7c-7103-4da4-bc7d-895b92bf080e
+    status:
+      code: 200
+      message: OK
+version: 1

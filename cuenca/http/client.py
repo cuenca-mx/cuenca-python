@@ -1,11 +1,16 @@
 import os
 from typing import Optional, Tuple
+from urllib.parse import urljoin
 
 import requests
+from cuenca_validations.typing import (
+    ClientRequestParams,
+    DictStrAny,
+    OptionalDict,
+)
 from requests import Response
 
 from ..exc import CuencaResponseException
-from ..typing import ClientRequestParams, DictStrAny, OptionalDict
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_URL = 'https://api.cuenca.com'
@@ -73,7 +78,7 @@ class Session:
     ) -> DictStrAny:
         resp = self.session.request(
             method=method,
-            url=self.base_url + endpoint,
+            url=self.base_url + urljoin('/', endpoint),
             auth=self.auth,
             json=data,
             params=params,

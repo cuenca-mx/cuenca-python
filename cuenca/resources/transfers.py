@@ -2,15 +2,21 @@ import datetime as dt
 from typing import ClassVar, List, Optional, Union, cast
 
 from clabe import Clabe
+from cuenca_validations import (
+    DictStrAny,
+    PaymentCardNumber,
+    StrictPositiveInt,
+    TransferNetwork,
+    TransferQuery,
+)
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 from requests import HTTPError
 
 from ..exc import CuencaException
-from ..types import Network, Status
-from ..typing import DictStrAny
-from ..validators import PaymentCardNumber, StrictPositiveInt, TransferQuery
-from .base import Creatable, Queryable, Retrievable
+from .accounts import Account
+from .base import Creatable, Transaction
+from .resources import retrieve_uri
 
 
 class TransferRequest(BaseModel):
@@ -22,21 +28,25 @@ class TransferRequest(BaseModel):
 
 
 @dataclass
-class Transfer(Creatable, Queryable, Retrievable):
-    _endpoint: ClassVar = '/transfers'
+class Transfer(Transaction, Creatable):
+    _resource: ClassVar = 'transfers'
     _query_params: ClassVar = TransferQuery
 
-    id: str
-    created_at: dt.datetime
     updated_at: dt.datetime
     recipient_name: str
     account_number: str
-    amount: int  # in centavos
-    descriptor: str  # how it'll appear for the recipient
     idempotency_key: str
-    status: Status
-    network: Network
-    tracking_key: Optional[str] = None  # clave rastreo
+    network: TransferNetwork
+    tracking_key: Optional[str]  # clave rastreo if network is SPEI
+    destination_uri: Optional[str]  # defined after confirmation of receipt
+
+    @property  # type: ignore
+    def destination(self) -> Optional[Account]:
+        if self.destination_uri is None:
+            acct = None
+        else:
+            acct = cast(Account, retrieve_uri(self.destination_uri))
+        return acct
 
     @classmethod
     def create(
