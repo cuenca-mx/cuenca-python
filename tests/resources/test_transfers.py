@@ -29,7 +29,6 @@ def test_transfers_create():
     assert account is not None
 
 
-@pytest.mark.xfail(reason='incorrect handling of invalid BINs')
 @pytest.mark.vcr
 def test_transfers_create_many():
     valid = [
@@ -65,6 +64,7 @@ def test_transfers_create_many():
     assert all([tr.status == 'submitted' for tr in transfers['submitted']])
     assert len(transfers['errors']) == 1
     assert transfers['errors'][0]['request'] == invalid[0]
+    # TODO (for Glen): add validation of the exception
 
 
 @pytest.mark.vcr

@@ -1,6 +1,6 @@
 import pytest
-from requests import HTTPError
 
+from cuenca.exc import CuencaResponseException
 from cuenca.http.client import Session
 
 
@@ -8,6 +8,6 @@ from cuenca.http.client import Session
 def test_invalid_auth():
     session = Session()
     session.configure(sandbox=False)
-    with pytest.raises(HTTPError) as e:
+    with pytest.raises(CuencaResponseException) as e:
         session.post('/api_keys', dict())
-    assert '401 Client Error: Unauthorized' in str(e)
+    assert e.value.status_code == 401

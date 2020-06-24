@@ -10,6 +10,8 @@ from cuenca_validations.typing import (
 )
 from requests import Response
 
+from ..exc import CuencaResponseException
+from ..typing import ClientRequestParams, DictStrAny, OptionalDict
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_URL = 'https://api.cuenca.com'
@@ -90,4 +92,6 @@ class Session:
     def _check_response(response: Response):
         if response.ok:
             return
-        response.raise_for_status()
+        raise CuencaResponseException(
+            json=response.json(), status_code=response.status_code,
+        )

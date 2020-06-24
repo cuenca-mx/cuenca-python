@@ -34,21 +34,21 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 16 Jun 2020 14:08:28 GMT
+      - Fri, 19 Jun 2020 19:49:16 GMT
       Via:
-      - 1.1 98d616233114d17eb11ae73341f42d06.cloudfront.net (CloudFront)
+      - 1.1 0ebc2f68fb8980f92268a1050b4bc29b.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - hAMbOQKdNylpDUYve_6TBkOSLBQc-DqMvY3Myx6xYj3iJ_97xmbQhw==
+      - HeG1uosL8jEJZO1TuyzT12aENpoMN7w76kTMXNLBG_B6ujRlrs1oGg==
       X-Amz-Cf-Pop:
       - DFW3-C1
       X-Amzn-Trace-Id:
-      - Root=1-5ee8d258-9df43d98e82e53605f16dd34;Sampled=0
+      - Root=1-5eed16bc-9644a4b034b717d2cf636a6c;Sampled=0
       X-Cache:
       - Miss from cloudfront
       x-amz-apigw-id:
-      - OOXN2Fp3oAMFRog=
+      - OZB9bF-GIAMFaxw=
       x-amzn-RequestId:
-      - 160fce81-8505-4559-a5b8-72deede47113
+      - 46b83b53-118a-45a3-a240-9161f00ca845
     status:
       code: 200
       message: OK
@@ -87,21 +87,21 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 16 Jun 2020 14:08:28 GMT
+      - Fri, 19 Jun 2020 19:49:16 GMT
       Via:
-      - 1.1 98d616233114d17eb11ae73341f42d06.cloudfront.net (CloudFront)
+      - 1.1 0ebc2f68fb8980f92268a1050b4bc29b.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - UfhkVK0GpJKEZNmDk100SPjiYjdUbuulz9cyIiii6ZOyY_Cs92YtVg==
+      - 9qajSpl3eybEf-PPvvkvwx0DYnJBck86a2s3WXfUyBdzRsiIoQTX0Q==
       X-Amz-Cf-Pop:
       - DFW3-C1
       X-Amzn-Trace-Id:
-      - Root=1-5ee8d25c-508e2cfc2a06318285587fa2;Sampled=0
+      - Root=1-5eed16bc-6f4c7c45375e31e9ab22260c;Sampled=0
       X-Cache:
       - Miss from cloudfront
       x-amz-apigw-id:
-      - OOXOcEQyIAMFbyQ=
+      - OZB9eG5YoAMFRWw=
       x-amzn-RequestId:
-      - a771ca37-84db-4d4e-9183-6da316d0f90d
+      - 8d7126f3-8fc6-4bc1-8653-f6ed1f4cff4c
     status:
       code: 200
       message: OK
@@ -130,31 +130,34 @@ interactions:
     uri: https://sandbox.cuenca.com/transfers
   response:
     body:
-      string: '{"Code":"InternalServerError","Message":"An internal server error occurred."}'
+      string: "[\n  {\n    \"loc\": [\n      \"account_number\"\n    ],\n    \"msg\":
+        \"ensure this value has at least 18 characters\",\n    \"type\": \"value_error.any_str.min_length\",\n
+        \   \"ctx\": {\n      \"limit_value\": 18\n    }\n  },\n  {\n    \"loc\":
+        [\n      \"account_number\"\n    ],\n    \"msg\": \"The card number contains
+        a BIN (first six digits) that does not havea known association with a Mexican
+        bank. To add the association,please file an issue:https://github.com/cuenca-mx/cuenca-validations/issues\",\n
+        \   \"type\": \"value_error.payment_card_number.bin\"\n  }\n]"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '77'
+      - '526'
       Content-Type:
       - application/json
       Date:
-      - Tue, 16 Jun 2020 14:08:33 GMT
+      - Fri, 19 Jun 2020 19:49:16 GMT
       Via:
-      - 1.1 98d616233114d17eb11ae73341f42d06.cloudfront.net (CloudFront)
+      - 1.1 0ebc2f68fb8980f92268a1050b4bc29b.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - oDfjUZvl0noyhVWfgqQBQbU85XYDFG4dExOFMaGcCoPPGBBkLd_JVg==
+      - l-8vdfnuVMDakS_0L72FT0fRXIkUy04VnTtU8ZAm2wIhSgWkLFRjHg==
       X-Amz-Cf-Pop:
       - DFW3-C1
       X-Amzn-Trace-Id:
-      - Root=1-5ee8d25c-4c919680b67f1db05f77a910;Sampled=0
+      - Root=1-5eed16bc-db2f56b4ade0d04ecd9f87c8;Sampled=0
       X-Cache:
       - Error from cloudfront
       x-amz-apigw-id:
-      - OOXOfE4QoAMFfIw=
+      - OZB9gGPxIAMFeDQ=
       x-amzn-RequestId:
-      - d74e72ec-1bf7-480b-8890-738afd055635
-    status:
-      code: 500
-      message: Internal Server Error
+      - 44d083ef-8dc4-4ebb-8fdd-73d5d6f3751a
 version: 1
