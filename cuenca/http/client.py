@@ -11,7 +11,6 @@ from cuenca_validations.typing import (
 from requests import Response
 
 from ..exc import CuencaResponseException
-from ..typing import ClientRequestParams, DictStrAny, OptionalDict
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_URL = 'https://api.cuenca.com'

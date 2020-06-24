@@ -2,7 +2,7 @@ interactions:
 - request:
     body: '{"recipient_name": "Rogelio Lopez", "account_number": "646180157034181180",
       "amount": 10000, "descriptor": "Mi primer transferencia", "idempotency_key":
-      "35b241e25814445faf25c9cbcfc388a5"}'
+      "35b241e25814445faf25c9cbcfc388a6"}'
     headers:
       Accept:
       - '*/*'
@@ -24,38 +24,38 @@ interactions:
     uri: https://sandbox.cuenca.com/transfers
   response:
     body:
-      string: '{"id":"TRnjQzaKRlS-GS6ww4WG0BEg==","created_at":"2020-06-01T13:58:30.058000","updated_at":"2020-06-01T13:58:33.701000","account_number":"646180157034181180","recipient_name":"Rogelio
-        Lopez","amount":10000,"descriptor":"Mi primer transferencia","idempotency_key":"35b241e25814445faf25c9cbcfc388a5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null}'
+      string: '{"id":"TRQ3WpYW6MQaeoL5mVFprr0g","created_at":"2020-06-24T21:03:52.020615","updated_at":"2020-06-24T21:03:52.392496","account_number":"646180157034181180","recipient_name":"Rogelio
+        Lopez","amount":10000,"descriptor":"Mi primer transferencia","idempotency_key":"35b241e25814445faf25c9cbcfc388a6","status":"submitted","network":"internal","destination_uri":null,"tracking_key":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '379'
+      - '380'
       Content-Type:
       - application/json
       Date:
-      - Fri, 19 Jun 2020 19:49:16 GMT
+      - Wed, 24 Jun 2020 21:03:54 GMT
       Via:
-      - 1.1 0ebc2f68fb8980f92268a1050b4bc29b.cloudfront.net (CloudFront)
+      - 1.1 29a1c68127d9dc10f4d3f796d32c8104.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - HeG1uosL8jEJZO1TuyzT12aENpoMN7w76kTMXNLBG_B6ujRlrs1oGg==
+      - UjhPsBzfB4doehazeZz0UxaJqGBYcbyIa6zMHRs3CX9V-RG8K4HA1Q==
       X-Amz-Cf-Pop:
-      - DFW3-C1
+      - DFW55-C1
       X-Amzn-Trace-Id:
-      - Root=1-5eed16bc-9644a4b034b717d2cf636a6c;Sampled=0
+      - Root=1-5ef3bfb7-2b35c0873a5a957f7cf0d5b3;Sampled=0
       X-Cache:
       - Miss from cloudfront
       x-amz-apigw-id:
-      - OZB9bF-GIAMFaxw=
+      - OprkwF8DoAMFmlw=
       x-amzn-RequestId:
-      - 46b83b53-118a-45a3-a240-9161f00ca845
+      - c52b292e-8164-4fc5-a5b5-db38289dded0
     status:
-      code: 200
-      message: OK
+      code: 201
+      message: Created
 - request:
     body: '{"recipient_name": "Rogelio Lopez", "account_number": "646180157034181180",
       "amount": 10001, "descriptor": "Mi segundo transferencia", "idempotency_key":
-      "dc15fc432a734724ab1e5884a4a24a2b"}'
+      "dc15fc432a734724ab1e5884a4a24a2c"}'
     headers:
       Accept:
       - '*/*'
@@ -77,38 +77,38 @@ interactions:
     uri: https://sandbox.cuenca.com/transfers
   response:
     body:
-      string: '{"id":"TRSVbLhfYjQuOtvcyW6jc6zw==","created_at":"2020-06-01T13:58:31.514000","updated_at":"2020-06-01T13:58:34.094000","account_number":"646180157034181180","recipient_name":"Rogelio
-        Lopez","amount":10001,"descriptor":"Mi segundo transferencia","idempotency_key":"dc15fc432a734724ab1e5884a4a24a2b","status":"failed","network":"internal","destination_uri":null,"tracking_key":null}'
+      string: '{"id":"TR0h5kmeA5TbG9Kf8HIZ1cCA","created_at":"2020-06-24T21:03:54.637946","updated_at":"2020-06-24T21:03:54.995211","account_number":"646180157034181180","recipient_name":"Rogelio
+        Lopez","amount":10001,"descriptor":"Mi segundo transferencia","idempotency_key":"dc15fc432a734724ab1e5884a4a24a2c","status":"submitted","network":"internal","destination_uri":null,"tracking_key":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '380'
+      - '381'
       Content-Type:
       - application/json
       Date:
-      - Fri, 19 Jun 2020 19:49:16 GMT
+      - Wed, 24 Jun 2020 21:03:57 GMT
       Via:
-      - 1.1 0ebc2f68fb8980f92268a1050b4bc29b.cloudfront.net (CloudFront)
+      - 1.1 29a1c68127d9dc10f4d3f796d32c8104.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 9qajSpl3eybEf-PPvvkvwx0DYnJBck86a2s3WXfUyBdzRsiIoQTX0Q==
+      - q_U00AyXbSqT_3Pp714G6nyJkowVj7bmusr-7uMttMAqqDEaID3beg==
       X-Amz-Cf-Pop:
-      - DFW3-C1
+      - DFW55-C1
       X-Amzn-Trace-Id:
-      - Root=1-5eed16bc-6f4c7c45375e31e9ab22260c;Sampled=0
+      - Root=1-5ef3bfba-6d7948c6a550cd6115c3bd81;Sampled=0
       X-Cache:
       - Miss from cloudfront
       x-amz-apigw-id:
-      - OZB9eG5YoAMFRWw=
+      - OprlLFBkIAMFtcg=
       x-amzn-RequestId:
-      - 8d7126f3-8fc6-4bc1-8653-f6ed1f4cff4c
+      - 664e4689-dc65-43a5-a3c0-932c0422166b
     status:
-      code: 200
-      message: OK
+      code: 201
+      message: Created
 - request:
     body: '{"recipient_name": "Rogelio Lopez", "account_number": "4050000000000001",
       "amount": 10002, "descriptor": "Mi transferencia invalida", "idempotency_key":
-      "4a92e77054ba4e369a134e400f7c313d"}'
+      "4a92e77054ba4e369a134e400f7c313e"}'
     headers:
       Accept:
       - '*/*'
@@ -145,19 +145,22 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 19 Jun 2020 19:49:16 GMT
+      - Wed, 24 Jun 2020 21:03:59 GMT
       Via:
-      - 1.1 0ebc2f68fb8980f92268a1050b4bc29b.cloudfront.net (CloudFront)
+      - 1.1 29a1c68127d9dc10f4d3f796d32c8104.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - l-8vdfnuVMDakS_0L72FT0fRXIkUy04VnTtU8ZAm2wIhSgWkLFRjHg==
+      - UFpWq7nZ47OPgMQ4SjS0Z0zT-lOI4s46un5nBLdoaiAp4qGG680lvg==
       X-Amz-Cf-Pop:
-      - DFW3-C1
+      - DFW55-C1
       X-Amzn-Trace-Id:
-      - Root=1-5eed16bc-db2f56b4ade0d04ecd9f87c8;Sampled=0
+      - Root=1-5ef3bfbd-5a650270c3000f609d81e370;Sampled=0
       X-Cache:
       - Error from cloudfront
       x-amz-apigw-id:
-      - OZB9gGPxIAMFeDQ=
+      - OprlkEmuIAMF-4w=
       x-amzn-RequestId:
-      - 44d083ef-8dc4-4ebb-8fdd-73d5d6f3751a
+      - 4ee60e4d-1207-4ac0-8981-97368e23f384
+    status:
+      code: 400
+      message: Bad Request
 version: 1

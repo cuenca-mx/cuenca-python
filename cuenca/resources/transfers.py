@@ -2,11 +2,11 @@ import datetime as dt
 from typing import ClassVar, List, Optional, Union, cast
 
 from clabe import Clabe
-from cuenca_validations.types import TransferNetwork
-from cuenca_validations.typing import DictStrAny
-from cuenca_validations.validators import (
+from cuenca_validations import (
+    DictStrAny,
     PaymentCardNumber,
     StrictPositiveInt,
+    TransferNetwork,
     TransferQuery,
 )
 from pydantic import BaseModel, StrictStr

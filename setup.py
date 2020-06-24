@@ -5,14 +5,13 @@ from setuptools import find_packages, setup
 version = SourceFileLoader('version', 'cuenca/version.py').load_module()
 
 test_requires = [
-    'black',
-    'coverage<5',
-    'flake8',
-    'isort[pipfile]',
-    'pytest',
-    'pytest-vcr',
-    'pytest-cov',
-    'mypy',
+    'pytest==5.4.3',
+    'pytest-cov==2.10.0',
+    'pytest-vcr==1.0.2',
+    'black==19.10b0',
+    'isort[pipfile]==4.3.21',
+    'flake8==3.8.3',
+    'mypy==0.782',
 ]
 
 with open('README.md', 'r') as f:
@@ -33,10 +32,10 @@ setup(
     package_data=dict(cuenca=['py.typed']),
     python_requires='>=3.6',
     install_requires=[
-        'clabe>=1.0.0,<1.3.0',
-        'requests>=2.21.0,<2.25.0',
-        'pydantic>=1.5,<1.6',
-        'cuenca-validations>=0.2.3,<0.3.0',
+        'clabe==1.2.0',
+        'requests==2.24.0',
+        'pydantic==1.5.1',
+        'cuenca-validations==0.2.3',
         'dataclasses>=0.6;python_version<"3.7"',
     ],
     setup_requires=['pytest-runner'],
