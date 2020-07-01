@@ -34,7 +34,7 @@ setup(
     install_requires=[
         'requests==2.24.0',
         'pydantic==1.5.1',
-        'cuenca-validations==0.2.4',
+        'cuenca-validations==0.2.5',
         'dataclasses>=0.7;python_version<"3.7"',
     ],
     setup_requires=['pytest-runner'],
