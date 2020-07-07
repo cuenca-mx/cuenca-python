@@ -3,7 +3,7 @@ from dataclasses import asdict, dataclass, fields
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
-from cuenca_validations import (
+from cuenca_validations.types import (
     QueryParams,
     SantizedDict,
     Status,
