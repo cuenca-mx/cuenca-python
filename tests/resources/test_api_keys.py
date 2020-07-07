@@ -37,15 +37,13 @@ def test_api_key_deactivate():
 
 
 def test_api_key_to_dict():
-    created = dt.datetime.utcnow()
+    created = dt.datetime.now()
+    date = created.astimezone(dt.timezone.utc).isoformat()
     api_key: ApiKey = ApiKey(
         id='12345', secret='********', created_at=created, deactivated_at=None,
     )
     api_key_dict = dict(
-        id='12345',
-        secret='********',
-        created_at=created.isoformat(),
-        deactivated_at=None,
+        id='12345', secret='********', created_at=date, deactivated_at=None,
     )
     assert api_key_dict == api_key.to_dict()
 
