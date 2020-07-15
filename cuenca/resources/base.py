@@ -25,7 +25,7 @@ class Resource:
         ...
 
     @classmethod
-    def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> 'Resource':
+    def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> "Resource":
         cls._filter_excess_fields(obj_dict)
         return cls(**obj_dict)
 
@@ -47,7 +47,7 @@ class Resource:
 class Retrievable(Resource):
     @classmethod
     def retrieve(cls, id: str) -> Resource:
-        resp = session.get(f'/{cls._resource}/{id}')
+        resp = session.get(f"/{cls._resource}/{id}")
         return cls._from_dict(resp)
 
     def refresh(self):
@@ -62,6 +62,23 @@ class Creatable(Resource):
         resp = session.post(cls._resource, data)
         return cls._from_dict(resp)
 
+    @staticmethod
+    def _gen_idempotency_key(attr_1: Union[str, int], attr_2: Union[str, int]) -> str:
+        """
+        We *strongly* recommend using your own internal database id as the
+        idempotency_key, but this provides some level of protection against
+        submitting duplicate transfers.
+
+        The recommended idempotency_key scheme:
+        1. create a transfer entry in your own database with the status
+            created
+        2. call this method with the unique id from your database as the
+            idempotency_key
+        3. update your database with the status created or submitted after
+            receiving a response from this method
+        """
+        return f"{dt.datetime.utcnow().date()}:{attr_1}:{attr_2}"
+
 
 @dataclass
 class Queryable(Resource):
@@ -73,7 +90,7 @@ class Queryable(Resource):
     def one(cls, **query_params) -> Resource:
         q = cls._query_params(limit=2, **query_params)
         resp = session.get(cls._resource, q.dict())
-        items = resp['items']
+        items = resp["items"]
         len_items = len(items)
         if not len_items:
             raise NoResultFound
@@ -86,7 +103,7 @@ class Queryable(Resource):
         q = cls._query_params(limit=1, **query_params)
         resp = session.get(cls._resource, q.dict())
         try:
-            item = resp['items'][0]
+            item = resp["items"][0]
         except IndexError:
             rv = None
         else:
@@ -97,16 +114,16 @@ class Queryable(Resource):
     def count(cls, **query_params) -> int:
         q = cls._query_params(count=True, **query_params)
         resp = session.get(cls._resource, q.dict())
-        return resp['count']
+        return resp["count"]
 
     @classmethod
     def all(cls, **query_params) -> Generator[Resource, None, None]:
         q = cls._query_params(**query_params)
-        next_page_url = f'{cls._resource}?{urlencode(q.dict())}'
+        next_page_url = f"{cls._resource}?{urlencode(q.dict())}"
         while next_page_url:
             page = session.get(next_page_url)
-            yield from (cls._from_dict(item) for item in page['items'])
-            next_page_url = page['next_page_url']
+            yield from (cls._from_dict(item) for item in page["items"])
+            next_page_url = page["next_page_url"]
 
 
 @dataclass
