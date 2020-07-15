@@ -1,14 +1,14 @@
 __all__ = [
-    "__version__",
-    "ApiKey",
-    "Account",
-    "BalanceEntry",
-    "Deposit",
-    "Terminal",
-    "TerminalPayment",
-    "Transfer",
-    "WhatsappTransfer",
-    "configure",
+    '__version__',
+    'ApiKey',
+    'Account',
+    'BalanceEntry',
+    'Deposit',
+    'Terminal',
+    'TerminalPayment',
+    'Transfer',
+    'WhatsappTransfer',
+    'configure',
 ]
 
 
