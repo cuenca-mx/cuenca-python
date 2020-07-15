@@ -1,12 +1,13 @@
 __all__ = [
-    '__version__',
-    'ApiKey',
-    'Account',
-    'BalanceEntry',
-    'Deposit',
-    'Transfer',
-    'WhatsappTransfer',
-    'configure',
+    "__version__",
+    "ApiKey",
+    "Account",
+    "BalanceEntry",
+    "Deposit",
+    "TerminalPayment",
+    "Transfer",
+    "WhatsappTransfer",
+    "configure",
 ]
 
 
@@ -16,6 +17,7 @@ from .resources import (
     ApiKey,
     BalanceEntry,
     Deposit,
+    TerminalPayment,
     Transfer,
     WhatsappTransfer,
 )

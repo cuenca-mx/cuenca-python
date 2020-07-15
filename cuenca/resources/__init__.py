@@ -1,11 +1,12 @@
 __all__ = [
-    'ApiKey',
-    'Account',
-    'BalanceEntry',
-    'Commission',
-    'Deposit',
-    'Transfer',
-    'WhatsappTransfer',
+    "ApiKey",
+    "Account",
+    "BalanceEntry",
+    "Commission",
+    "Deposit",
+    "TerminalPayment",
+    "Transfer",
+    "WhatsappTransfer",
 ]
 
 from .accounts import Account
@@ -14,6 +15,7 @@ from .balance_entries import BalanceEntry
 from .commissions import Commission
 from .deposits import Deposit
 from .resources import RESOURCES
+from .terminal_payment import TerminalPayment
 from .transfers import Transfer
 from .whatsapp_transfers import WhatsappTransfer
 
@@ -24,6 +26,7 @@ resource_classes = [
     BalanceEntry,
     Commission,
     Deposit,
+    TerminalPayment,
     Transfer,
     WhatsappTransfer,
 ]
