@@ -9,7 +9,7 @@ from .base import Creatable, Queryable, Retrievable, Updateable
 class TerminalRequest(BaseModel):  # TO-DO: Move to cuenca_validations
     brand_name: StrictStr
     brand_image: StrictStr
-    slug: str = Field(regex=r"^[a-z0-9-_]{5,25}$")
+    slug: str = Field(regex=r'^[a-z0-9-_]{5,25}$')
     card_active: bool
     cash_active: bool
     spei_active: bool
@@ -18,7 +18,7 @@ class TerminalRequest(BaseModel):  # TO-DO: Move to cuenca_validations
 @dataclass
 class Terminal(Queryable, Retrievable, Creatable, Updateable):
 
-    _resource: ClassVar = "terminal"
+    _resource: ClassVar = 'terminal'
 
     brand_name: str
     brand_image: str
@@ -33,11 +33,11 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         cls,
         brand_name: str,
         slug: str,
-        brand_image: Optional[str] = "",
+        brand_image: Optional[str] = '',
         card_active: Optional[bool] = False,
         cash_active: Optional[bool] = True,
         spei_active: Optional[bool] = True,
-    ) -> "Terminal":
+    ) -> 'Terminal':
         """
         :param brand_name: Commercial brand name for the merchant
         :param brand_image: URL of the image/logo
@@ -58,7 +58,7 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
             cash_active=cash_active,
             spei_active=spei_active,
         )
-        return cast("Terminal", cls._create(**req.dict()))
+        return cast('Terminal', cls._create(**req.dict()))
 
     def update(
         self,
@@ -68,7 +68,7 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         card_active: Optional[bool] = None,
         cash_active: Optional[bool] = None,
         spei_active: Optional[bool] = None,
-    ) -> "Terminal":
+    ) -> 'Terminal':
         """
         :param brand_name: Commercial brand name for the merchant
         :param brand_image: URL of the image/logo
@@ -89,4 +89,4 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
             cash_active=cash_active or self.cash_active,
             spei_active=spei_active or self.spei_active,
         )
-        return cast("Terminal", self._update(**req.dict()))
+        return cast('Terminal', self._update(**req.dict()))

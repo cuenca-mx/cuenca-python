@@ -10,10 +10,10 @@ from .base import Creatable, Transaction
 
 
 class TerminalNetwork(str, Enum):  # TO-DO: Move to cuenca_validations
-    cash = "cash"
-    internal = "internal"
-    spei = "spei"
-    card = "card"
+    cash = 'cash'
+    internal = 'internal'
+    spei = 'spei'
+    card = 'card'
 
 
 class TerminalPaymentRequest(BaseModel):  # TO-DO: Move to cuenca_validations
@@ -34,7 +34,7 @@ class TerminalPaymentQuery(TransactionQuery):  # TO-DO: To cuenca_validations
 @dataclass
 class TerminalPayment(Transaction, Creatable):
 
-    _resource: ClassVar = "terminal_payments"
+    _resource: ClassVar = 'terminal_payments'
     _query_params: ClassVar = TerminalPaymentQuery
 
     idempotency_key: str
@@ -57,7 +57,7 @@ class TerminalPayment(Transaction, Creatable):
         sender_name: str,
         phone_number: str,
         idempotency_key: str,
-    ) -> "TerminalPayment":
+    ) -> 'TerminalPayment':
         """
         :param amount: principal amount (in centavos) excluding Cuenca fees,
             but including Stripe fees (card transactions only)
@@ -80,4 +80,4 @@ class TerminalPayment(Transaction, Creatable):
             phone_number=phone_number,
             idempotency_key=idempotency_key,
         )
-        return cast("TerminalPayment", cls._create(**req.dict()))
+        return cast('TerminalPayment', cls._create(**req.dict()))

@@ -1,13 +1,13 @@
 __all__ = [
-    "ApiKey",
-    "Account",
-    "BalanceEntry",
-    "Commission",
-    "Deposit",
-    "Terminal",
-    "TerminalPayment",
-    "Transfer",
-    "WhatsappTransfer",
+    'ApiKey',
+    'Account',
+    'BalanceEntry',
+    'Commission',
+    'Deposit',
+    'Terminal',
+    'TerminalPayment',
+    'Transfer',
+    'WhatsappTransfer',
 ]
 
 from .accounts import Account
