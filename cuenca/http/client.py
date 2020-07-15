@@ -13,8 +13,8 @@ from requests import Response
 from ..exc import CuencaResponseException
 from ..version import API_VERSION, CLIENT_VERSION
 
-API_URL = 'https://api.cuenca.com'
-SANDBOX_URL = 'https://sandbox.cuenca.com'
+API_URL = "https://api.cuenca.com"
+SANDBOX_URL = "https://sandbox.cuenca.com"
 
 
 class Session:
@@ -28,14 +28,14 @@ class Session:
         self.session = requests.Session()
         self.session.headers.update(
             {
-                'X-Cuenca-Api-Version': API_VERSION,
-                'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
+                "X-Cuenca-Api-Version": API_VERSION,
+                "User-Agent": f"cuenca-python/{CLIENT_VERSION}",
             }
         )
         self.base_url = API_URL
-        api_key = os.getenv('CUENCA_API_KEY', '')
-        api_secret = os.getenv('CUENCA_API_SECRET', '')
-        self.webhook_secret = os.getenv('CUENCA_WEBHOOK_SECRET')
+        api_key = os.getenv("CUENCA_API_KEY", "")
+        api_secret = os.getenv("CUENCA_API_SECRET", "")
+        self.webhook_secret = os.getenv("CUENCA_WEBHOOK_SECRET")
         self.auth = (api_key, api_secret)
 
     def configure(
@@ -60,13 +60,16 @@ class Session:
     def get(
         self, endpoint: str, params: ClientRequestParams = None,
     ) -> DictStrAny:
-        return self.request('get', endpoint, params=params)
+        return self.request("get", endpoint, params=params)
 
     def post(self, endpoint: str, data: DictStrAny) -> DictStrAny:
-        return self.request('post', endpoint, data=data)
+        return self.request("post", endpoint, data=data)
+
+    def put(self, endpoint: str, data: DictStrAny) -> DictStrAny:
+        return self.request("put", endpoint, data=data)
 
     def delete(self, endpoint: str, data: OptionalDict = None) -> DictStrAny:
-        return self.request('delete', endpoint, data=data)
+        return self.request("delete", endpoint, data=data)
 
     def request(
         self,
@@ -78,7 +81,7 @@ class Session:
     ) -> DictStrAny:
         resp = self.session.request(
             method=method,
-            url=self.base_url + urljoin('/', endpoint),
+            url=self.base_url + urljoin("/", endpoint),
             auth=self.auth,
             json=data,
             params=params,

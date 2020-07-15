@@ -1,6 +1,6 @@
 from typing import ClassVar, Optional, cast
 
-from pydantic import BaseModel, StrictStr, constr
+from pydantic import BaseModel, Field, StrictStr
 from pydantic.dataclasses import dataclass
 
 from .base import Creatable, Queryable, Retrievable, Updateable
@@ -9,7 +9,7 @@ from .base import Creatable, Queryable, Retrievable, Updateable
 class TerminalRequest(BaseModel):  # TO-DO: Move to cuenca_validations
     brand_name: StrictStr
     brand_image: StrictStr
-    slug: constr(regex=r"^[a-z0-9-_]{5,25}$")  # noqa: F722
+    slug: str = Field(regex=r"^[a-z0-9-_]{5,25}$")
     card_active: bool
     cash_active: bool
     spei_active: bool
