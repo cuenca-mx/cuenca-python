@@ -3,6 +3,7 @@ from cuenca_validations.types import Status
 from pydantic import ValidationError
 
 from cuenca import TerminalPayment
+from cuenca.exc import MultipleResultsFound, NoResultFound
 from cuenca.resources.terminal_payment import (  # TO-DO: cuenca_validations
     TerminalNetwork,
 )
@@ -11,22 +12,53 @@ from cuenca.resources.terminal_payment import (  # TO-DO: cuenca_validations
 # Retrieving terminal payments
 @pytest.mark.vcr
 def test_terminal_payment_retrieve():
-    id_transfer: str = "test"
-    transfer: TerminalPayment = TerminalPayment.retrieve(id_transfer)
-    assert transfer.id == id_transfer
-    assert transfer.status == Status.succeeded
-    assert transfer.confirmation_code == "ABC123"
-    assert transfer.network == TerminalNetwork.spei
+    id_payment: str = "test"
+    payment: TerminalPayment = TerminalPayment.retrieve(id_payment)
+    assert payment.id == id_payment
+    assert payment.status == Status.succeeded
+    assert payment.confirmation_code == "ABC123"
+    assert payment.network == TerminalNetwork.spei
+
+
+@pytest.mark.vcr
+def test_terminal_payment_one():
+    key: str = "idempotency_key_1"
+    payment: TerminalPayment = TerminalPayment.one(idempotency_key=key)
+    assert payment.idempotency_key == key
+
+
+@pytest.mark.vcr
+def test_terminal_payment_errors():
+    with pytest.raises(NoResultFound):
+        TerminalPayment.one(idempotency_key="wrong_key")
+
+    with pytest.raises(MultipleResultsFound):
+        TerminalPayment.one(status=Status.submitted)
+
+
+@pytest.mark.vcr
+def test_terminal_payment_first():
+    payment: TerminalPayment = TerminalPayment.first(status=Status.submitted)
+    assert payment is not None
+    assert payment.status == Status.submitted
+    payment = TerminalPayment.first(network=TerminalNetwork.internal)
+    assert payment is None
+
+
+@pytest.mark.vcr
+def test_terminal_payment_all():
+    payments = TerminalPayment.all(status=Status.submitted)
+    assert all([py.status is Status.submitted for py in payments])
 
 
 @pytest.mark.vcr
 def test_terminal_payment_count():
     # Count all items
-    count = TerminalPayment.count()
+    count: int = TerminalPayment.count()
     assert count == 12
 
     # Count with filters
-    count = TerminalPayment.count(status=Status.succeeded)
+    count: int = TerminalPayment.count(status=Status.succeeded)
     assert count == 3
 
 

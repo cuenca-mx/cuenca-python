@@ -2,7 +2,7 @@ import datetime as dt
 from enum import Enum
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import StrictPositiveInt
+from cuenca_validations.types import StrictPositiveInt, TransactionQuery
 from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 
@@ -26,11 +26,16 @@ class TerminalPaymentRequest(BaseModel):  # TO-DO: Move to cuenca_validations
     idempotency_key: str  # must be unique for each transfer
 
 
+class TerminalPaymentQuery(TransactionQuery):  # TO-DO: Move to cuenca_validations
+    idempotency_key: Optional[str] = None
+    network: Optional[str] = None
+
+
 @dataclass
 class TerminalPayment(Transaction, Creatable):
 
     _resource: ClassVar = "terminal_payments"
-    # _query_params: ClassVar = TransferQuery
+    _query_params: ClassVar = TerminalPaymentQuery
 
     idempotency_key: str
     destination_uri: str
@@ -45,11 +50,11 @@ class TerminalPayment(Transaction, Creatable):
     @classmethod
     def create(
         cls,
-        amount: StrictPositiveInt,
-        descriptor: StrictStr,
+        amount: int,
+        descriptor: str,
         destination_uri: str,
         network: TerminalNetwork,
-        sender_name: StrictStr,
+        sender_name: str,
         phone_number: str,
         idempotency_key: Optional[str] = None,
     ) -> "TerminalPayment":

@@ -1,0 +1,45 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.2.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/terminal_payments?status=submitted
+  response:
+    body:
+      string: '{"items": [{"id": "TRQ3WpYW6MQaeoL5mVFprr0g", "amount": 5000, "descriptor": "Orden de Tacos #12", "destination_uri":
+      "/accounts/L050", "network": "card", "sender_name": "Monica Gomez", "phone_number":
+      "525500001111", "idempotency_key": "hFBzqBeL0BZJvwCcJ947", "status": "submitted",
+      "created_at":"2020-05-11T18:41:00.332534","updated_at":"2020-05-11T18:41:00.352103", "platform_fees": 1000,
+      "confirmation_code": "", "external_processor_reference": "cs_test_12345678"},{"id": "2RQ3WpYW6MQaeoL5mVFprr0g", "amount": 5000, "descriptor": "Orden de Tacos #12", "destination_uri":
+      "/accounts/L050", "network": "card", "sender_name": "Monica Gomez", "phone_number":
+      "525500001111", "idempotency_key": "hFBzqBeL0BZJvwCcJ947", "status": "submitted",
+      "created_at":"2020-05-11T18:41:00.332534","updated_at":"2020-05-11T18:41:00.352103", "platform_fees": 1000,
+      "confirmation_code": "", "external_processor_reference": "cs_test_12345678"},{"id": "3RQ3WpYW6MQaeoL5mVFprr0g", "amount": 5000, "descriptor": "Orden de Tacos #12", "destination_uri":
+      "/accounts/L050", "network": "card", "sender_name": "Monica Gomez", "phone_number":
+      "525500001111", "idempotency_key": "hFBzqBeL0BZJvwCcJ947", "status": "submitted",
+      "created_at":"2020-05-11T18:41:00.332534","updated_at":"2020-05-11T18:41:00.352103", "platform_fees": 1000,
+      "confirmation_code": "", "external_processor_reference": "cs_test_12345678"}], 
+        "next_page_url": null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '287'
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+version: 1
