@@ -80,6 +80,13 @@ class Creatable(Resource):
         return f"{dt.datetime.utcnow().date()}:{attr_1}:{attr_2}"
 
 
+class Updateable(Resource):
+    @classmethod
+    def _update(cls, **data) -> Resource:
+        resp = session.put(cls._resource, data)
+        return cls._from_dict(resp)
+
+
 @dataclass
 class Queryable(Resource):
     _query_params: ClassVar = QueryParams

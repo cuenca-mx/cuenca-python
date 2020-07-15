@@ -4,6 +4,7 @@ __all__ = [
     "BalanceEntry",
     "Commission",
     "Deposit",
+    "Terminal",
     "TerminalPayment",
     "Transfer",
     "WhatsappTransfer",
@@ -16,6 +17,7 @@ from .commissions import Commission
 from .deposits import Deposit
 from .resources import RESOURCES
 from .terminal_payment import TerminalPayment
+from .terminals import Terminal
 from .transfers import Transfer
 from .whatsapp_transfers import WhatsappTransfer
 
@@ -26,6 +28,7 @@ resource_classes = [
     BalanceEntry,
     Commission,
     Deposit,
+    Terminal,
     TerminalPayment,
     Transfer,
     WhatsappTransfer,

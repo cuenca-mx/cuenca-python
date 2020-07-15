@@ -1,0 +1,38 @@
+interactions:
+- request:
+    body: '{"brand_name": "Tacos Pepe", "brand_image": "", "slug": "tacos-pepe", "card_active":
+      false, "cash_active": true, "spei_active": true}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '133'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.2.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/terminal
+  response:
+    body:
+      string: '{"id": "TRykH9-lXrS6iJocclOl4ATQ==", "brand_name": "Tacos Pepe", "brand_image": "", "slug": "tacos-pepe", "card_active":
+      false, "cash_active": true, "spei_active": true, "stripe_ready": true, "created_at":"2020-05-11T18:41:00.332534","updated_at":"2020-05-11T18:41:00.352103"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '287'
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+version: 1
