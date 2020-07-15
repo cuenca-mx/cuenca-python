@@ -18,8 +18,8 @@ interactions:
     uri: https://sandbox.cuenca.com/terminal_payments/test
   response:
     body:
-      string: '{"id": "test", "amount": 5000, "descriptor": "Orden de Tacos #12", "destination_uri":
-      "/accounts/L050", "network": "spei", "sender_name": "Monica Gomez", "phone_number":
+      string: '{"id": "test", "amount": 5000, "descriptor": "Orden de Tacos #12", "terminal_uri":
+      "/terminals/TR050", "network": "spei", "sender_name": "Monica Gomez", "phone_number":
       "525500001111", "idempotency_key": "hFBzqBeL0BZJvwCcJ947", "status": "succeeded",
       "created_at":"2020-05-11T18:41:00.332534","updated_at":"2020-05-11T18:41:00.352103", "platform_fees": 1000,
       "confirmation_code": "ABC123", "external_processor_reference": "646180123400000003"}'

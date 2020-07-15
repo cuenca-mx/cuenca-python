@@ -70,10 +70,11 @@ def test_terminal_payment_create():
     payment = TerminalPayment.create(
         amount=5000,
         descriptor="Orden de Tacos #12",
-        destination_uri="/accounts/L050",
+        terminal_uri="/terminals/TR032",
         network=TerminalNetwork.card,
         sender_name="Monica Gomez",
         phone_number="525500001111",
+        idempotency_key="hFBzqBeL0BZJvwCcJ947",
     )
     assert payment.id is not None
     assert payment.idempotency_key is not None
@@ -90,10 +91,11 @@ def test_terminal_payment_cannot_create_without_required_attrs():
     valid_attrs = {
         "amount": 5000,
         "descriptor": "Orden de Tacos #12",
-        "destination_uri": "/accounts/L050",
+        "terminal_uri": "/terminals/TR032",
         "network": TerminalNetwork.cash,
         "sender_name": "Monica Gomez",
         "phone_number": "525500001111",
+        "idempotency_key": "123",
     }
 
     # All attributes are required
@@ -109,10 +111,11 @@ def test_terminal_payment_cannot_create_with_invalid_attrs():
     valid_attrs = {
         "amount": 5000,
         "descriptor": "Orden de Tacos #12",
-        "destination_uri": "/accounts/L050",
+        "terminal_uri": "/terminals/TR032",
         "network": TerminalNetwork.cash,
         "sender_name": "Monica Gomez",
         "phone_number": "525500001111",
+        "idempotency_key": "123",
     }
 
     # Invalid amount

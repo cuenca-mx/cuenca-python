@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"amount": 5000, "descriptor": "Orden de Tacos #12", "destination_uri":
-      "/accounts/L050", "network": "card", "sender_name": "Monica Gomez", "phone_number":
+    body: '{"amount": 5000, "descriptor": "Orden de Tacos #12", "terminal_uri":
+      "/terminals/TR050", "network": "card", "sender_name": "Monica Gomez", "phone_number":
       "525500001111", "idempotency_key": "hFBzqBeL0BZJvwCcJ947"}'
     headers:
       Accept:
@@ -24,8 +24,8 @@ interactions:
     uri: https://sandbox.cuenca.com/terminal_payments
   response:
     body:
-      string: '{"id": "TRQ3WpYW6MQaeoL5mVFprr0g", "amount": 5000, "descriptor": "Orden de Tacos #12", "destination_uri":
-      "/accounts/L050", "network": "card", "sender_name": "Monica Gomez", "phone_number":
+      string: '{"id": "TRQ3WpYW6MQaeoL5mVFprr0g", "amount": 5000, "descriptor": "Orden de Tacos #12", "terminal_uri":
+      "/terminals/TR050", "network": "card", "sender_name": "Monica Gomez", "phone_number":
       "525500001111", "idempotency_key": "hFBzqBeL0BZJvwCcJ947", "status": "submitted",
       "created_at":"2020-05-11T18:41:00.332534","updated_at":"2020-05-11T18:41:00.352103", "platform_fees": 1000,
       "confirmation_code": "", "external_processor_reference": "cs_test_12345678"}'
