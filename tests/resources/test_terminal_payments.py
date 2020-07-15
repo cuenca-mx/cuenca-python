@@ -4,14 +4,14 @@ from pydantic import ValidationError
 
 from cuenca import TerminalPayment
 from cuenca.exc import MultipleResultsFound, NoResultFound
-from cuenca.resources.terminal_payment import (  # TO-DO: cuenca_validations
+from cuenca.resources.terminal_payments import (  # TO-DO: cuenca_validations
     TerminalNetwork,
 )
 
 
 # Retrieving terminal payments
 @pytest.mark.vcr
-def test_terminal_payment_retrieve():
+def test_terminal_payments_retrieve():
     id_payment: str = "test"
     payment: TerminalPayment = TerminalPayment.retrieve(id_payment)
     assert payment.id == id_payment
@@ -21,14 +21,14 @@ def test_terminal_payment_retrieve():
 
 
 @pytest.mark.vcr
-def test_terminal_payment_one():
+def test_terminal_payments_one():
     key: str = "idempotency_key_1"
     payment: TerminalPayment = TerminalPayment.one(idempotency_key=key)
     assert payment.idempotency_key == key
 
 
 @pytest.mark.vcr
-def test_terminal_payment_errors():
+def test_terminal_payments_errors():
     with pytest.raises(NoResultFound):
         TerminalPayment.one(idempotency_key="wrong_key")
 
@@ -37,7 +37,7 @@ def test_terminal_payment_errors():
 
 
 @pytest.mark.vcr
-def test_terminal_payment_first():
+def test_terminal_payments_first():
     payment: TerminalPayment = TerminalPayment.first(status=Status.submitted)
     assert payment is not None
     assert payment.status == Status.submitted
@@ -46,13 +46,13 @@ def test_terminal_payment_first():
 
 
 @pytest.mark.vcr
-def test_terminal_payment_all():
+def test_terminal_payments_all():
     payments = TerminalPayment.all(status=Status.submitted)
     assert all([py.status is Status.submitted for py in payments])
 
 
 @pytest.mark.vcr
-def test_terminal_payment_count():
+def test_terminal_payments_count():
     # Count all items
     count: int = TerminalPayment.count()
     assert count == 12
@@ -66,7 +66,7 @@ def test_terminal_payment_count():
 
 
 @pytest.mark.vcr
-def test_terminal_payment_create():
+def test_terminal_payments_create():
     payment = TerminalPayment.create(
         amount=5000,
         descriptor="Orden de Tacos #12",
@@ -87,7 +87,7 @@ def test_terminal_payment_create():
     assert payment.external_processor_reference == "cs_test_12345678"
 
 
-def test_terminal_payment_cannot_create_without_required_attrs():
+def test_terminal_payments_cannot_create_without_required_attrs():
     valid_attrs = {
         "amount": 5000,
         "descriptor": "Orden de Tacos #12",
@@ -107,7 +107,7 @@ def test_terminal_payment_cannot_create_without_required_attrs():
         assert f"missing 1 required positional argument: '{attr}'" in str(e)
 
 
-def test_terminal_payment_cannot_create_with_invalid_attrs():
+def test_terminal_payments_cannot_create_with_invalid_attrs():
     valid_attrs = {
         "amount": 5000,
         "descriptor": "Orden de Tacos #12",

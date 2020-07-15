@@ -16,7 +16,7 @@ from .balance_entries import BalanceEntry
 from .commissions import Commission
 from .deposits import Deposit
 from .resources import RESOURCES
-from .terminal_payment import TerminalPayment
+from .terminal_payments import TerminalPayment
 from .terminals import Terminal
 from .transfers import Transfer
 from .whatsapp_transfers import WhatsappTransfer
