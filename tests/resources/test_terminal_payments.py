@@ -8,8 +8,33 @@ from cuenca.resources.terminal_payment import (  # TO-DO: cuenca_validations
 )
 
 
+# Retrieving terminal payments
 @pytest.mark.vcr
-def test_create_terminal_payment():
+def test_terminal_payment_retrieve():
+    id_transfer: str = "test"
+    transfer: TerminalPayment = TerminalPayment.retrieve(id_transfer)
+    assert transfer.id == id_transfer
+    assert transfer.status == Status.succeeded
+    assert transfer.confirmation_code == "ABC123"
+    assert transfer.network == TerminalNetwork.spei
+
+
+@pytest.mark.vcr
+def test_terminal_payment_count():
+    # Count all items
+    count = TerminalPayment.count()
+    assert count == 12
+
+    # Count with filters
+    count = TerminalPayment.count(status=Status.succeeded)
+    assert count == 3
+
+
+# Creating terminal payments
+
+
+@pytest.mark.vcr
+def test_terminal_payment_create():
     payment = TerminalPayment.create(
         amount=5000,
         descriptor="Orden de Tacos #12",
@@ -29,7 +54,7 @@ def test_create_terminal_payment():
     assert payment.external_processor_reference == "cs_test_12345678"
 
 
-def test_cannot_create_payment_without_required_attributes():
+def test_terminal_payment_cannot_create_without_required_attrs():
     valid_attrs = {
         "amount": 5000,
         "descriptor": "Orden de Tacos #12",
@@ -48,7 +73,7 @@ def test_cannot_create_payment_without_required_attributes():
         assert f"missing 1 required positional argument: '{attr}'" in str(e)
 
 
-def test_cannot_create_payment_with_invalid_attributes():
+def test_terminal_payment_cannot_create_with_invalid_attrs():
     valid_attrs = {
         "amount": 5000,
         "descriptor": "Orden de Tacos #12",
