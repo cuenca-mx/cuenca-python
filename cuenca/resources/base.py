@@ -62,23 +62,6 @@ class Creatable(Resource):
         resp = session.post(cls._resource, data)
         return cls._from_dict(resp)
 
-    @staticmethod
-    def _gen_idempotency_key(attr_1: Union[str, int], attr_2: Union[str, int]) -> str:
-        """
-        We *strongly* recommend using your own internal database id as the
-        idempotency_key, but this provides some level of protection against
-        submitting duplicate transfers.
-
-        The recommended idempotency_key scheme:
-        1. create a transfer entry in your own database with the status
-            created
-        2. call this method with the unique id from your database as the
-            idempotency_key
-        3. update your database with the status created or submitted after
-            receiving a response from this method
-        """
-        return f"{dt.datetime.utcnow().date()}:{attr_1}:{attr_2}"
-
 
 class Updateable(Resource):
     @classmethod

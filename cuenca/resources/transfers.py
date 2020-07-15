@@ -29,7 +29,7 @@ class TransferRequest(BaseModel):
 
 @dataclass
 class Transfer(Transaction, Creatable):
-    _resource: ClassVar = "transfers"
+    _resource: ClassVar = 'transfers'
     _query_params: ClassVar = TransferQuery
 
     updated_at: dt.datetime
@@ -56,7 +56,7 @@ class Transfer(Transaction, Creatable):
         descriptor: str,
         recipient_name: str,
         idempotency_key: Optional[str] = None,
-    ) -> "Transfer":
+    ) -> 'Transfer':
         """
         :param account_number: CLABE
         :param amount: needs to be in centavos (not pesos)
@@ -65,6 +65,14 @@ class Transfer(Transaction, Creatable):
         :param idempotency_key: must be unique for each transfer to avoid
             duplicates
         :return: Transfer object
+
+        The recommended idempotency_key scheme:
+        1. create a transfer entry in your own database with the status
+            created
+        2. call this method with the unique id from your database as the
+            idempotency_key
+        3. update your database with the status created or submitted after
+            receiving a response from this method
         """
         if not idempotency_key:
             idempotency_key = cls._gen_idempotency_key(account_number, amount)
@@ -75,7 +83,7 @@ class Transfer(Transaction, Creatable):
             recipient_name=recipient_name,
             idempotency_key=idempotency_key,
         )
-        return cast("Transfer", cls._create(**req.dict()))
+        return cast('Transfer', cls._create(**req.dict()))
 
     @classmethod
     def create_many(cls, requests: List[TransferRequest]) -> DictStrAny:
@@ -84,7 +92,16 @@ class Transfer(Transaction, Creatable):
             try:
                 transfer = cls._create(**req.dict())
             except (CuencaException, HTTPError) as e:
-                transfers["errors"].append(dict(request=req, error=e))
+                transfers['errors'].append(dict(request=req, error=e))
             else:
-                transfers["submitted"].append(cast("Transfer", transfer))
+                transfers['submitted'].append(cast('Transfer', transfer))
         return transfers
+
+    @staticmethod
+    def _gen_idempotency_key(account_number: str, amount: int) -> str:
+        """
+        We *strongly* recommend using your own internal database id as the
+        idempotency_key, but this provides some level of protection against
+        submitting duplicate transfers
+        """
+        return f'{dt.datetime.utcnow().date()}:{account_number}:{amount}'

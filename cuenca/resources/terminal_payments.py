@@ -26,7 +26,7 @@ class TerminalPaymentRequest(BaseModel):  # TO-DO: Move to cuenca_validations
     idempotency_key: str  # must be unique for each transfer
 
 
-class TerminalPaymentQuery(TransactionQuery):  # TO-DO: Move to cuenca_validations
+class TerminalPaymentQuery(TransactionQuery):  # TO-DO: To cuenca_validations
     idempotency_key: Optional[str] = None
     network: Optional[str] = None
 
