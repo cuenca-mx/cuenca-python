@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: '{"brand_name": "Tacos y Jugos Pepe", "brand_image": "iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAvSURBVHgB7c0xAQAgCAAwtJcBDER+iMDJsxXYeT8rFtxYIhaLxWKxWCwWi8XiWQO6BwI2GFK7OAAAAABJRU5ErkJggg==",
+    body: '{"brand_name": "Tacos y Jugos Pepe", "brand_image": "iBL{Q4GJ0x0000DNk~Le0000U0000U2nGNE06Q?Qq5uE@32;bRa{vGf6951U69E94oEQKA00DDSM?wIu&K&6g000DMK}|sb0I`n?{9y$E001vZL_t(|0qxB(0RSKf05G(d0SrWbh``CS71(({D;C^XA{L9qVzF2(7K_E=Sp&KU0yY>@yEp&<002ovPDHLkV1f",
       "slug": "tacos-y-jugos-pepe", "card_active": true, "cash_active": true, "spei_active":
       true}'
     headers:
@@ -20,7 +20,7 @@ interactions:
     uri: https://sandbox.cuenca.com/terminal/TR000396
   response:
     body:
-      string: '{"id": "TR000396", "brand_name": "Tacos y Jugos Pepe", "brand_image": "iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAvSURBVHgB7c0xAQAgCAAwtJcBDER+iMDJsxXYeT8rFtxYIhaLxWKxWCwWi8XiWQO6BwI2GFK7OAAAAABJRU5ErkJggg==", "slug": "tacos-y-jugos-pepe", "card_active":
+      string: '{"id": "TR000396", "brand_name": "Tacos y Jugos Pepe", "brand_image": "iBL{Q4GJ0x0000DNk~Le0000U0000U2nGNE06Q?Qq5uE@32;bRa{vGf6951U69E94oEQKA00DDSM?wIu&K&6g000DMK}|sb0I`n?{9y$E001vZL_t(|0qxB(0RSKf05G(d0SrWbh``CS71(({D;C^XA{L9qVzF2(7K_E=Sp&KU0yY>@yEp&<002ovPDHLkV1f", "slug": "tacos-y-jugos-pepe", "card_active":
       true, "cash_active": true, "spei_active": true, "stripe_ready": true, "created_at":"2020-05-11T18:41:00.332534","updated_at":"2020-05-11T18:41:00.352103"}'
     headers:
       Connection:

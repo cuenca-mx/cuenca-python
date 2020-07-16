@@ -7,10 +7,9 @@ from cuenca import Terminal
 from cuenca.exc import NoResultFound
 
 sample_image = (
-    "iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAA"
-    "AsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAvSURBVHgB7c"
-    "0xAQAgCAAwtJcBDER+iMDJsxXYeT8rFtxYIhaLxWKxWCwWi8XiWQO6BwI2GFK7OAAA"
-    "AABJRU5ErkJggg=="
+    "iBL{Q4GJ0x0000DNk~Le0000U0000U2nGNE06Q?Qq5uE@32;bRa{vGf6951U69E94o"
+    "EQKA00DDSM?wIu&K&6g000DMK}|sb0I`n?{9y$E001vZL_t(|0qxB(0RSKf05G(d0S"
+    "rWbh``CS71(({D;C^XA{L9qVzF2(7K_E=Sp&KU0yY>@yEp&<002ovPDHLkV1f"
 )
 
 # Querying terminals

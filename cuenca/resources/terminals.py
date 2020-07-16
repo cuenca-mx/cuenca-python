@@ -79,7 +79,7 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         """
 
         encoded_image = (
-            base64.b64encode(brand_image).decode('utf-8')
+            base64.b85encode(brand_image).decode('utf-8')
             if brand_image
             else None
         )
@@ -116,7 +116,7 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         """
 
         encoded_image = (
-            base64.b64encode(brand_image).decode('utf-8')
+            base64.b85encode(brand_image).decode('utf-8')
             if brand_image
             else None
         )
