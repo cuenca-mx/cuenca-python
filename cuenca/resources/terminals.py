@@ -1,3 +1,4 @@
+import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from pydantic import BaseModel, Field, StrictStr
@@ -9,7 +10,7 @@ from .base import Creatable, Queryable, Retrievable, Updateable
 class TerminalRequest(BaseModel):  # TO-DO: Move to cuenca_validations
     brand_name: StrictStr
     brand_image: StrictStr
-    slug: str = Field(regex=r'^[a-z0-9-_]{5,25}$')
+    slug: str = Field(regex=r'^[a-z0-9-_]{5,24}[a-z0-9]$')
     card_active: bool
     cash_active: bool
     spei_active: bool
@@ -26,7 +27,8 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
     card_active: bool
     cash_active: bool
     spei_active: bool
-    stripe_ready: bool  # Stripe account setup has been fully completed?
+    stripe_ready: bool  # read-only: Is Stripe setup been fully completed?
+    updated_at: dt.datetime  # read-only
 
     @classmethod
     def create(
@@ -34,7 +36,6 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         brand_name: str,
         slug: str,
         brand_image: Optional[str] = '',
-        card_active: Optional[bool] = False,
         cash_active: Optional[bool] = True,
         spei_active: Optional[bool] = True,
     ) -> 'Terminal':
@@ -54,7 +55,7 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
             brand_name=brand_name,
             brand_image=brand_image,
             slug=slug,
-            card_active=card_active,
+            card_active=False,  # Can never be True when creating
             cash_active=cash_active,
             spei_active=spei_active,
         )
@@ -78,6 +79,8 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         :param spei_active: spei payments enabled?
         :return: Terminal object
         """
+
+        self.refresh()
 
         # TO-DO: Support https://feedme.cuenca.io/files
 
