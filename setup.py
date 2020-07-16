@@ -9,7 +9,7 @@ test_requires = [
     'pytest-cov==2.10.0',
     'pytest-vcr==1.0.2',
     'black==19.10b0',
-    'isort[pipfile]==4.3.21',
+    'isort==5.0.*',
     'flake8==3.8.3',
     'mypy==0.782',
 ]
