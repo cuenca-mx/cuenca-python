@@ -7,13 +7,22 @@ from pydantic.dataclasses import dataclass
 from .base import Creatable, Queryable, Retrievable, Updateable
 
 
-class TerminalRequest(BaseModel):  # TO-DO: Move to cuenca_validations
+class TerminalCreateRequest(BaseModel):  # TO-DO: Move to cuenca_validations
     brand_name: StrictStr
     brand_image: StrictStr
     slug: str = Field(regex=r'^[a-z0-9-_]{5,24}[a-z0-9]$')
     card_active: bool
     cash_active: bool
     spei_active: bool
+
+
+class TerminalUpdateRequest(BaseModel):  # TO-DO: Move to cuenca_validations
+    brand_name: Optional[StrictStr]
+    brand_image: Optional[StrictStr]
+    slug: Optional[str] = Field(regex=r'^[a-z0-9-_]{5,24}[a-z0-9]$')
+    card_active: Optional[bool]
+    cash_active: Optional[bool]
+    spei_active: Optional[bool]
 
 
 @dataclass
@@ -51,7 +60,7 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
 
         # TO-DO: Support https://feedme.cuenca.io/files
 
-        req = TerminalRequest(
+        req = TerminalCreateRequest(
             brand_name=brand_name,
             brand_image=brand_image,
             slug=slug,
@@ -61,8 +70,10 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         )
         return cast('Terminal', cls._create(**req.dict()))
 
+    @classmethod
     def update(
-        self,
+        cls,
+        id: str,
         brand_name: Optional[str] = None,
         slug: Optional[str] = None,
         brand_image: Optional[str] = None,
@@ -80,16 +91,15 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         :return: Terminal object
         """
 
-        self.refresh()
-
         # TO-DO: Support https://feedme.cuenca.io/files
 
-        req = TerminalRequest(
-            brand_name=brand_name or self.brand_name,
-            brand_image=brand_image or self.brand_image,
-            slug=slug or self.slug,
-            card_active=card_active or self.card_active,
-            cash_active=cash_active or self.cash_active,
-            spei_active=spei_active or self.spei_active,
+        req = TerminalUpdateRequest(
+            brand_name=brand_name,
+            brand_image=brand_image,
+            slug=slug,
+            card_active=card_active,
+            cash_active=cash_active,
+            spei_active=spei_active,
         )
-        return cast('Terminal', self._update(**req.dict()))
+
+        return cast('Terminal', cls._update(id, **req.dict(exclude_none=True)))

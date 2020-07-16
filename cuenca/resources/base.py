@@ -64,9 +64,13 @@ class Creatable(Resource):
 
 
 class Updateable(Resource):
+    """
+    Partial updatable resource.
+    """
+
     @classmethod
-    def _update(cls, **data) -> Resource:
-        resp = session.put(cls._resource, data)
+    def _update(cls, id: str, **data) -> Resource:
+        resp = session.patch(f'/{cls._resource}/{id}', data)
         return cls._from_dict(resp)
 
 
