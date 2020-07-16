@@ -1,0 +1,34 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.2.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/terminal?limit=2&slug=invalid
+  response:
+    body:
+      string: '{"items": [], "next_page_url": null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '287'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 16 Jul 2020 16:41:00 GMT
+    status:
+      code: 200
+      message: OK
+version: 1

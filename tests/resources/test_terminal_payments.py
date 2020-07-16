@@ -8,16 +8,7 @@ from cuenca.resources.terminal_payments import (  # TO-DO: cuenca_validations
     TerminalNetwork,
 )
 
-
-# Retrieving terminal payments
-@pytest.mark.vcr
-def test_terminal_payments_retrieve():
-    id_payment: str = 'test'
-    payment: TerminalPayment = TerminalPayment.retrieve(id_payment)
-    assert payment.id == id_payment
-    assert payment.status == Status.succeeded
-    assert payment.confirmation_code == 'ABC123'
-    assert payment.network == TerminalNetwork.spei
+# Querying terminal payments
 
 
 @pytest.mark.vcr
@@ -60,6 +51,19 @@ def test_terminal_payments_count():
     # Count with filters
     count: int = TerminalPayment.count(status=Status.succeeded)
     assert count == 3
+
+
+# Retrieving terminal payments
+
+
+@pytest.mark.vcr
+def test_terminal_payments_retrieve():
+    id_payment: str = 'test'
+    payment: TerminalPayment = TerminalPayment.retrieve(id_payment)
+    assert payment.id == id_payment
+    assert payment.status == Status.succeeded
+    assert payment.confirmation_code == 'ABC123'
+    assert payment.network == TerminalNetwork.spei
 
 
 # Creating terminal payments

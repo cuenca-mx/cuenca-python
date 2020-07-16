@@ -1,6 +1,7 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
+from cuenca_validations.types import QueryParams
 from pydantic import BaseModel, Field, StrictStr
 from pydantic.dataclasses import dataclass
 
@@ -25,10 +26,16 @@ class TerminalUpdateRequest(BaseModel):  # TO-DO: Move to cuenca_validations
     spei_active: Optional[bool]
 
 
+class TerminalQuery(QueryParams):  # TO-DO: Move to cuenca_validations
+    user_id: Optional[str] = None
+    slug: Optional[str] = None
+
+
 @dataclass
 class Terminal(Queryable, Retrievable, Creatable, Updateable):
 
     _resource: ClassVar = 'terminal'
+    _query_params: ClassVar = TerminalQuery
 
     brand_name: str
     brand_image: str
@@ -38,6 +45,18 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
     spei_active: bool
     stripe_ready: bool  # read-only: Is Stripe setup been fully completed?
     updated_at: dt.datetime  # read-only
+
+    @classmethod
+    def count(cls, **query_params) -> int:
+        if not query_params:
+            raise TypeError(
+                "you must pass a query parameter for this resource."
+            )
+        return super().count(**query_params)
+
+    @classmethod
+    def all(cls, **query_params):
+        raise NotImplementedError("not supported for this resource.")
 
     @classmethod
     def create(

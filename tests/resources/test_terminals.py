@@ -4,6 +4,67 @@ import pytest
 from pydantic import ValidationError
 
 from cuenca import Terminal
+from cuenca.exc import NoResultFound
+
+# Querying terminals
+
+
+@pytest.mark.vcr
+def test_terminals_query_slug():
+    slug: str = 'tacos-pepe'
+    terminal: Terminal = Terminal.one(slug=slug)
+    assert terminal.slug == slug
+
+
+@pytest.mark.vcr
+def test_terminals_query_user_id():
+    terminal: Terminal = Terminal.one(user_id='US303951')
+    assert terminal.id is not None
+
+
+@pytest.mark.vcr
+def test_terminals_errors():
+    with pytest.raises(NoResultFound):
+        Terminal.one(slug='invalid')
+
+
+@pytest.mark.vcr
+def test_terminals_first():
+    terminal: Terminal = Terminal.first(slug='tacos-pepe')
+    assert terminal is not None
+    assert terminal.slug == 'tacos-pepe'
+    terminal = Terminal.first(user_id='invalid')
+    assert terminal is None
+
+
+@pytest.mark.vcr
+def test_terminals_count():
+    # Count with filter
+    count: int = Terminal.count(slug='tacos-pepe')
+    assert count == 1
+
+    # Count all items is not allowed for this resource
+    with pytest.raises(TypeError) as e:
+        Terminal.count()
+    assert 'you must pass a query parameter for this resource.' in str(e)
+
+
+@pytest.mark.vcr
+def test_terminals_all_method_not_allowed():
+    with pytest.raises(NotImplementedError) as e:
+        Terminal.all()
+    assert 'not supported for this resource.' in str(e)
+
+
+# Retrieving terminals
+
+
+@pytest.mark.vcr
+def test_terminals_retrieve():
+    terminal_id: str = 'TRykH9-lXrS6iJocclOl4ATQ=='
+    terminal: Terminal = Terminal.retrieve(terminal_id)
+    assert terminal.id == terminal_id
+
 
 # Creating terminals
 
@@ -92,13 +153,22 @@ def test_terminals_cannot_create_without_required_attrs():
 def test_terminals_update_full():
     terminal_id = 'TR000396'
     terminal: Terminal = Terminal.update(
-        terminal_id, slug='tacos-y-jugos-pepe', brand_name='Tacos y Jugos Pepe', brand_image='https://s3.amazonaws.com/feedme.cuenca.io/abc123', cash_active=True, spei_active=True, card_active=True,
+        terminal_id,
+        slug='tacos-y-jugos-pepe',
+        brand_name='Tacos y Jugos Pepe',
+        brand_image='https://s3.amazonaws.com/feedme.cuenca.io/abc123',
+        cash_active=True,
+        spei_active=True,
+        card_active=True,
     )
     assert terminal.id == terminal_id
     assert terminal.created_at is not None
     assert terminal.updated_at is not None
     assert terminal.brand_name == 'Tacos y Jugos Pepe'
-    assert terminal.brand_image == 'https://s3.amazonaws.com/feedme.cuenca.io/abc123'
+    assert (
+        terminal.brand_image
+        == 'https://s3.amazonaws.com/feedme.cuenca.io/abc123'
+    )
     assert terminal.slug == 'tacos-y-jugos-pepe'
     assert terminal.cash_active
     assert terminal.spei_active
