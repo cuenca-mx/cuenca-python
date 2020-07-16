@@ -18,7 +18,7 @@ interactions:
     uri: https://sandbox.cuenca.com/terminal/TRykH9-lXrS6iJocclOl4ATQ==
   response:
     body:
-      string: '{"id": "TRykH9-lXrS6iJocclOl4ATQ==", "brand_name": "Tacos Pepe", "brand_image": "https://s3.amazonaws.com/feedme.cuenca.io/abef8a6", "slug": "tacos-pepe", "card_active":
+      string: '{"id": "TRykH9-lXrS6iJocclOl4ATQ==", "brand_name": "Tacos Pepe", "brand_image": "", "slug": "tacos-pepe", "card_active":
       false, "cash_active": false, "spei_active": false, "stripe_ready": false, "created_at":"2020-05-11T18:41:00.332534","updated_at":"2020-05-11T18:41:00.352103"}'
     headers:
       Connection:

@@ -6,6 +6,13 @@ from pydantic import ValidationError
 from cuenca import Terminal
 from cuenca.exc import NoResultFound
 
+sample_image = (
+    "iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAA"
+    "AsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAvSURBVHgB7c"
+    "0xAQAgCAAwtJcBDER+iMDJsxXYeT8rFtxYIhaLxWKxWCwWi8XiWQO6BwI2GFK7OAAA"
+    "AABJRU5ErkJggg=="
+)
+
 # Querying terminals
 
 
@@ -88,9 +95,10 @@ def test_terminals_create_minimum():
 
 @pytest.mark.vcr
 def test_terminals_create_full():
+
     terminal: Terminal = Terminal.create(
         brand_name='Tacos Pepe',
-        brand_image='https://s3.amazonaws.com/feedme.cuenca.io/abef8a6',
+        brand_image=open('tests/resources/test-image.png', 'rb').read(),
         slug='tacos-pepe',
         cash_active=False,
         spei_active=False,
@@ -99,10 +107,7 @@ def test_terminals_create_full():
     assert terminal.created_at is not None
     assert terminal.updated_at is not None
     assert terminal.brand_name == 'Tacos Pepe'
-    assert (
-        terminal.brand_image
-        == 'https://s3.amazonaws.com/feedme.cuenca.io/abef8a6'
-    )
+    assert terminal.brand_image == sample_image
     assert terminal.slug == 'tacos-pepe'
     assert not terminal.cash_active
     assert not terminal.spei_active
@@ -156,7 +161,7 @@ def test_terminals_update_full():
         terminal_id,
         slug='tacos-y-jugos-pepe',
         brand_name='Tacos y Jugos Pepe',
-        brand_image='https://s3.amazonaws.com/feedme.cuenca.io/abc123',
+        brand_image=open('tests/resources/test-image.png', 'rb').read(),
         cash_active=True,
         spei_active=True,
         card_active=True,
@@ -165,10 +170,7 @@ def test_terminals_update_full():
     assert terminal.created_at is not None
     assert terminal.updated_at is not None
     assert terminal.brand_name == 'Tacos y Jugos Pepe'
-    assert (
-        terminal.brand_image
-        == 'https://s3.amazonaws.com/feedme.cuenca.io/abc123'
-    )
+    assert terminal.brand_image == sample_image
     assert terminal.slug == 'tacos-y-jugos-pepe'
     assert terminal.cash_active
     assert terminal.spei_active

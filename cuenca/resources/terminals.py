@@ -1,3 +1,4 @@
+import base64
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
@@ -10,7 +11,7 @@ from .base import Creatable, Queryable, Retrievable, Updateable
 
 class TerminalCreateRequest(BaseModel):  # TO-DO: Move to cuenca_validations
     brand_name: StrictStr
-    brand_image: StrictStr
+    brand_image: Optional[StrictStr]
     slug: str = Field(regex=r'^[a-z0-9-_]{5,24}[a-z0-9]$')
     card_active: bool
     cash_active: bool
@@ -63,7 +64,7 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         cls,
         brand_name: str,
         slug: str,
-        brand_image: Optional[str] = '',
+        brand_image: Optional[bytes] = None,
         cash_active: Optional[bool] = True,
         spei_active: Optional[bool] = True,
     ) -> 'Terminal':
@@ -77,11 +78,15 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         :return: Terminal object
         """
 
-        # TO-DO: Support https://feedme.cuenca.io/files
+        encoded_image = (
+            base64.b64encode(brand_image).decode('utf-8')
+            if brand_image
+            else None
+        )
 
         req = TerminalCreateRequest(
             brand_name=brand_name,
-            brand_image=brand_image,
+            brand_image=encoded_image,
             slug=slug,
             card_active=False,  # Can never be True when creating
             cash_active=cash_active,
@@ -95,7 +100,7 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         id: str,
         brand_name: Optional[str] = None,
         slug: Optional[str] = None,
-        brand_image: Optional[str] = None,
+        brand_image: Optional[bytes] = None,
         card_active: Optional[bool] = None,
         cash_active: Optional[bool] = None,
         spei_active: Optional[bool] = None,
@@ -110,11 +115,15 @@ class Terminal(Queryable, Retrievable, Creatable, Updateable):
         :return: Terminal object
         """
 
-        # TO-DO: Support https://feedme.cuenca.io/files
+        encoded_image = (
+            base64.b64encode(brand_image).decode('utf-8')
+            if brand_image
+            else None
+        )
 
         req = TerminalUpdateRequest(
             brand_name=brand_name,
-            brand_image=brand_image,
+            brand_image=encoded_image,
             slug=slug,
             card_active=card_active,
             cash_active=cash_active,
