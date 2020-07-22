@@ -1,7 +1,7 @@
 # Cuenca – Python client library
 
 [![test](https://github.com/cuenca-mx/cuenca-python/workflows/test/badge.svg)](https://github.com/cuenca-mx/cuenca-python/actions?query=workflow%3Atest)
-[![codecov](https://codecov.io/gh/cuenca-mx/cuenca-python/branch/master/graph/badge.svg)](https://codecov.io/gh/cuenca-mx/cuenca-python)
+[![codecov](https://codecov.io/gh/cuenca-mx/cuenca-python/branch/main/graph/badge.svg)](https://codecov.io/gh/cuenca-mx/cuenca-python)
 [![PyPI](https://img.shields.io/pypi/v/cuenca.svg)](https://pypi.org/project/cuenca/)
 
 # Installation
