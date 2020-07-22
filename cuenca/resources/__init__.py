@@ -2,6 +2,7 @@ __all__ = [
     'ApiKey',
     'Account',
     'BalanceEntry',
+    'Card',
     'Commission',
     'Deposit',
     'Transfer',
@@ -11,6 +12,7 @@ __all__ = [
 from .accounts import Account
 from .api_keys import ApiKey
 from .balance_entries import BalanceEntry
+from .cards import Card
 from .commissions import Commission
 from .deposits import Deposit
 from .resources import RESOURCES
@@ -22,6 +24,7 @@ resource_classes = [
     ApiKey,
     Account,
     BalanceEntry,
+    Card,
     Commission,
     Deposit,
     Transfer,

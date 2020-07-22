@@ -1,5 +1,5 @@
 import datetime as dt
-from dataclasses import asdict, dataclass, fields
+from dataclasses import asdict, dataclass, field, fields
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
@@ -9,6 +9,7 @@ from cuenca_validations.types import (
     Status,
     TransactionQuery,
 )
+from cuenca_validations.typing import DictStrAny
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import session
@@ -61,6 +62,28 @@ class Creatable(Resource):
     def _create(cls, **data) -> Resource:
         resp = session.post(cls._resource, data)
         return cls._from_dict(resp)
+
+
+@dataclass
+class Updateable(Resource):
+    snapshot: DictStrAny = field(
+        init=False, compare=False, repr=False, default_factory=dict
+    )
+
+    def __post_init__(self):
+        self.snapshot = self.to_dict()
+
+    def update(self) -> Resource:
+        current_values = self.to_dict()
+        updated_attr = {
+            key: val
+            for key, val in self.snapshot.items()
+            if key != 'snapshot' and current_values[key] != val
+        }
+        resp = session.patch(f'/{self._resource}/{self.id}', updated_attr)
+        if resp.ok:
+            self.snapshot = self.to_dict()
+        return self
 
 
 @dataclass
