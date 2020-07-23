@@ -65,6 +65,9 @@ class Session:
     def post(self, endpoint: str, data: DictStrAny) -> DictStrAny:
         return self.request('post', endpoint, data=data)
 
+    def patch(self, endpoint: str, data: DictStrAny) -> DictStrAny:
+        return self.request('patch', endpoint, data=data)
+
     def delete(self, endpoint: str, data: OptionalDict = None) -> DictStrAny:
         return self.request('delete', endpoint, data=data)
 

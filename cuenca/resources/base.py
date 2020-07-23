@@ -6,8 +6,8 @@ from urllib.parse import urlencode
 from cuenca_validations.types import (
     QueryParams,
     SantizedDict,
-    Status,
     TransactionQuery,
+    TransactionStatus,
 )
 from cuenca_validations.typing import DictStrAny
 
@@ -66,23 +66,30 @@ class Creatable(Resource):
 
 @dataclass
 class Updateable(Resource):
-    snapshot: DictStrAny = field(
+    _snapshot: DictStrAny = field(
         init=False, compare=False, repr=False, default_factory=dict
     )
 
+    updated_at: dt.datetime
+
     def __post_init__(self):
-        self.snapshot = self.to_dict()
+        self._take_snapshot()
+
+    def _take_snapshot(self):
+        current_dict = self.to_dict()
+        del current_dict['_snapshot']
+        self._snapshot = current_dict
 
     def update(self) -> Resource:
         current_values = self.to_dict()
         updated_attr = {
             key: val
-            for key, val in self.snapshot.items()
-            if key != 'snapshot' and current_values[key] != val
+            for key, val in self._snapshot.items()
+            if current_values[key] != val
         }
         resp = session.patch(f'/{self._resource}/{self.id}', updated_attr)
         if resp.ok:
-            self.snapshot = self.to_dict()
+            self._take_snapshot()
         return self
 
 
@@ -137,5 +144,5 @@ class Transaction(Retrievable, Queryable):
     _query_params: ClassVar = TransactionQuery
 
     amount: int  # in centavos
-    status: Status
+    status: TransactionStatus
     descriptor: str  # how it appears for the customer
