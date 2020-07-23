@@ -1,5 +1,5 @@
 import pytest
-from cuenca_validations.types import Status, TransferNetwork
+from cuenca_validations.types import TransactionStatus, TransferNetwork
 from pydantic import ValidationError
 
 from cuenca import Transfer
@@ -18,13 +18,13 @@ def test_transfers_create():
     assert transfer.id is not None
     assert transfer.idempotency_key is not None
     assert transfer.status
-    assert transfer.status == Status.submitted
+    assert transfer.status == TransactionStatus.submitted
     assert transfer.network == TransferNetwork.internal
     account = transfer.destination
     assert account is None
     # Some seconds later
     transfer.refresh()
-    assert transfer.status == Status.succeeded
+    assert transfer.status == TransactionStatus.succeeded
     account = transfer.destination
     assert account is not None
 
@@ -88,7 +88,7 @@ def test_transfers_one_errors():
         Transfer.one(idempotency_key='wrong_key')
 
     with pytest.raises(MultipleResultsFound):
-        Transfer.one(status=Status.submitted)
+        Transfer.one(status=TransactionStatus.submitted)
 
 
 @pytest.mark.vcr
@@ -103,8 +103,8 @@ def test_transfers_first():
 
 @pytest.mark.vcr
 def test_transfers_all():
-    transfers = Transfer.all(status=Status.succeeded)
-    assert all([tr.status is Status.succeeded for tr in transfers])
+    transfers = Transfer.all(status=TransactionStatus.succeeded)
+    assert all([tr.status is TransactionStatus.succeeded for tr in transfers])
 
 
 @pytest.mark.vcr
@@ -114,14 +114,14 @@ def test_transfers_count():
     assert count == 42
 
     # Count with filters
-    count = Transfer.count(status=Status.succeeded)
+    count = Transfer.count(status=TransactionStatus.succeeded)
     assert count == 4
 
 
 @pytest.mark.vcr
 def test_transfers_count_vs_all():
-    assert Transfer.count(status=Status.succeeded) == len(
-        list(Transfer.all(status=Status.succeeded))
+    assert Transfer.count(status=TransactionStatus.succeeded) == len(
+        list(Transfer.all(status=TransactionStatus.succeeded))
     )
     assert Transfer.count() == len(list(Transfer.all()))
 

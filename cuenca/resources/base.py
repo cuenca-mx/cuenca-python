@@ -66,7 +66,8 @@ class Creatable(Resource):
 
 @dataclass
 class Updateable(Resource):
-    _snapshot: DictStrAny = field(
+    _update_validator: ClassVar
+    snapshot: DictStrAny = field(
         init=False, compare=False, repr=False, default_factory=dict
     )
 
@@ -77,19 +78,21 @@ class Updateable(Resource):
 
     def _take_snapshot(self):
         current_dict = self.to_dict()
-        del current_dict['_snapshot']
-        self._snapshot = current_dict
+        del current_dict['snapshot']
+        self.snapshot = current_dict
 
     def update(self) -> Resource:
         current_values = self.to_dict()
         updated_attr = {
-            key: val
-            for key, val in self._snapshot.items()
+            key: current_values[key]
+            for key, val in self.snapshot.items()
             if current_values[key] != val
         }
-        resp = session.patch(f'/{self._resource}/{self.id}', updated_attr)
-        if resp.ok:
-            self._take_snapshot()
+        assert self._update_validator is not None
+        req = self._update_validator(**updated_attr)
+        print(req)
+        # session.patch(f'/{self._resource}/{self.id}', req.dict())
+        self._take_snapshot()
         return self
 
 
