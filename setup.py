@@ -4,15 +4,6 @@ from setuptools import find_packages, setup
 
 version = SourceFileLoader('version', 'cuenca/version.py').load_module()
 
-test_requires = [
-    'pytest==5.4.3',
-    'pytest-cov==2.10.0',
-    'pytest-vcr==1.0.2',
-    'black==19.10b0',
-    'isort==5.0.*',
-    'flake8==3.8.3',
-    'mypy==0.782',
-]
 
 with open('README.md', 'r') as f:
     long_description = f.read()
@@ -32,13 +23,10 @@ setup(
     package_data=dict(cuenca=['py.typed']),
     python_requires='>=3.6',
     install_requires=[
-        'requests==2.24.0',
-        'cuenca-validations==0.4.3',
+        'requests>=2.24,<2.25',
+        'cuenca-validations>=0.4,<0.5',
         'dataclasses>=0.7;python_version<"3.7"',
     ],
-    setup_requires=['pytest-runner'],
-    tests_require=test_requires,
-    extras_require=dict(test=test_requires),
     classifiers=[
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
