@@ -106,7 +106,7 @@ class Queryable(Resource):
         while next_page_url:
             page = session.get(next_page_url)
             yield from (cls._from_dict(item) for item in page['items'])
-            next_page_url = page['next_page_url']
+            next_page_url = page['_url']
 
 
 @dataclass

@@ -66,7 +66,7 @@ interactions:
     body:
       string: '{"items":[{"id":"TRhKxyL1lhQvSiMx7whOpEJA==","created_at":"2020-05-19T19:34:31.400000","updated_at":"2020-05-19T19:34:34.985000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
         Demo","idempotency_key":"key_roger_2","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRRAnqEwwRRZWVgwbDjtAGeA==","created_at":"2020-05-19T19:07:10.018000","updated_at":"2020-05-19T19:07:14.234000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null}],"next_page_url":"/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000&status=succeeded"}'
+        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null}],"_url":"/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000&status=succeeded"}'
     headers:
       Connection:
       - keep-alive
@@ -112,7 +112,7 @@ interactions:
     uri: https://sandbox.cuenca.com/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000&status=succeeded
   response:
     body:
-      string: '{"items":[],"next_page_url":null}'
+      string: '{"items":[],"_url":null}'
     headers:
       Connection:
       - keep-alive
