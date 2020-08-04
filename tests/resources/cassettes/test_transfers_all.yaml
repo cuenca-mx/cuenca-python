@@ -22,7 +22,7 @@ interactions:
         primer transferencia","idempotency_key":"my_custom_id","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TR41ohSc7ET4a6XNJlTQwO-g==","created_at":"2020-05-09T03:43:59.029000","updated_at":"2020-05-09T03:43:59.924000","account_number":"646180157034181180","recipient_name":"cuenca user","amount":10000,"descriptor":"Mi
         primer transferencia","idempotency_key":"my_unique_id","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRbunDZEb9Q9CpFQGqZlVzQA==","created_at":"2020-05-09T03:41:12.048000","updated_at":"2020-05-09T03:41:15.932000","account_number":"646180157034181180","recipient_name":"cuenca user","amount":10000,"descriptor":"Mi
         primer transferencia","idempotency_key":"2020-05-09:646180157034181180:10000","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRXrre-cmATVag5-eGrpczeQ==","created_at":"2020-05-08T23:19:34.541000","updated_at":"2020-05-08T23:19:35.873000","account_number":"646180157034181180","recipient_name":"cuenca user","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null}],"next_page_url":"/transfers?created_before=2020-05-08T23%3A19%3A34.541000&status=succeeded&count=False"}'
+        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null}],"next_page_uri":"/transfers?created_before=2020-05-08T23%3A19%3A34.541000&status=succeeded&count=False"}'
     headers:
       Connection:
       - keep-alive
@@ -68,7 +68,7 @@ interactions:
     uri: https://sandbox.cuenca.com/transfers?created_before=2020-05-08T23%3A19%3A34.541000&status=succeeded&count=False
   response:
     body:
-      string: '{"items":[],"next_page_url":null}'
+      string: '{"items":[],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive

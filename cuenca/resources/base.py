@@ -102,11 +102,11 @@ class Queryable(Resource):
     @classmethod
     def all(cls, **query_params) -> Generator[Resource, None, None]:
         q = cls._query_params(**query_params)
-        next_page_url = f'{cls._resource}?{urlencode(q.dict())}'
-        while next_page_url:
-            page = session.get(next_page_url)
+        next_page_uri = f'{cls._resource}?{urlencode(q.dict())}'
+        while next_page_uri:
+            page = session.get(next_page_uri)
             yield from (cls._from_dict(item) for item in page['items'])
-            next_page_url = page['next_page_url']
+            next_page_uri = page['next_page_uri']
 
 
 @dataclass
