@@ -66,7 +66,7 @@ interactions:
     body:
       string: '{"items":[{"id":"TRhKxyL1lhQvSiMx7whOpEJA==","created_at":"2020-05-19T19:34:31.400000","updated_at":"2020-05-19T19:34:34.985000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
         Demo","idempotency_key":"key_roger_2","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRRAnqEwwRRZWVgwbDjtAGeA==","created_at":"2020-05-19T19:07:10.018000","updated_at":"2020-05-19T19:07:14.234000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null}],"_url":"/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000&status=succeeded"}'
+        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null}],"next_page_uri":"/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000&status=succeeded"}'
     headers:
       Connection:
       - keep-alive
@@ -112,7 +112,7 @@ interactions:
     uri: https://sandbox.cuenca.com/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000&status=succeeded
   response:
     body:
-      string: '{"items":[],"_url":null}'
+      string: '{"items":[],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
@@ -304,7 +304,7 @@ interactions:
         Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e42f05f230bc47268df1e1af9b97540c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRt0SsyO8pTL-wa36jIBIOTg==","created_at":"2020-05-19T22:50:44.079000","updated_at":"2020-05-19T22:50:45.415000","account_number":"646180157042875763","recipient_name":"Benito
         Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"33d0173d73a2413e9508facbfdb8c6fe","status":"failed","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TR4g7qLeDKSyOmXW-igaibLA==","created_at":"2020-05-19T22:50:43.399000","updated_at":"2020-05-19T22:50:44.456000","account_number":"646180157042875763","recipient_name":"Benito
         Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c8b7950fd4bc43a8a1ab2bbb3ead8c72","status":"failed","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRoNVh2TR7S2WVs8pc8wDChg==","created_at":"2020-05-19T22:50:42.916000","updated_at":"2020-05-19T22:50:45.701000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ce27f69f47994c9fa2930ca04de84acb","status":"failed","network":"internal","destination_uri":null,"tracking_key":null}],"_url":"/transfers?limit=100&created_before=2020-05-19T22%3A50%3A42.916000"}'
+        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ce27f69f47994c9fa2930ca04de84acb","status":"failed","network":"internal","destination_uri":null,"tracking_key":null}],"next_page_uri":"/transfers?limit=100&created_before=2020-05-19T22%3A50%3A42.916000"}'
     headers:
       Connection:
       - keep-alive
@@ -450,7 +450,7 @@ interactions:
         Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"49f6466f8cd1420e9fe1105fe993bdf5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRIDuLDDRHQY27gRpqTfeZbg==","created_at":"2020-05-19T22:27:11.611000","updated_at":"2020-05-19T22:27:13.654000","account_number":"646180157042875763","recipient_name":"Benito
         Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"dc42b8084fd34564b576691a60f0538c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRGXPypqZhRRCkw_IOzeGpdA==","created_at":"2020-05-19T22:27:11.129000","updated_at":"2020-05-19T22:27:13.543000","account_number":"646180157042875763","recipient_name":"Benito
         Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"a41d41ee7d92404dab3fe13e074af657","status":"failed","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRa1Mvq7UYT2eJbopSTGfPRA==","created_at":"2020-05-19T22:27:10.669000","updated_at":"2020-05-19T22:27:13.584000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"285c7d3440dd43e9ad7acc4dd9d90f0d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null}],"_url":"/transfers?limit=100&created_before=2020-05-19T22%3A27%3A10.669000"}'
+        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"285c7d3440dd43e9ad7acc4dd9d90f0d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null}],"next_page_uri":"/transfers?limit=100&created_before=2020-05-19T22%3A27%3A10.669000"}'
     headers:
       Connection:
       - keep-alive
@@ -596,7 +596,7 @@ interactions:
         Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"6cc3ac27937b4cc8aad848fecc016635","status":"failed","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRbD353LHZSbW4pmZJovNqwA==","created_at":"2020-05-19T22:00:10.296000","updated_at":"2020-05-19T22:00:11.212000","account_number":"646180157042875763","recipient_name":"Benito
         Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"2262dfaf7b494b13bea62edd2aba05b8","status":"failed","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRJcILfqJLRDGGEgUf2Bp4Sw==","created_at":"2020-05-19T22:00:09.716000","updated_at":"2020-05-19T22:00:12.218000","account_number":"646180157042875763","recipient_name":"Benito
         Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d9e30a354aa240f7b05443baf9096cb5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRjTIMlZ52ROec2nIA4PqefA==","created_at":"2020-05-19T22:00:09.216000","updated_at":"2020-05-19T22:00:10.241000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e1fda51348d041909b48fbdb33bb7974","status":"failed","network":"internal","destination_uri":null,"tracking_key":null}],"_url":"/transfers?limit=100&created_before=2020-05-19T22%3A00%3A09.216000"}'
+        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e1fda51348d041909b48fbdb33bb7974","status":"failed","network":"internal","destination_uri":null,"tracking_key":null}],"next_page_uri":"/transfers?limit=100&created_before=2020-05-19T22%3A00%3A09.216000"}'
     headers:
       Connection:
       - keep-alive
@@ -648,7 +648,7 @@ interactions:
         Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"cf0c854c318a4b5b95c6af867c5376cf","status":"failed","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRqCCl4tyBQnSyR8YvP1Og6A==","created_at":"2020-05-19T19:34:36.343000","updated_at":"2020-05-19T19:35:37.286000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
         Demo","idempotency_key":"key_roger_1","status":"submitted","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRhKxyL1lhQvSiMx7whOpEJA==","created_at":"2020-05-19T19:34:31.400000","updated_at":"2020-05-19T19:34:34.985000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
         Demo","idempotency_key":"key_roger_2","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null},{"id":"TRRAnqEwwRRZWVgwbDjtAGeA==","created_at":"2020-05-19T19:07:10.018000","updated_at":"2020-05-19T19:07:14.234000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null}],"_url":"/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000"}'
+        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null}],"next_page_uri":"/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000"}'
     headers:
       Connection:
       - keep-alive
@@ -694,7 +694,7 @@ interactions:
     uri: https://sandbox.cuenca.com/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000
   response:
     body:
-      string: '{"items":[],"_url":null}'
+      string: '{"items":[],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
