@@ -25,6 +25,7 @@ setup(
     install_requires=[
         'requests>=2.24,<2.25',
         'cuenca-validations==0.5.0.dev1',
+        'cuenca-validations==0.5.0.dev3',
         'dataclasses>=0.7;python_version<"3.7"',
     ],
     classifiers=[

@@ -1,5 +1,5 @@
 import datetime as dt
-from dataclasses import asdict, dataclass, field, fields
+from dataclasses import asdict, dataclass, fields
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
@@ -9,7 +9,6 @@ from cuenca_validations.types import (
     TransactionQuery,
     TransactionStatus,
 )
-from cuenca_validations.typing import DictStrAny
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import session
@@ -66,34 +65,12 @@ class Creatable(Resource):
 
 @dataclass
 class Updateable(Resource):
-    _update_validator: ClassVar
-    snapshot: DictStrAny = field(
-        init=False, compare=False, repr=False, default_factory=dict
-    )
-
     updated_at: dt.datetime
 
-    def __post_init__(self):
-        self._take_snapshot()
-
-    def _take_snapshot(self):
-        current_dict = self.to_dict()
-        del current_dict['snapshot']
-        self.snapshot = current_dict
-
-    def update(self) -> Resource:
-        current_values = self.to_dict()
-        updated_attr = {
-            key: current_values[key]
-            for key, val in self.snapshot.items()
-            if current_values[key] != val
-        }
-        assert self._update_validator is not None
-        req = self._update_validator(**updated_attr)
-        print(req)
-        # session.patch(f'/{self._resource}/{self.id}', req.dict())
-        self._take_snapshot()
-        return self
+    @classmethod
+    def _update(cls, id: str, **data) -> Resource:
+        resp = session.patch(f'/{cls._resource}/{id}', **data)
+        return cls._from_dict(resp)
 
 
 @dataclass

@@ -1,8 +1,9 @@
 import os
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Union
 from urllib.parse import urljoin
 
 import requests
+from aws_requests_auth.aws_auth import AWSRequestsAuth
 from cuenca_validations.typing import (
     ClientRequestParams,
     DictStrAny,
@@ -16,11 +17,13 @@ from ..version import API_VERSION, CLIENT_VERSION
 API_URL = 'https://api.cuenca.com'
 SANDBOX_URL = 'https://sandbox.cuenca.com'
 
+BasicOrAws = Union[Tuple[str, str], AWSRequestsAuth]
+
 
 class Session:
 
     base_url: str
-    auth: Tuple[str, str]
+    auth: BasicOrAws
     webhook_secret: Optional[str]
     session: requests.Session
 
@@ -40,8 +43,9 @@ class Session:
 
     def configure(
         self,
-        api_key: Optional[str] = None,
-        api_secret: Optional[str] = None,
+        # api_key: Optional[str] = None,
+        # api_secret: Optional[str] = None,
+        auth: Optional[BasicOrAws] = None,
         webhook_secret: Optional[str] = None,
         sandbox: Optional[bool] = None,
     ):
@@ -50,7 +54,7 @@ class Session:
         client library and configure it later. It's also useful when rolling
         the api key
         """
-        self.auth = (api_key or self.auth[0], api_secret or self.auth[1])
+        self.auth = auth if auth else self.auth
         self.webhook_secret = webhook_secret or self.webhook_secret
         if sandbox is False:
             self.base_url = API_URL
