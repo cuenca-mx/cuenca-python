@@ -16,7 +16,7 @@ from ..exc import CuencaResponseException
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_URL = 'https://api.cuenca.com'
-SANDBOX_URL = 'https://bxanq6vtyf.execute-api.us-east-1.amazonaws.com/api'
+SANDBOX_URL = 'https://sandbox.cuenca.com'
 HOST_REGEX = r'\w+\.(\w|\d|-|\.)+'
 
 BasicOrAws = Union[Tuple[str, str], AWSRequestsAuth]

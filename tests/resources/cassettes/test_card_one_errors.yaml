@@ -19,7 +19,7 @@ interactions:
       x-amz-date:
       - 20200810T172610Z
     method: GET
-    uri: https://bxanq6vtyf.execute-api.us-east-1.amazonaws.com/api/cards?limit=2&user_id=fake+id
+    uri: https://sandbox.cuenca.com/cards?limit=2&user_id=fake+id
   response:
     body:
       string: '{"items":[],"next_page_url":null}'

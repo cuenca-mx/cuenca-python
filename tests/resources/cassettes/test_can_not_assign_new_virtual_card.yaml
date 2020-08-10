@@ -23,7 +23,7 @@ interactions:
       x-amz-date:
       - 20200810T172340Z
     method: POST
-    uri: https://bxanq6vtyf.execute-api.us-east-1.amazonaws.com/api/cards
+    uri: https://sandbox.cuenca.com/cards
   response:
     body:
       string: '{"Code":"InternalServerError","Message":"An internal server error occurred."}'

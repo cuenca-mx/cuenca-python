@@ -10,7 +10,7 @@ card_id = 'CA5x_xAHmYSE2DXhia0G0DTA'
 
 
 @pytest.mark.vcr
-def test_card_create() -> None:
+def test_card_create():
     card = Card.create(ledger_account_id, user_id)
     assert card.id
     assert len(card.number) == 16
@@ -20,14 +20,14 @@ def test_card_create() -> None:
 
 
 @pytest.mark.vcr
-def test_can_not_assign_new_virtual_card() -> None:
+def test_can_not_assign_new_virtual_card():
     with pytest.raises(CuencaResponseException) as exc:
         Card.create(ledger_account_id, user_id)
     assert exc.value
 
 
 @pytest.mark.vcr
-def test_card_retrieve() -> None:
+def test_card_retrieve():
     card: Card = Card.retrieve(card_id)
     assert card.id == card_id
     assert len(card.number) == 16
@@ -35,7 +35,7 @@ def test_card_retrieve() -> None:
 
 
 @pytest.mark.vcr
-def test_card_not_found() -> None:
+def test_card_not_found():
     with pytest.raises(CuencaResponseException) as exc:
         Card.retrieve('not-existing-id')
     assert exc.value.status_code == 404
@@ -43,7 +43,7 @@ def test_card_not_found() -> None:
 
 
 @pytest.mark.vcr
-def test_card_one() -> None:
+def test_card_one():
     card = Card.one(
         number='4231450155147929', exp_month=8, exp_year=2026, cvv2='144'
     )
@@ -51,19 +51,19 @@ def test_card_one() -> None:
 
 
 @pytest.mark.vcr
-def test_card_one_errors() -> None:
+def test_card_one_errors():
     with pytest.raises(NoResultFound):
         Card.one(user_id='fake id')
 
 
 @pytest.mark.vcr
-def test_card_all() -> None:
+def test_card_all():
     cards = Card.all(user_id=user_id)
     assert len([cards]) == 1
 
 
 @pytest.mark.vcr
-def test_card_update() -> None:
+def test_card_update():
     card = Card.update(card_id, status=CardStatus.blocked)
     assert card.status == CardStatus.blocked
     card = Card.update(card_id, status=CardStatus.active)

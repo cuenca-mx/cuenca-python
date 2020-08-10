@@ -19,7 +19,7 @@ interactions:
       x-amz-date:
       - 20200810T172418Z
     method: GET
-    uri: https://bxanq6vtyf.execute-api.us-east-1.amazonaws.com/api/cards/not-existing-id
+    uri: https://sandbox.cuenca.com/cards/not-existing-id
   response:
     body:
       string: '{"Code":"NotFoundError","Message":"NotFoundError: Not valid id"}'
