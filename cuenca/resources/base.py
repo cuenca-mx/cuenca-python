@@ -69,7 +69,7 @@ class Updateable(Resource):
 
     @classmethod
     def _update(cls, id: str, **data) -> Resource:
-        resp = session.patch(f'/{cls._resource}/{id}', **data)
+        resp = session.patch(f'/{cls._resource}/{id}', data)
         return cls._from_dict(resp)
 
 
@@ -81,8 +81,8 @@ class Queryable(Resource):
 
     @classmethod
     def one(cls, **query_params) -> Resource:
-        q = cls._query_params(limit=2, **query_params)
-        resp = session.get(cls._resource, q.dict())
+        query = cls._query_params(limit=2, **query_params)
+        resp = session.get(cls._resource, query.dict(exclude_none=True))
         items = resp['items']
         len_items = len(items)
         if not len_items:

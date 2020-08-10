@@ -23,9 +23,10 @@ setup(
     package_data=dict(cuenca=['py.typed']),
     python_requires='>=3.6',
     install_requires=[
+        'aws-requests-auth==0.4.3',
         'requests>=2.24,<2.25',
-        'cuenca-validations==0.5.0.dev1',
         'cuenca-validations==0.5.0.dev3',
+        'requests==2.24.0',
         'dataclasses>=0.7;python_version<"3.7"',
     ],
     classifiers=[

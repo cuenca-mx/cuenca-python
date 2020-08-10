@@ -1,4 +1,5 @@
 import os
+import re
 from typing import Optional, Tuple, Union
 from urllib.parse import urljoin
 
@@ -15,7 +16,8 @@ from ..exc import CuencaResponseException
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_URL = 'https://api.cuenca.com'
-SANDBOX_URL = 'https://sandbox.cuenca.com'
+SANDBOX_URL = 'https://bxanq6vtyf.execute-api.us-east-1.amazonaws.com/api'
+HOST_REGEX = r'\w+\.(\w|\d|-|\.)+'
 
 BasicOrAws = Union[Tuple[str, str], AWSRequestsAuth]
 
@@ -38,13 +40,20 @@ class Session:
         self.base_url = API_URL
         api_key = os.getenv('CUENCA_API_KEY', '')
         api_secret = os.getenv('CUENCA_API_SECRET', '')
+        aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID', '')
+        aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY', '')
+        aws_default_region = os.getenv('AWS_DEFAULT_REGION', 'us-east-1')
+
         self.webhook_secret = os.getenv('CUENCA_WEBHOOK_SECRET')
-        self.auth = (api_key, api_secret)
+        if api_key and api_secret:
+            self.configure_basic(api_key, api_secret)
+        else:
+            self.configure_aws(
+                aws_access_key_id, aws_secret_access_key, aws_default_region
+            )
 
     def configure(
         self,
-        # api_key: Optional[str] = None,
-        # api_secret: Optional[str] = None,
         auth: Optional[BasicOrAws] = None,
         webhook_secret: Optional[str] = None,
         sandbox: Optional[bool] = None,
@@ -60,6 +69,35 @@ class Session:
             self.base_url = API_URL
         elif sandbox is True:
             self.base_url = SANDBOX_URL
+
+    def configure_basic(
+        self,
+        api_key: str,
+        api_secret,
+        sandbox: Optional[bool] = None,
+        **kwargs,
+    ) -> None:
+        self.configure(auth=(api_key, api_secret), sandbox=sandbox, **kwargs)
+
+    def configure_aws(
+        self,
+        aws_access_key_id: str,
+        aws_secret_access_key: str,
+        aws_default_region: str = 'us-east-1',
+        sandbox: Optional[bool] = None,
+        **kwargs,
+    ):
+        url = SANDBOX_URL if sandbox else API_URL
+        host = re.findall(HOST_REGEX, url)[0]
+
+        auth = AWSRequestsAuth(
+            aws_access_key=aws_access_key_id,
+            aws_secret_access_key=aws_secret_access_key,
+            aws_region=aws_default_region,
+            aws_service='execute-api',
+            aws_host=host,
+        )
+        self.configure(auth=auth, sandbox=sandbox, **kwargs)
 
     def get(
         self, endpoint: str, params: ClientRequestParams = None,

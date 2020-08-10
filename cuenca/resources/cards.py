@@ -1,6 +1,7 @@
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import CardStatus, CardType
+from cuenca_validations.types.queries import CardQuery
 from cuenca_validations.types.requests import CardRequest, CardUpdateRequest
 from pydantic.dataclasses import dataclass
 
@@ -12,6 +13,7 @@ from ..http import session
 @dataclass
 class Card(Retrievable, Queryable, Creatable, Updateable):
     _resource: ClassVar = 'cards'
+    _query_params: ClassVar = CardQuery
 
     user_id: str
     ledger_account_id: str
@@ -38,21 +40,22 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     def update(
         cls,
         card_id: str,
-        status: Optional[str],
-        manufacturer: Optional[str],
+        user_id: Optional[str] = None,
+        ledger_account_id: Optional[str] = None,
+        status: Optional[CardStatus] = None,
     ):
         """
         Updates card properties that are not sensitive or fixed data. It allows
         reconfigure properties like status, and manufacturer.
 
         :param card_id: existing card_id
+        :param user_id: owner user id
+        :param ledger_account_id: owner ledger account
         :param status:
-        :param manufacturer:
         :return: Updated card object
         """
         req = CardUpdateRequest(
-            status=status,
-            manufacturer=manufacturer,
+            user_id=user_id, ledger_account_id=ledger_account_id, status=status
         )
         resp = cls._update(card_id, **req.dict(exclude_none=True))
         return cast('Card', resp)

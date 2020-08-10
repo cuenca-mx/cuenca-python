@@ -1,45 +1,77 @@
-import datetime as dt
-
 import pytest
 from cuenca_validations.types import CardStatus, CardType
-from pydantic import ValidationError
 
+from cuenca.exc import CuencaResponseException, NoResultFound
 from cuenca.resources import Card
 
+user_id = 'US1237'
+ledger_account_id = 'LA1237'
 
-def test_update_card():
-    card = Card(
-        id='100',
-        created_at=dt.datetime.now(),
-        updated_at=dt.datetime.now(),
-        user_id='US12344',
-        ledger_account_id='LA123344',
-        exp_month=3,
-        exp_year=2021,
-        card_number='4122000011112222',
-        cvv2='123',
-        type=CardType.virtual,
-        status=CardStatus.created,
+
+@pytest.mark.vcr
+def test_card_create() -> None:
+    card = Card.create(ledger_account_id, user_id)
+    assert card.id
+    assert len(card.number) == 16
+    assert card.type == CardType.virtual
+    assert card.user_id == user_id
+    assert card.ledger_account_id == ledger_account_id
+
+
+@pytest.mark.vcr
+def test_can_not_assign_new_virtual_card() -> None:
+    with pytest.raises(CuencaResponseException) as exc:
+        Card.create(ledger_account_id, user_id)
+    assert exc.value
+
+
+@pytest.mark.vcr
+def test_card_retrieve() -> None:
+    card = Card.retrieve('CA5x_xAHmYSE2DXhia0G0DTA')
+    assert card.id == 'CA5x_xAHmYSE2DXhia0G0DTA'
+    # assert len(card.number) == 16
+    assert card.type == CardType.virtual
+
+
+@pytest.mark.vcr
+def test_card_not_found() -> None:
+    with pytest.raises(CuencaResponseException) as exc:
+        Card.retrieve('not-existing-id')
+    assert exc.value.status_code == 404
+    assert exc.value.json['Code'] == 'NotFoundError'
+
+
+@pytest.mark.vcr
+def test_card_one() -> None:
+    card = Card.one(
+        number='4231450155147929', exp_month=8, exp_year=2026, cvv2='144'
     )
-    card.status = CardStatus.active
-    updated_card = card.update()
-    assert updated_card.status == CardStatus.active
+    assert card.id
 
 
-def test_update_card_invalid_fields_should_fail():
-    card = Card(
-        id='100',
-        created_at=dt.datetime.now(),
-        updated_at=dt.datetime.now(),
-        user_id='US12344',
-        ledger_account_id='LA123344',
-        exp_month=3,
-        exp_year=2021,
-        card_number='4122000011112222',
-        cvv2='123',
-        type=CardType.virtual,
-        status=CardStatus.created,
-    )
-    card.card_number = '4122000011113333'
-    with pytest.raises(ValidationError):
-        card.update()
+@pytest.mark.vcr
+def test_card_one_errors() -> None:
+    with pytest.raises(NoResultFound):
+        Card.one(user_id='fake id')
+
+
+@pytest.mark.vcr
+def test_card_first() -> None:
+    card = Card.first(user_id='US1236', type='virtual')
+    assert card.id
+    assert card.type == 'virtual'
+    assert card.user_id == 'US1236'
+
+
+@pytest.mark.vcr
+def test_card_all() -> None:
+    cards = Card.all(user_id=user_id)
+    assert len([cards]) == 1
+
+
+@pytest.mark.vcr
+def test_card_update() -> None:
+    card = Card.update('CA5x_xAHmYSE2DXhia0G0DTA', status=CardStatus.blocked)
+    assert card.status == CardStatus.blocked
+    card = Card.update('CA5x_xAHmYSE2DXhia0G0DTA', status=CardStatus.active)
+    assert card.status == CardStatus.active

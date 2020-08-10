@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.2.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      x-amz-content-sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      x-amz-date:
+      - 20200810T172418Z
+    method: GET
+    uri: https://bxanq6vtyf.execute-api.us-east-1.amazonaws.com/api/cards/not-existing-id
+  response:
+    body:
+      string: '{"Code":"NotFoundError","Message":"NotFoundError: Not valid id"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '64'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 10 Aug 2020 17:24:18 GMT
+      Via:
+      - 1.1 f6ad3563e874b96539258a95e577e34b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - lj04mkj7qWKFVRRotuK-KL61RytegoFH0Q7OKgXEHxx7IqPLOpupVA==
+      X-Amz-Cf-Pop:
+      - DFW50-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5f3182c2-e64f41cee8ecee0ac3acdbc6;Sampled=0
+      X-Cache:
+      - Error from cloudfront
+      x-amz-apigw-id:
+      - REFeaHfEIAMFTvA=
+      x-amzn-RequestId:
+      - 9269b548-75c7-40b0-8b3b-a42749a07024
+    status:
+      code: 404
+      message: Not Found
+version: 1

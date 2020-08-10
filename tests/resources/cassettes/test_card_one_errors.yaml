@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.2.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      x-amz-content-sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      x-amz-date:
+      - 20200810T172610Z
+    method: GET
+    uri: https://bxanq6vtyf.execute-api.us-east-1.amazonaws.com/api/cards?limit=2&user_id=fake+id
+  response:
+    body:
+      string: '{"items":[],"next_page_url":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 10 Aug 2020 17:26:11 GMT
+      Via:
+      - 1.1 eac01d9ef63a5046f1c5b53d323372b6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - vA-zIe4TqRjoNQqPmM6ik4Msy_sXz9rmEd_k6XZP7edR4_1urjkQ4w==
+      X-Amz-Cf-Pop:
+      - DFW50-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5f318332-47412dc642e73401bbe68085;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - REFv-HTMoAMFrLg=
+      x-amzn-RequestId:
+      - fe5faaf7-0cf1-43ea-b2aa-b7f5932ee481
+    status:
+      code: 200
+      message: OK
+version: 1
