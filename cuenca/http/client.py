@@ -1,5 +1,5 @@
 import os
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Union
 from urllib.parse import urljoin
 
 import requests
@@ -8,7 +8,6 @@ from cuenca_validations.typing import (
     ClientRequestParams,
     DictStrAny,
     OptionalDict,
-    Union,
 )
 from requests import Response
 
