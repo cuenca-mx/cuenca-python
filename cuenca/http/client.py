@@ -1,6 +1,5 @@
 import os
-import re
-from typing import Optional, Tuple, Union
+from typing import Optional, Tuple
 from urllib.parse import urljoin
 
 import requests
@@ -23,10 +22,10 @@ AWS_SERVICE = 'execute-api'
 
 class Session:
 
-    host: str
+    host: str = API_HOST
     basic_auth: Tuple[str, str]
-    session: requests.Session
     iam_auth: Optional[AWSRequestsAuth] = None
+    session: requests.Session
 
     def __init__(self):
         self.session = requests.Session()
@@ -36,7 +35,6 @@ class Session:
                 'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
             }
         )
-        self.host = API_HOST
 
         # basic auth
         api_key = os.getenv('CUENCA_API_KEY', '')
