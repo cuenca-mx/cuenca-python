@@ -8,6 +8,7 @@ from cuenca_validations.typing import (
     ClientRequestParams,
     DictStrAny,
     OptionalDict,
+    Union,
 )
 from requests import Response
 
@@ -55,7 +56,7 @@ class Session:
             )
 
     @property
-    def auth(self):
+    def auth(self) -> Union[AWSRequestsAuth, Tuple[str, str]]:
         return self.iam_auth or self.basic_auth  # give preference to IAM auth
 
     def configure(
