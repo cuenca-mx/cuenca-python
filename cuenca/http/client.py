@@ -15,19 +15,18 @@ from requests import Response
 from ..exc import CuencaResponseException
 from ..version import API_VERSION, CLIENT_VERSION
 
-API_URL = 'https://api.cuenca.com'
-SANDBOX_URL = 'https://sandbox.cuenca.com'
-HOST_REGEX = r'\w+\.(\w|\d|-|\.)+'
-
-BasicOrAws = Union[Tuple[str, str], AWSRequestsAuth]
+API_HOST = 'api.cuenca.com'
+SANDBOX_HOST = 'sandbox.cuenca.com'
+AWS_DEFAULT_REGION = 'us-east-1'
+AWS_SERVICE = 'execute-api'
 
 
 class Session:
 
-    base_url: str
-    auth: BasicOrAws
-    webhook_secret: Optional[str]
+    host: str
+    basic_auth: Tuple[str, str]
     session: requests.Session
+    iam_auth: Optional[AWSRequestsAuth] = None
 
     def __init__(self):
         self.session = requests.Session()
@@ -37,25 +36,37 @@ class Session:
                 'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
             }
         )
-        self.base_url = API_URL
+        self.host = API_HOST
+
+        # basic auth
         api_key = os.getenv('CUENCA_API_KEY', '')
         api_secret = os.getenv('CUENCA_API_SECRET', '')
-        aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID', '')
-        aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY', '')
-        aws_default_region = os.getenv('AWS_DEFAULT_REGION', 'us-east-1')
+        self.basic_auth = (api_key, api_secret)
 
-        self.webhook_secret = os.getenv('CUENCA_WEBHOOK_SECRET')
-        if api_key and api_secret:
-            self.configure_basic(api_key, api_secret)
-        else:
-            self.configure_aws(
-                aws_access_key_id, aws_secret_access_key, aws_default_region
+        # IAM auth
+        aws_access_key = os.getenv('AWS_ACCESS_KEY_ID', '')
+        aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY', '')
+        aws_region = os.getenv('AWS_DEFAULT_REGION', AWS_DEFAULT_REGION)
+        if aws_access_key and aws_secret_access_key:
+            self.iam_auth = AWSRequestsAuth(
+                aws_access_key=aws_access_key,
+                aws_secret_access_key=aws_secret_access_key,
+                aws_host=self.host,
+                aws_region=aws_region,
+                aws_service=AWS_SERVICE,
             )
+
+    @property
+    def auth(self):
+        return self.iam_auth or self.basic_auth  # give preference to IAM auth
 
     def configure(
         self,
-        auth: Optional[BasicOrAws] = None,
-        webhook_secret: Optional[str] = None,
+        api_key: Optional[str] = None,
+        api_secret: Optional[str] = None,
+        aws_access_key: Optional[str] = None,
+        aws_secret_access_key: Optional[str] = None,
+        aws_region: str = AWS_DEFAULT_REGION,
         sandbox: Optional[bool] = None,
     ):
         """
@@ -63,41 +74,34 @@ class Session:
         client library and configure it later. It's also useful when rolling
         the api key
         """
-        self.auth = auth if auth else self.auth
-        self.webhook_secret = webhook_secret or self.webhook_secret
         if sandbox is False:
-            self.base_url = API_URL
+            self.host = API_HOST
         elif sandbox is True:
-            self.base_url = SANDBOX_URL
+            self.host = SANDBOX_HOST
 
-    def configure_basic(
-        self,
-        api_key: str,
-        api_secret,
-        sandbox: Optional[bool] = None,
-        **kwargs,
-    ) -> None:
-        self.configure(auth=(api_key, api_secret), sandbox=sandbox, **kwargs)
-
-    def configure_aws(
-        self,
-        aws_access_key_id: str,
-        aws_secret_access_key: str,
-        aws_default_region: str = 'us-east-1',
-        sandbox: Optional[bool] = None,
-        **kwargs,
-    ):
-        url = SANDBOX_URL if sandbox else API_URL
-        host = re.findall(HOST_REGEX, url)[0]
-
-        auth = AWSRequestsAuth(
-            aws_access_key=aws_access_key_id,
-            aws_secret_access_key=aws_secret_access_key,
-            aws_region=aws_default_region,
-            aws_service='execute-api',
-            aws_host=host,
+        # basic auth
+        self.basic_auth = (
+            api_key or self.basic_auth[0],
+            api_secret or self.basic_auth[1],
         )
-        self.configure(auth=auth, sandbox=sandbox, **kwargs)
+
+        # IAM auth
+        if self.iam_auth is not None:
+            self.iam_auth.aws_access_key = (
+                aws_access_key or self.iam_auth.aws_access_key
+            )
+            self.iam_auth.aws_secret_access_key = (
+                aws_secret_access_key or self.iam_auth.aws_secret_access_key
+            )
+            self.iam_auth.aws_region = aws_region or self.iam_auth.aws_region
+        elif aws_access_key and aws_secret_access_key:
+            self.iam_auth = AWSRequestsAuth(
+                aws_access_key=aws_access_key,
+                aws_secret_access_key=aws_secret_access_key,
+                aws_host=self.host,
+                aws_region=aws_region,
+                aws_service=AWS_SERVICE,
+            )
 
     def get(
         self, endpoint: str, params: ClientRequestParams = None,
@@ -123,7 +127,7 @@ class Session:
     ) -> DictStrAny:
         resp = self.session.request(
             method=method,
-            url=self.base_url + urljoin('/', endpoint),
+            url='https://' + self.host + urljoin('/', endpoint),
             auth=self.auth,
             json=data,
             params=params,
