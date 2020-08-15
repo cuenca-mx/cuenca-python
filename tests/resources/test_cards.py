@@ -68,3 +68,16 @@ def test_card_update():
     assert card.status == CardStatus.blocked
     card = Card.update(card_id, status=CardStatus.active)
     assert card.status == CardStatus.active
+
+
+@pytest.mark.vcr
+def test_deactivate_card():
+    card = Card.deactivate(card_id)
+    assert card.status == CardStatus.deactivated
+
+
+@pytest.mark.vcr
+def test_card_can_not_be_updated_if_it_is_deactivated():
+    with pytest.raises(CuencaResponseException) as exc:
+        Card.update(card_id, status=CardStatus.active)
+    assert exc.value
