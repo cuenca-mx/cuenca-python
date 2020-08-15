@@ -56,7 +56,7 @@ class Session:
 
     @property
     def auth(self) -> Union[AWSRequestsAuth, Tuple[str, str]]:
-        return self.basic_auth or self.iam_auth  # give preference to basic auth
+        return self.basic_auth or self.iam_auth  # preference to basic auth
 
     def configure(
         self,
