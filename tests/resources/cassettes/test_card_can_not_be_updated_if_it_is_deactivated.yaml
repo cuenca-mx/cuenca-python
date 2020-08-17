@@ -19,7 +19,7 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: PATCH
-    uri: https://bxanq6vtyf.execute-api.us-east-1.amazonaws.com/api/cards/CA5x_xAHmYSE2DXhia0G0DTA
+    uri: https://sandbox.cuenca.com/cards/CA5x_xAHmYSE2DXhia0G0DTA
   response:
     body:
       string: '{"Code":"ForbiddenError","Message":"ForbiddenError: Invalid operation"}'
