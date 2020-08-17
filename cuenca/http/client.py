@@ -45,6 +45,12 @@ class Session:
         aws_access_key = os.getenv('AWS_ACCESS_KEY_ID', '')
         aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY', '')
         aws_region = os.getenv('AWS_DEFAULT_REGION', AWS_DEFAULT_REGION)
+        print('*' * 10)
+        print(api_key)
+        print(api_secret)
+        print('*' * 10)
+        print(aws_access_key)
+        print(aws_secret_access_key)
         if aws_access_key and aws_secret_access_key:
             self.iam_auth = AWSRequestsAuth(
                 aws_access_key=aws_access_key,
@@ -56,7 +62,11 @@ class Session:
 
     @property
     def auth(self) -> Union[AWSRequestsAuth, Tuple[str, str]]:
-        return self.basic_auth or self.iam_auth  # preference to basic auth
+        return (
+            self.basic_auth
+            if self.basic_auth[0] and self.basic_auth[1]
+            else self.iam_auth
+        )  # preference to basic auth
 
     def configure(
         self,

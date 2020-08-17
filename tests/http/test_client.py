@@ -12,3 +12,43 @@ def test_invalid_auth():
         session.post('/api_keys', dict())
     assert e.value.status_code == 401
     assert str(e.value)
+
+
+@pytest.mark.usefixtures('cuenca_creds')
+def test_basic_auth_configuration(monkeypatch):
+    session = Session()
+    assert session.auth == session.basic_auth
+    assert session.auth == ('api_key', 'secret')
+    assert not session.iam_auth
+
+
+@pytest.mark.usefixtures('cuenca_creds', 'aws_creds')
+def test_gives_preference_to_basic_auth_configuration(monkeypatch):
+    session = Session()
+    assert session.auth == session.basic_auth
+    assert session.iam_auth
+
+
+@pytest.mark.usefixtures('aws_creds')
+def test_aws_iam_auth_configuration(monkeypatch):
+    session = Session()
+    assert session.auth == session.iam_auth
+
+
+def test_configures_new_aws_creds():
+    session = Session()
+    session.configure(
+        aws_access_key='new_aws_key', aws_secret_access_key='new_aws_secret'
+    )
+    assert session.auth.aws_secret_access_key == 'new_aws_secret'
+    assert session.auth.aws_access_key == 'new_aws_key'
+
+
+@pytest.mark.usefixtures('aws_creds')
+def test_overrides_aws_creds():
+    session = Session()
+    session.configure(
+        aws_access_key='new_aws_key', aws_secret_access_key='new_aws_secret'
+    )
+    assert session.auth.aws_secret_access_key == 'new_aws_secret'
+    assert session.auth.aws_access_key == 'new_aws_key'
