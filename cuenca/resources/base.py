@@ -81,8 +81,8 @@ class Queryable(Resource):
 
     @classmethod
     def one(cls, **query_params) -> Resource:
-        query = cls._query_params(limit=2, **query_params)
-        resp = session.get(cls._resource, query.dict(exclude_none=True))
+        q = cls._query_params(limit=2, **query_params)
+        resp = session.get(cls._resource, q.dict())
         items = resp['items']
         len_items = len(items)
         if not len_items:
