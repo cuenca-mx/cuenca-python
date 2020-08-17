@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: '{"status": "active"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '20'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.2.5
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: PATCH
+    uri: https://bxanq6vtyf.execute-api.us-east-1.amazonaws.com/api/cards/CA5x_xAHmYSE2DXhia0G0DTA
+  response:
+    body:
+      string: '{"Code":"ForbiddenError","Message":"ForbiddenError: Invalid operation"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '71'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 17 Aug 2020 20:28:21 GMT
+      Via:
+      - 1.1 2b1e040abc964b2bf72a1919ab3ea875.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - nipNRPiAbxHH1KmDwE2jODjd2H_rGUPBFqrmR9HLb-w1CdDb5IJlMQ==
+      X-Amz-Cf-Pop:
+      - DFW55-C2
+      X-Amzn-Trace-Id:
+      - Root=1-5f3ae864-89b9f20435cb6544be8f37e8;Sampled=0
+      X-Cache:
+      - Error from cloudfront
+      x-amz-apigw-id:
+      - Rbk_wH6AoAMFRBw=
+      x-amzn-RequestId:
+      - bce1728d-1341-4002-8908-be535415043c
+    status:
+      code: 403
+      message: Forbidden
+version: 1
