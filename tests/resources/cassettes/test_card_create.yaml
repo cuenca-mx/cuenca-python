@@ -1,0 +1,56 @@
+interactions:
+- request:
+    body: '{"user_id": "US1237", "ledger_account_id": "LA1237"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '52'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.2.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      x-amz-content-sha256:
+      - 615eb85d917d0b2370ce1e0d72f79fea52f5bbedb298602ba69ad6c31e3375d5
+      x-amz-date:
+      - 20200810T172323Z
+    method: POST
+    uri: https://sandbox.cuenca.com/cards
+  response:
+    body:
+      string: '{"id":"CA5x_xAHmYSE2DXhia0G0DTA","created_at":"2020-08-10T17:23:30.427000","updated_at":"2020-08-10T17:23:30.427000","user_id":"US1237","ledger_account_id":"LA1237","number":"4231450155147929","exp_month":8,"exp_year":2026,"cvv2":"144","type":"virtual","status":"active","batch":null,"manufacturer":null,"cvv":null,"icvv":null,"pin":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '338'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 10 Aug 2020 17:23:31 GMT
+      Via:
+      - 1.1 e04446b857f9275a174c2c3f7c11eff2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - VLDH25Y5Tu5kwjXKPRjjDzRoFMeDYtehxmDDobgoiH03kbAV5cyalw==
+      X-Amz-Cf-Pop:
+      - DFW50-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5f31828b-bdf0226afe4fd3c6101060be;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - REFV3FnXIAMFftQ=
+      x-amzn-RequestId:
+      - 5b137f51-6fab-4bf5-98ea-95aa5860ad70
+    status:
+      code: 201
+      message: Created
+version: 1

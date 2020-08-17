@@ -1,5 +1,5 @@
 import pytest
-from cuenca_validations.types import Status, TransferNetwork
+from cuenca_validations.types import TransactionStatus, TransferNetwork
 
 from cuenca import WhatsappTransfer
 
@@ -29,6 +29,6 @@ def test_wa_transfer_submitted():
     id_wa = 'SW02'
     wa_transfer: WhatsappTransfer = WhatsappTransfer.retrieve(id_wa)
     assert wa_transfer.id == id_wa
-    assert wa_transfer.status == Status.submitted
+    assert wa_transfer.status == TransactionStatus.submitted
     account = wa_transfer.destination
     assert account is None

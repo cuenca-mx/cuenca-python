@@ -11,7 +11,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='cuenca',
-    version=version.CLIENT_VERSION,
+    version=version.__version__,
     author='Cuenca',
     author_email='dev@cuenca.com',
     description='Cuenca API Client',
@@ -23,8 +23,9 @@ setup(
     package_data=dict(cuenca=['py.typed']),
     python_requires='>=3.6',
     install_requires=[
+        'aws-requests-auth==0.4.3',
         'requests>=2.24,<2.25',
-        'cuenca-validations>=0.4,<0.5',
+        'cuenca-validations>=0.5.0,<0.6.0',
         'dataclasses>=0.7;python_version<"3.7"',
     ],
     classifiers=[

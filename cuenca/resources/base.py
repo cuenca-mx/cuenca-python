@@ -6,8 +6,8 @@ from urllib.parse import urlencode
 from cuenca_validations.types import (
     QueryParams,
     SantizedDict,
-    Status,
     TransactionQuery,
+    TransactionStatus,
 )
 
 from ..exc import MultipleResultsFound, NoResultFound
@@ -64,6 +64,16 @@ class Creatable(Resource):
 
 
 @dataclass
+class Updateable(Resource):
+    updated_at: dt.datetime
+
+    @classmethod
+    def _update(cls, id: str, **data) -> Resource:
+        resp = session.patch(f'/{cls._resource}/{id}', data)
+        return cls._from_dict(resp)
+
+
+@dataclass
 class Queryable(Resource):
     _query_params: ClassVar = QueryParams
 
@@ -114,5 +124,5 @@ class Transaction(Retrievable, Queryable):
     _query_params: ClassVar = TransactionQuery
 
     amount: int  # in centavos
-    status: Status
+    status: TransactionStatus
     descriptor: str  # how it appears for the customer

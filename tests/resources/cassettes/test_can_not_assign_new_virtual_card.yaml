@@ -1,0 +1,56 @@
+interactions:
+- request:
+    body: '{"user_id": "US1237", "ledger_account_id": "LA1237"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '52'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.2.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      x-amz-content-sha256:
+      - 615eb85d917d0b2370ce1e0d72f79fea52f5bbedb298602ba69ad6c31e3375d5
+      x-amz-date:
+      - 20200810T172340Z
+    method: POST
+    uri: https://sandbox.cuenca.com/cards
+  response:
+    body:
+      string: '{"Code":"InternalServerError","Message":"An internal server error occurred."}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '77'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 10 Aug 2020 17:23:44 GMT
+      Via:
+      - 1.1 c650b968d15de7f70750f5bb6bd4f469.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - zsTxOB7Aponib7WGkAn5Pqna4xqRMXm-VS6-bbLsH-Qe5-50v63r9g==
+      X-Amz-Cf-Pop:
+      - DFW50-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5f31829c-f8aeb3d4549d8c9d38efa312;Sampled=0
+      X-Cache:
+      - Error from cloudfront
+      x-amz-apigw-id:
+      - REFYiEY_IAMFjVw=
+      x-amzn-RequestId:
+      - 36528e27-48ca-4c74-9e71-fbbaedee5c10
+    status:
+      code: 500
+      message: Internal Server Error
+version: 1
