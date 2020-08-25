@@ -123,6 +123,7 @@ class Queryable(Resource):
 class Transaction(Retrievable, Queryable):
     _query_params: ClassVar = TransactionQuery
 
+    user_id: str
     amount: int  # in centavos
     status: TransactionStatus
     descriptor: str  # how it appears for the customer
