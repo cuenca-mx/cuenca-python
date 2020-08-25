@@ -20,7 +20,7 @@ interactions:
     body:
       string: '{"id":"SW01","created_at":"2020-06-16T05:09:50.213000","amount":10000,"status":"succeeded","descriptor":"Whatsapp
         Transfer Internal","updated_at":"2020-06-17T05:09:50.213000","recipient_name":"Rogelio
-        Lopez","phone_number":"+525520304050","claim_url":"https://cuenca.com/recibirdinero/ST01","expires_at":"2020-06-18T05:09:50.213000","destination_uri":"/accounts/LA01","network":"internal","tracking_key":null}'
+        Lopez","phone_number":"+525520304050","claim_url":"https://cuenca.com/recibirdinero/ST01","expires_at":"2020-06-18T05:09:50.213000","destination_uri":"/accounts/LA01","network":"internal","tracking_key":null,"user_id":"US01"}'
     headers:
       Connection:
       - keep-alive

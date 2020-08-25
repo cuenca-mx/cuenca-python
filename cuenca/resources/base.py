@@ -19,7 +19,6 @@ class Resource:
     _resource: ClassVar[str]
 
     id: str
-    user_id: str
 
     # purely for MyPy
     def __init__(self, **_):  # pragma: no cover
@@ -124,6 +123,7 @@ class Queryable(Resource):
 class Transaction(Retrievable, Queryable):
     _query_params: ClassVar = TransactionQuery
 
+    user_id: str
     amount: int  # in centavos
     status: TransactionStatus
     descriptor: str  # how it appears for the customer
