@@ -19,6 +19,7 @@ class Resource:
     _resource: ClassVar[str]
 
     id: str
+    user_id: str
 
     # purely for MyPy
     def __init__(self, **_):  # pragma: no cover
