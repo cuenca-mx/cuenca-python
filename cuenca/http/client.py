@@ -3,7 +3,6 @@ from typing import Optional, Tuple, Union
 from urllib.parse import urljoin
 
 import requests
-from aws_requests_auth.aws_auth import AWSRequestsAuth
 from cuenca_validations.typing import (
     ClientRequestParams,
     DictStrAny,
@@ -13,6 +12,7 @@ from requests import Response
 
 from ..exc import CuencaResponseException
 from ..version import API_VERSION, CLIENT_VERSION
+from .aws_auth import CuencaAWSRequestsAuth
 
 API_HOST = 'api.cuenca.com'
 SANDBOX_HOST = 'sandbox.cuenca.com'
@@ -24,7 +24,7 @@ class Session:
 
     host: str = API_HOST
     basic_auth: Tuple[str, str]
-    iam_auth: Optional[AWSRequestsAuth] = None
+    iam_auth: Optional[CuencaAWSRequestsAuth] = None
     session: requests.Session
 
     def __init__(self):
@@ -46,7 +46,7 @@ class Session:
         aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY', '')
         aws_region = os.getenv('AWS_DEFAULT_REGION', AWS_DEFAULT_REGION)
         if aws_access_key and aws_secret_access_key:
-            self.iam_auth = AWSRequestsAuth(
+            self.iam_auth = CuencaAWSRequestsAuth(
                 aws_access_key=aws_access_key,
                 aws_secret_access_key=aws_secret_access_key,
                 aws_host=self.host,
@@ -55,7 +55,7 @@ class Session:
             )
 
     @property
-    def auth(self) -> Union[AWSRequestsAuth, Tuple[str, str]]:
+    def auth(self) -> Union[Optional[CuencaAWSRequestsAuth], Tuple[str, str]]:
         # preference to basic auth
         return self.basic_auth if all(self.basic_auth) else self.iam_auth
 
@@ -94,7 +94,7 @@ class Session:
             )
             self.iam_auth.aws_region = aws_region or self.iam_auth.aws_region
         elif aws_access_key and aws_secret_access_key:
-            self.iam_auth = AWSRequestsAuth(
+            self.iam_auth = CuencaAWSRequestsAuth(
                 aws_access_key=aws_access_key,
                 aws_secret_access_key=aws_secret_access_key,
                 aws_host=self.host,
