@@ -13,7 +13,9 @@ def main():
         description='Process batch transfers file'
     )
     parser.add_argument(
-        'input', type=str, help='Path to CSV batch transfers file',
+        'input',
+        type=str,
+        help='Path to CSV batch transfers file',
     )
     parser.add_argument('output', type=str, help='Path to CSV output file')
     args = parser.parse_args()
