@@ -2,6 +2,6 @@ pytest==6.0.*
 pytest-cov==2.10.*
 pytest-vcr==1.0.*
 black==19.10b0
-isort==5.4.*
+isort==5.5.*
 flake8==3.8.*
 mypy==0.782
