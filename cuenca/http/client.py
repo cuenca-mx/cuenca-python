@@ -16,7 +16,7 @@ from ..version import API_VERSION, CLIENT_VERSION
 from .aws_auth import get_canonical_path
 
 API_HOST = 'api.cuenca.com'
-SANDBOX_HOST = 'stage.cuenca.com'
+SANDBOX_HOST = 'sandbox.cuenca.com'
 AWS_DEFAULT_REGION = 'us-east-1'
 AWS_SERVICE = 'execute-api'
 AWSRequestsAuth.get_canonical_path = get_canonical_path
