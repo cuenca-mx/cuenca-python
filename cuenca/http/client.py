@@ -103,7 +103,9 @@ class Session:
             )
 
     def get(
-        self, endpoint: str, params: ClientRequestParams = None,
+        self,
+        endpoint: str,
+        params: ClientRequestParams = None,
     ) -> DictStrAny:
         return self.request('get', endpoint, params=params)
 
@@ -140,5 +142,6 @@ class Session:
         if response.ok:
             return
         raise CuencaResponseException(
-            json=response.json(), status_code=response.status_code,
+            json=response.json(),
+            status_code=response.status_code,
         )
