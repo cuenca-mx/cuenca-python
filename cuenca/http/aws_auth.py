@@ -10,12 +10,13 @@ DEFAULT_ROUTE = '/oaxaca'
 def get_canonical_path(r: Request) -> str:
     """
     Create canonical URI--the part of the URI from domain to query
-    string (use '/' if no path)
+    string (use '/' if no path), based on the path it prepends the
+    correct route required for API Gateway depending on the root of the
+    path (ej. /cards/ID => /knox/cards/ID). It uses the DEFAULT_ROUTE if
+    nothing is found in the dict
     """
     parsedurl = urlparse(r.url)
 
-    # safe chars adapted from boto's use of urllib.parse.quote
-    # https://github.com/boto/boto/blob/d9e5cfe900e1a58717e393c76a6e3580305f217a/boto/auth.py#L393
     canonical_path = '/'
     if parsedurl.path:
         root = PurePosixPath(unquote(parsedurl.path)).parts[1]
