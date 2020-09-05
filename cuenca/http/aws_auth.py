@@ -1,11 +1,13 @@
 from pathlib import PurePosixPath
 from urllib.parse import quote, unquote, urlparse
 
+from requests.models import Request
+
 AWS_ROUTES_DICT = dict(cards='/knox')
 DEFAULT_ROUTE = '/oaxaca'
 
 
-def get_canonical_path(r):
+def get_canonical_path(r: Request) -> str:
     """
     Create canonical URI--the part of the URI from domain to query
     string (use '/' if no path)
@@ -23,5 +25,4 @@ def get_canonical_path(r):
             canonical_path = DEFAULT_ROUTE
         finally:
             canonical_path += parsedurl.path
-    print(canonical_path)
     return quote(canonical_path, safe='/-_.~')
