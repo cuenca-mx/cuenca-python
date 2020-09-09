@@ -1,7 +1,32 @@
-import pytest
-from requests.models import Request
+import hashlib
+from unittest.mock import Mock, patch
 
-from cuenca.http.aws_auth import get_canonical_path
+import pytest
+import requests
+from freezegun import freeze_time  # type: ignore
+from requests.models import Request, Response
+
+from cuenca.http.aws_auth import CuencaAWSRequestAuth
+
+ROUTES_CONFIG = dict(default_route='/oaxaca', routes=dict(cards='/knox'))
+
+
+@pytest.fixture
+def mock_configuration():
+    with patch.object(Response, 'json', return_value=ROUTES_CONFIG):
+        with patch.object(requests, 'get', return_value=Response()):
+            yield
+
+
+@pytest.fixture
+def auth():
+    return CuencaAWSRequestAuth(
+        aws_access_key='testing_key',
+        aws_secret_access_key='testing_secret',
+        aws_region='us-east-1',
+        aws_service='execute-api',
+        aws_host='stage.cuenca.com',
+    )
 
 
 @pytest.mark.parametrize(
@@ -23,5 +48,28 @@ from cuenca.http.aws_auth import get_canonical_path
         (Request(url='https://stage.cuenca.com'), '/'),
     ],
 )
-def test_aws_auth(test_input, expected):
-    assert get_canonical_path(test_input) == expected
+def test_aws_auth(test_input, expected, mock_configuration, auth):
+    assert auth.get_canonical_path(test_input) == expected
+
+
+@freeze_time("2020-11-25 03:00:00")
+def test_auth(auth):
+    url = (
+        'https://stage.cuenca.com/transfers?idempotency_key=key_1&'
+        'user_id=123&created_after'
+    )
+    mock_request = Mock()
+    mock_request.url = url
+    mock_request.method = "GET"
+    mock_request.body = None
+    mock_request.headers = {}
+
+    auth(mock_request)
+    assert {
+        'Authorization': 'AWS4-HMAC-SHA256 Credential=testing_key/20201125/'
+        'us-east-1/execute-api/aws4_request, SignedHeaders'
+        '=host;x-amz-date, Signature=7df1a4b3f3effedc96a9e'
+        'a9da39392a7ac42259688aa93ac60a4817a5431f813',
+        'x-amz-date': '20201125T030000Z',
+        'x-amz-content-sha256': hashlib.sha256(b'').hexdigest(),
+    } == mock_request.headers
