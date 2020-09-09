@@ -68,8 +68,8 @@ def test_auth(auth):
     assert {
         'Authorization': 'AWS4-HMAC-SHA256 Credential=testing_key/20201125/'
         'us-east-1/execute-api/aws4_request, SignedHeaders'
-        '=host;x-amz-date, Signature=7df1a4b3f3effedc96a9e'
-        'a9da39392a7ac42259688aa93ac60a4817a5431f813',
+        '=host;x-amz-date, Signature=61bbed824d3bb736d4622'
+        '47601f2d9f15ebe36994f1782172be23044250322bd',
         'x-amz-date': '20201125T030000Z',
         'x-amz-content-sha256': hashlib.sha256(b'').hexdigest(),
     } == mock_request.headers
