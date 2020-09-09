@@ -134,8 +134,7 @@ class CuencaAWSRequestAuth(requests.auth.AuthBase):
 
         # Combine elements to create create canonical request
         canonical_request = (
-            request.method
-            or ''
+            (request.method or '')
             + '\n'
             + canonical_uri
             + '\n'
