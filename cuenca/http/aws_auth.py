@@ -128,7 +128,11 @@ class CuencaAWSRequestAuth(requests.auth.AuthBase):
 
         # Create payload hash (hash of the request body content). For GET
         # requests, the payload is an empty string ('').
-        body = str(request.body).encode('utf-8') if request.body else bytes()
+        body = request.body if request.body else bytes()
+        try:
+            body = body.encode('utf-8')
+        except (AttributeError, UnicodeDecodeError):
+            body = body
 
         payload_hash = hashlib.sha256(body).hexdigest()
 
@@ -146,7 +150,6 @@ class CuencaAWSRequestAuth(requests.auth.AuthBase):
             + '\n'
             + payload_hash
         )
-
         # Match the algorithm to the hashing algorithm you use, either SHA-1 or
         # SHA-256 (recommended)
         algorithm = 'AWS4-HMAC-SHA256'
@@ -270,5 +273,4 @@ class CuencaAWSRequestAuth(requests.auth.AuthBase):
                 if canonical_querystring:
                     canonical_querystring += "&"
                 canonical_querystring += u'='.join([key, val])
-
         return canonical_querystring
