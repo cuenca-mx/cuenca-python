@@ -130,11 +130,10 @@ class CuencaAWSRequestAuth(requests.auth.AuthBase):
         # requests, the payload is an empty string ('').
         body = request.body if request.body else bytes()
         try:
-            body = body.encode('utf-8')
-        except (AttributeError, UnicodeDecodeError):
-            body = body
-
-        payload_hash = hashlib.sha256(body).hexdigest()
+            body = body.encode('utf-8')  # type: ignore[union-attr]
+        except AttributeError:
+            ...
+        payload = hashlib.sha256(body).hexdigest()  # type: ignore[arg-type]
 
         # Combine elements to create create canonical request
         canonical_request = (
@@ -148,7 +147,7 @@ class CuencaAWSRequestAuth(requests.auth.AuthBase):
             + '\n'
             + signed_headers
             + '\n'
-            + payload_hash
+            + payload
         )
         # Match the algorithm to the hashing algorithm you use, either SHA-1 or
         # SHA-256 (recommended)
@@ -207,7 +206,7 @@ class CuencaAWSRequestAuth(requests.auth.AuthBase):
         headers = {
             'Authorization': authorization_header,
             'x-amz-date': amzdate,
-            'x-amz-content-sha256': payload_hash,
+            'x-amz-content-sha256': payload,
         }
         return headers
 
