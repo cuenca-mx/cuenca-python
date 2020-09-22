@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import TransactionQuery
+from cuenca_validations.types import BillPaymentQuery
 
 from .base import Transaction
 from .resources import retrieve_uri
@@ -11,7 +11,7 @@ from .service_providers import ServiceProvider
 @dataclass
 class BillPayment(Transaction):
     _resource: ClassVar = 'bill_payment'
-    _query_params: ClassVar = TransactionQuery
+    _query_params: ClassVar = BillPaymentQuery
 
     account_number: str
     provider_uri: Optional[str]

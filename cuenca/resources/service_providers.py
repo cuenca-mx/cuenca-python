@@ -9,6 +9,5 @@ from .base import Queryable, Retrievable
 class ServiceProvider(Retrievable, Queryable):
     _resource: ClassVar = 'service_providers'
 
-    category: str
+    name: str
     provider_key: str
-    provider_type: str
