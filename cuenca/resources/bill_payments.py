@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, cast
 
 from cuenca_validations.types import BillPaymentQuery
 
@@ -10,16 +10,13 @@ from .service_providers import ServiceProvider
 
 @dataclass
 class BillPayment(Transaction):
-    _resource: ClassVar = 'bill_payment'
+    _resource: ClassVar = 'bill_payments'
     _query_params: ClassVar = BillPaymentQuery
 
     account_number: str
-    provider_uri: Optional[str]
+    provider_uri: str
 
     @property
-    def provider(self) -> Optional[ServiceProvider]:
-        if self.provider_uri is None:
-            provider = None
-        else:
-            provider = cast(ServiceProvider, retrieve_uri(self.provider_uri))
+    def provider(self) -> ServiceProvider:
+        provider = cast(ServiceProvider, retrieve_uri(self.provider_uri))
         return provider

@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.3.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/bill_payments/ST01
+  response:
+    body:
+      string: '{"id":"ST01","created_at":"2019-07-16T23:07:21.843000","user_id":"US01","amount":25,"status":"failed","descriptor":"Pago
+        de servicio","account_number":"019721609015961902080000026589","provider_uri":"/service_providers/SP01"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '285'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 28 Sep 2020 16:13:15 GMT
+      Via:
+      - 1.1 42b10ce0efa243af420d08c395787243.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - G3cjk_9tLJHXyZjoo-e9UglLXzSXbXt6gW1PxcR1qzoAgb6e8UXXEA==
+      X-Amz-Cf-Pop:
+      - LAX50-C2
+      X-Amzn-Trace-Id:
+      - Root=1-5f720b9b-fa550834bc6e9cb06874a638;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - TlbAWG22oAMFUGw=
+      x-amzn-RequestId:
+      - 27a54431-69c2-4388-a212-01267ae8960e
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.3.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/service_providers/SP01
+  response:
+    body:
+      string: '{"id":"SP01","created_at":"2020-09-26T00:32:20.289000","name":"CFE","provider_key":"electricity_cfe"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '121'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 28 Sep 2020 16:13:16 GMT
+      Via:
+      - 1.1 42b10ce0efa243af420d08c395787243.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - cxnHnk97p1SL0ZBYXWcR8Mojs_dn7OKsmQFWEFZDQS2WHMD_O39qaQ==
+      X-Amz-Cf-Pop:
+      - LAX50-C2
+      X-Amzn-Trace-Id:
+      - Root=1-5f720b9c-10d82f8ec7dd36e69215dc00;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - TlbAhEscoAMF4xw=
+      x-amzn-RequestId:
+      - c4a63f67-1290-4361-8ee3-61a91b36b12b
+    status:
+      code: 200
+      message: OK
+version: 1
