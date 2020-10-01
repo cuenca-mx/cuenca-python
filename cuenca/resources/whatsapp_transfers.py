@@ -16,7 +16,7 @@ class WhatsappTransfer(Transaction):
     updated_at: dt.datetime
     recipient_name: str
     phone_number: str
-    claim_url: str
+    claim_url: Optional[str]
     expires_at: dt.datetime
     # defined after the transfer has been claimed
     destination_uri: Optional[str]
