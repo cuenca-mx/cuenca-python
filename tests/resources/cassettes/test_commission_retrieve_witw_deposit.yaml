@@ -1,0 +1,151 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.3.2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      x-amz-content-sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      x-amz-date:
+      - 20201001T185431Z
+    method: GET
+    uri: https://sandbox.cuenca.com/commissions/PA7KR7uoZ7lsxG7cbyRqBJeh
+  response:
+    body:
+      string: '{"id":"PA7KR7uoZ7lsxG7cbyRqBJeh","created_at":"2020-09-30T19:38:33.361000","user_id":"US30Ncr1Qb045o6SrBwOASwM","amount":1000,"status":"succeeded","descriptor":"Comisi\u00f3n
+        (cash_deposit)","related_transaction_uri":"/deposits/CD57Ux92kMbvdSYwmZs1Rjh2"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '254'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 01 Oct 2020 18:54:34 GMT
+      Via:
+      - 1.1 f1c5a27e35ac834b32534347282b3496.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - keCcR7RWtZwUkvvQwg179i-07LRC7irc-rhVOvYcIsDd-QRSspGFxg==
+      X-Amz-Cf-Pop:
+      - DFW55-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5f7625e8-623fb6e2469d1fd105d95db2;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - TvrcRHKtoAMFzqg=
+      x-amzn-RequestId:
+      - ac8833e6-b241-41b5-b7cc-7a7c3b67cb3f
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+    method: GET
+    uri: https://sandbox.cuenca.com/config/route_configuration.json
+  response:
+    body:
+      string: "{\n    \"default_route\": \"/oaxaca\",\n    \"routes\": {\n       \
+        \ \"cards\": \"/knox\",\n        \"api_keys\": \"/authed\"\n    }\n}\n"
+    headers:
+      Accept-Ranges:
+      - bytes
+      Age:
+      - '1622'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '114'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 01 Oct 2020 18:27:33 GMT
+      ETag:
+      - '"f35b9f1de4b47e51d5a9b8706ef54e6b"'
+      Last-Modified:
+      - Tue, 15 Sep 2020 22:51:15 GMT
+      Server:
+      - AmazonS3
+      Via:
+      - 1.1 19934e8c827f304089a6e45a640882cd.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - qPWYfE69Ef2tZYj9FciaKOvxYaD84CHV1P-eeqRX8BLnX2Tspp3ufA==
+      X-Amz-Cf-Pop:
+      - DFW55-C1
+      X-Cache:
+      - Hit from cloudfront
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.3.2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      x-amz-content-sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      x-amz-date:
+      - 20201001T185434Z
+    method: GET
+    uri: https://sandbox.cuenca.com/deposits/CD57Ux92kMbvdSYwmZs1Rjh2
+  response:
+    body:
+      string: '{"id":"CD57Ux92kMbvdSYwmZs1Rjh2","created_at":"2020-09-30T19:38:29.234000","user_id":"US30Ncr1Qb045o6SrBwOASwM","amount":2002,"status":"succeeded","descriptor":"Deposito
+        v\u00eda paynet auth 648695","source_uri":null,"network":"cash","tracking_key":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '254'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 01 Oct 2020 18:54:34 GMT
+      Via:
+      - 1.1 f1c5a27e35ac834b32534347282b3496.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - cJdHs2JkvbhNt4_tcuMuHMgHScIR7FEg4WyK_LaD4oPc6tOri6ZbrA==
+      X-Amz-Cf-Pop:
+      - DFW55-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5f7625ea-58076a0b771124a4530ef77a;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - TvrcrE9yoAMF4eQ=
+      x-amzn-RequestId:
+      - e45a9eba-29d6-4774-b463-3bf6e1295944
+    status:
+      code: 200
+      message: OK
+version: 1
