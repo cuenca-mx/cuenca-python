@@ -1,11 +1,12 @@
 from typing import ClassVar, Optional, cast
 
+from cuenca_validations.types import EntryModel, LedgerEntryType
 from pydantic.dataclasses import dataclass
 
+from cuenca import resources
+
 from .base import Transaction
-from .deposits import Deposit
 from .resources import retrieve_uri
-from .transfers import Transfer
 
 
 @dataclass
@@ -16,15 +17,11 @@ class Commission(Transaction):
 
     @property  # type: ignore
     def related_transaction(self):
-        if self.related_transaction_uri is None:
-            acct = None
-        else:
-            if 'deposits' in self.related_transaction_uri:
-                acct = cast(
-                    Deposit, retrieve_uri(self.related_transaction_uri)
-                )
-            else:
-                acct = cast(
-                    Transfer, retrieve_uri(self.related_transaction_uri)
-                )
-        return acct
+        if not self.related_transaction_uri:
+            return None
+        related_transaction = self.related_transaction_uri.split('/')[-1]
+        entry = EntryModel(id=related_transaction, type=LedgerEntryType.credit)
+        return cast(
+            getattr(resources, entry.get_model()),
+            retrieve_uri(self.related_transaction_uri),
+        )
