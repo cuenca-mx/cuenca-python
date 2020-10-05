@@ -14,3 +14,9 @@ class BillPayment(Transaction):
     _query_params: ClassVar = BillPaymentQuery
 
     account_number: str
+    provider_uri: str
+
+    @property
+    def provider(self) -> ServiceProvider:
+        provider = cast(ServiceProvider, retrieve_uri(self.provider_uri))
+        return provider
