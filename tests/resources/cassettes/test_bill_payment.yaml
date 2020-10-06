@@ -18,31 +18,31 @@ interactions:
     uri: https://sandbox.cuenca.com/bill_payments/ST01
   response:
     body:
-      string: '{"id":"ST01","created_at":"2019-07-16T23:07:21.843000","user_id":"US01","amount":25,"status":"failed","descriptor":"Pago
-        de servicio","account_number":"019721609015961902080000026589","provider_uri":"/service_providers/SP01"}'
+      string: '{"id":"ST01","created_at":"2020-10-05T01:12:46.973000","user_id":"US01","amount":10000,"status":"succeeded","descriptor":"Pago
+        de servicio","account_number":"(111) 111-1111","provider_uri":"/service_providers/SP01"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '285'
+      - '224'
       Content-Type:
       - application/json
       Date:
-      - Mon, 28 Sep 2020 16:13:15 GMT
+      - Mon, 05 Oct 2020 23:56:54 GMT
       Via:
-      - 1.1 42b10ce0efa243af420d08c395787243.cloudfront.net (CloudFront)
+      - 1.1 72c5987cf6b5170991873937a6e36b80.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - G3cjk_9tLJHXyZjoo-e9UglLXzSXbXt6gW1PxcR1qzoAgb6e8UXXEA==
+      - vPUPB8XgktMziooNHnjTbP2v-wiXIZsW134XChHmw-lw885pV52hpw==
       X-Amz-Cf-Pop:
-      - LAX50-C2
+      - DFW50-C1
       X-Amzn-Trace-Id:
-      - Root=1-5f720b9b-fa550834bc6e9cb06874a638;Sampled=0
+      - Root=1-5f7bb2c5-250155e014a2927a6d49f7f5;Sampled=0
       X-Cache:
       - Miss from cloudfront
       x-amz-apigw-id:
-      - TlbAWG22oAMFUGw=
+      - T9je0FM4IAMF5NQ=
       x-amzn-RequestId:
-      - 27a54431-69c2-4388-a212-01267ae8960e
+      - 199a3e85-25c7-40b1-81e6-c45f2d81820b
     status:
       code: 200
       message: OK
@@ -65,30 +65,30 @@ interactions:
     uri: https://sandbox.cuenca.com/service_providers/SP01
   response:
     body:
-      string: '{"id":"SP01","created_at":"2020-09-26T00:32:20.289000","name":"CFE","provider_key":"electricity_cfe"}'
+      string: '{"id":"SP01","created_at":"2020-10-05T00:00:48.020000","name":"Telcel","provider_key":"topup_telcel","categories":["mobile_telephone_prepaid"]}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '121'
+      - '163'
       Content-Type:
       - application/json
       Date:
-      - Mon, 28 Sep 2020 16:13:16 GMT
+      - Mon, 05 Oct 2020 23:56:55 GMT
       Via:
-      - 1.1 42b10ce0efa243af420d08c395787243.cloudfront.net (CloudFront)
+      - 1.1 72c5987cf6b5170991873937a6e36b80.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - cxnHnk97p1SL0ZBYXWcR8Mojs_dn7OKsmQFWEFZDQS2WHMD_O39qaQ==
+      - A9UIKYCnUwTC067I5RCn2e5D9A4wUWy-yeDFT3BMoUqVIzmX5RXaRw==
       X-Amz-Cf-Pop:
-      - LAX50-C2
+      - DFW50-C1
       X-Amzn-Trace-Id:
-      - Root=1-5f720b9c-10d82f8ec7dd36e69215dc00;Sampled=0
+      - Root=1-5f7bb2c7-36ea3a3623a06c615355e8a7;Sampled=0
       X-Cache:
       - Miss from cloudfront
       x-amz-apigw-id:
-      - TlbAhEscoAMF4xw=
+      - T9jfMHpcoAMF14Q=
       x-amzn-RequestId:
-      - c4a63f67-1290-4361-8ee3-61a91b36b12b
+      - bacb6a7e-6fcc-4645-bd55-5d0dfc08f4e2
     status:
       code: 200
       message: OK
