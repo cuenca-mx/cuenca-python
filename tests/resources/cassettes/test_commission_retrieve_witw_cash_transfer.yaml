@@ -23,7 +23,7 @@ interactions:
   response:
     body:
       string: '{"id":"PAXXX","created_at":"2020-09-30T19:38:33.361000","user_id":"USXXX","amount":1000,"status":"succeeded","descriptor":"Comisi\u00f3n
-        (cash_transfer)","related_transaction_uri":"/transfers/SP5XXX"}'
+        (cash_transfer)", "type": "cash_deposit","related_transaction_uri":"/transfers/SP5XXX"}'
     headers:
       Connection:
       - keep-alive
