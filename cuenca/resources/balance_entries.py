@@ -12,6 +12,7 @@ class BalanceEntry(Retrievable, Queryable):
 
     amount: int  # negative in the case of a debit
     descriptor: str
+    name: str
     rolling_balance: int
     transaction_uri: str
 
