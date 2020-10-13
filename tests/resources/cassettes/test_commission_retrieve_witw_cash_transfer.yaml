@@ -1,0 +1,104 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.3.2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      x-amz-content-sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      x-amz-date:
+      - 20201001T185704Z
+    method: GET
+    uri: https://sandbox.cuenca.com/commissions/COXXX
+  response:
+    body:
+      string: '{"id":"COXXX","created_at":"2020-09-30T19:38:33.361000","user_id":"USXXX","amount":1000,"status":"succeeded","descriptor":"Comisi\u00f3n
+        (cash_transfer)", "type": "cash_deposit","related_transaction_uri":"/transfers/SP5XXX"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '254'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 01 Oct 2020 18:57:04 GMT
+      Via:
+      - 1.1 73f86570b09a38dfaa856857b5578e7e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - qhDyaKeW0Ocibu9DAsgRAOGZDLKAh4Ch8h7bgUOzErlF2enEXVrNLw==
+      X-Amz-Cf-Pop:
+      - DFW55-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5f762680-5dbf128e0175d0637dc90d9b;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - Tvr0KGBuoAMFvDw=
+      x-amzn-RequestId:
+      - f2476afc-8fb5-491f-ad79-2f365e55797d
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.3.2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      x-amz-content-sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      x-amz-date:
+      - 20201001T185705Z
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers/SP5XXX
+  response:
+    body:
+      string: '{"id":"SP5XXX","created_at":"2020-05-08T23:12:25.042000","updated_at":"2020-05-08T23:12:28.854000","account_number":"646180157013244941","recipient_name":"test
+        85d91ea6-76b6-49ab-913b-0481e8df7379","amount":8888,"descriptor":"lambda","idempotency_key":"b2bf01cb-da5f-4a42-9462-23078b81b6ea","status":"failed","network":"spei","destination_uri":null,"tracking_key":null,"user_id":"USXXX"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '254'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 01 Oct 2020 18:57:05 GMT
+      Via:
+      - 1.1 73f86570b09a38dfaa856857b5578e7e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - zWYNKGEjQ8P0PF_azgGX01euUv3Jl0T4dejiLXjDJdvQ4_FvG81F2A==
+      X-Amz-Cf-Pop:
+      - DFW55-C1
+      X-Amzn-Trace-Id:
+      - Root=1-5f762681-2c39d73d0760e8f37ffbe378;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - Tvr0OFKJIAMFYng=
+      x-amzn-RequestId:
+      - 1e7a83a6-88a1-443d-a175-1f35152b6cda
+    status:
+      code: 200
+      message: OK
+version: 1
