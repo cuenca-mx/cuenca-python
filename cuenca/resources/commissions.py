@@ -12,6 +12,8 @@ from cuenca import resources
 from .base import Transaction
 from .resources import retrieve_uri
 
+mapper = {CommissionType.cash_deposit: EntryType.credit}
+
 
 @dataclass
 class Commission(Transaction):
@@ -26,8 +28,8 @@ class Commission(Transaction):
         if not rt:
             return None
         model = (
-            rt.get_model(EntryType.credit.value)
-            if self.type == CommissionType.cash_deposit
+            rt.get_model(mapper[self.type].value)
+            if self.type in mapper
             else None
         )
         return (
