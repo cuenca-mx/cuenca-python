@@ -27,11 +27,5 @@ class Commission(Transaction):
         rt = self.related_transaction_uri
         if not rt:
             return None
-        model = (
-            rt.get_model(mapper[self.type]) if self.type in mapper else None
-        )
-        return (
-            cast(getattr(resources, model), retrieve_uri(rt))
-            if model
-            else None
-        )
+        resource = getattr(resources, rt.get_model())
+        return cast(resource, retrieve_uri(rt)) if resource else None
