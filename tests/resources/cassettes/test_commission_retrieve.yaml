@@ -19,10 +19,10 @@ interactions:
       x-amz-date:
       - 20201001T182731Z
     method: GET
-    uri: https://sandbox.cuenca.com/commissions/PAXX
+    uri: https://sandbox.cuenca.com/commissions/COXXX
   response:
     body:
-      string: '{"id":"PAXX","created_at":"2020-09-24T00:29:34.830000","user_id":"US2qz3mrAomlP8LWG106tILW","amount":25000,"status":"created","descriptor":"Comisi\u00f3n
+      string: '{"id":"COXXX","created_at":"2020-09-24T00:29:34.830000","user_id":"US2qz3mrAomlP8LWG106tILW","amount":25000,"status":"created","descriptor":"Comisi\u00f3n
         (card_request)", "type": "cash_deposit","related_transaction_uri":null}'
     headers:
       Connection:

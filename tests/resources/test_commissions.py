@@ -5,7 +5,7 @@ from cuenca import Commission, Deposit, Transfer
 
 @pytest.mark.vcr
 def test_commission_retrieve():
-    id_commission = 'PAXX'
+    id_commission = 'COXXX'
     commission: Commission = Commission.retrieve(id_commission)
     assert commission.id == id_commission
     assert not commission.related_transaction
@@ -13,7 +13,7 @@ def test_commission_retrieve():
 
 @pytest.mark.vcr
 def test_commission_retrieve_witw_cash_deposit():
-    id_commission = 'PAXXX'
+    id_commission = 'COXXX'
     commission: Commission = Commission.retrieve(id_commission)
     assert commission.id == id_commission
     related_transaction = commission.related_transaction
@@ -24,7 +24,7 @@ def test_commission_retrieve_witw_cash_deposit():
 
 @pytest.mark.vcr
 def test_commission_retrieve_witw_cash_transfer():
-    id_commission = 'PAXXX'
+    id_commission = 'COXXX'
     commission: Commission = Commission.retrieve(id_commission)
     assert commission.id == id_commission
     related_transaction = commission.related_transaction
