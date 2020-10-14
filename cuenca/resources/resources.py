@@ -3,7 +3,7 @@ from typing import Dict, cast
 
 from .base import Retrievable
 
-ENDPOINT_RE = re.compile(r'.*/(?P<resource>[a-z]+)/(?P<id>.+)$')
+ENDPOINT_RE = re.compile(r'.*/(?P<resource>[a-z_]+)/(?P<id>.+)$')
 RESOURCES: Dict[str, Retrievable] = {}  # set in ./__init__.py after imports
 
 
