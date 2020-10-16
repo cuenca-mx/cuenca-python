@@ -23,6 +23,11 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     cvv2: str
     type: CardType
     status: CardStatus
+    batch: Optional[str]
+    manufacturer: Optional[str]
+    cvv: Optional[str]
+    icvv: Optional[str]
+    pin: Optional[str]
 
     @classmethod
     def create(cls, ledger_account_id: str, user_id: str) -> 'Card':
