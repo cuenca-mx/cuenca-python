@@ -1,9 +1,11 @@
+import base64
+import datetime as dt
+import json
 import os
 from typing import Optional, Tuple, Union
 from urllib.parse import urljoin
 
 import requests
-from aws_requests_auth.aws_auth import AWSRequestsAuth
 from cuenca_validations.typing import (
     ClientRequestParams,
     DictStrAny,
@@ -24,7 +26,7 @@ class Session:
 
     host: str = API_HOST
     basic_auth: Tuple[str, str]
-    iam_auth: Optional[AWSRequestsAuth] = None
+    jwt_token: Optional[str] = None
     session: requests.Session
 
     def __init__(self):
@@ -41,31 +43,20 @@ class Session:
         api_secret = os.getenv('CUENCA_API_SECRET', '')
         self.basic_auth = (api_key, api_secret)
 
-        # IAM auth
-        aws_access_key = os.getenv('AWS_ACCESS_KEY_ID', '')
-        aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY', '')
-        aws_region = os.getenv('AWS_DEFAULT_REGION', AWS_DEFAULT_REGION)
-        if aws_access_key and aws_secret_access_key:
-            self.iam_auth = AWSRequestsAuth(
-                aws_access_key=aws_access_key,
-                aws_secret_access_key=aws_secret_access_key,
-                aws_host=self.host,
-                aws_region=aws_region,
-                aws_service=AWS_SERVICE,
-            )
-
     @property
-    def auth(self) -> Union[AWSRequestsAuth, Tuple[str, str]]:
+    def auth(self) -> Union[Tuple[str, str], str]:
         # preference to basic auth
-        return self.basic_auth if all(self.basic_auth) else self.iam_auth
+        return (
+            self.basic_auth
+            if all(self.basic_auth) and not self.jwt_token
+            else None
+        )
 
     def configure(
         self,
         api_key: Optional[str] = None,
         api_secret: Optional[str] = None,
-        aws_access_key: Optional[str] = None,
-        aws_secret_access_key: Optional[str] = None,
-        aws_region: str = AWS_DEFAULT_REGION,
+        use_jwt: Optional[bool] = None,
         sandbox: Optional[bool] = None,
     ):
         """
@@ -84,23 +75,8 @@ class Session:
             api_secret or self.basic_auth[1],
         )
 
-        # IAM auth
-        if self.iam_auth is not None:
-            self.iam_auth.aws_access_key = (
-                aws_access_key or self.iam_auth.aws_access_key
-            )
-            self.iam_auth.aws_secret_access_key = (
-                aws_secret_access_key or self.iam_auth.aws_secret_access_key
-            )
-            self.iam_auth.aws_region = aws_region or self.iam_auth.aws_region
-        elif aws_access_key and aws_secret_access_key:
-            self.iam_auth = AWSRequestsAuth(
-                aws_access_key=aws_access_key,
-                aws_secret_access_key=aws_secret_access_key,
-                aws_host=self.host,
-                aws_region=aws_region,
-                aws_service=AWS_SERVICE,
-            )
+        if use_jwt:
+            self.set_jwt_headers()
 
     def get(
         self,
@@ -126,6 +102,8 @@ class Session:
         data: OptionalDict = None,
         **kwargs,
     ) -> DictStrAny:
+        if self.jwt_token:
+            self.set_jwt_headers()
         resp = self.session.request(
             method=method,
             url='https://' + self.host + urljoin('/', endpoint),
@@ -136,6 +114,31 @@ class Session:
         )
         self._check_response(resp)
         return resp.json()
+
+    def set_jwt_headers(self):
+        # Make sure the current token is still valid
+        try:
+            payload_encoded = self.jwt_token.split('.')[1]
+            payload = json.loads(base64.b64decode(payload_encoded))
+            # Get a new token if there's less than 5 mins for the actual
+            # to be expired
+            if payload['exp'] - dt.datetime.utcnow() <= dt.timedelta(
+                minutes=5
+            ):
+                raise Exception('Expired token')
+        except Exception:
+            self.jwt_token = None
+
+        # Get a new one otherwise
+        if not self.jwt_token:
+            self.jwt_token = self.post('/token')['token']
+
+        # Set headers with valid token
+        self.session.headers.update(
+            {
+                'X-Cuenca-Token': self.jwt_token,
+            }
+        )
 
     @staticmethod
     def _check_response(response: Response):
