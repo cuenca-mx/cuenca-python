@@ -21,10 +21,6 @@ class BalanceEntry(Retrievable, Queryable):
     related_transaction_uri: RelatedTransaction
 
     @property  # type: ignore
-    def transaction(self):
-        return retrieve_uri(self.transaction_uri)
-
-    @property  # type: ignore
     def related_transaction(self):
         rt = self.related_transaction_uri
         resource = getattr(resources, rt.get_model())
