@@ -17,7 +17,6 @@ class BalanceEntry(Retrievable, Queryable):
     descriptor: str
     name: str
     rolling_balance: int
-    transaction_uri: str
     type: EntryType
     related_transaction_uri: RelatedTransaction
 
