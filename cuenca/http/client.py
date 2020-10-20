@@ -2,7 +2,7 @@ import base64
 import datetime as dt
 import json
 import os
-from typing import Optional, Tuple, Union
+from typing import Optional, Tuple
 from urllib.parse import urljoin
 
 import requests
@@ -44,7 +44,7 @@ class Session:
         self.basic_auth = (api_key, api_secret)
 
     @property
-    def auth(self) -> Union[Tuple[str, str], str]:
+    def auth(self) -> Optional[Tuple[str, str]]:
         # preference to basic auth
         return (
             self.basic_auth
@@ -131,7 +131,7 @@ class Session:
 
         # Get a new one otherwise
         if not self.jwt_token:
-            self.jwt_token = self.post('/token')['token']
+            self.jwt_token = self.post('/token', data=None)['token']
 
         # Set headers with valid token
         self.session.headers.update(

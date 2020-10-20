@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - cuenca-python/0.3.6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://api.cuenca.com/token
+  response:
+    body:
+      string: '{"message":"Authorization header requires ''Credential'' parameter.
+        Authorization header requires ''Signature'' parameter. Authorization header
+        requires ''SignedHeaders'' parameter. Authorization header requires existence
+        of either a ''X-Amz-Date'' or a ''Date'' header. Authorization=Basic YXBpX2tleTpzZWNyZXQ="}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '303'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 19 Oct 2020 20:26:58 GMT
+      Via:
+      - 1.1 7566f16c791b2604304a10c0249c0e6d.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - MKCQyoVeti260tSMcv77vuB1ty_QA3In2A_KiXudwT7YYAsmgIlM9g==
+      X-Amz-Cf-Pop:
+      - IAH50-C4
+      X-Cache:
+      - Error from cloudfront
+      x-amz-apigw-id:
+      - UrN21Gk4oAMFU5A=
+      x-amzn-ErrorType:
+      - IncompleteSignatureException
+      x-amzn-RequestId:
+      - a5ec85cc-0362-424d-b296-87ad937f42f0
+    status:
+      code: 403
+      message: Forbidden
+version: 1
