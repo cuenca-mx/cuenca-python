@@ -119,12 +119,12 @@ class Session:
         # Make sure the current token is still valid
         try:
             payload_encoded = self.jwt_token.split('.')[1]
-            payload = json.loads(base64.b64decode(payload_encoded))
+            payload = json.loads(base64.b64decode(f'{payload_encoded}=='))
             # Get a new token if there's less than 5 mins for the actual
             # to be expired
-            if payload['exp'] - dt.datetime.utcnow() <= dt.timedelta(
-                minutes=5
-            ):
+            if dt.datetime.utcfromtimestamp(
+                payload['exp']
+            ) - dt.datetime.utcnow() <= dt.timedelta(minutes=5):
                 raise Exception('Expired token')
         except Exception:
             self.jwt_token = None
