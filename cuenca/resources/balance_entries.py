@@ -1,6 +1,9 @@
-from typing import ClassVar
+from typing import ClassVar, cast
 
+from cuenca_validations.types import EntryType, RelatedTransaction
 from pydantic.dataclasses import dataclass
+
+from cuenca import resources
 
 from .base import Queryable, Retrievable
 from .resources import retrieve_uri
@@ -12,9 +15,13 @@ class BalanceEntry(Retrievable, Queryable):
 
     amount: int  # negative in the case of a debit
     descriptor: str
+    name: str
     rolling_balance: int
-    transaction_uri: str
+    type: EntryType
+    related_transaction_uri: RelatedTransaction
 
     @property  # type: ignore
-    def transaction(self):
-        return retrieve_uri(self.transaction_uri)
+    def related_transaction(self):
+        rt = self.related_transaction_uri
+        resource = getattr(resources, rt.get_model())
+        return cast(resource, retrieve_uri(rt)) if resource else None

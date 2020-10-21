@@ -11,38 +11,42 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.2.0.dev1
+      - cuenca-python/0.3.6
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      x-amz-content-sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      x-amz-date:
+      - 20201019T172955Z
     method: GET
     uri: https://sandbox.cuenca.com/balance_entries/TV01
   response:
     body:
-      string: '{"id":"TV01","created_at":"2020-06-01T03:07:27.879000","amount":10000,"descriptor":"Test
-        deposit","rolling_balance":10000,"transaction_uri":"/deposits/SP01"}'
+      string: '{"id":"TV01","created_at":"2020-10-15T22:27:53.712000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","name":"Dep\u00f3sito
+        de efectivo","amount":25000,"descriptor":"Deposito v\u00eda paynet auth 304054","rolling_balance":144519,"type":"credit","related_transaction_uri":"/deposits/CDI7SJOifauN5WnqfMhXK4R"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '157'
+      - '317'
       Content-Type:
       - application/json
       Date:
-      - Tue, 16 Jun 2020 03:43:47 GMT
+      - Mon, 19 Oct 2020 17:29:56 GMT
       Via:
-      - 1.1 2e7e64e85275c7c3d580e9eab0385c03.cloudfront.net (CloudFront)
+      - 1.1 1f2a017323162153f3cbc068c08d683d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 8AKT32IyjJ2xsUV6Ovwo3JtsOMyjTBzCo7HkvELoFRP_e6G9faXkmA==
+      - jmXPfoX1V3D4gfK2oNRvYyCVTa0H4CFDq2UIJW0k5H98ZXDVOwuVUA==
       X-Amz-Cf-Pop:
-      - JFK51-C1
+      - LAX50-C2
       X-Amzn-Trace-Id:
-      - Root=1-5ee83ff3-0388090aa11c07e20440f246;Sampled=0
+      - Root=1-5f8dcd14-062b68864a68a14d561f7483;Sampled=0
       X-Cache:
       - Miss from cloudfront
       x-amz-apigw-id:
-      - OM7uAF3JoAMF2GA=
+      - Uqz7NGGKoAMFuzg=
       x-amzn-RequestId:
-      - ee92b173-840e-47ab-8041-876d99d24102
+      - 3c4972d3-4bb0-45b6-99d9-b184ad9102f9
     status:
       code: 200
       message: OK
@@ -58,38 +62,42 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.2.0.dev1
+      - cuenca-python/0.3.6
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      x-amz-content-sha256:
+      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+      x-amz-date:
+      - 20201019T172956Z
     method: GET
-    uri: https://sandbox.cuenca.com/deposits/SP01
+    uri: https://sandbox.cuenca.com/deposits/CDI7SJOifauN5WnqfMhXK4R
   response:
     body:
-      string: '{"id":"SP01","created_at":"2020-06-03T03:07:36.338000","amount":10000,"status":"succeeded","descriptor":"SPEI
-        1","source_uri":"/accounts/BA01","network":"spei","tracking_key":"RASTREO_1234","user_id":"US01"}'
+      string: '{"id":"CDI7SJOifauN5WnqfMhXK4R","created_at":"2020-10-15T22:27:53.827000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":25000,"status":"succeeded","descriptor":"Deposito
+        v\u00eda paynet auth 304054","source_uri":null,"network":"cash","tracking_key":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '190'
+      - '254'
       Content-Type:
       - application/json
       Date:
-      - Tue, 16 Jun 2020 03:43:51 GMT
+      - Mon, 19 Oct 2020 17:29:57 GMT
       Via:
-      - 1.1 2e7e64e85275c7c3d580e9eab0385c03.cloudfront.net (CloudFront)
+      - 1.1 1f2a017323162153f3cbc068c08d683d.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 8f7zBxOkJlxr-hiBS-R19S0onB1iR1TgTtKR6vEmkUN_eVkXPDpe-Q==
+      - Oca8s1d7DyjaJBtN-bGe_6DgjyLBUCYwZ6KV07FAoawSmfGM2zS5Eg==
       X-Amz-Cf-Pop:
-      - JFK51-C1
+      - LAX50-C2
       X-Amzn-Trace-Id:
-      - Root=1-5ee83ff7-f4b1d5056df6a7219645fa39;Sampled=0
+      - Root=1-5f8dcd15-4a3f9ad77ee830f7704af8b5;Sampled=0
       X-Cache:
       - Miss from cloudfront
       x-amz-apigw-id:
-      - OM7utGv3IAMFf6g=
+      - Uqz7UG_QIAMFVtQ=
       x-amzn-RequestId:
-      - 0e4fa451-7a8a-4e46-867d-0547f72ac39c
+      - 75f5428f-9a18-455b-9984-cc3e80fbde4b
     status:
       code: 200
       message: OK
