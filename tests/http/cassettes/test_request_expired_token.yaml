@@ -1,0 +1,128 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - cuenca-python/0.3.6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://stage.cuenca.com/token
+  response:
+    body:
+      string: '{"id":12,"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDM5MTA5NDksImlhdCI6MTYwMzMwNjE0OSwic3ViIjoiQUtib3hCeXNTd1NTbVR0VmtoT1I2X21RIiwidWlkIjoiMWFkNWUwZTMtMTNjZS0xMWViLTg0MjItNDE3MmZhYTQwZjQyIn0.5OX-MCcgi4cyiGexSsDIwk8HyhJxuIT8VF7X41GkO6w","created_at":"2020-10-21T18:49:09.935845","api_key":{"id":"AKboxBysSwSSmTtVkhOR6_mQ","created_at":"2020-10-20T23:56:28.845757","secret":"********","deactivated_at":null,"user_id":"rsc"}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '438'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 21 Oct 2020 18:49:09 GMT
+      Server:
+      - nginx/1.18.0
+      X-Amzn-Trace-Id:
+      - Root=1-5f9082a5-37ce7b1275ae2055215eb14d;Sampled=0
+      x-amz-apigw-id:
+      - UxlZ8FEyCYcFUuQ=
+      x-amzn-RequestId:
+      - ee534c24-2878-4efe-b91e-3c99757adff6
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - cuenca-python/0.3.6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-Token:
+      - DUMMY
+    method: POST
+    uri: https://stage.cuenca.com/token
+  response:
+    body:
+      string: '{"id":13,"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDM5MTA5NTAsImlhdCI6MTYwMzMwNjE1MCwic3ViIjoiQUtib3hCeXNTd1NTbVR0VmtoT1I2X21RIiwidWlkIjoiMWFlMjQ5MjUtMTNjZS0xMWViLTk0ZDQtNDE3MmZhYTQwZjQyIn0.GmDxVfvt2Es6mf1upY5Y7RdkGgeos7mTpA_7wFb8ZaI","created_at":"2020-10-21T18:49:10.017165","api_key":{"id":"AKboxBysSwSSmTtVkhOR6_mQ","created_at":"2020-10-20T23:56:28.845757","secret":"********","deactivated_at":null,"user_id":"rsc"}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '438'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 21 Oct 2020 18:49:10 GMT
+      Server:
+      - nginx/1.18.0
+      X-Amzn-Trace-Id:
+      - Root=1-5f9082a5-25f2f46b7c8b558769ecf708;Sampled=0
+      x-amz-apigw-id:
+      - UxlZ8Gs5CYcFtFg=
+      x-amzn-RequestId:
+      - 6553d156-d57e-48a4-b16a-42588c221827
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.3.6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-Token:
+      - DUMMY
+    method: GET
+    uri: https://stage.cuenca.com/api_keys
+  response:
+    body:
+      string: '{"items":[{"id":"AKboxBysSwSSmTtVkhOR6_mQ","created_at":"2020-10-20T23:56:28.845757","secret":"********","deactivated_at":null,"user_id":"rsc"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '166'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 21 Oct 2020 18:49:10 GMT
+      Server:
+      - nginx/1.18.0
+      X-Amzn-Trace-Id:
+      - Root=1-5f9082a6-6a70a6d03f0698b549541398;Sampled=0
+      x-amz-apigw-id:
+      - UxlZ9G4tiYcFmjQ=
+      x-amzn-RequestId:
+      - e3f54e5b-13ec-4cf8-83da-4f93f7bd9c54
+    status:
+      code: 200
+      message: OK
+version: 1
