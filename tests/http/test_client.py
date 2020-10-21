@@ -1,6 +1,8 @@
 from unittest.mock import MagicMock, patch
+import datetime as dt
 
 import pytest
+from freezegun import freeze_time
 
 from cuenca.exc import CuencaResponseException
 from cuenca.http.client import Session
@@ -30,22 +32,29 @@ def test_basic_auth_configuration():
 def test_configures_jwt():
     session = Session()
     session.configure(use_jwt=True)
-    assert session.auth.aws_secret_access_key == 'new_aws_secret'
-    assert session.auth.aws_access_key == 'new_aws_key'
-    assert session.auth.aws_region == 'us-east-1'
+    assert not session.auth
+    assert session.jwt_token
 
 
-@pytest.mark.usefixtures('aws_creds')
-def test_overrides_aws_creds():
+@pytest.mark.vcr
+@pytest.mark.usefixtures('cuenca_creds')
+def test_request_valid_token():
     session = Session()
-    session.configure(
-        aws_access_key='new_aws_key',
-        aws_secret_access_key='new_aws_secret',
-        aws_region='us-east-2',
-    )
-    assert session.auth.aws_secret_access_key == 'new_aws_secret'
-    assert session.auth.aws_access_key == 'new_aws_key'
-    assert session.auth.aws_region == 'us-east-2'
+    session.configure(use_jwt=True)
+    response = session.get('/api_keys')
+    assert response.status_code == 200
+
+
+@pytest.mark.vcr
+@pytest.mark.usefixtures('cuenca_creds')
+def test_request_expired_token():
+    session = Session()
+    session.configure(use_jwt=True)
+    previous_jwt = session.jwt_token
+    with freeze_time(dt.datetime.utcnow() + dt.timedelta(days=40)):
+        response = session.get('/api_keys')
+    assert response.status_code == 200
+    assert session.jwt_token != previous_jwt
 
 
 @patch('cuenca.http.client.requests.Session.request')
