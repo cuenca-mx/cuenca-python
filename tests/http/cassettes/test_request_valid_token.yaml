@@ -17,7 +17,7 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
-    uri: https://stage.cuenca.com/token
+    uri: https://api.cuenca.com/token
   response:
     body:
       string: '{"id":11,"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDM5MTA4MDksImlhdCI6MTYwMzMwNjAwOSwic3ViIjoiQUtib3hCeXNTd1NTbVR0VmtoT1I2X21RIiwidWlkIjoiYzcxZDhiZWYtMTNjZC0xMWViLTlmYzItNDE3MmZhYTQwZjQyIn0.fXy3EYJTaKQv61wQuKRUwR9BHvnovsUO74X3XpEhvBk","created_at":"2020-10-21T18:46:49.514738","api_key":{"id":"AKboxBysSwSSmTtVkhOR6_mQ","created_at":"2020-10-20T23:56:28.845757","secret":"********","deactivated_at":null,"user_id":"rsc"}}'
@@ -57,7 +57,7 @@ interactions:
       X-Cuenca-Token:
       - DUMMY
     method: GET
-    uri: https://stage.cuenca.com/api_keys
+    uri: https://api.cuenca.com/api_keys
   response:
     body:
       string: '{"items":[{"id":"AKboxBysSwSSmTtVkhOR6_mQ","created_at":"2020-10-20T23:56:28.845757","secret":"********","deactivated_at":null,"user_id":"rsc"}],"next_page_uri":null}'

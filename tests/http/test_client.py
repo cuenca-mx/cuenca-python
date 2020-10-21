@@ -42,7 +42,7 @@ def test_request_valid_token():
     session = Session()
     session.configure(use_jwt=True)
     response = session.get('/api_keys')
-    assert response.status_code == 200
+    assert response['items']
 
 
 @pytest.mark.vcr
@@ -53,7 +53,7 @@ def test_request_expired_token():
     previous_jwt = session.jwt_token
     with freeze_time(dt.datetime.utcnow() + dt.timedelta(days=40)):
         response = session.get('/api_keys')
-    assert response.status_code == 200
+    assert response['items']
     assert session.jwt_token != previous_jwt
 
 
