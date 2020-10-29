@@ -1,3 +1,4 @@
+import datetime as dt
 from dataclasses import dataclass
 from typing import ClassVar, List, cast
 
@@ -13,15 +14,17 @@ class CardTransaction(Transaction):
 
     type: CardTransactionType
     network: CardNetwork
-    related_card_transaction_uris: List[str]
+    related_card_transaction: List[str]
     card_last4: str
     card_type: CardType
+    merchant: str
+    metadata: dict
+    error_type: str
+    expired_at: dt.datetime
 
     @property  # type: ignore
     def related_card_transactions(self) -> List['CardTransaction']:
-        card_transactions = []
-        for uri in self.related_card_transaction_uris:
-            card_transactions.append(
-                cast('CardTransaction', retrieve_uri(uri))
-            )
-        return card_transactions
+        return [
+            cast('CardTransaction', retrieve_uri(uri))
+            for uri in self.related_card_transaction
+        ]
