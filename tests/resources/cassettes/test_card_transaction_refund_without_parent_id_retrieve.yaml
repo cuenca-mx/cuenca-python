@@ -17,36 +17,36 @@ interactions:
       x-amz-content-sha256:
       - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
       x-amz-date:
-      - 20201029T190152Z
+      - 20201029T211345Z
     method: GET
     uri: https://sandbox.cuenca.com/card_transactions/CT003
   response:
     body:
-      string: '{"id":"CT003","created_at":"2020-10-29T17:44:27.019000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":95117,"status":"succeeded","descriptor":"Superama
-        Michoacan","type":"charge_back","network":"visa","related_card_transaction_uris":[],"card_last4":"0359","card_type":"virtual","merchant":"MAnQlrBd4GWjyXY4BctLlM7","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":null,"retrieval_reference":null,"track_data_method":null,"transaction_reference":null},"error_type":null,"expired_at":null}'
+      string: '{"id":"CT003","created_at":"2020-10-29T18:03:59.878000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"succeeded","descriptor":"Superama
+        Michoacan","type":"auth","network":"visa","related_card_transaction_uris":[],"card_last4":"0359","card_type":"virtual","merchant":"MAnQlrBd4GWjyXY4BctLlM7","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"84454","retrieval_reference":"518709560","track_data_method":null,"transaction_reference":null},"error_type":null,"expired_at":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '608'
+      - '613'
       Content-Type:
       - application/json
       Date:
-      - Thu, 29 Oct 2020 19:01:53 GMT
+      - Thu, 29 Oct 2020 21:13:45 GMT
       Via:
-      - 1.1 1120ebbd422292da0605da90d55cc0e9.cloudfront.net (CloudFront)
+      - 1.1 3844a554993ef7edabea082622b10c45.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - 56f783QHV5b2OHJBqOY7iY5lXZa2BKkgHYzjmcyinnDs63Ctf75PpQ==
+      - avlXhzkeeautRc3OPR-xE070uOSuDlP6D6_Xu3QOy3L79L3mnC4nwQ==
       X-Amz-Cf-Pop:
-      - DFW3-C1
+      - IAH50-C1
       X-Amzn-Trace-Id:
-      - Root=1-5f9b11a1-061026cc6c837c660402dbd5;Sampled=0
+      - Root=1-5f9b3089-260d13036df86bac521e0477;Sampled=0
       X-Cache:
       - Miss from cloudfront
       x-amz-apigw-id:
-      - VL-xMG2XoAMFVzQ=
+      - VMSFeH75oAMFUXg=
       x-amzn-RequestId:
-      - d015056f-8502-4b93-831b-7424470515a1
+      - 4292b6ac-6571-4c50-b6ff-56c628937948
     status:
       code: 200
       message: OK

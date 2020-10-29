@@ -17,7 +17,7 @@ interactions:
       x-amz-content-sha256:
       - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
       x-amz-date:
-      - 20201029T190309Z
+      - 20201029T211345Z
     method: GET
     uri: https://sandbox.cuenca.com/card_transactions/CT004
   response:
@@ -28,25 +28,25 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '636'
+      - '641'
       Content-Type:
       - application/json
       Date:
-      - Thu, 29 Oct 2020 19:03:10 GMT
+      - Thu, 29 Oct 2020 21:13:45 GMT
       Via:
-      - 1.1 891b1deb65550a4f9d40f2585712c586.cloudfront.net (CloudFront)
+      - 1.1 a75dce573e80f2f2d03981a80f910c42.cloudfront.net (CloudFront)
       X-Amz-Cf-Id:
-      - CPvXCu9ENXZnXv_AxA7u9wyULLmtG8gq79ZqqcIOWnsCPixzc9nmBA==
+      - c5u29_nf3YTSb7F-8JyhufTnieVVTDY59jXwr2jdJ3qcuEcSVEPO3A==
       X-Amz-Cf-Pop:
-      - DFW3-C1
+      - IAH50-C1
       X-Amzn-Trace-Id:
-      - Root=1-5f9b11ee-5bd7466a0e062b9f78b07fd4;Sampled=0
+      - Root=1-5f9b3089-501105c97ed0766d4d07559f;Sampled=0
       X-Cache:
       - Miss from cloudfront
       x-amz-apigw-id:
-      - VL-9QGA8IAMFsvw=
+      - VMSFiGpHIAMFlbw=
       x-amzn-RequestId:
-      - f2502322-83bc-4850-83f1-53e77b9f204a
+      - 18ec27c1-e875-47ea-84aa-3b12bb4cb0b1
     status:
       code: 200
       message: OK

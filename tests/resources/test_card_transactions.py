@@ -9,7 +9,7 @@ def test_card_transaction_parent_retrieve():
     cardt: CardTransaction = CardTransaction.retrieve(id_card_transaction)
     assert cardt.id == id_card_transaction
     related_card_transactions = cardt.related_card_transactions
-    assert len(related_card_transactions) == 2
+    assert len(related_card_transactions) == 3
     for card_transaction in related_card_transactions:
         assert card_transaction.type != 'auth'
 
