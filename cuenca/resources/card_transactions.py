@@ -2,7 +2,12 @@ import datetime as dt
 from dataclasses import dataclass
 from typing import ClassVar, List, cast
 
-from cuenca_validations.types import CardNetwork, CardTransactionType, CardType
+from cuenca_validations.types import (
+    CardErrorType,
+    CardNetwork,
+    CardTransactionType,
+    CardType,
+)
 
 from .base import Transaction
 from .resources import retrieve_uri
@@ -19,7 +24,7 @@ class CardTransaction(Transaction):
     card_type: CardType
     merchant: str
     metadata: dict
-    error_type: str
+    error_type: CardErrorType
     expired_at: dt.datetime
 
     @property  # type: ignore
