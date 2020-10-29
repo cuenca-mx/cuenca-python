@@ -14,7 +14,7 @@ class CardTransaction(Transaction):
 
     type: CardTransactionType
     network: CardNetwork
-    related_card_transaction: List[str]
+    related_card_transaction_uris: List[str]
     card_last4: str
     card_type: CardType
     merchant: str
@@ -26,5 +26,5 @@ class CardTransaction(Transaction):
     def related_card_transactions(self) -> List['CardTransaction']:
         return [
             cast('CardTransaction', retrieve_uri(uri))
-            for uri in self.related_card_transaction
+            for uri in self.related_card_transaction_uris
         ]

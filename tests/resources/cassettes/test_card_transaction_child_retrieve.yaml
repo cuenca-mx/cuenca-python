@@ -23,7 +23,7 @@ interactions:
   response:
     body:
       string: '{"id":"CT002","created_at":"2020-10-29T18:04:37.414000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"created","descriptor":"Superama
-        Michoacan","type":"refund","network":"visa","related_card_transaction":["/card_transactions/CT6KYNnKT304Cf7sOrJptsDu"],"card_last4":"0359","card_type":"virtual","merchant":"MAnQlrBd4GWjyXY4BctLlM7","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"38007","retrieval_reference":"444838149","track_data_method":null,"transaction_reference":null},"error_type":null,"expired_at":null}'
+        Michoacan","type":"refund","network":"visa","related_card_transaction_uris":["/card_transactions/CT6KYNnKT304Cf7sOrJptsDu"],"card_last4":"0359","card_type":"virtual","merchant":"MAnQlrBd4GWjyXY4BctLlM7","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"38007","retrieval_reference":"444838149","track_data_method":null,"transaction_reference":null},"error_type":null,"expired_at":null}'
     headers:
       Connection:
       - keep-alive
@@ -74,7 +74,7 @@ interactions:
   response:
     body:
       string: '{"id":"CT6KYNnKT304Cf7sOrJptsDu","created_at":"2020-10-29T18:04:37.396000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"created","descriptor":"Superama
-        Michoacan","type":"auth","network":"visa","related_card_transaction":["/card_transactions/CT002"],"card_last4":"0359","card_type":"virtual","merchant":"MAnQlrBd4GWjyXY4BctLlM7","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"36776","retrieval_reference":"691159329","track_data_method":null,"transaction_reference":null},"error_type":null,"expired_at":null}'
+        Michoacan","type":"auth","network":"visa","related_card_transaction_uris":["/card_transactions/CT002"],"card_last4":"0359","card_type":"virtual","merchant":"MAnQlrBd4GWjyXY4BctLlM7","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"36776","retrieval_reference":"691159329","track_data_method":null,"transaction_reference":null},"error_type":null,"expired_at":null}'
     headers:
       Connection:
       - keep-alive
