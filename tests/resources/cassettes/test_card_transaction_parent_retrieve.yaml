@@ -23,7 +23,7 @@ interactions:
   response:
     body:
       string: '{"id":"CT001","created_at":"2020-10-29T18:04:37.396000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"created","descriptor":"Superama
-        Michoacan","type":"auth","network":"visa","related_card_transaction_uris":["/card_transactions/CT002","/card_transactions/CT2pnV82umR0FnxWsDwHBFq","/card_transactions/CTXoLAkUBeZY7arY4XyuaYp"],"card_last4":"0359","card_type":"virtual","merchant":"MAnQlrBd4GWjyXY4BctLlM7","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"36776","retrieval_reference":"691159329","track_data_method":null,"transaction_reference":null},"error_type":null,"expired_at":null}'
+        Michoacan","type":"auth","network":"visa","related_card_transaction_uris":["/card_transactions/CT002","/card_transactions/CT2pnV82umR0FnxWsDwHBFq","/card_transactions/CTXoLAkUBeZY7arY4XyuaYp"],"card_id":"CA001","card_last4":"0359","card_type":"virtual","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"36776","retrieval_reference":"691159329","track_data_method":null,"transaction_reference":null},"error_type":null}'
     headers:
       Connection:
       - keep-alive
@@ -74,7 +74,7 @@ interactions:
   response:
     body:
       string: '{"id":"CT002","created_at":"2020-10-29T18:04:37.414000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"created","descriptor":"Superama
-        Michoacan","type":"refund","network":"visa","related_card_transaction_uris":["/card_transactions/CT001"],"card_last4":"0359","card_type":"virtual","merchant":"MAnQlrBd4GWjyXY4BctLlM7","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"38007","retrieval_reference":"444838149","track_data_method":null,"transaction_reference":null},"error_type":null,"expired_at":null}'
+        Michoacan","type":"refund","network":"visa","related_card_transaction_uris":["/card_transactions/CT001"],"card_id":"CA001","card_last4":"0359","card_type":"virtual","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"38007","retrieval_reference":"444838149","track_data_method":null,"transaction_reference":null},"error_type":null}'
     headers:
       Connection:
       - keep-alive
@@ -125,7 +125,7 @@ interactions:
   response:
     body:
       string: '{"id":"CT2pnV82umR0FnxWsDwHBFq","created_at":"2020-10-29T18:47:31.439000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":500,"status":"succeeded","descriptor":"Superama
-        Michoacan","type":"refund","network":"visa","related_card_transaction_uris":["/card_transactions/CT001"],"card_last4":"0359","card_type":"virtual","merchant":"MAnQlrBd4GWjyXY4BctLlM7","metadata":{"authorizer_number":"6582387564","card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"9999","retrieval_reference":"9089089","track_data_method":null,"transaction_reference":null},"error_type":null,"expired_at":null}'
+        Michoacan","type":"refund","network":"visa","related_card_transaction_uris":["/card_transactions/CT001"],"card_id":"CA001","card_last4":"0359","card_type":"virtual","metadata":{"authorizer_number":"6582387564","card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"9999","retrieval_reference":"9089089","track_data_method":null,"transaction_reference":null},"error_type":null}'
     headers:
       Connection:
       - keep-alive
@@ -176,7 +176,7 @@ interactions:
   response:
     body:
       string: '{"id":"CTXoLAkUBeZY7arY4XyuaYp","created_at":"2020-10-29T19:31:23.460000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"succeeded","descriptor":"Superama
-        Michoacan","type":"capture","network":"visa","related_card_transaction_uris":["/card_transactions/CT001"],"card_last4":"0359","card_type":"virtual","merchant":"MAnQlrBd4GWjyXY4BctLlM7","metadata":{"authorizer_number":"6582387564","card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"9999","retrieval_reference":"9089089","track_data_method":null,"transaction_reference":null},"error_type":null,"expired_at":null}'
+        Michoacan","type":"capture","network":"visa","related_card_transaction_uris":["/card_transactions/CT001"],"card_id":"CA001","card_last4":"0359","card_type":"virtual","metadata":{"authorizer_number":"6582387564","card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"9999","retrieval_reference":"9089089","track_data_method":null,"transaction_reference":null},"error_type":null}'
     headers:
       Connection:
       - keep-alive
