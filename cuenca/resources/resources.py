@@ -20,8 +20,7 @@ def retrieve_uris(uris: List[str]) -> Retrievable:
     async def async_retrieve_uri(uri):
         return retrieve_uri(uri)
 
-    event_loop = asyncio.get_event_loop()
-    results = event_loop.run_until_complete(
-        asyncio.gather(*[async_retrieve_uri(uri) for uri in uris])
-    )
-    return results
+    async def main():
+        return await asyncio.gather(*[async_retrieve_uri(uri) for uri in uris])
+
+    return asyncio.run(main())
