@@ -2,7 +2,6 @@ import asyncio
 import re
 from typing import Dict, List, cast
 
-from ..http.utils import create_awaitable
 from .base import Retrievable
 
 ENDPOINT_RE = re.compile(r'.*/(?P<resource>[a-z_]+)/(?P<id>.+)$')
@@ -17,9 +16,13 @@ def retrieve_uri(uri: str) -> Retrievable:
     return cast(Retrievable, RESOURCES[resource].retrieve(id_))
 
 
+async def async_retrieve_uri(uri):
+    return retrieve_uri(uri)
+
+
 def retrieve_uris(uris: List[str]) -> Retrievable:
     event_loop = asyncio.get_event_loop()
     results = event_loop.run_until_complete(
-        asyncio.gather(*[create_awaitable(retrieve_uri, uri) for uri in uris])
+        asyncio.gather(*[async_retrieve_uri(uri) for uri in uris])
     )
     return results
