@@ -1,5 +1,5 @@
-import asyncio
 import re
+from concurrent.futures import ThreadPoolExecutor
 from typing import Dict, List, cast
 
 from .base import Retrievable
@@ -16,11 +16,9 @@ def retrieve_uri(uri: str) -> Retrievable:
     return cast(Retrievable, RESOURCES[resource].retrieve(id_))
 
 
-def retrieve_uris(uris: List[str]) -> Retrievable:
-    async def async_retrieve_uri(uri):
-        return retrieve_uri(uri)
-
-    async def main():
-        return await asyncio.gather(*[async_retrieve_uri(uri) for uri in uris])
-
-    return asyncio.run(main())
+def retrieve_uris(uris: List[str]) -> List[Retrievable]:
+    results = []
+    with ThreadPoolExecutor(max_workers=len(uris)) as executor:
+        for ct in executor.map(retrieve_uri, [uri for uri in uris]):
+            results.append(ct)
+    return results

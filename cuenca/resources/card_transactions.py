@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import ClassVar, List, cast
+from typing import ClassVar, List, Optional, cast
 
 from cuenca_validations.types import (
     CardErrorType,
@@ -26,7 +26,9 @@ class CardTransaction(Transaction):
     error_type: CardErrorType
 
     @property  # type: ignore
-    def related_card_transactions(self) -> List['CardTransaction']:
+    def related_card_transactions(self) -> Optional[List['CardTransaction']]:
+        if not self.related_card_transaction_uris:
+            return None
         return cast(
             List['CardTransaction'],
             retrieve_uris(self.related_card_transaction_uris),
