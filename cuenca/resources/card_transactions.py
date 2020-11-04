@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from typing import ClassVar, List, Optional, cast
 
 from cuenca_validations.types import (
@@ -7,6 +6,7 @@ from cuenca_validations.types import (
     CardTransactionType,
     CardType,
 )
+from pydantic.dataclasses import dataclass
 
 from .base import Transaction
 from .resources import retrieve_uris
@@ -23,7 +23,7 @@ class CardTransaction(Transaction):
     card_last4: str
     card_type: CardType
     metadata: dict
-    error_type: CardErrorType
+    error_type: Optional[CardErrorType]
 
     @property  # type: ignore
     def related_card_transactions(self) -> Optional[List['CardTransaction']]:
