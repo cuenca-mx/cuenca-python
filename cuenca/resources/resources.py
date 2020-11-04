@@ -17,9 +17,5 @@ def retrieve_uri(uri: str) -> Retrievable:
 
 
 def retrieve_uris(uris: List[str]) -> List[Retrievable]:
-    results = []
-    with ThreadPoolExecutor(max_workers=len(uris)) as executor:
-        results.extend(
-            [ct for ct in executor.map(retrieve_uri, [uri for uri in uris])]
-        )
-    return results
+    executor = ThreadPoolExecutor(max_workers=len(uris))
+    return [ct for ct in executor.map(retrieve_uri, [uri for uri in uris])]
