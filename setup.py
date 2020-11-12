@@ -24,7 +24,7 @@ setup(
     python_requires='>=3.6',
     install_requires=[
         'aws-requests-auth==0.4.3',
-        'requests>=2.24,<2.25',
+        'requests>=2.24,<2.26',
         'cuenca-validations>=0.6.0,<0.7.0',
         'dataclasses>=0.7;python_version<"3.7"',
     ],
