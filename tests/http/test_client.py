@@ -40,8 +40,11 @@ def test_configures_jwt():
 @pytest.mark.usefixtures('cuenca_creds')
 def test_request_valid_token():
     session = Session()
-    session.configure(use_jwt=True)
-    response = session.get('/api_keys')
+    # Set date when the cassette was created otherwise will retrieve
+    # an expired token
+    with freeze_time(dt.date(2020, 10, 22)):
+        session.configure(use_jwt=True)
+        response = session.get('/api_keys')
     assert response['items']
 
 
