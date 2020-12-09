@@ -1,6 +1,10 @@
 from typing import ClassVar, cast
 
-from cuenca_validations.types import EntryType, RelatedTransaction
+from cuenca_validations.types import (
+    BalanceEntryQuery,
+    EntryType,
+    RelatedTransaction,
+)
 from pydantic.dataclasses import dataclass
 
 from cuenca import resources
@@ -12,6 +16,7 @@ from .resources import retrieve_uri
 @dataclass
 class BalanceEntry(Retrievable, Queryable):
     _resource: ClassVar = 'balance_entries'
+    _query_params: ClassVar = BalanceEntryQuery
 
     amount: int  # negative in the case of a debit
     descriptor: str
