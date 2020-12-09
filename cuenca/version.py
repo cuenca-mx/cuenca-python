@@ -1,3 +1,3 @@
-__version__ = '0.4.0'
+__version__ = '0.4.1'
 CLIENT_VERSION = __version__
 API_VERSION = '2020-03-19'
