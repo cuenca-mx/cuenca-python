@@ -5,6 +5,7 @@ __all__ = [
     'BillPayment',
     'Card',
     'CardTransaction',
+    'ComercialDocument',
     'Commission',
     'Deposit',
     'ServiceProvider',
@@ -18,6 +19,7 @@ from .balance_entries import BalanceEntry
 from .bill_payments import BillPayment
 from .card_transactions import CardTransaction
 from .cards import Card
+from .comercial_documents import ComercialDocument
 from .commissions import Commission
 from .deposits import Deposit
 from .resources import RESOURCES
@@ -33,6 +35,7 @@ resource_classes = [
     BillPayment,
     Card,
     CardTransaction,
+    ComercialDocument,
     Commission,
     Deposit,
     ServiceProvider,
