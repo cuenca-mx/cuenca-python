@@ -1,9 +1,8 @@
-import datetime as dt
+import base64
 import json
+import os
 from typing import ClassVar, cast
 
-from clabe import Clabe
-from cuenca_validations.types import DocumentType
 from cuenca_validations.types.requests import DocumentRequest
 from pydantic.dataclasses import dataclass
 
@@ -12,26 +11,17 @@ from .base import Creatable
 
 @dataclass
 class ComercialDocument(Creatable):
-    _resource: ClassVar = 'documents'
+    _resource: ClassVar = 'comercial_documents'
 
     body: str
 
     @classmethod
-    def create(
-        cls,
-        client_name: str,
-        clabe: Clabe,
-        address: str,
-        rfc: str,
-        date: dt.datetime,
-        document_type: DocumentType,
-    ) -> 'ComercialDocument':
-        req = DocumentRequest(
-            client_name=client_name,
-            clabe=clabe,
-            address=address,
-            rfc=rfc,
-            date=date,
-            document_type=document_type,
+    def create(cls, request: DocumentRequest) -> 'ComercialDocument':
+        return cast(
+            'ComercialDocument', cls._create(**json.loads(request.json()))
         )
-        return cast('ComercialDocument', cls._create(**json.loads(req.json())))
+
+    def download(cls, path: str = os.path.abspath(os.getcwd())):
+        zip_file = open(f'{path}/{cls.id}.zip', "wb")
+        zip_file.write(base64.b64decode(cls.body.encode("utf-8")))
+        zip_file.close()
