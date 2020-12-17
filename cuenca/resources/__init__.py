@@ -8,6 +8,7 @@ __all__ = [
     'Commission',
     'Deposit',
     'ServiceProvider',
+    'Statement',
     'Transfer',
     'WhatsappTransfer',
 ]
@@ -22,6 +23,7 @@ from .commissions import Commission
 from .deposits import Deposit
 from .resources import RESOURCES
 from .service_providers import ServiceProvider
+from .statements import Statement
 from .transfers import Transfer
 from .whatsapp_transfers import WhatsappTransfer
 
@@ -36,6 +38,7 @@ resource_classes = [
     Commission,
     Deposit,
     ServiceProvider,
+    Statement,
     Transfer,
     WhatsappTransfer,
 ]
