@@ -9,6 +9,7 @@ __all__ = [
     'Commission',
     'Deposit',
     'ServiceProvider',
+    'Statement',
     'Transfer',
     'WhatsappTransfer',
     'configure',
@@ -26,6 +27,7 @@ from .resources import (
     Commission,
     Deposit,
     ServiceProvider,
+    Statement,
     Transfer,
     WhatsappTransfer,
 )
