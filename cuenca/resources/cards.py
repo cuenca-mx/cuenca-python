@@ -79,4 +79,4 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         """
         url = f'{cls._resource}/{card_id}'
         resp = session.delete(url)
-        return cast('Card', cls._from_dict(resp))
+        return cast('Card', cls._from_dict(resp.json()))

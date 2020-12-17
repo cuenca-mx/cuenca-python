@@ -1,9 +1,5 @@
 import os
-<<<<<<< HEAD
-from typing import Optional, Tuple
-=======
-from typing import Dict, Optional, Tuple, Union
->>>>>>> Statement and downlooad with BytesIO
+from typing import Optional, Tuple, Union
 from urllib.parse import urljoin
 
 import requests
@@ -79,21 +75,20 @@ class Session:
         self,
         endpoint: str,
         params: ClientRequestParams = None,
-        headers: OptionalDict = None,
-    ):
-        resp = self.request('get', endpoint, params=params, headers=headers)
-        if headers and 'Accept' in headers:
-            return resp.content
-        return resp.json()
+        **kwargs,
+    ) -> Response:
+        return self.request('get', endpoint, params=params, **kwargs)
 
-    def post(self, endpoint: str, data: DictStrAny) -> DictStrAny:
-        return self.request('post', endpoint, data=data).json()
+    def post(self, endpoint: str, data: DictStrAny, **kwargs) -> Response:
+        return self.request('post', endpoint, data=data, **kwargs)
 
-    def patch(self, endpoint: str, data: DictStrAny) -> DictStrAny:
-        return self.request('patch', endpoint, data=data).json()
+    def patch(self, endpoint: str, data: DictStrAny, **kwargs) -> Response:
+        return self.request('patch', endpoint, data=data, **kwargs)
 
-    def delete(self, endpoint: str, data: OptionalDict = None) -> DictStrAny:
-        return self.request('delete', endpoint, data=data).json()
+    def delete(
+        self, endpoint: str, data: OptionalDict = None, **kwargs
+    ) -> Response:
+        return self.request('delete', endpoint, data=data, **kwargs)
 
     def request(
         self,
@@ -101,25 +96,18 @@ class Session:
         endpoint: str,
         params: ClientRequestParams = None,
         data: OptionalDict = None,
-        headers: Optional[Dict] = {},
         **kwargs,
-<<<<<<< HEAD
     ) -> DictStrAny:
         if self.jwt_token:
             if self.jwt_token.is_expired:
                 self.jwt_token = Jwt.create(self)
             self.session.headers['X-Cuenca-Token'] = self.jwt_token.token
-
-=======
-    ) -> Response:
->>>>>>> Statement and downlooad with BytesIO
         resp = self.session.request(
             method=method,
             url='https://' + self.host + urljoin('/', endpoint),
             auth=self.auth,
             json=data,
             params=params,
-            headers=headers,
             **kwargs,
         )
         self._check_response(resp)
