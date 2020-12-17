@@ -27,7 +27,7 @@ class Resource:
         ...
 
     @classmethod
-    def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> 'Resource':
+    def _from_dict(cls, obj_dict: Dict[str, Union[int, str]]) -> 'Resource':
         cls._filter_excess_fields(obj_dict)
         return cls(**obj_dict)
 
@@ -52,7 +52,7 @@ class Retrievable(Resource):
         cls, id: str, *, session: Session = global_session
     ) -> Resource:
         resp = session.get(f'/{cls._resource}/{id}')
-        return cls._from_dict(resp)
+        return cls._from_dict(resp.json())
 
     def refresh(self, *, session: Session = global_session):
         new = self.retrieve(self.id, session=session)
@@ -64,7 +64,7 @@ class Creatable(Resource):
     @classmethod
     def _create(cls, *, session: Session = global_session, **data) -> Resource:
         resp = session.post(cls._resource, data)
-        return cls._from_dict(resp)
+        return cls._from_dict(resp.json())
 
 
 @dataclass
@@ -76,7 +76,7 @@ class Updateable(Resource):
         cls, id: str, *, session: Session = global_session, **data
     ) -> Resource:
         resp = session.patch(f'/{cls._resource}/{id}', data)
-        return cls._from_dict(resp)
+        return cls._from_dict(resp.json())
 
 
 @dataclass
@@ -84,9 +84,11 @@ class Downloadable(Resource):
     @classmethod
     def download(cls, id: str, file_format: FileFormat) -> BytesIO:
         resp = session.get(
-            f'/{cls._resource}/{id}', headers={'Accept': file_format.value}
+            f'/{cls._resource}/{id}',
+            headers=dict(Accept=file_format.value),
+            stream=True,
         )
-        return BytesIO(resp)
+        return BytesIO(resp.content)
 
 
 @dataclass
@@ -101,7 +103,7 @@ class Queryable(Resource):
     ) -> Resource:
         q = cls._query_params(limit=2, **query_params)
         resp = session.get(cls._resource, q.dict())
-        items = resp['items']
+        items = resp.json()['items']
         len_items = len(items)
         if not len_items:
             raise NoResultFound
@@ -116,7 +118,7 @@ class Queryable(Resource):
         q = cls._query_params(limit=1, **query_params)
         resp = session.get(cls._resource, q.dict())
         try:
-            item = resp['items'][0]
+            item = resp.json()['items'][0]
         except IndexError:
             rv = None
         else:
@@ -129,7 +131,7 @@ class Queryable(Resource):
     ) -> int:
         q = cls._query_params(count=True, **query_params)
         resp = session.get(cls._resource, q.dict())
-        return resp['count']
+        return resp.json()['count']
 
     @classmethod
     def all(
@@ -139,7 +141,7 @@ class Queryable(Resource):
         q = cls._query_params(**query_params)
         next_page_uri = f'{cls._resource}?{urlencode(q.dict())}'
         while next_page_uri:
-            page = session.get(next_page_uri)
+            page = session.get(next_page_uri).json()
             yield from (cls._from_dict(item) for item in page['items'])
             next_page_uri = page['next_page_uri']
 
