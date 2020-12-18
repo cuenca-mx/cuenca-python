@@ -76,18 +76,18 @@ class Session:
         endpoint: str,
         params: ClientRequestParams = None,
         **kwargs,
-    ) -> Response:
+    ) -> DictStrAny:
         return self.request('get', endpoint, params=params, **kwargs)
 
-    def post(self, endpoint: str, data: DictStrAny, **kwargs) -> Response:
+    def post(self, endpoint: str, data: DictStrAny, **kwargs) -> DictStrAny:
         return self.request('post', endpoint, data=data, **kwargs)
 
-    def patch(self, endpoint: str, data: DictStrAny, **kwargs) -> Response:
+    def patch(self, endpoint: str, data: DictStrAny, **kwargs) -> DictStrAny:
         return self.request('patch', endpoint, data=data, **kwargs)
 
     def delete(
         self, endpoint: str, data: OptionalDict = None, **kwargs
-    ) -> Response:
+    ) -> DictStrAny:
         return self.request('delete', endpoint, data=data, **kwargs)
 
     def request(
@@ -111,7 +111,9 @@ class Session:
             **kwargs,
         )
         self._check_response(resp)
-        return resp
+        if resp.headers['Content-Type'] == 'application/json':
+            return resp.json()
+        return dict(data=resp.content)
 
     @staticmethod
     def _check_response(response: Response):

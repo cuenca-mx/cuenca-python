@@ -38,4 +38,4 @@ class ApiKey(Creatable, Queryable, Retrievable):
         """
         url = cls._resource + f'/{api_key_id}'
         resp = session.delete(url, dict(minutes=minutes))
-        return cast('ApiKey', cls._from_dict(resp.json()))
+        return cast('ApiKey', cls._from_dict(resp))
