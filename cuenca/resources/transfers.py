@@ -1,15 +1,12 @@
 import datetime as dt
-from typing import ClassVar, List, Optional, Union, cast
+from typing import ClassVar, List, Optional, cast
 
-from clabe import Clabe
 from cuenca_validations.types import (
-    PaymentCardNumber,
-    StrictPositiveInt,
     TransferNetwork,
     TransferQuery,
+    TransferRequest,
 )
 from cuenca_validations.typing import DictStrAny
-from pydantic import BaseModel, StrictStr
 from pydantic.dataclasses import dataclass
 from requests import HTTPError
 
@@ -17,14 +14,6 @@ from ..exc import CuencaException
 from .accounts import Account
 from .base import Creatable, Transaction
 from .resources import retrieve_uri
-
-
-class TransferRequest(BaseModel):
-    recipient_name: StrictStr
-    account_number: Union[Clabe, PaymentCardNumber]
-    amount: StrictPositiveInt  # in centavos
-    descriptor: StrictStr  # how it'll appear for the recipient
-    idempotency_key: str  # must be unique for each transfer
 
 
 @dataclass
