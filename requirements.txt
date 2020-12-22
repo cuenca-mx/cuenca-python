@@ -1,4 +1,4 @@
 requests==2.25.0
-cuenca-validations==0.6.9
+cuenca-validations==0.6.10.dev0
 dataclasses>=0.7;python_version<"3.7"
 aws-requests-auth==0.4.3
