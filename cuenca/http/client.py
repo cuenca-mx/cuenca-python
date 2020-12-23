@@ -56,7 +56,7 @@ class Session:
         self,
         api_key: Optional[str] = None,
         api_secret: Optional[str] = None,
-        use_jwt: Optional[bool] = None,
+        use_jwt: Optional[bool] = False,
         sandbox: Optional[bool] = None,
     ):
         """
