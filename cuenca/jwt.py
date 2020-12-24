@@ -22,7 +22,7 @@ class Jwt:
     def get_expiration_date(token: str) -> dt.datetime:
         """
         Jwt tokens contains the exp field in the payload data,
-        this function extracts the date so we can't validate the
+        this function extracts the date so we can validate the
         token before any request
         More info about JWT tokens at: https://jwt.io/
         """
