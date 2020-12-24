@@ -7,6 +7,10 @@ class CuencaException(Exception):
     ...
 
 
+class MalformedJwtToken(CuencaException):
+    """An invalid JWT token was obtained during authentication"""
+
+
 class NoResultFound(CuencaException):
     """No results were found"""
 

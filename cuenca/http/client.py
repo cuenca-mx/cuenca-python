@@ -1,6 +1,3 @@
-import base64
-import datetime as dt
-import json
 import os
 from typing import Optional, Tuple
 from urllib.parse import urljoin
@@ -14,6 +11,7 @@ from cuenca_validations.typing import (
 from requests import Response
 
 from ..exc import CuencaResponseException
+from ..jwt import Jwt
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_HOST = 'api.cuenca.com'
@@ -26,7 +24,7 @@ class Session:
 
     host: str = API_HOST
     basic_auth: Tuple[str, str]
-    jwt_token: Optional[str] = None
+    jwt_token: Optional[Jwt] = None
     session: requests.Session
 
     def __init__(self):
@@ -76,7 +74,7 @@ class Session:
         )
 
         if use_jwt:
-            self.set_jwt_headers()
+            self.jwt_token = Jwt.create(self)
 
     def get(
         self,
@@ -103,7 +101,10 @@ class Session:
         **kwargs,
     ) -> DictStrAny:
         if self.jwt_token:
-            self.set_jwt_headers()
+            if self.jwt_token.is_expired:
+                self.jwt_token = Jwt.create(self)
+            self.session.headers['X-Cuenca-Token'] = self.jwt_token.token
+
         resp = self.session.request(
             method=method,
             url='https://' + self.host + urljoin('/', endpoint),
@@ -114,31 +115,6 @@ class Session:
         )
         self._check_response(resp)
         return resp.json()
-
-    def set_jwt_headers(self):
-        # Make sure the current token is still valid
-        try:
-            payload_encoded = self.jwt_token.split('.')[1]
-            payload = json.loads(base64.b64decode(f'{payload_encoded}=='))
-            # Get a new token if there's less than 5 mins for the actual
-            # to be expired
-            if dt.datetime.utcfromtimestamp(
-                payload['exp']
-            ) - dt.datetime.utcnow() <= dt.timedelta(minutes=5):
-                raise Exception('Expired token')
-        except Exception:
-            self.jwt_token = None
-
-        # Get a new one otherwise
-        if not self.jwt_token:
-            self.jwt_token = self.post('/token', data=None)['token']
-
-        # Set headers with valid token
-        self.session.headers.update(
-            {
-                'X-Cuenca-Token': self.jwt_token,
-            }
-        )
 
     @staticmethod
     def _check_response(response: Response):

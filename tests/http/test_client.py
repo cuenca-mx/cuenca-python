@@ -53,7 +53,7 @@ def test_request_valid_token():
 def test_request_expired_token():
     session = Session()
     session.configure(use_jwt=True)
-    previous_jwt = session.jwt_token
+    previous_jwt = session.jwt_token.token
     with freeze_time(dt.datetime.utcnow() + dt.timedelta(days=40)):
         response = session.get('/api_keys')
     assert response['items']
