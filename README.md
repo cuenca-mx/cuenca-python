@@ -21,7 +21,7 @@ import cuenca
 cuenca.configure(api_key='PKxxxx', api_secret='yyyyyy')
 ```
 
-## Jwt
+### Jwt
 
 JWT tokens can also be used if your credentials have enough permissions. To
 do so, you may include the parameter `use_jwt` as part of your `configure`
