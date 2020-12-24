@@ -29,7 +29,7 @@ do so, you may include the parameter `use_jwt` as part of your `configure`
 ```python
 import cuenca
 
-cuenca.configure(api_key='PKxxxx', api_secret='yyyyyy', use_jwt=True)
+cuenca.configure(use_jwt=True)
 ```
 
 A new token will be created at this moment and automatically renewed before
