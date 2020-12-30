@@ -1,7 +1,10 @@
+from unittest.mock import patch
+
 import pytest
 
 from cuenca.exc import CuencaResponseException
 from cuenca.http.client import Session
+from cuenca.resources import Card
 
 
 @pytest.mark.vcr
@@ -56,3 +59,13 @@ def test_overrides_aws_creds():
     assert session.auth.aws_secret_access_key == 'new_aws_secret'
     assert session.auth.aws_access_key == 'new_aws_key'
     assert session.auth.aws_region == 'us-east-2'
+
+
+@patch('cuenca.http.client.Session.request', return_value=None)
+def test_overrides_session(mock_request):
+    session = Session()
+    session.configure(
+        api_key='USER_API_KEY', api_secret='USER_SECRET', sandbox=True
+    )
+    breakpoint()
+    Card.all(user_id='USER_ID')
