@@ -1,4 +1,4 @@
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 
@@ -61,11 +61,16 @@ def test_overrides_aws_creds():
     assert session.auth.aws_region == 'us-east-2'
 
 
-@patch('cuenca.http.client.Session.request', return_value=None)
+@patch('cuenca.http.client.requests.Session.request')
 def test_overrides_session(mock_request):
+    magic_mock = MagicMock()
+    magic_mock.json.return_value = dict(items=[])
+    mock_request.return_value = magic_mock
     session = Session()
     session.configure(
         api_key='USER_API_KEY', api_secret='USER_SECRET', sandbox=True
     )
-    breakpoint()
-    Card.all(user_id='USER_ID')
+    Card.first(user_id='USER_ID', session=session)
+    mock_request.assert_called_once()
+    _, kwargs = mock_request.call_args_list[0]
+    assert kwargs['auth'] == session.auth
