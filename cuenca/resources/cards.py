@@ -39,7 +39,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         :return: New assigned card
         """
         req = CardRequest(ledger_account_id=ledger_account_id, user_id=user_id)
-        return cast('Card', cls._create(session, **req.dict()))
+        return cast('Card', cls._create(session=session, **req.dict()))
 
     @classmethod
     def update(
@@ -63,7 +63,9 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         req = CardUpdateRequest(
             user_id=user_id, ledger_account_id=ledger_account_id, status=status
         )
-        resp = cls._update(card_id, session, **req.dict(exclude_none=True))
+        resp = cls._update(
+            card_id, session=session, **req.dict(exclude_none=True)
+        )
         return cast('Card', resp)
 
     @classmethod
