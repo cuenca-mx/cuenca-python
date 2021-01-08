@@ -46,12 +46,11 @@ class Resource:
 
 class Retrievable(Resource):
     @classmethod
-    def retrieve(cls, id: str, session: Optional[Session] = None) -> Resource:
-        session = session or global_session
+    def retrieve(cls, id: str, session: Session = global_session) -> Resource:
         resp = session.get(f'/{cls._resource}/{id}')
         return cls._from_dict(resp)
 
-    def refresh(self, session: Optional[Session] = None):
+    def refresh(self, session: Session = global_session):
         new = self.retrieve(self.id, session)
         for attr, value in new.__dict__.items():
             setattr(self, attr, value)
@@ -59,8 +58,7 @@ class Retrievable(Resource):
 
 class Creatable(Resource):
     @classmethod
-    def _create(cls, session: Optional[Session] = None, **data) -> Resource:
-        session = session or global_session
+    def _create(cls, session: Session = global_session, **data) -> Resource:
         resp = session.post(cls._resource, data)
         return cls._from_dict(resp)
 
@@ -71,9 +69,8 @@ class Updateable(Resource):
 
     @classmethod
     def _update(
-        cls, id: str, session: Optional[Session] = None, **data
+        cls, id: str, session: Session = global_session, **data
     ) -> Resource:
-        session = session or global_session
         resp = session.patch(f'/{cls._resource}/{id}', data)
         return cls._from_dict(resp)
 
@@ -86,9 +83,8 @@ class Queryable(Resource):
 
     @classmethod
     def one(
-        cls, session: Optional[Session] = None, **query_params
+        cls, session: Session = global_session, **query_params
     ) -> Resource:
-        session = session or global_session
         q = cls._query_params(limit=2, **query_params)
         resp = session.get(cls._resource, q.dict())
         items = resp['items']
@@ -101,9 +97,8 @@ class Queryable(Resource):
 
     @classmethod
     def first(
-        cls, session: Optional[Session] = None, **query_params
+        cls, session: Session = global_session, **query_params
     ) -> Optional[Resource]:
-        session = session or global_session
         q = cls._query_params(limit=1, **query_params)
         resp = session.get(cls._resource, q.dict())
         try:
@@ -115,15 +110,14 @@ class Queryable(Resource):
         return rv
 
     @classmethod
-    def count(cls, session: Optional[Session] = None, **query_params) -> int:
-        session = session or global_session
+    def count(cls, session: Session = global_session, **query_params) -> int:
         q = cls._query_params(count=True, **query_params)
         resp = session.get(cls._resource, q.dict())
         return resp['count']
 
     @classmethod
     def all(
-        cls, session: Optional[Session] = None, **query_params
+        cls, session: Session = global_session, **query_params
     ) -> Generator[Resource, None, None]:
         session = session or global_session
         q = cls._query_params(**query_params)

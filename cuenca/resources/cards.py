@@ -7,7 +7,7 @@ from pydantic.dataclasses import dataclass
 
 from cuenca.resources.base import Creatable, Queryable, Retrievable, Updateable
 
-from ..http import Session, session as default_session
+from ..http import Session, session as global_session
 
 
 @dataclass
@@ -29,7 +29,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         cls,
         ledger_account_id: str,
         user_id: str,
-        session: Optional[Session] = None,
+        session: Session = global_session,
     ) -> 'Card':
         """
         Assigns user_id and ledger_account_id to a existing card
@@ -48,7 +48,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         user_id: Optional[str] = None,
         ledger_account_id: Optional[str] = None,
         status: Optional[CardStatus] = None,
-        session: Optional[Session] = None,
+        session: Session = global_session,
     ):
         """
         Updates card properties that are not sensitive or fixed data. It allows
@@ -68,12 +68,11 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
 
     @classmethod
     def deactivate(
-        cls, card_id: str, session: Optional[Session] = None
+        cls, card_id: str, session: Session = global_session
     ) -> 'Card':
         """
         Deactivates a card
         """
-        session = session or default_session
         url = f'{cls._resource}/{card_id}'
         resp = session.delete(url)
         return cast('Card', cls._from_dict(resp))
