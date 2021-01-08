@@ -43,12 +43,7 @@ class Session:
 
     @property
     def auth(self) -> Optional[Tuple[str, str]]:
-        # preference to basic auth
-        return (
-            self.basic_auth
-            if all(self.basic_auth) and not self.jwt_token
-            else None
-        )
+        return self.basic_auth if all(self.basic_auth) else None
 
     def configure(
         self,

@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from .exc import MalformedJwtToken
 
 if typing.TYPE_CHECKING:
-    from .http import Session
+    from .http import Session  # pragma: no cover
 
 
 @dataclass

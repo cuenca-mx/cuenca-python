@@ -32,7 +32,7 @@ def test_basic_auth_configuration():
 def test_configures_jwt():
     session = Session()
     session.configure(use_jwt=True)
-    assert not session.auth
+    assert session.auth
     assert session.jwt_token
 
 
