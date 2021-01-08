@@ -2,9 +2,13 @@ import base64
 import binascii
 import datetime as dt
 import json
+import typing
 from dataclasses import dataclass
 
 from .exc import MalformedJwtToken
+
+if typing.TYPE_CHECKING:
+    from .http import Session
 
 
 @dataclass
@@ -36,8 +40,8 @@ class Jwt:
         return dt.datetime.utcfromtimestamp(exp_timestamp)
 
     @classmethod
-    def create(cls, session) -> 'Jwt':
+    def create(cls, session: 'Session') -> 'Jwt':
         session.jwt_token = None
-        token = session.post('/token', data=None)['token']
+        token = session.post('/token', dict())['token']
         expires_at = Jwt.get_expiration_date(token)
         return cls(expires_at, token)
