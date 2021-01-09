@@ -49,6 +49,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         user_id: Optional[str] = None,
         ledger_account_id: Optional[str] = None,
         status: Optional[CardStatus] = None,
+        *,
         session: Session = global_session,
     ):
         """
@@ -71,7 +72,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
 
     @classmethod
     def deactivate(
-        cls, card_id: str, session: Session = global_session
+        cls, card_id: str, *, session: Session = global_session
     ) -> 'Card':
         """
         Deactivates a card
