@@ -1,15 +1,15 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import ApiKeyQuery
+from cuenca_validations.types import ApiKeyQuery, ApiKeyUpdateRequest
 from pydantic.dataclasses import dataclass
 
 from ..http import session
-from .base import Creatable, Queryable, Retrievable
+from .base import Creatable, Queryable, Retrievable, Updateable
 
 
 @dataclass
-class ApiKey(Creatable, Queryable, Retrievable):
+class ApiKey(Creatable, Queryable, Retrievable, Updateable):
     _resource: ClassVar = 'api_keys'
     _query_params: ClassVar = ApiKeyQuery
 
@@ -39,3 +39,12 @@ class ApiKey(Creatable, Queryable, Retrievable):
         url = cls._resource + f'/{api_key_id}'
         resp = session.delete(url, dict(minutes=minutes))
         return cast('ApiKey', cls._from_dict(resp))
+
+    @classmethod
+    def update(cls, api_key_id: str, metadata: Optional[str] = None, user_id: Optional[str] = None) -> 'ApiKey':
+        """
+        If the current user has enough permissions, it associates an ApiKey to the `user_id`
+        """
+        req = ApiKeyUpdateRequest(metadata=metadata, user_id=user_id)
+        resp = cls._update(api_key_id, **req.dict(exclude_none=True))
+        return cast('ApiKey', resp)

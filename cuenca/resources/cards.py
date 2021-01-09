@@ -51,7 +51,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         status: Optional[CardStatus] = None,
         *,
         session: Session = global_session,
-    ):
+    ) -> 'Card':
         """
         Updates card properties that are not sensitive or fixed data. It allows
         reconfigure properties like status, and manufacturer.
