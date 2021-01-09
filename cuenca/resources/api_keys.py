@@ -48,7 +48,8 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         user_id: Optional[str] = None,
     ) -> 'ApiKey':
         """
-        If the current user has enough permissions, it associates an ApiKey to the `user_id`
+        If the current user has enough permissions, it associates an ApiKey to
+        the `user_id` or updates the correspoding metadata
         """
         req = ApiKeyUpdateRequest(metadata=metadata, user_id=user_id)
         resp = cls._update(api_key_id, **req.dict(exclude_none=True))
