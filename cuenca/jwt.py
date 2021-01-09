@@ -2,13 +2,13 @@ import base64
 import binascii
 import datetime as dt
 import json
-import typing
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
 from .exc import MalformedJwtToken
 
-if typing.TYPE_CHECKING:
-    from .http import Session  # pragma: no cover
+if TYPE_CHECKING:
+    from .http import Session
 
 
 @dataclass
