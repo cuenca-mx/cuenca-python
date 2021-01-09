@@ -29,6 +29,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         cls,
         ledger_account_id: str,
         user_id: str,
+        *,
         session: Session = global_session,
     ) -> 'Card':
         """
