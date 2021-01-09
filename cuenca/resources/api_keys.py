@@ -41,7 +41,12 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         return cast('ApiKey', cls._from_dict(resp))
 
     @classmethod
-    def update(cls, api_key_id: str, metadata: Optional[str] = None, user_id: Optional[str] = None) -> 'ApiKey':
+    def update(
+        cls,
+        api_key_id: str,
+        metadata: Optional[str] = None,
+        user_id: Optional[str] = None,
+    ) -> 'ApiKey':
         """
         If the current user has enough permissions, it associates an ApiKey to the `user_id`
         """
