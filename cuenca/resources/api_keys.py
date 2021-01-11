@@ -15,6 +15,8 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
 
     secret: str
     deactivated_at: Optional[dt.datetime]
+    user_id: Optional[str]
+    metadata: Optional[str]
 
     @property
     def active(self) -> bool:

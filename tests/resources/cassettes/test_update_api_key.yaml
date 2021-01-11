@@ -1,0 +1,102 @@
+interactions:
+- request:
+    body: '{"user_id": "USiBeLDwEWT_inkyE4CrRsrQ", "metadata": "ANYTHING"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '63'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.4.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: PATCH
+    uri: https://sandbox.cuenca.com/api_keys/AKkVaALThyQ3SSFeR-qBAKiw
+  response:
+    body:
+      string: '{"id":"AKkVaALThyQ3SSFeR-qBAKiw","created_at":"2021-01-11T17:11:12.925802","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":"ANYTHING","updated_at":"2021-01-11T17:11:33.189894","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '325'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 Jan 2021 17:11:33 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-5ffc86c5-4cd806d94e6430671559bc50;Sampled=0
+      x-amz-apigw-id:
+      - Y_n-0FmjCYcFaWw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '325'
+      x-amzn-Remapped-Date:
+      - Mon, 11 Jan 2021 17:11:33 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 12c636eb-e433-45e0-a5ce-6056cf0b8d2e
+      x-amzn-RequestId:
+      - 30d62f81-1bb4-4d0d-ac4f-63f61b19da51
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.4.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/api_keys/AKkVaALThyQ3SSFeR-qBAKiw
+  response:
+    body:
+      string: '{"id":"AKkVaALThyQ3SSFeR-qBAKiw","created_at":"2021-01-11T17:11:12.925802","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":"ANYTHING","updated_at":"2021-01-11T17:11:33.189894","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '325'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 11 Jan 2021 17:11:33 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-5ffc86c5-33d1628d2d41b84b77ad8736;Sampled=0
+      x-amz-apigw-id:
+      - Y_n-1EDJiYcFvdw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '325'
+      x-amzn-Remapped-Date:
+      - Mon, 11 Jan 2021 17:11:33 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 7b3e9382-19a2-40a3-8aa8-816bae80aceb
+      x-amzn-RequestId:
+      - 3a7910c3-3506-46db-be6c-200260b45384
+    status:
+      code: 200
+      message: OK
+version: 1

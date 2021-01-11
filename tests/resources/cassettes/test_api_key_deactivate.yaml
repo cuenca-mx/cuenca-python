@@ -11,37 +11,39 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.0.1dev0
+      - cuenca-python/0.4.1
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/api_keys/test
+    uri: https://sandbox.cuenca.com/api_keys/AKSMPzsvVPROyLZhkwcOtHxA
   response:
     body:
-      string: '{"id":"test","created_at":"2020-05-11T17:20:25.603000","secret":"********","deactivated_at":null}'
+      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":null,"updated_at":"2021-01-11T17:03:29.829434","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '119'
+      - '319'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 May 2020 18:30:32 GMT
-      Via:
-      - 1.1 d8c8706cff3de7db4b8e8b9726774938.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - AKuzZDU7v-hmyGu-9zB9VHgy9S4pbSGqKNIJJMcPnRqzIm8Crk1fWQ==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
+      - Mon, 11 Jan 2021 17:20:19 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5eb999c8-e36f1e7c4aa751f8ce4452c0;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-5ffc88d3-5f0a5530188c13be4560b884;Sampled=0
       x-amz-apigw-id:
-      - MYT3VGxDoAMFbZQ=
+      - Y_pRHGCmCYcFqnQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '319'
+      x-amzn-Remapped-Date:
+      - Mon, 11 Jan 2021 17:20:19 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 2b492a98-e615-482d-aa15-aa189acfdfe7
       x-amzn-RequestId:
-      - d1f6ab21-3e4f-493e-8d9b-d1aff4ef82a9
+      - 2f469509-1392-47bf-acda-370926fbf0e0
     status:
       code: 200
       message: OK
@@ -61,37 +63,39 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.0.1dev0
+      - cuenca-python/0.4.1
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: DELETE
-    uri: https://sandbox.cuenca.com/api_keys/test
+    uri: https://sandbox.cuenca.com/api_keys/AKSMPzsvVPROyLZhkwcOtHxA
   response:
     body:
-      string: '{"id":"test","created_at":"2020-05-11T17:20:25.603000","secret":"********","deactivated_at":"2020-05-11T18:30:35.210967"}'
+      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"********","deactivated_at":"2021-01-11T17:20:20.127314","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":null,"updated_at":"2021-01-11T17:20:20.127354","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '143'
+      - '319'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 May 2020 18:30:35 GMT
-      Via:
-      - 1.1 d8c8706cff3de7db4b8e8b9726774938.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - DFKQoRapavD6PEHAapEf_BvZiywXiIK3Yi3Fh-kkCJe6Yu1lKX8IvA==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
+      - Mon, 11 Jan 2021 17:20:20 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5eb999cb-890940501ec67728f7f59fa0;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-5ffc88d4-6bee9aa37694b87a60b28d50;Sampled=0
       x-amz-apigw-id:
-      - MYT3wGh9oAMFTSQ=
+      - Y_pRJEjZiYcF5YA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '319'
+      x-amzn-Remapped-Date:
+      - Mon, 11 Jan 2021 17:20:20 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 8e1b0cd1-321b-47d2-97e3-25f03457749f
       x-amzn-RequestId:
-      - b87437d5-18f4-4e7b-adf3-4302d3f144b3
+      - 7a503514-bdd4-4b81-b0e8-58a49860da33
     status:
       code: 200
       message: OK
@@ -107,37 +111,39 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.0.1dev0
+      - cuenca-python/0.4.1
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/api_keys/test
+    uri: https://sandbox.cuenca.com/api_keys/AKSMPzsvVPROyLZhkwcOtHxA
   response:
     body:
-      string: '{"id":"test","created_at":"2020-05-11T17:20:25.603000","secret":"********","deactivated_at":"2020-05-11T18:30:35.210000"}'
+      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"********","deactivated_at":"2021-01-11T17:20:20.127314","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":null,"updated_at":"2021-01-11T17:20:20.127354","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '143'
+      - '319'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 May 2020 18:30:35 GMT
-      Via:
-      - 1.1 d8c8706cff3de7db4b8e8b9726774938.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - Q6iMsqOj5TZMk9XnoMk1Pj_bfQ2ycqs1CrTcZPsUk5VXaUMVeaprIA==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
+      - Mon, 11 Jan 2021 17:20:23 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5eb999cb-ae60e1a60989f617bbbb1675;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-5ffc88d7-21825d0645d70af703de8e0c;Sampled=0
       x-amz-apigw-id:
-      - MYT3yEZqIAMFyvw=
+      - Y_pRsF9giYcFySQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '319'
+      x-amzn-Remapped-Date:
+      - Mon, 11 Jan 2021 17:20:23 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 4f8e8b44-28d0-44f0-9b28-3d263227d1bb
       x-amzn-RequestId:
-      - 7f4b362f-6e5d-4867-883a-2b2b44e12852
+      - e7a725b5-cda6-4532-a99f-020390d4464f
     status:
       code: 200
       message: OK

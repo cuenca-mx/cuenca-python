@@ -15,37 +15,39 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.0.1dev0
+      - cuenca-python/0.4.1
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/api_keys
   response:
     body:
-      string: '{"id":"PKjtv8Qn-3Tp2Eh1bBzXphOg==","created_at":"2020-05-11T18:25:36.369866","secret":"fcLkDkymPF9nJloQfEbYwnBthMtrwFssxyuzpMs-qIDEnmJNAr8nC3_xkC-MY-reV6WjT10DLwpF_v_G4MqBPw","deactivated_at":null}'
+      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"uyHrFFVxL80vKsGKxZQBKf94pxPuYHLe-XfQkxuq2VL_Zaw8gl528CZtHIkMcq6l5KEW9sTwdQrhz5w6-e8Lgw","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":null,"updated_at":"2021-01-11T17:03:29.829434","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '197'
+      - '397'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 May 2020 18:25:38 GMT
-      Via:
-      - 1.1 991cddfa34f7096aab42079b287a0629.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - C3GZwW0t28QJ75J-3Md6RzRHjehrab6-GVSBYzCli7UMhu6rsPoY0w==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
+      - Mon, 11 Jan 2021 17:19:39 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5eb998a0-5b85148fe075039e951ce376;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-5ffc88a9-188ed72f4f3eda53152f5d41;Sampled=0
       x-amz-apigw-id:
-      - MYTJEE4iIAMFyDA=
+      - Y_pKbERpiYcF_8A=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '397'
+      x-amzn-Remapped-Date:
+      - Mon, 11 Jan 2021 17:19:39 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 1892c8d4-d62e-4656-9156-31d02cd5bb7d
       x-amzn-RequestId:
-      - 98c2462c-9c8f-4f04-a590-fc76d96cdca2
+      - b0bc1f25-2647-4afd-a7ac-35a097bed689
     status:
       code: 201
       message: Created
