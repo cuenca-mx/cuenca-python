@@ -64,13 +64,18 @@ def test_api_key_to_dict():
         secret='********',
         created_at=created,
         deactivated_at=None,
-        updated_at=None,
+        updated_at=date,
+        metadata=None,
+        user_id=None,
     )
     api_key_dict = dict(
         id='12345',
         secret='********',
         created_at=date,
         deactivated_at=None,
+        updated_at=date,
+        metadata=None,
+        user_id=None,
     )
     assert api_key_dict == api_key.to_dict()
 
@@ -84,6 +89,8 @@ def test_api_key_from_dict():
         extra_field_1='not necessary',
         extra_field_2=12345,
         updated_at=dt.datetime.utcnow(),
+        metadata=None,
+        user_id=None,
     )
     api_key = ApiKey._from_dict(api_keys_dict)
     assert not hasattr(api_key, 'extra_field_1')
