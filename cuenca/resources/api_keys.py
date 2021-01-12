@@ -1,6 +1,6 @@
 import datetime as dt
 from typing import ClassVar, List, Optional, Tuple, cast
-
+import re
 from cuenca_validations.types import ApiKeyQuery, ApiKeyUpdateRequest
 from pydantic.dataclasses import dataclass
 
@@ -74,20 +74,25 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         """
         resp = session.get('/authorizations', dict(actions=permissions))
 
-        api_key = cast('ApiKey', resp['api_key'])
-
-        # Most URL's will have the format cuenca://ENTITY/{user_id}/RESOURCE
-        # We replace the {user_id} here for the current user_id or *, so we
-        # canmake an exact match.
         authorized_permissions = []
         user_id = None
         for permission in permissions:
-            if permission.replace('{user_id}', api_key.user_id) in resp['allow']:
-                user_id = api_key.user_id
-            elif permission.replace('{user_id}', '*') in resp['allow']:
-                user_id = None
+            # Replace `{user_id}` for part of a regular exp
+            pattern = re.escape(permission)
+            pattern = permission.format(user_id=r'(?P<user_id>US[\w=-]+|\*)')
+
+            # Get a match in the allowed actions
+            match = None
+            for allowed_permission in resp['allow']:
+                match = re.match(pattern, allowed_permission)
+                if match:
+                    break
             else:
                 continue
+
+            match_user_id = match.group('user_id')
+            if match_user_id and match_user_id != '*':
+                user_id = match_user_id
             authorized_permissions.append(permission)
 
         return user_id, authorized_permissions
