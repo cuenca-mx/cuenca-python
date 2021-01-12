@@ -125,6 +125,16 @@ def test_api_key_from_dict():
             ['cuenca://oaxaca/*/transfers.read'],
             (None, ['cuenca://oaxaca/{user_id}/transfers.read']),
         ),
+        (
+            ['cuenca://oaxaca/transfers.read'],
+            ['cuenca://oaxaca/transfers.read'],
+            (None, ['cuenca://oaxaca/transfers.read']),
+        ),
+        (
+            ['cuenca://oaxaca/transfers.read'],
+            ['cuenca://oaxaca/transfers.write'],
+            (None, []),
+        ),
     ],
 )
 @patch('cuenca.http.session.get')
