@@ -129,6 +129,6 @@ def test_api_key_from_dict():
 @patch('cuenca.http.session.get')
 def test_validate_not_approved(mocked_get, permissions, response, result):
     mocked_get.return_value = dict(allow=response)
-    quoted = quote(','.join(permissions))
     assert result == ApiKey.validate(permissions)
+    quoted = quote(','.join(permissions))
     mocked_get.assert_called_once_with('/authorizations', dict(actions=quoted))
