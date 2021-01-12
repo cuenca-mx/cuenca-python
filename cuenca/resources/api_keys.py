@@ -1,6 +1,8 @@
 import datetime as dt
-from typing import ClassVar, List, Optional, Tuple, cast
 import re
+from typing import ClassVar, List, Optional, Tuple, cast
+from urllib.parse import quote
+
 from cuenca_validations.types import ApiKeyQuery, ApiKeyUpdateRequest
 from pydantic.dataclasses import dataclass
 
@@ -65,13 +67,16 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         return cast('ApiKey', resp)
 
     @classmethod
-    def validate(cls, permissions: List[str]) -> Tuple[str, List[str]]:
+    def validate(
+        cls, permissions: List[str]
+    ) -> Tuple[Optional[str], List[str]]:
         """
         User this method to validate if your credentials have access to a set
         of permissions.
 
         Parameters:
-        permissions (List[str]): The cuenca URL's to be validated
+        permissions (List[str]): The cuenca URL's to be validated.
+        Ej. cuenca://oaxaca/{user_id}/transfers.read
 
         Returns:
         str: The user_id associated to the required permissions, None if it
@@ -79,17 +84,18 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         List[str]: The subset of `permissions` approved, an empty list if
         nothing was approved
         """
-        resp = session.get('/authorizations', dict(actions=permissions))
+        quoted = quote(','.join(permissions))
+        resp = session.get('/authorizations', dict(actions=quoted))
 
         authorized_permissions = []
         user_id = None
         for permission in permissions:
-            # Replace `{user_id}` for part of a regular exp
+            # The response could have a user_id or '*' if it applies to
+            # everyone. Convert the permission to a reg exp to find the user
             pattern = re.escape(permission)
             pattern = permission.format(user_id=r'(?P<user_id>US[\w=-]+|\*)')
 
-            # Get a match in the allowed actions
-            match = None
+            # Get the first match in the allowed actions, continue if not
             for allowed_permission in resp['allow']:
                 match = re.match(pattern, allowed_permission)
                 if match:
@@ -97,6 +103,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
             else:
                 continue
 
+            # If there is a `user_id` group, assigned it
             match_user_id = match.group('user_id')
             if match_user_id and match_user_id != '*':
                 user_id = match_user_id
