@@ -90,11 +90,30 @@ def test_api_key_from_dict():
 
 @pytest.mark.parametrize(
     'request, response, result',
-    [(['cuenca://oaxaca/{user_id}/transfers.read]'], [], (None, [])),
-     (['cuenca://oaxaca/{user_id}/transfers.read'], ['cuenca://no_oaxaca/*/transfers.read'], (None, [])),
-     (['cuenca://oaxaca/{user_id}/transfers.read', 'cuenca://oaxaca/{user_id}/transfers.write'], ['cuenca://oaxaca/US12345/transfers.read'], ('US12345', ['cuenca://oaxaca/{user_id}/transfers.read'])),
-     (['cuenca://oaxaca/{user_id}/transfers.read', 'cuenca://oaxaca/{user_id}/transfers.write'], ['cuenca://oaxaca/*/transfers.read'], (None, ['cuenca://oaxaca/{user_id}/transfers.read'])),
-     ],
+    [
+        (['cuenca://oaxaca/{user_id}/transfers.read]'], [], (None, [])),
+        (
+            ['cuenca://oaxaca/{user_id}/transfers.read'],
+            ['cuenca://no_oaxaca/*/transfers.read'],
+            (None, []),
+        ),
+        (
+            [
+                'cuenca://oaxaca/{user_id}/transfers.read',
+                'cuenca://oaxaca/{user_id}/transfers.write',
+            ],
+            ['cuenca://oaxaca/US12345/transfers.read'],
+            ('US12345', ['cuenca://oaxaca/{user_id}/transfers.read']),
+        ),
+        (
+            [
+                'cuenca://oaxaca/{user_id}/transfers.read',
+                'cuenca://oaxaca/{user_id}/transfers.write',
+            ],
+            ['cuenca://oaxaca/*/transfers.read'],
+            (None, ['cuenca://oaxaca/{user_id}/transfers.read']),
+        ),
+    ],
 )
 @patch('cuenca.resources.ApiKey.session.get')
 def test_validate_not_approved(mocked_get, request, response, result):
