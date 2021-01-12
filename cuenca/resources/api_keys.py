@@ -104,9 +104,12 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
                 continue
 
             # If there is a `user_id` group, assigned it
-            match_user_id = match.group('user_id')
-            if match_user_id and match_user_id != '*':
-                user_id = match_user_id
+            try:
+                match_user_id = match.group('user_id')
+            except IndexError:
+                ...
+            else:
+                user_id = match_user_id if match_user_id != '*' else None
             authorized_permissions.append(permission)
 
         return user_id, authorized_permissions
