@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, List, Optional, Tuple, cast
 
 from cuenca_validations.types import ApiKeyQuery, ApiKeyUpdateRequest
 from pydantic.dataclasses import dataclass
@@ -63,3 +63,38 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         req = ApiKeyUpdateRequest(metadata=metadata, user_id=user_id)
         resp = cls._update(api_key_id, **req.dict(), session=session)
         return cast('ApiKey', resp)
+
+    @classmethod
+    def validate(cls, permissions: List[str]) -> Tuple[str, List[str]]:
+        """
+        User this method to validate if your credentials have access to a set
+        of permissions.
+
+        Parameters:
+        permissions (List[str]): The cuenca URL's to be validated
+
+        Returns:
+        str: The user_id associated to the required permissions, None if it
+              applies to everyone
+        List[str]: The subset of `permissions` approved, an empty list if
+        nothing was approved
+        """
+        resp = session.get('/authorizations', dict(actions=permissions))
+
+        api_key = cast('ApiKey', resp['api_key'])
+
+        # Most URL's will have the format cuenca://ENTITY/{user_id}/RESOURCE
+        # We replace the {user_id} here for the current user_id or *, so we
+        # canmake an exact match.
+        authorized_permissions = []
+        user_id = None
+        for permission in permissions:
+            if permission.replace('{user_id}', api_key.user_id) in resp['allow']:
+                user_id = api_key.user_id
+            elif permission.replace('{user_id}', '*') in resp['allow']:
+                user_id = None
+            else:
+                continue
+            authorized_permissions.append(permission)
+
+        return user_id, authorized_permissions
