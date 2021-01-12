@@ -1,5 +1,6 @@
 import datetime as dt
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
+from urllib.parse import quote
 
 import pytest
 
@@ -89,7 +90,7 @@ def test_api_key_from_dict():
 
 
 @pytest.mark.parametrize(
-    'request, response, result',
+    'permissions, response, result',
     [
         (['cuenca://oaxaca/{user_id}/transfers.read]'], [], (None, [])),
         (
@@ -115,9 +116,9 @@ def test_api_key_from_dict():
         ),
     ],
 )
-@patch('cuenca.resources.ApiKey.session.get')
-def test_validate_not_approved(mocked_get, request, response, result):
-    mocked_get = MagicMock()
+@patch('cuenca.http.session.get')
+def test_validate_not_approved(mocked_get, permissions, response, result):
     mocked_get.return_value = dict(allow=response)
-
-    assert result == ApiKey.validate(request)
+    quoted = quote(','.join(permissions))
+    assert result == ApiKey.validate(permissions)
+    mocked_get.assert_called_once_with('/authorizations', dict(actions=quoted))
