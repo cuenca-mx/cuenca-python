@@ -1,4 +1,5 @@
 import datetime as dt
+from unittest.mock import MagicMock, patch
 
 import pytest
 
@@ -85,3 +86,19 @@ def test_api_key_from_dict():
     assert not hasattr(api_key, 'extra_field_1')
     assert not hasattr(api_key, 'extra_field_2')
     assert api_key.id is not None
+
+
+@pytest.mark.parametrize(
+    'request, response, result',
+    [(['cuenca://oaxaca/{user_id}/transfers.read]'], [], (None, [])),
+     (['cuenca://oaxaca/{user_id}/transfers.read'], ['cuenca://no_oaxaca/*/transfers.read'], (None, [])),
+     (['cuenca://oaxaca/{user_id}/transfers.read', 'cuenca://oaxaca/{user_id}/transfers.write'], ['cuenca://oaxaca/US12345/transfers.read'], ('US12345', ['cuenca://oaxaca/{user_id}/transfers.read'])),
+     (['cuenca://oaxaca/{user_id}/transfers.read', 'cuenca://oaxaca/{user_id}/transfers.write'], ['cuenca://oaxaca/*/transfers.read'], (None, ['cuenca://oaxaca/{user_id}/transfers.read'])),
+     ],
+)
+@patch('cuenca.resources.ApiKey.session.get')
+def test_validate_not_approved(mocked_get, request, response, result):
+    mocked_get = MagicMock()
+    mocked_get.return_value = dict(allow=response)
+
+    assert result == ApiKey.validate(request)
