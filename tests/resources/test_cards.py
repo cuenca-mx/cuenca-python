@@ -59,7 +59,7 @@ def test_card_one_errors():
 @pytest.mark.vcr
 def test_card_all():
     cards = Card.all(user_id=user_id)
-    assert len([cards]) == 1
+    assert len(list(cards)) == 1
 
 
 @pytest.mark.vcr

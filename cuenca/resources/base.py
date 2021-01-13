@@ -11,7 +11,7 @@ from cuenca_validations.types import (
 )
 
 from ..exc import MultipleResultsFound, NoResultFound
-from ..http import session
+from ..http import Session, session as global_session
 
 
 @dataclass
@@ -46,19 +46,21 @@ class Resource:
 
 class Retrievable(Resource):
     @classmethod
-    def retrieve(cls, id: str) -> Resource:
+    def retrieve(
+        cls, id: str, *, session: Session = global_session
+    ) -> Resource:
         resp = session.get(f'/{cls._resource}/{id}')
         return cls._from_dict(resp)
 
-    def refresh(self):
-        new = self.retrieve(self.id)
+    def refresh(self, *, session: Session = global_session):
+        new = self.retrieve(self.id, session=session)
         for attr, value in new.__dict__.items():
             setattr(self, attr, value)
 
 
 class Creatable(Resource):
     @classmethod
-    def _create(cls, **data) -> Resource:
+    def _create(cls, *, session: Session = global_session, **data) -> Resource:
         resp = session.post(cls._resource, data)
         return cls._from_dict(resp)
 
@@ -68,7 +70,9 @@ class Updateable(Resource):
     updated_at: dt.datetime
 
     @classmethod
-    def _update(cls, id: str, **data) -> Resource:
+    def _update(
+        cls, id: str, *, session: Session = global_session, **data
+    ) -> Resource:
         resp = session.patch(f'/{cls._resource}/{id}', data)
         return cls._from_dict(resp)
 
@@ -80,7 +84,9 @@ class Queryable(Resource):
     created_at: dt.datetime
 
     @classmethod
-    def one(cls, **query_params) -> Resource:
+    def one(
+        cls, *, session: Session = global_session, **query_params
+    ) -> Resource:
         q = cls._query_params(limit=2, **query_params)
         resp = session.get(cls._resource, q.dict())
         items = resp['items']
@@ -92,7 +98,9 @@ class Queryable(Resource):
         return cls._from_dict(items[0])
 
     @classmethod
-    def first(cls, **query_params) -> Optional[Resource]:
+    def first(
+        cls, *, session: Session = global_session, **query_params
+    ) -> Optional[Resource]:
         q = cls._query_params(limit=1, **query_params)
         resp = session.get(cls._resource, q.dict())
         try:
@@ -104,13 +112,18 @@ class Queryable(Resource):
         return rv
 
     @classmethod
-    def count(cls, **query_params) -> int:
+    def count(
+        cls, *, session: Session = global_session, **query_params
+    ) -> int:
         q = cls._query_params(count=True, **query_params)
         resp = session.get(cls._resource, q.dict())
         return resp['count']
 
     @classmethod
-    def all(cls, **query_params) -> Generator[Resource, None, None]:
+    def all(
+        cls, *, session: Session = global_session, **query_params
+    ) -> Generator[Resource, None, None]:
+        session = session or global_session
         q = cls._query_params(**query_params)
         next_page_uri = f'{cls._resource}?{urlencode(q.dict())}'
         while next_page_uri:

@@ -7,7 +7,7 @@ from pydantic.dataclasses import dataclass
 
 from cuenca.resources.base import Creatable, Queryable, Retrievable, Updateable
 
-from ..http import session
+from ..http import Session, session as global_session
 
 
 @dataclass
@@ -25,7 +25,13 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     status: CardStatus
 
     @classmethod
-    def create(cls, ledger_account_id: str, user_id: str) -> 'Card':
+    def create(
+        cls,
+        ledger_account_id: str,
+        user_id: str,
+        *,
+        session: Session = global_session,
+    ) -> 'Card':
         """
         Assigns user_id and ledger_account_id to a existing card
 
@@ -34,7 +40,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         :return: New assigned card
         """
         req = CardRequest(ledger_account_id=ledger_account_id, user_id=user_id)
-        return cast('Card', cls._create(**req.dict()))
+        return cast('Card', cls._create(session=session, **req.dict()))
 
     @classmethod
     def update(
@@ -43,6 +49,8 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         user_id: Optional[str] = None,
         ledger_account_id: Optional[str] = None,
         status: Optional[CardStatus] = None,
+        *,
+        session: Session = global_session,
     ):
         """
         Updates card properties that are not sensitive or fixed data. It allows
@@ -57,11 +65,15 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         req = CardUpdateRequest(
             user_id=user_id, ledger_account_id=ledger_account_id, status=status
         )
-        resp = cls._update(card_id, **req.dict(exclude_none=True))
+        resp = cls._update(
+            card_id, session=session, **req.dict(exclude_none=True)
+        )
         return cast('Card', resp)
 
     @classmethod
-    def deactivate(cls, card_id: str) -> 'Card':
+    def deactivate(
+        cls, card_id: str, *, session: Session = global_session
+    ) -> 'Card':
         """
         Deactivates a card
         """
