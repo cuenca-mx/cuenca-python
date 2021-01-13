@@ -6,7 +6,7 @@ from urllib.parse import quote
 from cuenca_validations.types import ApiKeyQuery, ApiKeyUpdateRequest
 from pydantic.dataclasses import dataclass
 
-from ..http import session
+from ..http import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable, Updateable
 
 
@@ -41,7 +41,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         exact deactivated_at time.
         """
         url = cls._resource + f'/{api_key_id}'
-        resp = session.delete(url, dict(minutes=minutes))
+        resp = global_session.delete(url, dict(minutes=minutes))
         return cast('ApiKey', cls._from_dict(resp))
 
     @classmethod
@@ -61,7 +61,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
 
     @classmethod
     def validate(
-        cls, permissions: List[str]
+        cls, permissions: List[str], *, session: Session = global_session
     ) -> Tuple[Optional[str], List[str]]:
         """
         User this method to validate if your credentials have access to a set
