@@ -1,0 +1,84 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - cuenca-python/0.3.6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://api.cuenca.com/token
+  response:
+    body:
+      string: '{"id":11,"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDM5MTA4MDksImlhdCI6MTYwMzMwNjAwOSwic3ViIjoiQUtib3hCeXNTd1NTbVR0VmtoT1I2X21RIiwidWlkIjoiYzcxZDhiZWYtMTNjZC0xMWViLTlmYzItNDE3MmZhYTQwZjQyIn0.fXy3EYJTaKQv61wQuKRUwR9BHvnovsUO74X3XpEhvBk","created_at":"2020-10-21T18:46:49.514738","api_key":{"id":"AKboxBysSwSSmTtVkhOR6_mQ","created_at":"2020-10-20T23:56:28.845757","secret":"********","deactivated_at":null,"user_id":"rsc"}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '438'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 21 Oct 2020 18:46:49 GMT
+      Server:
+      - nginx/1.18.0
+      X-Amzn-Trace-Id:
+      - Root=1-5f908218-39f33c5c4167d480550635de;Sampled=0
+      x-amz-apigw-id:
+      - UxlD0EUliYcFsKQ=
+      x-amzn-RequestId:
+      - c3dc4715-5946-421f-889c-763837d156fc
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.3.6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-Token:
+      - DUMMY
+    method: GET
+    uri: https://api.cuenca.com/api_keys
+  response:
+    body:
+      string: '{"items":[{"id":"AKboxBysSwSSmTtVkhOR6_mQ","created_at":"2020-10-20T23:56:28.845757","secret":"********","deactivated_at":null,"user_id":"rsc"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '166'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 21 Oct 2020 18:46:49 GMT
+      Server:
+      - nginx/1.18.0
+      X-Amzn-Trace-Id:
+      - Root=1-5f908219-170a4d1628d8c2e3614879c7;Sampled=0
+      x-amz-apigw-id:
+      - UxlEAEmgiYcFbUQ=
+      x-amzn-RequestId:
+      - 58dd24dd-11aa-4ab0-a174-63de03131988
+    status:
+      code: 200
+      message: OK
+version: 1

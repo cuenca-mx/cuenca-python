@@ -21,6 +21,22 @@ import cuenca
 cuenca.configure(api_key='PKxxxx', api_secret='yyyyyy')
 ```
 
+### Jwt
+
+JWT tokens can also be used if your credentials have enough permissions. To
+do so, you may include the parameter `use_jwt` as part of your `configure`
+
+```python
+import cuenca
+
+cuenca.configure(use_jwt=True)
+```
+
+A new token will be created at this moment and automatically renewed before
+sending any request if there is less than 5 minutes to be expired according
+to its payload data.
+
+
 ## Transfers
 
 ### Create transfer

@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - cuenca-python/0.3.6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://api.cuenca.com/token
+  response:
+    body:
+      string: '{"id":1,"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDM4NDM2NTUsImlhdCI6MTYwMzIzODg1NSwic3ViIjoiQUtib3hCeXNTd1NTbVR0VmtoT1I2X21RIn0.VAT9w746K0hfOKnvZCFxwBDKjV71j-ItaFdZrIc0xCM","created_at":"2020-10-21T00:07:35.290968+00:00","api_key_id":"AKboxBysSwSSmTtVkhOR6_mQ"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '279'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 21 Oct 2020 00:07:35 GMT
+      Server:
+      - nginx/1.18.0
+      X-Amzn-Trace-Id:
+      - Root=1-5f8f7bc6-16318c2505b404c030bbcaf4;Sampled=0
+      x-amz-apigw-id:
+      - UvBHAHOGCYcFZTw=
+      x-amzn-RequestId:
+      - 856c8bef-f148-48e4-a27b-391749b6b9f6
+    status:
+      code: 201
+      message: Created
+version: 1
