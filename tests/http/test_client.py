@@ -1,5 +1,5 @@
-from unittest.mock import MagicMock, patch
 import datetime as dt
+from unittest.mock import MagicMock, patch
 
 import pytest
 from freezegun import freeze_time
