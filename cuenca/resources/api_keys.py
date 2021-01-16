@@ -28,8 +28,8 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         )
 
     @classmethod
-    def create(cls) -> 'ApiKey':
-        return cast('ApiKey', cls._create())
+    def create(cls, *, session: Session = global_session) -> 'ApiKey':
+        return cast('ApiKey', cls._create(session=session))
 
     @classmethod
     def deactivate(cls, api_key_id: str, minutes: int = 0) -> 'ApiKey':
