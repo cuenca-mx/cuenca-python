@@ -73,3 +73,15 @@ def test_overrides_session(mock_request):
     mock_request.assert_called_once()
     _, kwargs = mock_request.call_args_list[0]
     assert kwargs['auth'] == session.auth
+
+
+@pytest.mark.parametrize('scheme', [('https'), ('http')])
+@patch('cuenca.http.client.requests.Session.request')
+def test_use_http(mock_request, scheme):
+    session = Session()
+    session.configure(use_http=scheme == 'http')
+
+    session.get('health_check')
+    mock_request.assert_called_once()
+    _, kwargs = mock_request.call_args_list[0]
+    assert f'{scheme}://' in kwargs['url']

@@ -22,6 +22,7 @@ AWS_SERVICE = 'execute-api'
 
 class Session:
 
+    scheme: str = 'https'
     host: str = API_HOST
     basic_auth: Tuple[str, str]
     jwt_token: Optional[Jwt] = None
@@ -51,6 +52,7 @@ class Session:
         api_secret: Optional[str] = None,
         use_jwt: Optional[bool] = False,
         sandbox: Optional[bool] = None,
+        use_http: Optional[bool] = False,
     ):
         """
         This allows us to instantiate the http client when importing the
@@ -70,6 +72,9 @@ class Session:
 
         if use_jwt:
             self.jwt_token = Jwt.create(self)
+
+        if use_http:
+            self.scheme = 'http'
 
     def get(
         self,
@@ -102,7 +107,7 @@ class Session:
 
         resp = self.session.request(
             method=method,
-            url='https://' + self.host + urljoin('/', endpoint),
+            url=f'{self.scheme}://{self.host}{urljoin("/", endpoint)}',
             auth=self.auth,
             json=data,
             params=params,
