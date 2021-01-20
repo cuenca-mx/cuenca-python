@@ -1,6 +1,6 @@
 import datetime as dt
+import io
 from dataclasses import asdict, dataclass, fields
-from io import BytesIO
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
@@ -84,17 +84,25 @@ class Downloadable(Resource):
     @classmethod
     def download(
         cls,
-        id: str,
+        instance,
         *,
         session: Session = global_session,
         file_format: FileFormat,
-    ) -> BytesIO:
+    ) -> io.BytesIO:
         resp = session.get(
-            f'/{cls._resource}/{id}',
+            f'/{cls._resource}/{instance.id}',
             headers=dict(Accept=file_format.value),
             stream=True,
         )
-        return BytesIO(resp['data'])
+        return io.BytesIO(resp)  # type: ignore
+
+    @property
+    def pdf(self) -> bytes:
+        return self.download(self, file_format=FileFormat.pdf).read()
+
+    @property
+    def xml(self) -> bytes:
+        return self.download(self, file_format=FileFormat.xml).read()
 
 
 @dataclass
