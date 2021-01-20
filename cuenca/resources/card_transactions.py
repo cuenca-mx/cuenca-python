@@ -28,7 +28,7 @@ class CardTransaction(Transaction):
     @property  # type: ignore
     def related_card_transactions(self) -> Optional[List['CardTransaction']]:
         if not self.related_card_transaction_uris:
-            return list()
+            return []
         return cast(
             List['CardTransaction'],
             retrieve_uris(self.related_card_transaction_uris),
