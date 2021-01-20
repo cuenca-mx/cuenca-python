@@ -115,7 +115,7 @@ class Session:
         try:
             content = resp.json()
         except json.decoder.JSONDecodeError:
-            content = dict(data=resp.content)
+            content = resp.content
         return content
 
     @staticmethod
