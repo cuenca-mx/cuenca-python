@@ -82,7 +82,13 @@ class Updateable(Resource):
 @dataclass
 class Downloadable(Resource):
     @classmethod
-    def download(cls, id: str, file_format: FileFormat) -> BytesIO:
+    def download(
+        cls,
+        id: str,
+        *,
+        session: Session = global_session,
+        file_format: FileFormat,
+    ) -> BytesIO:
         resp = session.get(
             f'/{cls._resource}/{id}',
             headers=dict(Accept=file_format.value),

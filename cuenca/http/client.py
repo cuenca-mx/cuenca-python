@@ -1,5 +1,6 @@
+import json
 import os
-from typing import Optional, Tuple, Union
+from typing import Optional, Tuple
 from urllib.parse import urljoin
 
 import requests
@@ -111,9 +112,11 @@ class Session:
             **kwargs,
         )
         self._check_response(resp)
-        if resp.headers['Content-Type'] == 'application/json':
-            return resp.json()
-        return dict(data=resp.content)
+        try:
+            content = resp.json()
+        except json.decoder.JSONDecodeError:
+            content = dict(data=resp.content)
+        return content
 
     @staticmethod
     def _check_response(response: Response):
