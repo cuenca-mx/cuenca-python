@@ -1,9 +1,11 @@
 import datetime as dt
 from dataclasses import asdict, dataclass, fields
+from io import BytesIO
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
 from cuenca_validations.types import (
+    FileFormat,
     QueryParams,
     SantizedDict,
     TransactionQuery,
@@ -75,6 +77,32 @@ class Updateable(Resource):
     ) -> Resource:
         resp = session.patch(f'/{cls._resource}/{id}', data)
         return cls._from_dict(resp)
+
+
+@dataclass
+class Downloadable(Resource):
+    @classmethod
+    def download(
+        cls,
+        instance,
+        file_format: FileFormat,
+        *,
+        session: Session = global_session,
+    ) -> BytesIO:
+        resp = session.request(
+            'get',
+            f'/{cls._resource}/{instance.id}',
+            headers=dict(Accept=file_format.value),
+        )
+        return BytesIO(resp)
+
+    @property
+    def pdf(self) -> bytes:
+        return self.download(self, file_format=FileFormat.pdf).read()
+
+    @property
+    def xml(self) -> bytes:
+        return self.download(self, file_format=FileFormat.xml).read()
 
 
 @dataclass

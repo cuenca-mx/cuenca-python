@@ -1,3 +1,4 @@
+import json
 import os
 from typing import Optional, Tuple
 from urllib.parse import urljoin
@@ -72,20 +73,21 @@ class Session:
             self.jwt_token = Jwt.create(self)
 
     def get(
-        self,
-        endpoint: str,
-        params: ClientRequestParams = None,
+        self, endpoint: str, params: ClientRequestParams = None
     ) -> DictStrAny:
-        return self.request('get', endpoint, params=params)
+        return self._request_json('get', endpoint, params=params)
 
     def post(self, endpoint: str, data: DictStrAny) -> DictStrAny:
-        return self.request('post', endpoint, data=data)
+        return self._request_json('post', endpoint, data=data)
 
-    def patch(self, endpoint: str, data: DictStrAny) -> DictStrAny:
-        return self.request('patch', endpoint, data=data)
+    def patch(self, endpoint: str, data: DictStrAny, **kwargs) -> DictStrAny:
+        return self._request_json('patch', endpoint, data=data)
 
     def delete(self, endpoint: str, data: OptionalDict = None) -> DictStrAny:
-        return self.request('delete', endpoint, data=data)
+        return self._request_json('delete', endpoint, data=data)
+
+    def _request_json(self, *args, **kwargs) -> DictStrAny:
+        return json.loads(self.request(*args, **kwargs))
 
     def request(
         self,
@@ -94,12 +96,11 @@ class Session:
         params: ClientRequestParams = None,
         data: OptionalDict = None,
         **kwargs,
-    ) -> DictStrAny:
+    ) -> bytes:
         if self.jwt_token:
             if self.jwt_token.is_expired:
                 self.jwt_token = Jwt.create(self)
             self.session.headers['X-Cuenca-Token'] = self.jwt_token.token
-
         resp = self.session.request(
             method=method,
             url='https://' + self.host + urljoin('/', endpoint),
@@ -109,7 +110,7 @@ class Session:
             **kwargs,
         )
         self._check_response(resp)
-        return resp.json()
+        return resp.content
 
     @staticmethod
     def _check_response(response: Response):

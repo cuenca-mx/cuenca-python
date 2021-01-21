@@ -1,0 +1,119 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.6.0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/statements?limit=2&year=2019&month=7
+  response:
+    body:
+      string: '{"items":[{"id":"STIi37qwZbTv-eorrNf_npkw","month":7,"year":2019,"created_at":"2021-01-21T19:07:58.716533"}]}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '109'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 21 Jan 2021 19:08:15 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-6009d10c-620913082ae657b750e90ebb;Sampled=0
+      x-amz-apigw-id:
+      - Zg2Z_GTaCYcFoAw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '109'
+      x-amzn-Remapped-Date:
+      - Thu, 21 Jan 2021 19:08:15 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - c4e30b3f-7267-4c98-b0c8-35551f0f2dce
+      x-amzn-RequestId:
+      - 8357df3a-cf3c-43b5-b6c7-7f414ccaedf1
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/xml
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.6.0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/statements/STIi37qwZbTv-eorrNf_npkw
+  response:
+    body:
+      string: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><cfdi:Comprobante
+        xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd"
+        Version="3.3" Folio="32" Fecha="2021-01-21T13:08:02" TipoDeComprobante="I"
+        Moneda="MXN" TipoCambio="1" SubTotal="0.01" Total="0.01" LugarExpedicion="06500"
+        NoCertificado="00001000000500462379" Certificado="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"
+        FormaPago="03" MetodoPago="PUE" Sello="eexb6U+CGU+g/MfRCZ3NtI10a6zdzP0Qu7UzgeD1Q8GI/rZ77Mdqeqm9zTClNVExzrr69qoETsba3gOfIm/AOQ/yyVMMoS1V/ViXBWwslZeQ+S4vYwuPFhNgTvn4z+oAPMnDQlpFpBgva6ITFydXboL1ZVpt4bB1fCfe7L6+4IIUUevyQGrKhlYhPvEaFVr6MCGK8TpIcPUm7FCtegTU8AG9W+kEnBlCH1cpYfnEYsvhUeQallHiyDeB0peAnYYavuMKo8vpHNU0gZqBRCZELmkkGGBgLxBMh6UhptajMs/7O+LsHfwuXeUdgTmKXGeXTtTh3dRZgS1r3VZwbZSjpQ=="><cfdi:Emisor
+        Rfc="TAM180309C16" RegimenFiscal="601" Nombre="TAMIZI, S.A. DE C.V."/><cfdi:Receptor
+        Rfc="UUSC9509162G8" Nombre="GOKU RAFAEL MONTEROLA GARRIDO" UsoCFDI="P01"/><cfdi:Conceptos><cfdi:Concepto
+        ClaveProdServ="84121501" Cantidad="1" ClaveUnidad="H87" Descripcion="Sin comisiones"
+        ValorUnitario="0.008621" Importe="0.01" Unidad="Pieza"><cfdi:Impuestos><cfdi:Traslados><cfdi:Traslado
+        Base="0.008621" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="0.00"/></cfdi:Traslados></cfdi:Impuestos></cfdi:Concepto></cfdi:Conceptos><cfdi:Impuestos
+        TotalImpuestosTrasladados="0.00"><cfdi:Traslados><cfdi:Traslado Impuesto="002"
+        TipoFactor="Tasa" TasaOCuota="0.160000" Importe="0.00"/></cfdi:Traslados></cfdi:Impuestos><cfdi:Complemento><tfd:TimbreFiscalDigital
+        FechaTimbrado="2021-01-21T13:08:02" NoCertificadoSAT="20001000000300022323"
+        RfcProvCertif="FSA170201V01" SelloCFD="eexb6U+CGU+g/MfRCZ3NtI10a6zdzP0Qu7UzgeD1Q8GI/rZ77Mdqeqm9zTClNVExzrr69qoETsba3gOfIm/AOQ/yyVMMoS1V/ViXBWwslZeQ+S4vYwuPFhNgTvn4z+oAPMnDQlpFpBgva6ITFydXboL1ZVpt4bB1fCfe7L6+4IIUUevyQGrKhlYhPvEaFVr6MCGK8TpIcPUm7FCtegTU8AG9W+kEnBlCH1cpYfnEYsvhUeQallHiyDeB0peAnYYavuMKo8vpHNU0gZqBRCZELmkkGGBgLxBMh6UhptajMs/7O+LsHfwuXeUdgTmKXGeXTtTh3dRZgS1r3VZwbZSjpQ=="
+        SelloSAT="M7DWqoOuJlaNqeD8ds6IAAg7dAk=" UUID="581e6a88-59cc-4eeb-82c8-f890d605ce27"
+        Version="1.1" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital
+        http://www.sat.gob.mx/sitio_internet/cfd/timbrefiscaldigital/TimbreFiscalDigitalv11.xsd"
+        xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital"/></cfdi:Complemento></cfdi:Comprobante>
+    headers:
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - attachment; filename=Statement..xsl
+      Content-Length:
+      - '4439'
+      Content-Type:
+      - application/xml
+      Date:
+      - Thu, 21 Jan 2021 19:08:19 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-6009d11f-421d83b87d9c8d6d0946bee4;Sampled=0
+      x-amz-apigw-id:
+      - Zg2dAEdciYcFkIw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '4439'
+      x-amzn-Remapped-Date:
+      - Thu, 21 Jan 2021 19:08:19 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 0893526b-df46-4737-9674-5ed1986327e5
+      x-amzn-RequestId:
+      - 295ed386-84f2-4e79-ba36-6dc99c731df8
+    status:
+      code: 200
+      message: OK
+version: 1
