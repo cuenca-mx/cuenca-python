@@ -85,9 +85,9 @@ class Downloadable(Resource):
     def download(
         cls,
         instance,
+        file_format: FileFormat,
         *,
         session: Session = global_session,
-        file_format: FileFormat,
     ) -> BytesIO:
         resp = session.download(
             f'/{cls._resource}/{instance.id}',
