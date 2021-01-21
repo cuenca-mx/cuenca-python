@@ -1,5 +1,5 @@
 import datetime as dt
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
 from freezegun import freeze_time
@@ -62,9 +62,8 @@ def test_request_expired_token():
 
 @patch('cuenca.http.client.requests.Session.request')
 def test_overrides_session(mock_request):
-    magic_mock = MagicMock()
-    magic_mock.json.return_value = dict(items=[])
-    mock_request.return_value = magic_mock
+    mock_request.return_value.ok = True
+    mock_request.return_value.content = '{"items": []}'
     session = Session()
     session.configure(
         api_key='USER_API_KEY', api_secret='USER_SECRET', sandbox=True
