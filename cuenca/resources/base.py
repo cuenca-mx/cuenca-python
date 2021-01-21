@@ -89,7 +89,7 @@ class Downloadable(Resource):
         session: Session = global_session,
         file_format: FileFormat,
     ) -> BytesIO:
-        resp = session.get(
+        resp = session.download(
             f'/{cls._resource}/{instance.id}',
             headers=dict(Accept=file_format.value),
             stream=True,

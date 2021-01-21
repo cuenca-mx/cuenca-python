@@ -1,6 +1,6 @@
+import json
 import os
-from json.decoder import JSONDecodeError
-from typing import Optional, Tuple, Union, no_type_check
+from typing import Optional, Tuple
 from urllib.parse import urljoin
 
 import requests
@@ -72,32 +72,35 @@ class Session:
         if use_jwt:
             self.jwt_token = Jwt.create(self)
 
-    @no_type_check
     def get(
         self,
         endpoint: str,
         params: ClientRequestParams = None,
         **kwargs,
-    ) -> Union[DictStrAny, bytes]:
-        return self.request('get', endpoint, params=params, **kwargs)
+    ) -> DictStrAny:
+        return self._request_json('get', endpoint, params=params, **kwargs)
 
-    @no_type_check
-    def post(
-        self, endpoint: str, data: DictStrAny, **kwargs
-    ) -> Union[DictStrAny, bytes]:
-        return self.request('post', endpoint, data=data, **kwargs)
+    def post(self, endpoint: str, data: DictStrAny, **kwargs) -> DictStrAny:
+        return self._request_json('post', endpoint, data=data, **kwargs)
 
-    @no_type_check
-    def patch(
-        self, endpoint: str, data: DictStrAny, **kwargs
-    ) -> Union[DictStrAny, bytes]:
-        return self.request('patch', endpoint, data=data, **kwargs)
+    def patch(self, endpoint: str, data: DictStrAny, **kwargs) -> DictStrAny:
+        return self._request_json('patch', endpoint, data=data, **kwargs)
 
-    @no_type_check
     def delete(
         self, endpoint: str, data: OptionalDict = None, **kwargs
-    ) -> Union[DictStrAny, bytes]:
-        return self.request('delete', endpoint, data=data, **kwargs)
+    ) -> DictStrAny:
+        return self._request_json('delete', endpoint, data=data, **kwargs)
+
+    def download(
+        self,
+        endpoint: str,
+        params: ClientRequestParams = None,
+        **kwargs,
+    ) -> bytes:
+        return self.request('get', endpoint, params=params, **kwargs)
+
+    def _request_json(self, *args, **kwargs) -> DictStrAny:
+        return json.loads(self.request(*args, **kwargs))
 
     def request(
         self,
@@ -106,7 +109,7 @@ class Session:
         params: ClientRequestParams = None,
         data: OptionalDict = None,
         **kwargs,
-    ) -> Union[DictStrAny, bytes]:
+    ) -> bytes:
         if self.jwt_token:
             if self.jwt_token.is_expired:
                 self.jwt_token = Jwt.create(self)
@@ -120,11 +123,7 @@ class Session:
             **kwargs,
         )
         self._check_response(resp)
-        try:
-            content = resp.json()
-        except JSONDecodeError:
-            content = resp.content
-        return content
+        return resp.content
 
     @staticmethod
     def _check_response(response: Response):
