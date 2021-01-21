@@ -89,11 +89,12 @@ class Downloadable(Resource):
         *,
         session: Session = global_session,
     ) -> BytesIO:
-        resp = session.download(
+        resp = session.request(
+            'get',
             f'/{cls._resource}/{instance.id}',
             headers=dict(Accept=file_format.value),
         )
-        return BytesIO(resp)  # type: ignore
+        return BytesIO(resp)
 
     @property
     def pdf(self) -> bytes:

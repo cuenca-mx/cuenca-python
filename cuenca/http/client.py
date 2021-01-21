@@ -86,13 +86,6 @@ class Session:
     def delete(self, endpoint: str, data: OptionalDict = None) -> DictStrAny:
         return self._request_json('delete', endpoint, data=data)
 
-    def download(
-        self,
-        endpoint: str,
-        headers={},
-    ) -> bytes:
-        return self.request('get', endpoint, headers=headers)
-
     def _request_json(self, *args, **kwargs) -> DictStrAny:
         return json.loads(self.request(*args, **kwargs))
 
