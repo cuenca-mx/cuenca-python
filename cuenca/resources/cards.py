@@ -1,6 +1,11 @@
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import CardStatus, CardType
+from cuenca_validations.types import (
+    CardFundingType,
+    CardIssuer,
+    CardStatus,
+    CardType,
+)
 from cuenca_validations.types.queries import CardQuery
 from cuenca_validations.types.requests import CardRequest, CardUpdateRequest
 from pydantic.dataclasses import dataclass
@@ -23,12 +28,16 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     cvv2: str
     type: CardType
     status: CardStatus
+    issuer: CardIssuer
+    funding_type: CardFundingType
 
     @classmethod
     def create(
         cls,
         ledger_account_id: str,
         user_id: str,
+        issuer: CardIssuer,
+        funding_type: CardFundingType,
         *,
         session: Session = global_session,
     ) -> 'Card':
@@ -39,7 +48,12 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         :param user_id: associated user id
         :return: New assigned card
         """
-        req = CardRequest(ledger_account_id=ledger_account_id, user_id=user_id)
+        req = CardRequest(
+            ledger_account_id=ledger_account_id,
+            user_id=user_id,
+            issuer=issuer,
+            funding_type=funding_type,
+        )
         return cast('Card', cls._create(session=session, **req.dict()))
 
     @classmethod
