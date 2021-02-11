@@ -2,6 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import ApiKeyQuery, ApiKeyUpdateRequest
+from cuenca_validations.typing import DictStrAny
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
@@ -16,7 +17,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
     secret: str
     deactivated_at: Optional[dt.datetime]
     user_id: Optional[str]
-    metadata: Optional[str]
+    metadata: Optional[dict]
 
     @property
     def active(self) -> bool:
@@ -46,7 +47,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
     def update(
         cls,
         api_key_id: str,
-        metadata: Optional[str] = None,
+        metadata: Optional[dict] = None,
         user_id: Optional[str] = None,
     ) -> 'ApiKey':
         """

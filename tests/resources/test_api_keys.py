@@ -39,7 +39,7 @@ def test_api_key_deactivate():
 @pytest.mark.vcr
 def test_update_api_key():
     fields_to_update = dict(
-        metadata='ANYTHING', user_id='USiBeLDwEWT_inkyE4CrRsrQ'
+        metadata=dict(app_version='1.1.1'), user_id='USiBeLDwEWT_inkyE4CrRsrQ'
     )
     api_key_id = 'AKkVaALThyQ3SSFeR-qBAKiw'
 

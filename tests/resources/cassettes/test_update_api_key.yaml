@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: '{"user_id": "USiBeLDwEWT_inkyE4CrRsrQ", "metadata": "ANYTHING"}'
+    body: '{"user_id": "USiBeLDwEWT_inkyE4CrRsrQ", "metadata": {"app_version": "1.1.1"}}'
     headers:
       Accept:
       - '*/*'
@@ -22,7 +22,7 @@ interactions:
     uri: https://sandbox.cuenca.com/api_keys/AKkVaALThyQ3SSFeR-qBAKiw
   response:
     body:
-      string: '{"id":"AKkVaALThyQ3SSFeR-qBAKiw","created_at":"2021-01-11T17:11:12.925802","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":"ANYTHING","updated_at":"2021-01-11T17:11:33.189894","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
+      string: '{"id":"AKkVaALThyQ3SSFeR-qBAKiw","created_at":"2021-01-11T17:11:12.925802","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":{"app_version":"1.1.1"},"updated_at":"2021-01-11T17:11:33.189894","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
     headers:
       Connection:
       - keep-alive
@@ -70,7 +70,7 @@ interactions:
     uri: https://sandbox.cuenca.com/api_keys/AKkVaALThyQ3SSFeR-qBAKiw
   response:
     body:
-      string: '{"id":"AKkVaALThyQ3SSFeR-qBAKiw","created_at":"2021-01-11T17:11:12.925802","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":"ANYTHING","updated_at":"2021-01-11T17:11:33.189894","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
+      string: '{"id":"AKkVaALThyQ3SSFeR-qBAKiw","created_at":"2021-01-11T17:11:12.925802","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":{"app_version":"1.1.1"},"updated_at":"2021-01-11T17:11:33.189894","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
     headers:
       Connection:
       - keep-alive
