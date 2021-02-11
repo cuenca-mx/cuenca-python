@@ -15,7 +15,7 @@ def test_api_keys_create():
 
 @pytest.mark.vcr
 def test_api_keys_retrieve():
-    id_key = 'AKe2V4KrZUQ7-GTmzvjexvrw'
+    id_key = 'AKMPSxy2UeSKqU1J6spDNwqA'
     api_key: ApiKey = ApiKey.retrieve(id_key)
     assert api_key.id == id_key
     assert api_key.secret == '********'
@@ -40,15 +40,11 @@ def test_update_api_key():
     fields_to_update = dict(
         metadata=dict(info='v1.1.1'), user_id='USiBeLDwEWT_inkyE4CrRsrQ'
     )
-    api_key_id = 'AKkVaALThyQ3SSFeR-qBAKiw'
+    api_key_id = 'AKp-QELMN3Thih6AJG0Mgggg'
 
     updated = ApiKey.update(api_key_id, **fields_to_update)
     assert updated.user_id == fields_to_update['user_id']
     assert not hasattr(updated, 'metadata')
-
-    api_key = ApiKey.retrieve(api_key_id)
-    assert api_key.user_id == fields_to_update['user_id']
-    assert not hasattr(api_key, 'metadata')
 
 
 def test_api_key_to_dict():

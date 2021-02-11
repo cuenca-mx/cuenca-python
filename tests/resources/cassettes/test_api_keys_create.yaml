@@ -15,39 +15,31 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.4.1
+      - cuenca-python/0.6.2.dev1
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
-    uri: https://sandbox.cuenca.com/api_keys
+    uri: https://stage.cuenca.com/api_keys
   response:
     body:
-      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"uyHrFFVxL80vKsGKxZQBKf94pxPuYHLe-XfQkxuq2VL_Zaw8gl528CZtHIkMcq6l5KEW9sTwdQrhz5w6-e8Lgw","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"updated_at":"2021-01-11T17:03:29.829434","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
+      string: '{"id":"AKEvJ9OckUTFCN77vkQRLPIA","created_at":"2021-02-11T20:07:55.891354","secret":"Vl6FcGMjWj9MULfOwKdSR-X3NRX97m1o2EJ2Aej_18PQNLwHcU5KGAPHikiiLpTJTZ3Z_EnxJZKL9OlfKveq5Q","deactivated_at":"2212-10-08T19:54:42.308379","user":{"id":"USJaz512A7ROOh7N3pqKGMZg","created_at":"2021-02-11T19:44:54.016164"},"updated_at":"2021-02-11T19:54:42.308426","user_id":"USJaz512A7ROOh7N3pqKGMZg"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '397'
+      - '381'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 Jan 2021 17:19:39 GMT
-      X-Amzn-Trace-Id:
-      - Root=1-5ffc88a9-188ed72f4f3eda53152f5d41;Sampled=0
-      x-amz-apigw-id:
-      - Y_pKbERpiYcF_8A=
-      x-amzn-Remapped-Connection:
-      - keep-alive
-      x-amzn-Remapped-Content-Length:
-      - '397'
-      x-amzn-Remapped-Date:
-      - Mon, 11 Jan 2021 17:19:39 GMT
-      x-amzn-Remapped-Server:
+      - Thu, 11 Feb 2021 20:07:55 GMT
+      Server:
       - nginx/1.18.0
-      x-amzn-Remapped-x-amzn-RequestId:
-      - 1892c8d4-d62e-4656-9156-31d02cd5bb7d
+      X-Amzn-Trace-Id:
+      - Root=1-60258e9b-d1e9ed255cca393920a29b81;Sampled=0
+      x-amz-apigw-id:
+      - amM4WHXDiYcFcog=
       x-amzn-RequestId:
-      - b0bc1f25-2647-4afd-a7ac-35a097bed689
+      - 3c0c47f8-198d-4bab-a592-009f362f5c1c
     status:
       code: 201
       message: Created
