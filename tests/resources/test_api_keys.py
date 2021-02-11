@@ -26,7 +26,7 @@ def test_api_key_deactivate():
     api_key = ApiKey.create()
     assert api_key.active
 
-    disabled = ApiKey.deactivate(api_key, 0)
+    disabled = ApiKey.deactivate(api_key.id, 0)
     assert disabled.id == api_key.id
     assert disabled.deactivated_at is not None
     assert not disabled.active
