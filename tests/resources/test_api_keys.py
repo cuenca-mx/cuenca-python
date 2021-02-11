@@ -23,11 +23,10 @@ def test_api_keys_retrieve():
 
 @pytest.mark.vcr
 def test_api_key_deactivate():
-    id_key = 'AKSMPzsvVPROyLZhkwcOtHxA'
-    api_key: ApiKey = ApiKey.retrieve(id_key)
+    api_key = ApiKey.create()
     assert api_key.active
 
-    disabled = ApiKey.deactivate(id_key, 0)
+    disabled = ApiKey.deactivate(api_key, 0)
     assert disabled.id == api_key.id
     assert disabled.deactivated_at is not None
     assert not disabled.active
