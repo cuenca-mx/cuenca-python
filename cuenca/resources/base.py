@@ -69,7 +69,7 @@ class Creatable(Resource):
 
 @dataclass
 class Updateable(Resource):
-    updated_at: Optional[dt.datetime]
+    updated_at: dt.datetime
 
     @classmethod
     def _update(

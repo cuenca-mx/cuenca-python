@@ -18,7 +18,7 @@ interactions:
     uri: https://sandbox.cuenca.com/api_keys/AKe2V4KrZUQ7-GTmzvjexvrw
   response:
     body:
-      string: '{"id":"AKe2V4KrZUQ7-GTmzvjexvrw","created_at":"2021-01-11T17:12:52.666340","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":null,"updated_at":"2021-01-11T17:03:29.829434","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
+      string: '{"id":"AKe2V4KrZUQ7-GTmzvjexvrw","created_at":"2021-01-11T17:12:52.666340","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"updated_at":"2021-01-11T17:03:29.829434","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
     headers:
       Connection:
       - keep-alive

@@ -18,7 +18,7 @@ interactions:
     uri: https://sandbox.cuenca.com/api_keys/AKSMPzsvVPROyLZhkwcOtHxA
   response:
     body:
-      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":null,"updated_at":"2021-01-11T17:03:29.829434","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
+      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"********","deactivated_at":"2212-09-07T17:03:29.829384","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"updated_at":"2021-01-11T17:03:29.829434","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
     headers:
       Connection:
       - keep-alive
@@ -70,7 +70,7 @@ interactions:
     uri: https://sandbox.cuenca.com/api_keys/AKSMPzsvVPROyLZhkwcOtHxA
   response:
     body:
-      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"********","deactivated_at":"2021-01-11T17:20:20.127314","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":null,"updated_at":"2021-01-11T17:20:20.127354","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
+      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"********","deactivated_at":"2021-01-11T17:20:20.127314","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"updated_at":"2021-01-11T17:20:20.127354","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
     headers:
       Connection:
       - keep-alive
@@ -118,7 +118,7 @@ interactions:
     uri: https://sandbox.cuenca.com/api_keys/AKSMPzsvVPROyLZhkwcOtHxA
   response:
     body:
-      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"********","deactivated_at":"2021-01-11T17:20:20.127314","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"metadata":null,"updated_at":"2021-01-11T17:20:20.127354","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
+      string: '{"id":"AKSMPzsvVPROyLZhkwcOtHxA","created_at":"2021-01-11T17:19:39.727266","secret":"********","deactivated_at":"2021-01-11T17:20:20.127314","user":{"id":"USiBeLDwEWT_inkyE4CrRsrQ","created_at":"2020-12-07T18:45:55.641544"},"updated_at":"2021-01-11T17:20:20.127354","user_id":"USiBeLDwEWT_inkyE4CrRsrQ"}'
     headers:
       Connection:
       - keep-alive

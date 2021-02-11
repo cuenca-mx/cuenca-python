@@ -39,21 +39,17 @@ def test_api_key_deactivate():
 @pytest.mark.vcr
 def test_update_api_key():
     fields_to_update = dict(
-        metadata=dict(app_version='1.1.1'), user_id='USiBeLDwEWT_inkyE4CrRsrQ'
+        metadata=dict(info='v1.1.1'), user_id='USiBeLDwEWT_inkyE4CrRsrQ'
     )
     api_key_id = 'AKkVaALThyQ3SSFeR-qBAKiw'
 
     updated = ApiKey.update(api_key_id, **fields_to_update)
-    assert all(
-        getattr(updated, key) == value
-        for key, value in fields_to_update.items()
-    )
+    assert updated.user_id == fields_to_update['user_id']
+    assert not hasattr(updated, 'metadata')
 
     api_key = ApiKey.retrieve(api_key_id)
-    assert all(
-        getattr(api_key, key) == value
-        for key, value in fields_to_update.items()
-    )
+    assert api_key.user_id == fields_to_update['user_id']
+    assert not hasattr(api_key, 'metadata')
 
 
 def test_api_key_to_dict():
@@ -65,7 +61,6 @@ def test_api_key_to_dict():
         created_at=created,
         deactivated_at=None,
         updated_at=date,
-        metadata=None,
         user_id=None,
     )
     api_key_dict = dict(
@@ -74,7 +69,6 @@ def test_api_key_to_dict():
         created_at=date,
         deactivated_at=None,
         updated_at=date,
-        metadata=None,
         user_id=None,
     )
     assert api_key_dict == api_key.to_dict()
