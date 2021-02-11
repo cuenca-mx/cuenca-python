@@ -15,7 +15,7 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://stage.cuenca.com/api_keys/AKMPSxy2UeSKqU1J6spDNwqA
+    uri: https://sandbox.cuenca.com/api_keys/AKMPSxy2UeSKqU1J6spDNwqA
   response:
     body:
       string: '{"id":"AKMPSxy2UeSKqU1J6spDNwqA","created_at":"2021-02-11T19:45:52.826286","secret":"********","deactivated_at":"2212-10-08T19:37:22.722505","user":{"id":"USJaz512A7ROOh7N3pqKGMZg","created_at":"2021-02-11T19:44:54.016164"},"updated_at":"2021-02-11T19:54:42.308426","user_id":"USJaz512A7ROOh7N3pqKGMZg"}'
