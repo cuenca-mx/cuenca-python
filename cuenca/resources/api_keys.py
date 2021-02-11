@@ -2,7 +2,6 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import ApiKeyQuery, ApiKeyUpdateRequest
-from cuenca_validations.typing import DictStrAny
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
