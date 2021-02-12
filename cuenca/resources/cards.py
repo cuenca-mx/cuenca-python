@@ -51,7 +51,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         status: Optional[CardStatus] = None,
         *,
         session: Session = global_session,
-    ):
+    ) -> 'Card':
         """
         Updates card properties that are not sensitive or fixed data. It allows
         reconfigure properties like status, and manufacturer.
@@ -65,9 +65,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         req = CardUpdateRequest(
             user_id=user_id, ledger_account_id=ledger_account_id, status=status
         )
-        resp = cls._update(
-            card_id, session=session, **req.dict(exclude_none=True)
-        )
+        resp = cls._update(card_id, session=session, **req.dict())
         return cast('Card', resp)
 
     @classmethod
