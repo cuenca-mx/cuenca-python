@@ -53,5 +53,5 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         the `user_id` or updates the correspoding metadata
         """
         req = ApiKeyUpdateRequest(metadata=metadata, user_id=user_id)
-        resp = cls._update(api_key_id, **req.dict(exclude_none=True))
+        resp = cls._update(api_key_id, **req.dict())
         return cast('ApiKey', resp)
