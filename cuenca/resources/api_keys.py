@@ -29,7 +29,13 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         return cast('ApiKey', cls._create(session=session))
 
     @classmethod
-    def deactivate(cls, api_key_id: str, minutes: int = 0) -> 'ApiKey':
+    def deactivate(
+        cls,
+        api_key_id: str,
+        minutes: int = 0,
+        *,
+        session: Session = global_session,
+    ) -> 'ApiKey':
         """
         deactivate an ApiKey in a certain number of minutes. If minutes is
         negative, the API will treat it the same as 0. You can't deactivate
@@ -38,7 +44,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         exact deactivated_at time.
         """
         url = cls._resource + f'/{api_key_id}'
-        resp = global_session.delete(url, dict(minutes=minutes))
+        resp = session.delete(url, dict(minutes=minutes))
         return cast('ApiKey', cls._from_dict(resp))
 
     @classmethod
@@ -47,11 +53,13 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         api_key_id: str,
         metadata: Optional[dict] = None,
         user_id: Optional[str] = None,
+        *,
+        session: Session = global_session,
     ) -> 'ApiKey':
         """
         If the current user has enough permissions, it associates an ApiKey to
         the `user_id` or updates the correspoding metadata
         """
         req = ApiKeyUpdateRequest(metadata=metadata, user_id=user_id)
-        resp = cls._update(api_key_id, **req.dict())
+        resp = cls._update(api_key_id, **req.dict(), session=session)
         return cast('ApiKey', resp)
