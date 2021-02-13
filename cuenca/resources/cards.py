@@ -21,7 +21,6 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     _query_params: ClassVar = CardQuery
 
     user_id: str
-    ledger_account_id: str
     number: str
     exp_month: int
     exp_year: int
@@ -34,22 +33,21 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     @classmethod
     def create(
         cls,
-        ledger_account_id: str,
-        user_id: str,
         issuer: CardIssuer,
         funding_type: CardFundingType,
+        user_id: str = 'me',
         *,
         session: Session = global_session,
     ) -> 'Card':
         """
         Assigns user_id and ledger_account_id to a existing card
 
-        :param ledger_account_id: associated ledger account id
         :param user_id: associated user id
+        :param funding_type: debit or credit
+        :param issuer:
         :return: New assigned card
         """
         req = CardRequest(
-            ledger_account_id=ledger_account_id,
             user_id=user_id,
             issuer=issuer,
             funding_type=funding_type,
@@ -60,8 +58,6 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     def update(
         cls,
         card_id: str,
-        user_id: Optional[str] = None,
-        ledger_account_id: Optional[str] = None,
         status: Optional[CardStatus] = None,
         *,
         session: Session = global_session,
@@ -71,14 +67,10 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         reconfigure properties like status, and manufacturer.
 
         :param card_id: existing card_id
-        :param user_id: owner user id
-        :param ledger_account_id: owner ledger account
         :param status:
         :return: Updated card object
         """
-        req = CardUpdateRequest(
-            user_id=user_id, ledger_account_id=ledger_account_id, status=status
-        )
+        req = CardUpdateRequest(status=status)
         resp = cls._update(card_id, session=session, **req.dict())
         return cast('Card', resp)
 
