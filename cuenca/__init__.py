@@ -34,3 +34,5 @@ from .resources import (
 from .version import __version__
 
 configure = session.configure
+log_in = session.log_in
+log_out = session.log_out

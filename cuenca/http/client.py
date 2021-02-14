@@ -14,7 +14,7 @@ from requests import Response
 from ..exc import CuencaResponseException
 from ..jwt import Jwt
 from ..version import API_VERSION, CLIENT_VERSION
-
+from ..login import Login
 API_HOST = 'api.cuenca.com'
 SANDBOX_HOST = 'sandbox.cuenca.com'
 AWS_DEFAULT_REGION = 'us-east-1'
@@ -26,6 +26,7 @@ class Session:
     host: str = API_HOST
     basic_auth: Tuple[str, str]
     jwt_token: Optional[Jwt] = None
+    login: Optional[Login] = None
     session: requests.Session
 
     def __init__(self):
@@ -45,6 +46,14 @@ class Session:
     @property
     def auth(self) -> Optional[Tuple[str, str]]:
         return self.basic_auth if all(self.basic_auth) else None
+
+    def log_in(self, password: str) -> Login:
+        self.login = Login.log_in(password, self)
+        self.session.headers['X-Cuenca-LoginId'] = self.login.login_id
+        return self.login
+
+    def log_out(self) -> None:
+        self.login.log_out()
 
     def configure(
         self,
