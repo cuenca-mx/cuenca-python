@@ -21,4 +21,4 @@ class Login:
         return cls(**resp)
 
     def log_out(self, session: 'Session') -> None:
-        session.post('/log_out')
+        session.post('/log_out', dict())

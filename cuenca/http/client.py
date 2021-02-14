@@ -54,7 +54,8 @@ class Session:
         return self.login
 
     def log_out(self) -> None:
-        self.login.log_out()
+        if self.login:
+            self.login.log_out(self)
 
     def configure(
         self,

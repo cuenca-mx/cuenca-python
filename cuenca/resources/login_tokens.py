@@ -1,4 +1,4 @@
-from typing import ClassVar
+from typing import ClassVar, cast
 
 from pydantic.dataclasses import dataclass
 
@@ -12,8 +12,10 @@ from ..http import Session, session as global_session
 class LoginToken(Creatable):
     _resource: ClassVar = 'login_tokens'
 
+    login_token: str
+
     @classmethod
-    def create(cls, session: Session = global_session) -> str:
+    def create(cls, session: Session = global_session) -> 'LoginToken':
         """
         Use this method to create a token that will last for 7 days
         Make sure to store this token in a safe place
@@ -22,4 +24,4 @@ class LoginToken(Creatable):
         """
         if not session.login:
             raise CuencaException('You have to login first')
-        return cls._create(session=session)['login_token']
+        return cast('LoginToken', cls._create(session=session))
