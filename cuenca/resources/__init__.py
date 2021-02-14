@@ -7,6 +7,8 @@ __all__ = [
     'CardTransaction',
     'Commission',
     'Deposit',
+    'LoginToken',
+    'Password',
     'ServiceProvider',
     'Statement',
     'Transfer',
@@ -26,6 +28,8 @@ from .service_providers import ServiceProvider
 from .statements import Statement
 from .transfers import Transfer
 from .whatsapp_transfers import WhatsappTransfer
+from .passwords import Password
+from .login_tokens import LoginToken
 
 # avoid circular imports
 resource_classes = [
@@ -37,6 +41,8 @@ resource_classes = [
     CardTransaction,
     Commission,
     Deposit,
+    LoginToken,
+    Password,
     ServiceProvider,
     Statement,
     Transfer,

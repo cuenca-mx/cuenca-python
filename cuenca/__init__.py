@@ -8,11 +8,15 @@ __all__ = [
     'CardTransaction',
     'Commission',
     'Deposit',
+    'LoginToken',
+    'Password',
     'ServiceProvider',
     'Statement',
     'Transfer',
     'WhatsappTransfer',
     'configure',
+    'log_in',
+    'log_out'
 ]
 
 
@@ -26,6 +30,8 @@ from .resources import (
     CardTransaction,
     Commission,
     Deposit,
+    LoginToken,
+    Password,
     ServiceProvider,
     Statement,
     Transfer,
