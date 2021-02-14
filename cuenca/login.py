@@ -1,10 +1,13 @@
-from dataclasses import dataclass
 import datetime as dt
-
+from dataclasses import dataclass
 from typing import TYPE_CHECKING
+
 from .exc import InvalidPassword
+
 if TYPE_CHECKING:
     from .http import Session
+
+
 @dataclass
 class Login:
     last_login_at: dt.datetime

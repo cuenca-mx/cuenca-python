@@ -23,13 +23,13 @@ from .card_transactions import CardTransaction
 from .cards import Card
 from .commissions import Commission
 from .deposits import Deposit
+from .login_tokens import LoginToken
+from .passwords import Password
 from .resources import RESOURCES
 from .service_providers import ServiceProvider
 from .statements import Statement
 from .transfers import Transfer
 from .whatsapp_transfers import WhatsappTransfer
-from .passwords import Password
-from .login_tokens import LoginToken
 
 # avoid circular imports
 resource_classes = [

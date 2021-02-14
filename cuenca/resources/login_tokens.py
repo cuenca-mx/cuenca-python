@@ -4,8 +4,10 @@ from pydantic.dataclasses import dataclass
 
 from cuenca.resources.base import Creatable
 
-from ..http import Session, session as global_session
 from ..exc import CuencaException
+from ..http import Session, session as global_session
+
+
 @dataclass
 class LoginToken(Creatable):
     _resource: ClassVar = 'login_tokens'

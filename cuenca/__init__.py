@@ -16,7 +16,7 @@ __all__ = [
     'WhatsappTransfer',
     'configure',
     'log_in',
-    'log_out'
+    'log_out',
 ]
 
 

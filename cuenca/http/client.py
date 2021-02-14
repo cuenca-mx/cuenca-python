@@ -13,8 +13,9 @@ from requests import Response
 
 from ..exc import CuencaResponseException
 from ..jwt import Jwt
-from ..version import API_VERSION, CLIENT_VERSION
 from ..login import Login
+from ..version import API_VERSION, CLIENT_VERSION
+
 API_HOST = 'api.cuenca.com'
 SANDBOX_HOST = 'sandbox.cuenca.com'
 AWS_DEFAULT_REGION = 'us-east-1'
@@ -61,7 +62,7 @@ class Session:
         api_secret: Optional[str] = None,
         use_jwt: Optional[bool] = False,
         sandbox: Optional[bool] = None,
-        login_token: Optional[str] = None
+        login_token: Optional[str] = None,
     ):
         """
         This allows us to instantiate the http client when importing the
