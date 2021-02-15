@@ -23,7 +23,7 @@ interactions:
   response:
     body:
       string: '{"id":"TV02","created_at":"2020-10-15T22:27:53.786000","user_id":"US4CUUYCzSBj8494zjbmF7Np","name":"Cargo
-        a cuenta","amount":1000,"descriptor":"Comisi\u00f3n por dep\u00f3sito de efectivo","rolling_balance":176000,"type":"credit","related_transaction_uri":"/commissions/CO3FI2mQsprTNhoik7Ni1VQF"}'
+        a cuenta","amount":1000,"descriptor":"Comisi\u00f3n por dep\u00f3sito de efectivo","rolling_balance":176000,"type":"credit","related_transaction_uri":"/commissions/CO3FI2mQsprTNhoik7Ni1VQF","funding_intrument_uri":null}'
     headers:
       Connection:
       - keep-alive

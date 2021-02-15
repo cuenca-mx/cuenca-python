@@ -3,7 +3,7 @@ from typing import ClassVar, Optional, cast
 from cuenca_validations.types import (
     CommissionType,
     EntryType,
-    RelatedTransaction,
+    RelatedResource,
 )
 from pydantic.dataclasses import dataclass
 
@@ -20,7 +20,7 @@ class Commission(Transaction):
     _resource: ClassVar = 'commissions'
 
     type: CommissionType
-    related_transaction_uri: Optional[RelatedTransaction]
+    related_transaction_uri: Optional[RelatedResource]
 
     @property  # type: ignore
     def related_transaction(self):
