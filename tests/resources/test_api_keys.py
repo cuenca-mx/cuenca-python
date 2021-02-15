@@ -1,6 +1,4 @@
 import datetime as dt
-from unittest.mock import patch
-from urllib.parse import quote
 
 import pytest
 
@@ -87,48 +85,3 @@ def test_api_key_from_dict():
     assert not hasattr(api_key, 'extra_field_1')
     assert not hasattr(api_key, 'extra_field_2')
     assert api_key.id is not None
-
-
-@pytest.mark.parametrize(
-    'permissions, response, result',
-    [
-        (['cuenca://oaxaca/{user_id}/transfers.read]'], [], (None, [])),
-        (
-            ['cuenca://oaxaca/{user_id}/transfers.read'],
-            ['cuenca://no_oaxaca/*/transfers.read'],
-            (None, []),
-        ),
-        (
-            [
-                'cuenca://oaxaca/{user_id}/transfers.read',
-                'cuenca://oaxaca/{user_id}/transfers.write',
-            ],
-            ['cuenca://oaxaca/US12345/transfers.read'],
-            ('US12345', ['cuenca://oaxaca/{user_id}/transfers.read']),
-        ),
-        (
-            [
-                'cuenca://oaxaca/{user_id}/transfers.read',
-                'cuenca://oaxaca/{user_id}/transfers.write',
-            ],
-            ['cuenca://oaxaca/*/transfers.read'],
-            (None, ['cuenca://oaxaca/{user_id}/transfers.read']),
-        ),
-        (
-            ['cuenca://oaxaca/transfers.read'],
-            ['cuenca://oaxaca/transfers.read'],
-            (None, ['cuenca://oaxaca/transfers.read']),
-        ),
-        (
-            ['cuenca://oaxaca/transfers.read'],
-            ['cuenca://oaxaca/transfers.write'],
-            (None, []),
-        ),
-    ],
-)
-@patch('cuenca.http.session.get')
-def test_validate_not_approved(mocked_get, permissions, response, result):
-    mocked_get.return_value = dict(allow=response)
-    assert result == ApiKey.validate(permissions)
-    quoted = quote(','.join(permissions))
-    mocked_get.assert_called_once_with('/authorizations', dict(actions=quoted))
