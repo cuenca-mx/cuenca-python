@@ -16,9 +16,7 @@ def test_balance_entry_retrieve():
     )
     # funding_intrument
     bfi = balance_entry.funding_intrument
-    assert (
-        balance_entry.funding_intrument_uri == f'/{bfi._resource}/{bfi.id}'
-    )
+    assert balance_entry.funding_intrument_uri == f'/{bfi._resource}/{bfi.id}'
 
 
 @pytest.mark.vcr

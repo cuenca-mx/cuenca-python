@@ -1,4 +1,4 @@
-from typing import ClassVar, cast, Optional
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import EntryType, RelatedResource
 from pydantic.dataclasses import dataclass

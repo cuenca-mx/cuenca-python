@@ -1,10 +1,6 @@
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import (
-    CommissionType,
-    EntryType,
-    RelatedResource,
-)
+from cuenca_validations.types import CommissionType, EntryType, RelatedResource
 from pydantic.dataclasses import dataclass
 
 from cuenca import resources
