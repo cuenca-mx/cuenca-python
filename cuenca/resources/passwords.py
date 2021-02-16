@@ -26,7 +26,7 @@ class Password(Creatable):
 
     @classmethod
     def delete(
-        cls, password: str, *, session: Session = global_session
+        cls, password: str, *, user_id: str = 'me', session: Session = global_session
     ) -> None:
         """
         Use this method to deactivate your current password
@@ -34,5 +34,5 @@ class Password(Creatable):
         :param password: Current password
         """
         req = PasswordRequest(password=password)
-        url = f'{cls._resource}'
+        url = f'{cls._resource}/{user_id}'
         session.delete(url, req.dict())
