@@ -16,6 +16,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
     secret: str
     deactivated_at: Optional[dt.datetime]
     user_id: Optional[str]
+    metadata: Optional[dict] = None
 
     @property
     def active(self) -> bool:
@@ -25,7 +26,11 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         )
 
     @classmethod
-    def create(cls, *, session: Session = global_session) -> 'ApiKey':
+    def create(
+        cls,
+        *,
+        session: Session = global_session,
+    ) -> 'ApiKey':
         return cast('ApiKey', cls._create(session=session))
 
     @classmethod

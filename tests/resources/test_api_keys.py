@@ -44,7 +44,6 @@ def test_update_api_key():
 
     updated = ApiKey.update(api_key_id, **fields_to_update)
     assert updated.user_id == fields_to_update['user_id']
-    assert not hasattr(updated, 'metadata')
 
 
 def test_api_key_to_dict():
@@ -65,6 +64,7 @@ def test_api_key_to_dict():
         deactivated_at=None,
         updated_at=date,
         user_id=None,
+        metadata=None,
     )
     assert api_key_dict == api_key.to_dict()
 
