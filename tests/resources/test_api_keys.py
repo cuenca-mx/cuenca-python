@@ -40,10 +40,10 @@ def test_update_api_key():
     fields_to_update = dict(
         metadata=dict(info='v1.1.1'), user_id='USiBeLDwEWT_inkyE4CrRsrQ'
     )
-    api_key_id = 'AKp-QELMN3Thih6AJG0Mgggg'
-
+    api_key_id = 'AKW9RCvRvOThixdmMMMSfnhg'
     updated = ApiKey.update(api_key_id, **fields_to_update)
     assert updated.user_id == fields_to_update['user_id']
+    assert updated.metadata == fields_to_update['metadata']
 
 
 def test_api_key_to_dict():
