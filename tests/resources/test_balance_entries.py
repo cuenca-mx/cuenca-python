@@ -1,7 +1,6 @@
 import pytest
 
 from cuenca import BalanceEntry
-from cuenca.exc import CuencaResponseException
 
 
 @pytest.mark.vcr
