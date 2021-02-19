@@ -19,7 +19,7 @@ class BalanceEntry(Retrievable, Queryable):
     rolling_balance: int
     type: EntryType
     related_transaction_uri: RelatedResource
-    funding_intrument_uri: Optional[RelatedResource]
+    funding_instrument_uri: Optional[RelatedResource]
 
     @property  # type: ignore
     def related_transaction(self):
@@ -28,9 +28,7 @@ class BalanceEntry(Retrievable, Queryable):
         return cast(resource, retrieve_uri(rt)) if resource else None
 
     @property  # type: ignore
-    def funding_intrument(self):
-        fi = self.funding_intrument_uri
-        if not fi:
-            return None
+    def funding_instrument(self):
+        fi = self.funding_instrument_uri
         resource = getattr(resources, fi.get_model())
         return cast(resource, retrieve_uri(fi)) if resource else None

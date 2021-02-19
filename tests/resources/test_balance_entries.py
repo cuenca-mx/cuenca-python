@@ -14,16 +14,6 @@ def test_balance_entry_retrieve():
     assert (
         balance_entry.related_transaction_uri == f'/{txn._resource}/{txn.id}'
     )
-    # funding_intrument
-    bfi = balance_entry.funding_intrument
-    assert balance_entry.funding_intrument_uri == f'/{bfi._resource}/{bfi.id}'
-
-
-@pytest.mark.vcr
-def test_balance_entry_related_transaction_not_exist():
-    id_entry = 'TV02'
-    balance_entry: BalanceEntry = BalanceEntry.retrieve(id_entry)
-    assert balance_entry.id == id_entry
-    with pytest.raises(CuencaResponseException):
-        balance_entry.related_transaction
-    assert not balance_entry.funding_intrument
+    # funding_instrument
+    bfi = balance_entry.funding_instrument
+    assert balance_entry.funding_instrument_uri == f'/{bfi._resource}/{bfi.id}'
