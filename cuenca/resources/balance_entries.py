@@ -1,4 +1,4 @@
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, cast
 
 from cuenca_validations.types import EntryType, RelatedResource
 from pydantic.dataclasses import dataclass
@@ -19,7 +19,7 @@ class BalanceEntry(Retrievable, Queryable):
     rolling_balance: int
     type: EntryType
     related_transaction_uri: RelatedResource
-    funding_instrument_uri: Optional[RelatedResource]
+    funding_instrument_uri: RelatedResource
 
     @property  # type: ignore
     def related_transaction(self):
