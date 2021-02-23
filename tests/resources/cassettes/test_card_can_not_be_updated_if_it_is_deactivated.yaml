@@ -15,11 +15,11 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.2.5
+      - cuenca-python/0.6.3.dev2
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: PATCH
-    uri: https://sandbox.cuenca.com/cards/CA5x_xAHmYSE2DXhia0G0DTA
+    uri: https://sandbox.cuenca.com/cards/CAycvo_X9TQoKOKsaAvdqn3w
   response:
     body:
       string: '{"Code":"ForbiddenError","Message":"ForbiddenError: Invalid operation"}'
@@ -31,21 +31,23 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 17 Aug 2020 20:28:21 GMT
-      Via:
-      - 1.1 2b1e040abc964b2bf72a1919ab3ea875.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - nipNRPiAbxHH1KmDwE2jODjd2H_rGUPBFqrmR9HLb-w1CdDb5IJlMQ==
-      X-Amz-Cf-Pop:
-      - DFW55-C2
+      - Mon, 22 Feb 2021 22:35:43 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f3ae864-89b9f20435cb6544be8f37e8;Sampled=0
-      X-Cache:
-      - Error from cloudfront
+      - Root=1-603431b9-151e7d645d7ec70a0f5b80af;Sampled=0
       x-amz-apigw-id:
-      - Rbk_wH6AoAMFRBw=
+      - bKy0_G7TCYcFsig=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '71'
+      x-amzn-Remapped-Date:
+      - Mon, 22 Feb 2021 22:35:43 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 8a63aa41-ffb4-4d47-9882-d7d38f5209d4
       x-amzn-RequestId:
-      - bce1728d-1341-4002-8908-be535415043c
+      - 7447cd9d-629c-4894-8ace-86051872cbb6
     status:
       code: 403
       message: Forbidden

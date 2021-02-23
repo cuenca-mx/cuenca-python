@@ -11,41 +11,39 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.2.3
+      - cuenca-python/0.6.3.dev2
       X-Cuenca-Api-Version:
       - '2020-03-19'
-      x-amz-content-sha256:
-      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-      x-amz-date:
-      - 20200810T174546Z
     method: GET
-    uri: https://sandbox.cuenca.com/cards?limit=2&number=4231450155147929&exp_month=8&exp_year=2026&cvv2=144
+    uri: https://sandbox.cuenca.com/cards?limit=2&number=5448750078699849&exp_month=2&exp_year=2026&cvv2=353
   response:
     body:
-      string: '{"items":[{"id":"CA5x_xAHmYSE2DXhia0G0DTA","created_at":"2020-08-10T17:23:30.427000","updated_at":"2020-08-10T17:23:30.427000","user_id":"US1237","ledger_account_id":"LA1237","number":"4231450155147929","exp_month":8,"exp_year":2026,"cvv2":"144","type":"virtual","status":"active","batch":null,"manufacturer":null,"cvv":null,"icvv":null,"pin":null}],"next_page_url":"/cards?limit=2&created_before=2020-08-10T17%3A23%3A30.427000&number=4231450155147929&exp_month=8&exp_year=2026&cvv2=144"}'
+      string: '{"items":[{"id":"CAycvo_X9TQoKOKsaAvdqn3w","created_at":"2021-02-21T16:03:37.590000","updated_at":"2021-02-21T16:03:37.590000","user_id":"US1237","number":"5448750078699849","exp_month":2,"exp_year":2026,"cvv2":"353","type":"virtual","status":"active","batch":null,"manufacturer":null,"cvv":null,"icvv":null,"pin":null,"issuer":"cuenca","funding_type":"debit","_cls":"BaseCard.CuencaCard"}],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '488'
+      - '412'
       Content-Type:
       - application/json
       Date:
-      - Mon, 10 Aug 2020 17:45:47 GMT
-      Via:
-      - 1.1 352640e22fb9eaa800f19cb44307f5a5.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - VyA3luWTKLQkG8O8wB-4yts-WJ2yvd7-NFsfIJms8baeTRMV6h4imw==
-      X-Amz-Cf-Pop:
-      - DFW50-C1
+      - Mon, 22 Feb 2021 22:09:19 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f3187cb-ccd1f77a5a59fb15dcbfe69a;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-60342b89-2944a3d55976fc16182bc0c2;Sampled=0
       x-amz-apigw-id:
-      - REInvGHboAMFlLQ=
+      - bKu9jF9dCYcFnTg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '412'
+      x-amzn-Remapped-Date:
+      - Mon, 22 Feb 2021 22:09:19 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - d477f3e4-eece-41a0-ba7c-a500ee082477
       x-amzn-RequestId:
-      - 8679f4cb-c583-4a2e-9fd8-23311aa73fe8
+      - 56d72566-bfb2-441c-a983-26f1ed0a34ca
     status:
       code: 200
       message: OK

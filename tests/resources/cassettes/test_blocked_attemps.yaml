@@ -1,0 +1,373 @@
+interactions:
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123", "issuer": "accendo", "funding_type": "debit"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '124'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"Code":"NotFoundError","Message":"NotFoundError: "}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '52'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 23 Feb 2021 19:26:42 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603556f1-176db9c4009b80072b7102a3;Sampled=0
+      x-amz-apigw-id:
+      - bNqF0GpZiYcFkrw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '52'
+      x-amzn-Remapped-Date:
+      - Tue, 23 Feb 2021 19:26:42 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - ce51a48b-6d44-416d-a71e-1bb8e7be265e
+      x-amzn-RequestId:
+      - 87ed032e-e3e2-42ed-9338-99fd4111e79b
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123", "issuer": "accendo", "funding_type": "debit"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '124'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"Code":"NotFoundError","Message":"NotFoundError: "}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '52'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 23 Feb 2021 19:26:43 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603556f2-0db76c43452e78045c817e63;Sampled=0
+      x-amz-apigw-id:
+      - bNqF9HC1iYcF1lQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '52'
+      x-amzn-Remapped-Date:
+      - Tue, 23 Feb 2021 19:26:43 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 5f2cc804-752b-473e-9219-d95fe9c97bd9
+      x-amzn-RequestId:
+      - e2b6f23e-4359-492a-85fc-03fa5320c347
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123", "issuer": "accendo", "funding_type": "debit"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '124'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"Code":"NotFoundError","Message":"NotFoundError: "}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '52'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 23 Feb 2021 19:26:44 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603556f3-4ee8f2573423e85d60f2d3b5;Sampled=0
+      x-amz-apigw-id:
+      - bNqGFEe8iYcFQ8A=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '52'
+      x-amzn-Remapped-Date:
+      - Tue, 23 Feb 2021 19:26:44 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 53efe475-7147-4c5a-bb04-d31291119a3d
+      x-amzn-RequestId:
+      - 58c7871d-919a-4be6-9d06-32efa32d62fb
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123", "issuer": "accendo", "funding_type": "debit"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '124'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"Code":"NotFoundError","Message":"NotFoundError: "}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '52'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 23 Feb 2021 19:26:45 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603556f4-493edefd1486b68c1be77123;Sampled=0
+      x-amz-apigw-id:
+      - bNqGOHMFCYcFVHQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '52'
+      x-amzn-Remapped-Date:
+      - Tue, 23 Feb 2021 19:26:45 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - caafac13-7281-4d0d-9dee-529ce513236e
+      x-amzn-RequestId:
+      - a843102b-eae6-4dd5-aced-4ef48020af39
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123", "issuer": "accendo", "funding_type": "debit"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '124'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"Code":"NotFoundError","Message":"NotFoundError: "}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '52'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 23 Feb 2021 19:26:45 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603556f5-431b57f155c6e2b457b67f48;Sampled=0
+      x-amz-apigw-id:
+      - bNqGVF-4CYcFUqg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '52'
+      x-amzn-Remapped-Date:
+      - Tue, 23 Feb 2021 19:26:45 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 019fd526-7ac5-42ff-93ff-1f0e6de49af5
+      x-amzn-RequestId:
+      - e9877599-8c82-49eb-aa85-3f5a390d3feb
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123", "issuer": "accendo", "funding_type": "debit"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '124'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"Code":"NotFoundError","Message":"NotFoundError: "}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '52'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 23 Feb 2021 19:26:46 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603556f6-2ad10a8a0730bbd64f46936f;Sampled=0
+      x-amz-apigw-id:
+      - bNqGdGHNiYcFSrg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '52'
+      x-amzn-Remapped-Date:
+      - Tue, 23 Feb 2021 19:26:46 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - bae3045e-4efb-41e4-b16c-0fc9c2532930
+      x-amzn-RequestId:
+      - d54608bf-5137-4a3b-9de9-bd0dcb2135e9
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123", "issuer": "accendo", "funding_type": "debit"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '124'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"Code":"ForbiddenError","Message":"ForbiddenError: Too many attempts"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '71'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 23 Feb 2021 19:26:47 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603556f6-23b567d53a29bf7f2710817e;Sampled=0
+      x-amz-apigw-id:
+      - bNqGlFB7iYcFYoA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '71'
+      x-amzn-Remapped-Date:
+      - Tue, 23 Feb 2021 19:26:47 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 7b9a0796-5b34-4af1-8656-5bdd6b1d5666
+      x-amzn-RequestId:
+      - 1b723a44-a6a9-4cb0-95ef-2d30b36f59e6
+    status:
+      code: 403
+      message: Forbidden
+version: 1

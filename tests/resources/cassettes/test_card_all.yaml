@@ -11,39 +11,39 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.4.3.dev1
+      - cuenca-python/0.6.3.dev2
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
     uri: https://sandbox.cuenca.com/cards?user_id=US1237
   response:
     body:
-      string: '{"items":[{"id":"CACs_Itr72QfaS6NSPhwanNA","created_at":"2020-09-18T22:05:53.233000","updated_at":"2020-09-18T22:05:53.394000","user_id":"US1237","ledger_account_id":"LAnbstynwl3","number":"4231450000000012","exp_month":9,"exp_year":2025,"cvv2":"123","type":"virtual","status":"active","batch":null,"manufacturer":null,"cvv":null,"icvv":null,"pin":null}],"next_page_uri":null}'
+      string: '{"items":[{"id":"CAycvo_X9TQoKOKsaAvdqn3w","created_at":"2021-02-21T16:03:37.590000","updated_at":"2021-02-21T16:03:37.590000","user_id":"US1237","number":"5448750078699849","exp_month":2,"exp_year":2026,"cvv2":"353","type":"virtual","status":"active","batch":null,"manufacturer":null,"cvv":null,"icvv":null,"pin":null,"issuer":"cuenca","funding_type":"debit","_cls":"BaseCard.CuencaCard"}],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '394'
+      - '412'
       Content-Type:
       - application/json
       Date:
-      - Wed, 06 Jan 2021 22:19:47 GMT
+      - Mon, 22 Feb 2021 22:09:32 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5ff63783-637d9bf30645c2f614f3cd99;Sampled=0
+      - Root=1-60342b96-60d7bf0f394a8ac5096ecdfb;Sampled=0
       x-amz-apigw-id:
-      - Yv2cgGttCYcFuSw=
+      - bKu_kH_aCYcFU4A=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '394'
+      - '412'
       x-amzn-Remapped-Date:
-      - Wed, 06 Jan 2021 22:19:47 GMT
+      - Mon, 22 Feb 2021 22:09:32 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - c3a609d7-4e21-4221-a088-0339e5eb2b1b
+      - 8560f6da-4898-4f0f-97f3-3d0727f51dd1
       x-amzn-RequestId:
-      - 37f91dcf-3e56-4039-8401-5f693c9915af
+      - ccb5b54b-0eef-4d13-91a2-7c10dece72c7
     status:
       code: 200
       message: OK
