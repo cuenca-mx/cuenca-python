@@ -1,17 +1,21 @@
 import pytest
-from cuenca_validations.types import CardStatus, CardType
+from cuenca_validations.types import (
+    CardFundingType,
+    CardIssuer,
+    CardStatus,
+    CardType,
+)
 
 from cuenca.exc import CuencaResponseException, NoResultFound
 from cuenca.resources import Card
 
 user_id = 'US1237'
-ledger_account_id = 'LA1237'
-card_id = 'CA5x_xAHmYSE2DXhia0G0DTA'
+card_id = 'CAycvo_X9TQoKOKsaAvdqn3w'
 
 
 @pytest.mark.vcr
 def test_card_create():
-    card = Card.create(ledger_account_id, user_id)
+    card = Card.create(CardIssuer.cuenca, CardFundingType.credit, user_id)
     assert card.id
     assert len(card.number) == 16
     assert card.type == CardType.virtual
@@ -21,7 +25,7 @@ def test_card_create():
 @pytest.mark.vcr
 def test_can_not_assign_new_virtual_card():
     with pytest.raises(CuencaResponseException) as exc:
-        Card.create(ledger_account_id, user_id)
+        Card.create(CardIssuer.cuenca, CardFundingType.credit, user_id)
     assert exc.value
 
 
@@ -44,7 +48,7 @@ def test_card_not_found():
 @pytest.mark.vcr
 def test_card_one():
     card = Card.one(
-        number='4231450155147929', exp_month=8, exp_year=2026, cvv2='144'
+        number='5448750078699849', exp_month=2, exp_year=2026, cvv2='353'
     )
     assert card.id
 

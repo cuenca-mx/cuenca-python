@@ -1,0 +1,57 @@
+interactions:
+- request:
+    body: '{"number": "4122943400145596", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123", "issuer": "accendo", "funding_type": "debit"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '124'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"id":"CA7hMJlxpXMoGWegzbkAfRbX","created_at":"2020-04-22T00:45:33.434000","updated_at":"2020-04-22T00:45:33.434000","user_id":"US1237","number":"4122943400145596","exp_month":11,"exp_year":24,"cvv2":"123","type":"physical","status":"active","pin":"1234","issuer":"accendo","funding_type":"debit","pin_block":"","_cls":"BaseCard.AccendoCard"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '342'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 23 Feb 2021 19:05:56 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-6035520b-50321ea81ea8bfab15668c75;Sampled=0
+      X-Request-Time:
+      - 'value: 8.662'
+      x-amz-apigw-id:
+      - bNnB1Et8iYcFw2g=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '342'
+      x-amzn-Remapped-Date:
+      - Tue, 23 Feb 2021 19:05:56 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 4a1c012c-256c-4f42-8ecc-b4dcd580f236
+      x-amzn-RequestId:
+      - 96d4b93f-3b62-4bde-9cff-4692659dee26
+    status:
+      code: 201
+      message: Created
+version: 1
