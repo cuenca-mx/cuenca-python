@@ -4,6 +4,7 @@ __all__ = [
     'BalanceEntry',
     'BillPayment',
     'Card',
+    'CardActivation',
     'CardTransaction',
     'Commission',
     'Deposit',
@@ -19,6 +20,7 @@ from .accounts import Account
 from .api_keys import ApiKey
 from .balance_entries import BalanceEntry
 from .bill_payments import BillPayment
+from .card_activations import CardActivation
 from .card_transactions import CardTransaction
 from .cards import Card
 from .commissions import Commission

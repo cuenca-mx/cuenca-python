@@ -13,37 +13,41 @@ interactions:
       Content-Length:
       - '0'
       User-Agent:
-      - cuenca-python/0.2.5
+      - cuenca-python/0.6.3.dev2
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: DELETE
-    uri: https://sandbox.cuenca.com/cards/CA5x_xAHmYSE2DXhia0G0DTA
+    uri: https://sandbox.cuenca.com/cards/CAycvo_X9TQoKOKsaAvdqn3w
   response:
     body:
-      string: '{"id":"CA5x_xAHmYSE2DXhia0G0DTA","created_at":"2020-08-10T17:23:30.427000","updated_at":"2020-08-17T20:27:25.684251","user_id":"US1237","ledger_account_id":"LA1237","number":"4231450155147929","exp_month":8,"exp_year":2026,"cvv2":"144","type":"virtual","status":"deactivated","batch":null,"manufacturer":null,"cvv":null,"icvv":null,"pin":null}'
+      string: '{"id":"CAycvo_X9TQoKOKsaAvdqn3w","created_at":"2021-02-21T16:03:37.590000","updated_at":"2021-02-21T16:03:37.590000","user_id":"US1237","number":"5448750078699849","exp_month":2,"exp_year":2026,"cvv2":"353","type":"virtual","status":"deactivated","pin":null,"issuer":"cuenca","funding_type":"debit","pin_block":null,"_cls":"BaseCard.CuencaCard","batch":null,"manufacturer":null,"cvv":null,"icvv":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '343'
+      - '401'
       Content-Type:
       - application/json
       Date:
-      - Mon, 17 Aug 2020 20:27:26 GMT
-      Via:
-      - 1.1 7cbcb3a879b5bef6ea175f5e29d026f4.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - mPOp1btR4G59eAWrSU0VQ4tjvXHp90TBADaBbvSPnw7QbXo36P-sVw==
-      X-Amz-Cf-Pop:
-      - DFW55-C2
+      - Mon, 22 Feb 2021 22:27:50 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f3ae82a-3860d672e1110f94efc0dd6c;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-60342fe0-55a1329b4f2f613c09116614;Sampled=0
+      X-Request-Time:
+      - 'value: 5.809'
       x-amz-apigw-id:
-      - Rbk2qFC1oAMFhXA=
+      - bKxrKEHjiYcFyow=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '401'
+      x-amzn-Remapped-Date:
+      - Mon, 22 Feb 2021 22:27:50 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - a8b1edf0-9f8d-48c1-9e50-89e85f9f3a42
       x-amzn-RequestId:
-      - c348e747-4277-4884-bd15-a6e82cc6a8c5
+      - c52ef224-25f5-4f79-ac6d-f6f6e2ba1f3b
     status:
       code: 200
       message: OK

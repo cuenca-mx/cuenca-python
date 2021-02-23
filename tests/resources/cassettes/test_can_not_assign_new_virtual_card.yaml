@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: '{"user_id": "US1237", "ledger_account_id": "LA1237"}'
+    body: '{"user_id": "US1237", "issuer": "cuenca", "funding_type": "credit"}'
     headers:
       Accept:
       - '*/*'
@@ -11,46 +11,45 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '52'
+      - '67'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.2.3
+      - cuenca-python/0.6.3.dev2
       X-Cuenca-Api-Version:
       - '2020-03-19'
-      x-amz-content-sha256:
-      - 615eb85d917d0b2370ce1e0d72f79fea52f5bbedb298602ba69ad6c31e3375d5
-      x-amz-date:
-      - 20200810T172340Z
     method: POST
     uri: https://sandbox.cuenca.com/cards
   response:
     body:
-      string: '{"Code":"InternalServerError","Message":"An internal server error occurred."}'
+      string: '{"Code":"ForbiddenError","Message":"ForbiddenError: Usuario US1237
+        ya tiene asociada una tarjeta de tipo virtual"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '77'
+      - '114'
       Content-Type:
       - application/json
       Date:
-      - Mon, 10 Aug 2020 17:23:44 GMT
-      Via:
-      - 1.1 c650b968d15de7f70750f5bb6bd4f469.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - zsTxOB7Aponib7WGkAn5Pqna4xqRMXm-VS6-bbLsH-Qe5-50v63r9g==
-      X-Amz-Cf-Pop:
-      - DFW50-C1
+      - Mon, 22 Feb 2021 22:03:45 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f31829c-f8aeb3d4549d8c9d38efa312;Sampled=0
-      X-Cache:
-      - Error from cloudfront
+      - Root=1-60342a34-764bd0cd65e88d242f8534c1;Sampled=0
       x-amz-apigw-id:
-      - REFYiEY_IAMFjVw=
+      - bKuISHZiCYcF2pg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '114'
+      x-amzn-Remapped-Date:
+      - Mon, 22 Feb 2021 22:03:45 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 7b88fbe6-21d1-428b-a862-cb6906a88e86
       x-amzn-RequestId:
-      - 36528e27-48ca-4c74-9e71-fbbaedee5c10
+      - 633dc436-8698-48e2-b2ba-fef617374399
     status:
-      code: 500
-      message: Internal Server Error
+      code: 403
+      message: Forbidden
 version: 1

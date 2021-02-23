@@ -1,17 +1,13 @@
-from typing import TYPE_CHECKING, ClassVar, cast
+from typing import ClassVar, cast
 
 from cuenca_validations.types import CardFundingType, CardIssuer
 from cuenca_validations.types.requests import CardActivationRequest
 
-from cuenca.resources.base import Creatable
-
 from ..http import Session, session as global_session
-
-if TYPE_CHECKING:
-    from .cards import Card
+from .cards import Card
 
 
-class CardActivation(Creatable):
+class CardActivation:
     _resource: ClassVar = 'card_activations'
 
     @classmethod
@@ -25,7 +21,7 @@ class CardActivation(Creatable):
         funding_type: CardFundingType,
         *,
         session: Session = global_session,
-    ) -> 'Card':
+    ) -> Card:
         """
         Associates a physical card with the current user
 
@@ -44,4 +40,5 @@ class CardActivation(Creatable):
             issuer=issuer,
             funding_type=funding_type,
         )
-        return cast('Card', cls._create(session=session, **req.dict()))
+        resp = session.post(cls._resource, req.dict())
+        return cast(Card, Card._from_dict(resp))
