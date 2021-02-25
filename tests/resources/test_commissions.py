@@ -8,7 +8,6 @@ def test_commission_retrieve():
     id_commission = 'COXXX'
     commission: Commission = Commission.retrieve(id_commission)
     assert commission.id == id_commission
-    assert not commission.related_transaction
 
 
 @pytest.mark.vcr
