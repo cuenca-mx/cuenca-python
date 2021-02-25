@@ -19,6 +19,10 @@ class MultipleResultsFound(CuencaException):
     """One result was expected but multiple were returned"""
 
 
+class DestinationURINotDefined(CuencaException):
+    """Destination URI is not defined even after Transaction status is succeed"""
+
+
 @dataclass
 class CuencaResponseException(CuencaException):
     json: DictStrAny

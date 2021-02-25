@@ -7,10 +7,11 @@ from cuenca_validations.types import (
     TransferRequest,
 )
 from cuenca_validations.typing import DictStrAny
+from pydantic import validator
 from pydantic.dataclasses import dataclass
 from requests import HTTPError
 
-from ..exc import CuencaException
+from ..exc import CuencaException, DestinationURINotDefined
 from .accounts import Account
 from .base import Creatable, Transaction
 from .resources import retrieve_uri
@@ -28,6 +29,12 @@ class Transfer(Transaction, Creatable):
     network: TransferNetwork
     tracking_key: Optional[str]  # clave rastreo if network is SPEI
     destination_uri: Optional[str]  # defined after confirmation of receipt
+
+    @validator('destination_uri')
+    def destination_uri_must_be_succeed(self):
+        if self.status == 'succeed':
+            if self.destination_uri is None:
+                raise DestinationURINotDefined
 
     @property  # type: ignore
     def destination(self) -> Optional[Account]:
