@@ -1,9 +1,7 @@
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Type, cast
 
-from cuenca_validations.types import CommissionType, EntryType, RelatedResource
+from cuenca_validations.types import CommissionType, EntryType
 from pydantic.dataclasses import dataclass
-
-from cuenca import resources
 
 from .base import Transaction
 from .resources import retrieve_uri
@@ -16,12 +14,10 @@ class Commission(Transaction):
     _resource: ClassVar = 'commissions'
 
     type: CommissionType
-    related_transaction_uri: Optional[RelatedResource]
+    related_transaction_uri: str
 
     @property  # type: ignore
-    def related_transaction(self):
-        rt = self.related_transaction_uri
-        if not rt:
-            return None
-        resource = getattr(resources, rt.get_model())
-        return cast(resource, retrieve_uri(rt)) if resource else None
+    def related_transaction(self) -> Type[Transaction]:
+        return cast(
+            Type[Transaction], retrieve_uri(self.related_transaction_uri)
+        )
