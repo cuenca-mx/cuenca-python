@@ -1,4 +1,4 @@
-from typing import ClassVar, Union, cast
+from typing import ClassVar, TypeVar, cast
 
 from cuenca_validations.types import EntryType
 from pydantic.dataclasses import dataclass
@@ -8,6 +8,10 @@ from .base import Queryable, Retrievable, Transaction
 from .cards import Card
 from .resources import retrieve_uri
 from .service_providers import ServiceProvider
+
+FundingInstrument = TypeVar(
+    'FundingInstrument', Account, ServiceProvider, Card
+)
 
 
 @dataclass
@@ -27,8 +31,8 @@ class BalanceEntry(Retrievable, Queryable):
         return cast(Transaction, retrieve_uri(self.related_transaction_uri))
 
     @property  # type: ignore
-    def funding_instrument(self) -> Union[Account, Card, ServiceProvider]:
+    def funding_instrument(self) -> FundingInstrument:
         return cast(
-            Union[Account, Card, ServiceProvider],
+            FundingInstrument,
             retrieve_uri(self.funding_instrument_uri),
         )
