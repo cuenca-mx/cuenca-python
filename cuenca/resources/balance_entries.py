@@ -5,6 +5,7 @@ from pydantic.dataclasses import dataclass
 
 from .accounts import Account
 from .base import Queryable, Retrievable, Transaction
+from .cards import Card
 from .resources import retrieve_uri
 from .service_providers import ServiceProvider
 
@@ -26,8 +27,8 @@ class BalanceEntry(Retrievable, Queryable):
         return cast(Transaction, retrieve_uri(self.related_transaction_uri))
 
     @property  # type: ignore
-    def funding_instrument(self) -> Union[Account, ServiceProvider]:
+    def funding_instrument(self) -> Union[Account, Card, ServiceProvider]:
         return cast(
-            Union[Account, ServiceProvider],
+            Union[Account, Card, ServiceProvider],
             retrieve_uri(self.funding_instrument_uri),
         )
