@@ -26,3 +26,15 @@ class CuencaResponseException(CuencaException):
 
     def __str__(self) -> str:
         return repr(self)
+
+
+class InvalidPassword(CuencaResponseException):
+    """Unable to authenticate with the provided password"""
+
+
+class NoPasswordFound(CuencaResponseException):
+    """User must create a password before to continue"""
+
+
+class UserNotLoggedIn(CuencaResponseException):
+    """Login required for this method"""
