@@ -120,7 +120,7 @@ class Session:
     def _check_response(response: Response):
         if response.ok:
             return
-        raise CuencaResponseException(
+        raise CuencaResponseException.create(
             json=response.json(),
             status_code=response.status_code,
         )

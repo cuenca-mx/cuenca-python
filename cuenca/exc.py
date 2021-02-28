@@ -27,9 +27,15 @@ class CuencaResponseException(CuencaException):
     def __str__(self) -> str:
         return repr(self)
 
-
-class InvalidPassword(CuencaResponseException):
-    """Unable to authenticate with the provided password"""
+    @classmethod
+    def create(cls, json: DictStrAny, **kwargs) -> 'CuencaResponseException':
+        result = cls(json=json, **kwargs)
+        if 'error' in json:
+            if json['error'].startswith('103:'):
+                result = UserNotLoggedIn(json=json, **kwargs)
+            elif json['error'].startswith('104:'):
+                result = NoPasswordFound(json=json, **kwargs)
+        return result
 
 
 class NoPasswordFound(CuencaResponseException):
