@@ -10,8 +10,6 @@ from .base import Creatable
 class LoginToken(Creatable):
     _resource: ClassVar = 'login_tokens'
 
-    login_token: str
-
     @classmethod
     def create(cls, session: Session = global_session) -> 'LoginToken':
         """

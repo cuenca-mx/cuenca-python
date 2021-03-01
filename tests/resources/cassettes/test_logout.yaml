@@ -1,0 +1,112 @@
+interactions:
+- request:
+    body: '{"password": "111111"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '22'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev5
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/log_in
+  response:
+    body:
+      string: '{"success":true,"id":"UL0CZnGYRIT7-VUfwzPLG6rw","last_login_at":"2021-02-28T20:55:04.063480"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '93'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 28 Feb 2021 20:55:05 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603c0329-152277e32d59e1b77381855a;Sampled=0
+      X-Request-Time:
+      - 'value: 0.068'
+      x-amz-apigw-id:
+      - beVubH9pCYcFT6w=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '93'
+      x-amzn-Remapped-Date:
+      - Sun, 28 Feb 2021 20:55:05 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 98891472-d4c9-4e65-a4ed-17e4af715d86
+      x-amzn-RequestId:
+      - 1e1a18fa-273d-4701-9174-e9fa073be319
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev5
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - UL0CZnGYRIT7-VUfwzPLG6rw
+    method: POST
+    uri: https://sandbox.cuenca.com/log_out
+  response:
+    body:
+      string: '{"success":true}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '16'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 28 Feb 2021 20:55:05 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603c0329-7ef149bb7eb076114b0a8daf;Sampled=0
+      X-Request-Time:
+      - 'value: 0.059'
+      x-amz-apigw-id:
+      - beVudGTSCYcF_mw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '16'
+      x-amzn-Remapped-Date:
+      - Sun, 28 Feb 2021 20:55:05 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 5c4197c1-b203-42d1-9375-a89d375bedac
+      x-amzn-RequestId:
+      - 2789f87c-f9ae-42f7-ba9a-f44383f81a31
+    status:
+      code: 201
+      message: Created
+version: 1

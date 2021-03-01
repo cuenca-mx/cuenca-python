@@ -26,8 +26,6 @@ class UserLogin(Creatable):
         return login
 
     @classmethod
-    def logout(cls, *, session: Session = global_session) -> 'UserLogin':
-        resp = session.post('/log_out', dict())
-        login = cast('UserLogin', cls._from_dict(resp))
+    def logout(cls, *, session: Session = global_session) -> None:
+        session.post('/log_out', dict())
         session.session.headers.pop('X-Cuenca-LoginId', None)
-        return login

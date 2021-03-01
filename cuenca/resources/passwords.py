@@ -20,7 +20,7 @@ class Password(Creatable):
         :param password:
         """
         req = PasswordRequest(password=password)
-        cls._create(session=session, **req.dict())
+        session.post(cls._resource, req.dict())
 
     @classmethod
     def delete(

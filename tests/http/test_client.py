@@ -4,7 +4,12 @@ from unittest.mock import patch
 import pytest
 from freezegun import freeze_time
 
-from cuenca.exc import CuencaResponseException
+from cuenca import Password, Transfer, UserLogin
+from cuenca.exc import (
+    CuencaResponseException,
+    NoPasswordFound,
+    UserNotLoggedIn,
+)
 from cuenca.http.client import Session
 from cuenca.resources import Card
 
@@ -72,3 +77,18 @@ def test_overrides_session(mock_request):
     mock_request.assert_called_once()
     _, kwargs = mock_request.call_args_list[0]
     assert kwargs['auth'] == session.auth
+
+
+@pytest.mark.vcr
+def test_no_password():
+    UserLogin.create('222222')
+    Password.delete('222222')
+    with pytest.raises(NoPasswordFound):
+        Transfer.count()
+    ...
+
+
+@pytest.mark.vcr
+def test_no_session():
+    with pytest.raises(UserNotLoggedIn):
+        Transfer.count()

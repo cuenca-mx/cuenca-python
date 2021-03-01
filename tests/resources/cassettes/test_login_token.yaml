@@ -1,0 +1,164 @@
+interactions:
+- request:
+    body: '{"password": "222222"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '22'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev5
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/log_in
+  response:
+    body:
+      string: '{"success":true,"id":"ULybWn4v3lTQaMzpz0Cj0TPg","last_login_at":"2021-02-28T23:20:33.059934"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '93'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 28 Feb 2021 23:24:34 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603c2631-36b4e1e5207d7ad4552bb0b0;Sampled=0
+      X-Request-Time:
+      - 'value: 0.521'
+      x-amz-apigw-id:
+      - bernwHwxCYcFT3Q=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '93'
+      x-amzn-Remapped-Date:
+      - Sun, 28 Feb 2021 23:24:34 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 718734cf-8c58-40a6-a06d-dafe3a8086c7
+      x-amzn-RequestId:
+      - 9d8586f9-54a4-416d-a955-495734006608
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev5
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULybWn4v3lTQaMzpz0Cj0TPg
+    method: POST
+    uri: https://sandbox.cuenca.com/login_tokens
+  response:
+    body:
+      string: '{"id":"LTeLPA5teiTZORykCWTMmFAA"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 28 Feb 2021 23:24:34 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603c2632-0cce806d081d05ca5f2db7f2;Sampled=0
+      X-Request-Time:
+      - 'value: 0.046'
+      x-amz-apigw-id:
+      - bern6EM-CYcF-zA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '33'
+      x-amzn-Remapped-Date:
+      - Sun, 28 Feb 2021 23:24:34 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 73cfbd18-d36a-4509-a800-d01c40d26c57
+      x-amzn-RequestId:
+      - 47a65dca-8e38-49f8-a6cf-2fc60c9d4319
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.6.3.dev5
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTeLPA5teiTZORykCWTMmFAA
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers?count=1
+  response:
+    body:
+      string: '{"count":0}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '11'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 28 Feb 2021 23:24:37 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603c2632-0029c9d45aa4800f577480e4;Sampled=0
+      X-Request-Time:
+      - 'value: 2.540'
+      x-amz-apigw-id:
+      - bern8Hr4iYcF6gg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '11'
+      x-amzn-Remapped-Date:
+      - Sun, 28 Feb 2021 23:24:37 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 43a3ce99-0b66-41f3-aeb9-ab75ca23a2fb
+      x-amzn-RequestId:
+      - a9c8fd45-7852-4c8e-9657-42e23b450ad8
+    status:
+      code: 200
+      message: OK
+version: 1
