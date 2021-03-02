@@ -30,3 +30,10 @@ def test_card_transaction_refund_without_parent_id_retrieve():
 def test_card_transaction_expiration_retrieve():
     ct = CardTransaction.retrieve('CT004')
     assert ct.type == 'expiration'
+
+
+@pytest.mark.vcr
+def test_card_transaction_retrieve_card():
+    ct = CardTransaction.retrieve('CT00PARENT01')
+    card = ct.card
+    assert card
