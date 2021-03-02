@@ -17,7 +17,7 @@ def session():
 
 @pytest.mark.vcr
 def test_valid_login(session: Session):
-    login = UserLogin.create('111111', session=session)
+    login = UserLogin.create('222222', session=session)
     assert login.success
     assert login.last_login_at is not None
     assert login.id is not None
@@ -26,7 +26,7 @@ def test_valid_login(session: Session):
 
 @pytest.mark.vcr
 def test_invalid_login(session: Session):
-    login = UserLogin.create('222222', session=session)
+    login = UserLogin.create('111111', session=session)
     assert not login.success
     assert login.last_login_at is None
     assert login.id is not None
@@ -35,6 +35,6 @@ def test_invalid_login(session: Session):
 
 @pytest.mark.vcr
 def test_logout(session: Session):
-    UserLogin.create('111111', session=session)
+    UserLogin.create('222222', session=session)
     UserLogin.logout(session=session)
     assert 'X-Cuenca-LoginId' not in session.session.headers

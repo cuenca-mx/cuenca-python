@@ -8,7 +8,7 @@ from cuenca.http.client import Session
 def session():
     session = Session()
     session.configure(
-        'api_key_id',
+        'api_key',
         'api_secret',
         sandbox=True,
     )

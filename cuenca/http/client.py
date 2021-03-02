@@ -4,6 +4,7 @@ from typing import Optional, Tuple
 from urllib.parse import urljoin
 
 import requests
+from cuenca_validations.errors import AUTHED_ERROR_CODES
 from cuenca_validations.typing import (
     ClientRequestParams,
     DictStrAny,
@@ -120,7 +121,10 @@ class Session:
     def _check_response(response: Response):
         if response.ok:
             return
-        raise CuencaResponseException.create(
+        json = response.json()
+        if 'code' in json:
+            raise AUTHED_ERROR_CODES[json['code']](json['error'])
+        raise CuencaResponseException(
             json=response.json(),
             status_code=response.status_code,
         )

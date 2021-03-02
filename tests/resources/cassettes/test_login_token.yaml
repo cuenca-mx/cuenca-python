@@ -15,14 +15,14 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.6.3.dev5
+      - cuenca-python/0.6.3.dev7
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
-    uri: https://sandbox.cuenca.com/log_in
+    uri: https://sandbox.cuenca.com/user_logins
   response:
     body:
-      string: '{"success":true,"id":"ULybWn4v3lTQaMzpz0Cj0TPg","last_login_at":"2021-02-28T23:20:33.059934"}'
+      string: '{"success":true,"id":"ULPW8Yfl98SPaWXgMBQp7ASg","last_login_at":"2021-03-02T02:37:57.295871"}'
     headers:
       Connection:
       - keep-alive
@@ -31,25 +31,25 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 28 Feb 2021 23:24:34 GMT
+      - Tue, 02 Mar 2021 02:42:26 GMT
       X-Amzn-Trace-Id:
-      - Root=1-603c2631-36b4e1e5207d7ad4552bb0b0;Sampled=0
+      - Root=1-603da612-04cc8a3b0e9ac2e03a31ef29;Sampled=0
       X-Request-Time:
-      - 'value: 0.521'
+      - 'value: 0.089'
       x-amz-apigw-id:
-      - bernwHwxCYcFT3Q=
+      - bibi3GNfCYcFpLQ=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '93'
       x-amzn-Remapped-Date:
-      - Sun, 28 Feb 2021 23:24:34 GMT
+      - Tue, 02 Mar 2021 02:42:26 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 718734cf-8c58-40a6-a06d-dafe3a8086c7
+      - cee1cc1d-69f7-4cd3-bc6e-88057b4a9be6
       x-amzn-RequestId:
-      - 9d8586f9-54a4-416d-a955-495734006608
+      - 52e8f1fe-8daa-41ca-a172-b15c98325790
     status:
       code: 201
       message: Created
@@ -69,16 +69,16 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.6.3.dev5
+      - cuenca-python/0.6.3.dev7
       X-Cuenca-Api-Version:
       - '2020-03-19'
       X-Cuenca-LoginId:
-      - ULybWn4v3lTQaMzpz0Cj0TPg
+      - ULPW8Yfl98SPaWXgMBQp7ASg
     method: POST
     uri: https://sandbox.cuenca.com/login_tokens
   response:
     body:
-      string: '{"id":"LTeLPA5teiTZORykCWTMmFAA"}'
+      string: '{"id":"LTcORV5C65Rn-GAjHDRrWiiA"}'
     headers:
       Connection:
       - keep-alive
@@ -87,25 +87,25 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 28 Feb 2021 23:24:34 GMT
+      - Tue, 02 Mar 2021 02:42:26 GMT
       X-Amzn-Trace-Id:
-      - Root=1-603c2632-0cce806d081d05ca5f2db7f2;Sampled=0
+      - Root=1-603da612-16423aca6ddf105577a3c57e;Sampled=0
       X-Request-Time:
-      - 'value: 0.046'
+      - 'value: 0.043'
       x-amz-apigw-id:
-      - bern6EM-CYcF-zA=
+      - bibi5FPlCYcF_mw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '33'
       x-amzn-Remapped-Date:
-      - Sun, 28 Feb 2021 23:24:34 GMT
+      - Tue, 02 Mar 2021 02:42:26 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 73cfbd18-d36a-4509-a800-d01c40d26c57
+      - 709e0666-8f51-4c9f-8a27-4547d6d51449
       x-amzn-RequestId:
-      - 47a65dca-8e38-49f8-a6cf-2fc60c9d4319
+      - 9bcbf9a5-1349-4588-8252-34704512b3bf
     status:
       code: 201
       message: Created
@@ -121,11 +121,11 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.6.3.dev5
+      - cuenca-python/0.6.3.dev7
       X-Cuenca-Api-Version:
       - '2020-03-19'
       X-Cuenca-LoginToken:
-      - LTeLPA5teiTZORykCWTMmFAA
+      - LTcORV5C65Rn-GAjHDRrWiiA
     method: GET
     uri: https://sandbox.cuenca.com/transfers?count=1
   response:
@@ -139,25 +139,25 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 28 Feb 2021 23:24:37 GMT
+      - Tue, 02 Mar 2021 02:42:29 GMT
       X-Amzn-Trace-Id:
-      - Root=1-603c2632-0029c9d45aa4800f577480e4;Sampled=0
+      - Root=1-603da612-03bac62c7a58797a4935e739;Sampled=0
       X-Request-Time:
-      - 'value: 2.540'
+      - 'value: 2.757'
       x-amz-apigw-id:
-      - bern8Hr4iYcF6gg=
+      - bibi6EhuCYcF1zg=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '11'
       x-amzn-Remapped-Date:
-      - Sun, 28 Feb 2021 23:24:37 GMT
+      - Tue, 02 Mar 2021 02:42:29 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 43a3ce99-0b66-41f3-aeb9-ab75ca23a2fb
+      - 87c227b0-edff-424c-8b50-e9c6fb8d5923
       x-amzn-RequestId:
-      - a9c8fd45-7852-4c8e-9657-42e23b450ad8
+      - d35aa577-cc5b-49a7-a37d-c8703463d172
     status:
       code: 200
       message: OK

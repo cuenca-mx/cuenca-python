@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: '{"password": "111111"}'
+    body: '{"password": "222222"}'
     headers:
       Accept:
       - '*/*'
@@ -15,14 +15,14 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.6.3.dev5
+      - cuenca-python/0.6.3.dev7
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
-    uri: https://sandbox.cuenca.com/log_in
+    uri: https://sandbox.cuenca.com/user_logins
   response:
     body:
-      string: '{"success":true,"id":"UL0CZnGYRIT7-VUfwzPLG6rw","last_login_at":"2021-02-28T20:55:04.063480"}'
+      string: '{"success":true,"id":"ULKgCJ8nUkRRWhuOCNw0O-9Q","last_login_at":"2021-03-02T02:35:26.078887"}'
     headers:
       Connection:
       - keep-alive
@@ -31,25 +31,25 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 28 Feb 2021 20:55:05 GMT
+      - Tue, 02 Mar 2021 02:37:57 GMT
       X-Amzn-Trace-Id:
-      - Root=1-603c0329-152277e32d59e1b77381855a;Sampled=0
+      - Root=1-603da505-06f8bebc61f816422baba8a3;Sampled=0
       X-Request-Time:
-      - 'value: 0.068'
+      - 'value: 0.099'
       x-amz-apigw-id:
-      - beVubH9pCYcFT6w=
+      - bia40Fc0iYcFbLA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '93'
       x-amzn-Remapped-Date:
-      - Sun, 28 Feb 2021 20:55:05 GMT
+      - Tue, 02 Mar 2021 02:37:57 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 98891472-d4c9-4e65-a4ed-17e4af715d86
+      - eeb1e894-1ffb-47be-ab5d-8f0af759ae07
       x-amzn-RequestId:
-      - 1e1a18fa-273d-4701-9174-e9fa073be319
+      - 9cebe93c-f0b9-4ca6-bb80-83dca512da46
     status:
       code: 201
       message: Created
@@ -69,13 +69,13 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.6.3.dev5
+      - cuenca-python/0.6.3.dev7
       X-Cuenca-Api-Version:
       - '2020-03-19'
       X-Cuenca-LoginId:
-      - UL0CZnGYRIT7-VUfwzPLG6rw
-    method: POST
-    uri: https://sandbox.cuenca.com/log_out
+      - ULKgCJ8nUkRRWhuOCNw0O-9Q
+    method: DELETE
+    uri: https://sandbox.cuenca.com/user_logins/me
   response:
     body:
       string: '{"success":true}'
@@ -87,25 +87,25 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 28 Feb 2021 20:55:05 GMT
+      - Tue, 02 Mar 2021 02:37:57 GMT
       X-Amzn-Trace-Id:
-      - Root=1-603c0329-7ef149bb7eb076114b0a8daf;Sampled=0
+      - Root=1-603da505-66f114ab607cba4641b0a5ab;Sampled=0
       X-Request-Time:
-      - 'value: 0.059'
+      - 'value: 0.086'
       x-amz-apigw-id:
-      - beVudGTSCYcF_mw=
+      - bia42EkaCYcFp8g=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '16'
       x-amzn-Remapped-Date:
-      - Sun, 28 Feb 2021 20:55:05 GMT
+      - Tue, 02 Mar 2021 02:37:57 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 5c4197c1-b203-42d1-9375-a89d375bedac
+      - e579b7cf-fb11-4bb4-b401-26f568acc114
       x-amzn-RequestId:
-      - 2789f87c-f9ae-42f7-ba9a-f44383f81a31
+      - afc9891b-ed6f-4af6-bcc0-3d46aed56f3e
     status:
       code: 201
       message: Created

@@ -11,39 +11,39 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.6.3.dev5
+      - cuenca-python/0.6.3.dev7
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
     uri: https://sandbox.cuenca.com/transfers?count=1
   response:
     body:
-      string: '{"error":"103: User not logged in"}'
+      string: '{"code":103,"error":"User not logged in"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '35'
+      - '41'
       Content-Type:
       - application/json
       Date:
-      - Mon, 01 Mar 2021 16:32:39 GMT
+      - Tue, 02 Mar 2021 02:50:47 GMT
       X-Amzn-Trace-Id:
-      - Root=1-603d1724-6cb08d0f04e6d291550486ee;Sampled=0
+      - Root=1-603da805-3a17dd6220a843445653efe9;Sampled=0
       x-amz-apigw-id:
-      - bhCNxGa8iYcF3gA=
+      - bicw3HE_iYcFuMA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '35'
+      - '41'
       x-amzn-Remapped-Date:
-      - Mon, 01 Mar 2021 16:32:39 GMT
+      - Tue, 02 Mar 2021 02:50:47 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 4f83c740-aa93-402f-a268-40e1904523b8
+      - bee8fafa-6ded-4541-bd3b-0905d4c654e8
       x-amzn-RequestId:
-      - c6febf06-7ea0-40c6-a62c-fe766466c48a
+      - 84a514e4-7390-4eca-8a4e-3ab1c40f7f89
     status:
       code: 401
       message: Unauthorized
