@@ -38,11 +38,3 @@ def test_logout(session: Session):
     UserLogin.create('222222', session=session)
     UserLogin.logout(session=session)
     assert 'X-Cuenca-LoginId' not in session.session.headers
-
-
-@pytest.mark.vcr
-def test_block_user():
-    session = Session()
-    session.configure('api_key', 'api_secret', sandbox=True, use_jwt=True)
-    UserLogin.update(False, 'US46cuHpEJ5xFTOceMKVqSzF', session=session)
-    UserLogin.update(True, 'US46cuHpEJ5xFTOceMKVqSzF', session=session)

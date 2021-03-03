@@ -8,7 +8,6 @@ __all__ = [
     'Commission',
     'Deposit',
     'LoginToken',
-    'Password',
     'ServiceProvider',
     'Statement',
     'Transfer',
@@ -25,11 +24,11 @@ from .cards import Card
 from .commissions import Commission
 from .deposits import Deposit
 from .login_tokens import LoginToken
-from .passwords import Password
 from .resources import RESOURCES
 from .service_providers import ServiceProvider
 from .statements import Statement
 from .transfers import Transfer
+from .user_credentials import UserCredential
 from .user_logins import UserLogin
 from .whatsapp_transfers import WhatsappTransfer
 
@@ -44,10 +43,10 @@ resource_classes = [
     Commission,
     Deposit,
     LoginToken,
-    Password,
     ServiceProvider,
     Statement,
     Transfer,
+    UserCredential,
     UserLogin,
     WhatsappTransfer,
 ]
