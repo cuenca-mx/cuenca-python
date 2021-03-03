@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"account_number": "646180157034181180", "amount": 10000, "descriptor":
-      "Mi primer transferencia", "recipient_name": "Rogelio Lopez", "idempotency_key":
-      "my_custom_id"}'
+    body: '{"recipient_name": "Rogelio Lopez", "account_number": "646180157034181180",
+      "amount": 10000, "descriptor": "Mi primer transferencia", "idempotency_key":
+      "2021-03-03:646180157034181180:10000"}'
     headers:
       Accept:
       - '*/*'
@@ -13,89 +13,48 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '167'
+      - '191'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.0.1dev0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: POST
     uri: https://sandbox.cuenca.com/transfers
   response:
     body:
-      string: '{"id":"TRykH9-lXrS6iJocclOl4ATQ==","created_at":"2020-05-11T18:41:00.332534","updated_at":"2020-05-11T18:41:00.352103","account_number":"646180157034181180","recipient_name":"Rogelio
-        Lopez","amount":10000,"descriptor":"Mi primer transferencia","idempotency_key":"my_custom_id","status":"submitted","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}'
+      string: '{"id":"TRhphGwe7xSwqDHMSpJqai0A","created_at":"2021-03-03T18:44:40.752000","updated_at":"2021-03-03T18:44:41.235000","account_number":"646180157034181180","recipient_name":"Rogelio
+        Lopez","amount":10000,"descriptor":"Mi primer transferencia","idempotency_key":"2021-03-03:646180157034181180:10000","status":"submitted","network":"internal","destination_uri":"/accounts/ACQVx7_Bw8TR2VBccVnfxwgA","tracking_key":null,"user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '330'
+      - '476'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 May 2020 18:41:02 GMT
-      Via:
-      - 1.1 10d5043185168ff98a7c4be514b70521.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - sdzCZsXYzDxhVRAqhkB5wtcsXzTWjyARU842u5XDEo_qg8gyW8uIQw==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
+      - Wed, 03 Mar 2021 18:48:53 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5eb99c3c-54fdb29188beac4b8d3c9fac;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fda14-371e5dc8023fae2b3467132c;Sampled=0
+      X-Request-Time:
+      - 'value: 0.303'
       x-amz-apigw-id:
-      - MYVZbGDfIAMFogw=
-      x-amzn-RequestId:
-      - b488f64c-4a76-4a45-9405-301ae5456791
-    status:
-      code: 201
-      message: Created
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - DUMMY
-      Connection:
+      - bn8DSHDiiYcFpLQ=
+      x-amzn-Remapped-Connection:
       - keep-alive
-      User-Agent:
-      - cuenca-python/0.0.1dev0
-      X-Cuenca-Api-Version:
-      - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/transfers/TRykH9-lXrS6iJocclOl4ATQ==
-  response:
-    body:
-      string: '{"id":"TRykH9-lXrS6iJocclOl4ATQ==","created_at":"2020-05-11T18:41:00.332000","updated_at":"2020-05-11T18:41:01.352000","account_number":"646180157034181180","recipient_name":"Rogelio
-        Lopez","amount":10000,"descriptor":"Mi primer transferencia","idempotency_key":"my_custom_id","status":"succeeded","network":"internal","destination_uri":"/accounts/LA01","tracking_key":null,"user_id":"US01"}'
-    headers:
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '338'
-      Content-Type:
-      - application/json
-      Date:
-      - Mon, 11 May 2020 18:43:54 GMT
-      Via:
-      - 1.1 10d5043185168ff98a7c4be514b70521.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - E6tp7iuaCI5cBUAzt5i_RlxRJlnT_YSHes0csCR9017weDY79ybrPA==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
-      X-Amzn-Trace-Id:
-      - Root=1-5eb99ce8-bffe2150b0d161402b4dabe0;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
-      x-amz-apigw-id:
-      - MYV0UGTUIAMFZRQ=
+      x-amzn-Remapped-Content-Length:
+      - '476'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:48:53 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - f67c2112-454a-40fe-9022-7376e0dcd900
       x-amzn-RequestId:
-      - 6904c847-bb49-4ac7-bdcc-b2f97d201602
+      - 098ca2ce-d394-4d4d-bd01-0e46bd8fe16f
     status:
       code: 200
       message: OK
@@ -111,38 +70,97 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.2.0.dev1
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: GET
-    uri: https://sandbox.cuenca.com/accounts/LA01
+    uri: https://sandbox.cuenca.com/accounts/ACQVx7_Bw8TR2VBccVnfxwgA
   response:
     body:
-      string: '{"id":"LA01","created_at":"2020-06-03T02:43:53.922000","name":"Rogelio
-        Lopez","account_number":"646180157034181180","institution_name":"Cuenca"}'
+      string: '{"id":"ACQVx7_Bw8TR2VBccVnfxwgA","created_at":"2021-03-03T18:44:40.832000","name":"Rogelio
+        Lopez","account_number":"646180157034181180","user_id":"US4PCNV8rLB2wqBfORzIAXUl","institution_name":"Cuenca"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '144'
+      - '201'
       Content-Type:
       - application/json
       Date:
-      - Tue, 16 Jun 2020 05:40:00 GMT
-      Via:
-      - 1.1 430c98a561662ce110d7e2e105bbcbed.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - EMGEkJMfpj1v4GPycVRDxE2epO2HzG2A3sPK8kQBWOBjVA-k9ImDDg==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
+      - Wed, 03 Mar 2021 18:48:53 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5ee85b2d-20f6b89956b90792caf01ec6;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fda15-2f70f6a11320270e5b68e88e;Sampled=0
+      X-Request-Time:
+      - 'value: 0.258'
       x-amz-apigw-id:
-      - ONMvFEZ_oAMFkaQ=
+      - bn8DXFBziYcFT6w=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '201'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:48:53 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - f5efb8b3-1398-4f2d-8d5d-d8d77e7fe557
       x-amzn-RequestId:
-      - 7296544e-9c4a-477f-991c-e0273fa69fcd
+      - 5765f96f-07a9-4d02-91b5-adc9260b15d2
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.6.4
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
+    method: GET
+    uri: https://sandbox.cuenca.com/transfers/TRhphGwe7xSwqDHMSpJqai0A
+  response:
+    body:
+      string: '{"id":"TRhphGwe7xSwqDHMSpJqai0A","created_at":"2021-03-03T18:44:40.752000","updated_at":"2021-03-03T18:44:41.235000","account_number":"646180157034181180","recipient_name":"Rogelio
+        Lopez","amount":10000,"descriptor":"Mi primer transferencia","idempotency_key":"2021-03-03:646180157034181180:10000","status":"succeeded","network":"internal","destination_uri":"/accounts/ACQVx7_Bw8TR2VBccVnfxwgA","tracking_key":null,"user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '476'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 03 Mar 2021 18:48:54 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603fda15-7054583606b1dce9645b9d64;Sampled=0
+      X-Request-Time:
+      - 'value: 0.228'
+      x-amz-apigw-id:
+      - bn8DaExsiYcF_mw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '476'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:48:54 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 3d9a6940-fb16-469a-9182-9bce2fb6804c
+      x-amzn-RequestId:
+      - 2ed7f5ce-987a-494b-8428-a913ac5ce44f
     status:
       code: 200
       message: OK

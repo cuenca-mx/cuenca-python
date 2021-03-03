@@ -21,12 +21,12 @@ def test_transfers_create():
     assert transfer.status == TransactionStatus.submitted
     assert transfer.network == TransferNetwork.internal
     account = transfer.destination
-    assert account is None
+    assert account.name == 'Rogelio Lopez'
+    assert account.account_number == '646180157034181180'
+    assert account.institution_name == 'Cuenca'
     # Some seconds later
     transfer.refresh()
     assert transfer.status == TransactionStatus.succeeded
-    account = transfer.destination
-    assert account is not None
 
 
 @pytest.mark.vcr
@@ -93,7 +93,7 @@ def test_transfers_one_errors():
 
 @pytest.mark.vcr
 def test_transfers_first():
-    account = '646180157013244941'
+    account = '646180157046685645'
     transfer = Transfer.first(account_number=account)
     assert transfer is not None
     assert transfer.account_number == account

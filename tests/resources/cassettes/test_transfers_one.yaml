@@ -11,38 +11,44 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.0.1dev0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: GET
-    uri: https://sandbox.cuenca.com/transfers?idempotency_key=idempotency_key_1&limit=2
+    uri: https://sandbox.cuenca.com/transfers?limit=2&idempotency_key=idempotency_key_1
   response:
     body:
-      string: '{"items":[{"id":"TR6sozlFsTQsGxzwQfWm5N_g==","created_at":"2020-05-07T17:01:30.774000","updated_at":"2020-05-07T17:01:30.794000","account_number":"646180157034181180","recipient_name":"test","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"idempotency_key_1","status":"submitted","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}],"next_page_uri":"/transfers?idempotency_key=idempotency_key_1&created_before=2020-05-07T17%3A01%3A30.774000&limit=2&count=False"}'
+      string: '{"items":[{"id":"idempotency_key_1","created_at":"2020-10-07T23:04:24.476000","updated_at":"2021-02-25T23:02:58.397000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"a ver","idempotency_key":"idempotency_key_1","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"idempotency_key_1","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '460'
+      - '514'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 May 2020 18:21:40 GMT
-      Via:
-      - 1.1 991cddfa34f7096aab42079b287a0629.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - ArZfCoaAzFFoOAWAUyy7cy2Wr1x7cXlufbUHMWPAmLHgD6e6O00hPA==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
+      - Wed, 03 Mar 2021 18:33:04 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5eb997b4-64d09900003c7c004f33aa00;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fd660-365b9c623980029033fe0039;Sampled=0
+      X-Request-Time:
+      - 'value: 0.242'
       x-amz-apigw-id:
-      - MYSkKE6IIAMFY0g=
+      - bn5vDECoiYcFt-A=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '514'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:33:04 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 364e49d9-b410-4774-b9d7-474b33bd503a
       x-amzn-RequestId:
-      - 2024b44b-6111-477d-8cd9-0f4b1043f197
+      - bc97ab6f-c9c5-46fb-b192-4197d375da7a
     status:
       code: 200
       message: OK

@@ -11,87 +11,64 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.0.1dev0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: GET
     uri: https://sandbox.cuenca.com/transfers?status=succeeded
   response:
     body:
-      string: '{"items":[{"id":"TRykH9-lXrS6iJocclOl4ATQ==","created_at":"2020-05-11T18:41:00.332000","updated_at":"2020-05-11T18:41:01.352000","account_number":"646180157034181180","recipient_name":"cuenca user","amount":10000,"descriptor":"Mi
-        primer transferencia","idempotency_key":"my_custom_id","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR41ohSc7ET4a6XNJlTQwO-g==","created_at":"2020-05-09T03:43:59.029000","updated_at":"2020-05-09T03:43:59.924000","account_number":"646180157034181180","recipient_name":"cuenca user","amount":10000,"descriptor":"Mi
-        primer transferencia","idempotency_key":"my_unique_id","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRbunDZEb9Q9CpFQGqZlVzQA==","created_at":"2020-05-09T03:41:12.048000","updated_at":"2020-05-09T03:41:15.932000","account_number":"646180157034181180","recipient_name":"cuenca user","amount":10000,"descriptor":"Mi
-        primer transferencia","idempotency_key":"2020-05-09:646180157034181180:10000","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRXrre-cmATVag5-eGrpczeQ==","created_at":"2020-05-08T23:19:34.541000","updated_at":"2020-05-08T23:19:35.873000","account_number":"646180157034181180","recipient_name":"cuenca user","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}],"next_page_uri":"/transfers?created_before=2020-05-08T23%3A19%3A34.541000&status=succeeded&count=False"}'
+      string: '{"items":[{"id":"LT4EOaa93rHWYKIzg2RGyOba","created_at":"2020-10-23T22:24:39.354000","updated_at":"2021-02-25T23:03:05.396000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":16,"descriptor":"Te woa roabar","idempotency_key":"LT4EOaa93rHWYKIzg2RGyOba","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT4EOaa93rHWYKIzg2RGyOba","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1mBDdpF6ATsAepwqtTqHzz","created_at":"2020-10-15T22:06:31.024000","updated_at":"2021-02-25T23:02:58.874000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1200,"descriptor":"tqm","idempotency_key":"LT1mBDdpF6ATsAepwqtTqHzz","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1mBDdpF6ATsAepwqtTqHzz","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT2jOOCHSQCwXfRRpmNE1wMj","created_at":"2020-10-07T23:40:13.947000","updated_at":"2021-02-25T23:02:58.597000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"esta es la que es","idempotency_key":"LT2jOOCHSQCwXfRRpmNE1wMj","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT2jOOCHSQCwXfRRpmNE1wMj","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LTnK4XywBIWkYExExNHz7rD","created_at":"2020-10-07T23:15:01.254000","updated_at":"2021-02-25T23:02:58.499000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"ahora","idempotency_key":"LTnK4XywBIWkYExExNHz7rD","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LTnK4XywBIWkYExExNHz7rD","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT7p7hcRSvQaTf3P20TzM9XX","created_at":"2020-10-07T23:04:24.476000","updated_at":"2021-02-25T23:02:58.397000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"a ver","idempotency_key":"LT7p7hcRSvQaTf3P20TzM9XX","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT7p7hcRSvQaTf3P20TzM9XX","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT4Qzwigoa6dkAcsAmYzyJxx","created_at":"2020-10-07T22:57:33.170000","updated_at":"2021-02-25T23:02:58.282000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"veamos","idempotency_key":"LT4Qzwigoa6dkAcsAmYzyJxx","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT4Qzwigoa6dkAcsAmYzyJxx","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1AqFH8RmkASrnR21N2okTu","created_at":"2020-10-07T21:58:10.447000","updated_at":"2021-02-25T23:02:57.962000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"no sirve :(","idempotency_key":"LT1AqFH8RmkASrnR21N2okTu","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1AqFH8RmkASrnR21N2okTu","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT57mXy4UmHG1bbgNAY1y8rf","created_at":"2020-10-07T21:55:39.918000","updated_at":"2021-02-25T23:02:57.868000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"no sirve :(","idempotency_key":"LT57mXy4UmHG1bbgNAY1y8rf","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT57mXy4UmHG1bbgNAY1y8rf","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT4TIG10k9EXonZCU835TCrS","created_at":"2020-10-07T21:54:40.385000","updated_at":"2021-02-25T23:02:57.765000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"no sirve :(","idempotency_key":"LT4TIG10k9EXonZCU835TCrS","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT4TIG10k9EXonZCU835TCrS","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT7mPbHPXe4hbfRpkV0FbxaQ","created_at":"2020-10-07T21:48:20.717000","updated_at":"2021-02-25T23:02:57.657000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"desde la app","idempotency_key":"LT7mPbHPXe4hbfRpkV0FbxaQ","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT7mPbHPXe4hbfRpkV0FbxaQ","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT3OJLspWOhvjAR43IzFu7GP","created_at":"2020-10-07T19:23:20.176000","updated_at":"2021-02-25T23:02:57.367000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"llegaraaaaa","idempotency_key":"LT3OJLspWOhvjAR43IzFu7GP","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT3OJLspWOhvjAR43IzFu7GP","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT7jBIOW7O2iHlD7i33MdmQd","created_at":"2020-10-07T19:14:02.009000","updated_at":"2021-02-25T23:02:57.005000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"llegaraaaaa","idempotency_key":"LT7jBIOW7O2iHlD7i33MdmQd","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT7jBIOW7O2iHlD7i33MdmQd","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1Kx6Nq7JMMxHufsSQ92iCy","created_at":"2020-10-07T19:03:07.777000","updated_at":"2021-02-25T23:02:56.904000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"esta si llegara","idempotency_key":"LT1Kx6Nq7JMMxHufsSQ92iCy","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1Kx6Nq7JMMxHufsSQ92iCy","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT44Zzlm6DMDeNVDXms9HZFu","created_at":"2020-10-07T18:41:40.104000","updated_at":"2021-02-25T23:02:56.845000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"asdfg","idempotency_key":"LT44Zzlm6DMDeNVDXms9HZFu","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT44Zzlm6DMDeNVDXms9HZFu","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LTnkt2lHGkB6gWPg3GBW46J","created_at":"2020-10-07T18:30:34.522000","updated_at":"2021-02-25T23:02:56.634000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"asdfg","idempotency_key":"LTnkt2lHGkB6gWPg3GBW46J","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LTnkt2lHGkB6gWPg3GBW46J","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT3apiGKqhKzE7YZ4LUxiGhf","created_at":"2020-10-07T17:30:57.807000","updated_at":"2021-02-25T23:02:56.434000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"jfjd","idempotency_key":"LT3apiGKqhKzE7YZ4LUxiGhf","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT3apiGKqhKzE7YZ4LUxiGhf","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT6HZbaj4MzieTMdXeoWI6fO","created_at":"2020-10-07T17:24:21.481000","updated_at":"2021-02-25T23:02:56.333000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"hilo","idempotency_key":"LT6HZbaj4MzieTMdXeoWI6fO","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT6HZbaj4MzieTMdXeoWI6fO","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT5Fu1FTnvWIWkWP5Xzr0OkZ","created_at":"2020-10-07T17:16:31.334000","updated_at":"2021-02-25T23:02:56.250000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"holi","idempotency_key":"LT5Fu1FTnvWIWkWP5Xzr0OkZ","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT5Fu1FTnvWIWkWP5Xzr0OkZ","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1nFL8Rz643QXKHcIxVFpFg","created_at":"2020-10-03T00:14:32.666000","updated_at":"2021-02-25T23:02:55.862000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"test2","idempotency_key":"LT1nFL8Rz643QXKHcIxVFpFg","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1nFL8Rz643QXKHcIxVFpFg","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT4f4Dyp1uJqDs9VsBDcZ0VW","created_at":"2020-10-03T00:06:05.160000","updated_at":"2021-02-25T23:02:55.763000","account_number":"646180157090560499","recipient_name":"Jessica
+        Shalom Gonzalez Torres","amount":1,"descriptor":"para ti bebe","idempotency_key":"LT4f4Dyp1uJqDs9VsBDcZ0VW","status":"succeeded","network":"internal","destination_uri":"/accounts/LA6VZfOC5Lraflv6CnHEoUDD","tracking_key":"LT4f4Dyp1uJqDs9VsBDcZ0VW","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT2U5CQFTjgsDl7ZdLynyx7F","created_at":"2020-10-02T23:55:36.646000","updated_at":"2021-02-25T23:02:55.660000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":5,"descriptor":"millones","idempotency_key":"LT2U5CQFTjgsDl7ZdLynyx7F","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT2U5CQFTjgsDl7ZdLynyx7F","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '1448'
+      - '10226'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 May 2020 21:18:46 GMT
-      Via:
-      - 1.1 985019c7ef5fb5ac317bec78ceb88d53.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - Vkx6OPbbAH-OopAB2UJPZ97jYycsRkH_ePiR3wvMrWSR_R-jcy1ZYA==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
+      - Wed, 03 Mar 2021 18:31:07 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5eb9c136-e49554ba864d85e0974d7434;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fd5e8-6815c0b7688cd3d256f0ec6b;Sampled=0
+      X-Request-Time:
+      - 'value: 2.945'
       x-amz-apigw-id:
-      - MYsgkE9SoAMFidA=
-      x-amzn-RequestId:
-      - c99f4e7d-227b-4d47-a08f-942d49f76db4
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - DUMMY
-      Connection:
+      - bn5cSFhrCYcFzNw=
+      x-amzn-Remapped-Connection:
       - keep-alive
-      User-Agent:
-      - cuenca-python/0.0.1dev0
-      X-Cuenca-Api-Version:
-      - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/transfers?created_before=2020-05-08T23%3A19%3A34.541000&status=succeeded&count=False
-  response:
-    body:
-      string: '{"items":[],"next_page_uri":null}'
-    headers:
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '33'
-      Content-Type:
-      - application/json
-      Date:
-      - Mon, 11 May 2020 21:18:47 GMT
-      Via:
-      - 1.1 985019c7ef5fb5ac317bec78ceb88d53.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - _F9ZwCoMxsgNPFo0RWX5A0dZiaTtRn7hn6KpX_2GGxMlsGaTzs8DnQ==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
-      X-Amzn-Trace-Id:
-      - Root=1-5eb9c136-dd6403fe86606d9c59d40877;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
-      x-amz-apigw-id:
-      - MYsgmEDloAMFQ8A=
+      x-amzn-Remapped-Content-Length:
+      - '10226'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:31:07 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 2959cd6e-37e7-40a5-a4d0-d9db898582cc
       x-amzn-RequestId:
-      - a2cbdb34-ada1-4da7-995a-18d2dd34700e
+      - ff636830-f6fa-4391-bb7a-b90a5c4a83c7
     status:
       code: 200
       message: OK
