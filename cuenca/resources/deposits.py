@@ -14,13 +14,9 @@ class Deposit(Transaction):
     _query_params: ClassVar = DepositQuery
 
     network: DepositNetwork
-    source_uri: Optional[str]
+    source_uri: str
     tracking_key: Optional[str]  # clave rastreo if network is SPEI
 
     @property  # type: ignore
-    def source(self) -> Optional[Account]:
-        if self.source_uri is None:  # cash deposit
-            acct = None
-        else:
-            acct = cast(Account, retrieve_uri(self.source_uri))
-        return acct
+    def source(self) -> Account:
+        return cast(Account, retrieve_uri(self.source_uri))
