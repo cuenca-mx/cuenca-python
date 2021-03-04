@@ -135,7 +135,7 @@ cuenca.UserCredential.update(password=None)
 Login in and out
 ```python
 cuenca.UserLogin.create(password='1234567890')
-cards = cuenca.Card.all()
+...  # authenticated operation
 cuenca.UserLogin.logout()
 ```
 
@@ -148,5 +148,5 @@ cuenca.UserLogin.logout()
 
 # Then you can use the token which lasts for 7 days
 cuenca.configure(login_token=token)
-cards = cuenca.Card.all()
+...  # authenticated operation
 ```
