@@ -113,3 +113,48 @@ old_id = cuenca.session.auth[0]
 cuenca.session.configure(new.id, new.secret)
 cuenca.ApiKey.deactivate(old_id, 60)  # revoke prior API key in an hour
 ```
+
+## Login
+
+
+### Exceptions that any resource can throw
+```python
+class NoPasswordFound(CuencaResponseException):
+    ...
+class UserNotLoggedIn(CuencaResponseException):
+    ...
+```
+
+### Create a new password
+```python
+cuenca.UserCredential.create(password='1234567890')
+```
+
+### To update your password
+```python
+cuenca.UserCredential.update(password='1234567890')
+```
+
+### To reset password
+```python
+cuenca.UserCredential.update(password=None)
+```
+
+### Login in and out
+```python
+cuenca.UserLogin.create(password='1234567890')
+cards = cuenca.Card.all()
+cuenca.UserLogin.logout()
+```
+
+### Create login token for biometrics
+```python
+# Must be logged in
+cuenca.UserLogin.create(password='1234567890')
+token = cuenca.LoginToken.create()
+cuenca.UserLogin.logout()
+
+# Then you can use the token which lasts for 7 days
+cuenca.configure(login_token=token)
+cards = cuenca.Card.all()
+```
