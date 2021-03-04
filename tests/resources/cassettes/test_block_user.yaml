@@ -15,46 +15,46 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.6.3.dev8
+      - cuenca-python/0.6.3.dev10
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/token
   response:
     body:
-      string: '{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTUyNjAwMDUsImlhdCI6MTYxNDY1NTIwNSwic3ViIjoiQUtRRXJUbXdlZFFxQ0xwQ2plWkc4c0pRIiwidWlkIjoiMmYyZDNlMTgtN2IwNi0xMWViLWJlMGMtOTFlODJjZTIxYzNjIn0.SWaQuYTqyfO0_kQcWz0I4q2_KzKiaAnX7h5MlXwOzPg","created_at":"2021-03-02T03:20:05.646677","api_key":{"id":"AKQErTmwedQqCLpCjeZG8sJQ","created_at":"2021-02-21T05:24:08.060979","secret":"********","deactivated_at":"2212-10-18T05:21:09.897161","user":{"id":"USaNW8apNBSc-FiOWMX9NEKg","created_at":"2021-02-21T05:21:33.308032","login_attempts":0,"last_login_at":null,"is_active":true},"updated_at":"2021-02-25T23:12:05.812844","user_id":"USaNW8apNBSc-FiOWMX9NEKg"}}'
+      string: '{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTU0MzMxMjksImlhdCI6MTYxNDgyODMyOSwic3ViIjoiQUtRRXJUbXdlZFFxQ0xwQ2plWkc4c0pRIiwidWlkIjoiNDRjY2E5ZTAtN2M5OS0xMWViLTgwM2QtYmY1MmRjNzcyMjU5In0.bojz-3Rykvvjkm8zY4rWyPS5zjAZ03bgsrytVJynYMY","created_at":"2021-03-04T03:25:29.104823","api_key":{"id":"AKQErTmwedQqCLpCjeZG8sJQ","created_at":"2021-02-21T05:24:08.060979","secret":"********","deactivated_at":"2212-10-18T05:21:09.897161","user":{"id":"USaNW8apNBSc-FiOWMX9NEKg","created_at":"2021-02-21T05:21:33.308032","is_active":true,"updated_at":"2021-03-04T03:22:01.614345"},"updated_at":"2021-02-25T23:12:05.812844","user_id":"USaNW8apNBSc-FiOWMX9NEKg"}}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '657'
+      - '659'
       Content-Type:
       - application/json
       Date:
-      - Tue, 02 Mar 2021 03:20:05 GMT
+      - Thu, 04 Mar 2021 03:25:29 GMT
       X-Amzn-Trace-Id:
-      - Root=1-603daee5-6f51ac75575fea9b30bf2267;Sampled=0
+      - Root=1-60405329-14ec039928588173791cff3c;Sampled=0
       X-Request-Time:
-      - 'value: 0.060'
+      - 'value: 0.042'
       x-amz-apigw-id:
-      - bihD4EwmCYcF4NQ=
+      - bpHubEO1CYcFSiA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '657'
+      - '659'
       x-amzn-Remapped-Date:
-      - Tue, 02 Mar 2021 03:20:05 GMT
+      - Thu, 04 Mar 2021 03:25:29 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 85f546f3-49e6-4cdb-9ec5-c5aa9fc15cc2
+      - 7268db38-86e0-4489-831e-f36eb9e0c415
       x-amzn-RequestId:
-      - 19f4b26c-e608-42ae-b102-3c8616c9088f
+      - 722a3736-2c86-4eaf-9d71-bfe63f3ee023
     status:
       code: 201
       message: Created
 - request:
-    body: '{"is_active": false}'
+    body: '{"is_active": false, "password": null}'
     headers:
       Accept:
       - '*/*'
@@ -65,52 +65,52 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '20'
+      - '38'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.6.3.dev8
+      - cuenca-python/0.6.3.dev10
       X-Cuenca-Api-Version:
       - '2020-03-19'
       X-Cuenca-Token:
       - DUMMY
     method: PATCH
-    uri: https://sandbox.cuenca.com/user_logins/US46cuHpEJ5xFTOceMKVqSzF
+    uri: https://sandbox.cuenca.com/user_credentials/US46cuHpEJ5xFTOceMKVqSzF
   response:
     body:
-      string: '{"id":"US46cuHpEJ5xFTOceMKVqSzF","created_at":"2020-12-22T01:06:07.179062","login_attempts":0,"last_login_at":"2021-03-02T02:48:20.822862","is_active":false}'
+      string: '{"id":"US46cuHpEJ5xFTOceMKVqSzF","created_at":"2020-12-22T01:06:07.179062","is_active":false,"updated_at":"2021-03-04T03:25:29.246609"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '157'
+      - '135'
       Content-Type:
       - application/json
       Date:
-      - Tue, 02 Mar 2021 03:20:05 GMT
+      - Thu, 04 Mar 2021 03:25:29 GMT
       X-Amzn-Trace-Id:
-      - Root=1-603daee5-335647104cb1f67a529c2958;Sampled=0
+      - Root=1-60405329-1ede2c4b55146e45324b6742;Sampled=0
       X-Request-Time:
-      - 'value: 0.049'
+      - 'value: 0.040'
       x-amz-apigw-id:
-      - bihD6Gi0iYcFRug=
+      - bpHucHXBCYcFvug=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '157'
+      - '135'
       x-amzn-Remapped-Date:
-      - Tue, 02 Mar 2021 03:20:05 GMT
+      - Thu, 04 Mar 2021 03:25:29 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 835669d3-fd93-4ea6-8eb9-6f6ab21c707d
+      - d5b33e5d-cd2f-4474-9fe8-d467217d5a81
       x-amzn-RequestId:
-      - b5a9fc6e-2668-4bb0-a6be-fceb469edd25
+      - 24f92177-e911-4808-98b0-d27402c5e852
     status:
       code: 201
       message: Created
 - request:
-    body: '{"is_active": true}'
+    body: '{"is_active": true, "password": null}'
     headers:
       Accept:
       - '*/*'
@@ -121,47 +121,47 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '19'
+      - '37'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.6.3.dev8
+      - cuenca-python/0.6.3.dev10
       X-Cuenca-Api-Version:
       - '2020-03-19'
       X-Cuenca-Token:
       - DUMMY
     method: PATCH
-    uri: https://sandbox.cuenca.com/user_logins/US46cuHpEJ5xFTOceMKVqSzF
+    uri: https://sandbox.cuenca.com/user_credentials/US46cuHpEJ5xFTOceMKVqSzF
   response:
     body:
-      string: '{"id":"US46cuHpEJ5xFTOceMKVqSzF","created_at":"2020-12-22T01:06:07.179062","login_attempts":0,"last_login_at":"2021-03-02T02:48:20.822862","is_active":true}'
+      string: '{"id":"US46cuHpEJ5xFTOceMKVqSzF","created_at":"2020-12-22T01:06:07.179062","is_active":true,"updated_at":"2021-03-04T03:25:29.375758"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '156'
+      - '134'
       Content-Type:
       - application/json
       Date:
-      - Tue, 02 Mar 2021 03:20:05 GMT
+      - Thu, 04 Mar 2021 03:25:29 GMT
       X-Amzn-Trace-Id:
-      - Root=1-603daee5-21f8588608365fdd0b8ff2d1;Sampled=0
+      - Root=1-60405329-6734b891494870022cada27b;Sampled=0
       X-Request-Time:
-      - 'value: 0.041'
+      - 'value: 0.034'
       x-amz-apigw-id:
-      - bihD7H7iCYcF3Pw=
+      - bpHueGR4iYcF6ng=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '156'
+      - '134'
       x-amzn-Remapped-Date:
-      - Tue, 02 Mar 2021 03:20:05 GMT
+      - Thu, 04 Mar 2021 03:25:29 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 5e501c80-4039-4ca4-9afc-db27ac38260c
+      - a947e282-d449-4e3c-8ab2-adc461caf2e3
       x-amzn-RequestId:
-      - a40e2410-9622-481a-8221-9b35fc926ad7
+      - d26156bb-c19f-470e-896f-0bb29b8275fa
     status:
       code: 201
       message: Created

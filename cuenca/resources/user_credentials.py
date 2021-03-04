@@ -1,3 +1,4 @@
+import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types.requests import (
@@ -13,6 +14,9 @@ from .base import Creatable, Updateable
 @dataclass
 class UserCredential(Creatable, Updateable):
     _resource: ClassVar = 'user_credentials'
+
+    is_active: bool
+    created_at: dt.datetime
 
     @classmethod
     def create(
