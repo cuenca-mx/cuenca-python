@@ -1,6 +1,6 @@
 import datetime as dt
 from dataclasses import dataclass
-from typing import ClassVar, cast
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types.requests import UserCredentialRequest
 
@@ -12,7 +12,7 @@ from .base import Creatable
 class UserLogin(Creatable):
     _resource: ClassVar = 'user_logins'
 
-    last_login_at: dt.datetime
+    last_login_at: Optional[dt.datetime]
     success: bool
 
     @classmethod
@@ -29,5 +29,7 @@ class UserLogin(Creatable):
     def logout(
         cls, user_id: str = 'me', *, session: Session = global_session
     ) -> None:
+        # Using user_id vs user_login_id to avoid needing to store
+        # user_login_id or perform a query to fetch it
         session.delete(f'{cls._resource}/{user_id}', dict())
         session.session.headers.pop('X-Cuenca-LoginId', None)
