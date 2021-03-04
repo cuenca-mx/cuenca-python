@@ -1,0 +1,55 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.6.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTSb8853JJRGiPBvY4lZCMzQ
+    method: GET
+    uri: https://sandbox.cuenca.com/card_transactions/CT00PARENT01
+  response:
+    body:
+      string: '{"id":"CT00PARENT01","created_at":"2020-11-11T21:25:26.230000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":609,"status":"succeeded","descriptor":"Uso
+        de tarjeta","type":"auth","network":"visa","related_card_transaction_uris":[],"card_last4":"1234","card_type":"virtual","card_uri":"/cards/CAYNfqsQTFSnKz56n6Vw6rTw","metadata":{"authorizer_number":"1234","card_acceptor":null,"commission":0,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"98765","retrieval_reference":"123456789","track_data_method":null,"transaction_reference":null},"error_type":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '587'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 04 Mar 2021 23:48:49 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-604171e1-5ecf8304010599b40c0047c9;Sampled=0
+      X-Request-Time:
+      - 'value: 0.401'
+      x-amz-apigw-id:
+      - br67OF41iYcFRjw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '587'
+      x-amzn-Remapped-Date:
+      - Thu, 04 Mar 2021 23:48:49 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 8cfb2a2d-ba93-4d45-8f91-fa0331873d1a
+      x-amzn-RequestId:
+      - 410f09dc-4e8a-40e1-8bab-5193f6894c9c
+    status:
+      code: 200
+      message: OK
+version: 1

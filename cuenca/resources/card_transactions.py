@@ -10,7 +10,7 @@ from pydantic.dataclasses import dataclass
 
 from .base import Transaction
 from .cards import Card
-from .resources import retrieve_uris
+from .resources import retrieve_uri, retrieve_uris
 
 
 @dataclass

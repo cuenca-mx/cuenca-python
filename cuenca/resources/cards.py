@@ -16,7 +16,6 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     _query_params: ClassVar = CardQuery
 
     user_id: str
-    ledger_account_id: str
     number: str
     exp_month: int
     exp_year: int
