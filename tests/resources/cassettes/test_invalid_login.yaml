@@ -1,0 +1,56 @@
+interactions:
+- request:
+    body: '{"password": "111111"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '22'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev7
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/user_logins
+  response:
+    body:
+      string: '{"success":false,"id":"ULKr5AcIarTCKLw-7_fW948w","last_login_at":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '70'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 02 Mar 2021 02:37:14 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-603da4da-3f50f30f700013b205ea7133;Sampled=0
+      X-Request-Time:
+      - 'value: 0.283'
+      x-amz-apigw-id:
+      - biayGFK3CYcFTrQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '70'
+      x-amzn-Remapped-Date:
+      - Tue, 02 Mar 2021 02:37:14 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - e412821a-dc6c-4227-8b49-67c45041a3af
+      x-amzn-RequestId:
+      - 1087c34c-9575-4963-a45c-aeb98b63bd80
+    status:
+      code: 201
+      message: Created
+version: 1

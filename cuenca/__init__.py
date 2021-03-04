@@ -8,9 +8,12 @@ __all__ = [
     'CardTransaction',
     'Commission',
     'Deposit',
+    'LoginToken',
     'ServiceProvider',
     'Statement',
     'Transfer',
+    'UserCredential',
+    'UserLogin',
     'WhatsappTransfer',
     'configure',
 ]
@@ -26,9 +29,12 @@ from .resources import (
     CardTransaction,
     Commission,
     Deposit,
+    LoginToken,
     ServiceProvider,
     Statement,
     Transfer,
+    UserCredential,
+    UserLogin,
     WhatsappTransfer,
 )
 from .version import __version__

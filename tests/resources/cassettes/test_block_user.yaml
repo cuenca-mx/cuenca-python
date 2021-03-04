@@ -1,0 +1,168 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev10
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/token
+  response:
+    body:
+      string: '{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTU0MzMxMjksImlhdCI6MTYxNDgyODMyOSwic3ViIjoiQUtRRXJUbXdlZFFxQ0xwQ2plWkc4c0pRIiwidWlkIjoiNDRjY2E5ZTAtN2M5OS0xMWViLTgwM2QtYmY1MmRjNzcyMjU5In0.bojz-3Rykvvjkm8zY4rWyPS5zjAZ03bgsrytVJynYMY","created_at":"2021-03-04T03:25:29.104823","api_key":{"id":"AKQErTmwedQqCLpCjeZG8sJQ","created_at":"2021-02-21T05:24:08.060979","secret":"********","deactivated_at":"2212-10-18T05:21:09.897161","user":{"id":"USaNW8apNBSc-FiOWMX9NEKg","created_at":"2021-02-21T05:21:33.308032","is_active":true,"updated_at":"2021-03-04T03:22:01.614345"},"updated_at":"2021-02-25T23:12:05.812844","user_id":"USaNW8apNBSc-FiOWMX9NEKg"}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '659'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 04 Mar 2021 03:25:29 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-60405329-14ec039928588173791cff3c;Sampled=0
+      X-Request-Time:
+      - 'value: 0.042'
+      x-amz-apigw-id:
+      - bpHubEO1CYcFSiA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '659'
+      x-amzn-Remapped-Date:
+      - Thu, 04 Mar 2021 03:25:29 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 7268db38-86e0-4489-831e-f36eb9e0c415
+      x-amzn-RequestId:
+      - 722a3736-2c86-4eaf-9d71-bfe63f3ee023
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"is_active": false, "password": null}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '38'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev10
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-Token:
+      - DUMMY
+    method: PATCH
+    uri: https://sandbox.cuenca.com/user_credentials/US46cuHpEJ5xFTOceMKVqSzF
+  response:
+    body:
+      string: '{"id":"US46cuHpEJ5xFTOceMKVqSzF","created_at":"2020-12-22T01:06:07.179062","is_active":false,"updated_at":"2021-03-04T03:25:29.246609"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '135'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 04 Mar 2021 03:25:29 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-60405329-1ede2c4b55146e45324b6742;Sampled=0
+      X-Request-Time:
+      - 'value: 0.040'
+      x-amz-apigw-id:
+      - bpHucHXBCYcFvug=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '135'
+      x-amzn-Remapped-Date:
+      - Thu, 04 Mar 2021 03:25:29 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - d5b33e5d-cd2f-4474-9fe8-d467217d5a81
+      x-amzn-RequestId:
+      - 24f92177-e911-4808-98b0-d27402c5e852
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"is_active": true, "password": null}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '37'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.3.dev10
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-Token:
+      - DUMMY
+    method: PATCH
+    uri: https://sandbox.cuenca.com/user_credentials/US46cuHpEJ5xFTOceMKVqSzF
+  response:
+    body:
+      string: '{"id":"US46cuHpEJ5xFTOceMKVqSzF","created_at":"2020-12-22T01:06:07.179062","is_active":true,"updated_at":"2021-03-04T03:25:29.375758"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '134'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 04 Mar 2021 03:25:29 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-60405329-6734b891494870022cada27b;Sampled=0
+      X-Request-Time:
+      - 'value: 0.034'
+      x-amz-apigw-id:
+      - bpHueGR4iYcF6ng=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '134'
+      x-amzn-Remapped-Date:
+      - Thu, 04 Mar 2021 03:25:29 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - a947e282-d449-4e3c-8ab2-adc461caf2e3
+      x-amzn-RequestId:
+      - d26156bb-c19f-470e-896f-0bb29b8275fa
+    status:
+      code: 201
+      message: Created
+version: 1

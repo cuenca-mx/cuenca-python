@@ -4,6 +4,7 @@ from typing import Optional, Tuple
 from urllib.parse import urljoin
 
 import requests
+from cuenca_validations.errors import ERROR_CODES
 from cuenca_validations.typing import (
     ClientRequestParams,
     DictStrAny,
@@ -17,8 +18,6 @@ from ..version import API_VERSION, CLIENT_VERSION
 
 API_HOST = 'api.cuenca.com'
 SANDBOX_HOST = 'sandbox.cuenca.com'
-AWS_DEFAULT_REGION = 'us-east-1'
-AWS_SERVICE = 'execute-api'
 
 
 class Session:
@@ -52,6 +51,7 @@ class Session:
         api_secret: Optional[str] = None,
         use_jwt: Optional[bool] = False,
         sandbox: Optional[bool] = None,
+        login_token: Optional[str] = None,
     ):
         """
         This allows us to instantiate the http client when importing the
@@ -71,6 +71,9 @@ class Session:
 
         if use_jwt:
             self.jwt_token = Jwt.create(self)
+
+        if login_token:
+            self.session.headers['X-Cuenca-LoginToken'] = login_token
 
     def get(
         self, endpoint: str, params: ClientRequestParams = None
@@ -116,6 +119,9 @@ class Session:
     def _check_response(response: Response):
         if response.ok:
             return
+        json = response.json()
+        if 'code' in json:
+            raise ERROR_CODES[json['code']](json['error'])
         raise CuencaResponseException(
             json=response.json(),
             status_code=response.status_code,
