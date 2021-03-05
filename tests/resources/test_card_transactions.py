@@ -37,3 +37,5 @@ def test_card_transaction_retrieve_card():
     ct = CardTransaction.retrieve('CT00PARENT01')
     card = ct.card
     assert card
+    assert card.user_id == ct.user_id
+    assert len(card.number) == 16
