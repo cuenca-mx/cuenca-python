@@ -11,42 +11,44 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.3.6
+      - cuenca-python/0.6.3
       X-Cuenca-Api-Version:
       - '2020-03-19'
-      x-amz-content-sha256:
-      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-      x-amz-date:
-      - 20201029T211344Z
+      X-Cuenca-LoginToken:
+      - LTSb8853JJRGiPBvY4lZCMzQ
     method: GET
-    uri: https://sandbox.cuenca.com/card_transactions/CT002
+    uri: https://sandbox.cuenca.com/card_transactions/CT4jC3Dh65FNmb0lGBTnvr4I
   response:
     body:
-      string: '{"id":"CT002","created_at":"2020-10-29T18:04:37.414000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"created","descriptor":"Superama
-        Michoacan","type":"refund","network":"visa","related_card_transaction_uris":["/card_transactions/CT001"],"card_id":"CA001","card_last4":"0359","card_type":"virtual","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"38007","retrieval_reference":"444838149","track_data_method":null,"transaction_reference":null},"error_type":null}'
+      string: '{"id":"CT4jC3Dh65FNmb0lGBTnvr4I","created_at":"2020-10-29T16:52:39.044000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"created","descriptor":"Superama
+        Michoacan","type":"refund","network":"visa","related_card_transaction_uris":["/card_transactions/CT17YWLDHWI59r6F0oG1ihvK"],"card_last4":"0359","card_type":"virtual","card_uri":"/cards/CAYNfqsQTFSnKz56n6Vw6rTw","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"40352","retrieval_reference":"765187539","track_data_method":null,"transaction_reference":null},"error_type":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '659'
+      - '649'
       Content-Type:
       - application/json
       Date:
-      - Thu, 29 Oct 2020 21:13:44 GMT
-      Via:
-      - 1.1 fef232a36f2d64e8401caff3be58f4fc.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 4WuDXoq-_GWtMLx6kiNBPWtX2BpR211K3UJSdnbP24GiScNcXF2HlQ==
-      X-Amz-Cf-Pop:
-      - IAH50-C1
+      - Fri, 05 Mar 2021 01:06:41 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f9b3088-54cfc3235bfff8a00655b709;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-60418421-2f2c09e2459746347fa2db67;Sampled=0
+      X-Request-Time:
+      - 'value: 0.230'
       x-amz-apigw-id:
-      - VMSFZGONoAMF7zA=
+      - bsGVNEfKiYcFXlQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '649'
+      x-amzn-Remapped-Date:
+      - Fri, 05 Mar 2021 01:06:41 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - de384365-d5c1-49eb-b615-05e3258eb5da
       x-amzn-RequestId:
-      - 0d065a8f-9a36-47ec-88b1-1b3bfcb1e215
+      - 51a7afd5-97bb-4e49-a18d-a83d97c67860
     status:
       code: 200
       message: OK
@@ -62,42 +64,44 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.3.6
+      - cuenca-python/0.6.3
       X-Cuenca-Api-Version:
       - '2020-03-19'
-      x-amz-content-sha256:
-      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-      x-amz-date:
-      - 20201029T211344Z
+      X-Cuenca-LoginToken:
+      - LTSb8853JJRGiPBvY4lZCMzQ
     method: GET
-    uri: https://sandbox.cuenca.com/card_transactions/CT001
+    uri: https://sandbox.cuenca.com/card_transactions/CT17YWLDHWI59r6F0oG1ihvK
   response:
     body:
-      string: '{"id":"CT001","created_at":"2020-10-29T18:04:37.396000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"created","descriptor":"Superama
-        Michoacan","type":"auth","network":"visa","related_card_transaction_uris":["/card_transactions/CT002","/card_transactions/CT2pnV82umR0FnxWsDwHBFq","/card_transactions/CTXoLAkUBeZY7arY4XyuaYp"],"card_id":"CA001","card_last4":"0359","card_type":"virtual","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"36776","retrieval_reference":"691159329","track_data_method":null,"transaction_reference":null},"error_type":null}'
+      string: '{"id":"CT17YWLDHWI59r6F0oG1ihvK","created_at":"2020-10-29T16:39:51.279000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"created","descriptor":"Superama
+        Michoacan","type":"auth","network":"visa","related_card_transaction_uris":["/card_transactions/CT4jC3Dh65FNmb0lGBTnvr4I","/card_transactions/CT3749UxhLljsima27fLTCCk"],"card_last4":"0359","card_type":"virtual","card_uri":"/cards/CAYNfqsQTFSnKz56n6Vw6rTw","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"86562","retrieval_reference":"82903776","track_data_method":null,"transaction_reference":null},"error_type":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '747'
+      - '692'
       Content-Type:
       - application/json
       Date:
-      - Thu, 29 Oct 2020 21:13:45 GMT
-      Via:
-      - 1.1 fef232a36f2d64e8401caff3be58f4fc.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - LIS9DTnDXufnad7kEAG_UcUfcFs7laqNSgFpJx5vwbGGeAXMACHszA==
-      X-Amz-Cf-Pop:
-      - IAH50-C1
+      - Fri, 05 Mar 2021 01:06:41 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f9b3089-4586ce643d7ee31e3c819823;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-60418421-5d2045ec35c21cea0694f704;Sampled=0
+      X-Request-Time:
+      - 'value: 0.214'
       x-amz-apigw-id:
-      - VMSFbFGyIAMFcMQ=
+      - bsGVRFmniYcFSiA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '692'
+      x-amzn-Remapped-Date:
+      - Fri, 05 Mar 2021 01:06:41 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 9ed376a2-9197-413f-a4a0-d0ee40cc27f1
       x-amzn-RequestId:
-      - 99f43c26-2aea-4de7-b03d-9113ff28a3ed
+      - 8863f0a7-7a38-4125-b280-29050d3415cc
     status:
       code: 200
       message: OK

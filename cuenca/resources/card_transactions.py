@@ -9,7 +9,8 @@ from cuenca_validations.types import (
 from pydantic.dataclasses import dataclass
 
 from .base import Transaction
-from .resources import retrieve_uris
+from .cards import Card
+from .resources import retrieve_uri, retrieve_uris
 
 
 @dataclass
@@ -19,7 +20,7 @@ class CardTransaction(Transaction):
     type: CardTransactionType
     network: CardNetwork
     related_card_transaction_uris: List[str]
-    card_id: str
+    card_uri: str
     card_last4: str
     card_type: CardType
     metadata: dict
@@ -33,3 +34,7 @@ class CardTransaction(Transaction):
             List['CardTransaction'],
             retrieve_uris(self.related_card_transaction_uris),
         )
+
+    @property  # type: ignore
+    def card(self) -> Card:
+        return cast(Card, retrieve_uri(self.card_uri))

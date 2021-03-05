@@ -16,7 +16,6 @@ def test_card_create():
     assert len(card.number) == 16
     assert card.type == CardType.virtual
     assert card.user_id == user_id
-    assert card.ledger_account_id == ledger_account_id
 
 
 @pytest.mark.vcr
