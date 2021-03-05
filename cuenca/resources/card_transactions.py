@@ -35,5 +35,6 @@ class CardTransaction(Transaction):
             retrieve_uris(self.related_card_transaction_uris),
         )
 
+    @property  # type: ignore
     def card(self) -> Card:
         return cast(Card, retrieve_uri(self.card_uri))

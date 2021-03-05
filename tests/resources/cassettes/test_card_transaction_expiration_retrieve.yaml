@@ -11,42 +11,44 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.3.6
+      - cuenca-python/0.6.3
       X-Cuenca-Api-Version:
       - '2020-03-19'
-      x-amz-content-sha256:
-      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-      x-amz-date:
-      - 20201029T211345Z
+      X-Cuenca-LoginToken:
+      - LTSb8853JJRGiPBvY4lZCMzQ
     method: GET
-    uri: https://sandbox.cuenca.com/card_transactions/CT004
+    uri: https://sandbox.cuenca.com/card_transactions/CT4kMz2YNoWxVSQOCPCh2nQD
   response:
     body:
-      string: '{"id":"CT004","created_at":"2020-10-29T18:04:36.318000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"failed","descriptor":"Superama
-        Michoacan","type":"expiration","network":"visa","related_card_transaction_uris":[],"card_id":"CA001","card_last4":"0359","card_type":"virtual","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"68697","retrieval_reference":"899493694","track_data_method":null,"transaction_reference":null},"error_type":null}'
+      string: '{"id":"CT4kMz2YNoWxVSQOCPCh2nQD","created_at":"2020-10-28T21:00:24.033000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":300,"status":"failed","descriptor":"Superama
+        Michoacan","type":"expiration","network":"visa","related_card_transaction_uris":[],"card_last4":"0359","card_type":"virtual","card_uri":"/cards/CAYNfqsQTFSnKz56n6Vw6rTw","metadata":{"authorizer_number":null,"card_acceptor":null,"commission":null,"currency_code":"484","is_cvv":null,"pos_capabilty":null,"prosa_transaction_id":"68942","retrieval_reference":"741113898","track_data_method":null,"transaction_reference":null},"error_type":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '641'
+      - '607'
       Content-Type:
       - application/json
       Date:
-      - Thu, 29 Oct 2020 21:13:45 GMT
-      Via:
-      - 1.1 a75dce573e80f2f2d03981a80f910c42.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - c5u29_nf3YTSb7F-8JyhufTnieVVTDY59jXwr2jdJ3qcuEcSVEPO3A==
-      X-Amz-Cf-Pop:
-      - IAH50-C1
+      - Fri, 05 Mar 2021 01:06:43 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f9b3089-501105c97ed0766d4d07559f;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-60418422-7c5e37d23713820a25da2092;Sampled=0
+      X-Request-Time:
+      - 'value: 0.230'
       x-amz-apigw-id:
-      - VMSFiGpHIAMFlbw=
+      - bsGVdEkHCYcFVfw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '607'
+      x-amzn-Remapped-Date:
+      - Fri, 05 Mar 2021 01:06:43 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - de803222-e1bc-492c-a97a-624c47ba82d3
       x-amzn-RequestId:
-      - 18ec27c1-e875-47ea-84aa-3b12bb4cb0b1
+      - e4aa0d18-e8ee-4ed9-af9e-8b8df10b9b36
     status:
       code: 200
       message: OK

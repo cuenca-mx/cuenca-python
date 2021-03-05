@@ -30,25 +30,77 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 04 Mar 2021 23:48:49 GMT
+      - Fri, 05 Mar 2021 00:09:47 GMT
       X-Amzn-Trace-Id:
-      - Root=1-604171e1-5ecf8304010599b40c0047c9;Sampled=0
+      - Root=1-604176c8-217231536ffd059b3ce801f1;Sampled=0
       X-Request-Time:
-      - 'value: 0.401'
+      - 'value: 2.670'
       x-amz-apigw-id:
-      - br67OF41iYcFRjw=
+      - br9_YFqUCYcFZAg=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '587'
       x-amzn-Remapped-Date:
-      - Thu, 04 Mar 2021 23:48:49 GMT
+      - Fri, 05 Mar 2021 00:09:47 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 8cfb2a2d-ba93-4d45-8f91-fa0331873d1a
+      - 26cb0789-04c3-4527-9f82-461e008f2723
       x-amzn-RequestId:
-      - 410f09dc-4e8a-40e1-8bab-5193f6894c9c
+      - b304f475-2238-415a-990d-53f8b7d1ca55
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.6.3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTSb8853JJRGiPBvY4lZCMzQ
+    method: GET
+    uri: https://sandbox.cuenca.com/cards/CAYNfqsQTFSnKz56n6Vw6rTw
+  response:
+    body:
+      string: '{"id":"CAYNfqsQTFSnKz56n6Vw6rTw","created_at":"2021-02-25T20:00:41.131000","updated_at":"2021-02-25T20:00:41.131000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","number":"5113910084308447","exp_month":2,"exp_year":2026,"cvv2":"896","type":"virtual","status":"active","pin":null,"issuer":"cuenca","funding_type":"debit","pin_block":null,"_cls":"BaseCard.CuencaCard","batch":null,"manufacturer":null,"cvv":null,"icvv":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '414'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 05 Mar 2021 00:09:53 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-604176cb-6d716f89449758b74dd53c3d;Sampled=0
+      X-Request-Time:
+      - 'value: 5.647'
+      x-amz-apigw-id:
+      - br9_0FC8CYcFdFA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '414'
+      x-amzn-Remapped-Date:
+      - Fri, 05 Mar 2021 00:09:53 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 3c0af4eb-5d9c-4f3d-96cb-653df509051a
+      x-amzn-RequestId:
+      - 2d14e70d-00a5-4208-9911-5f6e84b6f1b9
     status:
       code: 200
       message: OK
