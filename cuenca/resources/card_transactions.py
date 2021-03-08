@@ -3,6 +3,7 @@ from typing import ClassVar, List, Optional, cast
 from cuenca_validations.types import (
     CardErrorType,
     CardNetwork,
+    CardTransactionQuery,
     CardTransactionType,
     CardType,
 )
@@ -16,6 +17,7 @@ from .resources import retrieve_uri, retrieve_uris
 @dataclass
 class CardTransaction(Transaction):
     _resource: ClassVar = 'card_transactions'
+    _query_params: ClassVar = CardTransactionQuery
 
     type: CardTransactionType
     network: CardNetwork
