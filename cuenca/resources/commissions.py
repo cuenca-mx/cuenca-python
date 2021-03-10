@@ -1,4 +1,4 @@
-from typing import ClassVar, Type, cast
+from typing import ClassVar, cast
 
 from cuenca_validations.types import CommissionType, EntryType
 from pydantic.dataclasses import dataclass
@@ -17,7 +17,5 @@ class Commission(Transaction):
     related_transaction_uri: str
 
     @property  # type: ignore
-    def related_transaction(self) -> Type[Transaction]:
-        return cast(
-            Type[Transaction], retrieve_uri(self.related_transaction_uri)
-        )
+    def related_transaction(self) -> Transaction:
+        return cast(Transaction, retrieve_uri(self.related_transaction_uri))
