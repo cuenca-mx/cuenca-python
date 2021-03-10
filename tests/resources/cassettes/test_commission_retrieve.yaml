@@ -23,7 +23,7 @@ interactions:
   response:
     body:
       string: '{"id":"COXXX","created_at":"2020-09-24T00:29:34.830000","user_id":"US2qz3mrAomlP8LWG106tILW","amount":25000,"status":"created","descriptor":"Comisi\u00f3n
-        (card_request)", "type": "cash_deposit","related_transaction_uri":null}'
+        (card_request)", "type": "cash_deposit","related_transaction_uri":"/deposits/CDXXX"}'
     headers:
       Connection:
       - keep-alive

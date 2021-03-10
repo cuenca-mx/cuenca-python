@@ -1,12 +1,17 @@
-from typing import ClassVar, cast
+from typing import ClassVar, TypeVar, cast
 
-from cuenca_validations.types import EntryType, RelatedTransaction
+from cuenca_validations.types import EntryType
 from pydantic.dataclasses import dataclass
 
-from cuenca import resources
-
-from .base import Queryable, Retrievable
+from .accounts import Account
+from .base import Queryable, Retrievable, Transaction
+from .cards import Card
 from .resources import retrieve_uri
+from .service_providers import ServiceProvider
+
+FundingInstrument = TypeVar(
+    'FundingInstrument', Account, ServiceProvider, Card
+)
 
 
 @dataclass
@@ -18,10 +23,16 @@ class BalanceEntry(Retrievable, Queryable):
     name: str
     rolling_balance: int
     type: EntryType
-    related_transaction_uri: RelatedTransaction
+    related_transaction_uri: str
+    funding_instrument_uri: str
 
     @property  # type: ignore
-    def related_transaction(self):
-        rt = self.related_transaction_uri
-        resource = getattr(resources, rt.get_model())
-        return cast(resource, retrieve_uri(rt)) if resource else None
+    def related_transaction(self) -> Transaction:
+        return cast(Transaction, retrieve_uri(self.related_transaction_uri))
+
+    @property  # type: ignore
+    def funding_instrument(self) -> FundingInstrument:
+        return cast(
+            FundingInstrument,
+            retrieve_uri(self.funding_instrument_uri),
+        )

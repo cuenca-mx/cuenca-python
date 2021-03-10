@@ -26,16 +26,12 @@ class Transfer(Transaction, Creatable):
     account_number: str
     idempotency_key: str
     network: TransferNetwork
+    destination_uri: str
     tracking_key: Optional[str]  # clave rastreo if network is SPEI
-    destination_uri: Optional[str]  # defined after confirmation of receipt
 
     @property  # type: ignore
     def destination(self) -> Optional[Account]:
-        if self.destination_uri is None:
-            acct = None
-        else:
-            acct = cast(Account, retrieve_uri(self.destination_uri))
-        return acct
+        return cast(Account, retrieve_uri(self.destination_uri))
 
     @classmethod
     def create(

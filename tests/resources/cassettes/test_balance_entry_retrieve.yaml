@@ -23,7 +23,7 @@ interactions:
   response:
     body:
       string: '{"id":"TV01","created_at":"2020-10-15T22:27:53.712000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","name":"Dep\u00f3sito
-        de efectivo","amount":25000,"descriptor":"Deposito v\u00eda paynet auth 304054","rolling_balance":144519,"type":"credit","related_transaction_uri":"/deposits/CDI7SJOifauN5WnqfMhXK4R"}'
+        de efectivo","amount":25000,"descriptor":"Deposito v\u00eda paynet auth 304054","rolling_balance":144519,"type":"credit","related_transaction_uri":"/deposits/CDI7SJOifauN5WnqfMhXK4R","funding_instrument_uri":"/accounts/BA01"}'
     headers:
       Connection:
       - keep-alive
@@ -74,7 +74,7 @@ interactions:
   response:
     body:
       string: '{"id":"CDI7SJOifauN5WnqfMhXK4R","created_at":"2020-10-15T22:27:53.827000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":25000,"status":"succeeded","descriptor":"Deposito
-        v\u00eda paynet auth 304054","source_uri":null,"network":"cash","tracking_key":null}'
+        v\u00eda paynet auth 304054","source_uri":"/accounts/BA01","network":"cash","tracking_key":null}'
     headers:
       Connection:
       - keep-alive
@@ -98,6 +98,53 @@ interactions:
       - Uqz7UG_QIAMFVtQ=
       x-amzn-RequestId:
       - 75f5428f-9a18-455b-9984-cc3e80fbde4b
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.2.0.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/accounts/BA01
+  response:
+    body:
+      string: '{"id":"BA01","created_at":"2020-06-03T02:43:52.922000","name":"Frida
+        Kahlo","account_number":"072691004495711499","institution_name":"Banorte/Ixe"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '147'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 16 Jun 2020 04:32:14 GMT
+      Via:
+      - 1.1 738c4d7519e726c557e6997ecf719e4b.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 3um0wIx959TPYgV9OOAd-EcmImhJCL0EENfjLsbJo6N5l_zPG_lByQ==
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amzn-Trace-Id:
+      - Root=1-5ee84b4e-89001b2256aa31154faffe45;Sampled=0
+      X-Cache:
+      - Miss from cloudfront
+      x-amz-apigw-id:
+      - ONC0RHYuoAMF3pw=
+      x-amzn-RequestId:
+      - c4451173-95e6-4636-b7b8-6f268b4c9918
     status:
       code: 200
       message: OK

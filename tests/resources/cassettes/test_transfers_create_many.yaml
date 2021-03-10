@@ -17,38 +17,44 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.2.0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: POST
     uri: https://sandbox.cuenca.com/transfers
   response:
     body:
-      string: '{"id":"TRQ3WpYW6MQaeoL5mVFprr0g","created_at":"2020-06-24T21:03:52.020615","updated_at":"2020-06-24T21:03:52.392496","account_number":"646180157034181180","recipient_name":"Rogelio
-        Lopez","amount":10000,"descriptor":"Mi primer transferencia","idempotency_key":"35b241e25814445faf25c9cbcfc388a6","status":"submitted","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}'
+      string: '{"id":"TRTtT-P6ZGRq-XOnSAwSnfQQ","created_at":"2021-03-03T18:53:49.680772","updated_at":"2021-03-03T18:53:50.108897","account_number":"646180157034181180","recipient_name":"Rogelio
+        Lopez","amount":10000,"descriptor":"Mi primer transferencia","idempotency_key":"35b241e25814445faf25c9cbcfc388a6","status":"submitted","network":"internal","destination_uri":"/accounts/ACQVx7_Bw8TR2VBccVnfxwgA","tracking_key":null,"user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '380'
+      - '473'
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Jun 2020 21:03:54 GMT
-      Via:
-      - 1.1 29a1c68127d9dc10f4d3f796d32c8104.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - UjhPsBzfB4doehazeZz0UxaJqGBYcbyIa6zMHRs3CX9V-RG8K4HA1Q==
-      X-Amz-Cf-Pop:
-      - DFW55-C1
+      - Wed, 03 Mar 2021 18:53:50 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5ef3bfb7-2b35c0873a5a957f7cf0d5b3;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fdb3d-433862a606f4c6761c71b891;Sampled=0
+      X-Request-Time:
+      - 'value: 0.711'
       x-amz-apigw-id:
-      - OprkwF8DoAMFmlw=
+      - bn8xnGShiYcFqKw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '473'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:53:50 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - ebbb7bd7-fefc-4e24-8b67-3dba3f5adac0
       x-amzn-RequestId:
-      - c52b292e-8164-4fc5-a5b5-db38289dded0
+      - 19c1a6a0-e6d1-426c-9908-17dccbabf26f
     status:
       code: 201
       message: Created
@@ -70,38 +76,44 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.2.0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: POST
     uri: https://sandbox.cuenca.com/transfers
   response:
     body:
-      string: '{"id":"TR0h5kmeA5TbG9Kf8HIZ1cCA","created_at":"2020-06-24T21:03:54.637946","updated_at":"2020-06-24T21:03:54.995211","account_number":"646180157034181180","recipient_name":"Rogelio
-        Lopez","amount":10001,"descriptor":"Mi segundo transferencia","idempotency_key":"dc15fc432a734724ab1e5884a4a24a2c","status":"submitted","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}'
+      string: '{"id":"TRaZmNcFSfR-u0ur2ahAE-Ig","created_at":"2021-03-03T18:53:50.548741","updated_at":"2021-03-03T18:53:50.869113","account_number":"646180157034181180","recipient_name":"Rogelio
+        Lopez","amount":10001,"descriptor":"Mi segundo transferencia","idempotency_key":"dc15fc432a734724ab1e5884a4a24a2c","status":"submitted","network":"internal","destination_uri":"/accounts/ACQVx7_Bw8TR2VBccVnfxwgA","tracking_key":null,"user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '381'
+      - '474'
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Jun 2020 21:03:57 GMT
-      Via:
-      - 1.1 29a1c68127d9dc10f4d3f796d32c8104.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - q_U00AyXbSqT_3Pp714G6nyJkowVj7bmusr-7uMttMAqqDEaID3beg==
-      X-Amz-Cf-Pop:
-      - DFW55-C1
+      - Wed, 03 Mar 2021 18:53:50 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5ef3bfba-6d7948c6a550cd6115c3bd81;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fdb3e-1bef0f0a26ed074a3b51181d;Sampled=0
+      X-Request-Time:
+      - 'value: 0.642'
       x-amz-apigw-id:
-      - OprlLFBkIAMFtcg=
+      - bn8xvFwsiYcFzNw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '474'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:53:50 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 79282ede-c02d-4743-96da-eec2d77d57c0
       x-amzn-RequestId:
-      - 664e4689-dc65-43a5-a3c0-932c0422166b
+      - 9f104bb7-4436-4327-8ea8-dde5ed428527
     status:
       code: 201
       message: Created
@@ -123,20 +135,22 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.2.0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: POST
     uri: https://sandbox.cuenca.com/transfers
   response:
     body:
-      string: "[\n  {\n    \"loc\": [\n      \"account_number\"\n    ],\n    \"msg\":
-        \"ensure this value has at least 18 characters\",\n    \"type\": \"value_error.any_str.min_length\",\n
-        \   \"ctx\": {\n      \"limit_value\": 18\n    }\n  },\n  {\n    \"loc\":
-        [\n      \"account_number\"\n    ],\n    \"msg\": \"The card number contains
-        a BIN (first six digits) that does not havea known association with a Mexican
-        bank. To add the association,please file an issue:https://github.com/cuenca-mx/cuenca-validations/issues\",\n
-        \   \"type\": \"value_error.payment_card_number.bin\"\n  }\n]"
+      string: "[\n  {\n    \"loc\": [\n      \"account_number\"\n    ],\n    \"msg\"\
+        : \"ensure this value has at least 18 characters\",\n    \"type\": \"value_error.any_str.min_length\"\
+        ,\n    \"ctx\": {\n      \"limit_value\": 18\n    }\n  },\n  {\n    \"loc\"\
+        : [\n      \"account_number\"\n    ],\n    \"msg\": \"The card number contains\
+        \ a BIN (first six digits) that does not havea known association with a Mexican\
+        \ bank. To add the association,please file an issue:https://github.com/cuenca-mx/cuenca-validations/issues\"\
+        ,\n    \"type\": \"value_error.payment_card_number.bin\"\n  }\n]"
     headers:
       Connection:
       - keep-alive
@@ -145,21 +159,23 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Jun 2020 21:03:59 GMT
-      Via:
-      - 1.1 29a1c68127d9dc10f4d3f796d32c8104.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - UFpWq7nZ47OPgMQ4SjS0Z0zT-lOI4s46un5nBLdoaiAp4qGG680lvg==
-      X-Amz-Cf-Pop:
-      - DFW55-C1
+      - Wed, 03 Mar 2021 18:53:51 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5ef3bfbd-5a650270c3000f609d81e370;Sampled=0
-      X-Cache:
-      - Error from cloudfront
+      - Root=1-603fdb3f-09cb73ce2170251f44de72ae;Sampled=0
       x-amz-apigw-id:
-      - OprlkEmuIAMF-4w=
+      - bn8x3GxBiYcFx_A=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '526'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:53:51 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 37dd38db-f0de-4359-b998-2e73566c78eb
       x-amzn-RequestId:
-      - 4ee60e4d-1207-4ac0-8981-97368e23f384
+      - 31769d83-2c89-4ad0-8425-6ef189d8a4e1
     status:
       code: 400
       message: Bad Request

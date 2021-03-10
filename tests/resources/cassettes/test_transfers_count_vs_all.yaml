@@ -11,37 +11,43 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.0.2dev0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: GET
-    uri: https://sandbox.cuenca.com/transfers?status=succeeded&count=1
+    uri: https://sandbox.cuenca.com/transfers?count=1&status=succeeded
   response:
     body:
-      string: '{"count":2}'
+      string: '{"count":21}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '11'
+      - '12'
       Content-Type:
       - application/json
       Date:
-      - Tue, 19 May 2020 23:39:04 GMT
-      Via:
-      - 1.1 8f99d698624c0704470547731241e283.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - Dw6WWrWG8fL0YaHMUFKi3OE9VxsRz9ZUAKtZeZXB63lIH7sXn5VNXQ==
-      X-Amz-Cf-Pop:
-      - MIA3-C3
+      - Wed, 03 Mar 2021 18:41:57 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5ec46e18-96c784c6ea45c568b560f474;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fd875-23d3abb921cefec10923a639;Sampled=0
+      X-Request-Time:
+      - 'value: 0.213'
       x-amz-apigw-id:
-      - MzYj5GkfoAMFmPA=
+      - bn7CWHWhiYcFvFg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '12'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:41:57 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 3a937bff-ea29-4b5c-9300-f201b608641a
       x-amzn-RequestId:
-      - 8351b405-1f38-4e75-81c1-5f960649e02d
+      - cff854d2-435f-4dd3-8631-f2f5441bb021
     status:
       code: 200
       message: OK
@@ -57,39 +63,64 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.0.2dev0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: GET
     uri: https://sandbox.cuenca.com/transfers?status=succeeded
   response:
     body:
-      string: '{"items":[{"id":"TRhKxyL1lhQvSiMx7whOpEJA==","created_at":"2020-05-19T19:34:31.400000","updated_at":"2020-05-19T19:34:34.985000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"key_roger_2","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRRAnqEwwRRZWVgwbDjtAGeA==","created_at":"2020-05-19T19:07:10.018000","updated_at":"2020-05-19T19:07:14.234000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}],"next_page_uri":"/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000&status=succeeded"}'
+      string: '{"items":[{"id":"LT4EOaa93rHWYKIzg2RGyOba","created_at":"2020-10-23T22:24:39.354000","updated_at":"2021-02-25T23:03:05.396000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":16,"descriptor":"Te woa roabar","idempotency_key":"LT4EOaa93rHWYKIzg2RGyOba","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT4EOaa93rHWYKIzg2RGyOba","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1mBDdpF6ATsAepwqtTqHzz","created_at":"2020-10-15T22:06:31.024000","updated_at":"2021-02-25T23:02:58.874000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1200,"descriptor":"tqm","idempotency_key":"LT1mBDdpF6ATsAepwqtTqHzz","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1mBDdpF6ATsAepwqtTqHzz","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT2jOOCHSQCwXfRRpmNE1wMj","created_at":"2020-10-07T23:40:13.947000","updated_at":"2021-02-25T23:02:58.597000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"esta es la que es","idempotency_key":"LT2jOOCHSQCwXfRRpmNE1wMj","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT2jOOCHSQCwXfRRpmNE1wMj","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LTnK4XywBIWkYExExNHz7rD","created_at":"2020-10-07T23:15:01.254000","updated_at":"2021-02-25T23:02:58.499000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"ahora","idempotency_key":"LTnK4XywBIWkYExExNHz7rD","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LTnK4XywBIWkYExExNHz7rD","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT7p7hcRSvQaTf3P20TzM9XX","created_at":"2020-10-07T23:04:24.476000","updated_at":"2021-02-25T23:02:58.397000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"a ver","idempotency_key":"LT7p7hcRSvQaTf3P20TzM9XX","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT7p7hcRSvQaTf3P20TzM9XX","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT4Qzwigoa6dkAcsAmYzyJxx","created_at":"2020-10-07T22:57:33.170000","updated_at":"2021-02-25T23:02:58.282000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"veamos","idempotency_key":"LT4Qzwigoa6dkAcsAmYzyJxx","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT4Qzwigoa6dkAcsAmYzyJxx","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1AqFH8RmkASrnR21N2okTu","created_at":"2020-10-07T21:58:10.447000","updated_at":"2021-02-25T23:02:57.962000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"no sirve :(","idempotency_key":"LT1AqFH8RmkASrnR21N2okTu","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1AqFH8RmkASrnR21N2okTu","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT57mXy4UmHG1bbgNAY1y8rf","created_at":"2020-10-07T21:55:39.918000","updated_at":"2021-02-25T23:02:57.868000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"no sirve :(","idempotency_key":"LT57mXy4UmHG1bbgNAY1y8rf","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT57mXy4UmHG1bbgNAY1y8rf","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT4TIG10k9EXonZCU835TCrS","created_at":"2020-10-07T21:54:40.385000","updated_at":"2021-02-25T23:02:57.765000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"no sirve :(","idempotency_key":"LT4TIG10k9EXonZCU835TCrS","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT4TIG10k9EXonZCU835TCrS","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT7mPbHPXe4hbfRpkV0FbxaQ","created_at":"2020-10-07T21:48:20.717000","updated_at":"2021-02-25T23:02:57.657000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"desde la app","idempotency_key":"LT7mPbHPXe4hbfRpkV0FbxaQ","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT7mPbHPXe4hbfRpkV0FbxaQ","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT3OJLspWOhvjAR43IzFu7GP","created_at":"2020-10-07T19:23:20.176000","updated_at":"2021-02-25T23:02:57.367000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"llegaraaaaa","idempotency_key":"LT3OJLspWOhvjAR43IzFu7GP","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT3OJLspWOhvjAR43IzFu7GP","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT7jBIOW7O2iHlD7i33MdmQd","created_at":"2020-10-07T19:14:02.009000","updated_at":"2021-02-25T23:02:57.005000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"llegaraaaaa","idempotency_key":"LT7jBIOW7O2iHlD7i33MdmQd","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT7jBIOW7O2iHlD7i33MdmQd","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1Kx6Nq7JMMxHufsSQ92iCy","created_at":"2020-10-07T19:03:07.777000","updated_at":"2021-02-25T23:02:56.904000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"esta si llegara","idempotency_key":"LT1Kx6Nq7JMMxHufsSQ92iCy","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1Kx6Nq7JMMxHufsSQ92iCy","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT44Zzlm6DMDeNVDXms9HZFu","created_at":"2020-10-07T18:41:40.104000","updated_at":"2021-02-25T23:02:56.845000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"asdfg","idempotency_key":"LT44Zzlm6DMDeNVDXms9HZFu","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT44Zzlm6DMDeNVDXms9HZFu","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LTnkt2lHGkB6gWPg3GBW46J","created_at":"2020-10-07T18:30:34.522000","updated_at":"2021-02-25T23:02:56.634000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"asdfg","idempotency_key":"LTnkt2lHGkB6gWPg3GBW46J","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LTnkt2lHGkB6gWPg3GBW46J","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT3apiGKqhKzE7YZ4LUxiGhf","created_at":"2020-10-07T17:30:57.807000","updated_at":"2021-02-25T23:02:56.434000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"jfjd","idempotency_key":"LT3apiGKqhKzE7YZ4LUxiGhf","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT3apiGKqhKzE7YZ4LUxiGhf","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT6HZbaj4MzieTMdXeoWI6fO","created_at":"2020-10-07T17:24:21.481000","updated_at":"2021-02-25T23:02:56.333000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"hilo","idempotency_key":"LT6HZbaj4MzieTMdXeoWI6fO","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT6HZbaj4MzieTMdXeoWI6fO","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT5Fu1FTnvWIWkWP5Xzr0OkZ","created_at":"2020-10-07T17:16:31.334000","updated_at":"2021-02-25T23:02:56.250000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"holi","idempotency_key":"LT5Fu1FTnvWIWkWP5Xzr0OkZ","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT5Fu1FTnvWIWkWP5Xzr0OkZ","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1nFL8Rz643QXKHcIxVFpFg","created_at":"2020-10-03T00:14:32.666000","updated_at":"2021-02-25T23:02:55.862000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"test2","idempotency_key":"LT1nFL8Rz643QXKHcIxVFpFg","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1nFL8Rz643QXKHcIxVFpFg","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT4f4Dyp1uJqDs9VsBDcZ0VW","created_at":"2020-10-03T00:06:05.160000","updated_at":"2021-02-25T23:02:55.763000","account_number":"646180157090560499","recipient_name":"Jessica
+        Shalom Gonzalez Torres","amount":1,"descriptor":"para ti bebe","idempotency_key":"LT4f4Dyp1uJqDs9VsBDcZ0VW","status":"succeeded","network":"internal","destination_uri":"/accounts/LA6VZfOC5Lraflv6CnHEoUDD","tracking_key":"LT4f4Dyp1uJqDs9VsBDcZ0VW","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT2U5CQFTjgsDl7ZdLynyx7F","created_at":"2020-10-02T23:55:36.646000","updated_at":"2021-02-25T23:02:55.660000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":5,"descriptor":"millones","idempotency_key":"LT2U5CQFTjgsDl7ZdLynyx7F","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT2U5CQFTjgsDl7ZdLynyx7F","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '769'
+      - '10226'
       Content-Type:
       - application/json
       Date:
-      - Tue, 19 May 2020 23:39:07 GMT
-      Via:
-      - 1.1 8f99d698624c0704470547731241e283.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - AXDMVqQ2AF7-Fpj-iZFALyXnr9kRfXvtaXQOE2vMQkLEl3TM9vPVMQ==
-      X-Amz-Cf-Pop:
-      - MIA3-C3
+      - Wed, 03 Mar 2021 18:41:58 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5ec46e1b-503529387980bff690cd3d81;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fd875-442e0d836fa7713b082bb57b;Sampled=0
+      X-Request-Time:
+      - 'value: 0.335'
       x-amz-apigw-id:
-      - MzYkWGC0oAMFb9w=
+      - bn7CaHhmCYcF-5w=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '10226'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:41:58 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 5a964b12-bceb-4604-be35-bde1e197d9fe
       x-amzn-RequestId:
-      - 306ac85b-fb9e-4fee-afbc-8aecb84f7e33
+      - bd716d0d-7220-4ceb-a21c-1045fd99b5c7
     status:
       code: 200
       message: OK
@@ -105,83 +136,43 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.0.2dev0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000&status=succeeded
-  response:
-    body:
-      string: '{"items":[],"next_page_uri":null}'
-    headers:
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '33'
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 19 May 2020 23:39:08 GMT
-      Via:
-      - 1.1 8f99d698624c0704470547731241e283.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - xqcuBvDnQ6qObVvsqTaTaZOfJEg2zbbI-jTjFbB5q4fM0-9-5EYWIg==
-      X-Amz-Cf-Pop:
-      - MIA3-C3
-      X-Amzn-Trace-Id:
-      - Root=1-5ec46e1b-e78ad800508a3114320d2754;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
-      x-amz-apigw-id:
-      - MzYkZEH6oAMFfMw=
-      x-amzn-RequestId:
-      - 2bfceac0-ae88-4e57-8cac-bc5a689327ca
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - DUMMY
-      Connection:
-      - keep-alive
-      User-Agent:
-      - cuenca-python/0.0.2dev0
-      X-Cuenca-Api-Version:
-      - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: GET
     uri: https://sandbox.cuenca.com/transfers?count=1
   response:
     body:
-      string: '{"count":306}'
+      string: '{"count":23}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '13'
+      - '12'
       Content-Type:
       - application/json
       Date:
-      - Tue, 19 May 2020 23:39:21 GMT
-      Via:
-      - 1.1 8f99d698624c0704470547731241e283.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 4b54SubqUqGwdc7o_zAV2yAqTH1VkzMiqcqufhCTZy8QvjNoOLoJYQ==
-      X-Amz-Cf-Pop:
-      - MIA3-C3
+      - Wed, 03 Mar 2021 18:41:58 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5ec46e29-15037e31acfd6734558701c3;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fd876-5ec1d12c42d0e84c026a2e3c;Sampled=0
+      X-Request-Time:
+      - 'value: 0.198'
       x-amz-apigw-id:
-      - MzYmdGWlIAMF-mw=
+      - bn7CfH-NiYcFY-Q=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '12'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:41:58 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 4620cd87-a293-4a6b-969f-c05fdb8c0b30
       x-amzn-RequestId:
-      - f5f994c9-62d7-4f1d-99eb-ec7dbc947978
+      - c0655aa4-d399-428a-a834-e500da7975c4
     status:
       code: 200
       message: OK
@@ -197,527 +188,66 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.0.2dev0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: GET
     uri: https://sandbox.cuenca.com/transfers
   response:
     body:
-      string: '{"items":[{"id":"TRNEejctVIQuyNCjAGwq1IUw==","created_at":"2020-05-19T23:04:08.029000","updated_at":"2020-05-19T23:04:08.733000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"31bd253ae50c476097a832734206142c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRuf3WmgmBReOYBKahEH9KMg==","created_at":"2020-05-19T23:04:07.412000","updated_at":"2020-05-19T23:04:07.849000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e5d55a6dc3e54fa796533d951134901d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRnnl6hrQYRsS38HRTv7ZWLA==","created_at":"2020-05-19T23:04:06.169000","updated_at":"2020-05-19T23:04:07.403000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"0892723d84f34d20b92ed2e9f86cc460","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRlDVhsnRXRT-_7aE9b2zqoQ==","created_at":"2020-05-19T22:51:36.157000","updated_at":"2020-05-19T22:51:37.623000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"bf7ad163e4fa4c43bc6b6507bb3342ae","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRl7ekOBmjQeO1Fd1X64k7xA==","created_at":"2020-05-19T22:51:35.656000","updated_at":"2020-05-19T22:51:41.537000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e69bcf581e614c8da7ae8360c316143d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRQ54vdvaxR46KMfDVcG2nlg==","created_at":"2020-05-19T22:51:35.057000","updated_at":"2020-05-19T22:51:42.512000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"7465f6b82db0435285cab291c0edcd50","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR-QVmsLOIT1m-FZm1eJ0t_w==","created_at":"2020-05-19T22:51:34.376000","updated_at":"2020-05-19T22:51:37.537000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"cfa24d7bbdf64fab8e210d1ad195e6d3","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR0gfWuhfBSUmOW5FGjTuXlw==","created_at":"2020-05-19T22:51:33.878000","updated_at":"2020-05-19T22:51:36.495000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d43abc53c1c8424f960e22432cc0de2d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRrGMeuouYSne_54az6UeKcA==","created_at":"2020-05-19T22:51:33.296000","updated_at":"2020-05-19T22:51:34.476000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"bfd51e4aca6f43e58704cbc97973f9fa","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRV_7Wz-ywRTWZvhkx0YLqJw==","created_at":"2020-05-19T22:51:32.656000","updated_at":"2020-05-19T22:51:37.471000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"2de27643a3fa46249b2a3fbf56b729dc","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TReslnWoYdRqCAl1I_b9NnTA==","created_at":"2020-05-19T22:51:32.076000","updated_at":"2020-05-19T22:51:43.601000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"63b15d7832bc46faa475e4ab0d94d097","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR7rleFygKTouH3So4-erbaA==","created_at":"2020-05-19T22:51:31.459000","updated_at":"2020-05-19T22:51:43.520000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ecdce8962e224f6485bb288542a817a5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRaaZDZNdgTryDEU0UUXqjWQ==","created_at":"2020-05-19T22:51:30.859000","updated_at":"2020-05-19T22:51:40.551000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"41acacdd7aa4472695aa5a472abd5b71","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR32NA-lG_S2WNu5NprJ6HTQ==","created_at":"2020-05-19T22:51:30.276000","updated_at":"2020-05-19T22:51:31.607000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"7fe3c45744f041c4b077ffbf3bd8a538","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRTUXE_hQIQretRYctjcjzYA==","created_at":"2020-05-19T22:51:29.736000","updated_at":"2020-05-19T22:51:39.581000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b08764d3a620449681badcf323367f39","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRuccnLshfRuikaYiaQEAyoQ==","created_at":"2020-05-19T22:51:29.196000","updated_at":"2020-05-19T22:51:31.537000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"450e9bee4ef44dfca4879334659a0019","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRWc6V7lwRRimkr4WpLAmK6g==","created_at":"2020-05-19T22:51:28.699000","updated_at":"2020-05-19T22:51:30.478000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"4e4102309a5b494dbe34412b8fea62a8","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRoxOyTeDARAS9zaIOXi7-Jw==","created_at":"2020-05-19T22:51:28.016000","updated_at":"2020-05-19T22:51:31.469000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"fabbdd33e8154411997fd2a2dd3ed15d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR_5obflBvQnusqfMDUfagIw==","created_at":"2020-05-19T22:51:27.476000","updated_at":"2020-05-19T22:51:40.472000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"1a78e81028ad4e9084c090f97e47d19c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRERoX9Ek8TTOPPIopQcq1Xg==","created_at":"2020-05-19T22:51:26.840000","updated_at":"2020-05-19T22:51:27.481000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"913e1f2acd35438799dbda174646c622","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRoojZYC9EQZeF3pJTPhTCTQ==","created_at":"2020-05-19T22:51:26.316000","updated_at":"2020-05-19T22:51:28.617000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"81265a3c4319465f94ad57a9080c617d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRYK5iyJsMT4emJeFA5thIQg==","created_at":"2020-05-19T22:51:25.759000","updated_at":"2020-05-19T22:51:29.515000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c9e78e1ccbd1450caa74067444f3966b","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRhxZy9dliTxGx6z5yGUSOmw==","created_at":"2020-05-19T22:51:25.258000","updated_at":"2020-05-19T22:51:39.529000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"fb647bbf58cf42b1b45b713d6f012f8d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR58WBAQ7US7mV-wbILViUHg==","created_at":"2020-05-19T22:51:24.759000","updated_at":"2020-05-19T22:51:33.609000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b36272c85a834321be907a679e3a07f4","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRI1FJp7TaR9mMEyK81ZLq4A==","created_at":"2020-05-19T22:51:24.136000","updated_at":"2020-05-19T22:51:35.783000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"11bd224d19a54eaa858a30e2545f0fb9","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRHuHVcaXeSlWP8FRuPTUlmw==","created_at":"2020-05-19T22:51:23.516000","updated_at":"2020-05-19T22:51:33.841000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"27b1338aa97d423f8c95f6971dcde8d5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR8xpTSpgcSe65jupGStyidQ==","created_at":"2020-05-19T22:51:22.996000","updated_at":"2020-05-19T22:51:38.477000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d7e3b765e885473e9774bacfbacbd6e1","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRhqVn9OoKT-y_9SAah6oGaA==","created_at":"2020-05-19T22:51:22.499000","updated_at":"2020-05-19T22:51:28.545000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"01a794be9bc84453b9b400c04b033d84","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR2wnug6tTTOGq9ye9Emeltg==","created_at":"2020-05-19T22:51:21.959000","updated_at":"2020-05-19T22:51:35.570000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"08742a88bf1e45c99f816015b43a0e66","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRq5ZIQFV5T0uESotU4AvcpA==","created_at":"2020-05-19T22:51:21.459000","updated_at":"2020-05-19T22:51:33.493000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"967c2218c36f40c9ab14fa120242d577","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRMaDmhXDEQvOPzGD68ByDuQ==","created_at":"2020-05-19T22:51:20.938000","updated_at":"2020-05-19T22:51:24.464000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"bf79c527af2d42a089564828725fd547","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR2ITI_5rHT_WhGA4p64-Bjw==","created_at":"2020-05-19T22:51:20.396000","updated_at":"2020-05-19T22:51:22.579000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"7ccf8e29a6b94d39a8f35fd53a189a64","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TREc6lYRH0RumlwlZmmCzCCA==","created_at":"2020-05-19T22:51:19.919000","updated_at":"2020-05-19T22:51:35.489000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"63e65d137411491ca41bf40683be3301","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRP6hy53HMQ02czu7MmTc70w==","created_at":"2020-05-19T22:51:19.438000","updated_at":"2020-05-19T22:51:32.481000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"9a1122c1fdc1459ab68086737b258d4a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRMA5xv0onTCKlVDDTMWYAGw==","created_at":"2020-05-19T22:51:18.936000","updated_at":"2020-05-19T22:51:28.475000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"9a3cfe61e152405c8b6a116801bc742a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRH_Zch9iXSeqUzCwjzHRWqA==","created_at":"2020-05-19T22:51:18.419000","updated_at":"2020-05-19T22:51:23.540000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"a262c3fa58ea42f29557d26746a4f069","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRfBXALeE_TmGMoaCkQOl3Ww==","created_at":"2020-05-19T22:51:17.876000","updated_at":"2020-05-19T22:51:25.597000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"05c82a1d11774556a61ab860355a4915","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRXcMBWjFeSjuMQotw7tl0_g==","created_at":"2020-05-19T22:51:17.259000","updated_at":"2020-05-19T22:51:26.461000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8add7cffcfc34beea00cfdc3d320e6da","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRKy95V4ZaRNeEsNtHt8ZFCw==","created_at":"2020-05-19T22:51:16.756000","updated_at":"2020-05-19T22:51:25.527000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b6569cec282e44618f969498523c4a04","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR7d_VgH_tQJOqV1rt3Y7rew==","created_at":"2020-05-19T22:51:16.216000","updated_at":"2020-05-19T22:51:17.498000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ac357303f1f24a59a520f96272656c48","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRmK9t5S-ERBWVOvC8mp9vlA==","created_at":"2020-05-19T22:51:15.559000","updated_at":"2020-05-19T22:51:18.585000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"34fbac2cf6564d91930351b67f6b725d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR_f3hyi0STkGfs1LJkFjwog==","created_at":"2020-05-19T22:51:15.079000","updated_at":"2020-05-19T22:51:22.510000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"9e48b006fa6046c282a716210ee2e53f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRcamGkf_OQV-9q49axuuS1w==","created_at":"2020-05-19T22:51:14.537000","updated_at":"2020-05-19T22:51:18.496000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"91c18e23e5824f7ebe758b236cf83a77","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR1XvulrEkQXy4NwYdNxdHHw==","created_at":"2020-05-19T22:51:14.056000","updated_at":"2020-05-19T22:51:22.441000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"94d9c2a7e0af4361843393740bc28cc4","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TReJxy81DJTBq88EPUUeP7eQ==","created_at":"2020-05-19T22:51:13.456000","updated_at":"2020-05-19T22:51:16.501000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"49d341d57a7b4d84aa31dcd11b0ddacb","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRlp7m473aRW-nInHADKAwew==","created_at":"2020-05-19T22:51:12.859000","updated_at":"2020-05-19T22:51:16.441000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"9fae735cfd864586bafe7fbf85321c5a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRrmkj68KPT6WOIs6JHSB5aw==","created_at":"2020-05-19T22:51:12.336000","updated_at":"2020-05-19T22:51:15.501000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ba6ec5654f424376a3cfa75e55433210","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRqd__RlG_Q6K5uI8kZLXF1g==","created_at":"2020-05-19T22:51:11.736000","updated_at":"2020-05-19T22:51:25.443000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c17a48d4f5f44d2e884fdcacb0471568","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSTD7l-HMR8Gq6MHfgtRovA==","created_at":"2020-05-19T22:51:11.219000","updated_at":"2020-05-19T22:51:14.601000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"7d5f252f57d74d61b743427b0e456009","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRR_7qdq9uSm2v5mZDh0kDhQ==","created_at":"2020-05-19T22:51:10.604000","updated_at":"2020-05-19T22:51:18.434000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"a75b291480b4491a8b7d80d21af9d8a7","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRdxnfImhtTF-NKGvjixBuGg==","created_at":"2020-05-19T22:51:10.096000","updated_at":"2020-05-19T22:51:11.492000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"51e726b443744020aab0f2117e8c5836","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRIC-Kx_GWQOuqvjoqi56MIA==","created_at":"2020-05-19T22:51:09.576000","updated_at":"2020-05-19T22:51:10.625000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"4d1d5430432f4aec92547c024eb43bb6","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSMi3TjlUR-GR55aVsmx9Fw==","created_at":"2020-05-19T22:51:09.116000","updated_at":"2020-05-19T22:51:10.511000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"9abb713b280c4c9da5e2493c378d4974","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TREFV6hriQTL-hEzZuJoXc-w==","created_at":"2020-05-19T22:51:08.619000","updated_at":"2020-05-19T22:51:14.432000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"11c9ea5cde9240608b3fcb5a0586fd4f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRgNbguCOKRISL2qqYwuB91g==","created_at":"2020-05-19T22:51:07.980000","updated_at":"2020-05-19T22:51:09.423000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"89232202908a48739a47e900dd0bcf7a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRaENxyYoZRpSnmuKx1hQncg==","created_at":"2020-05-19T22:51:07.496000","updated_at":"2020-05-19T22:51:15.441000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d626a5f693f14da0b5ead6ed8c5cdb07","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRLAZ1SbquQsajYUaavOQPnw==","created_at":"2020-05-19T22:51:06.859000","updated_at":"2020-05-19T22:51:07.461000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d035f210d4b84fe88ea4ad6f6aa5bc33","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRb5WT-D95RzqVPLxHyGj5sg==","created_at":"2020-05-19T22:51:06.299000","updated_at":"2020-05-19T22:51:11.421000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b7d6d09f9b4948788fd10ef4f2f87ead","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRgU2sqph-SUyFEZ-5TH6m4A==","created_at":"2020-05-19T22:51:05.759000","updated_at":"2020-05-19T22:51:20.581000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"23e15c99fb714ec28f1e13c00e8d7994","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRzfR9fZe-Q76l7nbeXsJ5Hg==","created_at":"2020-05-19T22:51:05.276000","updated_at":"2020-05-19T22:51:06.476000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"6407c135ca1f46afb2f57ceb595ff0dd","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRtT-4lVBNQcu4taQtQhoy3w==","created_at":"2020-05-19T22:51:04.698000","updated_at":"2020-05-19T22:51:05.492000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"a5080475798d48ef8f928de3caa4292a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRa1DKohfjS0KOBiQOhN6g9g==","created_at":"2020-05-19T22:51:04.219000","updated_at":"2020-05-19T22:51:20.511000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"171f1a83101b4c49b253359811bc82d8","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR7onnQcooTr-giPHj_l81xA==","created_at":"2020-05-19T22:51:03.599000","updated_at":"2020-05-19T22:51:04.569000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e738798833d84f49941ef7ac32904474","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRABoGRXGkQ4KDMC69qP-CWA==","created_at":"2020-05-19T22:51:02.997000","updated_at":"2020-05-19T22:51:21.434000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8c7cb727f2644d7bbd502e4abb7c3b6e","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRpBMNTqMZRbeSF_m82sGa9A==","created_at":"2020-05-19T22:51:02.341000","updated_at":"2020-05-19T22:51:05.409000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"1b44f3366eb9489481f11f5b0f4e3fea","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRkRE5P-wMTBO6tROw__GxeA==","created_at":"2020-05-19T22:51:01.696000","updated_at":"2020-05-19T22:51:20.440000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"0fe3d495c82f43b99698ebdfc7fc3ac2","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRZeJJqvZ0ThiHvt3WSUL52Q==","created_at":"2020-05-19T22:51:01.176000","updated_at":"2020-05-19T22:51:04.498000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c611b51805d1458988bb608b22d40ff1","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRXVilR7i-SKeopKYp-KTk5g==","created_at":"2020-05-19T22:51:00.636000","updated_at":"2020-05-19T22:51:19.445000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"0323942646154c9fa713191b0e9c07f8","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRunItITNbSF28GHOTNb65Hg==","created_at":"2020-05-19T22:51:00.158000","updated_at":"2020-05-19T22:51:08.571000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8ffd03f21ad54f74ae2989cca2d7a0bb","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRasF5FkTGQGysxNwHTW--aQ==","created_at":"2020-05-19T22:50:59.636000","updated_at":"2020-05-19T22:51:03.416000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e2fa64233ea84e3f86d8a827075a54ab","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRy7a0hAwGT2Css4EZ7YF9ig==","created_at":"2020-05-19T22:50:59.096000","updated_at":"2020-05-19T22:51:01.441000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"68b4dfd5896e4fbbbe8ce34cce47f7b2","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRmfvxhIXIRX6QiRAbb5KKcg==","created_at":"2020-05-19T22:50:58.516000","updated_at":"2020-05-19T22:51:00.469000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ef7b257e733c4d28864c4db715dc3e73","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR7RUaD4LZQoW6QfvXnfnGZA==","created_at":"2020-05-19T22:50:58.039000","updated_at":"2020-05-19T22:51:08.497000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d0ae63fe9a3c431aa78055eded991cec","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR34sYNac4TQGAMaMvEj065g==","created_at":"2020-05-19T22:50:57.399000","updated_at":"2020-05-19T22:50:59.649000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"cc471c0583be4d83a95dabe5c0987562","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR-MeAM7e-RlyxMcQ1pMPzhQ==","created_at":"2020-05-19T22:50:56.836000","updated_at":"2020-05-19T22:50:57.422000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"88ee5f00fd0c432cbbcfa9b5e5ddabc4","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRMomrsHnwQDebEBJMXV7QIg==","created_at":"2020-05-19T22:50:56.218000","updated_at":"2020-05-19T22:50:59.581000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"6fd0c99f17154836850af070661a79ae","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR3gQpAnqXSl2iz46JQLziDg==","created_at":"2020-05-19T22:50:55.636000","updated_at":"2020-05-19T22:51:08.441000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"1c6cf1accebe4cf287712f9d31975726","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRzyH2_D-5Q9S4t860jZXcAA==","created_at":"2020-05-19T22:50:55.156000","updated_at":"2020-05-19T22:50:58.419000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ea318380d8b7473a819f9e1062ef8dca","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRiEgvWuNPRd-EqKqDirfLsQ==","created_at":"2020-05-19T22:50:54.599000","updated_at":"2020-05-19T22:50:55.420000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8814435ad72945a689bccf40e473594c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRidLp_XWqSP2V-MY7YLQDqw==","created_at":"2020-05-19T22:50:54.116000","updated_at":"2020-05-19T22:50:59.516000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8626a117a3f5489b98041bdaf8bd43b7","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRu2shc4b1SeCBG3V8p7J5sQ==","created_at":"2020-05-19T22:50:53.576000","updated_at":"2020-05-19T22:50:54.412000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b86992fc313a4effbf3db6227d1f158f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRDp0YiV_MQemH37lve4xKUg==","created_at":"2020-05-19T22:50:52.996000","updated_at":"2020-05-19T22:50:56.461000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"7df63cc8260c484691f78319bfeed652","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TREmF0WoPRTryKmNadcg26qQ==","created_at":"2020-05-19T22:50:52.499000","updated_at":"2020-05-19T22:50:53.420000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"933621e6d6b647c7bad81b068d9adcb8","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR497q-rSeTWOWFlGdfDxvVw==","created_at":"2020-05-19T22:50:51.916000","updated_at":"2020-05-19T22:50:52.454000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"20faf63ebcea40c19c47e542545d8bf0","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR5Hnq0h8gSyivwBcTMru8dw==","created_at":"2020-05-19T22:50:51.279000","updated_at":"2020-05-19T22:51:02.725000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8d5f6ea7186d41b2acffeb5dcaeb010e","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRcTeJjzPPRpufxzg-GWpyHQ==","created_at":"2020-05-19T22:50:50.736000","updated_at":"2020-05-19T22:51:02.489000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"565c34304e634536bc7c7f8a9c4f688a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRg2t9tHbjT3uZqAIoetybQA==","created_at":"2020-05-19T22:50:50.236000","updated_at":"2020-05-19T22:50:51.461000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b3785fc66d934319bd5d9d28147ddbf7","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR4QPZygQOQXW26ruoNjRDjw==","created_at":"2020-05-19T22:50:49.719000","updated_at":"2020-05-19T22:50:51.387000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"73bef54e4f4247909292d1df5bcc1794","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRJyVDzsM_Rg6Ku7U2nq3Nlw==","created_at":"2020-05-19T22:50:49.179000","updated_at":"2020-05-19T22:50:50.481000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"cfee63cbcc904638bf91bc6d22b09523","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRqlt2lu2rSJW6fEtWhs9a9A==","created_at":"2020-05-19T22:50:48.279000","updated_at":"2020-05-19T22:50:50.409000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c89afc1820a0479db58afb1399545eaa","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRYjbd8zV1TnyqTdVWRm_Zww==","created_at":"2020-05-19T22:50:47.759000","updated_at":"2020-05-19T22:51:02.417000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"f7a708cdd9eb4f36b53d784fb0541f6e","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR4JL7fNpxS7mWYA6irAHlUg==","created_at":"2020-05-19T22:50:47.216000","updated_at":"2020-05-19T22:50:49.420000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"4dd294208a37451c8fc1a982ac9ae57f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRsepmqbCfSAutdirq80jizg==","created_at":"2020-05-19T22:50:46.736000","updated_at":"2020-05-19T22:50:48.541000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"38fde0a9defb47d19928e7bef872de76","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRW972j2mCQPayEZChhQwSww==","created_at":"2020-05-19T22:50:46.119000","updated_at":"2020-05-19T22:50:48.417000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8ae4cef2df1841cb8540c319bf3fe8e5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRtIhpxj4NQjixiCwIcQMoEQ==","created_at":"2020-05-19T22:50:45.636000","updated_at":"2020-05-19T22:50:46.416000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"f7ddd5fd1e9f44129666a272a2a57b16","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TROKWStY9kTyOKYhrjpg3TZw==","created_at":"2020-05-19T22:50:45.136000","updated_at":"2020-05-19T22:50:47.569000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"03d94d86238d4c20956206d6b2e4eee6","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRNPvi4vQ1RK-iBOxIq4Vgmw==","created_at":"2020-05-19T22:50:44.558000","updated_at":"2020-05-19T22:50:45.486000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e42f05f230bc47268df1e1af9b97540c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRt0SsyO8pTL-wa36jIBIOTg==","created_at":"2020-05-19T22:50:44.079000","updated_at":"2020-05-19T22:50:45.415000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"33d0173d73a2413e9508facbfdb8c6fe","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR4g7qLeDKSyOmXW-igaibLA==","created_at":"2020-05-19T22:50:43.399000","updated_at":"2020-05-19T22:50:44.456000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c8b7950fd4bc43a8a1ab2bbb3ead8c72","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRoNVh2TR7S2WVs8pc8wDChg==","created_at":"2020-05-19T22:50:42.916000","updated_at":"2020-05-19T22:50:45.701000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ce27f69f47994c9fa2930ca04de84acb","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}],"next_page_uri":"/transfers?limit=100&created_before=2020-05-19T22%3A50%3A42.916000"}'
+      string: '{"items":[{"id":"LT4EOaa93rHWYKIzg2RGyOba","created_at":"2020-10-23T22:24:39.354000","updated_at":"2021-02-25T23:03:05.396000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":16,"descriptor":"Te woa roabar","idempotency_key":"LT4EOaa93rHWYKIzg2RGyOba","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT4EOaa93rHWYKIzg2RGyOba","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"SP2HRt59nQS0CxivBTbyL18q","created_at":"2020-10-21T01:38:41.360000","updated_at":"2021-02-25T23:04:01.477000","account_number":"012180015398741275","recipient_name":"Andres
+        Hernande Bancomer","amount":100,"descriptor":"probando oaxaca","idempotency_key":"SP2HRt59nQS0CxivBTbyL18q","status":"submitted","network":"spei","destination_uri":"/accounts/LA6VZfOC5Lraflv6CnHEoUDD","tracking_key":"CUENCA443213841488","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1mBDdpF6ATsAepwqtTqHzz","created_at":"2020-10-15T22:06:31.024000","updated_at":"2021-02-25T23:02:58.874000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1200,"descriptor":"tqm","idempotency_key":"LT1mBDdpF6ATsAepwqtTqHzz","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1mBDdpF6ATsAepwqtTqHzz","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT2jOOCHSQCwXfRRpmNE1wMj","created_at":"2020-10-07T23:40:13.947000","updated_at":"2021-02-25T23:02:58.597000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"esta es la que es","idempotency_key":"LT2jOOCHSQCwXfRRpmNE1wMj","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT2jOOCHSQCwXfRRpmNE1wMj","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LTnK4XywBIWkYExExNHz7rD","created_at":"2020-10-07T23:15:01.254000","updated_at":"2021-02-25T23:02:58.499000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"ahora","idempotency_key":"LTnK4XywBIWkYExExNHz7rD","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LTnK4XywBIWkYExExNHz7rD","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT7p7hcRSvQaTf3P20TzM9XX","created_at":"2020-10-07T23:04:24.476000","updated_at":"2021-02-25T23:02:58.397000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"a ver","idempotency_key":"LT7p7hcRSvQaTf3P20TzM9XX","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT7p7hcRSvQaTf3P20TzM9XX","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT4Qzwigoa6dkAcsAmYzyJxx","created_at":"2020-10-07T22:57:33.170000","updated_at":"2021-02-25T23:02:58.282000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"veamos","idempotency_key":"LT4Qzwigoa6dkAcsAmYzyJxx","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT4Qzwigoa6dkAcsAmYzyJxx","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1AqFH8RmkASrnR21N2okTu","created_at":"2020-10-07T21:58:10.447000","updated_at":"2021-02-25T23:02:57.962000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"no sirve :(","idempotency_key":"LT1AqFH8RmkASrnR21N2okTu","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1AqFH8RmkASrnR21N2okTu","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT57mXy4UmHG1bbgNAY1y8rf","created_at":"2020-10-07T21:55:39.918000","updated_at":"2021-02-25T23:02:57.868000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"no sirve :(","idempotency_key":"LT57mXy4UmHG1bbgNAY1y8rf","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT57mXy4UmHG1bbgNAY1y8rf","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT4TIG10k9EXonZCU835TCrS","created_at":"2020-10-07T21:54:40.385000","updated_at":"2021-02-25T23:02:57.765000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"no sirve :(","idempotency_key":"LT4TIG10k9EXonZCU835TCrS","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT4TIG10k9EXonZCU835TCrS","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT7mPbHPXe4hbfRpkV0FbxaQ","created_at":"2020-10-07T21:48:20.717000","updated_at":"2021-02-25T23:02:57.657000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"desde la app","idempotency_key":"LT7mPbHPXe4hbfRpkV0FbxaQ","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT7mPbHPXe4hbfRpkV0FbxaQ","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT3OJLspWOhvjAR43IzFu7GP","created_at":"2020-10-07T19:23:20.176000","updated_at":"2021-02-25T23:02:57.367000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"llegaraaaaa","idempotency_key":"LT3OJLspWOhvjAR43IzFu7GP","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT3OJLspWOhvjAR43IzFu7GP","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT2lmOf5ujL469OF2E2fpS6o","created_at":"2020-10-07T19:18:30.818000","updated_at":"2021-02-25T23:02:57.109000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"llegaraaaaa","idempotency_key":"LT2lmOf5ujL469OF2E2fpS6o","status":"created","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT2lmOf5ujL469OF2E2fpS6o","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT7jBIOW7O2iHlD7i33MdmQd","created_at":"2020-10-07T19:14:02.009000","updated_at":"2021-02-25T23:02:57.005000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"llegaraaaaa","idempotency_key":"LT7jBIOW7O2iHlD7i33MdmQd","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT7jBIOW7O2iHlD7i33MdmQd","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1Kx6Nq7JMMxHufsSQ92iCy","created_at":"2020-10-07T19:03:07.777000","updated_at":"2021-02-25T23:02:56.904000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"esta si llegara","idempotency_key":"LT1Kx6Nq7JMMxHufsSQ92iCy","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1Kx6Nq7JMMxHufsSQ92iCy","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT44Zzlm6DMDeNVDXms9HZFu","created_at":"2020-10-07T18:41:40.104000","updated_at":"2021-02-25T23:02:56.845000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"asdfg","idempotency_key":"LT44Zzlm6DMDeNVDXms9HZFu","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT44Zzlm6DMDeNVDXms9HZFu","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LTnkt2lHGkB6gWPg3GBW46J","created_at":"2020-10-07T18:30:34.522000","updated_at":"2021-02-25T23:02:56.634000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"asdfg","idempotency_key":"LTnkt2lHGkB6gWPg3GBW46J","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LTnkt2lHGkB6gWPg3GBW46J","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT3apiGKqhKzE7YZ4LUxiGhf","created_at":"2020-10-07T17:30:57.807000","updated_at":"2021-02-25T23:02:56.434000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"jfjd","idempotency_key":"LT3apiGKqhKzE7YZ4LUxiGhf","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT3apiGKqhKzE7YZ4LUxiGhf","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT6HZbaj4MzieTMdXeoWI6fO","created_at":"2020-10-07T17:24:21.481000","updated_at":"2021-02-25T23:02:56.333000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"hilo","idempotency_key":"LT6HZbaj4MzieTMdXeoWI6fO","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT6HZbaj4MzieTMdXeoWI6fO","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT5Fu1FTnvWIWkWP5Xzr0OkZ","created_at":"2020-10-07T17:16:31.334000","updated_at":"2021-02-25T23:02:56.250000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"holi","idempotency_key":"LT5Fu1FTnvWIWkWP5Xzr0OkZ","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT5Fu1FTnvWIWkWP5Xzr0OkZ","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT1nFL8Rz643QXKHcIxVFpFg","created_at":"2020-10-03T00:14:32.666000","updated_at":"2021-02-25T23:02:55.862000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":1,"descriptor":"test2","idempotency_key":"LT1nFL8Rz643QXKHcIxVFpFg","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT1nFL8Rz643QXKHcIxVFpFg","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT4f4Dyp1uJqDs9VsBDcZ0VW","created_at":"2020-10-03T00:06:05.160000","updated_at":"2021-02-25T23:02:55.763000","account_number":"646180157090560499","recipient_name":"Jessica
+        Shalom Gonzalez Torres","amount":1,"descriptor":"para ti bebe","idempotency_key":"LT4f4Dyp1uJqDs9VsBDcZ0VW","status":"succeeded","network":"internal","destination_uri":"/accounts/LA6VZfOC5Lraflv6CnHEoUDD","tracking_key":"LT4f4Dyp1uJqDs9VsBDcZ0VW","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null},{"id":"LT2U5CQFTjgsDl7ZdLynyx7F","created_at":"2020-10-02T23:55:36.646000","updated_at":"2021-02-25T23:02:55.660000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":5,"descriptor":"millones","idempotency_key":"LT2U5CQFTjgsDl7ZdLynyx7F","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT2U5CQFTjgsDl7ZdLynyx7F","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '35296'
+      - '11159'
       Content-Type:
       - application/json
       Date:
-      - Tue, 19 May 2020 23:39:55 GMT
-      Via:
-      - 1.1 8f99d698624c0704470547731241e283.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - EEJ8twRZCMBKVYLPW_T9Vvw4uD5emCmPao1FgW-6VYMBbV_pWS6olg==
-      X-Amz-Cf-Pop:
-      - MIA3-C3
+      - Wed, 03 Mar 2021 18:41:59 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5ec46e4b-5e7986809e7041b5642a761b;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fd876-0573923e6136eba50706cb18;Sampled=0
+      X-Request-Time:
+      - 'value: 0.313'
       x-amz-apigw-id:
-      - MzYrwHmZoAMFZ_g=
+      - bn7CkEX_iYcFRFQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '11159'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:41:59 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 197a586f-eb33-4dea-b99d-735dbc510996
       x-amzn-RequestId:
-      - e97a5e9d-3497-4cd1-b5bb-d31711449057
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - DUMMY
-      Connection:
-      - keep-alive
-      User-Agent:
-      - cuenca-python/0.0.2dev0
-      X-Cuenca-Api-Version:
-      - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/transfers?limit=100&created_before=2020-05-19T22%3A50%3A42.916000
-  response:
-    body:
-      string: '{"items":[{"id":"TRa7QsZJxfTB2tmrY3SciCMA==","created_at":"2020-05-19T22:50:42.296000","updated_at":"2020-05-19T22:50:45.662000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"3fe8686908c549c19f3e84521d1d4619","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRHPRMP6ZnQE2dvfIyPC-W_A==","created_at":"2020-05-19T22:50:41.716000","updated_at":"2020-05-19T22:50:44.553000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"393f606b2fa24158becc326723bdeb7f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRPN79P_60TvuCUE-o_cdYow==","created_at":"2020-05-19T22:50:41.099000","updated_at":"2020-05-19T22:50:43.835000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b1201a2c30924ad28023aef30620883d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR9XjxmrAjQwOwb1OLOrHwBA==","created_at":"2020-05-19T22:27:56.929000","updated_at":"2020-05-19T22:28:00.614000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e08df9c78dc441e6b996d7fec1de2b34","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRTdTlfKF6Qk-TsWloYiSD2g==","created_at":"2020-05-19T22:27:56.429000","updated_at":"2020-05-19T22:28:05.569000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"bbf6eadf02974a489a5da2624e3ea02a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRcb2Reh1HSOW8lPFFzd9juw==","created_at":"2020-05-19T22:27:55.992000","updated_at":"2020-05-19T22:28:08.599000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b711523c691148ea9fa67936383e769d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRfYoXNACJQOW2hEZw33_Q6A==","created_at":"2020-05-19T22:27:55.549000","updated_at":"2020-05-19T22:28:02.561000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"0d25b506e363416e83d853fbb106fd6b","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR58t9BxfQQH2T6aLGXl5w7w==","created_at":"2020-05-19T22:27:55.110000","updated_at":"2020-05-19T22:28:04.542000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"61415c28c1504e49be28eb39fe6c46df","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR4DX-Q0PKSl-R4V8pOP_9tQ==","created_at":"2020-05-19T22:27:54.649000","updated_at":"2020-05-19T22:28:00.537000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"a641d16a0546483dbf6ae205461639fe","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRcg0UlEKASK2RrXjs97TTjA==","created_at":"2020-05-19T22:27:54.192000","updated_at":"2020-05-19T22:28:03.814000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"6abd3ae4082640c09373803e8e138f07","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRWlEHFpB7S0qN8I_am6ANdw==","created_at":"2020-05-19T22:27:53.669000","updated_at":"2020-05-19T22:28:07.554000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ffca869028664b70a073cc5243c620ec","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRcbXYTQrHSe6l-0_xP81AhQ==","created_at":"2020-05-19T22:27:53.229000","updated_at":"2020-05-19T22:27:55.633000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b9998bd045324369962c6ea662cca340","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRNWYp8_ggRsaP-Id9GFLefA==","created_at":"2020-05-19T22:27:52.769000","updated_at":"2020-05-19T22:27:55.575000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"9312ee086417493bbe888fc26cf9c486","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRHv--mRp1Sl2Kv5ElizTelw==","created_at":"2020-05-19T22:27:52.289000","updated_at":"2020-05-19T22:28:03.750000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"bdd58565021f4ad8b71bca04d6afa9c7","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRJk4cEcitQZWy2XbmulQq0g==","created_at":"2020-05-19T22:27:51.851000","updated_at":"2020-05-19T22:27:54.527000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"2627ec1a969f42b09c4c6860eb34d8a6","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRqI2p-cb1Q_uoghac_29gEQ==","created_at":"2020-05-19T22:27:51.351000","updated_at":"2020-05-19T22:28:06.715000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c5cea0ba50594e898c5f428f0488bfaa","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRo5kZS5FIQ5uAY_E155CJ0A==","created_at":"2020-05-19T22:27:50.909000","updated_at":"2020-05-19T22:28:03.672000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"f6bf63e9a3cf4ef783ff6f9199cb3f90","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRTH38LLdMSfia1QvQAE5jAw==","created_at":"2020-05-19T22:27:50.429000","updated_at":"2020-05-19T22:27:59.609000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b8556bc7d59148b7a38451c555ccd95d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR55crLA9SQCGtlAkn9u6tyg==","created_at":"2020-05-19T22:27:49.969000","updated_at":"2020-05-19T22:28:01.658000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b92df4f88d6340e884afd23a5fbbb427","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRUO18rxvHSfK2zP3TGiT6Jw==","created_at":"2020-05-19T22:27:49.452000","updated_at":"2020-05-19T22:27:58.603000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8aa51672459b4b13a31f143344097c30","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRIoSpy2DqRW2NiuRQjRBJ_A==","created_at":"2020-05-19T22:27:48.969000","updated_at":"2020-05-19T22:27:58.528000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ad0b650d499849b48c4528d5193faae4","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSRVyfa95ShamSAMcDH_c-w==","created_at":"2020-05-19T22:27:48.529000","updated_at":"2020-05-19T22:27:53.623000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"3cbd325e1a4f432bb0f9518cbd5dd835","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR3zr8eprgQLaoVYz02ZjJDw==","created_at":"2020-05-19T22:27:48.089000","updated_at":"2020-05-19T22:27:57.594000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"52c748863aec4308998222533ba3111a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRWWdlHa_1Sn2lR4eGCL5ptQ==","created_at":"2020-05-19T22:27:47.589000","updated_at":"2020-05-19T22:27:50.523000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"add1e787c0cf4b4aa679de761c298d9e","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSSrcRNd2SlWCLogTpaltNw==","created_at":"2020-05-19T22:27:47.132000","updated_at":"2020-05-19T22:27:57.526000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"4827dc3a199e4b1db9d82c9d9e058e76","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR2atwKNYlQF6Sw6S_eTAKlw==","created_at":"2020-05-19T22:27:46.671000","updated_at":"2020-05-19T22:27:53.566000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"9dacd8090283461392b8eed0865c5f93","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR3wzPkvRrRHOPffpvgGoYhg==","created_at":"2020-05-19T22:27:46.231000","updated_at":"2020-05-19T22:27:51.661000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b727b74e48cb438196b8f48430fb36fd","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRs_K0zRkyQ5-ar81bx0iIgQ==","created_at":"2020-05-19T22:27:45.709000","updated_at":"2020-05-19T22:28:01.582000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"09499ae678f3434ebb2d743dd763e34f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRH0_y5yCCTNKf0u76hhZUcg==","created_at":"2020-05-19T22:27:45.249000","updated_at":"2020-05-19T22:27:51.590000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"37c67129381049cc8977aa0f2f06e597","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRFkXUgvK5SGGsqOV_uqbhtQ==","created_at":"2020-05-19T22:27:44.411000","updated_at":"2020-05-19T22:27:51.512000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"779e603bf6fd4861a824cce07a501fc6","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TReH958gutSk2f4dydvBKUdA==","created_at":"2020-05-19T22:27:43.929000","updated_at":"2020-05-19T22:27:59.626000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"3ecd8e0b8aae40a3bb8a5028d71c06b4","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR1vpiVSdYRsu-P_uOK3rs8g==","created_at":"2020-05-19T22:27:43.489000","updated_at":"2020-05-19T22:27:53.504000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"49ec66a2890948508d3d4a37d5f5c0e2","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRFp_vBuMVSt6gR6ZkozdpBA==","created_at":"2020-05-19T22:27:43.051000","updated_at":"2020-05-19T22:28:06.644000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"30a8f90d33e849beb0544a0528e23535","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRhLU3fJMZRTOdIU2cY58DPA==","created_at":"2020-05-19T22:27:42.592000","updated_at":"2020-05-19T22:27:44.535000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"9c04fa90b8ca4a31bc5510b271f7e4b3","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRXl7eVnw_SxiNg0iBdu7LPA==","created_at":"2020-05-19T22:27:42.129000","updated_at":"2020-05-19T22:27:56.610000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"2f6a7dd7187d43f0adf142e4574d5a9f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRCy-Vp8d6QRSew9iSCljfvQ==","created_at":"2020-05-19T22:27:41.669000","updated_at":"2020-05-19T22:27:42.505000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b724c2ce81ee431aa12146f392bce0c5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRTmF2PPUaTC-WWzFbyZzDfQ==","created_at":"2020-05-19T22:27:41.211000","updated_at":"2020-05-19T22:28:06.576000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"0b2c74683fef43cca847724a049496e8","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRUDovmo6vSUm2P4eajPSr6Q==","created_at":"2020-05-19T22:27:40.769000","updated_at":"2020-05-19T22:27:52.511000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c90af04fabad4db9bd19155d3f1cb60d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRqJKVX7x-Q5-XddsWPB0EVQ==","created_at":"2020-05-19T22:27:40.191000","updated_at":"2020-05-19T22:27:56.571000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"4d7ff71b882d4d9297c484a1b02d857f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRNSVlPwOpQzeOxE4lta3x5g==","created_at":"2020-05-19T22:27:39.729000","updated_at":"2020-05-19T22:27:45.663000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"526cb84d90f04ebfad0fee9690f28ced","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR1Z27mTbYR3S6Jp6J9ym4pw==","created_at":"2020-05-19T22:27:39.229000","updated_at":"2020-05-19T22:27:49.693000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"f18764b4a2c1494c98b8728c393dfe8d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRo8Pk5EG7ReWduDew3LRsOg==","created_at":"2020-05-19T22:27:38.729000","updated_at":"2020-05-19T22:27:49.603000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"6d2c1e0978f14b5e9d4ba324973da833","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRVzpjqdATS-6lvEOvQCWImQ==","created_at":"2020-05-19T22:27:38.252000","updated_at":"2020-05-19T22:27:45.582000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e73741e1e13648a29238e806100ef4e3","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR9x8pF7lYShKAzDHGzYbKDA==","created_at":"2020-05-19T22:27:37.753000","updated_at":"2020-05-19T22:27:45.510000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"53dc4aa429e64ce586256aee85745f60","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRnorwNKLUTMGMAPIWhmVBBw==","created_at":"2020-05-19T22:27:37.309000","updated_at":"2020-05-19T22:27:38.527000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"62ff6530d74941a39582ba0321676a68","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRDPKKN4TrQn2wGSJmQudeuA==","created_at":"2020-05-19T22:27:36.832000","updated_at":"2020-05-19T22:27:41.642000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e564051e82174157ab7a3f412f22fa69","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRhLMWTClZRIy6VmO17y2kuQ==","created_at":"2020-05-19T22:27:36.372000","updated_at":"2020-05-19T22:27:43.649000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c1a120b25f794d3dad404b3dd2a6937d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRic5abn4iQiGmiGvAZmvyog==","created_at":"2020-05-19T22:27:35.911000","updated_at":"2020-05-19T22:27:43.566000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d08676cd05b64212ac0f8fb1f9e12046","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRWzSEjQduSg6icXz5cWCskA==","created_at":"2020-05-19T22:27:35.452000","updated_at":"2020-05-19T22:27:49.511000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ab27a9ab499f4e9e8643dc62a6130661","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSdorsJWYTr6Cy-WuZ8TLFA==","created_at":"2020-05-19T22:27:34.910000","updated_at":"2020-05-19T22:27:37.536000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"673c828756464da3bb2cbc8d8514809e","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRMdZfwA_KSA28dud1obU6Jg==","created_at":"2020-05-19T22:27:34.411000","updated_at":"2020-05-19T22:27:36.517000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"1807f4f6a71047e0b72b7763b6cfab2d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRUyyM24eiQaeBCz5tH0q-yA==","created_at":"2020-05-19T22:27:33.889000","updated_at":"2020-05-19T22:27:48.519000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"319516e1bb2247d086bbe021b3a2d074","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRHXhs5MLyTvixGIPzgYCNNw==","created_at":"2020-05-19T22:27:33.448000","updated_at":"2020-05-19T22:27:41.563000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"41c4bc0e911443748c102c9b373ebf5a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRJ1y8lFMtR5WMzp93KEW6UA==","created_at":"2020-05-19T22:27:32.971000","updated_at":"2020-05-19T22:27:41.494000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b87c0c6a402d4420af979f1b50a52087","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR3Wxs8rWnSsy8bcoAugdh3w==","created_at":"2020-05-19T22:27:32.449000","updated_at":"2020-05-19T22:27:43.503000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"3df5e8f878454b529e4580f57b20cf3a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR1KnFUQxZSSKSxoeTv1KaIQ==","created_at":"2020-05-19T22:27:31.852000","updated_at":"2020-05-19T22:27:39.620000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b16aea08bf0b4396bf08b5aa968f6408","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRHJUDNXpUTguDxKQyXTtGaA==","created_at":"2020-05-19T22:27:31.369000","updated_at":"2020-05-19T22:27:39.557000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"5abe98823bd44e1f95955186ccde7e5b","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR4kx-2SltQNuY2OpmvzwlKA==","created_at":"2020-05-19T22:27:30.929000","updated_at":"2020-05-19T22:27:35.560000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"aa2807ada6f84e3091eebb6b609f3a4a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR3pMuDXNTRuuK7Z311UvZ-Q==","created_at":"2020-05-19T22:27:30.511000","updated_at":"2020-05-19T22:27:33.930000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"3c8b143984f04688826bb461b34774a5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRUtCtCsgsTy-015MMtMx-og==","created_at":"2020-05-19T22:27:30.049000","updated_at":"2020-05-19T22:27:39.500000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"de350fa28d4b4f75b9215e04c1b98fae","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR38wZ-WiCQZiWg5e4-e_Q_g==","created_at":"2020-05-19T22:27:29.609000","updated_at":"2020-05-19T22:27:32.584000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"478e612421c34fd9b36c9b0dc97c4bd2","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRHEH0jmLBTUeRrgbMRnFMyA==","created_at":"2020-05-19T22:27:29.171000","updated_at":"2020-05-19T22:27:33.519000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"6c24eda1d8844c9fa13fa8cada67d4f1","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRkNkRAmXCSy-TKtZKMuyrEQ==","created_at":"2020-05-19T22:27:28.729000","updated_at":"2020-05-19T22:27:31.552000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"4d89df634edf41a69f48ff8f60ed319d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR-PpUXzD-Rkqa-7Fw4dpyNg==","created_at":"2020-05-19T22:27:28.271000","updated_at":"2020-05-19T22:27:40.506000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"9f56eb2d5d804141b220ff1ebbff5bdb","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR3CdwXVBARxm_T9gJWU18Zw==","created_at":"2020-05-19T22:27:27.769000","updated_at":"2020-05-19T22:27:32.612000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"3eb719fbdcba4b36a7e8cbf3cf05d0d5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRIBNmvRRxQBiCPf6weA_XAA==","created_at":"2020-05-19T22:27:27.271000","updated_at":"2020-05-19T22:27:34.629000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d7b1552ae2ca48aeaa5623b5b84a85da","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR9ccZDTU-SSikDOwDjOIhVQ==","created_at":"2020-05-19T22:27:26.777000","updated_at":"2020-05-19T22:27:35.497000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"869217a2781d4255b0a8348311ca66c9","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRstOQO3dPTMekSWRiTGX39Q==","created_at":"2020-05-19T22:27:26.331000","updated_at":"2020-05-19T22:27:29.482000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"18de155ce1a3426bb615393e22e05d58","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRAZlYNCe6RfSGLsAl7YoeSg==","created_at":"2020-05-19T22:27:25.871000","updated_at":"2020-05-19T22:27:30.656000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"53f80055a21048e1bfb01aba0aade221","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRrPsEZG8URw-DR4eMWjQb1g==","created_at":"2020-05-19T22:27:25.431000","updated_at":"2020-05-19T22:27:30.578000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"62c8c0e923af44ea9868a86f705d694a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR-8e76NXEQqGJNYN3o7IaGQ==","created_at":"2020-05-19T22:27:24.989000","updated_at":"2020-05-19T22:27:34.498000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"54a199ec1d8948549286a38285ed00e1","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRizMvCNB7RaKs4Xf3F5Hj_A==","created_at":"2020-05-19T22:27:24.489000","updated_at":"2020-05-19T22:27:25.561000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8d8064541ee2445cb651c8849d119bba","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRb9tmJssDR32pkre2Bxzicw==","created_at":"2020-05-19T22:27:24.031000","updated_at":"2020-05-19T22:27:26.575000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"6d52019814164ff0bb0bb177117e9f0f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRxXa8rhhQSkK8zMMAY5OLXg==","created_at":"2020-05-19T22:27:23.512000","updated_at":"2020-05-19T22:27:26.503000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d549a20bf53f479d9d325912b1738df4","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRFi9JOg05TYuflw0aB5GWlQ==","created_at":"2020-05-19T22:27:22.989000","updated_at":"2020-05-19T22:27:23.553000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"3623b33c1b8c484b97f5dcdfe55ebf87","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRe2E89GJkRzO7AmJ0mQFqww==","created_at":"2020-05-19T22:27:22.490000","updated_at":"2020-05-19T22:27:30.509000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"66f5c9c4401d4b828c8e00ae636f94ed","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRG8OJlAK1SyirL1CD_3kUoQ==","created_at":"2020-05-19T22:27:22.051000","updated_at":"2020-05-19T22:27:23.482000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"669c96f7e2d8476bba52503db4b16837","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR35prem8UQXO42_pytCimXA==","created_at":"2020-05-19T22:27:21.591000","updated_at":"2020-05-19T22:27:22.547000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"6a81e06d1eee4a90b002668743c432c0","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRqC4u7dbWRe6ZEfpgeIJ5lg==","created_at":"2020-05-19T22:27:21.093000","updated_at":"2020-05-19T22:27:25.490000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e4abdc4e0afb4ad090b7e74426eb07c9","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRCn4wq_UrQiCPw2DGTKBwYA==","created_at":"2020-05-19T22:27:20.629000","updated_at":"2020-05-19T22:27:21.568000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"227a236646644a58ab92c104479081b7","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRAAeOckmZQB6ruwCKcGO7FA==","created_at":"2020-05-19T22:27:19.911000","updated_at":"2020-05-19T22:27:22.475000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8d123c1a7197404ca5b37d1ff58c9469","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRtBm73U2kTvyoCAWWZu_c0Q==","created_at":"2020-05-19T22:27:19.372000","updated_at":"2020-05-19T22:27:27.540000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"aeebcd44860649f9b8626dcb302f1e12","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSFYmCOWFQF22VMv55_4hCA==","created_at":"2020-05-19T22:27:18.831000","updated_at":"2020-05-19T22:27:19.507000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"2a2ae344132d40618260cf5fd410bc86","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRyXgoH5vnRBuXJ-0B8_oSxg==","created_at":"2020-05-19T22:27:18.389000","updated_at":"2020-05-19T22:27:21.501000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"029c78d88e13457cb70a1074850a8200","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRsX9qO0NQRhG4gC6k_EHPfA==","created_at":"2020-05-19T22:27:17.951000","updated_at":"2020-05-19T22:27:28.631000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"7b9174b7edc44b10a63848fd929c117d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRLjpJh-bxR5eR51Mm-76t3w==","created_at":"2020-05-19T22:27:17.431000","updated_at":"2020-05-19T22:27:20.608000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c83accc4733442d2b5c95aee3c49ec25","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRaHSAebAtS72H_SdTUrCyQg==","created_at":"2020-05-19T22:27:16.989000","updated_at":"2020-05-19T22:27:24.558000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e83c4aeee6a64bf8b7f162b129e28fbc","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR8sv8XLmvTpiHQlQZy9F6pA==","created_at":"2020-05-19T22:27:16.549000","updated_at":"2020-05-19T22:27:28.552000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"904466234a2f4194b023e13cc0bf44fb","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRqeQwx35cT5-B8GQp4yF5Zg==","created_at":"2020-05-19T22:27:16.109000","updated_at":"2020-05-19T22:27:24.491000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d2a1f348de344c5f8360c99701a10ff2","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRaIBo7DlDQB-5V7dVgHCPHg==","created_at":"2020-05-19T22:27:15.655000","updated_at":"2020-05-19T22:27:17.542000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"4130d23bd9314f03970522fe8e21b3c4","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRY9ikK-7HSWeJk0JXYsClVg==","created_at":"2020-05-19T22:27:15.150000","updated_at":"2020-05-19T22:27:28.491000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"7e73f05d365747c7a4e10284b3baa5dd","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRKIExB2qlQOGwugB3tzQCcQ==","created_at":"2020-05-19T22:27:14.669000","updated_at":"2020-05-19T22:27:15.506000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"62e4e9b7671a482a83fad1f6c1856ff7","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRevzKLIrrTMKDy2grkxj_Gg==","created_at":"2020-05-19T22:27:14.131000","updated_at":"2020-05-19T22:27:18.500000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"532ae145b9f4452bbeb77b6c1cf55287","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR8-JYN9ItTASHS-6Ooxi-ww==","created_at":"2020-05-19T22:27:13.591000","updated_at":"2020-05-19T22:27:16.641000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"98da624f1b274e7cb7df39f9c5e133e2","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRySFx80FsQ3SpPDOehIMlgA==","created_at":"2020-05-19T22:27:13.111000","updated_at":"2020-05-19T22:27:16.498000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"21a70ba816f646e0906cd190ca5b297b","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRnf94MnidRqqjEsigDwD57w==","created_at":"2020-05-19T22:27:12.589000","updated_at":"2020-05-19T22:27:14.473000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8ed1d94352544605b134d28d9a343792","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRCuUJlqmaTUqTVYUFdh0jxQ==","created_at":"2020-05-19T22:27:12.091000","updated_at":"2020-05-19T22:27:13.698000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"49f6466f8cd1420e9fe1105fe993bdf5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRIDuLDDRHQY27gRpqTfeZbg==","created_at":"2020-05-19T22:27:11.611000","updated_at":"2020-05-19T22:27:13.654000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"dc42b8084fd34564b576691a60f0538c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRGXPypqZhRRCkw_IOzeGpdA==","created_at":"2020-05-19T22:27:11.129000","updated_at":"2020-05-19T22:27:13.543000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"a41d41ee7d92404dab3fe13e074af657","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRa1Mvq7UYT2eJbopSTGfPRA==","created_at":"2020-05-19T22:27:10.669000","updated_at":"2020-05-19T22:27:13.584000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"285c7d3440dd43e9ad7acc4dd9d90f0d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}],"next_page_uri":"/transfers?limit=100&created_before=2020-05-19T22%3A27%3A10.669000"}'
-    headers:
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '35296'
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 19 May 2020 23:39:56 GMT
-      Via:
-      - 1.1 8f99d698624c0704470547731241e283.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - oiBV3TQEpFD6Tw1Jen8xRDH4y0SDcvmVVVeKBmqsnKddpPzoX2xPjA==
-      X-Amz-Cf-Pop:
-      - MIA3-C3
-      X-Amzn-Trace-Id:
-      - Root=1-5ec46e4b-ec669cecd86b0b8cbe048788;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
-      x-amz-apigw-id:
-      - MzYr3G97IAMFS9Q=
-      x-amzn-RequestId:
-      - eae506c9-6c08-43f2-ae90-d8251279ef76
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - DUMMY
-      Connection:
-      - keep-alive
-      User-Agent:
-      - cuenca-python/0.0.2dev0
-      X-Cuenca-Api-Version:
-      - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/transfers?limit=100&created_before=2020-05-19T22%3A27%3A10.669000
-  response:
-    body:
-      string: '{"items":[{"id":"TRVRfsI_RiSi-uMRC5GLSNIw==","created_at":"2020-05-19T22:27:10.191000","updated_at":"2020-05-19T22:27:12.542000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"f524ed0b6cc84650a72255b1905a5b5c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRp6dLzyt0TZmD_Maei_Qm6A==","created_at":"2020-05-19T22:27:09.669000","updated_at":"2020-05-19T22:27:12.617000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"852ad648e2cb4ff5a40f2f8d59a67c07","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRJYKupTuXQTSST4OlDoEQXg==","created_at":"2020-05-19T22:27:08.409000","updated_at":"2020-05-19T22:27:11.870000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"cff78e07b2a94d94a11a06c406269652","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR8337Zkd0SeyyyX5378m7ug==","created_at":"2020-05-19T22:00:58.756000","updated_at":"2020-05-19T22:01:34.298000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"7dc0b656aaef4cf3b713febf48a84f3a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR9fH7ZhicRduDovaAGU9C1w==","created_at":"2020-05-19T22:00:58.038000","updated_at":"2020-05-19T22:01:07.295000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"31c966032d0843fdba909daa0dd0d09d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRcIlTpYNtQIeKMotMX1ZV2w==","created_at":"2020-05-19T22:00:57.436000","updated_at":"2020-05-19T22:00:59.246000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"54abd471b9e144b5bb8f40a8e9af18b7","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRI6kvIpRgQRSxMBzBDtwKNQ==","created_at":"2020-05-19T22:00:56.858000","updated_at":"2020-05-19T22:01:34.226000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"5cd307f253b249d1bbc0c91b0b9ad98b","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRtOP1WKdsQpioLyFEgclaTQ==","created_at":"2020-05-19T22:00:56.416000","updated_at":"2020-05-19T22:01:34.138000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"a9051d9d55a4472f93f5cdde2abe769a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRohwOOsSmT_CSygfjpZX-VA==","created_at":"2020-05-19T22:00:55.776000","updated_at":"2020-05-19T22:01:06.305000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"dddce749f57344b1bb721b9ea9b6c5f6","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRiOvmDxe7SvqklW8oi3_5ow==","created_at":"2020-05-19T22:00:55.298000","updated_at":"2020-05-19T22:01:10.009000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"cce35e55059f4a0fbe03da239b5f3c82","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRQLD04AfeQsiEe--sHT50qQ==","created_at":"2020-05-19T22:00:54.797000","updated_at":"2020-05-19T22:00:57.311000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"40d4863ecf2d42dd92a757e2c3308363","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRXxiFA6YfQlKxxKu-K1QDXg==","created_at":"2020-05-19T22:00:54.357000","updated_at":"2020-05-19T22:01:02.282000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"581fd4cdff524dd5a3c6eb4acc3b0f69","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSFJO-1ePQHanGNXbwrV1fw==","created_at":"2020-05-19T22:00:53.796000","updated_at":"2020-05-19T22:01:08.579000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"bef76c420aa04fda9fd7b89b3f926f65","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR-_Z1JshNSfivX83YCBV98w==","created_at":"2020-05-19T22:00:53.340000","updated_at":"2020-05-19T22:01:33.445000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"63ab5e05a9284a2899a0ba62e1e6ada2","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRUMnmofwNR0aylhkKbr5MDg==","created_at":"2020-05-19T22:00:52.878000","updated_at":"2020-05-19T22:01:05.413000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"89a12cc8fc2b40a2a73efc48d3d242d7","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRjVu3o7h3TWOzzcnMpWImSw==","created_at":"2020-05-19T22:00:52.276000","updated_at":"2020-05-19T22:00:58.425000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8ffc88b788fc496c98f2848b41ac4d7a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRuOeEDjpfRnO2tdd3NMU64Q==","created_at":"2020-05-19T22:00:51.816000","updated_at":"2020-05-19T22:00:58.329000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"2d5001793b5047d39b4ac963f98e63e5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR97bbu5YQQvqi0nNKr6i8Mw==","created_at":"2020-05-19T22:00:51.378000","updated_at":"2020-05-19T22:01:08.425000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"188e70a4add4464c862cbeda2cbce1fc","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRoJuSr9zfR2m3Zmft0mg5FA==","created_at":"2020-05-19T22:00:50.938000","updated_at":"2020-05-19T22:00:52.260000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"89a85eb2ec8242c2851737c0e7c89c87","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRaFfoCp7tS4SZfeJeBBAQFA==","created_at":"2020-05-19T22:00:50.476000","updated_at":"2020-05-19T22:00:58.247000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"1ffe268944e44ff6ba7597c3cf30105b","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRKLGA-I7_Ty-jVTy-UBwrxg==","created_at":"2020-05-19T22:00:49.876000","updated_at":"2020-05-19T22:01:01.311000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8ef5044312a441288bebaced525aede1","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSjVQsppURV6zgoTfX5zLkA==","created_at":"2020-05-19T22:00:49.396000","updated_at":"2020-05-19T22:01:08.319000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d986206522ed4fbc8c43e1ec3f5649d5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRph1mxH7KQYGhNXTp09bsig==","created_at":"2020-05-19T22:00:48.956000","updated_at":"2020-05-19T22:01:04.271000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"559d6156e0c04df9b1fb59e85915742d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSe0wn4EDQSOlBaE5pvU0FQ==","created_at":"2020-05-19T22:00:48.436000","updated_at":"2020-05-19T22:01:05.341000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"06cd6516d7fd4c879a2c3d9bd473dae1","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRKAIX2vqHQyS8YlgN2yaUgQ==","created_at":"2020-05-19T22:00:47.978000","updated_at":"2020-05-19T22:00:56.262000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d78d1b94d5154f6b88cce03a01189658","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRINbrHrFnSmakM_3w_9u8YA==","created_at":"2020-05-19T22:00:47.478000","updated_at":"2020-05-19T22:00:50.335000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"4fc460cbd5c24f64be17d3013743f0fe","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRZOexfHjGQ6-takf_HNkE-Q==","created_at":"2020-05-19T22:00:47.016000","updated_at":"2020-05-19T22:00:50.267000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"88525b3dcf1045e388dc42546fb59be6","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSSMU8TEbQpGX3kXWfmDVvA==","created_at":"2020-05-19T22:00:46.179000","updated_at":"2020-05-19T22:00:48.395000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"88d2f7b6b462485d948f3dd2fafa96c3","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRUwCLFXn1TmeXpwhDWDd9jw==","created_at":"2020-05-19T22:00:45.618000","updated_at":"2020-05-19T22:01:05.264000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ad92139b18ef4ee4bc6ca74459d2614d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRXdDcfZ1fRn2lHTtLKE3rnQ==","created_at":"2020-05-19T22:00:45.118000","updated_at":"2020-05-19T22:00:48.308000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e558bad911da4d3092630028c9867d15","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRVwucydW6SfOn6ipr7QYnjA==","created_at":"2020-05-19T22:00:44.660000","updated_at":"2020-05-19T22:00:47.317000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ec0c0745666c4b1e817f6b66680115c3","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRlkMy9aKuTVGe1UOYRDFlZg==","created_at":"2020-05-19T22:00:44.198000","updated_at":"2020-05-19T22:00:46.333000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"bc97486e515840eab27a9ac45cf9edfc","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRDhQu5OxPSCqn5tlKAx4--A==","created_at":"2020-05-19T22:00:43.697000","updated_at":"2020-05-19T22:00:53.384000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"315322c3e84040e68308e5e0942086c8","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRpYMWaOP3RZqFuN80cGBBpA==","created_at":"2020-05-19T22:00:43.096000","updated_at":"2020-05-19T22:00:46.255000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"dd7b82ff74f9417994ee308a2d7afa0b","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRfgEw20x9QiOjNf80Jtr5-g==","created_at":"2020-05-19T22:00:42.664000","updated_at":"2020-05-19T22:01:03.423000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8173a05428644553b4be4b75a7b47f53","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TREyf1Ox7iTAyilFnjETD_4w==","created_at":"2020-05-19T22:00:42.178000","updated_at":"2020-05-19T22:01:03.344000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"497483d607474d82a0c7d69932d2dda4","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRUFcalSwoSLK5oxB7RyX-XA==","created_at":"2020-05-19T22:00:41.718000","updated_at":"2020-05-19T22:00:53.325000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b2bb36d53128447daf3ff1283222305c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR5Mn3tQt5QwWYgEFAXYGk0Q==","created_at":"2020-05-19T22:00:41.196000","updated_at":"2020-05-19T22:01:03.273000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"30d61d7752a242a7b3d0c6d3c3b0222d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRSyreYf7dS1SYq-25_H_0lg==","created_at":"2020-05-19T22:00:40.737000","updated_at":"2020-05-19T22:00:42.328000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"cfca7971f2264cbb97e2672c4c48cd38","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRkKUdbr6hRTeEJhfnRlezhw==","created_at":"2020-05-19T22:00:40.219000","updated_at":"2020-05-19T22:00:43.257000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"693e02db1309419ab1948472e6acde6d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR637AEsWhQHudWn7k8cOL7w==","created_at":"2020-05-19T22:00:39.638000","updated_at":"2020-05-19T22:00:42.248000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c607d770275a45799f9f473a6302b916","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRZKoAOM_xRbiKc3hMv4youg==","created_at":"2020-05-19T22:00:39.176000","updated_at":"2020-05-19T22:00:53.250000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"0190605646a6474e89964efcacc04414","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRhOtwwGMRQOaMvVcPwCK1Cw==","created_at":"2020-05-19T22:00:38.736000","updated_at":"2020-05-19T22:00:49.277000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"85415dde6fde4ff28ed4022308e33273","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRL2v0WvnRSDqNRi83dmpNTA==","created_at":"2020-05-19T22:00:38.138000","updated_at":"2020-05-19T22:00:48.238000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"1ac0e451d9a04218ab3e4c9588152ffb","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRoqG1dQMqQ4yQodgUO9vcLA==","created_at":"2020-05-19T22:00:37.718000","updated_at":"2020-05-19T22:01:00.745000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d6a10ae1ae0144f98798ad47e63b961a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRXGofZl26R2OuhzOy_11UNw==","created_at":"2020-05-19T22:00:37.158000","updated_at":"2020-05-19T22:00:45.230000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"22399ef447c140b2b2d9dbd2d6264753","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TROEYzyX5gRMKcGm9ClNaQrQ==","created_at":"2020-05-19T22:00:36.598000","updated_at":"2020-05-19T22:00:41.245000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"f1f17407dc154e77a62c997d20092de3","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRJ9SsevrhTsa8NwKZqo96Ng==","created_at":"2020-05-19T22:00:36.158000","updated_at":"2020-05-19T22:00:40.215000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c0ab04702f0e4ed5b7d81c55c75c49aa","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR7Btvb_OyQDajk2bupnERUg==","created_at":"2020-05-19T22:00:35.679000","updated_at":"2020-05-19T22:00:38.324000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c85ad4252cc14da4a8aea67624098984","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRUY3KaIkTQNajhlBtCYQC6Q==","created_at":"2020-05-19T22:00:35.138000","updated_at":"2020-05-19T22:00:36.346000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"f23ef209f9354d639f6f099649e20fec","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRGCY083WqQ2uFMHM9URvsog==","created_at":"2020-05-19T22:00:34.659000","updated_at":"2020-05-19T22:00:37.245000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b1aadbd4731d47a1bad34a0d9e7526b8","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRJaS0Lt6GQBmD1b9jBR5vtw==","created_at":"2020-05-19T22:00:34.156000","updated_at":"2020-05-19T22:01:00.347000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"7884f61cee90449d9f63a3cc860c3fc1","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR66FVWhzrTceIl2x2lvUVWQ==","created_at":"2020-05-19T22:00:33.696000","updated_at":"2020-05-19T22:00:35.264000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"9d2e39688dd64365bee64ed43726e291","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRPcJWkioYQDK1sQ877qt8DA==","created_at":"2020-05-19T22:00:33.238000","updated_at":"2020-05-19T22:00:44.433000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8ddcc473c8e24ef9bbbaac98e7cb14d9","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRhefm1uC-TcSaLVoPNrTsyw==","created_at":"2020-05-19T22:00:32.658000","updated_at":"2020-05-19T22:00:33.316000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"195d036ed81d4c3380013751dd3391f5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRAA751rYtQ2miXCYeXTmfVQ==","created_at":"2020-05-19T22:00:32.178000","updated_at":"2020-05-19T22:01:00.266000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b701368329dd4fccbede2f9bf6ba8f77","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRr9BaFNXmSDKya_Z7Udg7XQ==","created_at":"2020-05-19T22:00:31.720000","updated_at":"2020-05-19T22:00:51.345000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"3a9160e8845c43569c32f685c3cccb68","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRHv7Yxz2iTqaoFQx0cGD-Vw==","created_at":"2020-05-19T22:00:31.255000","updated_at":"2020-05-19T22:00:32.237000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"909bedbdbc164404a24121eefe139d96","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR6BUV8NADQJ6Hd10j9NObQg==","created_at":"2020-05-19T22:00:30.798000","updated_at":"2020-05-19T22:00:44.362000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"555e4e5dc97949ef9000910007ce6256","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRJKybM5NvRNSDDHJMVjUgZA==","created_at":"2020-05-19T22:00:30.317000","updated_at":"2020-05-19T22:00:36.248000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"8f809a14ec294460975bf310fdb2e95e","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRX3DUppv6SWm6fW7QqNVFpA==","created_at":"2020-05-19T22:00:29.719000","updated_at":"2020-05-19T22:00:31.328000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"57aa71ffefa74d569869a2f68109b211","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRlpzm5wfbTMC74AwNBX8R9A==","created_at":"2020-05-19T22:00:29.218000","updated_at":"2020-05-19T22:00:44.289000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b5d72e737184447f8a074fdf6b672e6d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRQZMuWiL7TyS_EmMWTurIKA==","created_at":"2020-05-19T22:00:28.756000","updated_at":"2020-05-19T22:00:51.249000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"0507a10b20a34fc9976b6282f4288316","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR5Qo6__TLQoyz1676m7SLXQ==","created_at":"2020-05-19T22:00:28.238000","updated_at":"2020-05-19T22:00:33.235000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d35a9ba475a740c8bf91eee005f79587","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR8WEk1ycuT8CuTjiijgEsiw==","created_at":"2020-05-19T22:00:27.786000","updated_at":"2020-05-19T22:00:39.395000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"c580c5c0e156404fba7c9519ef37f0f7","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRml5YJrwcT-O22_jJUcxLww==","created_at":"2020-05-19T22:00:27.296000","updated_at":"2020-05-19T22:00:29.200000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"10bb3fe3be9a4600908eba122395c6c2","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR97N0MrdBS8Scl-S_59-HEw==","created_at":"2020-05-19T22:00:26.698000","updated_at":"2020-05-19T22:00:31.258000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b66cab1caf484c22b385d24445d895b2","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRLQjkc77aSBSYEIHCXkZztQ==","created_at":"2020-05-19T22:00:26.217000","updated_at":"2020-05-19T22:00:30.244000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"884331c660914a0892351d18a6ad0c74","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TREr2TVKfGTG2x92ol16rELQ==","created_at":"2020-05-19T22:00:25.757000","updated_at":"2020-05-19T22:00:26.365000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"0fa62a4ff6474598aaf9a61b4de1c22d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRbBUu55l6R8uBJg8XfLaiQg==","created_at":"2020-05-19T22:00:25.339000","updated_at":"2020-05-19T22:00:39.316000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"6fc898642744487abd34aebdc0cdba2f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR1M8vodQDTFurtxDrevnagg==","created_at":"2020-05-19T22:00:24.876000","updated_at":"2020-05-19T22:00:26.281000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"aa4c7297809b498da7f1a7055ed2c419","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRn9EFOACtSv-SYgvxzO7agw==","created_at":"2020-05-19T22:00:24.416000","updated_at":"2020-05-19T22:00:39.244000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"dc0650460692479683330bcc19ded58d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR9pJOiK3cSiWyBQwyWFnZmw==","created_at":"2020-05-19T22:00:23.896000","updated_at":"2020-05-19T22:00:34.304000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"92f174feb3ef4bad8da1da3a093db13d","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRHZLzjJEQQMCX909p7r1WrQ==","created_at":"2020-05-19T22:00:23.318000","updated_at":"2020-05-19T22:00:34.224000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"bc4f010150d445f0a37f71b1b5278c9c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRFqbCWaVRT2OmC8Xg3BN-3A==","created_at":"2020-05-19T22:00:22.818000","updated_at":"2020-05-19T22:00:25.220000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"0420e596292140139b6d033c718b74a4","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRGh9ntDg_RmGLwSJwa-ALJQ==","created_at":"2020-05-19T22:00:22.256000","updated_at":"2020-05-19T22:00:24.266000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"20c1b96ca08a46b3b28f6989fc459072","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR89YJEyVDRSuRBzbRrcWBDg==","created_at":"2020-05-19T22:00:21.716000","updated_at":"2020-05-19T22:00:24.189000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b83921e3e3a64c3f942f59ce4b644e45","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRlcltcGJwQ9yjM9EsASNGmw==","created_at":"2020-05-19T22:00:21.278000","updated_at":"2020-05-19T22:00:28.385000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"fb11fbb40fb74ffa8c43db20c469c75b","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR85ySMnOwS52z8UIEE0q-_Q==","created_at":"2020-05-19T22:00:20.796000","updated_at":"2020-05-19T22:00:27.234000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e415d55d1b5a48718f45b60caa2f4aa3","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRra82T1F6TCKzSlNVBRfH2A==","created_at":"2020-05-19T22:00:20.156000","updated_at":"2020-05-19T22:00:23.358000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"b7dc0eec31a84d1ab5e90fef2072f3d0","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRy1nIGXa8SwqEhqViMvW-BA==","created_at":"2020-05-19T22:00:19.676000","updated_at":"2020-05-19T22:00:21.217000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"ee2b04c90cf24ce8827c9930ef22574f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRspfcYF1ZRhiBs7FxOlmC3w==","created_at":"2020-05-19T22:00:19.136000","updated_at":"2020-05-19T22:00:20.219000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"05b9d2478cb3497b957680024c38d982","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRRvcUPY-ZRk6glzcN1xafyQ==","created_at":"2020-05-19T22:00:18.459000","updated_at":"2020-05-19T22:00:28.305000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"91151fc745c14fd3b07765b0e0641435","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRgp6c1NuRTtaw5fSKpbsHxQ==","created_at":"2020-05-19T22:00:17.916000","updated_at":"2020-05-19T22:00:23.304000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"89299b5c9ec04258bde098642bad80f7","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRfn6q63exSMazg33BAcbypg==","created_at":"2020-05-19T22:00:17.478000","updated_at":"2020-05-19T22:00:19.204000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"59828ad04b8046068f08936029906594","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRQWkfqzrfRN21s8tMyKkNZQ==","created_at":"2020-05-19T22:00:16.916000","updated_at":"2020-05-19T22:00:18.345000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"39308baf18cf4168890e0a9b647cb9ae","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRD70kctrbTvuI_nzA6sbTZQ==","created_at":"2020-05-19T22:00:16.158000","updated_at":"2020-05-19T22:00:17.223000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"196e7e700603473d86682c598470e29c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TROT5scdICTtO350NIPy4lug==","created_at":"2020-05-19T22:00:15.736000","updated_at":"2020-05-19T22:00:28.217000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d2010f9947644410a17b7864d33e69d1","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRcdclpoiTSnOaqmpENw1t-w==","created_at":"2020-05-19T22:00:15.256000","updated_at":"2020-05-19T22:00:18.261000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"947c24d704734518921528539e55731c","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRb9ilP7zgTHeTj7pCyInQEw==","created_at":"2020-05-19T22:00:14.678000","updated_at":"2020-05-19T22:00:16.206000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"1d9092f3c14d4cbf9077f3af2da74fbd","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TR4wmzcGUlQtm-cgxzgCuFYA==","created_at":"2020-05-19T22:00:14.219000","updated_at":"2020-05-19T22:00:22.336000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"0a1ae6ce09f840c8a4c86a4737b2800e","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRG7jSpmiRTBCFx7ELDHpPHA==","created_at":"2020-05-19T22:00:13.696000","updated_at":"2020-05-19T22:00:15.221000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"62c013e2352a48e692ceaef971f6336a","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRHTgFjzWGTgutQ9dGzeouIw==","created_at":"2020-05-19T22:00:13.196000","updated_at":"2020-05-19T22:00:18.191000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"685abd8184464ee6b570bcaefc59dda9","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRs6SufUjoToiyg8-aoDIEVw==","created_at":"2020-05-19T22:00:12.696000","updated_at":"2020-05-19T22:00:13.410000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"f66200f495bc49a2bfa2d511fc7c1f4f","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRZFy1KRKXSwCTlzM0v4VesQ==","created_at":"2020-05-19T22:00:12.177000","updated_at":"2020-05-19T22:00:14.205000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"23f05fd47eb44448ba51dc53be071bb4","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRA8i5unnhTvqxzSokEuEt6w==","created_at":"2020-05-19T22:00:11.556000","updated_at":"2020-05-19T22:00:13.325000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"a91818d09c664ceb90f8d373a81a7ed0","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRT1DqrDu1S2WA-AqpXEkrIQ==","created_at":"2020-05-19T22:00:11.076000","updated_at":"2020-05-19T22:00:22.228000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"6cc3ac27937b4cc8aad848fecc016635","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRbD353LHZSbW4pmZJovNqwA==","created_at":"2020-05-19T22:00:10.296000","updated_at":"2020-05-19T22:00:11.212000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"2262dfaf7b494b13bea62edd2aba05b8","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRJcILfqJLRDGGEgUf2Bp4Sw==","created_at":"2020-05-19T22:00:09.716000","updated_at":"2020-05-19T22:00:12.218000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"d9e30a354aa240f7b05443baf9096cb5","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRjTIMlZ52ROec2nIA4PqefA==","created_at":"2020-05-19T22:00:09.216000","updated_at":"2020-05-19T22:00:10.241000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"e1fda51348d041909b48fbdb33bb7974","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}],"next_page_uri":"/transfers?limit=100&created_before=2020-05-19T22%3A00%3A09.216000"}'
-    headers:
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '35296'
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 19 May 2020 23:39:57 GMT
-      Via:
-      - 1.1 8f99d698624c0704470547731241e283.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - UytXc5dzvAdyfJ2szlfsqMNq-ok_0LDqXBPRNGEy-k6KHcVXceB0Rg==
-      X-Amz-Cf-Pop:
-      - MIA3-C3
-      X-Amzn-Trace-Id:
-      - Root=1-5ec46e4c-ad1554608410d82d7580bd51;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
-      x-amz-apigw-id:
-      - MzYr_GJeoAMFRDg=
-      x-amzn-RequestId:
-      - e1b83cdb-0559-44b4-89e4-689656a583bf
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - DUMMY
-      Connection:
-      - keep-alive
-      User-Agent:
-      - cuenca-python/0.0.2dev0
-      X-Cuenca-Api-Version:
-      - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/transfers?limit=100&created_before=2020-05-19T22%3A00%3A09.216000
-  response:
-    body:
-      string: '{"items":[{"id":"TR0RtmETUAQuSe0A1jspqu0w==","created_at":"2020-05-19T22:00:08.617000","updated_at":"2020-05-19T22:00:12.285000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"421889d73dcc4af6a14cd39c54bdbaac","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRBCbUN-jWR7iIVMTF4dw29g==","created_at":"2020-05-19T22:00:07.939000","updated_at":"2020-05-19T22:00:10.922000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"a17928b8e6994a6cbbe2091e160a48e0","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRTl-RKPIoSiabqaqX9YruFg==","created_at":"2020-05-19T22:00:06.636000","updated_at":"2020-05-19T22:00:10.131000","account_number":"646180157042875763","recipient_name":"Benito
-        Ju\u00e1rez","amount":12345,"descriptor":"sending money","idempotency_key":"cf0c854c318a4b5b95c6af867c5376cf","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRqCCl4tyBQnSyR8YvP1Og6A==","created_at":"2020-05-19T19:34:36.343000","updated_at":"2020-05-19T19:35:37.286000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"key_roger_1","status":"submitted","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRhKxyL1lhQvSiMx7whOpEJA==","created_at":"2020-05-19T19:34:31.400000","updated_at":"2020-05-19T19:34:34.985000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"key_roger_2","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"},{"id":"TRRAnqEwwRRZWVgwbDjtAGeA==","created_at":"2020-05-19T19:07:10.018000","updated_at":"2020-05-19T19:07:14.234000","account_number":"646180157034181180","recipient_name":"Rogelio","amount":10000,"descriptor":"Transferencia
-        Demo","idempotency_key":"key_roger_3","status":"succeeded","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}],"next_page_uri":"/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000"}'
-    headers:
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '2134'
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 19 May 2020 23:39:57 GMT
-      Via:
-      - 1.1 8f99d698624c0704470547731241e283.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - MIUiB-ZtHUaBy-O3LipM5vVKAQdCvkEQEugrrqvkECQxEPJVkaSF0Q==
-      X-Amz-Cf-Pop:
-      - MIA3-C3
-      X-Amzn-Trace-Id:
-      - Root=1-5ec46e4d-3f4702e3600ee051a3f53d7f;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
-      x-amz-apigw-id:
-      - MzYsHGEKoAMFivw=
-      x-amzn-RequestId:
-      - ff66faf9-9985-4e68-b170-2d24bac5f314
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - DUMMY
-      Connection:
-      - keep-alive
-      User-Agent:
-      - cuenca-python/0.0.2dev0
-      X-Cuenca-Api-Version:
-      - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/transfers?limit=100&created_before=2020-05-19T19%3A07%3A10.018000
-  response:
-    body:
-      string: '{"items":[],"next_page_uri":null}'
-    headers:
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '33'
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 19 May 2020 23:39:57 GMT
-      Via:
-      - 1.1 8f99d698624c0704470547731241e283.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - uhvj64QVfymknNaHg4b7aBOsIN4q5Gp6JrrfjOpfQzXHbxf---8jeQ==
-      X-Amz-Cf-Pop:
-      - MIA3-C3
-      X-Amzn-Trace-Id:
-      - Root=1-5ec46e4d-c001f8859e5493bf9d64c6d1;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
-      x-amz-apigw-id:
-      - MzYsKHgsoAMF3mQ=
-      x-amzn-RequestId:
-      - c2cedd66-1067-4206-ab5d-49ec339b85e5
+      - ada3749b-9a55-4874-8f38-9d3687c4f45d
     status:
       code: 200
       message: OK

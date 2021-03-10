@@ -11,38 +11,44 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.0.1dev0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: GET
-    uri: https://sandbox.cuenca.com/transfers?account_number=646180157013244941&limit=1
+    uri: https://sandbox.cuenca.com/transfers?limit=1&account_number=646180157046685645
   response:
     body:
-      string: '{"items":[{"id":"TRGtslEptDT0-_cVVLmXojBg==","created_at":"2020-05-08T23:12:25.042000","updated_at":"2020-05-08T23:12:28.854000","account_number":"646180157013244941","recipient_name":"test
-        85d91ea6-76b6-49ab-913b-0481e8df7379","amount":8888,"descriptor":"lambda","idempotency_key":"b2bf01cb-da5f-4a42-9462-23078b81b6ea","status":"failed","network":"internal","destination_uri":null,"tracking_key":null,"user_id":"US01"}],"next_page_uri":"/transfers?account_number=646180157013244941&created_before=2020-05-08T23%3A12%3A25.042000&limit=1&count=False"}'
+      string: '{"items":[{"id":"LT4EOaa93rHWYKIzg2RGyOba","created_at":"2020-10-23T22:24:39.354000","updated_at":"2021-02-25T23:03:05.396000","account_number":"646180157046685645","recipient_name":"Alan
+        Rodrigo Garrido Valencia","amount":16,"descriptor":"Te woa roabar","idempotency_key":"LT4EOaa93rHWYKIzg2RGyOba","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"LT4EOaa93rHWYKIzg2RGyOba","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '504'
+      - '523'
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 May 2020 18:21:41 GMT
-      Via:
-      - 1.1 fb8e6daa39bc4124e46750734008822c.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - HYeLiUbglrXQqpCaUNSzv4_ySICvrBMaeM-dtJiutm4nTyKrZKJz8A==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
+      - Wed, 03 Mar 2021 18:41:09 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5eb997b5-450d92fbc5af694a8baf43af;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fd845-735aad7737cc610b3b19056e;Sampled=0
+      X-Request-Time:
+      - 'value: 0.384'
       x-amz-apigw-id:
-      - MYSkUGDhIAMFY6Q=
+      - bn662HkNiYcFezg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '523'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:41:09 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 31fd83f8-f7ec-4e94-8c65-d1e2c48248cc
       x-amzn-RequestId:
-      - ccd8399e-0714-4ce7-a46a-5d7a554f85e4
+      - a0c82d93-e725-4fb7-8cd8-8fc96cb89697
     status:
       code: 200
       message: OK
@@ -58,11 +64,13 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.0.1dev0
+      - cuenca-python/0.6.4
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTWewyQrKfRP-374RwKNkFXA
     method: GET
-    uri: https://sandbox.cuenca.com/transfers?account_number=bad_account&limit=1
+    uri: https://sandbox.cuenca.com/transfers?limit=1&account_number=bad_account
   response:
     body:
       string: '{"items":[],"next_page_uri":null}'
@@ -74,21 +82,25 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 11 May 2020 18:21:41 GMT
-      Via:
-      - 1.1 fb8e6daa39bc4124e46750734008822c.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - FRm5o3iRXnATqXkoBmnNKXa7B6lttiVDeh2JBXyBiqmLiwi5nvJPIQ==
-      X-Amz-Cf-Pop:
-      - DFW3-C1
+      - Wed, 03 Mar 2021 18:41:10 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5eb997b5-b5322857a5dcc2fdd9793714;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-603fd845-37b230215adf51286fca6bdb;Sampled=0
+      X-Request-Time:
+      - 'value: 0.241'
       x-amz-apigw-id:
-      - MYSkXF25oAMFYCw=
+      - bn667GeXCYcFeYw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '33'
+      x-amzn-Remapped-Date:
+      - Wed, 03 Mar 2021 18:41:10 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - be3c56de-ed40-4537-8f16-91b9e13b141d
       x-amzn-RequestId:
-      - 81840d9f-0a46-42b3-88c1-077036d457cb
+      - c4251b0f-3bd0-4fe0-a7ae-7f17384b994c
     status:
       code: 200
       message: OK

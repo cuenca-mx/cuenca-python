@@ -8,11 +8,10 @@ def test_commission_retrieve():
     id_commission = 'COXXX'
     commission: Commission = Commission.retrieve(id_commission)
     assert commission.id == id_commission
-    assert not commission.related_transaction
 
 
 @pytest.mark.vcr
-def test_commission_retrieve_witw_cash_deposit():
+def test_commission_retrieve_with_cash_deposit():
     id_commission = 'COXXX'
     commission: Commission = Commission.retrieve(id_commission)
     assert commission.id == id_commission
@@ -23,7 +22,7 @@ def test_commission_retrieve_witw_cash_deposit():
 
 
 @pytest.mark.vcr
-def test_commission_retrieve_witw_cash_transfer():
+def test_commission_retrieve_with_cash_transfer():
     id_commission = 'COXXX'
     commission: Commission = Commission.retrieve(id_commission)
     assert commission.id == id_commission
