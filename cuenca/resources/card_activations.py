@@ -1,14 +1,23 @@
+import datetime as dt
+from dataclasses import dataclass
 from typing import ClassVar, cast
 
 from cuenca_validations.types import CardFundingType, CardIssuer
 from cuenca_validations.types.requests import CardActivationRequest
 
 from ..http import Session, session as global_session
+from .base import Creatable
 from .cards import Card
 
 
-class CardActivation:
+@dataclass
+class CardActivation(Creatable):
     _resource: ClassVar = 'card_activations'
+
+    created_at: dt.datetime
+    user_id: str
+    ip_address: str
+    card: Card
 
     @classmethod
     def create(
@@ -21,7 +30,7 @@ class CardActivation:
         funding_type: CardFundingType,
         *,
         session: Session = global_session,
-    ) -> Card:
+    ) -> 'CardActivation':
         """
         Associates a physical card with the current user
 
@@ -40,5 +49,6 @@ class CardActivation:
             issuer=issuer,
             funding_type=funding_type,
         )
-        resp = session.post(cls._resource, req.dict())
-        return cast(Card, Card._from_dict(resp))
+        return cast(
+            'CardActivation', cls._create(session=session, **req.dict())
+        )
