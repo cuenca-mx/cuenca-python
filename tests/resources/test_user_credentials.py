@@ -1,4 +1,5 @@
 import pytest
+from freezegun import freeze_time
 
 from cuenca import UserCredential, UserLogin
 from cuenca.http import Session
@@ -12,6 +13,7 @@ def test_update_password():
 
 
 @pytest.mark.vcr
+@freeze_time('2020-03-19')
 def test_block_user():
     session = Session()
     session.configure(
