@@ -22,7 +22,7 @@ interactions:
     uri: https://sandbox.cuenca.com/token
   response:
     body:
-      string: '{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTU0MzMxMjksImlhdCI6MTYxNDgyODMyOSwic3ViIjoiQUtRRXJUbXdlZFFxQ0xwQ2plWkc4c0pRIiwidWlkIjoiNDRjY2E5ZTAtN2M5OS0xMWViLTgwM2QtYmY1MmRjNzcyMjU5In0.bojz-3Rykvvjkm8zY4rWyPS5zjAZ03bgsrytVJynYMY","created_at":"2021-03-04T03:25:29.104823","api_key":{"id":"AKQErTmwedQqCLpCjeZG8sJQ","created_at":"2021-02-21T05:24:08.060979","secret":"********","deactivated_at":"2212-10-18T05:21:09.897161","user":{"id":"USaNW8apNBSc-FiOWMX9NEKg","created_at":"2021-02-21T05:21:33.308032","is_active":true,"updated_at":"2021-03-04T03:22:01.614345"},"updated_at":"2021-02-25T23:12:05.812844","user_id":"USaNW8apNBSc-FiOWMX9NEKg"}}'
+      string: '{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjMyNTEwMTM1OTIwLCJpYXQiOjE2MTQ4MjgzMjksInN1YiI6IkFLUUVyVG13ZWRRcUNMcENqZVpHOHNKUSIsInVpZCI6IjQ0Y2NhOWUwLTdjOTktMTFlYi04MDNkLWJmNTJkYzc3MjI1OSJ9.abhwTXx2f3yZiBJkPQQkhXFp-_SYqNStlKJPzfE_KHs","created_at":"2021-03-04T03:25:29.104823","api_key":{"id":"AKQErTmwedQqCLpCjeZG8sJQ","created_at":"2021-02-21T05:24:08.060979","secret":"********","deactivated_at":"2212-10-18T05:21:09.897161","user":{"id":"USaNW8apNBSc-FiOWMX9NEKg","created_at":"2021-02-21T05:21:33.308032","is_active":true,"updated_at":"2021-03-04T03:22:01.614345"},"updated_at":"2021-02-25T23:12:05.812844","user_id":"USaNW8apNBSc-FiOWMX9NEKg"}}'
     headers:
       Connection:
       - keep-alive
