@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.6.6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/accounts?limit=1&account_number=123456789
+  response:
+    body:
+      string: '{"items":[{"id":"AC01","created_at":"2021-03-12T19:48:20.292000","name":"Luis
+        Alberto","account_number":"123456789","user_id":"US01","institution_name":"Banamex"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '232'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 17 Mar 2021 00:15:55 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-60514a3a-1909e2c622631fa1204b23b9;Sampled=0
+      X-Request-Time:
+      - 'value: 0.404'
+      x-amz-apigw-id:
+      - cTiJNF0EoAMFtTQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '232'
+      x-amzn-Remapped-Date:
+      - Wed, 17 Mar 2021 00:15:55 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 947c4144-7cb4-43a1-8f5f-732973b43ecf
+      x-amzn-RequestId:
+      - 5f026809-4d40-4d20-8630-a41db6ba943f
+    status:
+      code: 200
+      message: OK
+version: 1
