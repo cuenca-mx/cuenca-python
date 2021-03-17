@@ -30,6 +30,10 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     issuer: CardIssuer
     funding_type: CardFundingType
 
+    @property
+    def last_4_digits(self):
+        return self.number[-4:]
+
     @classmethod
     def create(
         cls,

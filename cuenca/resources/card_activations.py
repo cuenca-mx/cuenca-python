@@ -1,6 +1,6 @@
 import datetime as dt
 from dataclasses import dataclass
-from typing import ClassVar, cast
+from typing import ClassVar, cast, Optional
 
 from cuenca_validations.types import CardFundingType, CardIssuer
 from cuenca_validations.types.requests import CardActivationRequest
@@ -17,7 +17,8 @@ class CardActivation(Creatable):
     created_at: dt.datetime
     user_id: str
     ip_address: str
-    card: Card
+    card: Optional[Card]
+    succeeded: bool
 
     @classmethod
     def create(

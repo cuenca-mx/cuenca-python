@@ -41,6 +41,7 @@ resource_classes = [
     BalanceEntry,
     BillPayment,
     Card,
+    CardActivation,
     CardTransaction,
     Commission,
     Deposit,
