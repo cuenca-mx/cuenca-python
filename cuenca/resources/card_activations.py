@@ -1,6 +1,6 @@
 import datetime as dt
 from dataclasses import dataclass
-from typing import ClassVar, cast, Optional
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import CardFundingType, CardIssuer
 from cuenca_validations.types.requests import CardActivationRequest
