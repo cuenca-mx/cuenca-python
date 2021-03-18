@@ -11,6 +11,7 @@ from cuenca_validations.types import (
     TransactionQuery,
     TransactionStatus,
 )
+from dacite import Config, from_dict
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import Session, session as global_session
@@ -29,7 +30,9 @@ class Resource:
     @classmethod
     def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> 'Resource':
         cls._filter_excess_fields(obj_dict)
-        return cls(**obj_dict)
+        return from_dict(
+            data_class=cls, data=obj_dict, config=Config(check_types=False)
+        )
 
     @classmethod
     def _filter_excess_fields(cls, obj_dict):
