@@ -16,41 +16,44 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.6.3.dev2
+      - cuenca-python/0.7.1.dev0
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULi0ilL2EDSoG97Cjfgaj2qw
     method: POST
     uri: https://sandbox.cuenca.com/card_activations
   response:
     body:
-      string: '{"id":"CA7hMJlxpXMoGWegzbkAfRbX","created_at":"2020-04-22T00:45:33.434000","updated_at":"2020-04-22T00:45:33.434000","user_id":"US1237","number":"4122943400145596","exp_month":11,"exp_year":24,"cvv2":"123","type":"physical","status":"active","pin":"1234","issuer":"accendo","funding_type":"debit","pin_block":"","_cls":"BaseCard.AccendoCard"}'
+      string: '{"id":"CAAlcdzQaqTQzqoUCLtHvNc9Q","created_at":"2021-03-17T23:39:58.964000","user_id":"US1237","ip_address":"200.56.74.39,
+        10.5.52.181","card":{"id":"CA7hMJlxpXMoGWegzbkAfRbX","created_at":"2020-04-22T00:45:33.434000","updated_at":"2020-04-22T00:45:33.434000","user_id":"US1237","number":"4122943400145596","exp_month":11,"exp_year":24,"cvv2":"123","type":"physical","status":"active","pin":"1234","issuer":"accendo","funding_type":"debit","pin_block":""},"succeeded":true}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '342'
+      - '509'
       Content-Type:
       - application/json
       Date:
-      - Tue, 23 Feb 2021 19:05:56 GMT
+      - Wed, 17 Mar 2021 23:39:59 GMT
       X-Amzn-Trace-Id:
-      - Root=1-6035520b-50321ea81ea8bfab15668c75;Sampled=0
+      - Root=1-60529347-2e0264b4270a295439f6c200;Sampled=0
       X-Request-Time:
-      - 'value: 8.662'
+      - 'value: 8.023'
       x-amz-apigw-id:
-      - bNnB1Et8iYcFw2g=
+      - cWvzNH3lCYcFXRA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '342'
+      - '509'
       x-amzn-Remapped-Date:
-      - Tue, 23 Feb 2021 19:05:56 GMT
+      - Wed, 17 Mar 2021 23:39:59 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 4a1c012c-256c-4f42-8ecc-b4dcd580f236
+      - d0a7ec94-75b6-4cc0-8178-45c82925ec76
       x-amzn-RequestId:
-      - 96d4b93f-3b62-4bde-9cff-4692659dee26
+      - b98d5714-0e30-4e92-9eb9-cdc539c95b22
     status:
       code: 201
       message: Created

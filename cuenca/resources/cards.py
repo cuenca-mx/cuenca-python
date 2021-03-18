@@ -20,7 +20,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     _resource: ClassVar = 'cards'
     _query_params: ClassVar = CardQuery
 
-    user_id: str
+    user_id: Optional[str]
     number: str
     exp_month: int
     exp_year: int
