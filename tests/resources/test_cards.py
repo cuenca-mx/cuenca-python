@@ -34,6 +34,7 @@ def test_card_retrieve():
     card: Card = Card.retrieve(card_id)
     assert card.id == card_id
     assert len(card.number) == 16
+    assert card.last_4_digits == '9849'
     assert card.type == CardType.virtual
 
 
