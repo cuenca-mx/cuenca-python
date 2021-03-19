@@ -25,6 +25,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     exp_month: int
     exp_year: int
     cvv2: str
+    pin: str
     type: CardType
     status: CardStatus
     issuer: CardIssuer
