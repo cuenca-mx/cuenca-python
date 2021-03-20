@@ -1,10 +1,9 @@
 import pytest
 
-from cuenca.resources import Account
+from cuenca.resources import Account, Transfer
 
 
 @pytest.mark.vcr
-def test_account():
-    account = Account.first(account_number='123456789')
-    assert account.id == 'AC01'
-    assert account.institution_name == 'Banamex'
+def test_query_account(transfer: Transfer):
+    account = Account.one(account_number=transfer.account_number)
+    assert account.account_number == transfer.destination.account_number
