@@ -14,6 +14,7 @@ def vcr_config():
     ]
     return config
 
+
 @pytest.fixture
 def transfer():
     yield cuenca.Transfer.create(
