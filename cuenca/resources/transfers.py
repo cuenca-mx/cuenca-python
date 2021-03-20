@@ -30,7 +30,7 @@ class Transfer(Transaction, Creatable):
     tracking_key: Optional[str]  # clave rastreo if network is SPEI
 
     @property  # type: ignore
-    def destination(self) -> Optional[Account]:
+    def destination(self) -> Account:
         return cast(Account, retrieve_uri(self.destination_uri))
 
     @classmethod
