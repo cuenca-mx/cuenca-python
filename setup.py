@@ -24,6 +24,7 @@ setup(
     python_requires='>=3.6',
     install_requires=[
         'requests>=2.24,<2.26',
+        'dacite>=1.6.0,<1.7.0',
         'cuenca-validations>=0.8.0,<0.10.0',
         'dataclasses>=0.7;python_version<"3.7"',
     ],
