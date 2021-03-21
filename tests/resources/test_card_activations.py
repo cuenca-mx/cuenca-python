@@ -1,6 +1,6 @@
 import pytest
 from cuenca_validations.errors import TooManyAttemptsError
-from cuenca_validations.types import CardFundingType, CardIssuer, CardStatus
+from cuenca_validations.types import CardStatus
 
 from cuenca.resources import CardActivation
 
@@ -12,8 +12,6 @@ def test_card_activation():
         exp_month=11,
         exp_year=24,
         cvv2='123',
-        issuer=CardIssuer.accendo,
-        funding_type=CardFundingType.debit,
     )
     card_activation = CardActivation.create(**values)
     assert card_activation.succeeded
@@ -31,8 +29,6 @@ def test_blocked_attemps():
         exp_month=11,
         exp_year=24,
         cvv2='123',
-        issuer=CardIssuer.accendo,
-        funding_type=CardFundingType.debit,
     )
     for _ in range(6):
         activation = CardActivation.create(**values)

@@ -2,7 +2,6 @@ import datetime as dt
 from dataclasses import dataclass
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import CardFundingType, CardIssuer
 from cuenca_validations.types.requests import CardActivationRequest
 
 from ..http import Session, session as global_session
@@ -27,8 +26,6 @@ class CardActivation(Creatable):
         exp_month: int,
         exp_year: int,
         cvv2: str,
-        issuer: CardIssuer,
-        funding_type: CardFundingType,
         *,
         session: Session = global_session,
     ) -> 'CardActivation':
@@ -47,8 +44,6 @@ class CardActivation(Creatable):
             exp_month=exp_month,
             exp_year=exp_year,
             cvv2=cvv2,
-            issuer=issuer,
-            funding_type=funding_type,
         )
         return cast(
             'CardActivation', cls._create(session=session, **req.dict())
