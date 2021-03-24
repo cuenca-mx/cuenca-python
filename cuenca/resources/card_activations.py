@@ -7,6 +7,7 @@ from cuenca_validations.types.requests import CardActivationRequest
 from ..http import Session, session as global_session
 from .base import Creatable
 from .cards import Card
+from .resources import retrieve_uri
 
 
 @dataclass
@@ -16,7 +17,7 @@ class CardActivation(Creatable):
     created_at: dt.datetime
     user_id: str
     ip_address: str
-    card: Optional[Card]
+    card_uri: Optional[str]
     succeeded: bool
 
     @classmethod
@@ -48,3 +49,10 @@ class CardActivation(Creatable):
         return cast(
             'CardActivation', cls._create(session=session, **req.dict())
         )
+
+    @property
+    def card(self) -> Optional[Card]:
+        result = None
+        if self.card_uri:
+            result = cast(Card, retrieve_uri(self.card_uri))
+        return result
