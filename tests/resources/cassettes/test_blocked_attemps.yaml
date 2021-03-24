@@ -1,0 +1,405 @@
+interactions:
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '78'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULPahEA1lCRGuz3iHP7k3l7A
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"id":"CAA0Qhh8HH2TSeXdD1sFXYmrw","created_at":"2021-03-24T18:53:33.852000","user_id":"US6D1wbTEdLuTjf227iF05js","ip_address":"200.56.74.39,
+        10.5.79.172","card_uri":null,"succeeded":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '188'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 24 Mar 2021 18:53:33 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-605b8aaa-33966e0f4895da0a3f5cc10c;Sampled=0
+      X-Request-Time:
+      - 'value: 3.171'
+      x-amz-apigw-id:
+      - ctKasElgCYcFVFA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '188'
+      x-amzn-Remapped-Date:
+      - Wed, 24 Mar 2021 18:53:33 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 5625c470-31e1-447b-9a86-f0210c8a528a
+      x-amzn-RequestId:
+      - 9d1aed19-d53b-4265-b40a-19941cb7ac6a
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '78'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULPahEA1lCRGuz3iHP7k3l7A
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"id":"CAAm1_rxSUgQc6Jf9IEtBAiDg","created_at":"2021-03-24T18:53:34.374000","user_id":"US6D1wbTEdLuTjf227iF05js","ip_address":"200.56.74.39,
+        10.5.48.2","card_uri":null,"succeeded":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '186'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 24 Mar 2021 18:53:34 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-605b8aae-16ff3c0322743b5508c3cb3c;Sampled=0
+      X-Request-Time:
+      - 'value: 0.378'
+      x-amz-apigw-id:
+      - ctKbNFjqCYcFaww=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '186'
+      x-amzn-Remapped-Date:
+      - Wed, 24 Mar 2021 18:53:34 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - d63d0937-4913-4a1c-9cfe-8a657ca4a39e
+      x-amzn-RequestId:
+      - de30475a-b566-48f8-851a-d3b46548cbb4
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '78'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULPahEA1lCRGuz3iHP7k3l7A
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"id":"CAAoEpVsH4nQnGqtT6KX0Zflg","created_at":"2021-03-24T18:53:34.935000","user_id":"US6D1wbTEdLuTjf227iF05js","ip_address":"200.56.74.39,
+        10.5.52.181","card_uri":null,"succeeded":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '188'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 24 Mar 2021 18:53:35 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-605b8aae-5619815e066b5f87180e40f7;Sampled=0
+      X-Request-Time:
+      - 'value: 0.448'
+      x-amz-apigw-id:
+      - ctKbSGd9CYcFpfg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '188'
+      x-amzn-Remapped-Date:
+      - Wed, 24 Mar 2021 18:53:35 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 19dc9b5a-9d9d-4057-84ed-3dbaf2891d4e
+      x-amzn-RequestId:
+      - 7834a84e-bf8e-4f10-87ba-7b09d02796ce
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '78'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULPahEA1lCRGuz3iHP7k3l7A
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"id":"CAAfVfWhdByQdm7VRP1d1ExvA","created_at":"2021-03-24T18:53:35.427000","user_id":"US6D1wbTEdLuTjf227iF05js","ip_address":"200.56.74.39,
+        10.5.52.181","card_uri":null,"succeeded":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '188'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 24 Mar 2021 18:53:35 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-605b8aaf-461d04d155b6e03663268861;Sampled=0
+      X-Request-Time:
+      - 'value: 0.370'
+      x-amz-apigw-id:
+      - ctKbYHtlCYcFiQw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '188'
+      x-amzn-Remapped-Date:
+      - Wed, 24 Mar 2021 18:53:35 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 17d5a637-998e-451d-b312-78de2da402ab
+      x-amzn-RequestId:
+      - aa1a3289-5139-421b-9653-2f55f93b3dd6
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '78'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULPahEA1lCRGuz3iHP7k3l7A
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"id":"CAAsIBL-r5_QsOiGX5TnNgSOQ","created_at":"2021-03-24T18:53:35.869000","user_id":"US6D1wbTEdLuTjf227iF05js","ip_address":"200.56.74.39,
+        10.5.48.2","card_uri":null,"succeeded":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '186'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 24 Mar 2021 18:53:35 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-605b8aaf-16353a4012c5f86446ca5982;Sampled=0
+      X-Request-Time:
+      - 'value: 0.348'
+      x-amz-apigw-id:
+      - ctKbcHPUiYcF58Q=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '186'
+      x-amzn-Remapped-Date:
+      - Wed, 24 Mar 2021 18:53:35 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 2e8a8118-01cc-4d02-9351-ec3348c33190
+      x-amzn-RequestId:
+      - 9bdf5bd4-ece7-4aa8-bdba-ae93f1cf103e
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '78'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULPahEA1lCRGuz3iHP7k3l7A
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"id":"CAAWj_L8nC0RwezWjXBrL8lfg","created_at":"2021-03-24T18:53:36.314000","user_id":"US6D1wbTEdLuTjf227iF05js","ip_address":"200.56.74.39,
+        10.5.52.181","card_uri":null,"succeeded":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '188'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 24 Mar 2021 18:53:36 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-605b8ab0-7fe4da78750643f04b4f0bb1;Sampled=0
+      X-Request-Time:
+      - 'value: 0.348'
+      x-amz-apigw-id:
+      - ctKbhGXHCYcFsIQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '188'
+      x-amzn-Remapped-Date:
+      - Wed, 24 Mar 2021 18:53:36 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - cff6cbcd-453c-4c5d-9a9e-3e42cc81b334
+      x-amzn-RequestId:
+      - 18b1e46e-8db3-4c03-9972-45b7f7dd1760
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"number": "4122943499999999", "exp_month": 11, "exp_year": 24, "cvv2":
+      "123"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '78'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULPahEA1lCRGuz3iHP7k3l7A
+    method: POST
+    uri: https://sandbox.cuenca.com/card_activations
+  response:
+    body:
+      string: '{"code":107,"error":"Too many attempts"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '40'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 24 Mar 2021 18:53:36 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-605b8ab0-676c80013405e58030958dee;Sampled=0
+      x-amz-apigw-id:
+      - ctKbmGfJiYcFhqA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '40'
+      x-amzn-Remapped-Date:
+      - Wed, 24 Mar 2021 18:53:36 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - b5a22032-dbac-4ece-9adf-bb34ad3af066
+      x-amzn-RequestId:
+      - 8d482026-cce0-4c12-badd-40407bf337b5
+    status:
+      code: 403
+      message: Forbidden
+version: 1
