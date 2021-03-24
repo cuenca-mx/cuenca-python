@@ -37,8 +37,6 @@ class CardActivation(Creatable):
         :param exp_month:
         :param exp_year:
         :param cvv2:
-        :param issuer:
-        :param funding_type: debit or credit
         """
         req = CardActivationRequest(
             number=number,

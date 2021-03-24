@@ -45,7 +45,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         session: Session = global_session,
     ) -> 'Card':
         """
-        Assigns user_id and ledger_account_id to a existing card
+        Assigns user_id and ledger_account_id to a existing virtual card
 
         :param user_id: associated user id
         :param funding_type: debit or credit
