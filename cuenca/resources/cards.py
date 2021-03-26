@@ -35,6 +35,10 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     def last_4_digits(self):
         return self.number[-4:]
 
+    @property
+    def bin(self):
+        return self.number[:6]
+
     @classmethod
     def create(
         cls,
