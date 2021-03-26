@@ -18,7 +18,7 @@ class CardActivation(Creatable):
     user_id: str
     ip_address: str
     card_uri: Optional[str]
-    succeeded: bool
+    success: bool
 
     @classmethod
     def create(

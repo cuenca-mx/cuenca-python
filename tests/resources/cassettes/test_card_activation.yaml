@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: '{"number": "4122943400145596", "exp_month": 11, "exp_year": 24, "cvv2":
+    body: '{"number": "4122943400023502", "exp_month": 11, "exp_year": 24, "cvv2":
       "123"}'
     headers:
       Accept:
@@ -20,13 +20,13 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
       X-Cuenca-LoginId:
-      - ULUwnYlHNhQWOJzIqfMSsiYg
+      - ULj4BvmWfnRkGk62g321ikiQ
     method: POST
     uri: https://sandbox.cuenca.com/card_activations
   response:
     body:
-      string: '{"id":"CAAH-B_Pce3TvC25L3T0-H96w","created_at":"2021-03-24T18:38:55.076000","user_id":"US1237","ip_address":"200.56.74.39,
-        10.5.48.2","card_uri":"/cards/CA7hMJlxpXMoGWegzbkAfRbX","succeeded":true}'
+      string: '{"id":"CAAmnPW-msFSUK0V0fpjnC_UQ","created_at":"2021-03-26T19:25:36.504000","user_id":"US1237","ip_address":"200.56.74.39,
+        10.5.52.181","card_uri":"/cards/CA2XIurUccQIcqvPGNpdTm7k","success":true}'
     headers:
       Connection:
       - keep-alive
@@ -35,25 +35,25 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Mar 2021 18:38:55 GMT
+      - Fri, 26 Mar 2021 19:25:36 GMT
       X-Amzn-Trace-Id:
-      - Root=1-605b873d-26302d235f178be727c9a074;Sampled=0
+      - Root=1-605e352f-728c710217fdaeb646ffeb5a;Sampled=0
       X-Request-Time:
-      - 'value: 1.246'
+      - 'value: 1.241'
       x-amz-apigw-id:
-      - ctIRrEXeCYcFzVA=
+      - cz0_aGfEiYcFkHw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '214'
       x-amzn-Remapped-Date:
-      - Wed, 24 Mar 2021 18:38:55 GMT
+      - Fri, 26 Mar 2021 19:25:36 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 56968226-cf72-49ce-9a31-f75731889c34
+      - d825e840-021f-4ea3-885b-47136dc4b951
       x-amzn-RequestId:
-      - 497a5585-5f52-4fb2-b943-e28e65a07084
+      - b7e4b2a6-e501-44be-adfe-ab8d1437915b
     status:
       code: 201
       message: Created
@@ -73,12 +73,12 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
       X-Cuenca-LoginId:
-      - ULUwnYlHNhQWOJzIqfMSsiYg
+      - ULj4BvmWfnRkGk62g321ikiQ
     method: GET
-    uri: https://sandbox.cuenca.com/cards/CA7hMJlxpXMoGWegzbkAfRbX
+    uri: https://sandbox.cuenca.com/cards/CA2XIurUccQIcqvPGNpdTm7k
   response:
     body:
-      string: '{"id":"CA7hMJlxpXMoGWegzbkAfRbX","created_at":"2020-04-22T00:45:33.434000","updated_at":"2020-04-22T00:45:33.434000","user_id":"US1237","number":"4122943400145596","exp_month":11,"exp_year":24,"cvv2":"123","type":"physical","status":"active","pin":"1234","issuer":"accendo","funding_type":"debit","pin_block":""}'
+      string: '{"id":"CA2XIurUccQIcqvPGNpdTm7k","created_at":"2019-11-13T21:15:44.877000","updated_at":"2019-11-13T21:15:44.877000","user_id":"US1237","number":"4122943400023502","exp_month":11,"exp_year":24,"cvv2":"123","type":"physical","status":"active","pin":"1234","issuer":"accendo","funding_type":"debit","pin_block":""}'
     headers:
       Connection:
       - keep-alive
@@ -87,25 +87,25 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 24 Mar 2021 18:38:55 GMT
+      - Fri, 26 Mar 2021 19:25:37 GMT
       X-Amzn-Trace-Id:
-      - Root=1-605b873f-123f831773bb734916b3d46e;Sampled=0
+      - Root=1-605e3530-41588b232c2acbdb55635076;Sampled=0
       X-Request-Time:
-      - 'value: 0.398'
+      - 'value: 0.423'
       x-amz-apigw-id:
-      - ctIR5G2gCYcF4hg=
+      - cz0_pGfNCYcFVlA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '330'
       x-amzn-Remapped-Date:
-      - Wed, 24 Mar 2021 18:38:55 GMT
+      - Fri, 26 Mar 2021 19:25:37 GMT
       x-amzn-Remapped-Server:
       - nginx/1.18.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - a05de789-fa9c-4d40-b3bb-2601a83693fa
+      - 5e9c4391-baff-4bc8-a71a-d515803b6c99
       x-amzn-RequestId:
-      - dd012b12-024e-4d44-bd94-5309bd57aaee
+      - 52340184-a7f4-4ecf-b905-51e7a1a38805
     status:
       code: 200
       message: OK
