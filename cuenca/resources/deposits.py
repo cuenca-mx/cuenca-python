@@ -14,9 +14,11 @@ class Deposit(Transaction):
     _query_params: ClassVar = DepositQuery
 
     network: DepositNetwork
-    source_uri: str
+    source_uri: Optional[str]
     tracking_key: Optional[str]  # clave rastreo if network is SPEI
 
     @property  # type: ignore
-    def source(self) -> Account:
+    def source(self) -> Optional[Account]:
+        if not self.source_uri:
+            return None
         return cast(Account, retrieve_uri(self.source_uri))
