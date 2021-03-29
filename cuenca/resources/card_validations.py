@@ -1,21 +1,29 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
+from cuenca_validations.types.requests import CardValidationRequest
 from pydantic.dataclasses import dataclass
+
+from cuenca import Card
 
 from ..http import Session, session as global_session
 from .base import Creatable
-from .tmp import CardValidationRequest
+from .resources import retrieve_uri
 
 
 @dataclass
-class CardValidations(Creatable):
+class CardValidation(Creatable):
     _resource: ClassVar = 'card_validations'
 
     created_at: dt.datetime
-    card_id: str
-    is_valid_arqc: bool
-    arpc: str
+    card_uri: str
+    is_active: bool
+    is_valid_cvv: Optional[bool]
+    is_valid_cvv2: Optional[bool]
+    is_valid_icvv: Optional[bool]
+    is_valid_pin_block: Optional[bool]
+    is_valid_exp_date: Optional[bool]
+    is_expired: bool
 
     @classmethod
     def create(
@@ -24,19 +32,25 @@ class CardValidations(Creatable):
         cvv: Optional[str] = None,
         cvv2: Optional[str] = None,
         icvv: Optional[str] = None,
-        exp_date: Optional[str] = None,
+        exp_month: Optional[int] = None,
+        exp_year: Optional[int] = None,
         pin_block: Optional[str] = None,
         *,
         session: Session = global_session,
-    ) -> 'CardValidations':
+    ) -> 'CardValidation':
         req = CardValidationRequest(
             number=number,
             cvv=cvv,
             cvv2=cvv2,
             icvv=icvv,
-            exp_date=exp_date,
+            exp_month=exp_month,
+            exp_year=exp_year,
             pin_block=pin_block,
         )
         return cast(
             'CardValidations', cls._create(session=session, **req.dict())
         )
+
+    @property  # type: ignore
+    def card(self) -> Card:
+        return cast(Card, retrieve_uri(self.card_uri))
