@@ -4,10 +4,9 @@ from typing import ClassVar, Optional, cast
 from cuenca_validations.types.requests import CardValidationRequest
 from pydantic.dataclasses import dataclass
 
-from cuenca import Card
-
 from ..http import Session, session as global_session
 from .base import Creatable
+from .cards import Card
 from .resources import retrieve_uri
 
 
@@ -51,6 +50,10 @@ class CardValidation(Creatable):
             'CardValidations', cls._create(session=session, **req.dict())
         )
 
-    @property  # type: ignore
+    @property
     def card(self) -> Card:
         return cast(Card, retrieve_uri(self.card_uri))
+
+    @property
+    def card_id(self) -> str:
+        return self.card_uri.split('/')[-1]
