@@ -1,13 +1,10 @@
-import cuenca
-from cuenca import session
+import pytest
+
 from cuenca.resources import ARPC
 
 
+@pytest.mark.skip(reason="Not ready")
 def test_arpc():
-    session.host = 'stage.cuenca.com'
-    api_key = 'AK36EAQXIlurg53pRjcvtx30'
-    api_secret = 'Ea-6JmpnRX3ZKi4oGHpsmroGEEPU1vgu2Eq362B27KiJG2aLGkuGh3pYfG725yDSNxQn0L92zCoFvEdnrr1Ybw'
-    cuenca.configure(api_key=api_key, api_secret=api_secret)
     arpc_req = dict(
         arqc='test_arqc',
         key_derivation_method='3',

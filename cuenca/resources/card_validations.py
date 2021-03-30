@@ -47,7 +47,7 @@ class CardValidation(Creatable):
             pin_block=pin_block,
         )
         return cast(
-            'CardValidations', cls._create(session=session, **req.dict())
+            'CardValidation', cls._create(session=session, **req.dict())
         )
 
     @property

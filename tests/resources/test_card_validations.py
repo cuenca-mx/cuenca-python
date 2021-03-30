@@ -1,6 +1,9 @@
+import pytest
+
 from cuenca.resources import CardValidation
 
 
+@pytest.mark.skip(reason="Not ready")
 def test_card_validations():
     card_data = dict(
         number='5448750129965637',
