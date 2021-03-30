@@ -8,13 +8,13 @@ from cuenca.resources import CardActivation
 @pytest.mark.vcr
 def test_card_activation():
     values = dict(
-        number='4122943400145596',
+        number='4122943400023502',
         exp_month=11,
         exp_year=24,
         cvv2='123',
     )
     card_activation = CardActivation.create(**values)
-    assert card_activation.succeeded
+    assert card_activation.success
     assert card_activation.user_id == 'US1237'
     card = card_activation.card
     assert all(getattr(card, key) == value for key, value in values.items())
@@ -32,6 +32,6 @@ def test_blocked_attemps():
     )
     for _ in range(6):
         activation = CardActivation.create(**values)
-        assert activation.succeeded is False
+        assert activation.success is False
     with pytest.raises(TooManyAttemptsError):
         CardActivation.create(**values)
