@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, cast
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types.requests import ARPCRequest
 from pydantic.dataclasses import dataclass
@@ -13,9 +13,9 @@ class ARPC(Creatable):
     _resource: ClassVar = 'arpc'
 
     created_at: dt.datetime
-    card_id: str
-    is_valid_arqc: bool
-    arpc: str
+    card_uri: str
+    is_valid_arqc: Optional[bool]
+    arpc: Optional[str]
 
     @classmethod
     def create(
