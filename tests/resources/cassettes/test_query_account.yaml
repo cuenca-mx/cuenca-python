@@ -1,0 +1,166 @@
+interactions:
+- request:
+    body: '{"recipient_name": "Frida Kahlo", "account_number": "646180157034181180",
+      "amount": 10000, "descriptor": "first transfer", "idempotency_key": "2021-03-20:646180157034181180:10000"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '180'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTHFBUsQ--SRKYo09VXLuToQ
+    method: POST
+    uri: https://sandbox.cuenca.com/transfers
+  response:
+    body:
+      string: '{"id":"TRqRHzmSg-S9OubPMyNbvO-A","created_at":"2021-03-20T00:03:00.747892","updated_at":"2021-03-20T00:03:01.539938","account_number":"646180157034181180","recipient_name":"Frida
+        Kahlo","amount":10000,"descriptor":"first transfer","idempotency_key":"2021-03-20:646180157034181180:10000","status":"submitted","network":"internal","destination_uri":"/accounts/AC3sgb4ZIqUzCACOPNcL2QVw","tracking_key":null,"user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '465'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 20 Mar 2021 00:03:01 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-60553bb0-186e486a154c57f6624f2558;Sampled=0
+      X-Request-Time:
+      - 'value: 4.980'
+      x-amz-apigw-id:
+      - cdZDnFitCYcFs_w=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '465'
+      x-amzn-Remapped-Date:
+      - Sat, 20 Mar 2021 00:03:01 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - fe639ac8-6d4c-46c4-ab0c-8dfc83acbe6f
+      x-amzn-RequestId:
+      - 9ee0d853-f6c2-493f-a5c1-ce5557dfa683
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTHFBUsQ--SRKYo09VXLuToQ
+    method: GET
+    uri: https://sandbox.cuenca.com/accounts?limit=2&account_number=646180157034181180
+  response:
+    body:
+      string: '{"items":[{"id":"AC3sgb4ZIqUzCACOPNcL2QVw","created_at":"2021-03-20T00:03:01.072000","name":"Frida
+        Kahlo","account_number":"646180157034181180","user_id":"US4PCNV8rLB2wqBfORzIAXUl","institution_name":"Cuenca"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '232'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 20 Mar 2021 00:03:02 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-60553bb5-393799840ea3e46a75052790;Sampled=0
+      X-Request-Time:
+      - 'value: 0.283'
+      x-amz-apigw-id:
+      - cdZEaGpjiYcFWbg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '232'
+      x-amzn-Remapped-Date:
+      - Sat, 20 Mar 2021 00:03:02 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 28c580ed-57e3-4f3f-ae1b-fcacc39c8318
+      x-amzn-RequestId:
+      - 29fab010-c42c-442c-8eea-2dad8021df7a
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTHFBUsQ--SRKYo09VXLuToQ
+    method: GET
+    uri: https://sandbox.cuenca.com/accounts/AC3sgb4ZIqUzCACOPNcL2QVw
+  response:
+    body:
+      string: '{"id":"AC3sgb4ZIqUzCACOPNcL2QVw","created_at":"2021-03-20T00:03:01.072000","name":"Frida
+        Kahlo","account_number":"646180157034181180","user_id":"US4PCNV8rLB2wqBfORzIAXUl","institution_name":"Cuenca"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '199'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 20 Mar 2021 00:03:02 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-60553bb6-048a62c56bf1b26422be9d01;Sampled=0
+      X-Request-Time:
+      - 'value: 0.231'
+      x-amz-apigw-id:
+      - cdZEfFUFCYcFtxg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '199'
+      x-amzn-Remapped-Date:
+      - Sat, 20 Mar 2021 00:03:02 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - fd2fea56-93b3-431c-a187-8452be8c8405
+      x-amzn-RequestId:
+      - f08819df-0115-4171-95cf-f057bcf0b1f5
+    status:
+      code: 200
+      message: OK
+version: 1
