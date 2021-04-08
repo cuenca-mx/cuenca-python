@@ -75,6 +75,13 @@ def test_card_update():
     assert card.status == CardStatus.active
 
 
+@pytest.mark.skip(reason="Not ready")
+def test_card_update_pin():
+    new_pin = '7AC814A636D901BE'
+    card = Card.update(card_id, pin_block=new_pin)
+    assert card.pin == new_pin
+
+
 @pytest.mark.vcr
 def test_deactivate_card():
     card = Card.deactivate(card_id)
