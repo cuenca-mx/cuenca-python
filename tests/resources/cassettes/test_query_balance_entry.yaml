@@ -1,0 +1,55 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.1
+      X-Cuenca-Api-Version:
+      - '2021-04-08'
+      X-Cuenca-LoginToken:
+      - LTHFBUsQ--SRKYo09VXLuToQ
+    method: GET
+    uri: https://sandbox.cuenca.com/balance_entries?limit=2&funding_instrument_uri=/accounts/BA01
+  response:
+    body:
+      string: '{"items":[{"id":"TV01","created_at":"2020-10-15T22:27:53.712000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","name":"Dep\u00f3sito
+        de efectivo","amount":25000,"descriptor":"Deposito v\u00eda paynet auth 304054","rolling_balance":144519,"type":"credit","related_transaction_uri":"/deposits/CDI7SJOifauN5WnqfMhXK4R","funding_instrument_uri":"/accounts/BA01"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '232'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 08 Apr 2021 00:03:02 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-60553bb5-393799840ea3e46a75052790;Sampled=0
+      X-Request-Time:
+      - 'value: 0.283'
+      x-amz-apigw-id:
+      - cdZEaGpjiYcFWbg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '232'
+      x-amzn-Remapped-Date:
+      - Thu, 08 Apr 2021 00:03:02 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 28c580ed-57e3-4f3f-ae1b-fcacc39c8318
+      x-amzn-RequestId:
+      - 29fab010-c42c-442c-8eea-2dad8021df7a
+    status:
+      code: 200
+      message: OK
+version: 1
