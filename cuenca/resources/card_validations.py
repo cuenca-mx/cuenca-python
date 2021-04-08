@@ -1,6 +1,7 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
+from cuenca_validations.types import CardStatus, CardType
 from cuenca_validations.types.requests import CardValidationRequest
 from pydantic.dataclasses import dataclass
 
@@ -16,7 +17,9 @@ class CardValidation(Creatable):
 
     created_at: dt.datetime
     card_uri: str
-    is_active: bool
+    user_id: str
+    card_status: CardStatus
+    card_type: CardType
     is_valid_cvv: Optional[bool]
     is_valid_cvv2: Optional[bool]
     is_valid_icvv: Optional[bool]
@@ -57,3 +60,7 @@ class CardValidation(Creatable):
     @property
     def card_id(self) -> str:
         return self.card_uri.split('/')[-1]
+
+    @property
+    def is_active(self):
+        return self.card_status == CardStatus.active
