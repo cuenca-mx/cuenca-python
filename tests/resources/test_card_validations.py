@@ -7,8 +7,8 @@ from cuenca.resources import CardValidation
 def test_card_validations():
     card_data = dict(
         number='5448750129965637',
-        cvv='150',
-        cvv2='685',
+        cvv='685',
+        cvv2='150',
         icvv='399',
         exp_month=2,
         exp_year=25,
