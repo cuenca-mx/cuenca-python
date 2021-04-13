@@ -29,6 +29,7 @@ class ARPC(Creatable):
         transaction_counter: str,
         pan_sequence: str,
         unique_number: str,
+        track_data_method: str,
         *,
         session: Session = global_session,
     ) -> 'ARPC':
@@ -41,5 +42,6 @@ class ARPC(Creatable):
             transaction_counter=transaction_counter,
             pan_sequence=pan_sequence,
             unique_number=unique_number,
+            track_data_method=track_data_method,
         )
         return cast('ARPC', cls._create(session=session, **req.dict()))
