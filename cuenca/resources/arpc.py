@@ -21,19 +21,25 @@ class ARPC(Creatable):
     @classmethod
     def create(
         cls,
+        number: str,
         arqc: str,
-        key_derivation_method: str,
         arpc_method: str,
-        txn_data: str,
+        transaction_data: str,
+        response_code: str,
+        transaction_counter: str,
+        pan_sequence: str,
+        unique_number: str,
         *,
         session: Session = global_session,
-        **data,
     ) -> 'ARPC':
         req = ARPCRequest(
+            number=number,
             arqc=arqc,
-            key_derivation_method=key_derivation_method,
             arpc_method=arpc_method,
-            txn_data=txn_data,
-            **data,
+            transaction_data=transaction_data,
+            response_code=response_code,
+            transaction_counter=transaction_counter,
+            pan_sequence=pan_sequence,
+            unique_number=unique_number,
         )
         return cast('ARPC', cls._create(session=session, **req.dict()))
