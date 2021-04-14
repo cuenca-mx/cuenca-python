@@ -30,6 +30,9 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     status: CardStatus
     issuer: CardIssuer
     funding_type: CardFundingType
+    pin_block: Optional[str] = None
+    pin_block_switch: Optional[str] = None
+    pin_block_embosser: Optional[str] = None
 
     @property
     def last_4_digits(self):

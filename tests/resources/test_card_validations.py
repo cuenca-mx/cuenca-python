@@ -23,3 +23,6 @@ def test_card_validations():
     assert validation.is_valid_pin_block
     assert validation.is_valid_exp_date
     assert not validation.is_expired
+    c = validation.card
+    assert validation.card_id == c.id
+    assert validation.is_active
