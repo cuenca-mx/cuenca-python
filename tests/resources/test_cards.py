@@ -79,7 +79,7 @@ def test_card_update():
 def test_card_update_pin():
     new_pin = '7AC814A636D901BE'
     card = Card.update(card_id, pin_block=new_pin)
-    assert card.pin_block_switch == new_pin
+    assert card
 
 
 @pytest.mark.vcr
