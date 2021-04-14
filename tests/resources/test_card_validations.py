@@ -3,16 +3,16 @@ import pytest
 from cuenca.resources import CardValidation
 
 
-@pytest.mark.skip(reason="Not ready")
+@pytest.mark.vcr
 def test_card_validations():
     card_data = dict(
-        number='5448750129965637',
+        number='1234567890123403',
         cvv='685',
         cvv2='150',
         icvv='399',
         exp_month=2,
         exp_year=25,
-        pin_block='B57D25D49FD1F88A',
+        pin_block='BDIEHA38457W',
     )
     validation = CardValidation.create(**card_data)
     assert validation.is_active

@@ -1,0 +1,57 @@
+interactions:
+- request:
+    body: '{"number": "1234567890123403", "exp_month": 2, "exp_year": 25, "cvv": "685",
+      "cvv2": "150", "icvv": "399", "pin_block": "BDIEHA38457W"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '139'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.5
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/card_validations
+  response:
+    body:
+      string: '{"id":"CVMEQXfhGwRNq9kwSGRJhu2g","created_at":"2021-04-14T22:26:18.912000","card_uri":"/cards/CA7pET83WM25VXO3IQ8BwYO3","user_id":"US3zGWi1n852bTyqD1wCZ1ft","card_status":"active","card_type":"physical","is_active":true,"is_valid_cvv":true,"is_valid_cvv2":true,"is_valid_icvv":true,"is_valid_pin_block":true,"is_valid_exp_date":true,"is_expired":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '353'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 14 Apr 2021 22:26:19 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-60776c06-3500cd4101b3df9c5286d781;Sampled=0
+      X-Request-Time:
+      - 'value: 5.058'
+      x-amz-apigw-id:
+      - dy3Q9HaXCYcFbTA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '353'
+      x-amzn-Remapped-Date:
+      - Wed, 14 Apr 2021 22:26:19 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.18.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 431683b7-aef6-4229-9c69-1e059be697e7
+      x-amzn-RequestId:
+      - 442c436b-502e-4f7d-b824-a393c4cc7ac7
+    status:
+      code: 201
+      message: Created
+version: 1
