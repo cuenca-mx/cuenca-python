@@ -55,4 +55,4 @@ class Arpc(Creatable):
             unique_number=unique_number,
             track_data_method=track_data_method,
         )
-        return cast('ARPC', cls._create(session=session, **req.dict()))
+        return cast('Arpc', cls._create(session=session, **req.dict()))
