@@ -2,7 +2,7 @@ __all__ = [
     '__version__',
     'ApiKey',
     'Account',
-    'ARPC',
+    'Arpc',
     'BalanceEntry',
     'BillPayment',
     'Card',
@@ -24,9 +24,9 @@ __all__ = [
 
 from .http import session
 from .resources import (
-    ARPC,
     Account,
     ApiKey,
+    Arpc,
     BalanceEntry,
     BillPayment,
     Card,

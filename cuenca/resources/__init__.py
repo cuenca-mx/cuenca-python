@@ -1,7 +1,7 @@
 __all__ = [
     'ApiKey',
     'Account',
-    'ARPC',
+    'Arpc',
     'BalanceEntry',
     'BillPayment',
     'Card',
@@ -20,7 +20,7 @@ __all__ = [
 
 from .accounts import Account
 from .api_keys import ApiKey
-from .arpc import ARPC
+from .arpc import Arpc
 from .balance_entries import BalanceEntry
 from .bill_payments import BillPayment
 from .card_activations import CardActivation
@@ -42,7 +42,7 @@ from .whatsapp_transfers import WhatsappTransfer
 resource_classes = [
     ApiKey,
     Account,
-    ARPC,
+    Arpc,
     BalanceEntry,
     BillPayment,
     Card,

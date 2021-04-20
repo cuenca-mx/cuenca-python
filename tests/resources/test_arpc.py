@@ -1,6 +1,6 @@
 import pytest
 
-from cuenca.resources import ARPC
+from cuenca.resources import Arpc
 
 
 @pytest.mark.vcr
@@ -16,5 +16,5 @@ def test_arpc():
         transaction_counter='001D',
         track_data_method='terminal',
     )
-    arpc = ARPC.create(**arpc_req)
+    arpc = Arpc.create(**arpc_req)
     assert arpc.is_valid_arqc
