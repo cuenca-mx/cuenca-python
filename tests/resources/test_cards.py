@@ -35,6 +35,7 @@ def test_card_retrieve():
     assert card.id == card_id
     assert len(card.number) == 16
     assert card.last_4_digits == '9849'
+    assert card.bin == '544875'
     assert card.type == CardType.virtual
 
 
@@ -72,6 +73,13 @@ def test_card_update():
     assert card.status == CardStatus.blocked
     card = Card.update(card_id, status=CardStatus.active)
     assert card.status == CardStatus.active
+
+
+@pytest.mark.vcr
+def test_card_update_pin():
+    new_pin = '7AC814A636D901BE'
+    card = Card.update(card_id, pin_block=new_pin)
+    assert card
 
 
 @pytest.mark.vcr
