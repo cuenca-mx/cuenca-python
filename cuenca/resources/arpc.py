@@ -27,7 +27,6 @@ class Arpc(Creatable):
     card_uri: str
     is_valid_arqc: Optional[bool]
     arpc: Optional[str]
-    err: Optional[str]
 
     @classmethod
     def create(
