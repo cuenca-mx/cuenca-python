@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.2.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/phone_verifications
+  response:
+    body:
+      string: '{"id":"PV01","created_at":"2021-02-11T20:07:55.891354","updated_at":"2021-02-11T19:54:42.308426","token":"123456789","phone_number":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '381'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 11 Feb 2021 20:07:55 GMT
+      Server:
+      - nginx/1.18.0
+      X-Amzn-Trace-Id:
+      - Root=1-60258e9b-d1e9ed255cca393920a29b81;Sampled=0
+      x-amz-apigw-id:
+      - amM4WHXDiYcFcog=
+      x-amzn-RequestId:
+      - 3c0c47f8-198d-4bab-a592-009f362f5c1c
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"token": "123456789", "token_secret": "987654321"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '71'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.6.2.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: PATCH
+    uri: https://sandbox.cuenca.com/phone_verifications/PV01
+  response:
+    body:
+      string: '{"id":"PV01","created_at":"2021-02-11T20:07:55.891354","updated_at":"2021-02-11T19:54:42.308426","token":"123456789","phone_number":"+525555555555"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '303'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 11 Feb 2021 20:15:34 GMT
+      Server:
+      - nginx/1.18.0
+      X-Amzn-Trace-Id:
+      - Root=1-60259066-eaacfb4aabaaf3115543fd82;Sampled=0
+      x-amz-apigw-id:
+      - amN_-HXbiYcFiqw=
+      x-amzn-RequestId:
+      - b1706bba-9818-4626-adf0-2dd2a9297b3d
+    status:
+      code: 201
+      message: Created
+version: 1

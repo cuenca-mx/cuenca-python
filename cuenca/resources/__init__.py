@@ -11,6 +11,7 @@ __all__ = [
     'Commission',
     'Deposit',
     'LoginToken',
+    'PhoneVerification',
     'ServiceProvider',
     'Statement',
     'Transfer',
@@ -30,6 +31,7 @@ from .cards import Card
 from .commissions import Commission
 from .deposits import Deposit
 from .login_tokens import LoginToken
+from .phone_verifications import PhoneVerification
 from .resources import RESOURCES
 from .service_providers import ServiceProvider
 from .statements import Statement
