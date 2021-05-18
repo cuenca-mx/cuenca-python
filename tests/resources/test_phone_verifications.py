@@ -1,5 +1,3 @@
-import datetime as dt
-
 import pytest
 
 from cuenca import PhoneVerification
@@ -19,9 +17,7 @@ def test_update_phone_verification():
     token_secret = '987654321'
 
     pv = PhoneVerification.create()
-    fields_to_update = dict(
-        token=pv.token,token_secret=token_secret
-    )
+    fields_to_update = dict(token=pv.token, token_secret=token_secret)
     updated = PhoneVerification.update(pv.id, **fields_to_update)
     assert updated.token == fields_to_update['token']
     assert updated.phone_number is not None
