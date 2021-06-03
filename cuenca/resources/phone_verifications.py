@@ -8,15 +8,15 @@ from .base import Creatable, Updateable
 
 
 class PhoneVerificationUpdateRequest(BaseRequest):
-    token: str
-    token_secret: str
+    request_token: str
+    access_token: str
 
 
 @dataclass
 class PhoneVerification(Creatable, Updateable):
     _resource: ClassVar = 'phone_verifications'
 
-    token: str
+    request_token: str
     phone_number: Optional[str]
 
     @classmethod
@@ -29,14 +29,14 @@ class PhoneVerification(Creatable, Updateable):
     def update(
         cls,
         pv_id: str,
-        token: Optional[dict] = None,
-        token_secret: Optional[dict] = None,
+        request_token: Optional[dict] = None,
+        access_token: Optional[dict] = None,
         *,
         session: Session = global_session,
     ) -> 'PhoneVerification':
         req = PhoneVerificationUpdateRequest(
-            token=token,
-            token_secret=token_secret,
+            request_token=request_token,
+            access_token=access_token,
         )
         resp = cls._update(pv_id, **req.dict(), session=session)
         return cast('PhoneVerification', resp)

@@ -22,7 +22,7 @@ interactions:
     uri: https://sandbox.cuenca.com/phone_verifications
   response:
     body:
-      string: '{"id":"PV01","created_at":"2021-02-11T20:07:55.891354","updated_at":"2021-02-11T19:54:42.308426","token":"123456789","phone_number":null}'
+      string: '{"id":"PV01","created_at":"2021-02-11T20:07:55.891354","updated_at":"2021-02-11T19:54:42.308426","request_token":"123456789","phone_number":null}'
     headers:
       Connection:
       - keep-alive
