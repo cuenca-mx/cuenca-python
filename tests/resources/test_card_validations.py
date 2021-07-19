@@ -13,6 +13,7 @@ def test_card_validations():
         exp_month=2,
         exp_year=25,
         pin_block='BDIEHA38457W',
+        pin_tries_exceeded_offline=False
     )
     validation = CardValidation.create(**card_data)
     assert validation.is_active
