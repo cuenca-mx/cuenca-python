@@ -23,7 +23,7 @@ interactions:
     uri: https://sandbox.cuenca.com/card_validations
   response:
     body:
-      string: '{"id":"CVW12jNalJQA6_-jqIPL1aSw","created_at":"2021-07-19T21:49:43.691266","card_uri":"/cards/CA7pET83WM25VXO3IQ8BwYO3","card_status":"active","is_valid_cvv":true,"is_valid_cvv2":true,"is_valid_icvv":true,"is_valid_pin_block":true,"is_valid_exp_date":true,"is_expired":false,"is_pin_tries_exceeded":false,"user_id":"US3zGWi1n852bTyqD1wCZ1ft","card_type":"physical"}'
+      string: '{"id":"CVW12jNalJQA6_-jqIPL1aSw","created_at":"2021-07-19T21:49:43.691266","card_uri":"/cards/CA7pET83WM25VXO3IQ8BwYO3","card_status":"active","is_valid_cvv":true,"is_valid_cvv2":true,"is_valid_icvv":true,"is_valid_pin_block":true,"is_valid_exp_date":true,"is_expired":false,"is_pin_tries_exceeded":true,"user_id":"US3zGWi1n852bTyqD1wCZ1ft","card_type":"physical"}'
     headers:
       Connection:
       - keep-alive

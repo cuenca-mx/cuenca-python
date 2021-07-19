@@ -13,7 +13,7 @@ def test_card_validations():
         exp_month=2,
         exp_year=25,
         pin_block='3B241739AB05D290',
-        pin_tries_exceeded_offline=False,
+        pin_tries_exceeded_offline=True,
     )
     validation = CardValidation.create(**card_data)
     assert validation.is_active
@@ -27,3 +27,4 @@ def test_card_validations():
     c = validation.card
     assert validation.card_id == c.id
     assert validation.is_active
+    assert validation.is_pin_tries_exceeded
