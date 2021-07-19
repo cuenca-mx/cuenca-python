@@ -6,13 +6,13 @@ from cuenca.resources import CardValidation
 @pytest.mark.vcr
 def test_card_validations():
     card_data = dict(
-        number='1234567890123403',
+        number='5448750129965637',
         cvv='685',
         cvv2='150',
         icvv='399',
         exp_month=2,
         exp_year=25,
-        pin_block='BDIEHA38457W',
+        pin_block='3B241739AB05D290',
         pin_tries_exceeded_offline=False,
     )
     validation = CardValidation.create(**card_data)

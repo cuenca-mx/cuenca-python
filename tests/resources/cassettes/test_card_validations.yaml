@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"number": "1234567890123403", "exp_month": 2, "exp_year": 25, "cvv": "685",
-      "cvv2": "150", "icvv": "399", "pin_block": "BDIEHA38457W"}'
+    body: '{"number": "5448750129965637", "exp_month": 2, "exp_year": 25, "cvv": "685",
+      "cvv2": "150", "icvv": "399", "pin_block": "3B241739AB05D290"}'
     headers:
       Accept:
       - '*/*'
@@ -16,41 +16,41 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.5
+      - cuenca-python/0.7.8.dev4
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/card_validations
   response:
     body:
-      string: '{"id":"CVlYj-hNIfQpmJH7mcc8GpoA","created_at":"2021-04-14T23:19:53.928000","card_uri":"/cards/CA7pET83WM25VXO3IQ8BwYO3","user_id":"US3zGWi1n852bTyqD1wCZ1ft","card_status":"active","card_type":"physical","is_active":true,"is_valid_cvv":true,"is_valid_cvv2":true,"is_valid_icvv":true,"is_valid_pin_block":true,"is_valid_exp_date":true,"is_expired":false}'
+      string: '{"id":"CVW12jNalJQA6_-jqIPL1aSw","created_at":"2021-07-19T21:49:43.691266","card_uri":"/cards/CA7pET83WM25VXO3IQ8BwYO3","card_status":"active","is_valid_cvv":true,"is_valid_cvv2":true,"is_valid_icvv":true,"is_valid_pin_block":true,"is_valid_exp_date":true,"is_expired":false,"is_pin_tries_exceeded":false,"user_id":"US3zGWi1n852bTyqD1wCZ1ft","card_type":"physical"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '353'
+      - '365'
       Content-Type:
       - application/json
       Date:
-      - Wed, 14 Apr 2021 23:19:54 GMT
+      - Mon, 19 Jul 2021 21:49:45 GMT
       X-Amzn-Trace-Id:
-      - Root=1-60777894-7b1b1c365ab7d3e818fd9b89;Sampled=0
+      - Root=1-60f5f376-75f7965c3976d7c804797f9d;Sampled=0
       X-Request-Time:
-      - 'value: 5.099'
+      - 'value: 2.115'
       x-amz-apigw-id:
-      - dy_HSH_miYcF2Yw=
+      - CvL6mFAwiYcFcUw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '353'
+      - '365'
       x-amzn-Remapped-Date:
-      - Wed, 14 Apr 2021 23:19:54 GMT
+      - Mon, 19 Jul 2021 21:49:45 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.18.0
+      - nginx/1.20.1
       x-amzn-Remapped-x-amzn-RequestId:
-      - 1b3475f9-24d3-4d08-bad5-de61287be5e4
+      - f60d03ba-c92b-466e-88b7-8e555c909328
       x-amzn-RequestId:
-      - c0f8ddfb-88d8-4d11-b3cf-7a4048abdea5
+      - 1361d0a6-9c7f-4b26-b616-df302cdc2152
     status:
       code: 201
       message: Created
@@ -66,41 +66,41 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.7.5
+      - cuenca-python/0.7.8.dev4
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
     uri: https://sandbox.cuenca.com/cards/CA7pET83WM25VXO3IQ8BwYO3
   response:
     body:
-      string: '{"id":"CA7pET83WM25VXO3IQ8BwYO3","created_at":"2021-03-11T22:54:35.337000","updated_at":"2021-03-11T23:45:23.266000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","number":"5448750129965637","exp_month":2,"exp_year":25,"cvv2":"150","type":"physical","status":"active","pin":"6725","issuer":"cuenca","funding_type":"debit","pin_block":"461F248CA285A5CB","batch":null,"manufacturer":null,"cvv":"685","icvv":"399","pin_block_switch":"3B241739AB05D290","pin_block_embosser":"26641FB1CB03B667"}'
+      string: '{"id":"CA7pET83WM25VXO3IQ8BwYO3","created_at":"2021-03-11T22:54:35.337000","updated_at":"2021-07-19T21:49:43.822000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","number":"5448750129965637","exp_month":2,"exp_year":25,"cvv2":"150","type":"physical","status":"active","pin":"6725","issuer":"cuenca","funding_type":"debit","pin_tries_failed":0,"manufacturer":null,"cvv":"685","icvv":"399","pin_block":null,"pin_block_switch":"3B241739AB05D290"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '480'
+      - '434'
       Content-Type:
       - application/json
       Date:
-      - Wed, 14 Apr 2021 23:19:54 GMT
+      - Mon, 19 Jul 2021 21:49:45 GMT
       X-Amzn-Trace-Id:
-      - Root=1-6077789a-1895180e4d53b05655b53c24;Sampled=0
+      - Root=1-60f5f379-4f32cc71419805e2107977e4;Sampled=0
       X-Request-Time:
-      - 'value: 0.708'
+      - 'value: 0.720'
       x-amz-apigw-id:
-      - dy_IHEEZiYcFQsw=
+      - CvL68HpIiYcFuGA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '480'
+      - '434'
       x-amzn-Remapped-Date:
-      - Wed, 14 Apr 2021 23:19:54 GMT
+      - Mon, 19 Jul 2021 21:49:45 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.18.0
+      - nginx/1.20.1
       x-amzn-Remapped-x-amzn-RequestId:
-      - fbde3e85-a233-481e-b0c0-33b0e9fc92d1
+      - 55f363d5-693b-4c1f-a07c-b24a58233b9f
       x-amzn-RequestId:
-      - 624ac3a8-9c57-4b4e-83b8-a7f21722e4ff
+      - e0d9cb0e-494e-4e46-aab6-7fcff66ad713
     status:
       code: 200
       message: OK
