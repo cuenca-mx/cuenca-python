@@ -25,8 +25,8 @@ class CardValidation(Creatable):
     is_valid_icvv: Optional[bool]
     is_valid_pin_block: Optional[bool]
     is_valid_exp_date: Optional[bool]
+    is_pin_tries_exceeded: Optional[bool]
     is_expired: bool
-    is_pin_tries_exceeded: bool
 
     @classmethod
     def create(
