@@ -23,7 +23,7 @@ interactions:
     uri: https://sandbox.cuenca.com/card_validations
   response:
     body:
-      string: '{"id":"CVW12jNalJQA6_-jqIPL1aSw","created_at":"2021-07-19T21:49:43.691266","card_uri":"/cards/CA7pET83WM25VXO3IQ8BwYO3","card_status":"active","is_valid_cvv":true,"is_valid_cvv2":true,"is_valid_icvv":true,"is_valid_pin_block":true,"is_valid_exp_date":true,"is_expired":false,"is_pin_tries_exceeded":true,"user_id":"US3zGWi1n852bTyqD1wCZ1ft","card_type":"physical"}'
+      string: '{"id":"CVW12jNalJQA6_-jqIPL1aSw","created_at":"2021-07-19T21:49:43.691266","card_uri":"/cards/CA7pET83WM25VXO3IQ8BwYO3","card_status":"active","is_valid_cvv":true,"is_valid_cvv2":true,"is_valid_icvv":true,"is_valid_pin_block":true,"is_valid_exp_date":true,"is_expired":false,"is_pin_attempts_exceeded":true,"user_id":"US3zGWi1n852bTyqD1wCZ1ft","card_type":"physical"}'
     headers:
       Connection:
       - keep-alive
@@ -73,7 +73,7 @@ interactions:
     uri: https://sandbox.cuenca.com/cards/CA7pET83WM25VXO3IQ8BwYO3
   response:
     body:
-      string: '{"id":"CA7pET83WM25VXO3IQ8BwYO3","created_at":"2021-03-11T22:54:35.337000","updated_at":"2021-07-19T21:49:43.822000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","number":"5448750129965637","exp_month":2,"exp_year":25,"cvv2":"150","type":"physical","status":"active","pin":"6725","issuer":"cuenca","funding_type":"debit","pin_tries_failed":0,"manufacturer":null,"cvv":"685","icvv":"399","pin_block":null,"pin_block_switch":"3B241739AB05D290"}'
+      string: '{"id":"CA7pET83WM25VXO3IQ8BwYO3","created_at":"2021-03-11T22:54:35.337000","updated_at":"2021-07-19T21:49:43.822000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","number":"5448750129965637","exp_month":2,"exp_year":25,"cvv2":"150","type":"physical","status":"active","pin":"6725","issuer":"cuenca","funding_type":"debit","pin_attempts_failed":0,"manufacturer":null,"cvv":"685","icvv":"399","pin_block":null,"pin_block_switch":"3B241739AB05D290"}'
     headers:
       Connection:
       - keep-alive
