@@ -15,7 +15,6 @@ __all__ = [
     'Statement',
     'Transfer',
     'UserLogin',
-    'Wallet',
     'WhatsappTransfer',
 ]
 
@@ -37,7 +36,6 @@ from .statements import Statement
 from .transfers import Transfer
 from .user_credentials import UserCredential
 from .user_logins import UserLogin
-from .wallets import Wallet
 from .whatsapp_transfers import WhatsappTransfer
 
 # avoid circular imports
@@ -59,7 +57,6 @@ resource_classes = [
     Transfer,
     UserCredential,
     UserLogin,
-    Wallet,
     WhatsappTransfer,
 ]
 for resource_cls in resource_classes:
