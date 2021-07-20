@@ -5,11 +5,13 @@ from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
 from cuenca_validations.types import (
+    Currency,
     FileFormat,
     QueryParams,
     SantizedDict,
     TransactionQuery,
     TransactionStatus,
+    WalletType,
 )
 
 from ..exc import MultipleResultsFound, NoResultFound
@@ -168,3 +170,16 @@ class Transaction(Retrievable, Queryable):
     amount: int  # in centavos
     status: TransactionStatus
     descriptor: str  # how it appears for the customer
+
+
+@dataclass
+class Wallet(Queryable, Retrievable):
+    user_id: str
+    balance: int
+    currency: Currency
+    type: WalletType
+    deactivated_at: dt.datetime
+
+    @property
+    def is_active(self):
+        return not self.deactivated_at
