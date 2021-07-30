@@ -14,6 +14,8 @@ from cuenca.resources.base import Creatable, Queryable, Retrievable, Updateable
 
 from ..http import Session, session as global_session
 
+MAX_PIN_ATTEMPTS = 3
+
 
 @dataclass
 class Card(Retrievable, Queryable, Creatable, Updateable):
@@ -30,6 +32,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     status: CardStatus
     issuer: CardIssuer
     funding_type: CardFundingType
+    pin_attempts_failed: Optional[int] = None
 
     @property
     def last_4_digits(self):
@@ -38,6 +41,14 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     @property
     def bin(self):
         return self.number[:6]
+
+    @property
+    def pin_attempts_exceeded(self) -> bool:
+        return (
+            self.pin_attempts_failed >= MAX_PIN_ATTEMPTS
+            if self.pin_attempts_failed
+            else False
+        )
 
     @classmethod
     def create(
