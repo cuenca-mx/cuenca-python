@@ -20,15 +20,16 @@ class Saving(Wallet, Creatable, Updateable):
     def create(
         cls,
         name: str,
-        amount: int,
-        end_date: datetime,
         category: SavingCategory,
+        goal_amount: int,
+        goal_date: datetime,
+        currency: Currency = Currency.mxn,
     ):
         request = SavingRequest(
-            amount=amount,
             name=name,
             category=category,
-            end_date=end_date,
-            currency=Currency.mxn,  # For now
+            goal_amount=goal_amount,
+            goal_date=goal_date,
+            currency=currency,
         )
         return cast('Saving', cls._create(**request.dict()))
