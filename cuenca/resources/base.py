@@ -82,6 +82,18 @@ class Updateable(Resource):
 
 
 @dataclass
+class Deleteable(Resource):
+    updated_at: dt.datetime
+
+    @classmethod
+    def _delete(
+        cls, id: str, *, session: Session = global_session, **data
+    ) -> Resource:
+        resp = session.delete(f'/{cls._resource}/{id}', data)
+        return cls._from_dict(resp)
+
+
+@dataclass
 class Downloadable(Resource):
     @classmethod
     def download(
@@ -173,7 +185,7 @@ class Transaction(Retrievable, Queryable):
 
 
 @dataclass
-class Wallet(Queryable, Retrievable):
+class Wallet(Queryable, Retrievable, Deleteable):
     user_id: str
     balance: int
     currency: Currency
