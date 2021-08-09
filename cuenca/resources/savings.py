@@ -1,20 +1,20 @@
+import datetime as dt
 from dataclasses import dataclass
-from datetime import datetime
-from typing import ClassVar, cast
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import Currency, SavingCategory, SavingRequest
 
-from .base import Creatable, Updateable, Wallet
+from .base import Creatable, Deleteable, Updateable, Wallet
 
 
 @dataclass
-class Saving(Wallet, Creatable, Updateable):
-    _resource: ClassVar = 'Saving'
-
-    amount: int
-    category: SavingCategory
-    end_date: datetime
+class Saving(Wallet, Creatable, Updateable, Deleteable):
+    _resource: ClassVar = 'savings'
     name: str
+    category: SavingCategory
+    goal_amount: int
+    goal_date: dt.datetime
+    currency: Currency
 
     @classmethod
     def create(
@@ -22,7 +22,7 @@ class Saving(Wallet, Creatable, Updateable):
         name: str,
         category: SavingCategory,
         goal_amount: int,
-        goal_date: datetime,
+        goal_date: dt.datetime,
         currency: Currency = Currency.mxn,
     ):
         request = SavingRequest(
@@ -31,5 +31,23 @@ class Saving(Wallet, Creatable, Updateable):
             goal_amount=goal_amount,
             goal_date=goal_date,
             currency=currency,
+        )
+        return cast('Saving', cls._create(**request.dict()))
+
+    @classmethod
+    def update(
+        cls,
+        saving_id: str,
+        name: Optional[str] = None,
+        category: Optional[SavingCategory] = None,
+        goal_amount: Optional[int] = None,
+        goal_date: Optional[dt.datetime] = None,
+    ) -> 'Saving':
+        request = SavingUpdateRequest(
+            id=saving_id,
+            name=name,
+            category=category,
+            goal_amount=goal_amount,
+            goal_date=goal_date,
         )
         return cast('Saving', cls._create(**request.dict()))
