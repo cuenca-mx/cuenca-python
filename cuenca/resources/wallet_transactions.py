@@ -16,8 +16,6 @@ class WalletTransaction(Transaction, Creatable):
     _resource = 'wallet_transactions'
     type: WalletTransactionType
     wallet_uri: str
-    # amount: int  # From Transaction -> always in MXN
-    amount_currency: int  # In wallet currency [mxn | usd ]
     commission_uri: Optional[str]
 
     @property

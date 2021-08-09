@@ -34,7 +34,7 @@ def test_flow_savings_mxn():
         amount=10000,
     )
     assert wallet_deposit.status == TransactionStatus.submitted
-    assert wallet_deposit.amount_currency == 10000
+    assert wallet_deposit.amount == 10000
     # After processing deposit in core
     wallet_deposit.refresh()
     assert wallet_deposit.status == TransactionStatus.succeeded
@@ -48,7 +48,7 @@ def test_flow_savings_mxn():
         amount=5000,
     )
     assert wallet_withdrawal.status == TransactionStatus.submitted
-    assert wallet_withdrawal.amount_currency == 5000
+    assert wallet_withdrawal.amount == 5000
 
     # After processing deposit in core
     wallet_withdrawal.refresh()
