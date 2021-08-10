@@ -6,17 +6,16 @@ from cuenca_validations.types import (
     EntryType,
     SavingCategory,
     TransactionStatus,
-    WalletTransactionType,
     WalletType,
 )
 
 from cuenca import BalanceEntry
 from cuenca.resources.savings import Saving
-from cuenca.resources.wallet_transactions import WalletTransaction
+from cuenca.resources.wallet_transactions import WalletDeposit, WalletTransfer
 
 
-def test_flow_savings_mxn():
-    # Create saving
+def test_flows_saving():
+    # STEP 1: CREATE SAVING
     saving = Saving.create(
         name='Ahorros',
         category=SavingCategory.travel,
@@ -26,48 +25,71 @@ def test_flow_savings_mxn():
     )
     assert saving.type == WalletType.saving
     assert saving.balance == 0
+    assert saving.id is not None
 
-    # Deposit money to saving
-    wallet_deposit = WalletTransaction.create(
-        wallet_id=saving.id,
-        transaction_type=WalletTransactionType.deposit,
+    default_la = 'LA_123'
+    account_uri = f'accounts/{default_la}'
+    wallet_uri = f'savings/{saving.id}'
+
+    # STEP 2 : DEPOSIT MONEY IN SAVING
+    wallet_transfer = WalletTransfer.create(
+        source_id=default_la,
+        destination_id=saving.id,
         amount=10000,
     )
-    assert wallet_deposit.status == TransactionStatus.submitted
-    assert wallet_deposit.amount == 10000
-    # After processing deposit in core
-    wallet_deposit.refresh()
+    assert wallet_transfer.funding_instrument_uri == account_uri
+    assert wallet_transfer.status == TransactionStatus.submitted
+    assert wallet_transfer.amount == 10000
+    deposit_id = wallet_transfer.id  # LT_123
+
+    # After processing transaction in core
+    wallet_transfer.refresh()
+    assert wallet_transfer.status == TransactionStatus.succeeded
+
+    # Check deposit exists in wallet
+    saving.refresh()
+    assert saving.balance == 10000
+    wallet_deposit: WalletDeposit = WalletDeposit.retrieve(deposit_id)
+    assert wallet_deposit.funding_instrument_uri == wallet_uri
     assert wallet_deposit.status == TransactionStatus.succeeded
-    saving.refresh()
-    assert saving.balance == wallet_deposit.amount
 
-    # Withdraw money from saving
-    wallet_withdrawal = WalletTransaction.create(
-        wallet_id=saving.id,
-        transaction_type=WalletTransactionType.withdrawal,
-        amount=5000,
+    # STEP 3: WITHDRAW MONEY FROM SAVING
+    wallet_transfer = WalletTransfer.create(
+        source_id=saving.id,
+        destination_id=default_la,
+        amount=2000,
     )
-    assert wallet_withdrawal.status == TransactionStatus.submitted
-    assert wallet_withdrawal.amount == 5000
+    assert wallet_transfer.status == TransactionStatus.submitted
+    assert wallet_transfer.amount == 2000
+    withdraw_id = wallet_transfer.id  # LT_123
 
-    # After processing deposit in core
-    wallet_withdrawal.refresh()
-    assert wallet_withdrawal.status == TransactionStatus.succeeded
+    # After processing transaction in core
+    wallet_transfer.refresh()
+    assert wallet_transfer.status == TransactionStatus.succeeded
     saving.refresh()
-    assert saving.balance == wallet_deposit.amount - wallet_withdrawal.amount
+    assert saving.balance == 8000
+    wallet_deposit: WalletDeposit = WalletDeposit.retrieve(withdraw_id)
+    assert wallet_deposit.funding_instrument_uri == account_uri
+    assert wallet_deposit.status == TransactionStatus.succeeded
 
-    # Movements in balance LA
+    # BALANCES IN WALLET
     entries: List[BalanceEntry] = BalanceEntry.all(
-        funding_instrument_uri=f'/savings/{saving.id}'
+        funding_instrument_uri=wallet_uri
     )
     assert len(entries) == 2
-    debit = [be for be in entries if be.type == EntryType.debit][0]
-    assert (
-        debit.related_transaction_uri
-        == f'wallet_transactions/{wallet_deposit.id}'
-    )
     credit = [be for be in entries if be.type == EntryType.credit][0]
-    assert (
-        credit.related_transaction_uri
-        == f'wallet_transactions/{wallet_withdrawal.id}'
-    )
+    assert credit.amount == 10000
+    assert credit.related_transaction == f'wallet_deposits/{deposit_id}'
+    debit = [be for be in entries if be.type == EntryType.debit][0]
+    assert debit.related_transaction == f'wallet_transfers/{withdraw_id}'
+    assert debit.amount == 2000
+
+    # BALANCES IN DEFAULT LA
+    entries = BalanceEntry.all(funding_instrument_uri=account_uri)
+    assert len(entries) == 2
+    debit = [be for be in entries if be.type == EntryType.debit][0]
+    assert debit.related_transaction == f'wallet_transfers/{deposit_id}'
+    assert debit.amount == 10000
+    credit = [be for be in entries if be.type == EntryType.credit][0]
+    assert credit.related_transaction == f'wallet_deposits/{withdraw_id}'
+    assert credit.amount == 2000

@@ -1,43 +1,44 @@
-from typing import Optional, cast
+from typing import Optional, TypeVar, cast
 
-from cuenca_validations.types import (
-    WalletTransactionRequest,
-    WalletTransactionType,
-)
+from cuenca_validations.types import WalletTransactionRequest
 
 from cuenca.resources.base import Creatable, Transaction
 from cuenca.resources.resources import retrieve_uri
 
+from .accounts import Account
 from .base import Wallet
-from .commissions import Commission
+
+FundingInstrumentWallet = TypeVar('FundingInstrumentWallet', Account, Wallet)
 
 
-class WalletTransaction(Transaction, Creatable):
-    _resource = 'wallet_transactions'
-    type: WalletTransactionType
-    wallet_uri: str
-    commission_uri: Optional[str]
+class WalletTransaction(Transaction):
+    funding_instrument_uri: str
 
-    @property
-    def commission(self) -> Optional['Commission']:
-        if not self.commission_uri:
-            return None
-        return cast('Commission', retrieve_uri(self.commission_uri))
+    @property  # type: ignore
+    def funding_instrument(self) -> FundingInstrumentWallet:
+        return cast(
+            FundingInstrumentWallet,
+            retrieve_uri(self.funding_instrument_uri),
+        )
 
-    @property
-    def wallet(self) -> Optional['Wallet']:
-        return cast('Wallet', retrieve_uri(self.wallet_uri))
+
+class WalletDeposit(WalletTransaction):
+    _resource = 'wallet_deposits'
+
+
+class WalletTransfer(WalletTransaction, Creatable):
+    _resource = 'wallet_transfers'
 
     @classmethod
     def create(
         cls,
-        wallet_id: str,
-        transaction_type: WalletTransactionType,
+        source_id: str,
+        destination_id: str,
         amount: Optional[int] = None,
     ):
         request = WalletTransactionRequest(
-            wallet_id=wallet_id,
-            transaction_type=transaction_type,
+            source_id=source_id,
+            destination_id=destination_id,
             amount=amount,
         )
-        return cast('WalletTransaction', cls._create(**request.dict()))
+        return cast('WalletTransfer', cls._create(**request.dict()))
