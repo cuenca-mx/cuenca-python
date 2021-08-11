@@ -5,13 +5,11 @@ from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
 from cuenca_validations.types import (
-    Currency,
     FileFormat,
     QueryParams,
     SantizedDict,
     TransactionQuery,
     TransactionStatus,
-    WalletType,
 )
 
 from ..exc import MultipleResultsFound, NoResultFound
