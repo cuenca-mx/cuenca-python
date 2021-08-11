@@ -9,7 +9,6 @@ from cuenca.resources.base import Creatable, Transaction
 from cuenca.resources.resources import retrieve_uri
 
 from .base import Wallet
-from .commissions import Commission
 
 
 class WalletTransaction(Transaction, Creatable):
@@ -17,12 +16,6 @@ class WalletTransaction(Transaction, Creatable):
     type: WalletTransactionType
     wallet_uri: str
     commission_uri: Optional[str]
-
-    @property
-    def commission(self) -> Optional['Commission']:
-        if not self.commission_uri:
-            return None
-        return cast('Commission', retrieve_uri(self.commission_uri))
 
     @property
     def wallet(self) -> Optional['Wallet']:

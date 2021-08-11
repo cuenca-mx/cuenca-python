@@ -188,8 +188,6 @@ class Transaction(Retrievable, Queryable):
 class Wallet(Queryable, Retrievable, Deleteable):
     user_id: str
     balance: int
-    currency: Currency
-    type: WalletType
     deactivated_at: dt.datetime
 
     @property

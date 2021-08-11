@@ -2,12 +2,10 @@ import datetime as dt
 from typing import List
 
 from cuenca_validations.types import (
-    Currency,
     EntryType,
     SavingCategory,
     TransactionStatus,
     WalletTransactionType,
-    WalletType,
 )
 
 from cuenca import BalanceEntry
@@ -16,58 +14,51 @@ from cuenca.resources.wallet_transactions import WalletTransaction
 
 
 def test_flow_savings_mxn():
-    # Create saving
+    # STEP 1: CREATE SAVING
+
     saving = Saving.create(
         name='Ahorros',
         category=SavingCategory.travel,
         goal_amount=1000000,
         goal_date=dt.datetime.now() + dt.timedelta(days=365),
-        currency=Currency.mxn,
     )
-    assert saving.type == WalletType.saving
     assert saving.balance == 0
 
-    # Deposit money to saving
-    wallet_deposit = WalletTransaction.create(
+    # STEP 2 : DEPOSIT MONEY IN SAVING
+    deposit = WalletTransaction.create(
         wallet_id=saving.id,
         transaction_type=WalletTransactionType.deposit,
         amount=10000,
     )
-    assert wallet_deposit.status == TransactionStatus.submitted
-    assert wallet_deposit.amount == 10000
+    assert deposit.status == TransactionStatus.submitted
     # After processing deposit in core
-    wallet_deposit.refresh()
-    assert wallet_deposit.status == TransactionStatus.succeeded
+    deposit.refresh()
+    assert deposit.status == TransactionStatus.succeeded
     saving.refresh()
-    assert saving.balance == wallet_deposit.amount
+    assert saving.balance == deposit.amount
 
-    # Withdraw money from saving
-    wallet_withdrawal = WalletTransaction.create(
+    # STEP 3: WITHDRAW MONEY FROM SAVING
+    withdrawal = WalletTransaction.create(
         wallet_id=saving.id,
         transaction_type=WalletTransactionType.withdrawal,
-        amount=5000,
+        amount=2000,
     )
-    assert wallet_withdrawal.status == TransactionStatus.submitted
-    assert wallet_withdrawal.amount == 5000
-
+    assert withdrawal.status == TransactionStatus.submitted
     # After processing deposit in core
-    wallet_withdrawal.refresh()
-    assert wallet_withdrawal.status == TransactionStatus.succeeded
+    withdrawal.refresh()
+    assert withdrawal.status == TransactionStatus.succeeded
     saving.refresh()
-    assert saving.balance == wallet_deposit.amount - wallet_withdrawal.amount
+    assert saving.balance == deposit.amount - withdrawal.amount
 
-    # Movements in balance LA
+    # CHECK BALANCES ENTRIES
     entries: List[BalanceEntry] = BalanceEntry.all(
         funding_instrument_uri=f'/savings/{saving.id}'
     )
     assert len(entries) == 2
+    resource = 'wallet_transactions'
     debit = [be for be in entries if be.type == EntryType.debit][0]
-    assert (
-        debit.related_transaction_uri
-        == f'wallet_transactions/{wallet_deposit.id}'
-    )
+    assert debit.related_transaction_uri == f'{resource}/{deposit.id}'
+    assert debit.amount == deposit.amount
     credit = [be for be in entries if be.type == EntryType.credit][0]
-    assert (
-        credit.related_transaction_uri
-        == f'wallet_transactions/{wallet_withdrawal.id}'
-    )
+    assert credit.amount == withdrawal.amount
+    assert credit.related_transaction_uri == f'{resource}/{withdrawal.id}'
