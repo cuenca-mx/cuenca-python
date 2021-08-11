@@ -50,6 +50,11 @@ def test_flow_savings_mxn():
     saving.refresh()
     assert saving.balance == deposit.amount - withdrawal.amount
 
+    # STEP 4 : QUERY TRANSACTIONS OF WAlLET
+    transactions_db = WalletTransaction.all(wallet_id=saving.id)
+    transactions = [deposit, withdrawal]
+    assert all(wt in transactions for wt in transactions_db)
+
     # CHECK BALANCES ENTRIES
     entries: List[BalanceEntry] = BalanceEntry.all(
         funding_instrument_uri=f'/savings/{saving.id}'
