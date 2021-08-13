@@ -11,42 +11,44 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.3.6
+      - cuenca-python/0.7.10
       X-Cuenca-Api-Version:
       - '2020-03-19'
-      x-amz-content-sha256:
-      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-      x-amz-date:
-      - 20201019T172955Z
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
     method: GET
-    uri: https://sandbox.cuenca.com/balance_entries/TV01
+    uri: https://sandbox.cuenca.com/balance_entries/LE123
   response:
     body:
-      string: '{"id":"TV01","created_at":"2020-10-15T22:27:53.712000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","name":"Dep\u00f3sito
-        de efectivo","amount":25000,"descriptor":"Deposito v\u00eda paynet auth 304054","rolling_balance":144519,"type":"credit","related_transaction_uri":"/deposits/CDI7SJOifauN5WnqfMhXK4R","funding_instrument_uri":"/accounts/BA01"}'
+      string: '{"id":"LE123","created_at":"2021-08-05T23:44:58.920000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","name":"RESTAURANT
+        BRASIL MEXICO DF CMXMX","amount":1212,"descriptor":"","rolling_balance":7586621,"type":"debit","related_transaction_uri":"/card_transactions/CT301Gnn3RoIQ9KezdYu5ika","funding_instrument_uri":"/cards/CA243qFpGLDAaPamCMYHhS0p","wallet_id":"default"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '317'
+      - '379'
       Content-Type:
       - application/json
       Date:
-      - Mon, 19 Oct 2020 17:29:56 GMT
-      Via:
-      - 1.1 1f2a017323162153f3cbc068c08d683d.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - jmXPfoX1V3D4gfK2oNRvYyCVTa0H4CFDq2UIJW0k5H98ZXDVOwuVUA==
-      X-Amz-Cf-Pop:
-      - LAX50-C2
+      - Fri, 13 Aug 2021 20:29:45 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f8dcd14-062b68864a68a14d561f7483;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-6116d638-33880f236e2351ed5291dbd5;Sampled=0
+      X-Request-Time:
+      - 'value: 0.300'
       x-amz-apigw-id:
-      - Uqz7NGGKoAMFuzg=
+      - EBZo5GwzCYcFiUA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '379'
+      x-amzn-Remapped-Date:
+      - Fri, 13 Aug 2021 20:29:45 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 4934335e-52f2-4ab5-99c0-d554aea0ca91
       x-amzn-RequestId:
-      - 3c4972d3-4bb0-45b6-99d9-b184ad9102f9
+      - 00f3be5c-bca7-4e7c-9d60-228ac09c7a95
     status:
       code: 200
       message: OK
@@ -62,42 +64,44 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.3.6
+      - cuenca-python/0.7.10
       X-Cuenca-Api-Version:
       - '2020-03-19'
-      x-amz-content-sha256:
-      - e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
-      x-amz-date:
-      - 20201019T172956Z
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
     method: GET
-    uri: https://sandbox.cuenca.com/deposits/CDI7SJOifauN5WnqfMhXK4R
+    uri: https://sandbox.cuenca.com/card_transactions/CT301Gnn3RoIQ9KezdYu5ika
   response:
     body:
-      string: '{"id":"CDI7SJOifauN5WnqfMhXK4R","created_at":"2020-10-15T22:27:53.827000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","amount":25000,"status":"succeeded","descriptor":"Deposito
-        v\u00eda paynet auth 304054","source_uri":"/accounts/BA01","network":"cash","tracking_key":null}'
+      string: '{"id":"CT301Gnn3RoIQ9KezdYu5ika","created_at":"2021-08-05T23:44:58.820000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","amount":1212,"status":"succeeded","descriptor":"RESTAURANT
+        BRASIL MEXICO DF CMXMX","type":"auth","network":"visa","related_card_transaction_uris":[],"card_last4":"1470","card_type":"physical","card_uri":"/cards/CA243qFpGLDAaPamCMYHhS0p","metadata":{"authorizer_number":"271142","card_acceptor":null,"commission":0,"currency_code":"484","is_cvv":false,"pos_capabilty":"pin_accepted","cardholder_verification_method":"pin","atm_fee":null,"prosa_transaction_id":"000028","retrieval_reference":"000000000528","track_data_method":"terminal","transaction_reference":null},"error_type":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '254'
+      - '697'
       Content-Type:
       - application/json
       Date:
-      - Mon, 19 Oct 2020 17:29:57 GMT
-      Via:
-      - 1.1 1f2a017323162153f3cbc068c08d683d.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - Oca8s1d7DyjaJBtN-bGe_6DgjyLBUCYwZ6KV07FAoawSmfGM2zS5Eg==
-      X-Amz-Cf-Pop:
-      - LAX50-C2
+      - Fri, 13 Aug 2021 20:29:58 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f8dcd15-4a3f9ad77ee830f7704af8b5;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-6116d646-07a325cd02ff70eb4b22db80;Sampled=0
+      X-Request-Time:
+      - 'value: 0.363'
       x-amz-apigw-id:
-      - Uqz7UG_QIAMFVtQ=
+      - EBZq-Eo_CYcF6OA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '697'
+      x-amzn-Remapped-Date:
+      - Fri, 13 Aug 2021 20:29:58 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 36051ce0-7d91-41e4-bcb8-8cdbd1de8d02
       x-amzn-RequestId:
-      - 75f5428f-9a18-455b-9984-cc3e80fbde4b
+      - da3f8e47-035f-4a4c-b1bc-38f643e188ea
     status:
       code: 200
       message: OK
@@ -113,38 +117,43 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.2.0.dev1
+      - cuenca-python/0.7.10
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
     method: GET
-    uri: https://sandbox.cuenca.com/accounts/BA01
+    uri: https://sandbox.cuenca.com/cards/CA243qFpGLDAaPamCMYHhS0p
   response:
     body:
-      string: '{"id":"BA01","created_at":"2020-06-03T02:43:52.922000","name":"Frida
-        Kahlo","account_number":"072691004495711499","institution_name":"Banorte/Ixe"}'
+      string: '{"id":"CA243qFpGLDAaPamCMYHhS0p","created_at":"2021-03-11T23:27:21.122000","updated_at":"2021-08-05T23:38:13.232000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","number":"5448750142981470","exp_month":2,"exp_year":25,"cvv2":"257","type":"physical","status":"active","pin":"4536","issuer":"cuenca","funding_type":"debit","manufacturer":null,"cvv":"659","icvv":"339","pin_block":null,"pin_block_switch":"332FC7702D108FC5","pin_attempts_failed":0}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '147'
+      - '437'
       Content-Type:
       - application/json
       Date:
-      - Tue, 16 Jun 2020 04:32:14 GMT
-      Via:
-      - 1.1 738c4d7519e726c557e6997ecf719e4b.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - 3um0wIx959TPYgV9OOAd-EcmImhJCL0EENfjLsbJo6N5l_zPG_lByQ==
-      X-Amz-Cf-Pop:
-      - IAH50-C3
+      - Fri, 13 Aug 2021 20:30:06 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5ee84b4e-89001b2256aa31154faffe45;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-6116d649-13f4f05c01ccca763ddf0561;Sampled=0
+      X-Request-Time:
+      - 'value: 4.765'
       x-amz-apigw-id:
-      - ONC0RHYuoAMF3pw=
+      - EBZrlGlCCYcFfVg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '437'
+      x-amzn-Remapped-Date:
+      - Fri, 13 Aug 2021 20:30:06 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 87c56ffd-cb52-4e8f-8cf4-54fb018c9a16
       x-amzn-RequestId:
-      - c4451173-95e6-4636-b7b8-6f268b4c9918
+      - 35ba4df5-63be-4be8-877b-ad72186cea4f
     status:
       code: 200
       message: OK

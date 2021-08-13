@@ -26,6 +26,7 @@ class BalanceEntry(Retrievable, Queryable):
     type: EntryType
     related_transaction_uri: str
     funding_instrument_uri: str
+    wallet_id: str
 
     @property  # type: ignore
     def related_transaction(self) -> Transaction:

@@ -11,44 +11,44 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.7.1
+      - cuenca-python/0.7.10
       X-Cuenca-Api-Version:
-      - '2021-04-08'
-      X-Cuenca-LoginToken:
-      - LTHFBUsQ--SRKYo09VXLuToQ
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
     method: GET
-    uri: https://sandbox.cuenca.com/balance_entries?limit=2&funding_instrument_uri=/accounts/BA01
+    uri: https://sandbox.cuenca.com/balance_entries?limit=2&funding_instrument_uri=%2Faccounts%2FAC123
   response:
     body:
-      string: '{"items":[{"id":"TV01","created_at":"2020-10-15T22:27:53.712000","user_id":"US4PCNV8rLB2wqBfORzIAXUl","name":"Dep\u00f3sito
-        de efectivo","amount":25000,"descriptor":"Deposito v\u00eda paynet auth 304054","rolling_balance":144519,"type":"credit","related_transaction_uri":"/deposits/CDI7SJOifauN5WnqfMhXK4R","funding_instrument_uri":"/accounts/BA01"}],"next_page_uri":null}'
+      string: '{"items":[{"id":"LE5GJeiroumFM1oJyHWiSXYd","created_at":"2021-04-15T01:11:04.274000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","name":"Jessica
+        Shalom Gonzalez Torres","amount":2000,"descriptor":"test","rolling_balance":987494,"type":"debit","related_transaction_uri":"/transfers/LT1aUnovF7vXiLze0U4FN4V3","funding_instrument_uri":"/accounts/AC83fJw_9vXEuOinGyZ44ntA","wallet_id":"default"}],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '232'
+      - '407'
       Content-Type:
       - application/json
       Date:
-      - Thu, 08 Apr 2021 00:03:02 GMT
+      - Fri, 13 Aug 2021 20:30:19 GMT
       X-Amzn-Trace-Id:
-      - Root=1-60553bb5-393799840ea3e46a75052790;Sampled=0
+      - Root=1-6116d65b-092f467471a531a2596f336d;Sampled=0
       X-Request-Time:
-      - 'value: 0.283'
+      - 'value: 0.316'
       x-amz-apigw-id:
-      - cdZEaGpjiYcFWbg=
+      - EBZuWG_ZCYcF9nw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '232'
+      - '407'
       x-amzn-Remapped-Date:
-      - Thu, 08 Apr 2021 00:03:02 GMT
+      - Fri, 13 Aug 2021 20:30:19 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.18.0
+      - nginx/1.20.1
       x-amzn-Remapped-x-amzn-RequestId:
-      - 28c580ed-57e3-4f3f-ae1b-fcacc39c8318
+      - 141d4143-1533-4c9b-8bea-853da5d1e4ac
       x-amzn-RequestId:
-      - 29fab010-c42c-442c-8eea-2dad8021df7a
+      - 52f1a44d-f4cf-4940-8391-107914cc198f
     status:
       code: 200
       message: OK

@@ -1,6 +1,7 @@
 import datetime as dt
 from typing import List
 
+import pytest
 from cuenca_validations.types import (
     EntryType,
     SavingCategory,
@@ -11,7 +12,8 @@ from cuenca_validations.types import (
 from cuenca import BalanceEntry, Saving, WalletTransaction
 
 
-def test_flow_savings_mxn():
+@pytest.mark.skip("coding backend ...")
+def test_flow_savings_and_wallet_transactions():
     # STEP 1: CREATE SAVING
     saving = Saving.create(
         name='Ahorros',
@@ -24,7 +26,7 @@ def test_flow_savings_mxn():
 
     # STEP 2 : DEPOSIT MONEY IN SAVING
     deposit = WalletTransaction.create(
-        wallet_id=saving.id,
+        wallet_uri=wallet_uri,
         transaction_type=WalletTransactionType.deposit,
         amount=10000,
     )
@@ -38,7 +40,7 @@ def test_flow_savings_mxn():
 
     # STEP 3: WITHDRAW MONEY FROM SAVING
     withdrawal = WalletTransaction.create(
-        wallet_id=saving.id,
+        wallet_uri=wallet_uri,
         transaction_type=WalletTransactionType.withdrawal,
         amount=2000,
     )
@@ -55,9 +57,9 @@ def test_flow_savings_mxn():
     transactions = [deposit, withdrawal]
     assert all(wt in transactions for wt in transactions_db)
 
-    # CHECK BALANCES ENTRIES IN DEFAULT
+    # CHECK BALANCES ENTRIES IN DEFAULT RELATED TO WALLET
     entries: List[BalanceEntry] = BalanceEntry.all(
-        funding_instrument_uri=wallet_uri
+        wallet_id='default', funding_instrument_uri=wallet_uri
     )
     assert len(entries) == 2
     # debit associated to Deposit
