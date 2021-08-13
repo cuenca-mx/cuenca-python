@@ -8,11 +8,11 @@ from cuenca_validations.types import (
     SavingUpdateRequest,
 )
 
-from .base import Creatable, Deleteable, Updateable, Wallet
+from .base import Updateable, Wallet
 
 
 @dataclass
-class Saving(Wallet, Creatable, Updateable, Deleteable):
+class Saving(Wallet, Updateable):
     _resource: ClassVar = 'savings'
     name: str
     category: SavingCategory

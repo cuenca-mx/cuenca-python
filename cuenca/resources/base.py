@@ -187,6 +187,6 @@ class Transaction(Retrievable, Queryable):
 
 
 @dataclass
-class Wallet(Queryable, Retrievable, Deleteable):
+class Wallet(Creatable, Deleteable, Retrievable, Queryable):
     user_id: str
     balance: int

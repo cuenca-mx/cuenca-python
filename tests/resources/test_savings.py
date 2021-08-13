@@ -15,6 +15,7 @@ def test_saving_create():
         goal_date=(dt.datetime.utcnow() + dt.timedelta(days=365)),
     )
     assert saving.id is not None
+    assert saving.is_active
     assert saving.balance == 0
 
 
