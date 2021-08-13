@@ -1,3 +1,4 @@
+import datetime as dt
 import json
 import os
 from typing import Optional, Tuple
@@ -18,6 +19,11 @@ from ..version import API_VERSION, CLIENT_VERSION
 
 API_HOST = 'api.cuenca.com'
 SANDBOX_HOST = 'sandbox.cuenca.com'
+
+
+def json_serializer(o):
+    if isinstance(o, (dt.date, dt.datetime)):
+        return o.isoformat()
 
 
 class Session:
@@ -104,11 +110,12 @@ class Session:
             if self.jwt_token.is_expired:
                 self.jwt_token = Jwt.create(self)
             self.session.headers['X-Cuenca-Token'] = self.jwt_token.token
+        json_data = json.loads(json.dumps(data, default=json_serializer))
         resp = self.session.request(
             method=method,
             url='https://' + self.host + urljoin('/', endpoint),
             auth=self.auth,
-            json=data,
+            json=json_data,
             params=params,
             **kwargs,
         )

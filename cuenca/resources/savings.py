@@ -45,10 +45,9 @@ class Saving(Wallet, Creatable, Updateable, Deleteable):
         goal_date: Optional[dt.datetime] = None,
     ) -> 'Saving':
         request = SavingUpdateRequest(
-            id=saving_id,
             name=name,
             category=category,
             goal_amount=goal_amount,
             goal_date=goal_date,
         )
-        return cast('Saving', cls._create(**request.dict()))
+        return cast('Saving', cls._update(id=saving_id, **request.dict()))

@@ -15,7 +15,6 @@ class WalletTransaction(Transaction, Creatable):
     _resource = 'wallet_transactions'
     type: WalletTransactionType
     wallet_uri: str
-    commission_uri: Optional[str]
 
     @property
     def wallet(self) -> Optional['Wallet']:
@@ -24,12 +23,12 @@ class WalletTransaction(Transaction, Creatable):
     @classmethod
     def create(
         cls,
-        wallet_id: str,
+        wallet_uri: str,
         transaction_type: WalletTransactionType,
         amount: Optional[int] = None,
     ):
         request = WalletTransactionRequest(
-            wallet_id=wallet_id,
+            wallet_uri=wallet_uri,
             transaction_type=transaction_type,
             amount=amount,
         )

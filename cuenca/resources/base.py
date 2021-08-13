@@ -81,14 +81,18 @@ class Updateable(Resource):
 
 @dataclass
 class Deleteable(Resource):
-    updated_at: dt.datetime
+    deactivated_at: dt.datetime
 
     @classmethod
-    def _delete(
+    def deactivate(
         cls, id: str, *, session: Session = global_session, **data
     ) -> Resource:
         resp = session.delete(f'/{cls._resource}/{id}', data)
         return cls._from_dict(resp)
+
+    @property
+    def is_active(self):
+        return not self.deactivated_at
 
 
 @dataclass
@@ -186,8 +190,3 @@ class Transaction(Retrievable, Queryable):
 class Wallet(Queryable, Retrievable, Deleteable):
     user_id: str
     balance: int
-    deactivated_at: dt.datetime
-
-    @property
-    def is_active(self):
-        return not self.deactivated_at
