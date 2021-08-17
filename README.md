@@ -98,6 +98,24 @@ transfers = cuenca.Transfer.all(
 # the total number of succeeded transfers
 count = cuenca.Transfer.count(status=Status.succeeded)
 ```
+## Balance
+
+### Current balance
+```python
+import cuenca
+
+# returns the latest balance entry info, including
+# if it was a debit or credit transaction. 
+balance_entry = cuenca.BalanceEntry.first()
+
+# current balance in your account is in `rolling_balance` field
+print(balance_entry.rolling_balance)
+
+```
+
+### 
+
+
 
 ## Api Keys
 
