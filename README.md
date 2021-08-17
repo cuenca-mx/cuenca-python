@@ -109,12 +109,9 @@ import cuenca
 balance_entry = cuenca.BalanceEntry.first()
 
 # current balance in your account is in `rolling_balance` field
-print(balance_entry.rolling_balance)
 # Rolling balance is in cents. If `rolling_balance` = 12345 -> Mx$123.45 pesos.
+print(balance_entry.rolling_balance)
 ```
-
-### 
-
 
 
 ## Api Keys
