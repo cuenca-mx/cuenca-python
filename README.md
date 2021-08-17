@@ -108,8 +108,7 @@ import cuenca
 # if it was a debit or credit transaction. 
 balance_entry = cuenca.BalanceEntry.first()
 
-# current balance in your account is in `rolling_balance` field
-# Rolling balance is in cents. If `rolling_balance` = 12345 -> Mx$123.45 pesos.
+# Rolling balance is in cents. If `rolling_balance` = 12345 -> Mx$123.45
 print(balance_entry.rolling_balance)
 ```
 
