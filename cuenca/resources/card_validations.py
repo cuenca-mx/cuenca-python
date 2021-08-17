@@ -25,6 +25,7 @@ class CardValidation(Creatable):
     is_valid_icvv: Optional[bool]
     is_valid_pin_block: Optional[bool]
     is_valid_exp_date: Optional[bool]
+    is_pin_attempts_exceeded: bool
     is_expired: bool
 
     @classmethod
@@ -37,6 +38,7 @@ class CardValidation(Creatable):
         exp_month: Optional[int] = None,
         exp_year: Optional[int] = None,
         pin_block: Optional[str] = None,
+        pin_attempts_exceeded: Optional[str] = None,
         *,
         session: Session = global_session,
     ) -> 'CardValidation':
@@ -48,6 +50,7 @@ class CardValidation(Creatable):
             exp_month=exp_month,
             exp_year=exp_year,
             pin_block=pin_block,
+            pin_attempts_exceeded=pin_attempts_exceeded,
         )
         return cast(
             'CardValidation', cls._create(session=session, **req.dict())
