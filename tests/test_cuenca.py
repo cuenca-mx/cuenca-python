@@ -1,4 +1,3 @@
-import pytest
 import requests_mock  # type: ignore
 
 import cuenca
@@ -17,7 +16,7 @@ def test_get_balance():
                 'descriptor': '',
                 'rolling_balance': 7578889,
                 'type': 'debit',
-                'related_transaction_uri': '/card_transactions/CT3TACRwC4DRwrKxVRZQk637',
+                'related_transaction_uri': '/card_transactions/CT3TA',
                 'funding_instrument_uri': '/cards/CA243qFpGLDAaPamCMYHhS0p',
                 'wallet_id': 'default',
             }
