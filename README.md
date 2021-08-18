@@ -98,6 +98,17 @@ transfers = cuenca.Transfer.all(
 # the total number of succeeded transfers
 count = cuenca.Transfer.count(status=Status.succeeded)
 ```
+## Balance
+
+### Current balance
+```python
+import cuenca
+
+# balance is the amount in cents
+balance = cuenca.get_balance()
+
+```
+
 
 ## Api Keys
 
