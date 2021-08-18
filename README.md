@@ -112,6 +112,15 @@ balance_entry = cuenca.BalanceEntry.first()
 print(balance_entry.rolling_balance)
 ```
 
+### Current balance (shortcut)
+```python
+import cuenca
+
+# balance is the amount in cents
+balance = cuenca.get_balance()
+
+```
+
 
 ## Api Keys
 
