@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.10
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://stage.cuenca.com/balance_entries?limit=1
+  response:
+    body:
+      string: '{"items":[],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 18 Aug 2021 00:27:10 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-611c53dd-7712cf1473ece966410ae7c9;Sampled=0
+      X-Request-Time:
+      - 'value: 0.243'
+      x-amz-apigw-id:
+      - EPIKrErPiYcFg6Q=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '33'
+      x-amzn-Remapped-Date:
+      - Wed, 18 Aug 2021 00:27:09 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - a1fbc1f3-794d-4bb5-887b-ee1a97127735
+      x-amzn-RequestId:
+      - 93e0821a-24f2-445e-8cdf-5afeb56643a5
+    status:
+      code: 200
+      message: OK
+version: 1

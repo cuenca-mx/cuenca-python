@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.10
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://stage.cuenca.com/balance_entries?limit=1
+  response:
+    body:
+      string: '{"items":[{"id":"LE6xvD1ocHmSIu7MgzlC9woj","created_at":"2021-08-17T21:45:23.061000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","name":"RESTAURANT
+        BRASIL MEXICO DF CMXMX","amount":1212,"descriptor":"","rolling_balance":7578889,"type":"debit","related_transaction_uri":"/card_transactions/CT3TACRwC4DRwrKxVRZQk637","funding_instrument_uri":"/cards/CA243qFpGLDAaPamCMYHhS0p","wallet_id":"default"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '412'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 18 Aug 2021 00:06:29 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-611c4f05-6fdafbf6179d74cb0724ed73;Sampled=0
+      X-Request-Time:
+      - 'value: 0.350'
+      x-amz-apigw-id:
+      - EPFI3FCqCYcF46Q=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '412'
+      x-amzn-Remapped-Date:
+      - Wed, 18 Aug 2021 00:06:29 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 69327f4c-74d1-4ba4-b8c7-cec6fe0a1cad
+      x-amzn-RequestId:
+      - a86781da-f963-4af4-82ad-dc623b77d692
+    status:
+      code: 200
+      message: OK
+version: 1
