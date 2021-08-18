@@ -104,18 +104,6 @@ count = cuenca.Transfer.count(status=Status.succeeded)
 ```python
 import cuenca
 
-# returns the latest balance entry info, including
-# if it was a debit or credit transaction. 
-balance_entry = cuenca.BalanceEntry.first()
-
-# Rolling balance is in cents. If `rolling_balance` = 12345 -> Mx$123.45
-print(balance_entry.rolling_balance)
-```
-
-### Current balance (shortcut)
-```python
-import cuenca
-
 # balance is the amount in cents
 balance = cuenca.get_balance()
 

@@ -11,6 +11,7 @@ __all__ = [
     'CardValidation',
     'Commission',
     'Deposit',
+    'get_balance'
     'LoginToken',
     'ServiceProvider',
     'Statement',
