@@ -11,7 +11,6 @@ __all__ = [
     'CardValidation',
     'Commission',
     'Deposit',
-    'get_balance',
     'LoginToken',
     'ServiceProvider',
     'Statement',
@@ -20,6 +19,7 @@ __all__ = [
     'UserLogin',
     'WhatsappTransfer',
     'configure',
+    'get_balance',
 ]
 
 from typing import cast
