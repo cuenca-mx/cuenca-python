@@ -17,7 +17,7 @@ from ..jwt import Jwt
 from ..version import API_VERSION, CLIENT_VERSION
 
 API_HOST = 'api.cuenca.com'
-SANDBOX_HOST = 'stage.cuenca.com'
+SANDBOX_HOST = 'sandbox.cuenca.com'
 
 
 class Session:

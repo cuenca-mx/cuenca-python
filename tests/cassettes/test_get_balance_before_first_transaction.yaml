@@ -15,7 +15,7 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://stage.cuenca.com/balance_entries?limit=1
+    uri: https://sandbox.cuenca.com/balance_entries?limit=1
   response:
     body:
       string: '{"items":[],"next_page_uri":null}'

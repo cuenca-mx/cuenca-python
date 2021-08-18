@@ -15,7 +15,7 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://stage.cuenca.com/balance_entries?limit=1
+    uri: https://sandbox.cuenca.com/balance_entries?limit=1
   response:
     body:
       string: '{"items":[{"id":"LE6xvD1ocHmSIu7MgzlC9woj","created_at":"2021-08-17T21:45:23.061000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","name":"RESTAURANT
