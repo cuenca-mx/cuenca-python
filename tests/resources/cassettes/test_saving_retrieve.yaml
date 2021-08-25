@@ -30,25 +30,25 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Fri, 13 Aug 2021 00:59:29 GMT
+      - Thu, 19 Aug 2021 00:33:11 GMT
       X-Amzn-Trace-Id:
-      - Root=1-6115c3f1-71aac8b85b6ca0fb61f4ec0d;Sampled=0
+      - Root=1-611da6c7-06273456386df246782109b0;Sampled=0
       X-Request-Time:
-      - 'value: 0.289'
+      - 'value: 0.265'
       x-amz-apigw-id:
-      - D-uNsFT1CYcFnqw=
+      - ESb_MGiliYcFjQw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '317'
       x-amzn-Remapped-Date:
-      - Fri, 13 Aug 2021 00:59:29 GMT
+      - Thu, 19 Aug 2021 00:33:11 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.1
       x-amzn-Remapped-x-amzn-RequestId:
-      - ac85db89-f1c8-4693-96a4-a0681971aa9a
+      - c90ebe82-36e4-4692-aa72-d5aa1c3e1fd2
       x-amzn-RequestId:
-      - 6d415fa6-5325-4075-b503-31b7cbf09eaf
+      - 3499e59f-535a-4749-b920-6fd31a3860c3
     status:
       code: 200
       message: OK

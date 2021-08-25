@@ -108,7 +108,7 @@ class Session:
 
         if data is not None:
             for key, value in data.items():
-                if isinstance(value, (dt.date, dt.datetime)):
+                if isinstance(value, dt.date):
                     data[key] = value.isoformat()
 
         resp = self.session.request(

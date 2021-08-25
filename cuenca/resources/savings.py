@@ -6,6 +6,7 @@ from cuenca_validations.types import (
     SavingCategory,
     SavingRequest,
     SavingUpdateRequest,
+    StrictPositiveInt,
 )
 
 from .base import Updateable, Wallet
@@ -16,7 +17,7 @@ class Saving(Wallet, Updateable):
     _resource: ClassVar = 'savings'
     name: str
     category: SavingCategory
-    goal_amount: int
+    goal_amount: StrictPositiveInt
     goal_date: dt.datetime
 
     @classmethod

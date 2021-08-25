@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"name": "my new car", "category": "vehicle", "goal_amount": 100000, "goal_date":
-      "2022-08-13T00:59:27.248084"}'
+      "2022-08-19T00:33:04.379430"}'
     headers:
       Accept:
       - '*/*'
@@ -25,35 +25,35 @@ interactions:
     uri: https://sandbox.cuenca.com/savings
   response:
     body:
-      string: '{"id":"lA224Vz0MJR6C6C27gvalk_Q","created_at":"2021-08-13T00:59:28.069546","updated_at":"2021-08-13T00:59:28.069551","user_id":"US3zGWi1n852bTyqD1wCZ1ft","balance":0,"deactivated_at":null,"name":"my
-        new car","category":"vehicle","goal_amount":100000,"goal_date":"2022-08-13T00:59:27.248084"}'
+      string: '{"id":"LA6N_ALj-tQUGnbcTEQ4-8Dg","created_at":"2021-08-19T00:33:10.495474","updated_at":"2021-08-19T00:33:10.495478","user_id":"US3zGWi1n852bTyqD1wCZ1ft","balance":0,"deactivated_at":null,"name":"my
+        new car","category":"vehicle","goal_amount":100000,"goal_date":"2022-08-19T00:33:04.379430"}'
     headers:
       Connection:
-      - keep-alive
+      - keep-alivedb.-
       Content-Length:
       - '291'
       Content-Type:
       - application/json
       Date:
-      - Fri, 13 Aug 2021 00:59:28 GMT
+      - Thu, 19 Aug 2021 00:33:11 GMT
       X-Amzn-Trace-Id:
-      - Root=1-6115c3ef-3cffd81045e9540a5b1a90c3;Sampled=0
+      - Root=1-611da6c0-3c0052b843bbfb9c1c60b2a4;Sampled=0
       X-Request-Time:
-      - 'value: 0.627'
+      - 'value: 6.216'
       x-amz-apigw-id:
-      - D-uNfEA-CYcFbRQ=
+      - ESb-LGp2CYcFVuA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '291'
       x-amzn-Remapped-Date:
-      - Fri, 13 Aug 2021 00:59:28 GMT
+      - Thu, 19 Aug 2021 00:33:11 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.1
       x-amzn-Remapped-x-amzn-RequestId:
-      - 0d84b80d-24d0-49a0-9a34-94cebf94c1f8
+      - 4a19a0ad-1ad8-4f3d-800a-2d0ea5cdc7a0
       x-amzn-RequestId:
-      - 3a975ded-4382-4a8c-9c61-3ad956762d9e
+      - 96b0fa77-d5fa-4e0a-9a99-b1bd4b239a67
     status:
       code: 201
       message: Created
