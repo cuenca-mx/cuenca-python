@@ -1,6 +1,8 @@
-from typing import Optional, cast
+from dataclasses import dataclass
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import (
+    WalletTransactionQuery,
     WalletTransactionRequest,
     WalletTransactionType,
 )
@@ -11,9 +13,12 @@ from cuenca.resources.resources import retrieve_uri
 from .base import Wallet
 
 
+@dataclass
 class WalletTransaction(Transaction, Creatable):
-    _resource = 'wallet_transactions'
-    type: WalletTransactionType
+    _resource: ClassVar = 'wallet_transactions'
+    _query_params: ClassVar = WalletTransactionQuery
+
+    transaction_type: WalletTransactionType
     wallet_uri: str
 
     @property

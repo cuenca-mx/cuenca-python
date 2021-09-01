@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"name": "my new car", "category": "vehicle", "goal_amount": 100000, "goal_date":
-      "2022-08-19T00:33:04.379430"}'
+      "2022-09-01T00:00:32.509790"}'
     headers:
       Accept:
       - '*/*'
@@ -16,7 +16,7 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.10
+      - cuenca-python/0.7.11
       X-Cuenca-Api-Version:
       - '2020-03-19'
       X-Cuenca-LoginId:
@@ -25,35 +25,35 @@ interactions:
     uri: https://sandbox.cuenca.com/savings
   response:
     body:
-      string: '{"id":"LA6N_ALj-tQUGnbcTEQ4-8Dg","created_at":"2021-08-19T00:33:10.495474","updated_at":"2021-08-19T00:33:10.495478","user_id":"US3zGWi1n852bTyqD1wCZ1ft","balance":0,"deactivated_at":null,"name":"my
-        new car","category":"vehicle","goal_amount":100000,"goal_date":"2022-08-19T00:33:04.379430"}'
+      string: '{"id":"LAAbnS-G8iSvuoShnr1NMl8A","created_at":"2021-09-01T00:00:38.765246","updated_at":"2021-09-01T00:00:38.765251","user_id":"US3zGWi1n852bTyqD1wCZ1ft","balance":0,"deactivated_at":null,"name":"my
+        new car","category":"vehicle","goal_amount":100000,"goal_date":"2022-09-01T00:00:32.509790"}'
     headers:
       Connection:
-      - keep-alivedb.-
+      - keep-alive
       Content-Length:
       - '291'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Aug 2021 00:33:11 GMT
+      - Wed, 01 Sep 2021 00:00:39 GMT
       X-Amzn-Trace-Id:
-      - Root=1-611da6c0-3c0052b843bbfb9c1c60b2a4;Sampled=0
+      - Root=1-612ec2a1-1437079c6721711031f0d316;Sampled=0
       X-Request-Time:
-      - 'value: 6.216'
+      - 'value: 6.309'
       x-amz-apigw-id:
-      - ESb-LGp2CYcFVuA=
+      - E9NZMEtPiYcFxoA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '291'
       x-amzn-Remapped-Date:
-      - Thu, 19 Aug 2021 00:33:11 GMT
+      - Wed, 01 Sep 2021 00:00:39 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.1
       x-amzn-Remapped-x-amzn-RequestId:
-      - 4a19a0ad-1ad8-4f3d-800a-2d0ea5cdc7a0
+      - 3327be57-732a-4f87-a403-a9463ec8cec2
       x-amzn-RequestId:
-      - 96b0fa77-d5fa-4e0a-9a99-b1bd4b239a67
+      - a626beb1-6d10-4e39-bd02-199a6019e9f3
     status:
       code: 201
       message: Created

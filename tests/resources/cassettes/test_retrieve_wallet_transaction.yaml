@@ -17,38 +17,38 @@ interactions:
       X-Cuenca-LoginId:
       - ULIfKcTXnXRv-UV8HPObyxYw
     method: GET
-    uri: https://sandbox.cuenca.com/savings/lAob5rOC0jSj6UC5RAbwnSnA
+    uri: https://sandbox.cuenca.com/wallet_transactions/LT32GEaFQR03cJRBcqb0p7uI
   response:
     body:
-      string: '{"id":"lAob5rOC0jSj6UC5RAbwnSnA","created_at":"2021-08-13T00:36:55.471000","updated_at":"2021-08-13T00:36:55.471000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","balance":0,"deactivated_at":"2021-08-13T00:50:40.133000","name":"my
-        new home","category":"home","goal_amount":200000,"goal_date":"2021-08-23T00:55:27.870000"}'
+      string: '{"id":"LT32GEaFQR03cJRBcqb0p7uI","created_at":"2021-08-31T23:34:00.947000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","amount":10000,"status":"succeeded","descriptor":"Dep\u00f3sito
+        a Ahorros","transaction_type":"deposit","wallet_uri":"/savings/LAvWUDH6OpQk-ber3E_zUEiQ"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '317'
+      - '265'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Aug 2021 00:33:11 GMT
+      - Tue, 31 Aug 2021 23:35:14 GMT
       X-Amzn-Trace-Id:
-      - Root=1-611da6c7-06273456386df246782109b0;Sampled=0
+      - Root=1-612ebcb2-6b9a923c7293fc71697fafee;Sampled=0
       X-Request-Time:
-      - 'value: 0.265'
+      - 'value: 0.318'
       x-amz-apigw-id:
-      - ESb_MGiliYcFjQw=
+      - E9Jr6EMbiYcFUtA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '317'
+      - '265'
       x-amzn-Remapped-Date:
-      - Thu, 19 Aug 2021 00:33:11 GMT
+      - Tue, 31 Aug 2021 23:35:14 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.1
       x-amzn-Remapped-x-amzn-RequestId:
-      - c90ebe82-36e4-4692-aa72-d5aa1c3e1fd2
+      - 2389b531-95f2-46bb-bd08-55b08907197b
       x-amzn-RequestId:
-      - 3499e59f-535a-4749-b920-6fd31a3860c3
+      - 3fce036f-5dbf-4bae-8fc5-14aa93b81e81
     status:
       code: 200
       message: OK

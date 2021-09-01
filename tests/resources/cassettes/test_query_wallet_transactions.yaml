@@ -1,0 +1,56 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: GET
+    uri: https://sandbox.cuenca.com/wallet_transactions?wallet_uri=%2Fsavings%2FLAGdf-FVVeQeeKrmYpF5NIfA
+  response:
+    body:
+      string: '{"items":[{"id":"LToAJgE7yG3ZngAdOr6Iy1J","created_at":"2021-08-31T21:42:20.685000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","amount":2000,"status":"succeeded","descriptor":"Retiro
+        de Ahorros","transaction_type":"withdrawal","wallet_uri":"/savings/LAGdf-FVVeQeeKrmYpF5NIfA"},{"id":"LT5BECl5l4gG0zIppNj7KJF3","created_at":"2021-08-31T21:42:19.485000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","amount":10000,"status":"succeeded","descriptor":"Dep\u00f3sito
+        a Ahorros","transaction_type":"deposit","wallet_uri":"/savings/LAGdf-FVVeQeeKrmYpF5NIfA"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '559'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 31 Aug 2021 23:49:51 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-612ec01e-3f5adf9c1e3ed4de44da25b2;Sampled=0
+      X-Request-Time:
+      - 'value: 0.402'
+      x-amz-apigw-id:
+      - E9L02E5VCYcFf5g=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '559'
+      x-amzn-Remapped-Date:
+      - Tue, 31 Aug 2021 23:49:51 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - b909eed0-3c5e-400a-afd5-c1d17aa7a0a9
+      x-amzn-RequestId:
+      - ed4fe492-5869-4115-aa2d-991fd856e944
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -32,7 +32,7 @@ def test_saving_update():
     changes = dict(
         name='my new home',
         goal_amount=200000,
-        category=SavingCategory.property,
+        category=SavingCategory.home,
     )
     saving = Saving.update(saving_id, **changes)
     assert all(item in saving.to_dict().items() for item in changes.items())

@@ -12,9 +12,40 @@ from cuenca_validations.types import (
 from cuenca import BalanceEntry, Saving, WalletTransaction
 
 
-@pytest.mark.skip("coding backend ...")
-def test_flow_savings_and_wallet_transactions():
-    # STEP 1: CREATE SAVING
+@pytest.mark.vcr
+def test_create_wallet_transaction():
+    wallet_id = 'LAvWUDH6OpQk-ber3E_zUEiQ'
+    deposit = WalletTransaction.create(
+        wallet_uri=f'/savings/{wallet_id}',
+        transaction_type=WalletTransactionType.deposit,
+        amount=10000,
+    )
+    assert deposit.id is not None
+    assert deposit.transaction_type == WalletTransactionType.deposit
+    assert deposit.status == TransactionStatus.succeeded
+    wallet = deposit.wallet
+    assert wallet.id == wallet_id
+
+
+@pytest.mark.vcr
+def test_retrieve_wallet_transaction():
+    id = 'LT32GEaFQR03cJRBcqb0p7uI'
+    transaction = WalletTransaction.retrieve(id)
+    assert transaction.id == id
+    assert transaction.status == TransactionStatus.succeeded
+
+
+@pytest.mark.vcr
+def test_query_wallet_transactions():
+    wallet_uri = '/savings/LAGdf-FVVeQeeKrmYpF5NIfA'
+    query = WalletTransaction.all(wallet_uri=wallet_uri)
+    transactions = [txn for txn in query]
+    assert len(transactions) == 2
+
+
+@pytest.mark.vcr
+def test_complete_flow_wallets():
+    # create wallet
     saving = Saving.create(
         name='Ahorros',
         category=SavingCategory.travel,
@@ -24,61 +55,58 @@ def test_flow_savings_and_wallet_transactions():
     assert saving.balance == 0
     wallet_uri = f'/savings/{saving.id}'
 
-    # STEP 2 : DEPOSIT MONEY IN SAVING
+    # deposit money in wallet
     deposit = WalletTransaction.create(
         wallet_uri=wallet_uri,
         transaction_type=WalletTransactionType.deposit,
         amount=10000,
     )
-    assert deposit.status == TransactionStatus.submitted
-    # After processing deposit in core
-    deposit.refresh()
     assert deposit.status == TransactionStatus.succeeded
     saving.refresh()
     assert saving.balance == deposit.amount
-    deposit_uri = f'wallet_transactions/{deposit.id}'
+    deposit_uri = f'/wallet_transactions/{deposit.id}'
 
-    # STEP 3: WITHDRAW MONEY FROM SAVING
+    # withdraw money from wallet
     withdrawal = WalletTransaction.create(
         wallet_uri=wallet_uri,
         transaction_type=WalletTransactionType.withdrawal,
         amount=2000,
     )
-    assert withdrawal.status == TransactionStatus.submitted
-    # After processing deposit in core
-    withdrawal.refresh()
     assert withdrawal.status == TransactionStatus.succeeded
     saving.refresh()
     assert saving.balance == deposit.amount - withdrawal.amount
-    withdrawal_uri = f'wallet_transactions/{withdrawal.id}'
+    withdrawal_uri = f'/wallet_transactions/{withdrawal.id}'
 
-    # STEP 4 : QUERY TRANSACTIONS OF WAlLET
-    transactions_db = WalletTransaction.all(wallet_uri=wallet_uri)
-    transactions = [deposit, withdrawal]
-    assert all(wt in transactions for wt in transactions_db)
+    # Check all transactions was created
+    query = WalletTransaction.all(wallet_uri=wallet_uri)
+    transactions_db = [wt.id for wt in query]
+    assert deposit.id in transactions_db
+    assert withdrawal.id in transactions_db
 
-    # CHECK BALANCES ENTRIES IN DEFAULT RELATED TO WALLET
-    entries: List[BalanceEntry] = BalanceEntry.all(
+    # check balance entries created in default, related with wallet
+    entries = BalanceEntry.all(
         wallet_id='default', funding_instrument_uri=wallet_uri
     )
-    assert len(entries) == 2
-    # debit associated to Deposit
-    debit = [be for be in entries if be.type == EntryType.debit][0]
+    default_entries: List[BalanceEntry] = [entry for entry in entries]
+    assert len(default_entries) == 2
+    # default -> deposit -> wallet  (debit)
+    debit = [be for be in default_entries if be.type == EntryType.debit][0]
     assert debit.related_transaction_uri == deposit_uri
     assert debit.amount == deposit.amount
-    # credit associated to Withdrawal
-    credit = [be for be in entries if be.type == EntryType.credit][0]
+    # default <- withdrawal <- wallet (credit)
+    credit = [be for be in default_entries if be.type == EntryType.credit][0]
     assert credit.amount == withdrawal.amount
     assert credit.related_transaction_uri == withdrawal_uri
 
-    # CHECK BALANCES ENTRIES IN WALLET
-    entries: List[BalanceEntry] = BalanceEntry.all(wallet_id=saving.id)
-    assert len(entries) == 2
-    # credit associated to Deposit
-    credit = [be for be in entries if be.type == EntryType.credit][0]
+    # check balance entries created for wallet
+    entries = BalanceEntry.all(wallet_id=saving.id)
+    wallet_entries: List[BalanceEntry] = [entry for entry in entries]
+    assert len(wallet_entries) == 2
+    # default -> deposit -> wallet  (credit)
+    credit = [be for be in wallet_entries if be.type == EntryType.credit][0]
     assert credit.related_transaction_uri == deposit_uri
     assert credit.amount == deposit.amount
-    # debit associated to Withdrawal
-    debit = [be for be in entries if be.type == EntryType.debit][0]
+    # default <- withdrawal <- wallet (debit)
+    debit = [be for be in wallet_entries if be.type == EntryType.debit][0]
     assert debit.amount == withdrawal.amount
     assert debit.related_transaction_uri == withdrawal_uri

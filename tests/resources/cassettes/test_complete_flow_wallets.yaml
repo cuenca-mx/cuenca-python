@@ -1,0 +1,441 @@
+interactions:
+- request:
+    body: '{"name": "Ahorros", "category": "travel", "goal_amount": 1000000, "goal_date":
+      "2022-08-31T19:16:56.778627"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '108'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: POST
+    uri: https://sandbox.cuenca.com/savings
+  response:
+    body:
+      string: '{"id":"LA9kKJzc54QteEfrXkfYW3tA","created_at":"2021-09-01T00:16:57.738097","updated_at":"2021-09-01T00:16:57.738102","user_id":"US3zGWi1n852bTyqD1wCZ1ft","balance":0,"deactivated_at":null,"name":"Ahorros","category":"travel","goal_amount":1000000,"goal_date":"2022-08-31T19:16:56.778627"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '288'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 01 Sep 2021 00:16:58 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-612ec679-5b8363c2644be8e279efc163;Sampled=0
+      X-Request-Time:
+      - 'value: 0.592'
+      x-amz-apigw-id:
+      - E9PzAHoQiYcFlMQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '288'
+      x-amzn-Remapped-Date:
+      - Wed, 01 Sep 2021 00:16:58 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - fd2735f7-e5ee-4751-82ed-9fed07e8326d
+      x-amzn-RequestId:
+      - 617bfdf8-e50d-4d08-a81b-57204301e261
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"wallet_uri": "/savings/LA9kKJzc54QteEfrXkfYW3tA", "transaction_type":
+      "deposit", "amount": 10000}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '99'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: POST
+    uri: https://sandbox.cuenca.com/wallet_transactions
+  response:
+    body:
+      string: '{"id":"LT7wHUNlF8EXlds4iI98kcyD","created_at":"2021-09-01T00:16:58.431468","user_id":"US3zGWi1n852bTyqD1wCZ1ft","amount":10000,"status":"succeeded","descriptor":"Dep\u00f3sito
+        a Ahorros","transaction_type":"deposit","wallet_uri":"/savings/LA9kKJzc54QteEfrXkfYW3tA"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '265'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 01 Sep 2021 00:16:58 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-612ec67a-1916fe514801d25866a6af66;Sampled=0
+      X-Request-Time:
+      - 'value: 0.460'
+      x-amz-apigw-id:
+      - E9PzHGaQCYcFVTQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '265'
+      x-amzn-Remapped-Date:
+      - Wed, 01 Sep 2021 00:16:58 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 484d5c68-a653-4983-8058-2d2de3636cd6
+      x-amzn-RequestId:
+      - 92bc4807-ad72-42b9-9191-188c988596a8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: GET
+    uri: https://sandbox.cuenca.com/savings/LA9kKJzc54QteEfrXkfYW3tA
+  response:
+    body:
+      string: '{"id":"LA9kKJzc54QteEfrXkfYW3tA","created_at":"2021-09-01T00:16:58.091000","updated_at":"2021-09-01T00:16:57.738000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","balance":10000,"deactivated_at":null,"name":"Ahorros","category":"travel","goal_amount":1000000,"goal_date":"2022-08-31T19:16:56.778000"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '292'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 01 Sep 2021 00:16:59 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-612ec67a-174cd72777ca4f9261757b16;Sampled=0
+      X-Request-Time:
+      - 'value: 0.290'
+      x-amz-apigw-id:
+      - E9PzNFtIiYcFfAw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '292'
+      x-amzn-Remapped-Date:
+      - Wed, 01 Sep 2021 00:16:59 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - c0f17c27-9a28-4520-bf0a-69152924d4af
+      x-amzn-RequestId:
+      - 00aae5fe-8e25-4012-9ae1-e7e5c499a6e2
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"wallet_uri": "/savings/LA9kKJzc54QteEfrXkfYW3tA", "transaction_type":
+      "withdrawal", "amount": 2000}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '101'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: POST
+    uri: https://sandbox.cuenca.com/wallet_transactions
+  response:
+    body:
+      string: '{"id":"LT5Vi7oKfZXyTgQaaBZQNHGF","created_at":"2021-09-01T00:16:59.388936","user_id":"US3zGWi1n852bTyqD1wCZ1ft","amount":2000,"status":"succeeded","descriptor":"Retiro
+        de Ahorros","transaction_type":"withdrawal","wallet_uri":"/savings/LA9kKJzc54QteEfrXkfYW3tA"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '261'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 01 Sep 2021 00:16:59 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-612ec67b-541a2cbc72c9e9263721dc5f;Sampled=0
+      X-Request-Time:
+      - 'value: 0.430'
+      x-amz-apigw-id:
+      - E9PzRGzxCYcFYkg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '261'
+      x-amzn-Remapped-Date:
+      - Wed, 01 Sep 2021 00:16:59 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 91934a16-5f8c-410a-95c8-34664dfa9b4e
+      x-amzn-RequestId:
+      - 4e201624-287d-4ed8-91a7-c0322bf74eb4
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: GET
+    uri: https://sandbox.cuenca.com/savings/LA9kKJzc54QteEfrXkfYW3tA
+  response:
+    body:
+      string: '{"id":"LA9kKJzc54QteEfrXkfYW3tA","created_at":"2021-09-01T00:16:58.091000","updated_at":"2021-09-01T00:16:57.738000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","balance":8000,"deactivated_at":null,"name":"Ahorros","category":"travel","goal_amount":1000000,"goal_date":"2022-08-31T19:16:56.778000"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '291'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 01 Sep 2021 00:16:59 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-612ec67b-5125012310f19551413c0674;Sampled=0
+      X-Request-Time:
+      - 'value: 0.257'
+      x-amz-apigw-id:
+      - E9PzWG_aiYcF15Q=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '291'
+      x-amzn-Remapped-Date:
+      - Wed, 01 Sep 2021 00:16:59 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 4329c121-d7f0-4fe8-a2a9-bfa8a50fcdcd
+      x-amzn-RequestId:
+      - 3b16af3a-1e0f-4b2d-b55a-779bc60ed7b0
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: GET
+    uri: https://sandbox.cuenca.com/wallet_transactions?wallet_uri=%2Fsavings%2FLA9kKJzc54QteEfrXkfYW3tA
+  response:
+    body:
+      string: '{"items":[{"id":"LT5Vi7oKfZXyTgQaaBZQNHGF","created_at":"2021-09-01T00:16:59.388000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","amount":2000,"status":"succeeded","descriptor":"Retiro
+        de Ahorros","transaction_type":"withdrawal","wallet_uri":"/savings/LA9kKJzc54QteEfrXkfYW3tA"},{"id":"LT7wHUNlF8EXlds4iI98kcyD","created_at":"2021-09-01T00:16:58.431000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","amount":10000,"status":"succeeded","descriptor":"Dep\u00f3sito
+        a Ahorros","transaction_type":"deposit","wallet_uri":"/savings/LA9kKJzc54QteEfrXkfYW3tA"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '560'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 01 Sep 2021 00:17:00 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-612ec67b-6574123b6faf755a712842fa;Sampled=0
+      X-Request-Time:
+      - 'value: 0.301'
+      x-amz-apigw-id:
+      - E9PzaFSGiYcFt0Q=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '560'
+      x-amzn-Remapped-Date:
+      - Wed, 01 Sep 2021 00:17:00 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 3e70cd3b-ee72-4ea7-81f0-affcde40bdcd
+      x-amzn-RequestId:
+      - 968314ea-5b04-4426-ae4e-3bcb6151f51a
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: GET
+    uri: https://sandbox.cuenca.com/balance_entries?funding_instrument_uri=%2Fsavings%2FLA9kKJzc54QteEfrXkfYW3tA&wallet_id=default
+  response:
+    body:
+      string: '{"items":[{"id":"LE64udBv6sfIS2OjUh0G59gK","created_at":"2021-09-01T00:16:59.422000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","name":"Rogelio
+        Lopez Tendero","amount":2000,"descriptor":"","rolling_balance":896454000,"type":"credit","related_transaction_uri":"/wallet_transactions/LT5Vi7oKfZXyTgQaaBZQNHGF","funding_instrument_uri":"/savings/LA9kKJzc54QteEfrXkfYW3tA","wallet_id":"default"},{"id":"LE7FSd6EBiWLCI5hXawf32Ij","created_at":"2021-09-01T00:16:58.480000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","name":"Rogelio
+        Lopez Tendero","amount":10000,"descriptor":"","rolling_balance":896452000,"type":"debit","related_transaction_uri":"/wallet_transactions/LT7wHUNlF8EXlds4iI98kcyD","funding_instrument_uri":"/savings/LA9kKJzc54QteEfrXkfYW3tA","wallet_id":"default"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '782'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 01 Sep 2021 00:17:34 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-612ec69d-4203bce247c1c0ae5150b924;Sampled=0
+      X-Request-Time:
+      - 'value: 0.326'
+      x-amz-apigw-id:
+      - E9P4tHzUCYcF_oQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '782'
+      x-amzn-Remapped-Date:
+      - Wed, 01 Sep 2021 00:17:34 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 33e492ba-42d0-44a8-81ed-baa92a8cc778
+      x-amzn-RequestId:
+      - 42cfcd1e-c599-4052-aab8-60d980ef1e32
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: GET
+    uri: https://sandbox.cuenca.com/balance_entries?wallet_id=LA9kKJzc54QteEfrXkfYW3tA
+  response:
+    body:
+      string: '{"items":[{"id":"LE6eSDtkb3PbYOK8zD9Y0PXn","created_at":"2021-09-01T00:16:59.422000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","name":"Rogelio
+        Lopez Tendero","amount":2000,"descriptor":"","rolling_balance":8000,"type":"debit","related_transaction_uri":"/wallet_transactions/LT5Vi7oKfZXyTgQaaBZQNHGF","funding_instrument_uri":"/accounts/ACkgr4JtKpXwu_AuYFEJbD5A","wallet_id":"LA9kKJzc54QteEfrXkfYW3tA"},{"id":"LE46gwwdhwtUFZarnyvGXqfA","created_at":"2021-09-01T00:16:58.480000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","name":"Rogelio
+        Lopez Tendero","amount":10000,"descriptor":"","rolling_balance":10000,"type":"credit","related_transaction_uri":"/wallet_transactions/LT7wHUNlF8EXlds4iI98kcyD","funding_instrument_uri":"/accounts/ACkgr4JtKpXwu_AuYFEJbD5A","wallet_id":"LA9kKJzc54QteEfrXkfYW3tA"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '809'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 01 Sep 2021 00:17:58 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-612ec6b6-65bc4c980a6030107a42fea0;Sampled=0
+      X-Request-Time:
+      - 'value: 0.330'
+      x-amz-apigw-id:
+      - E9P8jFmVCYcFuug=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '809'
+      x-amzn-Remapped-Date:
+      - Wed, 01 Sep 2021 00:17:58 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - d86fbea9-0364-4a37-8372-53ede83fce9b
+      x-amzn-RequestId:
+      - 5c543b8b-1ba1-49dd-bc95-a00845db3e9d
+    status:
+      code: 200
+      message: OK
+version: 1
