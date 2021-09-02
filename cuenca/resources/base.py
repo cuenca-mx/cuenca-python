@@ -190,3 +190,7 @@ class Transaction(Retrievable, Queryable):
 class Wallet(Creatable, Deleteable, Retrievable, Queryable):
     user_id: str
     balance: int
+
+    @property
+    def wallet_uri(self):
+        return f'/{self._resource}/{self.id}'

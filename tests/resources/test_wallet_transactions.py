@@ -53,11 +53,11 @@ def test_complete_flow_wallets():
         goal_date=dt.datetime.now() + dt.timedelta(days=365),
     )
     assert saving.balance == 0
-    wallet_uri = f'/savings/{saving.id}'
+    assert saving.wallet_uri == f'/savings/{saving.id}'
 
     # deposit money in wallet
     deposit = WalletTransaction.create(
-        wallet_uri=wallet_uri,
+        wallet_uri=saving.wallet_uri,
         transaction_type=WalletTransactionType.deposit,
         amount=10000,
     )
@@ -68,7 +68,7 @@ def test_complete_flow_wallets():
 
     # withdraw money from wallet
     withdrawal = WalletTransaction.create(
-        wallet_uri=wallet_uri,
+        wallet_uri=saving.wallet_uri,
         transaction_type=WalletTransactionType.withdrawal,
         amount=2000,
     )
@@ -78,35 +78,35 @@ def test_complete_flow_wallets():
     withdrawal_uri = f'/wallet_transactions/{withdrawal.id}'
 
     # Check all transactions was created
-    query = WalletTransaction.all(wallet_uri=wallet_uri)
+    query = WalletTransaction.all(wallet_uri=saving.wallet_uri)
     transactions_db = [wt.id for wt in query]
     assert deposit.id in transactions_db
     assert withdrawal.id in transactions_db
-
-    # check balance entries created in default, related with wallet
-    entries = BalanceEntry.all(
-        wallet_id='default', funding_instrument_uri=wallet_uri
-    )
-    default_entries: List[BalanceEntry] = [entry for entry in entries]
-    assert len(default_entries) == 2
-    # default -> deposit -> wallet  (debit)
-    debit = [be for be in default_entries if be.type == EntryType.debit][0]
-    assert debit.related_transaction_uri == deposit_uri
-    assert debit.amount == deposit.amount
-    # default <- withdrawal <- wallet (credit)
-    credit = [be for be in default_entries if be.type == EntryType.credit][0]
-    assert credit.amount == withdrawal.amount
-    assert credit.related_transaction_uri == withdrawal_uri
 
     # check balance entries created for wallet
     entries = BalanceEntry.all(wallet_id=saving.id)
     wallet_entries: List[BalanceEntry] = [entry for entry in entries]
     assert len(wallet_entries) == 2
-    # default -> deposit -> wallet  (credit)
+    # default -> deposit -> wallet  (credit in wallet)
     credit = [be for be in wallet_entries if be.type == EntryType.credit][0]
     assert credit.related_transaction_uri == deposit_uri
     assert credit.amount == deposit.amount
-    # default <- withdrawal <- wallet (debit)
+    # default <- withdrawal <- wallet (debit in wallet)
     debit = [be for be in wallet_entries if be.type == EntryType.debit][0]
     assert debit.amount == withdrawal.amount
     assert debit.related_transaction_uri == withdrawal_uri
+
+    # check balance entries created in default, related with wallet
+    entries = BalanceEntry.all(
+        wallet_id='default', funding_instrument_uri=saving.wallet_uri
+    )
+    default_entries: List[BalanceEntry] = [entry for entry in entries]
+    assert len(default_entries) == 2
+    # default -> deposit -> wallet  (debit in default)
+    debit = [be for be in default_entries if be.type == EntryType.debit][0]
+    assert debit.related_transaction_uri == deposit_uri
+    assert debit.amount == deposit.amount
+    # default <- withdrawal <- wallet (credit in default)
+    credit = [be for be in default_entries if be.type == EntryType.credit][0]
+    assert credit.amount == withdrawal.amount
+    assert credit.related_transaction_uri == withdrawal_uri

@@ -7,6 +7,7 @@ from cuenca_validations.types import (
     SavingRequest,
     SavingUpdateRequest,
     StrictPositiveInt,
+    WalletQuery,
 )
 
 from .base import Updateable, Wallet
@@ -15,18 +16,19 @@ from .base import Updateable, Wallet
 @dataclass
 class Saving(Wallet, Updateable):
     _resource: ClassVar = 'savings'
+    _query_params: ClassVar = WalletQuery
     name: str
     category: SavingCategory
-    goal_amount: StrictPositiveInt
-    goal_date: dt.datetime
+    goal_amount: Optional[StrictPositiveInt]
+    goal_date: Optional[dt.datetime]
 
     @classmethod
     def create(
         cls,
         name: str,
         category: SavingCategory,
-        goal_amount: int,
-        goal_date: dt.datetime,
+        goal_amount: Optional[int] = None,
+        goal_date: Optional[dt.datetime] = None,
     ):
         request = SavingRequest(
             name=name,
