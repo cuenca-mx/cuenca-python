@@ -85,7 +85,7 @@ def test_complete_flow_wallets():
 
     # check balance entries created for wallet
     entries = BalanceEntry.all(wallet_id=saving.id)
-    wallet_entries: List[BalanceEntry] = [entry for entry in entries]
+    wallet_entries = [entry for entry in entries]
     assert len(wallet_entries) == 2
     # default -> deposit -> wallet  (credit in wallet)
     credit = [be for be in wallet_entries if be.type == EntryType.credit][0]
@@ -100,7 +100,7 @@ def test_complete_flow_wallets():
     entries = BalanceEntry.all(
         wallet_id='default', funding_instrument_uri=saving.wallet_uri
     )
-    default_entries: List[BalanceEntry] = [entry for entry in entries]
+    default_entries = [entry for entry in entries]
     assert len(default_entries) == 2
     # default -> deposit -> wallet  (debit in default)
     debit = [be for be in default_entries if be.type == EntryType.debit][0]
