@@ -1,5 +1,4 @@
 import datetime as dt
-from typing import List
 
 import pytest
 from cuenca_validations.types import (
