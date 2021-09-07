@@ -80,7 +80,7 @@ class Updateable(Resource):
 
 
 @dataclass
-class Deleteable(Resource):
+class Deactivable(Resource):
     deactivated_at: dt.datetime
 
     @classmethod
@@ -187,7 +187,7 @@ class Transaction(Retrievable, Queryable):
 
 
 @dataclass
-class Wallet(Creatable, Deleteable, Retrievable, Queryable):
+class Wallet(Creatable, Deactivable, Retrievable, Queryable):
     user_id: str
     balance: int
 
