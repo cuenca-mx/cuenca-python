@@ -1,0 +1,59 @@
+interactions:
+- request:
+    body: '{"name": "my new home", "category": "home", "goal_amount": 200000}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '70'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.10
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: PATCH
+    uri: https://sandbox.cuenca.com/savings/lAob5rOC0jSj6UC5RAbwnSnA
+  response:
+    body:
+      string: '{"id":"lAob5rOC0jSj6UC5RAbwnSnA","created_at":"2021-08-13T00:36:55.471000","updated_at":"2021-08-13T00:36:55.471000","user_id":"US3zGWi1n852bTyqD1wCZ1ft","balance":0,"deactivated_at":"2021-08-13T00:50:40.133000","name":"my
+        new home","category":"home","goal_amount":200000,"goal_date":"2021-08-23T00:55:27.870000"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '317'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 19 Aug 2021 00:33:12 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-611da6c8-1d486f6059bda5b0503f7c24;Sampled=0
+      X-Request-Time:
+      - 'value: 0.293'
+      x-amz-apigw-id:
+      - ESb_TEFgCYcFmWA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '317'
+      x-amzn-Remapped-Date:
+      - Thu, 19 Aug 2021 00:33:12 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - b9c2519b-df28-47e7-8c2b-adaaed44bb8b
+      x-amzn-RequestId:
+      - efce80cc-1c4a-4649-b6b4-7ebd2c61bc96
+    status:
+      code: 200
+      message: OK
+version: 1

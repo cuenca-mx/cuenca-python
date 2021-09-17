@@ -11,10 +11,12 @@ __all__ = [
     'Commission',
     'Deposit',
     'LoginToken',
+    'Saving',
     'ServiceProvider',
     'Statement',
     'Transfer',
     'UserLogin',
+    'WalletTransaction',
     'WhatsappTransfer',
 ]
 
@@ -31,11 +33,13 @@ from .commissions import Commission
 from .deposits import Deposit
 from .login_tokens import LoginToken
 from .resources import RESOURCES
+from .savings import Saving
 from .service_providers import ServiceProvider
 from .statements import Statement
 from .transfers import Transfer
 from .user_credentials import UserCredential
 from .user_logins import UserLogin
+from .wallet_transactions import WalletTransaction
 from .whatsapp_transfers import WhatsappTransfer
 
 # avoid circular imports
@@ -52,11 +56,13 @@ resource_classes = [
     Commission,
     Deposit,
     LoginToken,
+    Saving,
     ServiceProvider,
     Statement,
     Transfer,
     UserCredential,
     UserLogin,
+    WalletTransaction,
     WhatsappTransfer,
 ]
 for resource_cls in resource_classes:

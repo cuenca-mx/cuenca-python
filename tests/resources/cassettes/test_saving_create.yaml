@@ -1,0 +1,60 @@
+interactions:
+- request:
+    body: '{"name": "my new car", "category": "vehicle", "goal_amount": 100000, "goal_date":
+      "2022-09-01T00:00:32.509790"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '111'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULIfKcTXnXRv-UV8HPObyxYw
+    method: POST
+    uri: https://sandbox.cuenca.com/savings
+  response:
+    body:
+      string: '{"id":"LAAbnS-G8iSvuoShnr1NMl8A","created_at":"2021-09-01T00:00:38.765246","updated_at":"2021-09-01T00:00:38.765251","user_id":"US3zGWi1n852bTyqD1wCZ1ft","balance":0,"deactivated_at":null,"name":"my
+        new car","category":"vehicle","goal_amount":100000,"goal_date":"2022-09-01T00:00:32.509790"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '291'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 01 Sep 2021 00:00:39 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-612ec2a1-1437079c6721711031f0d316;Sampled=0
+      X-Request-Time:
+      - 'value: 6.309'
+      x-amz-apigw-id:
+      - E9NZMEtPiYcFxoA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '291'
+      x-amzn-Remapped-Date:
+      - Wed, 01 Sep 2021 00:00:39 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 3327be57-732a-4f87-a403-a9463ec8cec2
+      x-amzn-RequestId:
+      - a626beb1-6d10-4e39-bd02-199a6019e9f3
+    status:
+      code: 201
+      message: Created
+version: 1

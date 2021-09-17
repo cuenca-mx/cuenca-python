@@ -80,6 +80,22 @@ class Updateable(Resource):
 
 
 @dataclass
+class Deactivable(Resource):
+    deactivated_at: dt.datetime
+
+    @classmethod
+    def deactivate(
+        cls, id: str, *, session: Session = global_session, **data
+    ) -> Resource:
+        resp = session.delete(f'/{cls._resource}/{id}', data)
+        return cls._from_dict(resp)
+
+    @property
+    def is_active(self):
+        return not self.deactivated_at
+
+
+@dataclass
 class Downloadable(Resource):
     @classmethod
     def download(
@@ -168,3 +184,13 @@ class Transaction(Retrievable, Queryable):
     amount: int  # in centavos
     status: TransactionStatus
     descriptor: str  # how it appears for the customer
+
+
+@dataclass
+class Wallet(Creatable, Deactivable, Retrievable, Queryable):
+    user_id: str
+    balance: int
+
+    @property
+    def wallet_uri(self):
+        return f'/{self._resource}/{self.id}'

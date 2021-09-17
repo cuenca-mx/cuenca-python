@@ -1,3 +1,4 @@
+import datetime as dt
 import json
 import os
 from typing import Optional, Tuple
@@ -104,6 +105,12 @@ class Session:
             if self.jwt_token.is_expired:
                 self.jwt_token = Jwt.create(self)
             self.session.headers['X-Cuenca-Token'] = self.jwt_token.token
+
+        if data is not None:
+            for key, value in data.items():
+                if isinstance(value, dt.date):
+                    data[key] = value.isoformat()
+
         resp = self.session.request(
             method=method,
             url='https://' + self.host + urljoin('/', endpoint),
