@@ -19,7 +19,7 @@ class Jwt:
     @property
     def is_expired(self) -> bool:
         return self.expires_at - dt.datetime.utcnow() <= dt.timedelta(
-            seconds=5
+            minutes=5
         )
 
     @staticmethod

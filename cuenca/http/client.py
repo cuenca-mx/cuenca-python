@@ -17,7 +17,7 @@ from ..exc import CuencaResponseException
 from ..jwt import Jwt
 from ..version import API_VERSION, CLIENT_VERSION
 
-API_HOST = 'localhost:8080'
+API_HOST = 'api.cuenca.com'
 SANDBOX_HOST = 'sandbox.cuenca.com'
 
 
@@ -113,7 +113,7 @@ class Session:
 
         resp = self.session.request(
             method=method,
-            url='http://' + self.host + urljoin('/', endpoint),
+            url='https://' + self.host + urljoin('/', endpoint),
             auth=self.auth,
             json=data,
             params=params,
