@@ -119,7 +119,6 @@ class Session:
             params=params,
             **kwargs,
         )
-        print(resp.request.headers)
         self._check_response(resp)
         return resp.content
 
