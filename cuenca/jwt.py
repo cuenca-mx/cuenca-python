@@ -19,7 +19,7 @@ class Jwt:
     @property
     def is_expired(self) -> bool:
         return self.expires_at - dt.datetime.utcnow() <= dt.timedelta(
-            minutes=5
+            seconds=5
         )
 
     @staticmethod
@@ -42,6 +42,7 @@ class Jwt:
     @classmethod
     def create(cls, session: 'Session') -> 'Jwt':
         session.jwt_token = None
+        session.session.headers.pop('X-Cuenca-Token', None)
         token = session.post('/token', dict())['token']
         expires_at = Jwt.get_expiration_date(token)
         return cls(expires_at, token)
