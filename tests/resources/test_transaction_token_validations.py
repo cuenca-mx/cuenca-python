@@ -7,10 +7,8 @@ from cuenca.resources import TransactionTokenValidation, UserLogin
 @pytest.mark.vcr
 def test_retrieve_transaction_token_validation() -> None:
     UserLogin.create(password='111111')
-    token: TransactionTokenValidation = TransactionTokenValidation.retrieve(
-        'TKSEZmmXa-SXuAMv6516sRKw'
-    )
-    assert token.status is TransactionTokenValidationStatus.pending
+    t = TransactionTokenValidation.retrieve('TKSEZmmXa-SXuAMv6516sRKw')
+    assert t.status is TransactionTokenValidationStatus.pending  # type: ignore
 
 
 @pytest.mark.vcr
