@@ -1,0 +1,61 @@
+interactions:
+- request:
+    body: '{"card_id": "CA1234567890", "user_id": "US1234", "amount": 123, "merchant_name":
+      "AMAZON MX MARKETPLACE MEXICO DF 000MX", "merchant_type": "wtype", "merchant_data":
+      "0279288357            00012558", "currency_code": "458", "prosa_transaction_id":
+      "12345", "retrieval_reference": "who ks", "card_type": "virtual", "card_status":
+      "active", "transaction_type": "normal_purchase", "authorizer_number": "1231223123",
+      "track_data_method": "terminal", "pos_capability": "pin_accepted", "logical_network":
+      null, "is_cvv": true, "get_balance": false, "atm_fee": null, "issuer": "Mastercard",
+      "cardholder_verification_method": "signature", "ecommerce_indicator": "0"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '657'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.12
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/fraud_validations
+  response:
+    body:
+      string: '{"id":"FVDnqqjjbXQ92OvY6g0Jf9nQ","created_at":"2021-10-21T20:20:58.240300","updated_at":"2021-10-21T20:20:58.240307","card_id":"CA1234567890","user_id":"US1234","amount":123,"merchant_name":"AMAZON
+        MX MARKETPLACE MEXICO DF 000MX","merchant_type":"wtype","merchant_data":"0279288357            00012558","currency_code":"458","prosa_transaction_id":"12345","retrieval_reference":"who
+        ks","card_type":"virtual","card_status":"active","transaction_type":"normal_purchase","authorizer_number":"1231223123","track_data_method":"terminal","pos_capability":"pin_accepted","logical_network":null,"is_cvv":true,"get_balance":false,"atm_fee":null,"issuer":"Mastercard","cardholder_verification_method":"signature","ecommerce_indicator":"0","token_validation_id":null,"result":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '771'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 21 Oct 2021 20:20:58 GMT
+      X-Request-Time:
+      - 'value: 0.563'
+      x-amz-apigw-id:
+      - HkzCkG_uCYcF2yg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '771'
+      x-amzn-Remapped-Date:
+      - Thu, 21 Oct 2021 20:20:58 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-RequestId:
+      - 9a30606c-f5e3-4406-aa00-ddac3137c3bf
+    status:
+      code: 201
+      message: Created
+version: 1

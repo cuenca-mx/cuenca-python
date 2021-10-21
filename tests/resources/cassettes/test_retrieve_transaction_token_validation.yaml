@@ -1,0 +1,100 @@
+interactions:
+- request:
+    body: '{"password": "111111"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '22'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.12
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/user_logins
+  response:
+    body:
+      string: '{"success":true,"id":"ULI3ZmawLoSxKDaD-fRIeHQg","last_login_at":"2021-10-21T22:04:06.612000Z"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 21 Oct 2021 22:17:33 GMT
+      X-Request-Time:
+      - 'value: 0.388'
+      x-amz-apigw-id:
+      - HlEHhGFrCYcF-VQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '94'
+      x-amzn-Remapped-Date:
+      - Thu, 21 Oct 2021 22:17:33 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-RequestId:
+      - 862cefa9-a206-4e0d-9767-15b55f48632a
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.12
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULI3ZmawLoSxKDaD-fRIeHQg
+    method: GET
+    uri: https://sandbox.cuenca.com/transaction_token_validations/TKSEZmmXa-SXuAMv6516sRKw
+  response:
+    body:
+      string: '{"id":"TKSEZmmXa-SXuAMv6516sRKw","user_id":"US6D1wbTEdLuTjf227iF05js","created_at":"2021-10-21T21:55:11.914000","updated_at":"2021-10-21T22:17:38.717414","deactivated_at":"2021-10-22T21:55:11.914000","status":"pending"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '219'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 21 Oct 2021 22:17:38 GMT
+      X-Request-Time:
+      - 'value: 5.297'
+      x-amz-apigw-id:
+      - HlEHoF1JCYcF2iw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '219'
+      x-amzn-Remapped-Date:
+      - Thu, 21 Oct 2021 22:17:38 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-RequestId:
+      - 8741073a-4d0a-4525-9b19-7b2d2513895e
+    status:
+      code: 200
+      message: OK
+version: 1
