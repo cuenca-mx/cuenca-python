@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: '{"user_id": "US6D1wbTEdLuTjf227iF05js", "level": 0.7}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '53'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.12
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/user_pld_risk_levels
+  response:
+    body:
+      string: '{"id":"US6D1wbTEdLuTjf227iF05js","created_at":"2021-10-21T22:20:30.516179","updated_at":"2021-10-21T22:20:30.516191","level":"0.7","is_user_defined":true}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '154'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 21 Oct 2021 22:20:30 GMT
+      X-Request-Time:
+      - 'value: 0.450'
+      x-amz-apigw-id:
+      - HlEjOFkZiYcF2iw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '154'
+      x-amzn-Remapped-Date:
+      - Thu, 21 Oct 2021 22:20:30 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-RequestId:
+      - 0a21550f-54d1-4608-b4e6-7e5a32e10754
+    status:
+      code: 201
+      message: Created
+version: 1

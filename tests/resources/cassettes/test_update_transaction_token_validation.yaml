@@ -1,0 +1,104 @@
+interactions:
+- request:
+    body: '{"password": "111111"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '22'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.12
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/user_logins
+  response:
+    body:
+      string: '{"success":true,"id":"ULZkAGFZtfR7u2aKVJjC5pdw","last_login_at":"2021-10-21T22:17:33.133000Z"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 21 Oct 2021 22:18:51 GMT
+      X-Request-Time:
+      - 'value: 0.476'
+      x-amz-apigw-id:
+      - HlETzF-xCYcFZTA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '94'
+      x-amzn-Remapped-Date:
+      - Thu, 21 Oct 2021 22:18:51 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-RequestId:
+      - 4543679f-af05-498a-a8a9-e96426bbabcd
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"status": "accepted"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '22'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.12
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULZkAGFZtfR7u2aKVJjC5pdw
+    method: PATCH
+    uri: https://sandbox.cuenca.com/transaction_token_validations/TKSEZmmXa-SXuAMv6516sRKw
+  response:
+    body:
+      string: '{"id":"TKSEZmmXa-SXuAMv6516sRKw","user_id":"US6D1wbTEdLuTjf227iF05js","created_at":"2021-10-21T21:55:11.914000","updated_at":"2021-10-21T22:18:52.325236","deactivated_at":"2021-10-22T22:18:52.325502","status":"accepted"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '220'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 21 Oct 2021 22:18:52 GMT
+      X-Request-Time:
+      - 'value: 0.425'
+      x-amz-apigw-id:
+      - HlET5HkCiYcFWUw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '220'
+      x-amzn-Remapped-Date:
+      - Thu, 21 Oct 2021 22:18:52 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-RequestId:
+      - abbfb22e-70cc-4504-aa5f-23b9a72a7786
+    status:
+      code: 200
+      message: OK
+version: 1

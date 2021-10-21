@@ -10,12 +10,15 @@ __all__ = [
     'CardValidation',
     'Commission',
     'Deposit',
+    'FraudValidation',
     'LoginToken',
     'Saving',
     'ServiceProvider',
     'Statement',
+    'TransactionTokenValidation',
     'Transfer',
     'UserLogin',
+    'UserPldRiskLevel',
     'WalletTransaction',
     'WhatsappTransfer',
 ]
@@ -31,14 +34,17 @@ from .card_validations import CardValidation
 from .cards import Card
 from .commissions import Commission
 from .deposits import Deposit
+from .fraud_validations import FraudValidation
 from .login_tokens import LoginToken
 from .resources import RESOURCES
 from .savings import Saving
 from .service_providers import ServiceProvider
 from .statements import Statement
+from .transaction_token_validations import TransactionTokenValidation
 from .transfers import Transfer
 from .user_credentials import UserCredential
 from .user_logins import UserLogin
+from .user_pld_risk_levels import UserPldRiskLevel
 from .wallet_transactions import WalletTransaction
 from .whatsapp_transfers import WhatsappTransfer
 
@@ -55,13 +61,16 @@ resource_classes = [
     CardValidation,
     Commission,
     Deposit,
+    FraudValidation,
     LoginToken,
     Saving,
     ServiceProvider,
     Statement,
+    TransactionTokenValidation,
     Transfer,
     UserCredential,
     UserLogin,
+    UserPldRiskLevel,
     WalletTransaction,
     WhatsappTransfer,
 ]
