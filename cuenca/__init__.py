@@ -11,13 +11,16 @@ __all__ = [
     'CardValidation',
     'Commission',
     'Deposit',
+    'FraudValidation',
     'LoginToken',
     'Saving',
     'ServiceProvider',
     'Statement',
+    'TransactionTokenValidation',
     'Transfer',
     'UserCredential',
     'UserLogin',
+    'UserPldRiskLevel',
     'WalletTransaction',
     'WhatsappTransfer',
     'configure',
@@ -48,6 +51,9 @@ from .resources import (
     UserLogin,
     WalletTransaction,
     WhatsappTransfer,
+    FraudValidation,
+    TransactionTokenValidation,
+    UserPldRiskLevel
 )
 from .version import __version__
 
