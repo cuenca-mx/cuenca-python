@@ -12,7 +12,7 @@ from cuenca_validations.types.enums import (
     PosCapability,
     TrackDataMethod,
 )
-from cuenca_validations.types.requests import ChargeRequest
+from cuenca_validations.types.requests import FraudValidationRequest
 
 from cuenca.resources import FraudValidation
 
@@ -44,7 +44,7 @@ def fraud_validation_data() -> Dict:
 
 @pytest.mark.vcr
 def test_create_fraud_validation(fraud_validation_data: Dict):
-    charge_request = ChargeRequest(**fraud_validation_data)
+    charge_request = FraudValidationRequest(**fraud_validation_data)
     fraud_validation = FraudValidation.create(charge_request)
     assert all(
         getattr(fraud_validation, key) == value

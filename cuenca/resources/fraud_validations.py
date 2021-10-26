@@ -12,7 +12,7 @@ from cuenca_validations.types.enums import (
     PosCapability,
     TrackDataMethod,
 )
-from cuenca_validations.types.requests import ChargeRequest
+from cuenca_validations.types.requests import FraudValidationRequest
 from pydantic.dataclasses import dataclass
 
 from cuenca.resources.base import Creatable, Retrievable
@@ -54,7 +54,10 @@ class FraudValidation(Retrievable, Creatable):
 
     @classmethod
     def create(
-        cls, request: ChargeRequest, *, session: Session = global_session
+        cls,
+        request: FraudValidationRequest,
+        *,
+        session: Session = global_session,
     ) -> 'FraudValidation':
         return cast(
             'FraudValidation', cls._create(session=session, **request.dict())
