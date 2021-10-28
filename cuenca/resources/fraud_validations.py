@@ -43,7 +43,6 @@ class FraudValidation(Retrievable, Creatable):
     track_data_method: TrackDataMethod
     pos_capability: PosCapability
     logical_network: Optional[str]
-    atm_fee: Optional[int]
     issuer: IssuerNetwork
     cardholder_verification_method: CardholderVerificationMethod
     ecommerce_indicator: EcommerceIndicator
