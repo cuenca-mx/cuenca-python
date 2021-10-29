@@ -34,12 +34,9 @@ class FraudValidation(Retrievable, Creatable):
     merchant_type: str
     merchant_data: str
     currency_code: str
-    prosa_transaction_id: str
-    retrieval_reference: str
     card_type: CardType
     card_status: CardStatus
     transaction_type: AuthorizerTransaction
-    authorizer_number: Optional[str]
     track_data_method: TrackDataMethod
     pos_capability: PosCapability
     logical_network: Optional[str]
@@ -49,7 +46,6 @@ class FraudValidation(Retrievable, Creatable):
     token_validation_id: Optional[str]
     result: Optional[CardFraudType]
     is_cvv: bool = False
-    get_balance: bool = False
 
     @classmethod
     def create(
