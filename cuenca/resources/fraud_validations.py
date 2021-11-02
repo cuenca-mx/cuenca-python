@@ -27,15 +27,15 @@ class FraudValidation(Retrievable, Creatable):
     id: str
     created_at: dt.datetime
     updated_at: dt.datetime
-    card_id: str
-    user_id: str
+    card_id: Optional[str]
+    user_id: Optional[str]
     amount: int
     merchant_name: str
     merchant_type: str
     merchant_data: str
     currency_code: str
-    card_type: CardType
-    card_status: CardStatus
+    card_type: Optional[CardType]
+    card_status: Optional[CardStatus]
     transaction_type: AuthorizerTransaction
     track_data_method: TrackDataMethod
     pos_capability: PosCapability
