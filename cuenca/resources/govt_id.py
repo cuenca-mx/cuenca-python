@@ -1,32 +1,11 @@
 import datetime as dt
-from enum import Enum
 from typing import ClassVar, Optional, cast
 
-from pydantic import BaseModel
+from cuenca_validations.types import GovtIDRequest, GovtIdType
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
-
-
-# pasar a cuenca-validations
-class GovtIdType(Enum):
-    ine_front = 'ine_front'
-    ine_back = 'ine_back'
-    passport = 'passport'
-    residence = 'residence'
-    matricula_consular = 'matricula_consular'
-    matricula_back = 'matricula_back'
-    residence_back = 'residence_back'
-    proof_of_liveness = 'proof_of_liveness'
-
-
-class GovtIDRequest(BaseModel):
-    user_uri: Optional[str]
-    type: GovtIdType
-    is_mx: bool
-    feedme_uri: str
-    number: Optional[str] = None
 
 
 @dataclass

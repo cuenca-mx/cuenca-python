@@ -1,16 +1,11 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
+from cuenca_validations.types import HumanRequest
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Retrievable, Updateable
-from .users import UserRequest
-
-
-# pasar a cuenca-validations
-class HumanRequest(UserRequest):
-    user_id: Optional[str]
 
 
 @dataclass

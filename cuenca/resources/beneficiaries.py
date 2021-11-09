@@ -1,21 +1,11 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, cast
 
-from pydantic import BaseModel
+from cuenca_validations.types import BeneficiaryRequest
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
-
-
-# pasar a cuenca-validations
-class BeneficiaryRequest(BaseModel):
-    user_id: Optional[str]
-    name: str
-    birth_date: dt.datetime
-    phone_number: str
-    user_relationship: str
-    percentage: int
 
 
 @dataclass
