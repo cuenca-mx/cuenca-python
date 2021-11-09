@@ -1,28 +1,11 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
-from pydantic import BaseModel
+from cuenca_validations.types import AddressRequest
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable, Updateable
-
-
-# pasar a cuenca-validations
-class AddressRequest(BaseModel):
-    user_id: Optional[str]
-    calle: str
-    numero_ext: str
-    codigo_postal: str
-    estado: str
-    colonia: str
-    ciudad: Optional[str] = None
-    numero_int: Optional[str] = None
-
-    class Config:
-        anystr_strip_whitespace = True
-        min_anystr_length = 1
-        extra = 'allow'
 
 
 @dataclass

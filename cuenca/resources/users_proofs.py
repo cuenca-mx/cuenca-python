@@ -1,33 +1,15 @@
 import datetime as dt
-from enum import Enum
 from typing import ClassVar, Optional, cast
 
-from pydantic import BaseModel
+from cuenca_validations.types import (
+    UserProofRequest,
+    UserProofStatus,
+    UserProofType,
+)
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable, Updateable
-
-
-# pasar a cuenca-validations
-class UserProofType(Enum):
-    proof_of_address = 'proof_of_address'
-    proof_of_life = 'proof_of_life'
-
-
-# pasar a cuenca-validations
-class UserProofStatus(Enum):
-    # checar estos valores
-    created = 'created'
-    succeeded = 'succeeded'
-    failed = 'failed'
-
-
-# pasar a cuenca-validations
-class UserProofRequest(BaseModel):
-    user_id: Optional[str]
-    type: UserProofType
-    feedme_uri: str
 
 
 @dataclass
