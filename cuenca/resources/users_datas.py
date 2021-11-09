@@ -1,26 +1,11 @@
 import datetime as dt
-from enum import Enum
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, cast
 
-from pydantic import BaseModel
+from cuenca_validations.types import UserDataRequest, UserDataType
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
-
-
-# pasar a cuenca-validations
-class UserDataType(Enum):
-    phone_number = 'phone_number'
-    email_address = 'email_address'
-    profession = 'profession'
-
-
-# pasar a cuenca-validations
-class UserDataRequest(BaseModel):
-    user_id: Optional[str]
-    type: UserDataType
-    data: str
 
 
 @dataclass

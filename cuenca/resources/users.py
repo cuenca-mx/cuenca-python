@@ -1,51 +1,24 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
-from pydantic import BaseModel, validator
+from cuenca_validations.types import (
+    AddressRequest,
+    GovtIDRequest,
+    TOSAgreementRequest,
+    UserDataRequest,
+    UserProofRequest,
+    UserRequest,
+)
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
-from .addresses import Address, AddressRequest
+from .addresses import Address
 from .base import Creatable, Retrievable, Updateable
-from .govt_id import GovtID, GovtIDRequest
+from .govt_id import GovtID
 from .resources import retrieve_uri
-from .tos_agreements import TOSAgreement, TOSAgreementRequest
-from .users_datas import UserData, UserDataRequest
-from .users_proofs import UserProof, UserProofRequest
-
-
-# pasar a cuenca-validations
-class UserRequest(BaseModel):
-    nombres: str
-    primer_apellido: str
-    segundo_apellido: Optional[str] = None
-    gender: Optional[str] = None
-    birth_place: Optional[str] = None
-    birth_date: Optional[str] = None
-    birth_country: Optional[str] = None
-    pronouns: Optional[str] = None
-    curp: Optional[str] = None
-
-    # estos son para en caso de que se mande de un jalón
-    address: Optional[AddressRequest] = None
-    phone_number: Optional[UserDataRequest] = None
-    email_address: Optional[UserDataRequest] = None
-    terms: Optional[TOSAgreementRequest] = None
-    profession: Optional[UserDataRequest] = None
-    proof_of_address: Optional[UserProofRequest] = None
-    proof_of_life: Optional[UserProofRequest] = None
-    govt_id: Optional[GovtIDRequest] = None
-
-    @validator(
-        'nombres', 'primer_apellido', 'gender', 'birth_place', 'birth_date'
-    )
-    def segundo_apellido_opcional(cls, segundo_value):
-        if len(segundo_value) <= 0:
-            raise ValueError('Length must be greater than 0')
-        return segundo_value
-
-    class Config:
-        anystr_strip_whitespace = True
+from .tos_agreements import TOSAgreement
+from .users_datas import UserData
+from .users_proofs import UserProof
 
 
 @dataclass
