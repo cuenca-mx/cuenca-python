@@ -5,6 +5,7 @@ __all__ = [
     'BalanceEntry',
     'BillPayment',
     'Card',
+    'CashDepositReference',
     'CardActivation',
     'CardTransaction',
     'CardValidation',
@@ -29,6 +30,7 @@ from .card_activations import CardActivation
 from .card_transactions import CardTransaction
 from .card_validations import CardValidation
 from .cards import Card
+from .cash_deposit_references import CashDepositReference
 from .commissions import Commission
 from .deposits import Deposit
 from .login_tokens import LoginToken
