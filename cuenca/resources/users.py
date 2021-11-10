@@ -48,6 +48,8 @@ class User(Creatable, Retrievable, Updateable):
     profession_uri: Optional[str]
     proof_of_address_uri: Optional[str]
     proof_of_life_uri: Optional[str]
+    curp_uri: Optional[str]
+    blacklist_check_uri: Optional[str]
     govt_id_uri: Optional[str]
 
     @classmethod
@@ -73,7 +75,7 @@ class User(Creatable, Retrievable, Updateable):
         govt_id: Optional[GovtIDRequest] = None,
         *,
         session: Session = global_session,
-    ):
+    ) -> 'User':
         req = UserRequest(
             nombres=nombres,
             primer_apellido=primer_apellido,
@@ -96,20 +98,16 @@ class User(Creatable, Retrievable, Updateable):
         return cast('User', cls._create(session=session, **req.dict()))
 
     @property
-    def phone_number(self):
-        return cast(UserData, retrieve_uri(self.phone_uri))
-
-    @property
     def address(self):
         return cast(Address, retrieve_uri(self.address_uri))
 
     @property
-    def email_address(self):
-        return cast(UserData, retrieve_uri(self.email_address_uri))
+    def phone_number(self):
+        return cast(UserData, retrieve_uri(self.phone_uri))
 
     @property
-    def terms_of_service(self):
-        return cast(TOSAgreement, retrieve_uri(self.terms_uri))
+    def email_address(self):
+        return cast(UserData, retrieve_uri(self.email_address_uri))
 
     @property
     def profession(self):
@@ -124,5 +122,17 @@ class User(Creatable, Retrievable, Updateable):
         return cast(UserProof, retrieve_uri(self.proof_of_life_uri))
 
     @property
+    def curp(self):
+        return cast(UserProof, retrieve_uri(self.curp_uri))
+
+    @property
+    def blacklist_check(self):
+        return cast(UserProof, retrieve_uri(self.blacklist_check_uri))
+
+    @property
     def govt_id(self):
         return cast(GovtID, retrieve_uri(self.govt_id_uri))
+
+    @property
+    def terms_of_service(self):
+        return cast(TOSAgreement, retrieve_uri(self.terms_uri))

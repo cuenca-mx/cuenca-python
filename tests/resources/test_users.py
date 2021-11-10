@@ -1,8 +1,18 @@
 import datetime as dt
 
+from cuenca_validations.types.enums import (
+    CardIssuerType,
+    GovtIdType,
+    UserDataType,
+    UserProofType,
+)
+
 from cuenca.resources.addresses import Address
+from cuenca.resources.govt_id import GovtID
+from cuenca.resources.tos_agreements import TOSAgreement
 from cuenca.resources.users import User
-from cuenca.resources.users_datas import UserDataType
+from cuenca.resources.users_datas import UserData
+from cuenca.resources.users_proofs import UserProof
 
 
 def test_users_step_by_step():
@@ -39,7 +49,7 @@ def test_users_step_by_step():
         type=UserDataType.phone_number,
         data='5555667788',
     )
-    telefono = UserDataType.create(**telefono_dict)
+    telefono = UserData.create(**telefono_dict)
     assert telefono.user_id == user.id
     user.refresh()
     assert telefono.id == user.phone_uri
@@ -50,13 +60,93 @@ def test_users_step_by_step():
         type=UserDataType.email_address,
         data='1234@cuenca.com',
     )
-    email = UserDataType.create(**email_dict)
+    email = UserData.create(**email_dict)
     assert email.user_id == user.id
     user.refresh()
-    assert email.id == user.phone_uri
+    assert email.id == user.email_uri
 
-    # y así con cada uno de los elementos, se van creando y
-    # se asignan mutuamente
+    # profession
+    profession_dict = dict(
+        user_id=user.id,
+        type=UserDataType.profession,
+        data='engineer',
+    )
+    profession = UserData.create(**profession_dict)
+    assert profession.user_id == user.id
+    user.refresh()
+    assert profession.id == user.profession_uri
+
+    # proof_of_address
+    proof_of_address_dict = dict(
+        user_id=user.id,
+        type=UserProofType.proof_of_address,
+        feedme_uri='prueba.com',
+    )
+    proof_of_address = UserProof.create(**proof_of_address_dict)
+    assert proof_of_address.user_id == user.id
+    user.refresh()
+    assert proof_of_address.id == user.proof_of_address_uri
+
+    # proof_of_life
+    proof_of_life_dict = dict(
+        user_id=user.id,
+        type=UserProofType.proof_of_life,
+        feedme_uri='prueba.com',
+    )
+    proof_of_life = UserProof.create(**proof_of_life_dict)
+    assert proof_of_life.user_id == user.id
+    user.refresh()
+    assert proof_of_life.id == user.proof_of_life_uri
+
+    # curp
+    curp_dict = dict(
+        user_id=user.id,
+        type=UserProofType.curp,
+        feedme_uri='prueba.com',
+        value='curpgenerico',
+    )
+    curp = UserProof.create(**curp_dict)
+    assert curp.user_id == user.id
+    user.refresh()
+    assert curp.id == user.curp_uri
+
+    # blacklist_check (quien es quien)
+    blacklist_check_dict = dict(
+        user_id=user.id,
+        type=UserProofType.blacklist_check,
+        feedme_uri='prueba.com',
+        value='Pedro Páramo Gonzalez',
+    )
+    blacklist_check = UserProof.create(**blacklist_check_dict)
+    assert blacklist_check.user_id == user.id
+    user.refresh()
+    assert blacklist_check.id == user.blacklist_check_uri
+
+    # govt_id
+    govt_id_dict = dict(
+        user_id=user.id,
+        type=GovtIdType.ine_front,
+        is_mx=True,
+        feedme_uri='test.com',
+        number='123456',
+    )
+    govt_id = GovtID.create(**govt_id_dict)
+    assert govt_id.user_id == user.id
+    user.refresh()
+    assert govt_id.id == user.govt_id_uri
+
+    # tos
+    tos_agreement_dict = dict(
+        user_id=user.id,
+        type=CardIssuerType.tarjetas_cuenca,
+        version=1,
+        ip='1.0.0.0.127',
+        location='123454.245',
+    )
+    tos_agreement = TOSAgreement.create(**tos_agreement_dict)
+    assert tos_agreement.user_id == user.id
+    user.refresh()
+    assert tos_agreement.id == user.tos_agreement_uri
 
 
 def test_users_all_at_once():
@@ -82,6 +172,40 @@ def test_users_all_at_once():
         email_address=dict(
             type=UserDataType.email_address,
             data='1234@cuenca.com',
+        ),
+        profession=dict(
+            type=UserDataType.profession,
+            data='engineer',
+        ),
+        proof_of_address=dict(
+            type=UserProofType.proof_of_address,
+            feedme_uri='prueba.com',
+        ),
+        proof_of_life=dict(
+            type=UserProofType.proof_of_life,
+            feedme_uri='prueba.com',
+        ),
+        curp=dict(
+            type=UserProofType.curp,
+            feedme_uri='prueba.com',
+            value='curpgenerico',
+        ),
+        blacklist_check_dict=dict(
+            type=UserProofType.blacklist_check,
+            feedme_uri='prueba.com',
+            value='Pedro Páramo Gonzalez',
+        ),
+        govt_id_dict=dict(
+            type=GovtIdType.ine_front,
+            is_mx=True,
+            feedme_uri='test.com',
+            number='123456',
+        ),
+        tos_agreement_dict=dict(
+            type=CardIssuerType.tarjetas_cuenca,
+            version=1,
+            ip='1.0.0.0.127',
+            location='123454.245',
         ),
     )
 
