@@ -19,7 +19,8 @@ class UserProof(Creatable, Retrievable, Updateable, Queryable):
     id: str
     type: UserProofType
     created_at: dt.datetime
-    feedme_uri: str
+    feedme_uri: Optional[str]
+    value: Optional[str]
     deactivated_at: Optional[dt.datetime]
     status: UserProofStatus  # se va a acatualizar solito en identifier
 
@@ -28,9 +29,10 @@ class UserProof(Creatable, Retrievable, Updateable, Queryable):
     @classmethod
     def create(
         cls,
-        user_id: str,
         type: str,
-        feedme_uri: str,
+        user_id: Optional[str],
+        feedme_uri: Optional[str],
+        value: Optional[str],
         *,
         session: Session = global_session,
     ):
@@ -38,5 +40,6 @@ class UserProof(Creatable, Retrievable, Updateable, Queryable):
             user_id=user_id,
             type=type,
             feedme_uri=feedme_uri,
+            value=value,
         )
         return cast('UserProof', cls._create(session=session, **req.dict()))
