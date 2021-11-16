@@ -29,7 +29,7 @@ class User(Creatable, Retrievable, Updateable):
     updated_at: dt.datetime
     phone_number: str
     email_address: str
-    profession: str
+    profession: str  # mover a identity (?)
     # TOS de la plataforma
     terms_of_service: TOSAgreement
     # status dentro de la plataforma
