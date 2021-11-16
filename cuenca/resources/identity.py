@@ -1,13 +1,15 @@
 import datetime as dt
 from typing import ClassVar, Optional
 
+from cuenca_validations.types import (
+    Address,
+    BlacklistValidation,
+    KYCFile,
+    TOSAgreement,
+)
 from pydantic.dataclasses import dataclass
 
-from .addresses import Address
 from .base import Retrievable, Updateable
-from .blacklist_validations import BlacklistValidation
-from .kyc_file import KYCFile
-from .tos_agreements import TOSAgreement
 
 
 @dataclass
@@ -27,8 +29,8 @@ class Identity(Retrievable, Updateable):  # y/o Humans
     birth_place: Optional[str]  # enum states
     birth_country: Optional[str]  # enum countries
     status: str  # enum UserStatus
-    terms_of_service: TOSAgreement
-    blacklist_check: BlacklistValidation
+    tos_agreement: TOSAgreement
+    blacklist_validation: BlacklistValidation
     # estos van a ser campos que también están en cada user
     address: Address
     govt_id: KYCFile

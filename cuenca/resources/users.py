@@ -1,16 +1,19 @@
 import datetime as dt
 from typing import ClassVar, cast
 
-from cuenca_validations.types import UserRequest
+from cuenca_validations.types import (
+    Address,
+    Beneficiary,
+    KYCFile,
+    TOSAgreement,
+    UserRequest,
+)
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
-from .addresses import Address
 from .base import Creatable, Retrievable, Updateable
 from .identity import Identity
-from .kyc_file import KYCFile
 from .resources import retrieve_uri
-from .tos_agreements import TOSAgreement
 
 # TODO: checar si agregar modelo de plataforma o no
 
@@ -37,6 +40,7 @@ class User(Creatable, Retrievable, Updateable):
     govt_id: KYCFile
     proof_of_address: KYCFile
     proof_of_life: KYCFile
+    beneficiary: Beneficiary
 
     @classmethod
     def create(
@@ -57,8 +61,7 @@ class User(Creatable, Retrievable, Updateable):
             'User', cls._create(session=session, **user_request.dict())
         )
 
-    # TODO: poner como una propiedad el Identity/Human
-    # (checar si se regresa en un mismo request)
+    # TODO: checar si el identity se regresa en un mismo request
 
     @property
     def identity(self):
