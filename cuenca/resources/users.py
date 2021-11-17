@@ -5,6 +5,7 @@ from cuenca_validations.types import (
     Address,
     Beneficiary,
     KYCFile,
+    PhoneNumber,
     TOSAgreement,
     UserRequest,
 )
@@ -27,7 +28,7 @@ class User(Creatable, Retrievable, Updateable):
     platform_id: str
     created_at: dt.datetime
     updated_at: dt.datetime
-    phone_number: str
+    phone_number: PhoneNumber
     email_address: str
     profession: str  # mover a identity (?)
     # TOS de la plataforma

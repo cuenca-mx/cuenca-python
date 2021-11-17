@@ -4,11 +4,12 @@ import pytest
 from cuenca_validations.types import KYCFileType
 from cuenca_validations.types.requests import UserRequest
 
+from cuenca.resources.user_events import UserEvent
 from cuenca.resources.users import User
 
 
 @pytest.mark.fixture
-def user():
+def user_req():
     user_dict = dict(
         nombres='Pedro',
         primer_apellido='Páramo',
@@ -64,9 +65,17 @@ def user():
         ),
     )
     req = UserRequest(**user_dict)
-    user = User.create(req)
-
-    yield user
+    yield req
 
 
-# agregar test para update de los que se puedan
+def test_update_values(user_req):
+    user = User.create(user_req)
+    user_dict = user.dict()
+    user_updated = User.update(user.id, phone_number='+525555555502')
+    updated_dict = user_updated.dict()
+    # se debió haber actualizado el user y creado un evento con
+    # los datos antiguos y los nuevos
+    user_event = UserEvent.one(user_id=user_updated.id)
+    # debe de haber un evento con el modelo viejo y el modelo nuevo
+    assert user_event.previous_model == user_dict
+    assert user_event.new_model == updated_dict
