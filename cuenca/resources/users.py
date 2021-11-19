@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, cast
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import (
     Address,
@@ -9,11 +9,12 @@ from cuenca_validations.types import (
     TOSAgreement,
     UserRequest,
 )
+from pydantic import EmailStr
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Retrievable, Updateable
-from .identity import Identity
+from .identities import Identity
 from .resources import retrieve_uri
 
 # TODO: checar si agregar modelo de plataforma o no
@@ -21,6 +22,7 @@ from .resources import retrieve_uri
 
 @dataclass
 class User(Creatable, Retrievable, Updateable):
+    # TODO: cambiar los tipos opcionales a cuenca-validations
     _resource: ClassVar = 'users'
 
     id: str
@@ -29,7 +31,7 @@ class User(Creatable, Retrievable, Updateable):
     created_at: dt.datetime
     updated_at: dt.datetime
     phone_number: PhoneNumber
-    email_address: str
+    email_address: EmailStr
     profession: str  # mover a identity (?)
     # TOS de la plataforma
     terms_of_service: TOSAgreement
@@ -37,11 +39,11 @@ class User(Creatable, Retrievable, Updateable):
     status: str  # enum UserStatus
     level: int
     # estos campos se van a pasar a Identity igual
-    address: Address
-    govt_id: KYCFile
-    proof_of_address: KYCFile
-    proof_of_life: KYCFile
-    beneficiary: Beneficiary
+    address: Optional[Address]
+    govt_id: Optional[KYCFile]
+    proof_of_address: Optional[KYCFile]
+    proof_of_life: Optional[KYCFile]
+    beneficiary: Optional[Beneficiary]
 
     @classmethod
     def create(

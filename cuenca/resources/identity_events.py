@@ -7,12 +7,12 @@ from .base import Queryable, Retrievable
 
 
 @dataclass
-class UserEvent(Retrievable, Queryable):
-    _resource: ClassVar = 'user_events'
+class IdentityEvent(Retrievable, Queryable):
+    _resource: ClassVar = 'identity_events'
 
     id: str
     platform_id: str
-    user_id: str
+    identity_id: str
     previous_model: dict
     new_model: dict
     event_type: str  # crear enum
