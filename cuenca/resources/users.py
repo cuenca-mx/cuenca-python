@@ -22,7 +22,6 @@ from .resources import retrieve_uri
 
 @dataclass
 class User(Creatable, Retrievable, Updateable):
-    # TODO: cambiar los tipos opcionales a cuenca-validations
     _resource: ClassVar = 'users'
 
     id: str
@@ -48,7 +47,6 @@ class User(Creatable, Retrievable, Updateable):
     @classmethod
     def create(
         cls,
-        # este user request va a traer ya los otros campos
         user_request: UserRequest,
         *,
         session: Session = global_session,

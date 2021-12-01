@@ -1,19 +1,10 @@
-import datetime as dt
 from typing import ClassVar
 
 from pydantic.dataclasses import dataclass
 
-from .base import Queryable, Retrievable
+from .base import Event
 
 
 @dataclass
-class IdentityEvent(Retrievable, Queryable):
+class IdentityEvent(Event):
     _resource: ClassVar = 'identity_events'
-
-    id: str
-    platform_id: str
-    identity_id: str
-    previous_model: dict
-    new_model: dict
-    event_type: str  # crear enum
-    created_at: dt.datetime
