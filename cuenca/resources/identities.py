@@ -15,7 +15,6 @@ from .base import Retrievable, Updateable
 
 @dataclass
 class Identity(Retrievable, Updateable):  # y/o Humans
-    # TODO: borrar blacklist validation de cuenca-validations
     _resource: ClassVar = 'identities'
 
     id: str

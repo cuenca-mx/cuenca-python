@@ -194,3 +194,15 @@ class Wallet(Creatable, Deactivable, Retrievable, Queryable):
     @property
     def wallet_uri(self):
         return f'/{self._resource}/{self.id}'
+
+
+class Event(Retrievable, Queryable):
+    _resource: ClassVar
+
+    id: str
+    platform_id: str
+    identity_id: str
+    previous_model: dict
+    new_model: dict
+    event_type: str  # crear enum
+    created_at: dt.datetime
