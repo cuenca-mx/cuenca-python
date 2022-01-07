@@ -20,6 +20,7 @@ from cuenca.resources import FraudValidation
 @pytest.fixture
 def fraud_validation_data() -> Dict:
     return dict(
+        id='FVDnqqjjbXQ92OvY6g0Jf9nQ',
         card_id='CA1234567890',
         user_id='US1234',
         amount=123,
@@ -47,7 +48,6 @@ def test_create_fraud_validation(fraud_validation_data: Dict):
         getattr(fraud_validation, key) == value
         for key, value in fraud_validation_data.items()
     )
-    assert fraud_validation.id
 
 
 @pytest.mark.vcr
