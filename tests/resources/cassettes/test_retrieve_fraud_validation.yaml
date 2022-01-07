@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.12
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/fraud_validations/FVDnqqjjbXQ92OvY6g0Jf9nQ
+  response:
+    body:
+      string: '{"id":"FVDnqqjjbXQ92OvY6g0Jf9nQ","created_at":"2021-10-21T20:20:58.240000","updated_at":"2021-10-21T20:20:58.240000","card_id":"CA1234567890","user_id":"US1234","amount":123,"merchant_name":"AMAZON
+        MX MARKETPLACE MEXICO DF 000MX","merchant_type":"wtype","merchant_data":"0279288357            00012558","currency_code":"458","prosa_transaction_id":"12345","retrieval_reference":"who
+        ks","card_type":"virtual","card_status":"active","transaction_type":"normal_purchase","authorizer_number":"1231223123","track_data_method":"terminal","pos_capability":"pin_accepted","logical_network":null,"is_cvv":true,"get_balance":false,"atm_fee":null,"issuer":"Mastercard","cardholder_verification_method":"signature","ecommerce_indicator":"0","token_validation_id":null,"result":"authorize"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '778'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 21 Oct 2021 21:45:35 GMT
+      X-Request-Time:
+      - 'value: 0.245'
+      x-amz-apigw-id:
+      - Hk_b2Fe6CYcFbhg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '778'
+      x-amzn-Remapped-Date:
+      - Thu, 21 Oct 2021 21:45:35 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.1
+      x-amzn-RequestId:
+      - 632daa8a-074e-48ed-9bb0-a7de3e553a90
+    status:
+      code: 200
+      message: OK
+version: 1
