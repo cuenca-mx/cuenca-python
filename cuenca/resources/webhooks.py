@@ -8,6 +8,5 @@ from .base import Queryable, Retrievable
 class Webhook(Retrievable, Queryable):
     _resource: ClassVar = 'webhooks'
 
-    platform_id: str
     payload: Dict[str, Any]
     event: WebhookEvent

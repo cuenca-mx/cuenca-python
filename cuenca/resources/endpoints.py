@@ -18,7 +18,6 @@ from ..http import Session, session as global_session
 class Endpoint(Retrievable, Queryable, Creatable, Updateable):
     _resource: ClassVar = 'endpoints'
 
-    platform_id: str
     url: HttpUrl
     events: List[WebhookEvent]
     is_active: bool
@@ -32,8 +31,8 @@ class Endpoint(Retrievable, Queryable, Creatable, Updateable):
         session: Session = global_session,
     ) -> 'Endpoint':
         """
-        Creates and Endpoint to a platform, allowing them to recieve Webhooks
-        with the specified events.
+        Creates and Endpoint, allowing to recieve Webhooks with the specified
+        events.
 
         :param url: HTTPS url to send webhooks
         :param events: list of enabled events. If None, all events will be
