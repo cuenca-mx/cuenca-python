@@ -27,15 +27,17 @@ class Endpoint(Retrievable, Queryable, Creatable, Updateable):
     def create(
         cls,
         url: HttpUrl
-        events: List[WebhookEvent],
+        events: Optional[List[WebhookEvent]] = None,
         *,
         session: Session = global_session,
     ) -> 'Endpoint':
         """
-        Assigns user_id and ledger_account_id to a existing virtual card
+        Creates and Endpoint to a platform, allowing them to recieve Webhooks
+        with the specified events.
 
         :param url: HTTPS url to send webhooks
-        :param events: list of enabled events
+        :param events: list of enabled events. If None, all events will be
+            enabled for this Endpoint
         :param session:
         :return: New active endpoint
         """
@@ -55,11 +57,11 @@ class Endpoint(Retrievable, Queryable, Creatable, Updateable):
         Updates endpoint properties. It allows reconfigure properties
         like url and is_active.
 
-        :param card_id: existing endpoint_id
+        :param endpoint_id: existing endpoint_id
         :param url
         :param is_active
         :param session
-        :return: Updated card object
+        :return: Updated endpoint object
         """
         req = EndpointUpdateRequest(url=url, is_active=is_active)
         resp = cls._update(endpoint_id, session=session, **req.dict())
