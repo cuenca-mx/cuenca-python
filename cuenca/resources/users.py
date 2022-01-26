@@ -17,8 +17,6 @@ from .base import Creatable, Retrievable, Updateable
 from .identities import Identity
 from .resources import retrieve_uri
 
-# TODO: checar si agregar modelo de plataforma o no
-
 
 @dataclass
 class User(Creatable, Retrievable, Updateable):
@@ -58,8 +56,6 @@ class User(Creatable, Retrievable, Updateable):
         return cast(
             'User', cls._create(session=session, **user_request.dict())
         )
-
-    # TODO: checar si el identity se regresa en un mismo request
 
     @property
     def identity(self):
