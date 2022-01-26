@@ -5,6 +5,7 @@ from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
 from cuenca_validations.types import (
+    EventType,
     FileFormat,
     QueryParams,
     SantizedDict,
@@ -200,9 +201,7 @@ class Event(Retrievable, Queryable):
     _resource: ClassVar
 
     id: str
-    platform_id: str
     identity_id: str
-    previous_model: dict
     new_model: dict
-    event_type: str  # crear enum
+    type: EventType
     created_at: dt.datetime
