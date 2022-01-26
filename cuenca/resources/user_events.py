@@ -8,3 +8,6 @@ from .base import Event
 @dataclass
 class UserEvent(Event):
     _resource: ClassVar = 'user_events'
+
+    user_id: str
+    platform_id: str

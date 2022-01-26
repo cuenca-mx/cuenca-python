@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, List, Optional, cast
 
 from cuenca_validations.types import (
     Address,
@@ -27,22 +27,19 @@ class User(Creatable, Retrievable, Updateable):
     id: str
     identity_uri: str
     platform_id: str
+    level: int
     created_at: dt.datetime
     updated_at: dt.datetime
     phone_number: PhoneNumber
     email_address: EmailStr
-    profession: str  # mover a identity (?)
-    # TOS de la plataforma
-    terms_of_service: TOSAgreement
-    # status dentro de la plataforma
-    status: str  # enum UserStatus
-    level: int
-    # estos campos se van a pasar a Identity igual
+    profession: str
+    terms_of_service: Optional[TOSAgreement]
+    status: Optional[str]
     address: Optional[Address]
     govt_id: Optional[KYCFile]
     proof_of_address: Optional[KYCFile]
     proof_of_life: Optional[KYCFile]
-    beneficiary: Optional[Beneficiary]
+    beneficiary: Optional[List[Beneficiary]]
 
     @classmethod
     def create(

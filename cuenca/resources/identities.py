@@ -5,7 +5,7 @@ from cuenca_validations.types import (
     Address,
     Gender,
     KYCFile,
-    States,
+    State,
     TOSAgreement,
 )
 from pydantic.dataclasses import dataclass
@@ -20,19 +20,18 @@ class Identity(Retrievable, Updateable):  # y/o Humans
     id: str
     created_at: dt.datetime
     updated_at: dt.datetime
-    nombres: str
-    primer_apellido: str
-    segundo_apellido: Optional[str]
+    names: str
+    first_surname: str
+    second_surname: Optional[str]
     curp: Optional[str]
     rfc: Optional[str]
-    gender: Optional[Gender]
-    birth_date: Optional[dt.date]
-    birth_place: Optional[States]
-    birth_country: Optional[str]  # enum countries
-    status: str  # enum UserStatus
-    tos_agreement: TOSAgreement
+    gender: Gender
+    date_of_birth: Optional[dt.date]
+    state_of_birth: Optional[State]
+    country_of_birth: Optional[str]
+    status: Optional[str]
+    tos_agreement: Optional[TOSAgreement]
     blacklist_validation_status: Optional[str]
-    # estos van a ser campos que también están en cada user
     address: Optional[Address]
     govt_id: Optional[KYCFile]
     proof_of_address: Optional[KYCFile]
