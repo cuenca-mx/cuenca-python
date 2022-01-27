@@ -18,6 +18,6 @@ class Session(Creatable, Retrievable):
     platform_uri: str
     expires_at: dt.datetime
     policy_uri: str
-    redirect_url: Optional[str]
-    cancel_url: Optional[str]
+    success_url: Optional[str]
+    failure_url: Optional[str]
     event_type: Optional[EventType]
