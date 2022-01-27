@@ -46,13 +46,6 @@ class User(Creatable, Retrievable, Updateable):
         *,
         session: Session = global_session,
     ) -> 'User':
-        """
-        Este método en Identify va a buscar si ya existe un Identity con ese
-        curp, en caso de que sí exista, se hace fetch del Identity y se asigna.
-        En caso de que no exista se crea el Identity desde cero. Se tienen que
-        pasar todos los datos para poder hacer la creación en caso de que
-        no exista.
-        """
         return cast(
             'User', cls._create(session=session, **user_request.dict())
         )
