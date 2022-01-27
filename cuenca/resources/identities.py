@@ -14,7 +14,7 @@ from .base import Retrievable, Updateable
 
 
 @dataclass
-class Identity(Retrievable, Updateable):  # y/o Humans
+class Identity(Retrievable, Updateable):
     _resource: ClassVar = 'identities'
 
     id: str
