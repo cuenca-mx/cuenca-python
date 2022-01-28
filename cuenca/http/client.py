@@ -126,6 +126,7 @@ class Session:
     def _check_response(response: Response):
         if response.ok:
             return
+        print(response.text)
         json = response.json()
         if 'code' in json:
             raise ERROR_CODES[json['code']](json['error'])

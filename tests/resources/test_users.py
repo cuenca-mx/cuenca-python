@@ -1,5 +1,5 @@
 import pytest
-from cuenca_validations.types import UserRequest, State
+from cuenca_validations.types import State, UserRequest
 
 from cuenca.resources.users import User
 
