@@ -4,18 +4,20 @@ from typing import ClassVar, Optional
 from cuenca_validations.types import (
     Address,
     Gender,
+    IdentityQuery,
     KYCFile,
     State,
     TOSAgreement,
 )
 from pydantic.dataclasses import dataclass
 
-from .base import Retrievable, Updateable
+from .base import Queryable, Retrievable, Updateable
 
 
 @dataclass
-class Identity(Retrievable, Updateable):
+class Identity(Retrievable, Updateable, Queryable):
     _resource: ClassVar = 'identities'
+    _query_params: ClassVar = IdentityQuery
 
     id: str
     created_at: dt.datetime

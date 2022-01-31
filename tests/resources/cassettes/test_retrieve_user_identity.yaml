@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.15.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/users/USluZkZ7odQvOwelWLLrFH5w
+  response:
+    body:
+      string: '{"id":"USluZkZ7odQvOwelWLLrFH5w","identity_uri":"/identities/IDEz-f3BebS4ejwWkdJr72Lg","platform_id":"PO-vGzxK6aRxuJ-aW5gYaCMQ","level":1,"created_at":"2022-01-31T05:53:16.307000","updated_at":"2022-01-31T05:53:16.355000","phone_number":"+525559610838","email_address":"manuel@cuenca.com","profession":"employee","status":"active","terms_of_service":null,"blacklist_validation_status":"not_verified","address":{"street":"calle
+        1","ext_number":"2","int_number":"3","postal_code":"09900","state":"DF","city":null,"country":"MEX","created_at":"2022-01-31T05:53:16.306000"},"govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiary":null,"names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '744'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 31 Jan 2022 06:13:09 GMT
+      X-Request-Time:
+      - 'value: 0.279'
+      x-amz-apigw-id:
+      - MzCeSEupiYcFX-g=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '744'
+      x-amzn-Remapped-Date:
+      - Mon, 31 Jan 2022 06:13:09 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - b3208734-2c58-4670-8293-4a67fff0c0d9
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.15.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/identities/IDEz-f3BebS4ejwWkdJr72Lg
+  response:
+    body:
+      string: '{"id":"IDEz-f3BebS4ejwWkdJr72Lg","created_at":"2022-01-31T05:53:15.813000","updated_at":"2022-01-31T05:53:15.813000","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05","rfc":null,"gender":"male","date_of_birth":"1997-03-29","state_of_birth":"DF","country_of_birth":"MEX","status":null,"tos_agreement":null,"blacklist_validation_status":null,"address":null,"govt_id":null,"proof_of_address":null,"proof_of_life":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '460'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 31 Jan 2022 06:13:09 GMT
+      X-Request-Time:
+      - 'value: 0.240'
+      x-amz-apigw-id:
+      - MzCeWHo5iYcFgFw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '460'
+      x-amzn-Remapped-Date:
+      - Mon, 31 Jan 2022 06:13:09 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - 5bc9ac20-ecf7-421b-b85b-8b975e03fbc0
+    status:
+      code: 200
+      message: OK
+version: 1

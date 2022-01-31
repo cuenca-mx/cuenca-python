@@ -3,11 +3,15 @@ from typing import ClassVar, List, Optional, cast
 
 from cuenca_validations.types import (
     Address,
+    AddressUpdateRequest,
     Beneficiary,
     KYCFile,
+    KYCFileUpdateRequest,
     PhoneNumber,
     TOSAgreement,
+    TOSUpdateRequest,
     UserRequest,
+    UserUpdateRequest,
 )
 from pydantic import EmailStr
 from pydantic.dataclasses import dataclass
@@ -50,6 +54,35 @@ class User(Creatable, Retrievable, Updateable):
             'User', cls._create(session=session, **user_request.dict())
         )
 
+    @classmethod
+    def update(
+        cls,
+        user_id: str,
+        phone_number: Optional[str] = None,
+        email_address: Optional[EmailStr] = None,
+        profession: Optional[str] = None,
+        address: Optional[AddressUpdateRequest] = None,
+        beneficiary: Optional[List[Beneficiary]] = None,
+        govt_id: Optional[KYCFileUpdateRequest] = None,
+        proof_of_address: Optional[KYCFileUpdateRequest] = None,
+        proof_of_life: Optional[KYCFileUpdateRequest] = None,
+        terms_of_service: Optional[TOSUpdateRequest] = None,
+    ):
+        request = UserUpdateRequest(
+            phone_number=phone_number,
+            email_address=email_address,
+            profession=profession,
+            address=address,
+            beneficiary=beneficiary,
+            govt_id=govt_id,
+            proof_of_address=proof_of_address,
+            proof_of_life=proof_of_life,
+            terms_of_service=terms_of_service,
+        )
+        return cast(
+            'User', cls._update(id=user_id, **request.dict(exclude_none=True))
+        )
+
     @property
-    def identity(self):
+    def identity(self) -> Identity:
         return cast(Identity, retrieve_uri(self.identity_uri))
