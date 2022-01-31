@@ -38,13 +38,16 @@ def test_api_key_deactivate():
 @pytest.mark.vcr
 def test_update_api_key():
     fields_to_update = dict(
-        metadata=dict(info='v1.1.1'), user_id='USiBeLDwEWT_inkyE4CrRsrQ'
+        metadata=dict(info='v1.1.1'),
+        user_id='USrZMoC3sDgEDteFNMYhcXY',
+        platform_id='PTZbBlk__kQt-wfwzP5nwA9A',
     )
-    api_key_id = 'AKp-QELMN3Thih6AJG0Mgggg'
+    api_key_id = 'AKNm37rN3JQsStxnI_L3n4Lw'
 
     updated = ApiKey.update(api_key_id, **fields_to_update)
     assert updated.user_id == fields_to_update['user_id']
     assert not hasattr(updated, 'metadata')
+    assert not hasattr(updated, 'platform_id')
 
 
 def test_api_key_to_dict():
