@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.15.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/curp_validations/CVKTTRnlVtTVaAh7bMfV4P0Q
+  response:
+    body:
+      string: '{"id":"CVKTTRnlVtTVaAh7bMfV4P0Q","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MEX","state_of_birth":"DF","gender":"male","nationality":null,"manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":null,"renapo_curp_match":true,"renapo_full_match":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '342'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 29 Jan 2022 00:45:39 GMT
+      X-Request-Time:
+      - 'value: 0.096'
+      x-amz-apigw-id:
+      - MrsoGEaUCYcFiFg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '342'
+      x-amzn-Remapped-Date:
+      - Sat, 29 Jan 2022 00:45:39 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - 304b0aa9-841c-43bb-8c61-df2832b5b44a
+    status:
+      code: 200
+      message: OK
+version: 1
