@@ -1,7 +1,7 @@
 black==21.7b0
 flake8==4.0.*
 freezegun==1.1.*
-isort==5.9.*
+isort==5.10.*
 mypy==0.910
 pytest==6.2.*
 pytest-cov==3.0.*
