@@ -1,23 +1,37 @@
 import datetime as dt
-from typing import ClassVar, Optional
+from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import EventType
+from cuenca_validations.types import SessionRequest, SessionType
 from pydantic.dataclasses import dataclass
 
-from .base import Creatable, Retrievable
+from .base import Creatable, Queryable, Retrievable
 
 
 @dataclass
-class Session(Creatable, Retrievable):
+class Session(Creatable, Retrievable, Queryable):
     _resource: ClassVar = 'sessions'
 
     id: str
     created_at: dt.datetime
     updated_at: dt.datetime
     user_id: str
-    platform_uri: str
+    platform_id: str
     expires_at: dt.datetime
-    policy_uri: str
     success_url: Optional[str]
     failure_url: Optional[str]
-    event_type: Optional[EventType]
+    type: Optional[SessionType]
+
+    def create(
+        self,
+        user_id,
+        type: SessionType,
+        success_url: Optional[str] = None,
+        failure_url: Optional[str] = None,
+    ) -> 'Session':
+        req = SessionRequest(
+            user_id=user_id,
+            type=type,
+            success_url=success_url,
+            failure_url=failure_url,
+        )
+        return cast('Session', self._create(**req.dict()))
