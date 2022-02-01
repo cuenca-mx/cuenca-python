@@ -5,7 +5,6 @@ from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
 
 from cuenca_validations.types import (
-    EventType,
     FileFormat,
     QueryParams,
     SantizedDict,
@@ -195,13 +194,3 @@ class Wallet(Creatable, Deactivable, Retrievable, Queryable):
     @property
     def wallet_uri(self):
         return f'/{self._resource}/{self.id}'
-
-
-class Event(Retrievable, Queryable):
-    _resource: ClassVar
-
-    id: str
-    identity_id: str
-    new_model: dict
-    type: EventType
-    created_at: dt.datetime

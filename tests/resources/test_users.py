@@ -15,10 +15,11 @@ def test_create_user(user_request, curp_validation_request):
 
 
 @pytest.mark.vcr
-def test_retrieve_user():
-    user_id = 'USluZkZ7odQvOwelWLLrFH5w'
-    user = User.retrieve(user_id)
-    assert user_id == user.id
+@pytest.mark.skip(reason='Query no regresa nada')
+def test_query_user():
+    platform_id = 'PO-vGzxK6aRxuJ-aW5gYaCMQ'
+    user = User.one(platform_id=platform_id)
+    assert user.id is not None
 
 
 @pytest.mark.vcr
@@ -42,5 +43,6 @@ def test_update_user():
 def test_retrieve_user_identity():
     user_id = 'USluZkZ7odQvOwelWLLrFH5w'
     user = User.retrieve(user_id)
+    assert user_id == user.id
     identity = user.identity
     assert identity.id is not None

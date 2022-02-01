@@ -2,6 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import CurpValidationRequest, Gender, State
+from cuenca_validations.types.identities import CurpField
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
@@ -12,7 +13,6 @@ from .base import Creatable, Retrievable
 class CurpValidation(Creatable, Retrievable):
     _resource: ClassVar = 'curp_validations'
 
-    id: str
     names: str
     first_surname: str
     second_surname: Optional[str]
@@ -21,11 +21,11 @@ class CurpValidation(Creatable, Retrievable):
     state_of_birth: State
     gender: Gender
     nationality: Optional[str]
-    manual_curp: Optional[str]
-    calculated_curp: str
-    validated_curp: Optional[str]
-    renapo_curp_match: Optional[str]
-    renapo_full_match: Optional[str]
+    manual_curp: Optional[CurpField]
+    calculated_curp: CurpField
+    validated_curp: Optional[CurpField]
+    renapo_curp_match: Optional[bool]
+    renapo_full_match: Optional[bool]
 
     @classmethod
     def create(
