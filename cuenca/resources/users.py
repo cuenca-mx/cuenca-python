@@ -1,15 +1,16 @@
-import datetime as dt
 from typing import ClassVar, List, Optional, cast
 
 from cuenca_validations.types import (
     Address,
     AddressUpdateRequest,
     Beneficiary,
+    EntityStatus,
     KYCFile,
     KYCFileUpdateRequest,
     PhoneNumber,
     TOSAgreement,
     TOSUpdateRequest,
+    UserQuery,
     UserRequest,
     UserUpdateRequest,
 )
@@ -17,26 +18,24 @@ from pydantic import EmailStr
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
-from .base import Creatable, Retrievable, Updateable
+from .base import Creatable, Queryable, Retrievable, Updateable
 from .identities import Identity
 from .resources import retrieve_uri
 
 
 @dataclass
-class User(Creatable, Retrievable, Updateable):
+class User(Creatable, Retrievable, Updateable, Queryable):
     _resource: ClassVar = 'users'
+    _query_params: ClassVar = UserQuery
 
-    id: str
     identity_uri: str
     platform_id: str
     level: int
-    created_at: dt.datetime
-    updated_at: dt.datetime
     phone_number: PhoneNumber
     email_address: EmailStr
     profession: str
     terms_of_service: Optional[TOSAgreement]
-    status: Optional[str]
+    status: Optional[EntityStatus]
     address: Optional[Address]
     govt_id: Optional[KYCFile]
     proof_of_address: Optional[KYCFile]
