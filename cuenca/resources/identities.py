@@ -3,12 +3,12 @@ from typing import ClassVar, Optional
 
 from cuenca_validations.types import (
     Address,
-    EntityStatus,
     Gender,
     IdentityQuery,
     KYCFile,
     State,
     TOSAgreement,
+    UserStatus,
     VerificationStatus,
 )
 from cuenca_validations.types.identities import CurpField
@@ -31,7 +31,7 @@ class Identity(Retrievable, Updateable, Queryable):
     date_of_birth: Optional[dt.date]
     state_of_birth: Optional[State]
     country_of_birth: Optional[str]
-    status: Optional[EntityStatus]
+    status: Optional[UserStatus]
     tos_agreement: Optional[TOSAgreement]
     blacklist_validation_status: Optional[VerificationStatus]
     address: Optional[Address]

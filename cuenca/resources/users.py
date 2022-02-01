@@ -4,7 +4,6 @@ from cuenca_validations.types import (
     Address,
     AddressUpdateRequest,
     Beneficiary,
-    EntityStatus,
     KYCFile,
     KYCFileUpdateRequest,
     PhoneNumber,
@@ -12,6 +11,7 @@ from cuenca_validations.types import (
     TOSUpdateRequest,
     UserQuery,
     UserRequest,
+    UserStatus,
     UserUpdateRequest,
 )
 from pydantic import EmailStr
@@ -35,12 +35,12 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     email_address: EmailStr
     profession: str
     terms_of_service: Optional[TOSAgreement]
-    status: Optional[EntityStatus]
+    status: Optional[UserStatus]
     address: Optional[Address]
     govt_id: Optional[KYCFile]
     proof_of_address: Optional[KYCFile]
     proof_of_life: Optional[KYCFile]
-    beneficiary: Optional[List[Beneficiary]]
+    beneficiaries: Optional[List[Beneficiary]]
 
     @classmethod
     def create(
@@ -61,7 +61,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         email_address: Optional[EmailStr] = None,
         profession: Optional[str] = None,
         address: Optional[AddressUpdateRequest] = None,
-        beneficiary: Optional[List[Beneficiary]] = None,
+        beneficiaries: Optional[List[Beneficiary]] = None,
         govt_id: Optional[KYCFileUpdateRequest] = None,
         proof_of_address: Optional[KYCFileUpdateRequest] = None,
         proof_of_life: Optional[KYCFileUpdateRequest] = None,
@@ -72,7 +72,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             email_address=email_address,
             profession=profession,
             address=address,
-            beneficiary=beneficiary,
+            beneficiaries=beneficiaries,
             govt_id=govt_id,
             proof_of_address=proof_of_address,
             proof_of_life=proof_of_life,
