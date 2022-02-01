@@ -14,7 +14,7 @@ from cuenca_validations.types import (
 from cuenca_validations.types.identities import CurpField
 from pydantic.dataclasses import dataclass
 
-from .base import Queryable, Retrievable, Updateable
+from .base import Queryable, Retrievable
 
 
 @dataclass
