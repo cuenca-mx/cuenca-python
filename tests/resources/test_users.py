@@ -15,10 +15,8 @@ def test_create_user(user_request, curp_validation_request):
 
 
 @pytest.mark.vcr
-@pytest.mark.skip(reason='Query no regresa nada')
 def test_query_user():
-    platform_id = 'PO-vGzxK6aRxuJ-aW5gYaCMQ'
-    user = User.one(platform_id=platform_id)
+    user = User.one(email_address='manuel@cuenca.com')
     assert user.id is not None
 
 
