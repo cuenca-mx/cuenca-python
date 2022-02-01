@@ -18,7 +18,7 @@ from .base import Queryable, Retrievable, Updateable
 
 
 @dataclass
-class Identity(Retrievable, Updateable, Queryable):
+class Identity(Retrievable, Queryable):
     _resource: ClassVar = 'identities'
     _query_params: ClassVar = IdentityQuery
 
