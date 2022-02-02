@@ -29,7 +29,6 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     _query_params: ClassVar = UserQuery
 
     identity_uri: str
-    platform_id: str
     level: int
     phone_number: PhoneNumber
     email_address: EmailStr
@@ -41,6 +40,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     proof_of_address: Optional[KYCFile]
     proof_of_life: Optional[KYCFile]
     beneficiaries: Optional[List[Beneficiary]]
+    platform_id: Optional[str]
 
     @classmethod
     def create(
