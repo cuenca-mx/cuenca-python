@@ -53,6 +53,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         api_key_id: str,
         metadata: Optional[dict] = None,
         user_id: Optional[str] = None,
+        platform_id: Optional[str] = None,
         *,
         session: Session = global_session,
     ) -> 'ApiKey':
@@ -60,6 +61,8 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         If the current user has enough permissions, it associates an ApiKey to
         the `user_id` or updates the correspoding metadata
         """
-        req = ApiKeyUpdateRequest(metadata=metadata, user_id=user_id)
+        req = ApiKeyUpdateRequest(
+            metadata=metadata, user_id=user_id, platform_id=platform_id
+        )
         resp = cls._update(api_key_id, **req.dict(), session=session)
         return cast('ApiKey', resp)
