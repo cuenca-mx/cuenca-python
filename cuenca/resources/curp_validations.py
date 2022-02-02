@@ -13,6 +13,7 @@ from .base import Creatable, Retrievable
 class CurpValidation(Creatable, Retrievable):
     _resource: ClassVar = 'curp_validations'
 
+    created_at: dt.datetime
     names: str
     first_surname: str
     second_surname: Optional[str]
@@ -23,18 +24,35 @@ class CurpValidation(Creatable, Retrievable):
     nationality: Optional[str]
     manual_curp: Optional[CurpField]
     calculated_curp: CurpField
-    validated_curp: Optional[CurpField]
-    renapo_curp_match: Optional[bool]
-    renapo_full_match: Optional[bool]
+    validated_curp: CurpField
+    renapo_curp_match: bool
+    renapo_full_match: bool
 
     @classmethod
     def create(
         cls,
-        curp_validation_request: CurpValidationRequest,
+        names: str,
+        first_surname: str,
+        date_of_birth: dt.date,
+        country_of_birth: str,
+        gender: Gender,
+        second_surname: Optional[str] = None,
+        state_of_birth: Optional[State] = None,
+        manual_curp: Optional[CurpField] = None,
         *,
         session: Session = global_session,
     ) -> 'CurpValidation':
+        req = CurpValidationRequest(
+            names=names,
+            first_surname=first_surname,
+            second_surname=second_surname,
+            date_of_birth=date_of_birth,
+            state_of_birth=state_of_birth,
+            country_of_birth=country_of_birth,
+            gender=gender,
+            manual_curp=manual_curp,
+        )
         return cast(
             'CurpValidation',
-            cls._create(session=session, **curp_validation_request.dict()),
+            cls._create(session=session, **req.dict()),
         )

@@ -6,10 +6,10 @@ from cuenca.resources import CurpValidation, User
 @pytest.mark.vcr
 def test_create_user(user_request, curp_validation_request):
     # we need to create the curp validation first
-    curp_validation = CurpValidation.create(curp_validation_request)
+    curp_validation = CurpValidation.create(**curp_validation_request)
     assert curp_validation.renapo_curp_match
     # creating the user
-    user = User.create(user_request)
+    user = User.create(**user_request)
     assert user.id is not None
     assert user.level == 1
 

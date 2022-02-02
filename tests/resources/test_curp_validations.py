@@ -5,7 +5,7 @@ from cuenca.resources import CurpValidation
 
 @pytest.mark.vcr
 def test_create_curp_validations(curp_validation_request) -> None:
-    curp_validation = CurpValidation.create(curp_validation_request)
+    curp_validation = CurpValidation.create(**curp_validation_request)
     assert curp_validation.id is not None
     assert curp_validation.renapo_curp_match
 
