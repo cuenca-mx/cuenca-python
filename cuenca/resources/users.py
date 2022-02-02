@@ -39,7 +39,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     terms_of_service: Optional[TOSAgreement]
     status: Optional[UserStatus]
     address: Optional[Address]
-    govt_id: Optional[List[KYCFile]]
+    govt_id: Optional[KYCFile]
     proof_of_address: Optional[KYCFile]
     proof_of_life: Optional[KYCFile]
     beneficiaries: Optional[List[Beneficiary]]
@@ -74,7 +74,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         profession: Optional[str] = None,
         address: Optional[AddressUpdateRequest] = None,
         beneficiaries: Optional[List[Beneficiary]] = None,
-        govt_id: Optional[List[KYCFileUpdateRequest]] = None,
+        govt_id: Optional[KYCFileUpdateRequest] = None,
         proof_of_address: Optional[KYCFileUpdateRequest] = None,
         proof_of_life: Optional[KYCFileUpdateRequest] = None,
         terms_of_service: Optional[TOSUpdateRequest] = None,
