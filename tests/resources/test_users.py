@@ -39,7 +39,7 @@ def test_update_user():
 
 @pytest.mark.vcr
 def test_retrieve_user_identity():
-    user_id = 'USluZkZ7odQvOwelWLLrFH5w'
+    user_id = 'USnsyGBk_ARZ2qD2lwzoFZZg'
     user = User.retrieve(user_id)
     assert user_id == user.id
     identity = user.identity

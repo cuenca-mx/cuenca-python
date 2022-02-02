@@ -15,34 +15,34 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/users/USluZkZ7odQvOwelWLLrFH5w
+    uri: https://sandbox.cuenca.com/users/USnsyGBk_ARZ2qD2lwzoFZZg
   response:
     body:
-      string: '{"id":"USluZkZ7odQvOwelWLLrFH5w","identity_uri":"/identities/IDEz-f3BebS4ejwWkdJr72Lg","platform_id":"PO-vGzxK6aRxuJ-aW5gYaCMQ","level":1,"created_at":"2022-01-31T05:53:16.307000","updated_at":"2022-01-31T05:53:16.355000","phone_number":"+525559610838","email_address":"manuel@cuenca.com","profession":"employee","status":"active","terms_of_service":null,"blacklist_validation_status":"not_verified","address":{"street":"calle
-        1","ext_number":"2","int_number":"3","postal_code":"09900","state":"DF","city":null,"country":"MEX","created_at":"2022-01-31T05:53:16.306000"},"govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05"}'
+      string: "{\"id\":\"USnsyGBk_ARZ2qD2lwzoFZZg\",\"identity_uri\":\"/identities/ID6H0gBaFNQyG81QhMBaHVsQ\",\"level\":1,\"created_at\":\"2022-02-01T23:35:50.436000\",\"updated_at\":\"2022-02-01T23:35:50.463000\",\"phone_number\":\"+16509241212\",\"email_address\":\"mtamizi@gmail.com\",\"profession\":\"nada\",\"status\":\"active\",\"terms_of_service\":null,\"blacklist_validation_status\":\"not_verified\",\"address\":{\"street\":\"Cacahuamilpa\",\"ext_number\":\"19\",\"int_number\":\"depa
+        2\",\"postal_code\":\"06100\",\"state\":\"DF\",\"city\":\"Ciudad de M\xE9xico\",\"country\":\"MX\",\"created_at\":\"2022-02-01T23:35:50.436000\"},\"govt_id\":null,\"proof_of_address\":null,\"proof_of_life\":null,\"beneficiaries\":null,\"names\":\"Matin\",\"first_surname\":\"Tamizi\",\"second_surname\":null,\"curp\":\"TAXM840916HNEMXT02\"}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '744'
+      - '721'
       Content-Type:
       - application/json
       Date:
-      - Mon, 31 Jan 2022 06:13:09 GMT
+      - Wed, 02 Feb 2022 06:25:08 GMT
       X-Request-Time:
-      - 'value: 0.279'
+      - 'value: 0.142'
       x-amz-apigw-id:
-      - MzCeSEupiYcFX-g=
+      - M5qGoFxAiYcFZ2w=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '744'
+      - '721'
       x-amzn-Remapped-Date:
-      - Mon, 31 Jan 2022 06:13:09 GMT
+      - Wed, 02 Feb 2022 06:25:08 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - b3208734-2c58-4670-8293-4a67fff0c0d9
+      - d82409d4-04ce-4e48-b5a7-169e848e7a89
     status:
       code: 200
       message: OK
@@ -62,33 +62,33 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/identities/IDEz-f3BebS4ejwWkdJr72Lg
+    uri: https://sandbox.cuenca.com/identities/ID6H0gBaFNQyG81QhMBaHVsQ
   response:
     body:
-      string: '{"id":"IDEz-f3BebS4ejwWkdJr72Lg","created_at":"2022-01-31T05:53:15.813000","updated_at":"2022-01-31T05:53:15.813000","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05","rfc":null,"gender":"male","date_of_birth":"1997-03-29","state_of_birth":"DF","country_of_birth":"MEX","status":null,"tos_agreement":null,"blacklist_validation_status":null,"address":null,"govt_id":null,"proof_of_address":null,"proof_of_life":null}'
+      string: '{"id":"ID6H0gBaFNQyG81QhMBaHVsQ","created_at":"2022-02-01T18:48:41.722000","names":"Matin","first_surname":"Tamizi","second_surname":null,"curp":"TAXM840916HNEMXT02","rfc":null,"gender":"male","date_of_birth":"1984-09-16","state_of_birth":"NE","country_of_birth":"USA","status":"active","tos_agreement":null,"blacklist_validation_status":null,"address":null,"govt_id":null,"proof_of_address":null,"proof_of_life":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '460'
+      - '418'
       Content-Type:
       - application/json
       Date:
-      - Mon, 31 Jan 2022 06:13:09 GMT
+      - Wed, 02 Feb 2022 06:25:08 GMT
       X-Request-Time:
-      - 'value: 0.240'
+      - 'value: 0.093'
       x-amz-apigw-id:
-      - MzCeWHo5iYcFgFw=
+      - M5qGrHb8iYcFwcQ=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '460'
+      - '418'
       x-amzn-Remapped-Date:
-      - Mon, 31 Jan 2022 06:13:09 GMT
+      - Wed, 02 Feb 2022 06:25:08 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - 5bc9ac20-ecf7-421b-b85b-8b975e03fbc0
+      - f9c82017-03e7-40d1-969e-4d316c62132a
     status:
       code: 200
       message: OK
