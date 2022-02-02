@@ -53,6 +53,7 @@ class Session:
         use_jwt: Optional[bool] = False,
         sandbox: Optional[bool] = None,
         login_token: Optional[str] = None,
+        session_token: Optional[str] = None,
     ):
         """
         This allows us to instantiate the http client when importing the
@@ -75,6 +76,9 @@ class Session:
 
         if login_token:
             self.session.headers['X-Cuenca-LoginToken'] = login_token
+
+        if session_token:
+            self.session.headers['X-Cuenca-SessionId'] = session_token
 
     def get(
         self, endpoint: str, params: ClientRequestParams = None
