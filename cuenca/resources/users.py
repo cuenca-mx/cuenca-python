@@ -1,3 +1,4 @@
+import datetime as dt
 from typing import ClassVar, List, Optional, cast
 
 from cuenca_validations.types import (
@@ -14,6 +15,7 @@ from cuenca_validations.types import (
     UserStatus,
     UserUpdateRequest,
 )
+from cuenca_validations.types.identities import CurpField
 from pydantic import EmailStr
 from pydantic.dataclasses import dataclass
 
@@ -30,13 +32,14 @@ class User(Creatable, Retrievable, Updateable, Queryable):
 
     identity_uri: str
     level: int
+    created_at: dt.datetime
     phone_number: PhoneNumber
     email_address: EmailStr
     profession: str
     terms_of_service: Optional[TOSAgreement]
     status: Optional[UserStatus]
     address: Optional[Address]
-    govt_id: Optional[KYCFile]
+    govt_id: Optional[List[KYCFile]]
     proof_of_address: Optional[KYCFile]
     proof_of_life: Optional[KYCFile]
     beneficiaries: Optional[List[Beneficiary]]
@@ -45,24 +48,33 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     @classmethod
     def create(
         cls,
-        user_request: UserRequest,
+        curp: CurpField,
+        phone_number: PhoneNumber,
+        email_address: EmailStr,
+        profession: str,
+        address: Address,
         *,
         session: Session = global_session,
     ) -> 'User':
-        return cast(
-            'User', cls._create(session=session, **user_request.dict())
+        req = UserRequest(
+            curp=curp,
+            phone_number=phone_number,
+            email_address=email_address,
+            profession=profession,
+            address=address,
         )
+        return cast('User', cls._create(session=session, **req.dict()))
 
     @classmethod
     def update(
         cls,
         user_id: str,
-        phone_number: Optional[str] = None,
+        phone_number: Optional[PhoneNumber] = None,
         email_address: Optional[EmailStr] = None,
         profession: Optional[str] = None,
         address: Optional[AddressUpdateRequest] = None,
         beneficiaries: Optional[List[Beneficiary]] = None,
-        govt_id: Optional[KYCFileUpdateRequest] = None,
+        govt_id: Optional[List[KYCFileUpdateRequest]] = None,
         proof_of_address: Optional[KYCFileUpdateRequest] = None,
         proof_of_life: Optional[KYCFileUpdateRequest] = None,
         terms_of_service: Optional[TOSUpdateRequest] = None,

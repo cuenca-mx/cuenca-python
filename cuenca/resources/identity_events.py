@@ -1,3 +1,4 @@
+import datetime as dt
 from typing import ClassVar
 
 from cuenca_validations.types import EventQuery, EventType
@@ -14,3 +15,4 @@ class IdentityEvent(Retrievable, Queryable):
     identity_id: str
     new_model: dict
     type: EventType
+    created_at: dt.datetime
