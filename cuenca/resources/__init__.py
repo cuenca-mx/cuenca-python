@@ -19,7 +19,6 @@ __all__ = [
     'WalletTransaction',
     'WhatsappTransfer',
 ]
-# Purely for automerge
 from .accounts import Account
 from .api_keys import ApiKey
 from .arpc import Arpc
