@@ -13,12 +13,20 @@ def test_create_session(curp_validation_request: Dict, user_request: Dict):
     user_request['curp'] = curp_valdation.validated_curp
     user = User.create(**user_request)
 
+    success_url = 'https://example.com/succeeded_registration'
+    failure_url = 'https://example.com/failed_registration'
+
     user_session = Session.create(
         user.id,
         SessionType.registration,
-        success_url='https://example.com/succeeded_registration',
-        failure_url='https://example.com/failed_registration',
+        success_url=success_url,
+        failure_url=failure_url,
     )
+
+    assert user_session.user_id == user.id
+    assert user_session.type == SessionType.registration
+    assert user_session.success_url == success_url
+    assert user_session.failure_url == failure_url
 
     ephimeral_cuenca_session = cuenca.Session()
     ephimeral_cuenca_session.configure(session_token=user_session.id)
