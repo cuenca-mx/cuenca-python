@@ -24,7 +24,7 @@ class CurpValidation(Creatable, Retrievable):
     nationality: Optional[str]
     manual_curp: Optional[CurpField]
     calculated_curp: CurpField
-    validated_curp: CurpField
+    validated_curp: Optional[CurpField]
     renapo_curp_match: bool
     renapo_full_match: bool
 
