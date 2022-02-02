@@ -9,7 +9,7 @@ __all__ = [
     'CardTransaction',
     'CardValidation',
     'Commission',
-    'CurpValidaton',
+    'CurpValidation',
     'Deposit',
     'Identity',
     'IdentityEvent',

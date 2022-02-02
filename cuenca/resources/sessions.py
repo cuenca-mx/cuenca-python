@@ -4,6 +4,7 @@ from typing import ClassVar, Optional, cast
 from cuenca_validations.types import SessionRequest, SessionType
 from pydantic.dataclasses import dataclass
 
+from .. import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable
 
 
@@ -21,12 +22,15 @@ class Session(Creatable, Retrievable, Queryable):
     failure_url: Optional[str]
     type: Optional[SessionType]
 
+    @classmethod
     def create(
-        self,
-        user_id,
+        cls,
+        user_id: str,
         type: SessionType,
         success_url: Optional[str] = None,
         failure_url: Optional[str] = None,
+        *,
+        session: Session = global_session,
     ) -> 'Session':
         req = SessionRequest(
             user_id=user_id,
@@ -34,4 +38,4 @@ class Session(Creatable, Retrievable, Queryable):
             success_url=success_url,
             failure_url=failure_url,
         )
-        return cast('Session', self._create(**req.dict()))
+        return cast('Session', cls._create(session=session, **req.dict()))

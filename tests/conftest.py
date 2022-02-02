@@ -2,7 +2,7 @@ import datetime as dt
 from typing import Dict
 
 import pytest
-from cuenca_validations.types import Gender, State
+from cuenca_validations.types import Country, Gender, State
 
 import cuenca
 
@@ -37,7 +37,7 @@ def curp_validation_request() -> Dict:
         second_surname='Tovar',
         date_of_birth=dt.date(1997, 3, 29).isoformat(),
         state_of_birth=State.DF.value,
-        country_of_birth='MX',
+        country_of_birth=Country.MX,
         gender=Gender.male,
     )
     return curp_validation
@@ -56,7 +56,7 @@ def user_request() -> Dict:
             int_number='3',
             postal_code='09900',
             state=State.DF.value,
-            country='MEX',
+            country=Country.MX,
         ),
     )
     return user_dict

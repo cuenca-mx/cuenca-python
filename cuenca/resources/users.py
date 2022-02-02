@@ -78,6 +78,8 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         proof_of_address: Optional[KYCFileUpdateRequest] = None,
         proof_of_life: Optional[KYCFileUpdateRequest] = None,
         terms_of_service: Optional[TOSUpdateRequest] = None,
+        *,
+        session: Session = global_session,
     ):
         request = UserUpdateRequest(
             phone_number=phone_number,
@@ -91,7 +93,10 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             terms_of_service=terms_of_service,
         )
         return cast(
-            'User', cls._update(id=user_id, **request.dict(exclude_none=True))
+            'User',
+            cls._update(
+                id=user_id, **request.dict(exclude_none=True), session=session
+            ),
         )
 
     @property
