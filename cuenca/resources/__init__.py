@@ -13,6 +13,7 @@ __all__ = [
     'LoginToken',
     'Saving',
     'ServiceProvider',
+    'Session',
     'Statement',
     'Transfer',
     'UserLogin',
@@ -35,6 +36,7 @@ from .login_tokens import LoginToken
 from .resources import RESOURCES
 from .savings import Saving
 from .service_providers import ServiceProvider
+from .sessions import Session
 from .statements import Statement
 from .transfers import Transfer
 from .user_credentials import UserCredential
@@ -57,6 +59,7 @@ resource_classes = [
     Deposit,
     LoginToken,
     Saving,
+    Session,
     ServiceProvider,
     Statement,
     Transfer,
