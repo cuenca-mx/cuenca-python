@@ -17,37 +17,37 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.15.dev1
+      - cuenca-python/0.7.15.dev3
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/curp_validations
   response:
     body:
-      string: '{"id":"CVy1LipfRRTc6sF5nAFjtlmg","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MEX","state_of_birth":"DF","gender":"male","nationality":null,"manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":null,"renapo_curp_match":true,"renapo_full_match":false}'
+      string: '{"id":"CVZnwR3v1WTs-MEwk2r_06Dw","created_at":"2022-02-02T23:11:01.708437","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MX","state_of_birth":"DF","gender":"male","nationality":"MEX","manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":"AATM970329HDFVVN05","renapo_curp_match":true,"renapo_full_match":true}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '342'
+      - '399'
       Content-Type:
       - application/json
       Date:
-      - Mon, 31 Jan 2022 21:55:56 GMT
+      - Wed, 02 Feb 2022 23:11:01 GMT
       X-Request-Time:
-      - 'value: 0.606'
+      - 'value: 0.152'
       x-amz-apigw-id:
-      - M1Mk4H1XCYcFmjw=
+      - M79c6FDHiYcFWQQ=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '342'
+      - '399'
       x-amzn-Remapped-Date:
-      - Mon, 31 Jan 2022 21:55:56 GMT
+      - Wed, 02 Feb 2022 23:11:01 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - 65cbd940-93a7-4e7e-baae-52c0debfd2df
+      - d0f6498d-5d3e-41fb-af04-96bd9db43908
     status:
       code: 201
       message: Created
@@ -63,37 +63,37 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.7.15.dev1
+      - cuenca-python/0.7.15.dev3
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
     uri: https://sandbox.cuenca.com/identities?limit=2&curp=AATM970329HDFVVN05
   response:
     body:
-      string: '{"items":[{"id":"IDEz-f3BebS4ejwWkdJr72Lg","created_at":"2022-01-31T05:53:15.813000","updated_at":"2022-01-31T05:53:15.813000","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05","rfc":null,"gender":"male","date_of_birth":"1997-03-29","state_of_birth":"DF","country_of_birth":"MEX","status":null,"tos_agreement":null,"blacklist_validation_status":null,"address":null,"govt_id":null,"proof_of_address":null,"proof_of_life":null}],"next_page_uri":null}'
+      string: '{"items":[{"id":"IDBgQxEuYMSxGLndiYxg-nRg","created_at":"2022-02-02T22:31:21.832000","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05","rfc":null,"gender":"male","date_of_birth":"1997-03-29","state_of_birth":"DF","nationality":"MEX","country_of_birth":"MX","status":"active","tos_agreement":null,"blacklist_validation_status":null,"address":null,"govt_id":null,"proof_of_address":null,"proof_of_life":null}],"next_page_uri":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '493'
+      - '474'
       Content-Type:
       - application/json
       Date:
-      - Mon, 31 Jan 2022 21:55:57 GMT
+      - Wed, 02 Feb 2022 23:11:01 GMT
       X-Request-Time:
-      - 'value: 0.558'
+      - 'value: 0.096'
       x-amz-apigw-id:
-      - M1Mk_HEyCYcFaUA=
+      - M79c8GtViYcFQkA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '493'
+      - '474'
       x-amzn-Remapped-Date:
-      - Mon, 31 Jan 2022 21:55:57 GMT
+      - Wed, 02 Feb 2022 23:11:01 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - 62d71beb-ad52-4d7b-ab52-1b175758ba7f
+      - c26cf01b-b248-40b1-97de-2cb9d24dddf7
     status:
       code: 200
       message: OK

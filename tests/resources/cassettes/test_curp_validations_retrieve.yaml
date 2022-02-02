@@ -11,37 +11,37 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.7.15.dev1
+      - cuenca-python/0.7.15.dev3
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/curp_validations/CVKTTRnlVtTVaAh7bMfV4P0Q
+    uri: https://sandbox.cuenca.com/curp_validations/CVh7gYctAlRx2n5Q5eQV0tYg
   response:
     body:
-      string: '{"id":"CVKTTRnlVtTVaAh7bMfV4P0Q","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MEX","state_of_birth":"DF","gender":"male","nationality":null,"manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":null,"renapo_curp_match":true,"renapo_full_match":false}'
+      string: '{"id":"CVh7gYctAlRx2n5Q5eQV0tYg","created_at":"2022-02-02T23:09:07.502000","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MX","state_of_birth":"DF","gender":"male","nationality":"MEX","manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":"AATM970329HDFVVN05","renapo_curp_match":true,"renapo_full_match":true}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '342'
+      - '399'
       Content-Type:
       - application/json
       Date:
-      - Sat, 29 Jan 2022 00:45:39 GMT
+      - Wed, 02 Feb 2022 23:09:47 GMT
       X-Request-Time:
-      - 'value: 0.096'
+      - 'value: 0.095'
       x-amz-apigw-id:
-      - MrsoGEaUCYcFiFg=
+      - M79RWG2piYcF64Q=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '342'
+      - '399'
       x-amzn-Remapped-Date:
-      - Sat, 29 Jan 2022 00:45:39 GMT
+      - Wed, 02 Feb 2022 23:09:47 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - 304b0aa9-841c-43bb-8c61-df2832b5b44a
+      - 91100773-fd0e-45ce-b283-5b6f70fd4c69
     status:
       code: 200
       message: OK

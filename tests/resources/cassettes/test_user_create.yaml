@@ -17,44 +17,44 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.15.dev1
+      - cuenca-python/0.7.15.dev3
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/curp_validations
   response:
     body:
-      string: '{"id":"CVk4ieQToiTpiSRj8A3UvZZw","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MEX","state_of_birth":"DF","gender":"male","nationality":null,"manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":null,"renapo_curp_match":true,"renapo_full_match":false}'
+      string: '{"id":"CVSdaOolMCSnmqDhoY2Kobhg","created_at":"2022-02-02T23:11:32.203206","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MX","state_of_birth":"DF","gender":"male","nationality":"MEX","manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":"AATM970329HDFVVN05","renapo_curp_match":true,"renapo_full_match":true}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '342'
+      - '399'
       Content-Type:
       - application/json
       Date:
-      - Fri, 28 Jan 2022 23:46:33 GMT
+      - Wed, 02 Feb 2022 23:11:32 GMT
       X-Request-Time:
-      - 'value: 0.270'
+      - 'value: 0.147'
       x-amz-apigw-id:
-      - Mrj9_EokCYcF3VQ=
+      - M79hrENviYcFRnw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '342'
+      - '399'
       x-amzn-Remapped-Date:
-      - Fri, 28 Jan 2022 23:46:33 GMT
+      - Wed, 02 Feb 2022 23:11:32 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - fa4fdf15-4159-418b-bc32-aa391e1343c1
+      - bb48dac8-bb12-45a4-9f1d-d5df3ae1a325
     status:
       code: 201
       message: Created
 - request:
     body: '{"curp": "AATM970329HDFVVN05", "phone_number": "+525559610838", "email_address":
       "manuel@cuenca.com", "profession": "employee", "address": {"street": "calle
-      1", "ext_number": "2", "postal_code": "09900", "state": "DF", "country": "MEX",
+      1", "ext_number": "2", "postal_code": "09900", "state": "DF", "country": "MX",
       "city": null, "int_number": "3"}}'
     headers:
       Accept:
@@ -66,43 +66,43 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '270'
+      - '269'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.15.dev1
+      - cuenca-python/0.7.15.dev3
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/users
   response:
     body:
-      string: '{"id":"USluZkZ7odQvOwelWLLrFH5w","identity_uri":"/identity/IDZOxs3oDDQ8yC4JXElffU8Q","platform_id":"PO-vGzxK6aRxuJ-aW5gYaCMQ","level":1,"created_at":"2022-01-28T23:46:33.852142","updated_at":"2022-01-28T23:46:33.897780","phone_number":"+525559610838","email_address":"manuel@cuenca.com","profession":"employee","status":"active","terms_of_service":null,"blacklist_validation_status":"not_verified","address":{"street":"calle
-        1","ext_number":"2","int_number":"3","postal_code":"09900","state":"DF","city":null,"country":"MEX","created_at":"2022-01-28T23:46:33.852023"},"govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05"}'
+      string: '{"id":"US2v9UT-ESS-yozbtx3W6tOg","identity_uri":"/identities/IDBgQxEuYMSxGLndiYxg-nRg","created_at":"2022-02-02T22:31:22.309000","platform_id":"PTW68GgAc_QPmNCmgajmctLg","level":1,"updated_at":"2022-02-02T22:31:23.507000","phone_number":"+525559610838","email_address":"manu@example.com","profession":"employee","status":"active","terms_of_service":null,"blacklist_validation_status":"succeeded","address":{"street":"calle
+        1","ext_number":"2","int_number":"3","postal_code":"09900","state":"DF","city":null,"country":"MX","created_at":"2022-02-02T22:31:22.309000"},"govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '742'
+      - '741'
       Content-Type:
       - application/json
       Date:
-      - Fri, 28 Jan 2022 23:46:34 GMT
+      - Wed, 02 Feb 2022 23:11:32 GMT
       X-Request-Time:
-      - 'value: 0.281'
+      - 'value: 0.276'
       x-amz-apigw-id:
-      - Mrj-DECViYcFe8g=
+      - M79htGVqiYcFeqg=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '742'
+      - '741'
       x-amzn-Remapped-Date:
-      - Fri, 28 Jan 2022 23:46:34 GMT
+      - Wed, 02 Feb 2022 23:11:32 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - f6155023-569c-4dd5-a7c1-a337e55b12ea
+      - 96056050-7f73-4e53-9c92-2f2a3570fcdc
     status:
-      code: 201
-      message: Created
+      code: 200
+      message: OK
 version: 1

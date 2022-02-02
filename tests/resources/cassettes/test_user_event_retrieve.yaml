@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.15.dev3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/user_events?limit=2&user_id=US2v9UT-ESS-yozbtx3W6tOg&type=created
+  response:
+    body:
+      string: '{"items":[{"id":"UEweTEej3OTaysy58UgJV5nQ","identity_id":"IDBgQxEuYMSxGLndiYxg-nRg","new_model":{"id":"US2v9UT-ESS-yozbtx3W6tOg","identity_uri":"/identities/IDBgQxEuYMSxGLndiYxg-nRg","created_at":"2022-02-02T22:31:22.309219","platform_id":"PTW68GgAc_QPmNCmgajmctLg","level":1,"updated_at":"2022-02-02T22:31:22.401264","phone_number":"+525559610838","email_address":"manuel@cuenca.com","profession":"employee","status":"active","terms_of_service":null,"blacklist_validation_status":"not_verified","address":{"street":"calle
+        1","ext_number":"2","int_number":"3","postal_code":"09900","state":"DF","city":null,"country":"MX","created_at":"2022-02-02T22:31:22.309099"},"govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05"},"type":"created","created_at":"2022-02-02T22:31:22.401000","user_id":"US2v9UT-ESS-yozbtx3W6tOg","platform_id":"PTW68GgAc_QPmNCmgajmctLg"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1002'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 02 Feb 2022 23:14:39 GMT
+      X-Request-Time:
+      - 'value: 0.107'
+      x-amz-apigw-id:
+      - M79-4HMciYcFrhA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '1002'
+      x-amzn-Remapped-Date:
+      - Wed, 02 Feb 2022 23:14:39 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - 9438fc16-adca-4ba7-8fba-d35022ad933e
+    status:
+      code: 200
+      message: OK
+version: 1

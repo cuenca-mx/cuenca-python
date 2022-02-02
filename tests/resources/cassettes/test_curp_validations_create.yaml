@@ -17,37 +17,37 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.15.dev1
+      - cuenca-python/0.7.15.dev3
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/curp_validations
   response:
     body:
-      string: '{"id":"CVKTTRnlVtTVaAh7bMfV4P0Q","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MEX","state_of_birth":"DF","gender":"male","nationality":null,"manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":null,"renapo_curp_match":true,"renapo_full_match":false}'
+      string: '{"id":"CVh7gYctAlRx2n5Q5eQV0tYg","created_at":"2022-02-02T23:09:07.502797","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MX","state_of_birth":"DF","gender":"male","nationality":"MEX","manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":"AATM970329HDFVVN05","renapo_curp_match":true,"renapo_full_match":true}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '342'
+      - '399'
       Content-Type:
       - application/json
       Date:
-      - Sat, 29 Jan 2022 00:25:39 GMT
+      - Wed, 02 Feb 2022 23:09:07 GMT
       X-Request-Time:
-      - 'value: 0.127'
+      - 'value: 0.149'
       x-amz-apigw-id:
-      - MrpsoGBZCYcFlQw=
+      - M79LEGLkCYcFy8w=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '342'
+      - '399'
       x-amzn-Remapped-Date:
-      - Sat, 29 Jan 2022 00:25:39 GMT
+      - Wed, 02 Feb 2022 23:09:07 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - f68da325-4109-4a3e-a2de-a9324fad9ed2
+      - 180410a5-38ff-4da3-acd9-dcf87799a2b9
     status:
       code: 201
       message: Created

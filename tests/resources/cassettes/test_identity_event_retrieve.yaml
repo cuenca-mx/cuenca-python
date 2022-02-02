@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.15.dev3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/identity_events?limit=2&identity_id=IDBgQxEuYMSxGLndiYxg-nRg&type=created
+  response:
+    body:
+      string: '{"items":[{"id":"IEzPKWsPldT_GFATV99XVSwA","identity_id":"IDBgQxEuYMSxGLndiYxg-nRg","new_model":{"id":"IDBgQxEuYMSxGLndiYxg-nRg","created_at":"2022-02-02T22:31:21.832985","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05","rfc":null,"gender":"male","date_of_birth":"1997-03-29","state_of_birth":"DF","nationality":"MEX","country_of_birth":"MX","status":"active","tos_agreement":null,"blacklist_validation_status":null,"address":null,"govt_id":null,"proof_of_address":null,"proof_of_life":null},"type":"created","created_at":"2022-02-02T22:31:21.833000"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '620'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 02 Feb 2022 23:15:02 GMT
+      X-Request-Time:
+      - 'value: 0.096'
+      x-amz-apigw-id:
+      - M7-ClFSViYcFyGg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '620'
+      x-amzn-Remapped-Date:
+      - Wed, 02 Feb 2022 23:15:02 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - ee821eaf-4ac1-4708-9df3-25b316376f83
+    status:
+      code: 200
+      message: OK
+version: 1

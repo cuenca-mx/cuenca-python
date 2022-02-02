@@ -4,7 +4,7 @@ from cuenca.resources import CurpValidation, User
 
 
 @pytest.mark.vcr
-def test_create_user(user_request, curp_validation_request):
+def test_user_create(user_request, curp_validation_request):
     # we need to create the curp validation first
     curp_validation = CurpValidation.create(**curp_validation_request)
     assert curp_validation.renapo_curp_match
@@ -15,14 +15,14 @@ def test_create_user(user_request, curp_validation_request):
 
 
 @pytest.mark.vcr
-def test_query_user():
-    user = User.one(email_address='manuel@cuenca.com')
+def test_user_query():
+    user = User.one(email_address='manu@example.com')
     assert user.id is not None
 
 
 @pytest.mark.vcr
-def test_update_user():
-    user_id = 'USluZkZ7odQvOwelWLLrFH5w'
+def test_user_update():
+    user_id = 'US2v9UT-ESS-yozbtx3W6tOg'
     changes = dict(
         profession='programmer',
         phone_number='+525555555555',
@@ -38,8 +38,8 @@ def test_update_user():
 
 
 @pytest.mark.vcr
-def test_retrieve_user_identity():
-    user_id = 'USnsyGBk_ARZ2qD2lwzoFZZg'
+def test_user_identity_retrieve():
+    user_id = 'US2v9UT-ESS-yozbtx3W6tOg'
     user = User.retrieve(user_id)
     assert user_id == user.id
     identity = user.identity

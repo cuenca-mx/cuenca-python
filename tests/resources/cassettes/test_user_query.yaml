@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.15.dev3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/users?limit=2&email_address=manu%40example.com
+  response:
+    body:
+      string: '{"items":[{"id":"US2v9UT-ESS-yozbtx3W6tOg","identity_uri":"/identities/IDBgQxEuYMSxGLndiYxg-nRg","created_at":"2022-02-02T22:31:22.309000","platform_id":"PTW68GgAc_QPmNCmgajmctLg","level":1,"updated_at":"2022-02-02T22:31:23.507000","phone_number":"+525559610838","email_address":"manu@example.com","profession":"employee","status":"active","terms_of_service":null,"blacklist_validation_status":"succeeded","address":{"street":"calle
+        1","ext_number":"2","int_number":"3","postal_code":"09900","state":"DF","city":null,"country":"MX","created_at":"2022-02-02T22:31:22.309000"},"govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '774'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 02 Feb 2022 23:13:03 GMT
+      X-Request-Time:
+      - 'value: 0.138'
+      x-amz-apigw-id:
+      - M79v4GDzCYcF-jg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '774'
+      x-amzn-Remapped-Date:
+      - Wed, 02 Feb 2022 23:13:03 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - dc9d46b0-6019-40a8-be1e-6f008604076d
+    status:
+      code: 200
+      message: OK
+version: 1
