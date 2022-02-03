@@ -33,7 +33,6 @@ __all__ = [
 from typing import cast
 
 from . import http
-from .http import session
 from .resources import (
     Account,
     ApiKey,
@@ -65,6 +64,7 @@ from .resources import (
 from .version import __version__
 
 configure = http.session.configure
+session = http.session
 
 
 def get_balance(session: http.Session = session) -> int:
