@@ -1,7 +1,12 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import CurpValidationRequest, Gender, State
+from cuenca_validations.types import (
+    Country,
+    CurpValidationRequest,
+    Gender,
+    State,
+)
 from cuenca_validations.types.identities import CurpField
 from pydantic.dataclasses import dataclass
 
@@ -18,7 +23,7 @@ class CurpValidation(Creatable, Retrievable):
     first_surname: str
     second_surname: Optional[str]
     date_of_birth: dt.date
-    country_of_birth: Optional[str]
+    country_of_birth: Country
     state_of_birth: Optional[State]
     gender: Gender
     nationality: Optional[str]
