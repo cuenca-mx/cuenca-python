@@ -24,7 +24,7 @@ class CurpValidation(Creatable, Retrievable):
     second_surname: Optional[str]
     date_of_birth: dt.date
     country_of_birth: Country
-    state_of_birth: Optional[State]
+    state_of_birth: State
     gender: Gender
     nationality: Optional[str]
     manual_curp: Optional[CurpField]
@@ -40,9 +40,9 @@ class CurpValidation(Creatable, Retrievable):
         first_surname: str,
         date_of_birth: dt.date,
         country_of_birth: str,
+        state_of_birth: State,
         gender: Gender,
         second_surname: Optional[str] = None,
-        state_of_birth: Optional[State] = None,
         manual_curp: Optional[CurpField] = None,
         *,
         session: Session = global_session,
