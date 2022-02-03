@@ -17,6 +17,7 @@ __all__ = [
     'LoginToken',
     'Saving',
     'ServiceProvider',
+    'Session',
     'Statement',
     'Transfer',
     'User',
@@ -31,7 +32,7 @@ __all__ = [
 
 from typing import cast
 
-from .http import Session, session
+from . import http
 from .resources import (
     Account,
     ApiKey,
@@ -50,6 +51,7 @@ from .resources import (
     LoginToken,
     Saving,
     ServiceProvider,
+    Session,
     Statement,
     Transfer,
     User,
@@ -61,9 +63,9 @@ from .resources import (
 )
 from .version import __version__
 
-configure = session.configure
+configure = http.session.configure
 
 
-def get_balance(session: Session = session) -> int:
+def get_balance(session: http.Session = http.session) -> int:
     balance_entry = cast('BalanceEntry', BalanceEntry.first(session=session))
     return balance_entry.rolling_balance if balance_entry else 0
