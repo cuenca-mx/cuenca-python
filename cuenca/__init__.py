@@ -33,6 +33,7 @@ __all__ = [
 from typing import cast
 
 from . import http
+from .http import session
 from .resources import (
     Account,
     ApiKey,
@@ -66,6 +67,6 @@ from .version import __version__
 configure = http.session.configure
 
 
-def get_balance(session: http.Session = http.session) -> int:
+def get_balance(session: http.Session = session) -> int:
     balance_entry = cast('BalanceEntry', BalanceEntry.first(session=session))
     return balance_entry.rolling_balance if balance_entry else 0
