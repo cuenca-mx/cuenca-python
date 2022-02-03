@@ -70,7 +70,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         cls,
         user_id: str,
         phone_number: Optional[PhoneNumber] = None,
-        email_address: Optional[EmailStr] = None,
+        email_address: Optional[str] = None,
         profession: Optional[str] = None,
         address: Optional[AddressUpdateRequest] = None,
         beneficiaries: Optional[List[Beneficiary]] = None,
