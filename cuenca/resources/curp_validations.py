@@ -26,7 +26,7 @@ class CurpValidation(Creatable, Retrievable):
     country_of_birth: Country
     state_of_birth: State
     gender: Gender
-    nationality: Optional[str]
+    nationality: Optional[Country]
     manual_curp: Optional[CurpField]
     calculated_curp: CurpField
     validated_curp: Optional[CurpField]

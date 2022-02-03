@@ -8,7 +8,7 @@ from cuenca.resources import CurpValidation, Session, User
 
 
 @pytest.mark.vcr
-def test_create_session(curp_validation_request: Dict, user_request: Dict):
+def test_session_create(curp_validation_request: Dict, user_request: Dict):
     curp_valdation = CurpValidation.create(**curp_validation_request)
     user_request['curp'] = curp_valdation.validated_curp
     user = User.create(**user_request)
