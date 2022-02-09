@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from typing import Any, ClassVar, Dict
 
+from cuenca_validations.types.enums import WebhookEvent
+
 from .base import Queryable, Retrievable
 
 

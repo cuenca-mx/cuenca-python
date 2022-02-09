@@ -1,8 +1,7 @@
+import datetime as dt
 from typing import ClassVar, List, Optional, cast
 
-from cuenca_validations.types import (
-    WebhookEvent,
-)
+from cuenca_validations.types.enums import WebhookEvent
 from cuenca_validations.types.requests import (
     EndpointRequest, EndpointUpdateRequest
 )
@@ -21,11 +20,12 @@ class Endpoint(Retrievable, Queryable, Creatable, Updateable):
     url: HttpUrl
     events: List[WebhookEvent]
     is_active: bool
+    deactivated_at: Optional[dt.datetime]
 
     @classmethod
     def create(
         cls,
-        url: HttpUrl
+        url: HttpUrl,
         events: Optional[List[WebhookEvent]] = None,
         *,
         session: Session = global_session,
