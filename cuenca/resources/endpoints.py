@@ -19,8 +19,9 @@ class Endpoint(Retrievable, Queryable, Creatable, Updateable):
     _resource: ClassVar = 'endpoints'
 
     url: HttpUrl
-    events: List[WebhookEvent]
+    secret: str
     is_active: bool
+    events: List[WebhookEvent]
     deactivated_at: Optional[dt.datetime]
 
     @classmethod
