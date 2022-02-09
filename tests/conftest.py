@@ -35,8 +35,8 @@ def curp_validation_request() -> Dict:
         names='José',
         first_surname='López',
         second_surname='Hernández',
-        date_of_birth=dt.date(1966, 6, 6).isoformat(),
-        state_of_birth=State.DF.value,
+        date_of_birth=dt.date(1966, 6, 6),
+        state_of_birth=State.DF,
         country_of_birth=Country.MX,
         gender=Gender.male,
     )
