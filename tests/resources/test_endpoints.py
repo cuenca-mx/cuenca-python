@@ -1,7 +1,6 @@
 import pytest
 
 from cuenca import Endpoint
-from cuenca.http.client import Session
 
 
 @pytest.mark.vcr
@@ -28,9 +27,7 @@ def test_endpoint_create():
 def test_endpoint_update():
     id_endpoint = 'EN02'
     endpoint: Endpoint = Endpoint.update(
-        endpoint_id=id_endpoint,
-        url='https://url.io',
-        is_active=False
+        endpoint_id=id_endpoint, url='https://url.io', is_active=False
     )
     assert endpoint.id == id_endpoint
     assert endpoint.events
@@ -42,8 +39,6 @@ def test_endpoint_update():
 @pytest.mark.vcr
 def test_endpoint_deactivate():
     id_endpoint = 'EN02'
-    endpoint: Endpoint = Endpoint.deactivate(
-        endpoint_id=id_endpoint
-    )
+    endpoint: Endpoint = Endpoint.deactivate(endpoint_id=id_endpoint)
     assert endpoint.id == id_endpoint
     assert endpoint.deactivated_at

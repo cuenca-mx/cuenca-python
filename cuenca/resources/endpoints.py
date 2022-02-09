@@ -3,7 +3,8 @@ from typing import ClassVar, List, Optional, cast
 
 from cuenca_validations.types.enums import WebhookEvent
 from cuenca_validations.types.requests import (
-    EndpointRequest, EndpointUpdateRequest
+    EndpointRequest,
+    EndpointUpdateRequest,
 )
 from pydantic import HttpUrl
 from pydantic.dataclasses import dataclass
