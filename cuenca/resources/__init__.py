@@ -11,6 +11,7 @@ __all__ = [
     'Commission',
     'CurpValidation',
     'Deposit',
+    'File',
     'Identity',
     'IdentityEvent',
     'LoginToken',
@@ -38,6 +39,7 @@ from .cards import Card
 from .commissions import Commission
 from .curp_validations import CurpValidation
 from .deposits import Deposit
+from .files import File
 from .identities import Identity
 from .identity_events import IdentityEvent
 from .login_tokens import LoginToken
@@ -68,6 +70,7 @@ resource_classes = [
     CurpValidation,
     Commission,
     Deposit,
+    File,
     Identity,
     IdentityEvent,
     LoginToken,
