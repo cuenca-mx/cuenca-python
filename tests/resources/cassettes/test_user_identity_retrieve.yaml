@@ -15,34 +15,34 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/users/US2v9UT-ESS-yozbtx3W6tOg
+    uri: https://sandbox.cuenca.com/users/USCM-zlFcNQk6ue4gZ_mTGeQ
   response:
     body:
-      string: '{"id":"US2v9UT-ESS-yozbtx3W6tOg","identity_uri":"/identities/IDBgQxEuYMSxGLndiYxg-nRg","created_at":"2022-02-02T22:31:22.309000","platform_id":"PTW68GgAc_QPmNCmgajmctLg","level":1,"updated_at":"2022-02-02T23:13:33.839000","phone_number":"+525555555555","email_address":"manu@example.com","profession":"programmer","status":"active","terms_of_service":null,"blacklist_validation_status":"succeeded","address":{"street":"calle
-        1","ext_number":"2","int_number":"3","postal_code":"09900","state":"DF","city":null,"country":"MX","created_at":"2022-02-02T22:31:22.309000"},"govt_id":{"type":"ine","uri_front":"cuenca.com","uri_back":"cuenca.com","is_mx":true,"data":{},"status":"not_verified"},"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05"}'
+      string: "{\"id\":\"USCM-zlFcNQk6ue4gZ_mTGeQ\",\"identity_uri\":\"/identities/IDKWLi_wUoTty6WXXg9xfKFQ\",\"created_at\":\"2022-02-09T17:42:56.965000\",\"updated_at\":\"2022-02-09T17:50:41.964000\",\"platform_id\":\"PTW68GgAc_QPmNCmgajmctLg\",\"level\":0,\"phone_number\":\"+525555555555\",\"email_address\":\"jose@test.com\",\"profession\":\"programmer\",\"status\":\"active\",\"terms_of_service\":null,\"blacklist_validation_status\":\"succeeded\",\"address\":{\"street\":\"calle
+        1\",\"ext_number\":\"2\",\"int_number\":\"3\",\"postal_code\":\"09900\",\"state\":\"DF\",\"city\":null,\"country\":\"MX\",\"created_at\":\"2022-02-09T17:42:56.964000\"},\"govt_id\":{\"type\":\"ine\",\"uri_front\":\"cuenca.com\",\"uri_back\":\"cuenca.com\",\"is_mx\":true,\"data\":{},\"status\":\"not_verified\"},\"proof_of_address\":null,\"proof_of_life\":null,\"beneficiaries\":null,\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"curp\":\"LOHJ660606HDFPRS02\"}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '849'
+      - '850'
       Content-Type:
       - application/json
       Date:
-      - Wed, 02 Feb 2022 23:13:49 GMT
+      - Wed, 09 Feb 2022 17:50:50 GMT
       X-Request-Time:
-      - 'value: 0.108'
+      - 'value: 0.103'
       x-amz-apigw-id:
-      - M793DGhECYcF3Cg=
+      - NSTHHHBsiYcFclA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '849'
+      - '850'
       x-amzn-Remapped-Date:
-      - Wed, 02 Feb 2022 23:13:49 GMT
+      - Wed, 09 Feb 2022 17:50:50 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - 81053f2b-b183-45dc-8494-8a3e688ca936
+      - fd1818a1-0f56-4f1d-82ad-dc376393b837
     status:
       code: 200
       message: OK
@@ -62,33 +62,33 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/identities/IDBgQxEuYMSxGLndiYxg-nRg
+    uri: https://sandbox.cuenca.com/identities/IDKWLi_wUoTty6WXXg9xfKFQ
   response:
     body:
-      string: '{"id":"IDBgQxEuYMSxGLndiYxg-nRg","created_at":"2022-02-02T22:31:21.832000","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05","rfc":null,"gender":"male","date_of_birth":"1997-03-29","state_of_birth":"DF","nationality":"MEX","country_of_birth":"MX","status":"active","tos_agreement":null,"blacklist_validation_status":null,"address":null,"govt_id":null,"proof_of_address":null,"proof_of_life":null}'
+      string: "{\"id\":\"IDKWLi_wUoTty6WXXg9xfKFQ\",\"created_at\":\"2022-02-04T22:32:07.350000\",\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"curp\":\"LOHJ660606HDFPRS02\",\"rfc\":null,\"gender\":\"male\",\"date_of_birth\":\"1966-06-06\",\"state_of_birth\":\"DF\",\"nationality\":\"MX\",\"country_of_birth\":\"MX\",\"status\":\"active\",\"tos_agreement\":null,\"blacklist_validation_status\":null,\"address\":null,\"govt_id\":null,\"proof_of_address\":null,\"proof_of_life\":null}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '441'
+      - '444'
       Content-Type:
       - application/json
       Date:
-      - Wed, 02 Feb 2022 23:13:49 GMT
+      - Wed, 09 Feb 2022 17:50:50 GMT
       X-Request-Time:
-      - 'value: 0.096'
+      - 'value: 0.088'
       x-amz-apigw-id:
-      - M793FFLwCYcFarg=
+      - NSTHKEVfCYcFS-w=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '441'
+      - '444'
       x-amzn-Remapped-Date:
-      - Wed, 02 Feb 2022 23:13:49 GMT
+      - Wed, 09 Feb 2022 17:50:50 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - 019c377b-d91c-4c89-989f-25ec18822a72
+      - ac22a324-dace-44a6-b362-89fa572d7457
     status:
       code: 200
       message: OK

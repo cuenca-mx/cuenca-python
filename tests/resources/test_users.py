@@ -11,18 +11,18 @@ def test_user_create(user_request, curp_validation_request):
     # creating the user
     user = User.create(**user_request)
     assert user.id is not None
-    assert user.level == 1
+    assert user.level == 0
 
 
 @pytest.mark.vcr
 def test_user_query():
-    user = User.one(email_address='manu@example.com')
+    user = User.one(email_address='jose@test.com')
     assert user.id is not None
 
 
 @pytest.mark.vcr
 def test_user_update():
-    user_id = 'US2v9UT-ESS-yozbtx3W6tOg'
+    user_id = 'USCM-zlFcNQk6ue4gZ_mTGeQ'
     changes = dict(
         profession='programmer',
         phone_number='+525555555555',
@@ -39,7 +39,7 @@ def test_user_update():
 
 @pytest.mark.vcr
 def test_user_identity_retrieve():
-    user_id = 'US2v9UT-ESS-yozbtx3W6tOg'
+    user_id = 'USCM-zlFcNQk6ue4gZ_mTGeQ'
     user = User.retrieve(user_id)
     assert user_id == user.id
     identity = user.identity

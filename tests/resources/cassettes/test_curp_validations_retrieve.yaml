@@ -15,33 +15,33 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/curp_validations/CVSxqL6RuyQCCCpebou9l47A
+    uri: https://sandbox.cuenca.com/curp_validations/CVhY5Pi6yBQJO22p1lg-_EPw
   response:
     body:
-      string: '{"id":"CVSxqL6RuyQCCCpebou9l47A","created_at":"2022-02-03T18:47:53.820000","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MX","state_of_birth":"DF","gender":"male","nationality":"MX","manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":"AATM970329HDFVVN05","renapo_curp_match":true,"renapo_full_match":true}'
+      string: "{\"id\":\"CVhY5Pi6yBQJO22p1lg-_EPw\",\"created_at\":\"2022-02-09T00:54:08.978000\",\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"date_of_birth\":\"1966-06-06\",\"country_of_birth\":\"MX\",\"state_of_birth\":\"DF\",\"gender\":\"male\",\"nationality\":null,\"manual_curp\":null,\"calculated_curp\":\"LOHJ660606HDFPRS02\",\"validated_curp\":\"LOHJ660606HDFPRS02\",\"renapo_curp_match\":true,\"renapo_full_match\":true}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '398'
+      - '388'
       Content-Type:
       - application/json
       Date:
-      - Thu, 03 Feb 2022 18:49:17 GMT
+      - Wed, 09 Feb 2022 00:56:56 GMT
       X-Request-Time:
-      - 'value: 0.106'
+      - 'value: 0.226'
       x-amz-apigw-id:
-      - M-qDIEgqCYcFZnA=
+      - NP-lzF_piYcFsVw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '398'
+      - '388'
       x-amzn-Remapped-Date:
-      - Thu, 03 Feb 2022 18:49:17 GMT
+      - Wed, 09 Feb 2022 00:56:56 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - 8abe887f-32d3-4791-a2c9-c1d7b1f8fb00
+      - 2307084c-6633-465c-9f33-c55a4f88f8d7
     status:
       code: 200
       message: OK

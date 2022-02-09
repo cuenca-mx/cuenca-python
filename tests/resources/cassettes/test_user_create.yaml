@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"names": "Manuel", "first_surname": "Avalos", "second_surname": "Tovar",
-      "date_of_birth": "1997-03-29", "state_of_birth": "DF", "country_of_birth": "MX",
-      "gender": "male", "manual_curp": null}'
+    body: '{"names": "Jos\u00e9", "first_surname": "L\u00f3pez", "second_surname":
+      "Hern\u00e1ndez", "date_of_birth": "1966-06-06", "state_of_birth": "DF", "country_of_birth":
+      "MX", "gender": "male", "manual_curp": null}'
     headers:
       Accept:
       - '*/*'
@@ -13,7 +13,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '193'
+      - '209'
       Content-Type:
       - application/json
       User-Agent:
@@ -24,38 +24,38 @@ interactions:
     uri: https://sandbox.cuenca.com/curp_validations
   response:
     body:
-      string: '{"id":"CVqePrHMo2R9aMTbLg280bOw","created_at":"2022-02-03T18:54:32.663952","names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","date_of_birth":"1997-03-29","country_of_birth":"MX","state_of_birth":"DF","gender":"male","nationality":"MX","manual_curp":null,"calculated_curp":"AATM970329HDFVVN05","validated_curp":"AATM970329HDFVVN05","renapo_curp_match":true,"renapo_full_match":true}'
+      string: "{\"id\":\"CVkd_IzIDPTSOulVJpQY2urQ\",\"created_at\":\"2022-02-09T17:42:56.383485\",\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"date_of_birth\":\"1966-06-06\",\"country_of_birth\":\"MX\",\"state_of_birth\":\"DF\",\"gender\":\"male\",\"nationality\":\"MX\",\"manual_curp\":null,\"calculated_curp\":\"LOHJ660606HDFPRS02\",\"validated_curp\":\"LOHJ660606HDFPRS02\",\"renapo_curp_match\":true,\"renapo_full_match\":true}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '398'
+      - '402'
       Content-Type:
       - application/json
       Date:
-      - Thu, 03 Feb 2022 18:54:33 GMT
+      - Wed, 09 Feb 2022 17:42:56 GMT
       X-Request-Time:
-      - 'value: 0.642'
+      - 'value: 0.282'
       x-amz-apigw-id:
-      - M-q0XFF5CYcFipA=
+      - NSR9EFulCYcFqRA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '398'
+      - '402'
       x-amzn-Remapped-Date:
-      - Thu, 03 Feb 2022 18:54:33 GMT
+      - Wed, 09 Feb 2022 17:42:56 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - d239f1ca-97e3-4cab-a1fb-537d8a223623
+      - ae052cd0-e6d5-4b68-94fd-0ce487426564
     status:
       code: 201
       message: Created
 - request:
-    body: '{"curp": "AATM970329HDFVVN05", "phone_number": "+525559610838", "email_address":
-      "manuel@cuenca.com", "profession": "employee", "address": {"street": "calle
-      1", "ext_number": "2", "postal_code": "09900", "state": "DF", "country": "MX",
-      "city": null, "int_number": "3"}}'
+    body: '{"curp": "LOHJ660606HDFPRS02", "phone_number": "+525511223344", "email_address":
+      "jose@test.com", "profession": "employee", "address": {"street": "calle 1",
+      "ext_number": "2", "postal_code": "09900", "state": "DF", "country": "MX", "city":
+      null, "int_number": "3"}}'
     headers:
       Accept:
       - '*/*'
@@ -66,7 +66,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '269'
+      - '265'
       Content-Type:
       - application/json
       User-Agent:
@@ -77,8 +77,8 @@ interactions:
     uri: https://sandbox.cuenca.com/users
   response:
     body:
-      string: '{"id":"USP26j_SfPR9mLCNihzzET0A","identity_uri":"/identities/IDvyhhbuTbRyCkFCHyCHX1jQ","created_at":"2022-02-03T18:54:33.498142","platform_id":"PTW68GgAc_QPmNCmgajmctLg","level":1,"updated_at":"2022-02-03T18:54:33.527161","phone_number":"+525559610838","email_address":"manuel@cuenca.com","profession":"employee","status":"active","terms_of_service":null,"blacklist_validation_status":"not_verified","address":{"street":"calle
-        1","ext_number":"2","int_number":"3","postal_code":"09900","state":"DF","city":null,"country":"MX","created_at":"2022-02-03T18:54:33.497864"},"govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05"}'
+      string: "{\"id\":\"USCM-zlFcNQk6ue4gZ_mTGeQ\",\"identity_uri\":\"/identities/IDKWLi_wUoTty6WXXg9xfKFQ\",\"created_at\":\"2022-02-09T17:42:56.965055\",\"updated_at\":\"2022-02-09T17:42:57.008600\",\"platform_id\":\"PTW68GgAc_QPmNCmgajmctLg\",\"level\":0,\"phone_number\":\"+525511223344\",\"email_address\":\"jose@test.com\",\"profession\":\"employee\",\"status\":\"active\",\"terms_of_service\":null,\"blacklist_validation_status\":\"not_verified\",\"address\":{\"street\":\"calle
+        1\",\"ext_number\":\"2\",\"int_number\":\"3\",\"postal_code\":\"09900\",\"state\":\"DF\",\"city\":null,\"country\":\"MX\",\"created_at\":\"2022-02-09T17:42:56.964930\"},\"govt_id\":null,\"proof_of_address\":null,\"proof_of_life\":null,\"beneficiaries\":null,\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"curp\":\"LOHJ660606HDFPRS02\"}"
     headers:
       Connection:
       - keep-alive
@@ -87,21 +87,21 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 03 Feb 2022 18:54:34 GMT
+      - Wed, 09 Feb 2022 17:42:57 GMT
       X-Request-Time:
-      - 'value: 0.841'
+      - 'value: 0.955'
       x-amz-apigw-id:
-      - M-q0fHWbCYcF5iw=
+      - NSR9JGSgCYcFgcQ=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '745'
       x-amzn-Remapped-Date:
-      - Thu, 03 Feb 2022 18:54:34 GMT
+      - Wed, 09 Feb 2022 17:42:57 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - 66526e93-ff74-413f-ab7e-438eb4672655
+      - 327dc915-14bd-46fe-9abe-288010257709
     status:
       code: 201
       message: Created

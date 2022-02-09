@@ -32,10 +32,10 @@ def transfer():
 @pytest.fixture
 def curp_validation_request() -> Dict:
     curp_validation = dict(
-        names='Manuel',
-        first_surname='Avalos',
-        second_surname='Tovar',
-        date_of_birth=dt.date(1997, 3, 29).isoformat(),
+        names='José',
+        first_surname='López',
+        second_surname='Hernández',
+        date_of_birth=dt.date(1966, 6, 6).isoformat(),
         state_of_birth=State.DF.value,
         country_of_birth=Country.MX,
         gender=Gender.male,
@@ -46,9 +46,9 @@ def curp_validation_request() -> Dict:
 @pytest.fixture
 def user_request() -> Dict:
     user_dict = dict(
-        curp='AATM970329HDFVVN05',
-        phone_number='+525559610838',
-        email_address='manuel@cuenca.com',
+        curp='LOHJ660606HDFPRS02',
+        phone_number='+525511223344',
+        email_address='jose@test.com',
         profession='employee',
         address=dict(
             street='calle 1',

@@ -6,7 +6,7 @@ from cuenca import IdentityEvent
 
 @pytest.mark.vcr
 def test_identity_event_retrieve():
-    identity_id = 'IDBgQxEuYMSxGLndiYxg-nRg'
+    identity_id = 'IDKWLi_wUoTty6WXXg9xfKFQ'
     identity_event = IdentityEvent.one(
         identity_id=identity_id, type=EventType.created.value
     )

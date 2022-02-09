@@ -6,6 +6,6 @@ from cuenca import UserEvent
 
 @pytest.mark.vcr
 def test_user_event_retrieve():
-    user_id = 'US2v9UT-ESS-yozbtx3W6tOg'
+    user_id = 'USCM-zlFcNQk6ue4gZ_mTGeQ'
     user_event = UserEvent.one(user_id=user_id, type=EventType.created)
     assert user_event.id is not None

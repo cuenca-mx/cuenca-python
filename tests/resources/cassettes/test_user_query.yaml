@@ -15,34 +15,34 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/users?limit=2&email_address=manu%40example.com
+    uri: https://sandbox.cuenca.com/users?limit=2&email_address=jose%40test.com
   response:
     body:
-      string: '{"items":[{"id":"US2v9UT-ESS-yozbtx3W6tOg","identity_uri":"/identities/IDBgQxEuYMSxGLndiYxg-nRg","created_at":"2022-02-02T22:31:22.309000","platform_id":"PTW68GgAc_QPmNCmgajmctLg","level":1,"updated_at":"2022-02-02T22:31:23.507000","phone_number":"+525559610838","email_address":"manu@example.com","profession":"employee","status":"active","terms_of_service":null,"blacklist_validation_status":"succeeded","address":{"street":"calle
-        1","ext_number":"2","int_number":"3","postal_code":"09900","state":"DF","city":null,"country":"MX","created_at":"2022-02-02T22:31:22.309000"},"govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"names":"Manuel","first_surname":"Avalos","second_surname":"Tovar","curp":"AATM970329HDFVVN05"}],"next_page_uri":null}'
+      string: "{\"items\":[{\"id\":\"USCM-zlFcNQk6ue4gZ_mTGeQ\",\"identity_uri\":\"/identities/IDKWLi_wUoTty6WXXg9xfKFQ\",\"created_at\":\"2022-02-09T17:42:56.965000\",\"updated_at\":\"2022-02-09T17:43:05.423000\",\"platform_id\":\"PTW68GgAc_QPmNCmgajmctLg\",\"level\":0,\"phone_number\":\"+525511223344\",\"email_address\":\"jose@test.com\",\"profession\":\"employee\",\"status\":\"active\",\"terms_of_service\":null,\"blacklist_validation_status\":\"succeeded\",\"address\":{\"street\":\"calle
+        1\",\"ext_number\":\"2\",\"int_number\":\"3\",\"postal_code\":\"09900\",\"state\":\"DF\",\"city\":null,\"country\":\"MX\",\"created_at\":\"2022-02-09T17:42:56.964000\"},\"govt_id\":null,\"proof_of_address\":null,\"proof_of_life\":null,\"beneficiaries\":null,\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"curp\":\"LOHJ660606HDFPRS02\"}],\"next_page_uri\":null}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '774'
+      - '775'
       Content-Type:
       - application/json
       Date:
-      - Wed, 02 Feb 2022 23:13:03 GMT
+      - Wed, 09 Feb 2022 17:49:34 GMT
       X-Request-Time:
-      - 'value: 0.138'
+      - 'value: 0.275'
       x-amz-apigw-id:
-      - M79v4GDzCYcF-jg=
+      - NSS7THoGCYcFfNw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '774'
+      - '775'
       x-amzn-Remapped-Date:
-      - Wed, 02 Feb 2022 23:13:03 GMT
+      - Wed, 09 Feb 2022 17:49:34 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - dc9d46b0-6019-40a8-be1e-6f008604076d
+      - 3bfddb3c-6136-4f52-beb2-0e0c67281e51
     status:
       code: 200
       message: OK
