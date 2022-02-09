@@ -2,6 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import SessionRequest, SessionType
+from pydantic import AnyUrl
 from pydantic.dataclasses import dataclass
 
 from .. import http
@@ -14,12 +15,11 @@ class Session(Creatable, Retrievable, Queryable):
 
     id: str
     created_at: dt.datetime
-    updated_at: dt.datetime
     user_id: str
     platform_id: str
     expires_at: dt.datetime
-    success_url: Optional[str]
-    failure_url: Optional[str]
+    success_url: Optional[AnyUrl]
+    failure_url: Optional[AnyUrl]
     type: Optional[SessionType]
 
     @classmethod

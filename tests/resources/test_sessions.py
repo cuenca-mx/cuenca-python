@@ -2,6 +2,7 @@ from typing import Dict
 
 import pytest
 from cuenca_validations.types import SessionType
+from pydantic import ValidationError
 
 import cuenca
 from cuenca.resources import CurpValidation, Session, User
@@ -12,6 +13,14 @@ def test_session_create(curp_validation_request: Dict, user_request: Dict):
     curp_valdation = CurpValidation.create(**curp_validation_request)
     user_request['curp'] = curp_valdation.validated_curp
     user = User.create(**user_request)
+
+    success_url = 'no url'
+    with pytest.raises(ValidationError):
+        user_session = Session.create(
+            user.id,
+            SessionType.registration,
+            success_url=success_url,
+        )
 
     success_url = 'https://example.com/succeeded_registration'
     failure_url = 'https://example.com/failed_registration'
