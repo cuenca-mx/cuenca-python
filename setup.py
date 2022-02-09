@@ -23,7 +23,7 @@ setup(
     package_data=dict(cuenca=['py.typed']),
     python_requires='>=3.6',
     install_requires=[
-        'requests>=2.24,<2.30',
+        'requests>=2.24,<2.27',
         'cuenca-validations>=0.9.18,<0.9.19',
         'dataclasses>=0.7;python_version<"3.7"',
     ],
