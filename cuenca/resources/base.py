@@ -1,4 +1,5 @@
 import datetime as dt
+import json
 from dataclasses import asdict, dataclass, fields
 from io import BytesIO
 from typing import ClassVar, Dict, Generator, Optional, Union
@@ -119,6 +120,25 @@ class Downloadable(Resource):
     @property
     def xml(self) -> bytes:
         return self.download(self, file_format=FileFormat.xml).read()
+
+
+@dataclass
+class Uploadable(Resource):
+    @classmethod
+    def upload(
+        cls,
+        file: BytesIO,
+        user_id: str,
+        *,
+        session: Session = global_session,
+    ) -> Resource:
+        resp = session.request(
+            'post',
+            cls._resource,
+            data=dict(user_id=user_id),
+            files=dict(file=file),
+        )
+        return cls._from_dict(json.loads(resp))
 
 
 @dataclass

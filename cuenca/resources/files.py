@@ -11,22 +11,24 @@ from pydantic import HttpUrl
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
-from .base import Creatable, Downloadable, Queryable
+from .base import Creatable, Downloadable, Queryable, Uploadable
 
 
 @dataclass
-class File(Creatable, Downloadable, Queryable):
+class File(Creatable, Downloadable, Queryable, Uploadable):
     _resource: ClassVar = 'files'
     _query_params: ClassVar = FileQuery
 
     extension: str
     type: KYCFileType
     url: HttpUrl
+    user_id: str
 
     @classmethod
     def create(
         cls,
         file: BytesIO,
+        user_id: str,
         *,
         session: Session = global_session,
     ) -> 'File':
@@ -37,13 +39,8 @@ class File(Creatable, Downloadable, Queryable):
         :param session:
         :return: New encrypted file object
         """
-        req = FileRequest(file=file.read())
-        response = session.post(
-            endpoint=f'/{cls._resource}',
-            data={},
-            files=dict(file=req.file),
-        )
-        return cast('File', response)
+        req = FileRequest(file=file.read(), user_id=user_id)
+        return cast('File', cls.upload(session=session, **req.dict()))
 
     @property
     def file(self) -> bytes:
@@ -56,13 +53,13 @@ class File(Creatable, Downloadable, Queryable):
     @property
     def pdf(self) -> bytes:
         """
-        Override property value for `Donwlodable`
+        Override from `Downloadable`, this property does not apply.
         """
-        return self.file
+        raise NotImplementedError
 
     @property
     def xml(self) -> bytes:
         """
-        Override property value for `Donwlodable`
+        Override from `Downloadable`, this property does not apply.
         """
-        return self.file
+        raise NotImplementedError
