@@ -11,11 +11,11 @@ from pydantic import HttpUrl
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
-from .base import Creatable, Downloadable, Queryable, Uploadable
+from .base import Downloadable, Queryable, Uploadable
 
 
 @dataclass
-class File(Creatable, Downloadable, Queryable, Uploadable):
+class File(Downloadable, Queryable, Uploadable):
     _resource: ClassVar = 'files'
     _query_params: ClassVar = FileQuery
 
@@ -25,10 +25,10 @@ class File(Creatable, Downloadable, Queryable, Uploadable):
     user_id: str
 
     @classmethod
-    def create(
+    def upload(
         cls,
         file: BytesIO,
-        user_id: str,
+        user_id: str = 'me',
         *,
         session: Session = global_session,
     ) -> 'File':
@@ -36,11 +36,15 @@ class File(Creatable, Downloadable, Queryable, Uploadable):
         Stores an encrypted version of the file,
         only users with permissions can access it.
 
+        :param file:
+        :param user_id:
         :param session:
         :return: New encrypted file object
         """
-        req = FileRequest(file=file.read(), user_id=user_id)
-        return cast('File', cls.upload(session=session, **req.dict()))
+        req = FileRequest(file=file.read())
+        return cast(
+            'File', cls._upload(id=user_id, session=session, **req.dict())
+        )
 
     @property
     def file(self) -> bytes:
