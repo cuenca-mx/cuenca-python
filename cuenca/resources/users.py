@@ -92,14 +92,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             proof_of_life=proof_of_life,
             terms_of_service=terms_of_service,
         )
-        request_dict = request.dict(exclude_none=True)
-        if 'terms_of_service' in request_dict:
-            request_dict['terms_of_service']['ip'] = str(
-                request_dict['terms_of_service']['ip']
-            )
         return cast(
             'User',
-            cls._update(id=user_id, **request_dict, session=session),
+            cls._update(id=user_id, **request.dict(), session=session),
         )
 
     @property
