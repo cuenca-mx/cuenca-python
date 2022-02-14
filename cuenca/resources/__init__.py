@@ -13,6 +13,7 @@ __all__ = [
     'Deposit',
     'Identity',
     'IdentityEvent',
+    'InternationalTransfer',
     'LoginToken',
     'Saving',
     'ServiceProvider',
@@ -40,6 +41,7 @@ from .curp_validations import CurpValidation
 from .deposits import Deposit
 from .identities import Identity
 from .identity_events import IdentityEvent
+from .international_transfers import InternationalTransfer
 from .login_tokens import LoginToken
 from .resources import RESOURCES
 from .savings import Saving
@@ -70,6 +72,7 @@ resource_classes = [
     Deposit,
     Identity,
     IdentityEvent,
+    InternationalTransfer,
     LoginToken,
     Saving,
     Session,
