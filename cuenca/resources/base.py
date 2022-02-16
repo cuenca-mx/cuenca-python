@@ -134,8 +134,8 @@ class Uploadable(Resource):
     ) -> Resource:
         resp = session.request(
             'post',
-            f'/{cls._resource}/{id}',
-            files=dict(file=file),
+            cls._resource,
+            files=dict(file=file, user_id=id),
         )
         return cls._from_dict(json.loads(resp))
 
