@@ -1,4 +1,8 @@
+import datetime as dt
+from typing import Dict
+
 import pytest
+from cuenca_validations.types import Country, Gender, State
 
 import cuenca
 
@@ -23,3 +27,36 @@ def transfer():
         descriptor='first transfer',
         recipient_name='Frida Kahlo',
     )
+
+
+@pytest.fixture
+def curp_validation_request() -> Dict:
+    curp_validation = dict(
+        names='José',
+        first_surname='López',
+        second_surname='Hernández',
+        date_of_birth=dt.date(1966, 6, 6),
+        state_of_birth=State.DF,
+        country_of_birth=Country.MX,
+        gender=Gender.male,
+    )
+    return curp_validation
+
+
+@pytest.fixture
+def user_request() -> Dict:
+    user_dict = dict(
+        curp='LOHJ660606HDFPRS02',
+        phone_number='+525511223344',
+        email_address='jose@test.com',
+        profession='employee',
+        address=dict(
+            street='calle 1',
+            ext_number='2',
+            int_number='3',
+            postal_code='09900',
+            state=State.DF.value,
+            country=Country.MX,
+        ),
+    )
+    return user_dict

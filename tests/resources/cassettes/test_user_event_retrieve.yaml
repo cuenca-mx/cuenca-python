@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.15.dev3
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/user_events?limit=2&user_id=USCM-zlFcNQk6ue4gZ_mTGeQ&type=created
+  response:
+    body:
+      string: "{\"items\":[{\"id\":\"UE1y5FyOGsSaGyLa8dPn9xGQ\",\"identity_id\":\"IDKWLi_wUoTty6WXXg9xfKFQ\",\"new_model\":{\"id\":\"USCM-zlFcNQk6ue4gZ_mTGeQ\",\"identity_uri\":\"/identities/IDKWLi_wUoTty6WXXg9xfKFQ\",\"created_at\":\"2022-02-09T17:42:56.965055\",\"updated_at\":\"2022-02-09T17:42:57.008600\",\"platform_id\":\"PTW68GgAc_QPmNCmgajmctLg\",\"level\":0,\"phone_number\":\"+525511223344\",\"email_address\":\"jose@test.com\",\"profession\":\"employee\",\"status\":\"active\",\"terms_of_service\":null,\"blacklist_validation_status\":\"not_verified\",\"address\":{\"street\":\"calle
+        1\",\"ext_number\":\"2\",\"int_number\":\"3\",\"postal_code\":\"09900\",\"state\":\"DF\",\"city\":null,\"country\":\"MX\",\"created_at\":\"2022-02-09T17:42:56.964930\"},\"govt_id\":null,\"proof_of_address\":null,\"proof_of_life\":null,\"beneficiaries\":null,\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"curp\":\"LOHJ660606HDFPRS02\"},\"type\":\"created\",\"created_at\":\"2022-02-09T17:42:57.008000\",\"user_id\":\"USCM-zlFcNQk6ue4gZ_mTGeQ\",\"platform_id\":\"PTW68GgAc_QPmNCmgajmctLg\"}],\"next_page_uri\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1002'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 09 Feb 2022 17:55:40 GMT
+      X-Request-Time:
+      - 'value: 0.095'
+      x-amz-apigw-id:
+      - NST0eH_jCYcF5nQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '1002'
+      x-amzn-Remapped-Date:
+      - Wed, 09 Feb 2022 17:55:40 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - 7994d821-0c63-4fac-8505-0caca4b1bce7
+    status:
+      code: 200
+      message: OK
+version: 1

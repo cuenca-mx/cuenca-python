@@ -9,14 +9,20 @@ __all__ = [
     'CardActivation',
     'CardTransaction',
     'CardValidation',
+    'CurpValidation',
     'Commission',
     'Deposit',
+    'Identity',
+    'IdentityEvent',
     'LoginToken',
     'Saving',
     'ServiceProvider',
+    'Session',
     'Statement',
     'Transfer',
+    'User',
     'UserCredential',
+    'UserEvent',
     'UserLogin',
     'WalletTransaction',
     'WhatsappTransfer',
@@ -26,7 +32,7 @@ __all__ = [
 
 from typing import cast
 
-from .http import Session, session
+from . import http
 from .resources import (
     Account,
     ApiKey,
@@ -38,22 +44,29 @@ from .resources import (
     CardTransaction,
     CardValidation,
     Commission,
+    CurpValidation,
     Deposit,
+    Identity,
+    IdentityEvent,
     LoginToken,
     Saving,
     ServiceProvider,
+    Session,
     Statement,
     Transfer,
+    User,
     UserCredential,
+    UserEvent,
     UserLogin,
     WalletTransaction,
     WhatsappTransfer,
 )
 from .version import __version__
 
-configure = session.configure
+configure = http.session.configure
+session = http.session
 
 
-def get_balance(session: Session = session) -> int:
+def get_balance(session: http.Session = session) -> int:
     balance_entry = cast('BalanceEntry', BalanceEntry.first(session=session))
     return balance_entry.rolling_balance if balance_entry else 0
