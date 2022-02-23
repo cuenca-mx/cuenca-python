@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.14
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/international_transfers/ITeGc6ZBb8S96zqDhtY0AO3g
+  response:
+    body:
+      string: '{"id":"ITeGc6ZBb8S96zqDhtY0AO3g","created_at":"2022-02-23T01:56:46.622000","updated_at":"2022-02-23T01:56:46.622000","platform_id":"PTW68GgAc_QPmNCmgajmctLg","user_id":"UShhSTmmy_R2y6KvQsGnTTMw","idempotency_key":"MY_UNIQUE_KEY","bank_number":"001287364","account_number":"1024357689","account_country":"US","account_name":"Amanda
+        Brown","received_amount":20825,"received_currency":"mxn","sent_amount":1000,"sent_currency":"usd","status":"created"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '448'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 23 Feb 2022 02:00:20 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-62159533-00f074b1485bbb7d14ce1398;Sampled=0
+      X-Request-Time:
+      - 'value: 0.237'
+      x-amz-apigw-id:
+      - N-RAIG17CYcFzZA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '448'
+      x-amzn-Remapped-Date:
+      - Wed, 23 Feb 2022 02:00:20 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-Remapped-x-amzn-RequestId:
+      - c9da1146-bc6f-4ef5-823a-f62d2a6b9a2c
+      x-amzn-RequestId:
+      - 4ed3eef8-a5e1-448d-81bf-e28fb98e2da1
+    status:
+      code: 200
+      message: OK
+version: 1

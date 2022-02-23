@@ -4,9 +4,9 @@ from typing import ClassVar, cast
 from cuenca_validations.types import (
     Country,
     Currency,
+    InternationalTransferQuery,
     InternationalTransferRequest,
     InternationalTransferUpdateRequest,
-    TransactionQuery,
     TransactionStatus,
 )
 from pydantic.dataclasses import dataclass
@@ -17,7 +17,7 @@ from .base import Creatable, Queryable, Retrievable, Updateable
 @dataclass
 class InternationalTransfer(Creatable, Retrievable, Updateable, Queryable):
     _resource: ClassVar = 'international_transfers'
-    _query_params: ClassVar = TransactionQuery
+    _query_params: ClassVar = InternationalTransferQuery
 
     user_id: str
     updated_at: dt.datetime

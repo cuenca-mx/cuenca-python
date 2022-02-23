@@ -2,7 +2,7 @@ import datetime as dt
 from typing import Dict
 
 import pytest
-from cuenca_validations.types import Country, Gender, State
+from cuenca_validations.types import Country, Currency, Gender, State
 
 import cuenca
 
@@ -60,3 +60,19 @@ def user_request() -> Dict:
         ),
     )
     return user_dict
+
+
+@pytest.fixture
+def international_transfer() -> Dict:
+    return dict(
+        user_id='UShhSTmmy_R2y6KvQsGnTTMw',
+        idempotency_key="MY_UNIQUE_KEY",
+        bank_number="001287364",
+        account_number="1024357689",
+        account_country=Country.US,
+        account_name="Amanda Brown",
+        received_amount=20825,
+        received_currency=Currency.mxn,
+        sent_amount=1000,
+        sent_currency=Currency.usd,
+    )
