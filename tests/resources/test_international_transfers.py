@@ -57,19 +57,15 @@ def test_complete_flow_international_transfers(international_transfer):
 
     # Create a Session Token to allow user confirm or reject.
     user_id = international_transfer['user_id']
-    session_token = Session.create(
-        user_id, SessionType.international_transfers
-    )
+    session = Session.create(user_id, SessionType.international_transfers)
+    token = session.id
 
-    # Using the session token, User has to confirm the transfer
-    cuenca.configure(
-        session_token=session_token.id, api_key=None, api_secret=None
-    )
-    transfer = InternationalTransfer.update(
-        transfer.id, status=TransactionStatus.submitted
-    )
+    # Using the session token, User has to confirm and submit the transfer
+    cuenca.configure(session_token=token, api_key=None, api_secret=None)
+    submitted = TransactionStatus.submitted
+    transfer = InternationalTransfer.update(transfer_id, status=submitted)
     assert transfer.id == transfer_id
-    assert transfer.status == TransactionStatus.submitted
+    assert transfer.status == submitted
 
     # After SPEI deposit was received, status will change
     transfer.refresh()
