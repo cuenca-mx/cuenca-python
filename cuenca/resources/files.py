@@ -1,5 +1,5 @@
 from io import BytesIO
-from typing import ClassVar, cast
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import (
     FileFormat,
@@ -28,6 +28,8 @@ class File(Downloadable, Queryable, Uploadable):
     def upload(
         cls,
         file: BytesIO,
+        file_type: KYCFileType,
+        extension: Optional[str],
         user_id: str = 'me',
         *,
         session: Session = global_session,
@@ -41,9 +43,13 @@ class File(Downloadable, Queryable, Uploadable):
         :param session:
         :return: New encrypted file object
         """
-        req = FileRequest(file=file.read())
+        req = FileRequest(file=file.read(), type=file_type, extension=extension)
         return cast(
-            'File', cls._upload(id=user_id, session=session, **req.dict())
+            'File', cls._upload(
+                id=user_id,
+                session=session,
+                **req.dict(),
+            )
         )
 
     @property

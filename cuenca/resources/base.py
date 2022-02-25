@@ -131,11 +131,16 @@ class Uploadable(Resource):
         id: str,
         *,
         session: Session = global_session,
+        **data,
     ) -> Resource:
         resp = session.request(
             'post',
             cls._resource,
-            files=dict(file=file, user_id=id),
+            files=dict(
+                file=file,
+                id=(None, id),
+                **{k: (None, v) for k, v in data.items()},
+            ),
         )
         return cls._from_dict(json.loads(resp))
 
