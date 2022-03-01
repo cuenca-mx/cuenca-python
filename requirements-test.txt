@@ -6,7 +6,6 @@ mypy==0.931
 pytest==6.2.*
 pytest-cov==3.0.*
 pytest-vcr==1.0.*
-python-magic-bin==0.4.14
 requests-mock==1.9.*
 types-freezegun
 types-requests
