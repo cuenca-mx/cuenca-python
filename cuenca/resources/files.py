@@ -4,7 +4,7 @@ from typing import ClassVar, Optional, cast
 from cuenca_validations.types import (
     FileFormat,
     FileQuery,
-    FileRequest,
+    FileUploadRequest,
     KYCFileType,
 )
 from pydantic import HttpUrl
@@ -43,13 +43,15 @@ class File(Downloadable, Queryable, Uploadable):
         :param session:
         :return: New encrypted file object
         """
-        req = FileRequest(
-            file=file.read(), type=file_type, extension=extension
+        req = FileUploadRequest(
+            file=file.read(),
+            type=file_type,
+            extension=extension,
+            user_id=user_id,
         )
         return cast(
             'File',
             cls._upload(
-                user_id=user_id,
                 session=session,
                 **req.dict(),
             ),
