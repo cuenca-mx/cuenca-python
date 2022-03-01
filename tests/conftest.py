@@ -1,4 +1,5 @@
 import datetime as dt
+from io import BytesIO
 from typing import Dict
 
 import pytest
@@ -60,3 +61,9 @@ def user_request() -> Dict:
         ),
     )
     return user_dict
+
+
+@pytest.fixture
+def file() -> BytesIO:
+    with open('tests/data/test_file.jpeg', 'rb') as image_file:
+        return BytesIO(image_file.read())
