@@ -43,13 +43,16 @@ class File(Downloadable, Queryable, Uploadable):
         :param session:
         :return: New encrypted file object
         """
-        req = FileRequest(file=file.read(), type=file_type, extension=extension)
+        req = FileRequest(
+            file=file.read(), type=file_type, extension=extension
+        )
         return cast(
-            'File', cls._upload(
-                id=user_id,
+            'File',
+            cls._upload(
+                user_id=user_id,
                 session=session,
                 **req.dict(),
-            )
+            ),
         )
 
     @property
