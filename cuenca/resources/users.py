@@ -43,8 +43,8 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     proof_of_address: Optional[KYCFile]
     proof_of_life: Optional[KYCFile]
     beneficiaries: Optional[List[Beneficiary]]
-    platform_id: Optional[str] = None
     clabe: Optional[str]
+    platform_id: Optional[str] = None
 
     @classmethod
     def create(
