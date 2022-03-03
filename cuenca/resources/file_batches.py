@@ -1,6 +1,6 @@
 from typing import ClassVar, Dict, List, cast
 
-from cuenca_validations.types import FileBatchUploadRequest
+from cuenca_validations.types import BatchFileMetadata, FileBatchUploadRequest
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
@@ -11,8 +11,8 @@ from .base import Creatable, Queryable
 class FileBatch(Creatable, Queryable):
     _resource: ClassVar = 'file_batches'
 
-    received_files: Dict
-    uploaded_files: List[Dict]
+    received_files: List[BatchFileMetadata]
+    uploaded_files: List[BatchFileMetadata]
     user_id: str
 
     @classmethod

@@ -18,37 +18,37 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.14
+      - cuenca-python/0.7.16.dev1
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/file_batches
   response:
     body:
-      string: '{"id":"EB01","created_at":"2022-03-03T01:48:39.542677","received_files":{"ine":{"url":"https://media.getmati.com/file?location=XXX1"},"proof_of_liveness":{"url":"https://media.getmati.com/file?location=XXX2"},"proof_of_address":{"url":"https://media.getmati.com/file?location=XXX3"}},"uploaded_files":[{"is_back":true,"type":"ine","url":"https://stage-patzcuaro.cuenca.com/files/EF01"},{"is_back":false,"type":"proof_of_liveness","url":"https://stage-patzcuaro.cuenca.com/files/EF02"},{"is_back":false,"type":"proof_of_address","url":"https://stage-patzcuaro.cuenca.com/files/EF03"}],"user_id":"US01"}'
+      string: '{"id":"EB01","created_at":"2022-03-03T17:43:52.605547","received_files":[{"is_back":true,"type":"ine","url":"https://media.getmati.com/file?location=XXX1"},{"is_back":false,"type":"proof_of_liveness","url":"https://media.getmati.com/file?location=XXX2"},{"is_back":false,"type":"proof_of_address","url":"https://media.getmati.com/file?location=XXX3"}],"uploaded_files":[{"id": "EF01", "is_back":true,"type":"ine","url":"https://stage-patzcuaro.cuenca.com/files/EF01"},{"id": "EF02","is_back":false,"type":"proof_of_liveness","url":"https://stage-patzcuaro.cuenca.com/files/EF02"},{"id": "EF03", "is_back":false,"type":"proof_of_address","url":"https://stage-patzcuaro.cuenca.com/files/EF03"}],"user_id":"US01"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '601'
+      - '710'
       Content-Type:
       - application/json
       Date:
-      - Thu, 03 Mar 2022 01:48:39 GMT
+      - Thu, 03 Mar 2022 17:43:52 GMT
       X-Request-Time:
-      - 'value: 5.462'
+      - 'value: 6.526'
       x-amz-apigw-id:
-      - OYmx3Es7CYcFiNQ=
+      - Oays6FKkCYcFWTw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '601'
+      - '1600'
       x-amzn-Remapped-Date:
-      - Thu, 03 Mar 2022 01:48:39 GMT
+      - Thu, 03 Mar 2022 17:43:52 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - ce8e424b-727b-44c8-bb88-1d75c5d78955
+      - 084b11b7-0888-45f5-8d8f-65f6a22d82f5
     status:
       code: 201
       message: Created

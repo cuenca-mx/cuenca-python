@@ -29,6 +29,7 @@ def test_file_batch_create():
     assert len(batch.uploaded_files) == 3
 
     for file in batch.uploaded_files:
-        assert file['url'] is not None
-        if file['type'] == KYCFileType.ine:
-            assert file['is_back']
+        assert file.id is not None
+        assert file.url is not None
+        if file.type == KYCFileType.ine:
+            assert file.is_back
