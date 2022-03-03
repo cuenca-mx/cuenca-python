@@ -1,6 +1,6 @@
 black==22.1.0
 flake8==4.0.*
-freezegun==1.1.*
+freezegun==1.2.*
 isort==5.10.*
 mypy==0.931
 pytest==6.2.*
