@@ -12,7 +12,7 @@ class FileBatch(Creatable, Queryable):
     _resource: ClassVar = 'file_batches'
 
     received_files: Dict
-    uploaded_files: Dict
+    uploaded_files: List[Dict]
     user_id: str
 
     @classmethod

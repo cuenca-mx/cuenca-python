@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"files": [{"url": "https://media.getmati.com/file?location=XX1",
-      "type": "ine"}, {"url": "https://media.getmati.com/file?location=XX2",
-      "type": "proof_of_liveness"}, {"url": "https://media.getmati.com/file?location=XX3",
+    body: '{"files": [{"is_back": true, "url": "https://media.getmati.com/file?location=XXX1",
+      "type": "ine"}, {"is_back": false, "url": "https://media.getmati.com/file?location=XXX2",
+      "type": "proof_of_liveness"}, {"is_back": false, "url": "https://media.getmati.com/file?location=XXX3",
       "type": "proof_of_address"}], "user_id": "US01"}'
     headers:
       Accept:
@@ -14,7 +14,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '291'
+      - '347'
       Content-Type:
       - application/json
       User-Agent:
@@ -25,30 +25,30 @@ interactions:
     uri: https://sandbox.cuenca.com/file_batches
   response:
     body:
-      string: '{"id":"EB01","created_at":"2022-03-02T01:20:59.542682","received_files":{"ine":{"url":"https://media.getmati.com/file?location=XX1"},"proof_of_liveness":{"url":"https://media.getmati.com/file?location=XX2"},"proof_of_address":{"url":"https://media.getmati.com/file?location=XX3"}},"uploaded_files":{"ine":{"url":"https://s3.amazon.com/patzcuaro-sandbox/2022-3-2/8921afac9adf8e0473ca3fb7370eae7acf9403ed","id":"EF01"},"proof_of_liveness":{"url":"https://s3.amazon.com/patzcuaro-sandbox/2022-3-2/26c2226454f7b95e8fc13ff312f458c179f63409","id":"EF02"},"proof_of_address":{"url":"https://s3.amazon.com/patzcuaro-sandbox/2022-3-2/33ae12079ca58946a0c0c911b2c6f2e2e6f59537","id":"EF03"}},"user_id":"US01"}'
+      string: '{"id":"EB01","created_at":"2022-03-03T01:48:39.542677","received_files":{"ine":{"url":"https://media.getmati.com/file?location=XXX1"},"proof_of_liveness":{"url":"https://media.getmati.com/file?location=XXX2"},"proof_of_address":{"url":"https://media.getmati.com/file?location=XXX3"}},"uploaded_files":[{"is_back":true,"type":"ine","url":"https://stage-patzcuaro.cuenca.com/files/EF01"},{"is_back":false,"type":"proof_of_liveness","url":"https://stage-patzcuaro.cuenca.com/files/EF02"},{"is_back":false,"type":"proof_of_address","url":"https://stage-patzcuaro.cuenca.com/files/EF03"}],"user_id":"US01"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '698'
+      - '601'
       Content-Type:
       - application/json
       Date:
-      - Wed, 02 Mar 2022 01:20:59 GMT
+      - Thu, 03 Mar 2022 01:48:39 GMT
       X-Request-Time:
-      - 'value: 6.270'
+      - 'value: 5.462'
       x-amz-apigw-id:
-      - OVPyaE4CiYcF2FA=
+      - OYmx3Es7CYcFiNQ=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '1640'
+      - '601'
       x-amzn-Remapped-Date:
-      - Wed, 02 Mar 2022 01:20:59 GMT
+      - Thu, 03 Mar 2022 01:48:39 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - b689a80a-1a8a-412f-a83a-a2e5eb832169
+      - ce8e424b-727b-44c8-bb88-1d75c5d78955
     status:
       code: 201
       message: Created

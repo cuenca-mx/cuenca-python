@@ -30,6 +30,7 @@ class File(Downloadable, Queryable, Uploadable):
         file: BytesIO,
         file_type: KYCFileType,
         extension: Optional[str],
+        is_back: bool = False,
         user_id: str = 'me',
         *,
         session: Session = global_session,
@@ -47,6 +48,7 @@ class File(Downloadable, Queryable, Uploadable):
             file=file.read(),
             type=file_type,
             extension=extension,
+            is_back=is_back,
             user_id=user_id,
         )
         return cast(

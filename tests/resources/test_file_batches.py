@@ -8,15 +8,16 @@ from cuenca import FileBatch
 def test_file_batch_create():
     files = [
         dict(
-            url='https://media.getmati.com/file?location=XX1',
+            url='https://media.getmati.com/file?location=XXX1',
             type=KYCFileType.ine,
+            is_back=True,
         ),
         dict(
-            url='https://media.getmati.com/file?location=XX2',
+            url='https://media.getmati.com/file?location=XXX2',
             type=KYCFileType.proof_of_liveness,
         ),
         dict(
-            url='https://media.getmati.com/file?location=XX3',
+            url='https://media.getmati.com/file?location=XXX3',
             type=KYCFileType.proof_of_address,
         ),
     ]
@@ -24,7 +25,10 @@ def test_file_batch_create():
     batch: FileBatch = FileBatch.create(files=files, user_id=user_id)
     assert batch.id is not None
     assert batch.received_files is not None
-    assert KYCFileType.ine in batch.uploaded_files
-    assert KYCFileType.proof_of_liveness in batch.uploaded_files
-    assert KYCFileType.proof_of_address in batch.uploaded_files
     assert batch.user_id == 'US01'
+    assert len(batch.uploaded_files) == 3
+
+    for file in batch.uploaded_files:
+        assert file['url'] is not None
+        if file['type'] == KYCFileType.ine:
+            assert file['is_back']
