@@ -18,6 +18,9 @@ install:
 install-test: install
 	pip install -qU -r requirements-test.txt
 
+install-dev: install-test
+	pip install -qU -r requirements-dev.txt
+
 test: clean install-test lint
 	pytest
 
