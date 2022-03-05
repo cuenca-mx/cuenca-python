@@ -27,7 +27,7 @@ def test_endpoint_create():
 @pytest.mark.vcr
 def test_endpoint_create_another():
     with pytest.raises(CuencaResponseException) as exc:
-        endpoint: Endpoint = Endpoint.create(url='https://url.xyz')
+        Endpoint.create(url='https://url.xyz')
         assert exc.value
         assert exc.json['error'] == 'Usuario ya tiene webhook asociado'
 
