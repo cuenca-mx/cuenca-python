@@ -73,8 +73,12 @@ class Endpoint(Retrievable, Queryable, Creatable, Updateable):
         cls, endpoint_id: str, *, session: Session = global_session
     ) -> 'Endpoint':
         """
-        Deactivates an Endpoint
+        Deactivates an Endpoint. There is no way to activate this endpoint
+        again
+
+        :param endpoint_id: existing endpoint_id
+        :param session
+        :return: Deactivated endpoint object
         """
-        url = f'{cls._resource}/{endpoint_id}'
-        resp = session.delete(url)
+        resp = session.delete(f'{cls._resource}/{endpoint_id}')
         return cast('Endpoint', cls._from_dict(resp))
