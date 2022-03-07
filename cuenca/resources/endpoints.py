@@ -1,4 +1,3 @@
-import datetime as dt
 from typing import ClassVar, List, Optional, cast
 
 from cuenca_validations.types.enums import WebhookEvent
@@ -9,7 +8,13 @@ from cuenca_validations.types.requests import (
 from pydantic import HttpUrl
 from pydantic.dataclasses import dataclass
 
-from cuenca.resources.base import Creatable, Queryable, Retrievable, Updateable, Deactivable
+from cuenca.resources.base import (
+    Creatable,
+    Deactivable,
+    Queryable,
+    Retrievable,
+    Updateable,
+)
 
 from ..http import Session, session as global_session
 
@@ -22,7 +27,6 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     secret: str
     is_enable: bool
     events: List[WebhookEvent]
-    deactivated_at: Optional[dt.datetime]
 
     @classmethod
     def create(

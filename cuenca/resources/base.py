@@ -83,7 +83,7 @@ class Updateable(Resource):
 
 @dataclass
 class Deactivable(Resource):
-    deactivated_at: dt.datetime
+    deactivated_at: Optional[dt.datetime]
 
     @classmethod
     def deactivate(
