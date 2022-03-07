@@ -9,18 +9,18 @@ from cuenca_validations.types.requests import (
 from pydantic import HttpUrl
 from pydantic.dataclasses import dataclass
 
-from cuenca.resources.base import Creatable, Queryable, Retrievable, Updateable
+from cuenca.resources.base import Creatable, Queryable, Retrievable, Updateable, Deactivable
 
 from ..http import Session, session as global_session
 
 
-@dataclass
-class Endpoint(Retrievable, Queryable, Creatable, Updateable):
+@dataclass()
+class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     _resource: ClassVar = 'endpoints'
 
     url: HttpUrl
     secret: str
-    is_active: bool
+    is_enable: bool
     events: List[WebhookEvent]
     deactivated_at: Optional[dt.datetime]
 
@@ -50,7 +50,7 @@ class Endpoint(Retrievable, Queryable, Creatable, Updateable):
         cls,
         endpoint_id: str,
         url: Optional[HttpUrl] = None,
-        is_active: Optional[bool] = None,
+        is_enable: Optional[bool] = None,
         *,
         session: Session = global_session,
     ) -> 'Endpoint':
@@ -64,21 +64,6 @@ class Endpoint(Retrievable, Queryable, Creatable, Updateable):
         :param session
         :return: Updated endpoint object
         """
-        req = EndpointUpdateRequest(url=url, is_active=is_active)
+        req = EndpointUpdateRequest(url=url, is_enable=is_enable)
         resp = cls._update(endpoint_id, session=session, **req.dict())
         return cast('Endpoint', resp)
-
-    @classmethod
-    def deactivate(
-        cls, endpoint_id: str, *, session: Session = global_session
-    ) -> 'Endpoint':
-        """
-        Deactivates an Endpoint. There is no way to activate this endpoint
-        again
-
-        :param endpoint_id: existing endpoint_id
-        :param session
-        :return: Deactivated endpoint object
-        """
-        resp = session.delete(f'{cls._resource}/{endpoint_id}')
-        return cast('Endpoint', cls._from_dict(resp))

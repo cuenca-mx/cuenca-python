@@ -18,7 +18,7 @@ interactions:
     uri: https://sandbox.cuenca.com/webhooks/WE01
   response:
     body:
-      string: '{"id":"WE01","created_at":"2022-02-07T20:11:50.034000","event":"user.created","payload":{"hola":"hola"}}'
+      string: '{"id":"WE01","created_at":"2022-02-07T20:11:50.034000","event":"user.create","payload":{"hola":"hola"}}'
     headers:
       Connection:
       - keep-alive

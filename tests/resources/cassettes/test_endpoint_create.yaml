@@ -22,7 +22,7 @@ interactions:
     uri: https://sandbox.cuenca.com/endpoints
   response:
     body:
-      string: '{"id":"EN01","created_at":"2022-02-09T19:06:44.109221","updated_at":"2022-02-09T19:06:44.109229","deactivated_at":null,"secret":"5eeefaeb552be99baf3003d5dd27e65a005ee649","is_active":true,"url":"https://url.com","events":["user.create","user.update","user.delete","transaction.create","transaction.update"]}'
+      string: '{"id":"EN01","created_at":"2022-02-09T19:06:44.109221","updated_at":"2022-02-09T19:06:44.109229","deactivated_at":null,"secret":"5eeefaeb552be99baf3003d5dd27e65a005ee649","is_enable":true,"url":"https://url.com","events":["user.create","user.update","user.delete","transaction.create","transaction.update"]}'
     headers:
       Connection:
       - keep-alive
