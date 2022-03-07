@@ -85,8 +85,8 @@ class Session:
     ) -> DictStrAny:
         return self._request_json('get', endpoint, params=params)
 
-    def post(self, endpoint: str, data: DictStrAny) -> DictStrAny:
-        return self._request_json('post', endpoint, data=data)
+    def post(self, endpoint: str, data: DictStrAny, **kwargs) -> DictStrAny:
+        return self._request_json('post', endpoint, data=data, **kwargs)
 
     def patch(self, endpoint: str, data: DictStrAny, **kwargs) -> DictStrAny:
         return self._request_json('patch', endpoint, data=data)
