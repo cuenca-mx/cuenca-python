@@ -8,16 +8,16 @@ from cuenca import FileBatch
 def test_file_batch_create():
     files = [
         dict(
-            url='https://media.getmati.com/file?location=XXX1',
+            url='https://somefile.com/location=XXX1',
             type=KYCFileType.ine,
             is_back=True,
         ),
         dict(
-            url='https://media.getmati.com/file?location=XXX2',
+            url='https://somefile.com/location=XXX2',
             type=KYCFileType.proof_of_liveness,
         ),
         dict(
-            url='https://media.getmati.com/file?location=XXX3',
+            url='https://somefile.com/location=XXX3',
             type=KYCFileType.proof_of_address,
         ),
     ]
