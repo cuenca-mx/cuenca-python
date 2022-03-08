@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: '{"url": "https://url.xyz"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '26'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.7.14
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/endpoints
+  response:
+    body:
+      string: '{"error":"Usuario ya tiene webhook asociado"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '45'
+      Content-Type:
+      - application/json
+      Date:
+      - Sat, 05 Mar 2022 02:29:56 GMT
+      x-amz-apigw-id:
+      - OfStpECgiYcFmKA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '45'
+      x-amzn-Remapped-Date:
+      - Sat, 05 Mar 2022 02:29:56 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - a3616bea-c7bf-4035-87ac-ab95b89be0eb
+    status:
+      code: 403
+      message: Forbidden
+version: 1

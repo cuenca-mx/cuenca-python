@@ -12,6 +12,7 @@ __all__ = [
     'CurpValidation',
     'Commission',
     'Deposit',
+    'Endpoint',
     'File',
     'FileBatch',
     'Identity',
@@ -27,6 +28,7 @@ __all__ = [
     'UserEvent',
     'UserLogin',
     'WalletTransaction',
+    'Webhook',
     'WhatsappTransfer',
     'configure',
     'get_balance',
@@ -48,6 +50,7 @@ from .resources import (
     Commission,
     CurpValidation,
     Deposit,
+    Endpoint,
     File,
     FileBatch,
     Identity,
@@ -63,6 +66,7 @@ from .resources import (
     UserEvent,
     UserLogin,
     WalletTransaction,
+    Webhook,
     WhatsappTransfer,
 )
 from .version import __version__

@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.7.13
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/webhooks/WE01
+  response:
+    body:
+      string: '{"id":"WE01","created_at":"2022-02-07T20:11:50.034000","event":"user.create","payload":{"hola":"hola"}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '124'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 09 Feb 2022 18:05:48 GMT
+      X-Request-Time:
+      - 'value: 0.095'
+      x-amz-apigw-id:
+      - NSVTcHp5CYcFVTg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '124'
+      x-amzn-Remapped-Date:
+      - Wed, 09 Feb 2022 18:05:48 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - 8377d57e-adc1-412d-8b87-2a3d6c0c1c73
+    status:
+      code: 200
+      message: OK
+version: 1

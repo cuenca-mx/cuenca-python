@@ -11,6 +11,7 @@ __all__ = [
     'Commission',
     'CurpValidation',
     'Deposit',
+    'Endpoint',
     'File',
     'FileBatch',
     'Identity',
@@ -25,6 +26,7 @@ __all__ = [
     'UserEvent',
     'UserLogin',
     'WalletTransaction',
+    'Webhook',
     'WhatsappTransfer',
 ]
 
@@ -40,6 +42,7 @@ from .cards import Card
 from .commissions import Commission
 from .curp_validations import CurpValidation
 from .deposits import Deposit
+from .endpoints import Endpoint
 from .file_batches import FileBatch
 from .files import File
 from .identities import Identity
@@ -56,6 +59,7 @@ from .user_events import UserEvent
 from .user_logins import UserLogin
 from .users import User
 from .wallet_transactions import WalletTransaction
+from .webhooks import Webhook
 from .whatsapp_transfers import WhatsappTransfer
 
 # avoid circular imports
@@ -72,6 +76,7 @@ resource_classes = [
     CurpValidation,
     Commission,
     Deposit,
+    Endpoint,
     File,
     FileBatch,
     Identity,
@@ -88,6 +93,7 @@ resource_classes = [
     UserLogin,
     WalletTransaction,
     WhatsappTransfer,
+    Webhook,
 ]
 for resource_cls in resource_classes:
     RESOURCES[resource_cls._resource] = resource_cls  # type: ignore
