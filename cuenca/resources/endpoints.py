@@ -8,15 +8,8 @@ from cuenca_validations.types.requests import (
 from pydantic import HttpUrl
 from pydantic.dataclasses import dataclass
 
-from cuenca.resources.base import (
-    Creatable,
-    Deactivable,
-    Queryable,
-    Retrievable,
-    Updateable,
-)
-
 from ..http import Session, session as global_session
+from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
 
 
 @dataclass()
@@ -64,7 +57,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
 
         :param endpoint_id: existing endpoint_id
         :param url
-        :param is_active
+        :param is_enable
         :param session
         :return: Updated endpoint object
         """

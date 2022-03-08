@@ -11,7 +11,7 @@ def test_endpoint_retrieve():
     assert endpoint.id == id_endpoint
     assert endpoint.url
     assert endpoint.events
-    assert not endpoint.deactivated_at
+    assert endpoint.is_active
 
 
 @pytest.mark.vcr
@@ -21,7 +21,7 @@ def test_endpoint_create():
     assert endpoint.events
     assert endpoint.is_enable
     assert endpoint.url
-    assert not endpoint.deactivated_at
+    assert endpoint.is_active
 
 
 @pytest.mark.vcr
@@ -42,7 +42,7 @@ def test_endpoint_update():
     assert endpoint.events
     assert endpoint.url == 'https://url.io'
     assert not endpoint.is_enable
-    assert not endpoint.deactivated_at
+    assert endpoint.is_active
 
 
 @pytest.mark.vcr
@@ -50,4 +50,4 @@ def test_endpoint_deactivate():
     id_endpoint = 'EN02'
     endpoint: Endpoint = Endpoint.deactivate(id_endpoint)
     assert endpoint.id == id_endpoint
-    assert endpoint.deactivated_at
+    assert not endpoint.is_active
