@@ -70,8 +70,7 @@ class Creatable(Resource):
 
 
 @dataclass
-class Updateable(Resource):
-    updated_at: dt.datetime
+class BaseUpdate(Resource):
 
     @classmethod
     def _update(
@@ -79,6 +78,16 @@ class Updateable(Resource):
     ) -> Resource:
         resp = session.patch(f'/{cls._resource}/{id}', data)
         return cls._from_dict(resp)
+
+
+@dataclass
+class Updateable(BaseUpdate):
+    updated_at: dt.datetime
+
+
+@dataclass
+class Verifiable(BaseUpdate):
+    ...
 
 
 @dataclass
