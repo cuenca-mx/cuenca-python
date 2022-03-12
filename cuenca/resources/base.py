@@ -71,7 +71,6 @@ class Creatable(Resource):
 
 @dataclass
 class BaseUpdate(Resource):
-
     @classmethod
     def _update(
         cls, id: str, *, session: Session = global_session, **data
