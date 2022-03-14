@@ -11,17 +11,16 @@ from pydantic import EmailStr
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
-from .base import Creatable, Verifiable
+from .base import Creatable, Updateable
 
 
 @dataclass
-class Verification(Creatable, Verifiable):
+class Verification(Creatable, Updateable):
     _resource: ClassVar = 'verifications'
 
     sender: Union[EmailStr, PhoneNumber]
     type: VerificationType
     created_at: dt.datetime
-    updated_at: Optional[dt.datetime]
     deactivated_at: Optional[dt.datetime]
 
     @classmethod
