@@ -71,6 +71,7 @@ class Creatable(Resource):
 
 @dataclass
 class Updateable(Resource):
+
     updated_at: dt.datetime
 
     @classmethod
