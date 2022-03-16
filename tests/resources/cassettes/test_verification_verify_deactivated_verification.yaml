@@ -1,7 +1,6 @@
 interactions:
 - request:
-    body: '{"type": "email_verification", "sender": "mail@cuenca.com", "platform_id":
-      "PL01"}'
+    body: '{"code": "333333"}'
     headers:
       Accept:
       - '*/*'
@@ -12,42 +11,40 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '82'
+      - '18'
       Content-Type:
       - application/json
       User-Agent:
       - cuenca-python/0.8.0.dev0
       X-Cuenca-Api-Version:
       - '2020-03-19'
-    method: POST
-    uri: https://sandbox.cuenca.com/verifications
+    method: PATCH
+    uri: https://sandbox.cuenca.com/verifications/VE01
   response:
     body:
-      string: '{"id":"VE01","code":"716258","sender":"mail@cuenca.com","platform_id":"PL01","api_key":null,"type":"email_verification","created_at":"2022-03-16T22:33:21.930707","updated_at":"2022-03-16T22:33:21.931013","deactivated_at":null,"attempts":[]}'
+      string: '{"error":"You can not validate a deactivated Verification."}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '260'
+      - '60'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Mar 2022 22:33:22 GMT
-      X-Request-Time:
-      - 'value: 0.323'
+      - Wed, 16 Mar 2022 22:40:26 GMT
       x-amz-apigw-id:
-      - PGTTzHY-iYcF1zQ=
+      - PGUWNHNaiYcF9GA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '260'
+      - '60'
       x-amzn-Remapped-Date:
-      - Wed, 16 Mar 2022 22:33:22 GMT
+      - Wed, 16 Mar 2022 22:40:26 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - 1403b526-7466-4985-bf8a-b8e6c156e527
+      - 32e38e16-c11f-4772-9da8-9136bcb891b8
     status:
-      code: 201
-      message: Created
+      code: 403
+      message: Forbidden
 version: 1

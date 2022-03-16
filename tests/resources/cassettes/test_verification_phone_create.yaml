@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"sender": "+525555555555", "type":"phone_verification"}'
+    body: '{"type": "phone_verification", "sender": "+525555555555", "platform_id":
+      "PL01"}'
     headers:
       Accept:
       - '*/*'
@@ -11,41 +12,41 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '26'
+      - '80'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.13
+      - cuenca-python/0.8.0.dev0
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/verifications
   response:
     body:
-      string: '{"id":"VE01","created_at":"2022-02-09T19:06:44.109221","updated_at":"2022-02-09T19:06:44.109229","deactivated_at":null,"sender":"+525555555555","type":"phone_verification"}'
+      string: '{"id":"VE02","code":"287955","sender":"+525555555555","platform_id":"PL01","api_key":null,"type":"phone_verification","created_at":"2022-03-16T22:33:22.657205","updated_at":"2022-03-16T22:33:22.657613","deactivated_at":null,"attempts":[]}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '335'
+      - '258'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Feb 2022 19:06:44 GMT
+      - Wed, 16 Mar 2022 22:33:22 GMT
       X-Request-Time:
-      - 'value: 0.151'
+      - 'value: 0.285'
       x-amz-apigw-id:
-      - NSeOpF65CYcF8zg=
+      - PGTT7EO2CYcFQ_w=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '335'
+      - '258'
       x-amzn-Remapped-Date:
-      - Wed, 09 Feb 2022 19:06:44 GMT
+      - Wed, 16 Mar 2022 22:33:22 GMT
       x-amzn-Remapped-Server:
       - nginx/1.20.2
       x-amzn-RequestId:
-      - 84a806f9-d2b6-4f9a-a8aa-a0f8fa0f94e7
+      - 7be1235d-09b6-4bc2-b1d9-93b96ac66519
     status:
       code: 201
       message: Created

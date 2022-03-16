@@ -11,11 +11,11 @@ from pydantic import EmailStr
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
-from .base import Creatable, Updateable
+from .base import Creatable, Retrievable, Updateable
 
 
 @dataclass
-class Verification(Creatable, Updateable):
+class Verification(Creatable, Retrievable, Updateable):
     _resource: ClassVar = 'verifications'
 
     sender: Union[EmailStr, PhoneNumber]
@@ -28,10 +28,13 @@ class Verification(Creatable, Updateable):
         cls,
         sender: str,
         type: VerificationType,
+        platform_id: str,
         *,
         session: Session = global_session,
     ) -> 'Verification':
-        req = VerificationRequest(sender=sender, type=type)
+        req = VerificationRequest(
+            sender=sender, type=type, platform_id=platform_id
+        )
         return cast('Verification', cls._create(**req.dict(), session=session))
 
     @classmethod
