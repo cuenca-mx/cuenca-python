@@ -1,12 +1,12 @@
 import datetime as dt
 from typing import ClassVar, Optional, Union, cast
 
-from cuenca_validations.types import VerificationType
-from cuenca_validations.types.identities import PhoneNumber
-from cuenca_validations.types.requests import (
+from cuenca_validations.types import (
     VerificationAttemptRequest,
     VerificationRequest,
+    VerificationType,
 )
+from cuenca_validations.types.identities import PhoneNumber
 from pydantic import EmailStr
 from pydantic.dataclasses import dataclass
 
