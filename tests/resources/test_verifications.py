@@ -8,7 +8,7 @@ from cuenca.exc import CuencaResponseException
 @pytest.mark.vcr
 def test_verification_email_create():
     verification: Verification = Verification.create(
-        sender='mail@cuenca.com',
+        recipient='mail@cuenca.com',
         type=VerificationType.email_verification,
         platform_id='PL01',
     )
@@ -18,7 +18,7 @@ def test_verification_email_create():
 @pytest.mark.vcr
 def test_verification_phone_create():
     verification: Verification = Verification.create(
-        sender='+525555555555',
+        recipient='+525555555555',
         type=VerificationType.phone_verification,
         platform_id='PL01',
     )
