@@ -23,7 +23,7 @@ interactions:
     uri: https://sandbox.cuenca.com/verifications
   response:
     body:
-      string: '{"id":"VE02","recipient":"+525555555555","platform_id":"PL01","api_key":null,"type":"phone_verification","created_at":"2022-03-16T22:33:22.657205","updated_at":"2022-03-16T22:33:22.657613","deactivated_at":null,"attempts":[]}'
+      string: '{"id":"VE02","recipient":"+525555555555","platform_id":"PL01","api_key":null,"type":"phone_verification","created_at":"2022-03-16T22:33:22.657205","updated_at":"2022-03-16T22:33:22.657613","deactivated_at":null}'
     headers:
       Connection:
       - keep-alive

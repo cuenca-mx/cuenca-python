@@ -29,7 +29,6 @@ class Verification(Creatable, Updateable):
         recipient: str,
         type: VerificationType,
         platform_id: str,
-        *,
         session: Session = global_session,
     ) -> 'Verification':
         req = VerificationRequest(
@@ -42,7 +41,6 @@ class Verification(Creatable, Updateable):
         cls,
         id: str,
         code: str,
-        *,
         session: Session = global_session,
     ) -> 'Verification':
         req = VerificationAttemptRequest(code=code)
