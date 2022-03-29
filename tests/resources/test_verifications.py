@@ -27,7 +27,7 @@ def test_verification_phone_create():
 
 @pytest.mark.vcr
 def test_verification_verify():
-    verification: Verification = Verification.verify(id='VE02', code='299566')
+    verification = Verification.verify(id='VE02', code='299566')
     assert verification.id
 
 
