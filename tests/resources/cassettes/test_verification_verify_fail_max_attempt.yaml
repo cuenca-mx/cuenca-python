@@ -22,7 +22,7 @@ interactions:
     uri: https://sandbox.cuenca.com/verifications/VE01
   response:
     body:
-      string: '{"error":"Verification has been deactivated."}'
+      string: '{"error":"Max Retries reached."}'
     headers:
       Connection:
       - keep-alive

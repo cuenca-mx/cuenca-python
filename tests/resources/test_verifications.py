@@ -44,7 +44,7 @@ def test_verification_verify_fail_max_attempt():
     with pytest.raises(CuencaResponseException) as exc:
         Verification.verify(id='VE01', code='333333')
         assert exc.status_code == 400
-        assert exc.json['error'] == 'Verification has been deactivated.'
+        assert exc.json['error'] == 'Max Retries reached.'
 
 
 @pytest.mark.vcr
