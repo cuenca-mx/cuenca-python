@@ -49,10 +49,10 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     def create(
         cls,
         curp: CurpField,
-        phone_number: PhoneNumber,
-        email_address: EmailStr,
-        profession: str,
-        address: Address,
+        phone_number: Optional[PhoneNumber] = None,
+        email_address: Optional[EmailStr] = None,
+        profession: Optional[str] = None,
+        address: Optional[Address] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
