@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: '{"type": "phone", "sender": "+525555555555", "platform_id":
+      "PL01"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '80'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.8.0.dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/verifications
+  response:
+    body:
+      string: '{"id":"VE02","recipient":"+525555555555","platform_id":"PL01","api_key":null,"type":"phone","created_at":"2022-03-16T22:33:22.657205","updated_at":"2022-03-16T22:33:22.657613","deactivated_at":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '258'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 16 Mar 2022 22:33:22 GMT
+      X-Request-Time:
+      - 'value: 0.285'
+      x-amz-apigw-id:
+      - PGTT7EO2CYcFQ_w=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '258'
+      x-amzn-Remapped-Date:
+      - Wed, 16 Mar 2022 22:33:22 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - 7be1235d-09b6-4bc2-b1d9-93b96ac66519
+    status:
+      code: 201
+      message: Created
+version: 1

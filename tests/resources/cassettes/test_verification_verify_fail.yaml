@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: '{"code": "222222"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '18'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.8.0.dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: PATCH
+    uri: https://sandbox.cuenca.com/verifications/VE01
+  response:
+    body:
+      string: '{"error":"Invalid code."}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '25'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 16 Mar 2022 22:35:38 GMT
+      x-amz-apigw-id:
+      - PGTpOEzzCYcFqPw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '25'
+      x-amzn-Remapped-Date:
+      - Wed, 16 Mar 2022 22:35:38 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - 6cc39b95-494d-4b7f-accf-f7f2e94f6868
+    status:
+      code: 400
+      message: Bad Request
+version: 1

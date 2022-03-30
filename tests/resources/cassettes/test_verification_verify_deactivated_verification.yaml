@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: '{"code": "333333"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '18'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.8.0.dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: PATCH
+    uri: https://sandbox.cuenca.com/verifications/VE01
+  response:
+    body:
+      string: '{"error":"You can not validate a deactivated Verification."}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '60'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 16 Mar 2022 22:40:26 GMT
+      x-amz-apigw-id:
+      - PGUWNHNaiYcF9GA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '60'
+      x-amzn-Remapped-Date:
+      - Wed, 16 Mar 2022 22:40:26 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-RequestId:
+      - 32e38e16-c11f-4772-9da8-9136bcb891b8
+    status:
+      code: 403
+      message: Forbidden
+version: 1

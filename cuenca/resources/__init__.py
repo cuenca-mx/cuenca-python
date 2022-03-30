@@ -25,6 +25,7 @@ __all__ = [
     'User',
     'UserEvent',
     'UserLogin',
+    'Verification',
     'WalletTransaction',
     'Webhook',
     'WhatsappTransfer',
@@ -58,6 +59,7 @@ from .user_credentials import UserCredential
 from .user_events import UserEvent
 from .user_logins import UserLogin
 from .users import User
+from .verifications import Verification
 from .wallet_transactions import WalletTransaction
 from .webhooks import Webhook
 from .whatsapp_transfers import WhatsappTransfer
@@ -91,6 +93,7 @@ resource_classes = [
     UserCredential,
     UserEvent,
     UserLogin,
+    Verification,
     WalletTransaction,
     WhatsappTransfer,
     Webhook,
