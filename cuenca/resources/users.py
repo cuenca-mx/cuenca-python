@@ -33,9 +33,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     identity_uri: str
     level: int
     created_at: dt.datetime
-    phone_number: PhoneNumber
-    email_address: EmailStr
-    profession: str
+    phone_number: Optional[PhoneNumber]
+    email_address: Optional[EmailStr]
+    profession: Optional[str]
     terms_of_service: Optional[TOSAgreement]
     status: Optional[UserStatus]
     address: Optional[Address]
@@ -78,6 +78,8 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         proof_of_address: Optional[KYCFileUpdateRequest] = None,
         proof_of_life: Optional[KYCFileUpdateRequest] = None,
         terms_of_service: Optional[TOSUpdateRequest] = None,
+        email_verification_id: Optional[str] = None,
+        phone_verification_id: Optional[str] = None,
         *,
         session: Session = global_session,
     ):
@@ -91,6 +93,8 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             proof_of_address=proof_of_address,
             proof_of_life=proof_of_life,
             terms_of_service=terms_of_service,
+            email_verification_id=email_verification_id,
+            phone_verification_id=phone_verification_id,
         )
         return cast(
             'User',
