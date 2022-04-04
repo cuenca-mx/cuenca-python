@@ -2,10 +2,13 @@ from dataclasses import dataclass
 from typing import ClassVar, Optional, cast
 
 from clabe import Clabe
-from cuenca_validations.types import AccountQuery
-from cuenca_validations.types.identities import CurpField, Rfc
+from cuenca_validations.types import (
+    AccountQuery,
+    CurpField,
+    LimitedWalletRequest,
+    Rfc,
+)
 
-from ..cuenca_validations import LimitedWalletRequest
 from .base import Wallet
 
 
@@ -24,12 +27,13 @@ class LimitedWallet(Wallet):
         allowed_rfc: Optional[Rfc] = None,
     ) -> 'LimitedWallet':
         """
-        Limited wallet is a special sub-account that allow receive
-        spei deposits only from accounts with specific CURP or RFC
+        Limited wallet is a special sub-account to receive money only from
+        specific person, SPEI Deposits will be accepted only if the sender
+        account curp/rfc match with registered data
 
         Args:
-            allowed_curp: Valid CURP in accounts to acept deposits.
-            allowed_rfc: Valid RFC in acounts to acept deposits
+            allowed_curp: Valid CURP
+            allowed_rfc: Valid RFC
         """
         request = LimitedWalletRequest(
             allowed_curp=allowed_curp,
