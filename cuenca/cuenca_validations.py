@@ -8,5 +8,3 @@ from cuenca_validations.types.requests import BaseRequest
 class LimitedWalletRequest(BaseRequest):
     allowed_curp: CurpField
     allowed_rfc: Optional[Rfc]
-
-    
