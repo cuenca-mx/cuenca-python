@@ -16,6 +16,7 @@ __all__ = [
     'FileBatch',
     'Identity',
     'IdentityEvent',
+    'LimitedWallet',
     'LoginToken',
     'Saving',
     'ServiceProvider',
@@ -48,6 +49,7 @@ from .file_batches import FileBatch
 from .files import File
 from .identities import Identity
 from .identity_events import IdentityEvent
+from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
 from .resources import RESOURCES
 from .savings import Saving
@@ -83,6 +85,7 @@ resource_classes = [
     FileBatch,
     Identity,
     IdentityEvent,
+    LimitedWallet,
     LoginToken,
     Saving,
     Session,
