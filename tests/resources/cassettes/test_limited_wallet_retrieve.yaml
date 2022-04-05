@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.8.1.dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/limited_wallets/LA3vx08KlQCXsaP9qyWfb680
+  response:
+    body:
+      string: '{"id":"LA3vx08KlQCXsaP9qyWfb680","created_at":"2022-04-05T23:00:29.446000","updated_at":"2022-04-05T23:00:29.446000","user_id":"US1le53HEq05OMrFTIlzqGJK","balance":0,"deactivated_at":null,"account_number":"646180157057065610","allowed_rfc":"TAXM840916123","allowed_curp":"TAXM840916HNEMXT02"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '292'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Apr 2022 23:01:40 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-624cca54-3540a54414ac35972cb3c426;Sampled=0
+      X-Request-Time:
+      - 'value: 0.292'
+      x-amz-apigw-id:
+      - QISNPE83iYcF2MQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '292'
+      x-amzn-Remapped-Date:
+      - Tue, 05 Apr 2022 23:01:40 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.20.2
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 3fbb3706-abb5-4e66-a702-8be94a85d572
+      x-amzn-RequestId:
+      - 9149cc06-3370-4718-9f2b-61a8178be034
+    status:
+      code: 200
+      message: OK
+version: 1

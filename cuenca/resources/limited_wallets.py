@@ -18,7 +18,7 @@ class LimitedWallet(Wallet):
     _query_params: ClassVar = AccountQuery
     account_number: Clabe
     allowed_rfc: Rfc
-    allowed_curp = CurpField
+    allowed_curp: CurpField
 
     @classmethod
     def create(
