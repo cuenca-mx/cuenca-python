@@ -53,6 +53,8 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         email_address: Optional[EmailStr] = None,
         profession: Optional[str] = None,
         address: Optional[Address] = None,
+        email_verification_id: Optional[str] = None,
+        phone_verification_id: Optional[str] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
@@ -62,6 +64,8 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             email_address=email_address,
             profession=profession,
             address=address,
+            email_verification_id=email_verification_id,
+            phone_verification_id=phone_verification_id,
         )
         return cast('User', cls._create(session=session, **req.dict()))
 
@@ -78,8 +82,6 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         proof_of_address: Optional[KYCFileUpdateRequest] = None,
         proof_of_life: Optional[KYCFileUpdateRequest] = None,
         terms_of_service: Optional[TOSUpdateRequest] = None,
-        email_verification_id: Optional[str] = None,
-        phone_verification_id: Optional[str] = None,
         *,
         session: Session = global_session,
     ):
@@ -93,8 +95,6 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             proof_of_address=proof_of_address,
             proof_of_life=proof_of_life,
             terms_of_service=terms_of_service,
-            email_verification_id=email_verification_id,
-            phone_verification_id=phone_verification_id,
         )
         return cast(
             'User',
