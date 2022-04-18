@@ -33,9 +33,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     identity_uri: str
     level: int
     created_at: dt.datetime
-    phone_number: PhoneNumber
-    email_address: EmailStr
-    profession: str
+    phone_number: Optional[PhoneNumber]
+    email_address: Optional[EmailStr]
+    profession: Optional[str]
     terms_of_service: Optional[TOSAgreement]
     status: Optional[UserStatus]
     address: Optional[Address]
@@ -49,10 +49,12 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     def create(
         cls,
         curp: CurpField,
-        phone_number: PhoneNumber,
-        email_address: EmailStr,
-        profession: str,
-        address: Address,
+        phone_number: Optional[PhoneNumber] = None,
+        email_address: Optional[EmailStr] = None,
+        profession: Optional[str] = None,
+        address: Optional[Address] = None,
+        email_verification_id: Optional[str] = None,
+        phone_verification_id: Optional[str] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
@@ -62,6 +64,8 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             email_address=email_address,
             profession=profession,
             address=address,
+            email_verification_id=email_verification_id,
+            phone_verification_id=phone_verification_id,
         )
         return cast('User', cls._create(session=session, **req.dict()))
 
