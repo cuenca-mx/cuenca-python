@@ -19,13 +19,13 @@ class CurpValidation(Creatable, Retrievable):
     _resource: ClassVar = 'curp_validations'
 
     created_at: dt.datetime
-    names: str
-    first_surname: str
+    names: Optional[str]
+    first_surname: Optional[str]
     second_surname: Optional[str]
-    date_of_birth: dt.date
-    country_of_birth: Country
-    state_of_birth: State
-    gender: Gender
+    date_of_birth: Optional[dt.date]
+    country_of_birth: Optional[Country]
+    state_of_birth: Optional[State]
+    gender: Optional[Gender]
     nationality: Optional[Country]
     manual_curp: Optional[CurpField]
     calculated_curp: CurpField
