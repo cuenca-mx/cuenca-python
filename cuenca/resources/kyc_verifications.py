@@ -1,7 +1,7 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import CurpField, Rfc
+from cuenca_validations.types import Address, CurpField, Rfc
 from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
@@ -18,6 +18,7 @@ class KYCVerification(Creatable, Retrievable):
     verification_id: Optional[str]
     curp: Optional[CurpField] = None
     rfc: Optional[Rfc] = None
+    address: Optional[Address] = None
 
     @classmethod
     def create(cls, session: Session = global_session) -> 'KYCVerification':
