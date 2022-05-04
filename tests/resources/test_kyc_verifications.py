@@ -5,7 +5,11 @@ from cuenca import KYCVerification
 
 @pytest.mark.vcr
 def test_kyc_verification_create():
-    kyc_verification: KYCVerification = KYCVerification.create(
-        platform_id='PL01',
-    )
+    kyc_verification: KYCVerification = KYCVerification.create()
+    assert kyc_verification.id
+
+
+@pytest.mark.vcr
+def test_kyc_verification_retrieve():
+    kyc_verification: KYCVerification = KYCVerification.retrieve('KYC01')
     assert kyc_verification.id
