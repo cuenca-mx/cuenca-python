@@ -82,6 +82,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         proof_of_address: Optional[KYCFileUpdateRequest] = None,
         proof_of_life: Optional[KYCFileUpdateRequest] = None,
         terms_of_service: Optional[TOSUpdateRequest] = None,
+        verification_id: Optional[str] = None,
         *,
         session: Session = global_session,
     ):
@@ -95,6 +96,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             proof_of_address=proof_of_address,
             proof_of_life=proof_of_life,
             terms_of_service=terms_of_service,
+            verification_id=verification_id,
         )
         return cast(
             'User',
