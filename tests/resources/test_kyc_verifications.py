@@ -18,9 +18,7 @@ def test_kyc_verification_retrieve():
 @pytest.mark.vcr
 def test_kyc_verification_update():
     kyc_id = 'KYC01'
-    changes = dict(
-        curp='HEMA921130HNERNN05',
-    )
+    changes = dict(curp='HEMA921130HNERNN05')
     kyc_verification = KYCVerification.update(kyc_id, **changes)
     assert all(
         item in kyc_verification.to_dict().items() for item in changes.items()
