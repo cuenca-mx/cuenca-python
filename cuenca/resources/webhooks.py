@@ -6,7 +6,6 @@ from cuenca_validations.types.enums import WebhookEvent
 from .base import Queryable, Retrievable
 
 
-@dataclass
 class Webhook(Retrievable, Queryable):
     _resource: ClassVar = 'webhooks'
 

@@ -14,7 +14,6 @@ from ..http import Session, session as global_session
 from .base import Creatable, Updateable
 
 
-@dataclass
 class Verification(Creatable, Updateable):
     _resource: ClassVar = 'verifications'
 

@@ -12,7 +12,6 @@ from ..http import Session, session as global_session
 from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
 
 
-@dataclass()
 class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     _resource: ClassVar = 'endpoints'
 

@@ -25,7 +25,6 @@ from .identities import Identity
 from .resources import retrieve_uri
 
 
-@dataclass
 class User(Creatable, Retrievable, Updateable, Queryable):
     _resource: ClassVar = 'users'
     _query_params: ClassVar = UserQuery

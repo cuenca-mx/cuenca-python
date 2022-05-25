@@ -6,7 +6,6 @@ from pydantic.dataclasses import dataclass
 from .base import Queryable, Retrievable
 
 
-@dataclass
 class Account(Retrievable, Queryable):
     _resource: ClassVar = 'accounts'
     _query_params: ClassVar = AccountQuery

@@ -14,7 +14,6 @@ FundingInstrument = TypeVar(
 )
 
 
-@dataclass
 class BalanceEntry(Retrievable, Queryable):
     _resource: ClassVar = 'balance_entries'
     _query_params: ClassVar = BalanceEntryQuery

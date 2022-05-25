@@ -13,7 +13,6 @@ from cuenca_validations.types import (
 from .base import Updateable, Wallet
 
 
-@dataclass
 class Saving(Wallet, Updateable):
     _resource: ClassVar = 'savings'
     _query_params: ClassVar = WalletQuery

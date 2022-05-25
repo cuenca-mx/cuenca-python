@@ -12,7 +12,6 @@ from cuenca_validations.types import (
 from .base import Wallet
 
 
-@dataclass
 class LimitedWallet(Wallet):
     _resource: ClassVar = 'limited_wallets'
     _query_params: ClassVar = AccountQuery

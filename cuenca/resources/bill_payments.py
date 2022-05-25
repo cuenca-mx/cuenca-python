@@ -8,7 +8,6 @@ from .resources import retrieve_uri
 from .service_providers import ServiceProvider
 
 
-@dataclass
 class BillPayment(Transaction):
     _resource: ClassVar = 'bill_payments'
     _query_params: ClassVar = BillPaymentQuery

@@ -11,7 +11,6 @@ from ..http import Session, session as global_session
 from .base import Creatable, Updateable
 
 
-@dataclass
 class UserCredential(Creatable, Updateable):
     _resource: ClassVar = 'user_credentials'
 

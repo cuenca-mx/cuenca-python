@@ -13,7 +13,6 @@ from cuenca.resources.resources import retrieve_uri
 from .base import Wallet
 
 
-@dataclass
 class WalletTransaction(Transaction, Creatable):
     _resource: ClassVar = 'wallet_transactions'
     _query_params: ClassVar = WalletTransactionQuery

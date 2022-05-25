@@ -6,7 +6,6 @@ from ..http import Session, session as global_session
 from .base import Creatable
 
 
-@dataclass
 class LoginToken(Creatable):
     _resource: ClassVar = 'login_tokens'
 

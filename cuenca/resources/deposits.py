@@ -8,7 +8,6 @@ from .base import Transaction
 from .resources import retrieve_uri
 
 
-@dataclass
 class Deposit(Transaction):
     _resource: ClassVar = 'deposits'
     _query_params: ClassVar = DepositQuery

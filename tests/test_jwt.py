@@ -21,7 +21,7 @@ TEST_TOKEN = (
     ],
 )
 def test_expired(expires_at: dt.datetime, should_be_expired: bool):
-    jwt = Jwt(expires_at, '_')
+    jwt = Jwt(expires_at=expires_at, token='_')
     assert jwt.is_expired == should_be_expired
 
 

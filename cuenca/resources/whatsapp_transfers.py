@@ -9,7 +9,6 @@ from .base import Transaction
 from .resources import retrieve_uri
 
 
-@dataclass
 class WhatsappTransfer(Transaction):
     _resource: ClassVar = 'whatsapp_transfers'
 

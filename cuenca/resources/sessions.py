@@ -9,7 +9,6 @@ from .. import http
 from .base import Creatable, Queryable, Retrievable
 
 
-@dataclass
 class Session(Creatable, Retrievable, Queryable):
     _resource: ClassVar = 'sessions'
 

@@ -7,7 +7,6 @@ from pydantic.dataclasses import dataclass
 from .base import Queryable, Retrievable
 
 
-@dataclass
 class IdentityEvent(Retrievable, Queryable):
     _resource: ClassVar = 'identity_events'
     _query_params: ClassVar = EventQuery

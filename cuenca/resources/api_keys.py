@@ -8,7 +8,6 @@ from ..http import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable, Updateable
 
 
-@dataclass
 class ApiKey(Creatable, Queryable, Retrievable, Updateable):
     _resource: ClassVar = 'api_keys'
     _query_params: ClassVar = ApiKeyQuery

@@ -16,7 +16,6 @@ from .base import Creatable, Transaction
 from .resources import retrieve_uri
 
 
-@dataclass
 class Transfer(Transaction, Creatable):
     _resource: ClassVar = 'transfers'
     _query_params: ClassVar = TransferQuery

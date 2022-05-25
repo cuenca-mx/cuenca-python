@@ -5,14 +5,15 @@ import json
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
+from pydantic import BaseModel
+
 from .exc import MalformedJwtToken
 
 if TYPE_CHECKING:
     from .http import Session
 
 
-@dataclass
-class Jwt:
+class Jwt(BaseModel):
     expires_at: dt.datetime
     token: str
 
@@ -45,4 +46,4 @@ class Jwt:
         session.session.headers.pop('X-Cuenca-Token', None)
         token = session.post('/token', dict())['token']
         expires_at = Jwt.get_expiration_date(token)
-        return cls(expires_at, token)
+        return cls(expires_at=expires_at, token=token)

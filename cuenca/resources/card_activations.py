@@ -10,7 +10,6 @@ from .cards import Card
 from .resources import retrieve_uri
 
 
-@dataclass
 class CardActivation(Creatable):
     _resource: ClassVar = 'card_activations'
 

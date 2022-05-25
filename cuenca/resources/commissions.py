@@ -9,7 +9,6 @@ from .resources import retrieve_uri
 mapper = {CommissionType.cash_deposit: EntryType.credit}
 
 
-@dataclass
 class Commission(Transaction):
     _resource: ClassVar = 'commissions'
 

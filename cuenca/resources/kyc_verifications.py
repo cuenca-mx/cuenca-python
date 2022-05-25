@@ -13,7 +13,6 @@ from ..http import Session, session as global_session
 from .base import Creatable, Retrievable, Updateable
 
 
-@dataclass
 class KYCVerification(Creatable, Retrievable, Updateable):
     _resource: ClassVar = 'kyc_verifications'
 

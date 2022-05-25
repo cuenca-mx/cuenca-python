@@ -7,7 +7,6 @@ from ..http import Session, session as global_session
 from .base import Creatable, Queryable
 
 
-@dataclass
 class FileBatch(Creatable, Queryable):
     _resource: ClassVar = 'file_batches'
 

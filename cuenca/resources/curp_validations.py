@@ -14,7 +14,6 @@ from ..http import Session, session as global_session
 from .base import Creatable, Retrievable
 
 
-@dataclass
 class CurpValidation(Creatable, Retrievable):
     _resource: ClassVar = 'curp_validations'
 

@@ -17,7 +17,6 @@ from ..http import Session, session as global_session
 MAX_PIN_ATTEMPTS = 3
 
 
-@dataclass
 class Card(Retrievable, Queryable, Creatable, Updateable):
     _resource: ClassVar = 'cards'
     _query_params: ClassVar = CardQuery
