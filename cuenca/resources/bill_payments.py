@@ -1,7 +1,6 @@
 from typing import ClassVar, cast
 
 from cuenca_validations.types import BillPaymentQuery
-from pydantic.dataclasses import dataclass
 
 from .base import Transaction
 from .resources import retrieve_uri

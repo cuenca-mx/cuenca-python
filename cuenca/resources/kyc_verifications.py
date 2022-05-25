@@ -7,7 +7,6 @@ from cuenca_validations.types import (
     KYCVerificationUpdateRequest,
     Rfc,
 )
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Retrievable, Updateable

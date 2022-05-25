@@ -2,7 +2,6 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import TransferNetwork
-from pydantic.dataclasses import dataclass
 
 from .accounts import Account
 from .base import Transaction

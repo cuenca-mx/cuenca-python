@@ -1,7 +1,6 @@
 from typing import ClassVar
 
 from cuenca_validations.types import AccountQuery
-from pydantic.dataclasses import dataclass
 
 from .base import Queryable, Retrievable
 

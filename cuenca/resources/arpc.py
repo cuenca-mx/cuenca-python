@@ -2,7 +2,6 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types.requests import ARPCRequest
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable

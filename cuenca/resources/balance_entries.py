@@ -1,7 +1,6 @@
 from typing import ClassVar, TypeVar, cast
 
 from cuenca_validations.types import BalanceEntryQuery, EntryType
-from pydantic.dataclasses import dataclass
 
 from .accounts import Account
 from .base import Queryable, Retrievable, Transaction

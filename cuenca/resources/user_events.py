@@ -1,7 +1,5 @@
 from typing import ClassVar
 
-from pydantic.dataclasses import dataclass
-
 from .identity_events import IdentityEvent
 
 

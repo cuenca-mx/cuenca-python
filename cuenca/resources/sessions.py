@@ -3,7 +3,6 @@ from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import SessionRequest, SessionType
 from pydantic import AnyUrl
-from pydantic.dataclasses import dataclass
 
 from .. import http
 from .base import Creatable, Queryable, Retrievable

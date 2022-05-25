@@ -17,7 +17,6 @@ from cuenca_validations.types import (
 )
 from cuenca_validations.types.identities import CurpField
 from pydantic import EmailStr
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable, Updateable

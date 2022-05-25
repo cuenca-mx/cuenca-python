@@ -2,7 +2,6 @@ import datetime as dt
 from typing import ClassVar
 
 from cuenca_validations.types import EventQuery, EventType
-from pydantic.dataclasses import dataclass
 
 from .base import Queryable, Retrievable
 

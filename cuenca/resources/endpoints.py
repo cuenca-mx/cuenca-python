@@ -6,7 +6,6 @@ from cuenca_validations.types.requests import (
     EndpointUpdateRequest,
 )
 from pydantic import HttpUrl
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable

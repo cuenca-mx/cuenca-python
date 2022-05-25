@@ -2,7 +2,6 @@ import base64
 import binascii
 import datetime as dt
 import json
-from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 from pydantic import BaseModel

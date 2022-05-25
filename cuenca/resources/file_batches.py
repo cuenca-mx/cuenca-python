@@ -1,7 +1,6 @@
 from typing import ClassVar, Dict, List, cast
 
 from cuenca_validations.types import BatchFileMetadata, FileBatchUploadRequest
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Queryable

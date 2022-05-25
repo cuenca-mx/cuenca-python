@@ -1,7 +1,6 @@
 import base64
 import datetime as dt
 import json
-from dataclasses import asdict, dataclass, fields
 from io import BytesIO
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
@@ -13,7 +12,7 @@ from cuenca_validations.types import (
     TransactionQuery,
     TransactionStatus,
 )
-from pydantic import BaseConfig, BaseModel
+from pydantic import BaseModel
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import Session, session as global_session

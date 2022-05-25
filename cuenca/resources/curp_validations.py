@@ -8,7 +8,6 @@ from cuenca_validations.types import (
     State,
 )
 from cuenca_validations.types.identities import CurpField
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Retrievable

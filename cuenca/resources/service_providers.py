@@ -1,7 +1,6 @@
 from typing import ClassVar, List
 
 from cuenca_validations.types import ServiceProviderCategory
-from pydantic.dataclasses import dataclass
 
 from .base import Queryable, Retrievable
 

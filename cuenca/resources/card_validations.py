@@ -3,7 +3,6 @@ from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import CardStatus, CardType
 from cuenca_validations.types.requests import CardValidationRequest
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable

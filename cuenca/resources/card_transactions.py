@@ -7,7 +7,6 @@ from cuenca_validations.types import (
     CardTransactionType,
     CardType,
 )
-from pydantic.dataclasses import dataclass
 
 from .base import Transaction
 from .cards import Card

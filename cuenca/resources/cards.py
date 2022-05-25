@@ -8,7 +8,6 @@ from cuenca_validations.types import (
 )
 from cuenca_validations.types.queries import CardQuery
 from cuenca_validations.types.requests import CardRequest, CardUpdateRequest
-from pydantic.dataclasses import dataclass
 
 from cuenca.resources.base import Creatable, Queryable, Retrievable, Updateable
 

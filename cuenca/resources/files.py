@@ -8,7 +8,6 @@ from cuenca_validations.types import (
     KYCFileType,
 )
 from pydantic import HttpUrl
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Downloadable, Queryable, Uploadable

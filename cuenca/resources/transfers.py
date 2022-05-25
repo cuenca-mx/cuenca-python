@@ -7,7 +7,6 @@ from cuenca_validations.types import (
     TransferRequest,
 )
 from cuenca_validations.typing import DictStrAny
-from pydantic.dataclasses import dataclass
 from requests import HTTPError
 
 from ..exc import CuencaException
