@@ -49,8 +49,8 @@ class CurpValidation(Creatable, Retrievable):
                 'description': 'True if curp exists and is valid'
             },
             'renapo_full_match': {
-                'description': 'True if all fields provided match the response from RENAPO. '
-                'Accents in names are ignored'
+                'description': 'True if all fields provided match the response'
+                ' from RENAPO. Accents in names are ignored'
             },
         }
         schema_extra = {
