@@ -17,17 +17,17 @@ class CurpValidation(Creatable, Retrievable):
     _resource: ClassVar = 'curp_validations'
 
     created_at: dt.datetime
-    names: Optional[str]
-    first_surname: Optional[str]
-    second_surname: Optional[str]
-    date_of_birth: Optional[dt.date]
-    country_of_birth: Optional[Country]
-    state_of_birth: Optional[State]
-    gender: Optional[Gender]
-    nationality: Optional[Country]
-    manual_curp: Optional[CurpField]
+    names: Optional[str] = None
+    first_surname: Optional[str] = None
+    second_surname: Optional[str] = None
+    date_of_birth: Optional[dt.date] = None
+    country_of_birth: Optional[Country] = None
+    state_of_birth: Optional[State] = None
+    gender: Optional[Gender] = None
+    nationality: Optional[Country] = None
+    manual_curp: Optional[CurpField] = None
     calculated_curp: CurpField
-    validated_curp: Optional[CurpField]
+    validated_curp: Optional[CurpField] = None
     renapo_curp_match: bool
     renapo_full_match: bool
 
@@ -36,17 +36,18 @@ class CurpValidation(Creatable, Retrievable):
             'names': {'description': 'Official name from Renapo'},
             'first_surname': {'description': 'Official surname from Renapo'},
             'second_surname': {'description': 'Official surname from Renapo'},
+            'country_of_birth': {'description': 'In format ISO 3166 Alpha-2'},
             'state_of_birth': {'description': 'In format ISO 3166 Alpha-2'},
             'nationality': {'description': 'In format ISO 3166 Alpha-2'},
             'manual_curp': {'description': 'curp provided in request'},
             'calculated_curp': {
-                'description': 'Calculated curp based on request data'
+                'description': 'Calculated CURP based on request data'
             },
             'validated_curp': {
-                'description': 'Curp validated in Renapo, null if not exists'
+                'description': 'CURP validated in Renapo, null if not exists'
             },
             'renapo_curp_match': {
-                'description': 'True if curp exists and is valid'
+                'description': 'True if CURP exists and is valid'
             },
             'renapo_full_match': {
                 'description': 'True if all fields provided match the response'

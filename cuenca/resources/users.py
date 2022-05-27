@@ -43,6 +43,47 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     beneficiaries: Optional[List[Beneficiary]]
     platform_id: Optional[str] = None
 
+    class Config:
+        fields = {
+            'level': {
+                'description': 'Account level according to KYC information'
+            },
+            'govt_id': {
+                'description': 'Detail of government id document validation'
+            },
+            'proof_of_address': {
+                'description': 'Detail of proof of address document validation'
+            },
+            'proof_of_life': {
+                'description': 'Detail of selfie video validation'
+            },
+            'beneficiaries': {
+                'description': 'Beneficiaries of account in case of death'
+            },
+        }
+        schema_extra = {
+            "example": {
+                "id": "string",
+                "created_at": "2019-08-24T14:15:22Z",
+                "updated_at": "2019-08-24T14:15:22Z",
+                "identity_uri": "identities/ID-123",
+                "level": 2,
+                "phone_number": "+525511223344",
+                "email_address": "user@example.com",
+                "profession": "engineer",
+                "terms_of_service": TOSAgreement.schema().get('example'),
+                "status": "active",
+                "address": Address.schema().get('example'),
+                "govt_id": KYCFile.schema().get('example'),
+                "proof_of_address": None,
+                "proof_of_life": None,
+                "beneficiaries": [
+                    Beneficiary.schema().get('example'),
+                ],
+                "platform_id": "string",
+            }
+        }
+
     @classmethod
     def create(
         cls,
