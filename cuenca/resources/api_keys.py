@@ -15,6 +15,18 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
     deactivated_at: Optional[dt.datetime]
     user_id: Optional[str]
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "id": "AK-123",
+                "updated_at": "2021-08-24T14:15:22Z",
+                "created_at": "2021-08-24T14:15:22Z",
+                "secret": "super-secret-random-string",
+                "deactivated_at": None,
+                "user_id": "US-123",
+            }
+        }
+
     @property
     def active(self) -> bool:
         return (

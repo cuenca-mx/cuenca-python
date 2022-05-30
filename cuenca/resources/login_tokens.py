@@ -7,6 +7,9 @@ from .base import Creatable
 class LoginToken(Creatable):
     _resource: ClassVar = 'login_tokens'
 
+    class Config:
+        schema_extra = {"example": {"id": "LT-123"}}
+
     @classmethod
     def create(cls, session: Session = global_session) -> 'LoginToken':
         """

@@ -20,6 +20,20 @@ class Session(Creatable, Retrievable, Queryable):
     failure_url: Optional[AnyUrl]
     type: Optional[SessionType]
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "id": "SE-123",
+                "created_at": "2022-08-24T14:15:22Z",
+                "user_id": "US-123",
+                "platform_id": "PT-123",
+                "expires_at": "2022-08-24T14:30:22Z",
+                "success_url": "http://example_success.com",
+                "failure_url": "http://example_failure.com",
+                "type": "session.registration",
+            }
+        }
+
     @classmethod
     def create(
         cls,

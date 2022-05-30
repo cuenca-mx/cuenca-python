@@ -13,6 +13,15 @@ class UserLogin(Creatable):
     last_login_at: Optional[dt.datetime]
     success: bool
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "id": "UL-123",
+                "last_login_at": "2022-01-01T14:15:22Z",
+                "success": True,
+            }
+        }
+
     @classmethod
     def create(
         cls, password: str, *, session: Session = global_session
