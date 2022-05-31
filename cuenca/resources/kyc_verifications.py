@@ -26,9 +26,9 @@ class KYCVerification(Creatable, Retrievable, Updateable):
     class Config:
         schema_extra = {
             "example": {
-                "id": "KV-123",
+                "id": "KVNEUInh69SuKXXmK95sROwQ",
                 "updated_at": "2020-05-24T14:15:22Z",
-                "platform_id": "PT-123",
+                "platform_id": "PT8UEv02zBTcymd4Kd3MO6pg",
                 "created_at": "2020-05-24T14:15:22Z",
                 "verification_id": "string",
                 "curp": "GOCG650418HVZNML08",

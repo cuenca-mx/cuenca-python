@@ -56,7 +56,7 @@ class CurpValidation(Creatable, Retrievable):
         }
         schema_extra = {
             "example": {
-                "id": "CV-123",
+                "id": "CVNEUInh69SuKXXmK95sROwQ",
                 "created_at": "2019-08-24T14:15:22Z",
                 "names": "Guillermo",
                 "first_surname": "Gonzales",

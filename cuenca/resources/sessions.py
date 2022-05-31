@@ -23,10 +23,10 @@ class Session(Creatable, Retrievable, Queryable):
     class Config:
         schema_extra = {
             "example": {
-                "id": "SE-123",
+                "id": "SENEUInh69SuKXXmK95sROwQ",
                 "created_at": "2022-08-24T14:15:22Z",
-                "user_id": "US-123",
-                "platform_id": "PT-123",
+                "user_id": "USWqY5cvkISJOxHyEKjAKf8w",
+                "platform_id": "PT8UEv02zBTcymd4Kd3MO6pg",
                 "expires_at": "2022-08-24T14:30:22Z",
                 "success_url": "http://example_success.com",
                 "failure_url": "http://example_failure.com",

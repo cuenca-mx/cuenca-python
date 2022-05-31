@@ -66,7 +66,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
                 "id": "string",
                 "created_at": "2019-08-24T14:15:22Z",
                 "updated_at": "2019-08-24T14:15:22Z",
-                "identity_uri": "identities/ID-123",
+                "identity_uri": "identities/IDNEUInh69SuKXXmK95sROwQ",
                 "level": 2,
                 "phone_number": "+525511223344",
                 "email_address": "user@example.com",
