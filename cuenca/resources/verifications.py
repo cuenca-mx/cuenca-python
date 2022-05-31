@@ -21,6 +21,18 @@ class Verification(Creatable, Updateable):
     created_at: dt.datetime
     deactivated_at: Optional[dt.datetime]
 
+    class Config:
+        fields = {'recipient': {'description': 'Phone or email to validate'}}
+        schema_extra = {
+            "example": {
+                "id": "VE-123",
+                "recipient": "user@example.com",
+                "type": "email",
+                "created_at": "2022-05-24T14:15:22Z",
+                "deactivated_at": None,
+            }
+        }
+
     @classmethod
     def create(
         cls,
