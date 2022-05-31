@@ -23,6 +23,20 @@ class KYCVerification(Creatable, Retrievable, Updateable):
     rfc: Optional[Rfc] = None
     address: Optional[Address] = None
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "id": "KV-123",
+                "updated_at": "2020-05-24T14:15:22Z",
+                "platform_id": "PT-123",
+                "created_at": "2020-05-24T14:15:22Z",
+                "verification_id": "string",
+                "curp": "GOCG650418HVZNML08",
+                "rfc": "GOCG650418123",
+                "address": Address.schema().get('example'),
+            }
+        }
+
     @classmethod
     def create(cls, session: Session = global_session) -> 'KYCVerification':
         return cast('KYCVerification', cls._create(session=session))
