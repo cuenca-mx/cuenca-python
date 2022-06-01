@@ -2,13 +2,11 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import ApiKeyQuery, ApiKeyUpdateRequest
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable, Updateable
 
 
-@dataclass
 class ApiKey(Creatable, Queryable, Retrievable, Updateable):
     _resource: ClassVar = 'api_keys'
     _query_params: ClassVar = ApiKeyQuery
@@ -16,6 +14,18 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
     secret: str
     deactivated_at: Optional[dt.datetime]
     user_id: Optional[str]
+
+    class Config:
+        schema_extra = {
+            'example': {
+                'id': 'AKNEUInh69SuKXXmK95sROwQ',
+                'updated_at': '2021-08-24T14:15:22Z',
+                'created_at': '2021-08-24T14:15:22Z',
+                'secret': 'super-secret-random-string',
+                'deactivated_at': None,
+                'user_id': 'USWqY5cvkISJOxHyEKjAKf8w',
+            }
+        }
 
     @property
     def active(self) -> bool:

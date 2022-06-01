@@ -1,5 +1,4 @@
 import datetime as dt
-from dataclasses import dataclass
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import (
@@ -13,7 +12,6 @@ from cuenca_validations.types import (
 from .base import Updateable, Wallet
 
 
-@dataclass
 class Saving(Wallet, Updateable):
     _resource: ClassVar = 'savings'
     _query_params: ClassVar = WalletQuery

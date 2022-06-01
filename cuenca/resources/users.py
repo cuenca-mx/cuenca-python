@@ -17,7 +17,6 @@ from cuenca_validations.types import (
 )
 from cuenca_validations.types.identities import CurpField
 from pydantic import EmailStr
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable, Updateable
@@ -25,7 +24,6 @@ from .identities import Identity
 from .resources import retrieve_uri
 
 
-@dataclass
 class User(Creatable, Retrievable, Updateable, Queryable):
     _resource: ClassVar = 'users'
     _query_params: ClassVar = UserQuery
@@ -44,6 +42,47 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     proof_of_life: Optional[KYCFile]
     beneficiaries: Optional[List[Beneficiary]]
     platform_id: Optional[str] = None
+
+    class Config:
+        fields = {
+            'level': {
+                'description': 'Account level according to KYC information'
+            },
+            'govt_id': {
+                'description': 'Detail of government id document validation'
+            },
+            'proof_of_address': {
+                'description': 'Detail of proof of address document validation'
+            },
+            'proof_of_life': {
+                'description': 'Detail of selfie video validation'
+            },
+            'beneficiaries': {
+                'description': 'Beneficiaries of account in case of death'
+            },
+        }
+        schema_extra = {
+            'example': {
+                'id': 'USWqY5cvkISJOxHyEKjAKf8w',
+                'created_at': '2019-08-24T14:15:22Z',
+                'updated_at': '2019-08-24T14:15:22Z',
+                'identity_uri': 'identities/IDNEUInh69SuKXXmK95sROwQ',
+                'level': 2,
+                'phone_number': '+525511223344',
+                'email_address': 'user@example.com',
+                'profession': 'engineer',
+                'terms_of_service': TOSAgreement.schema().get('example'),
+                'status': 'active',
+                'address': Address.schema().get('example'),
+                'govt_id': KYCFile.schema().get('example'),
+                'proof_of_address': None,
+                'proof_of_life': None,
+                'beneficiaries': [
+                    Beneficiary.schema().get('example'),
+                ],
+                'platform_id': 'PT8UEv02zBTcymd4Kd3MO6pg',
+            }
+        }
 
     @classmethod
     def create(

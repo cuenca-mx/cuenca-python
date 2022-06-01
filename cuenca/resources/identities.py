@@ -12,12 +12,10 @@ from cuenca_validations.types import (
     VerificationStatus,
 )
 from cuenca_validations.types.identities import CurpField
-from pydantic.dataclasses import dataclass
 
 from .base import Queryable, Retrievable
 
 
-@dataclass
 class Identity(Retrievable, Queryable):
     _resource: ClassVar = 'identities'
     _query_params: ClassVar = IdentityQuery

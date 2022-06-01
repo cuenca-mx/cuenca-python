@@ -1,5 +1,4 @@
 import datetime as dt
-from dataclasses import dataclass
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types.requests import CardActivationRequest
@@ -10,7 +9,6 @@ from .cards import Card
 from .resources import retrieve_uri
 
 
-@dataclass
 class CardActivation(Creatable):
     _resource: ClassVar = 'card_activations'
 

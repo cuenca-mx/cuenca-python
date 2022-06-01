@@ -1,7 +1,6 @@
 import base64
 import datetime as dt
 import json
-from dataclasses import asdict, dataclass, fields
 from io import BytesIO
 from typing import ClassVar, Dict, Generator, Optional, Union
 from urllib.parse import urlencode
@@ -13,20 +12,16 @@ from cuenca_validations.types import (
     TransactionQuery,
     TransactionStatus,
 )
+from pydantic import BaseModel
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import Session, session as global_session
 
 
-@dataclass
-class Resource:
+class Resource(BaseModel):
     _resource: ClassVar[str]
 
     id: str
-
-    # purely for MyPy
-    def __init__(self, **_):  # pragma: no cover
-        ...
 
     @classmethod
     def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> 'Resource':
@@ -40,12 +35,14 @@ class Resource:
         method allows the API to add fields in the response body without
         breaking the client
         """
-        excess = set(obj_dict.keys()) - {f.name for f in fields(cls)}
+        excess = set(obj_dict.keys()) - set(
+            cls.schema().get("properties").keys()
+        )
         for f in excess:
             del obj_dict[f]
 
     def to_dict(self):
-        return asdict(self, dict_factory=SantizedDict)
+        return SantizedDict(self.dict())
 
 
 class Retrievable(Resource):
@@ -69,7 +66,6 @@ class Creatable(Resource):
         return cls._from_dict(resp)
 
 
-@dataclass
 class Updateable(Resource):
 
     updated_at: dt.datetime
@@ -82,7 +78,6 @@ class Updateable(Resource):
         return cls._from_dict(resp)
 
 
-@dataclass
 class Deactivable(Resource):
     deactivated_at: Optional[dt.datetime]
 
@@ -98,7 +93,6 @@ class Deactivable(Resource):
         return not self.deactivated_at
 
 
-@dataclass
 class Downloadable(Resource):
     @classmethod
     def download(
@@ -124,7 +118,6 @@ class Downloadable(Resource):
         return self.download(self, file_format=FileFormat.xml).read()
 
 
-@dataclass
 class Uploadable(Resource):
     @classmethod
     def _upload(
@@ -148,7 +141,6 @@ class Uploadable(Resource):
         return cls._from_dict(json.loads(resp))
 
 
-@dataclass
 class Queryable(Resource):
     _query_params: ClassVar = QueryParams
 
@@ -203,7 +195,6 @@ class Queryable(Resource):
             next_page_uri = page['next_page_uri']
 
 
-@dataclass
 class Transaction(Retrievable, Queryable):
     _query_params: ClassVar = TransactionQuery
 
@@ -213,7 +204,6 @@ class Transaction(Retrievable, Queryable):
     descriptor: str  # how it appears for the customer
 
 
-@dataclass
 class Wallet(Creatable, Deactivable, Retrievable, Queryable):
     user_id: str
     balance: int

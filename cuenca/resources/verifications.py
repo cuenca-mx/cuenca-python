@@ -8,13 +8,11 @@ from cuenca_validations.types import (
 )
 from cuenca_validations.types.identities import PhoneNumber
 from pydantic import EmailStr
-from pydantic.dataclasses import dataclass
 
 from ..http import Session, session as global_session
 from .base import Creatable, Updateable
 
 
-@dataclass
 class Verification(Creatable, Updateable):
     _resource: ClassVar = 'verifications'
 
@@ -22,6 +20,18 @@ class Verification(Creatable, Updateable):
     type: VerificationType
     created_at: dt.datetime
     deactivated_at: Optional[dt.datetime]
+
+    class Config:
+        fields = {'recipient': {'description': 'Phone or email to validate'}}
+        schema_extra = {
+            'example': {
+                'id': 'VENEUInh69SuKXXmK95sROwQ',
+                'recipient': 'user@example.com',
+                'type': 'email',
+                'created_at': '2022-05-24T14:15:22Z',
+                'deactivated_at': None,
+            }
+        }
 
     @classmethod
     def create(

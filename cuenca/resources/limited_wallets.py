@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from typing import ClassVar, Optional, cast
 
 from clabe import Clabe
@@ -12,7 +11,6 @@ from cuenca_validations.types import (
 from .base import Wallet
 
 
-@dataclass
 class LimitedWallet(Wallet):
     _resource: ClassVar = 'limited_wallets'
     _query_params: ClassVar = AccountQuery

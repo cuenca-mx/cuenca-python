@@ -3,13 +3,11 @@ from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import SessionRequest, SessionType
 from pydantic import AnyUrl
-from pydantic.dataclasses import dataclass
 
 from .. import http
 from .base import Creatable, Queryable, Retrievable
 
 
-@dataclass
 class Session(Creatable, Retrievable, Queryable):
     _resource: ClassVar = 'sessions'
 
@@ -21,6 +19,20 @@ class Session(Creatable, Retrievable, Queryable):
     success_url: Optional[AnyUrl]
     failure_url: Optional[AnyUrl]
     type: Optional[SessionType]
+
+    class Config:
+        schema_extra = {
+            'example': {
+                'id': 'SENEUInh69SuKXXmK95sROwQ',
+                'created_at': '2022-08-24T14:15:22Z',
+                'user_id': 'USWqY5cvkISJOxHyEKjAKf8w',
+                'platform_id': 'PT8UEv02zBTcymd4Kd3MO6pg',
+                'expires_at': '2022-08-24T14:30:22Z',
+                'success_url': 'http://example_success.com',
+                'failure_url': 'http://example_failure.com',
+                'type': 'session.registration',
+            }
+        }
 
     @classmethod
     def create(

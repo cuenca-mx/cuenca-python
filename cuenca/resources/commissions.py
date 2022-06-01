@@ -1,7 +1,6 @@
 from typing import ClassVar, cast
 
 from cuenca_validations.types import CommissionType, EntryType
-from pydantic.dataclasses import dataclass
 
 from .base import Transaction
 from .resources import retrieve_uri
@@ -9,7 +8,6 @@ from .resources import retrieve_uri
 mapper = {CommissionType.cash_deposit: EntryType.credit}
 
 
-@dataclass
 class Commission(Transaction):
     _resource: ClassVar = 'commissions'
 
