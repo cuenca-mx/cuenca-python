@@ -24,12 +24,12 @@ class Verification(Creatable, Updateable):
     class Config:
         fields = {'recipient': {'description': 'Phone or email to validate'}}
         schema_extra = {
-            "example": {
-                "id": "VENEUInh69SuKXXmK95sROwQ",
-                "recipient": "user@example.com",
-                "type": "email",
-                "created_at": "2022-05-24T14:15:22Z",
-                "deactivated_at": None,
+            'example': {
+                'id': 'VENEUInh69SuKXXmK95sROwQ',
+                'recipient': 'user@example.com',
+                'type': 'email',
+                'created_at': '2022-05-24T14:15:22Z',
+                'deactivated_at': None,
             }
         }
 

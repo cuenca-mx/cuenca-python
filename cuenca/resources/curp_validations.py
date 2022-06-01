@@ -55,22 +55,22 @@ class CurpValidation(Creatable, Retrievable):
             },
         }
         schema_extra = {
-            "example": {
-                "id": "CVNEUInh69SuKXXmK95sROwQ",
-                "created_at": "2019-08-24T14:15:22Z",
-                "names": "Guillermo",
-                "first_surname": "Gonzales",
-                "second_surname": "Camarena",
-                "date_of_birth": "1965-04-18",
-                "country_of_birth": "MX",
-                "state_of_birth": "VZ",
-                "gender": "male",
-                "nationality": "MX",
-                "manual_curp": None,
-                "calculated_curp": "GOCG650418HVZNML08",
-                "validated_curp": "GOCG650418HVZNML08",
-                "renapo_curp_match": True,
-                "renapo_full_match": True,
+            'example': {
+                'id': 'CVNEUInh69SuKXXmK95sROwQ',
+                'created_at': '2019-08-24T14:15:22Z',
+                'names': 'Guillermo',
+                'first_surname': 'Gonzales',
+                'second_surname': 'Camarena',
+                'date_of_birth': '1965-04-18',
+                'country_of_birth': 'MX',
+                'state_of_birth': 'VZ',
+                'gender': 'male',
+                'nationality': 'MX',
+                'manual_curp': None,
+                'calculated_curp': 'GOCG650418HVZNML08',
+                'validated_curp': 'GOCG650418HVZNML08',
+                'renapo_curp_match': True,
+                'renapo_full_match': True,
             }
         }
 

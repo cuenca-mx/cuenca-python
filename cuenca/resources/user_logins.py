@@ -15,10 +15,10 @@ class UserLogin(Creatable):
 
     class Config:
         schema_extra = {
-            "example": {
-                "id": "ULNEUInh69SuKXXmK95sROwQ",
-                "last_login_at": "2022-01-01T14:15:22Z",
-                "success": True,
+            'example': {
+                'id': 'ULNEUInh69SuKXXmK95sROwQ',
+                'last_login_at': '2022-01-01T14:15:22Z',
+                'success': True,
             }
         }
 

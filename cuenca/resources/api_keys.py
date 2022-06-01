@@ -17,13 +17,13 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
 
     class Config:
         schema_extra = {
-            "example": {
-                "id": "AKNEUInh69SuKXXmK95sROwQ",
-                "updated_at": "2021-08-24T14:15:22Z",
-                "created_at": "2021-08-24T14:15:22Z",
-                "secret": "super-secret-random-string",
-                "deactivated_at": None,
-                "user_id": "USWqY5cvkISJOxHyEKjAKf8w",
+            'example': {
+                'id': 'AKNEUInh69SuKXXmK95sROwQ',
+                'updated_at': '2021-08-24T14:15:22Z',
+                'created_at': '2021-08-24T14:15:22Z',
+                'secret': 'super-secret-random-string',
+                'deactivated_at': None,
+                'user_id': 'USWqY5cvkISJOxHyEKjAKf8w',
             }
         }
 

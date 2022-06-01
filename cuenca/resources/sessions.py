@@ -22,15 +22,15 @@ class Session(Creatable, Retrievable, Queryable):
 
     class Config:
         schema_extra = {
-            "example": {
-                "id": "SENEUInh69SuKXXmK95sROwQ",
-                "created_at": "2022-08-24T14:15:22Z",
-                "user_id": "USWqY5cvkISJOxHyEKjAKf8w",
-                "platform_id": "PT8UEv02zBTcymd4Kd3MO6pg",
-                "expires_at": "2022-08-24T14:30:22Z",
-                "success_url": "http://example_success.com",
-                "failure_url": "http://example_failure.com",
-                "type": "session.registration",
+            'example': {
+                'id': 'SENEUInh69SuKXXmK95sROwQ',
+                'created_at': '2022-08-24T14:15:22Z',
+                'user_id': 'USWqY5cvkISJOxHyEKjAKf8w',
+                'platform_id': 'PT8UEv02zBTcymd4Kd3MO6pg',
+                'expires_at': '2022-08-24T14:30:22Z',
+                'success_url': 'http://example_success.com',
+                'failure_url': 'http://example_failure.com',
+                'type': 'session.registration',
             }
         }
 

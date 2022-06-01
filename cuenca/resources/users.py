@@ -62,25 +62,25 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             },
         }
         schema_extra = {
-            "example": {
-                "id": "string",
-                "created_at": "2019-08-24T14:15:22Z",
-                "updated_at": "2019-08-24T14:15:22Z",
-                "identity_uri": "identities/IDNEUInh69SuKXXmK95sROwQ",
-                "level": 2,
-                "phone_number": "+525511223344",
-                "email_address": "user@example.com",
-                "profession": "engineer",
-                "terms_of_service": TOSAgreement.schema().get('example'),
-                "status": "active",
-                "address": Address.schema().get('example'),
-                "govt_id": KYCFile.schema().get('example'),
-                "proof_of_address": None,
-                "proof_of_life": None,
-                "beneficiaries": [
+            'example': {
+                'id': 'USWqY5cvkISJOxHyEKjAKf8w',
+                'created_at': '2019-08-24T14:15:22Z',
+                'updated_at': '2019-08-24T14:15:22Z',
+                'identity_uri': 'identities/IDNEUInh69SuKXXmK95sROwQ',
+                'level': 2,
+                'phone_number': '+525511223344',
+                'email_address': 'user@example.com',
+                'profession': 'engineer',
+                'terms_of_service': TOSAgreement.schema().get('example'),
+                'status': 'active',
+                'address': Address.schema().get('example'),
+                'govt_id': KYCFile.schema().get('example'),
+                'proof_of_address': None,
+                'proof_of_life': None,
+                'beneficiaries': [
                     Beneficiary.schema().get('example'),
                 ],
-                "platform_id": "string",
+                'platform_id': 'PT8UEv02zBTcymd4Kd3MO6pg',
             }
         }
 
