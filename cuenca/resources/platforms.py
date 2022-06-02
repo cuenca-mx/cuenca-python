@@ -1,11 +1,10 @@
 import datetime as dt
 from typing import ClassVar, cast
 
-from pydantic import BaseModel
+from cuenca_validations.types import PlatformRequest
 
 from ..http import Session, session as global_session
 from .base import Creatable
-from cuenca_validations.types import PlatformRequest
 
 
 class Platform(Creatable):
