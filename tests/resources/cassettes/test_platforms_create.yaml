@@ -1,0 +1,54 @@
+interactions:
+- request:
+    body: '{"name": "Test"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '16'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.10.1.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULev1mLmNST6ie3wcket7c-w
+    method: POST
+    uri: https://sandbox.cuenca.com/platforms
+  response:
+    body:
+      string: '{"id":"PTE_7V8Wj2Rau85dTgtlgG8w","created_at":"2022-06-02T23:42:25.491767","name":"Test"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '89'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 02 Jun 2022 23:42:25 GMT
+      X-Request-Time:
+      - 'value: 0.447'
+      x-amz-apigw-id:
+      - THijNFxtIAMFTpA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '89'
+      x-amzn-Remapped-Date:
+      - Thu, 02 Jun 2022 23:42:25 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-RequestId:
+      - 506fba75-65ae-4d29-896d-8f5838835721
+    status:
+      code: 201
+      message: Created
+version: 1
