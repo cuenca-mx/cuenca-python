@@ -28,4 +28,4 @@ class Platform(Creatable):
     @classmethod
     def create(cls, name, *, session: Session = global_session):
         req = PlatformRequest(name=name)
-        return cast('Platform', cls._create(session=session, **req))
+        return cast('Platform', cls._create(session=session, **req.dict()))
