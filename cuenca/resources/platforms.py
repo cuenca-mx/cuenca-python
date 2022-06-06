@@ -27,9 +27,7 @@ class Platform(Creatable):
             },
             'country': {'description': 'country where the platform resides'},
             'state': {'description': 'state where the platform resides'},
-            'economic_activity': {
-                'description': 'what the platform does'
-            },
+            'economic_activity': {'description': 'what the platform does'},
         }
         schema_extra = {
             'example': {
@@ -45,6 +43,23 @@ class Platform(Creatable):
         }
 
     @classmethod
-    def create(cls, name, *, session: Session = global_session):
-        req = PlatformRequest(name=name)
+    def create(
+        cls,
+        name: str,
+        rfc_curp: Optional[str] = None,
+        establishment_date: Optional[str] = None,
+        country: Optional[Country] = None,
+        state: Optional[State] = None,
+        economic_activity: Optional[str] = None,
+        *,
+        session: Session = global_session,
+    ):
+        req = PlatformRequest(
+            name=name,
+            rfc_curp=rfc_curp,
+            establishment_date=establishment_date,
+            country=country,
+            state=state,
+            economic_activity=economic_activity,
+        )
         return cast('Platform', cls._create(session=session, **req.dict()))
