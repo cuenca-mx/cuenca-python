@@ -13,7 +13,7 @@ class Platform(Creatable):
     created_at: dt.datetime
     name: str
     rfc_curp: Optional[str] = None
-    establishment_date: Optional[str] = None
+    establishment_date: Optional[dt.date] = None
     country: Optional[Country] = None
     state: Optional[State] = None
     economic_activity: Optional[str] = None
@@ -21,14 +21,14 @@ class Platform(Creatable):
     class Config:
         fields = {
             'name': {'description': 'name of the platform being created'},
-            'rfc_curp': {'description': 'name of the platform being created'},
+            'rfc_curp': {'description': 'RFC or CURP of the platform'},
             'establishment_date': {
-                'description': 'name of the platform being created'
+                'description': 'when the platform was established'
             },
-            'country': {'description': 'name of the platform being created'},
-            'state': {'description': 'name of the platform being created'},
+            'country': {'description': 'country where the platform resides'},
+            'state': {'description': 'state where the platform resides'},
             'economic_activity': {
-                'description': 'name of the platform being created'
+                'description': 'what the platform does'
             },
         }
         schema_extra = {
