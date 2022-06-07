@@ -68,8 +68,8 @@ interactions:
     uri: https://sandbox.cuenca.com/users?identity=IDzqdGEBX_SMScteGcRDNtOg
   response:
     body:
-      string: '{"items":[{"id":"US1234","created_at":"2022-05-05T18:35:14.597000","updated_at":"2022-05-19T23:40:30.372000","identity_uri":"/identities/IDzqdGEBX_SMScteGcRDNtOg","level":2,"phone_number":"+525581181390","email_address":"alan@cuenca.com","profession":"employee","terms_of_service":{"version":"2022-01-01","ip":"201.141.24.14","location":null},"status":"active","address":{"street":null,"ext_number":null,"postal_code":null,"state":null,"country":null,"city":null,"int_number":null,"full_name":"RTNO
-        1"},"govt_id":{"type":"ine","is_mx":true,"uri_front": "cuenca.com", "uri_back":"cuenca.com","data":{}},"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"platform_id":"PTSFitwBYWROu-dAziDnSr4Q"}],"next_page_uri":null,"count":null,"fields":{"items":{"description":"List
+      string: '{"items":[{"id":"US1234","created_at":"2022-05-05T18:35:14.597000","updated_at":"2022-05-19T23:40:30.372000","identity_uri":"/identities/IDzqdGEBX_SMScteGcRDNtOg","level":2,"phone_number":"+525512345678","email_address":"alan@cuenca.com","profession":"employee","terms_of_service":{"version":"2022-01-01","ip":"201.141.24.14","location":null},"status":"active","address":{"street":null,"ext_number":null,"postal_code":null,"state":null,"country":null,"city":null,"int_number":null,"full_name":"RTNO
+        1"},"govt_id":{"type":"ine","is_mx":true,"uri_front": "cuenca.com", "uri_back":"cuenca.com","data":{}},"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"platform_id":"PT12334"}],"next_page_uri":null,"count":null,"fields":{"items":{"description":"List
         of Users that match with query filters"},"next_page_uri":{"description":"URL
         to fetch the next page of results"},"count":{"description":"Counter of Users
         objects that match with query filters.  \nIncluded in response only if `count`

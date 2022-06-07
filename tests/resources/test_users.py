@@ -53,4 +53,4 @@ def test_user_query_by_identity_id():
     users = [user for user in User.all(identity=identity_id)]
 
     assert identity_id in user.identity_uri
-    assert user.id == users[0].id
+    assert user == users[0]
