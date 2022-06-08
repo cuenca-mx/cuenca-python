@@ -30,8 +30,12 @@ class Platform(Creatable):
             'country': {'description': 'country where the platform resides'},
             'state': {'description': 'state where the platform resides'},
             'economic_activity': {'description': 'what the platform does'},
-            'phone_number': {'description': 'phone number to contact the platform'},
-            'email_address': {'description': 'email address to contact the platform'},
+            'phone_number': {
+                'description': 'phone number to contact the platform'
+            },
+            'email_address': {
+                'description': 'email address to contact the platform'
+            },
         }
         schema_extra = {
             'example': {
