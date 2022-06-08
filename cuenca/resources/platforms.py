@@ -61,6 +61,8 @@ class Platform(Creatable):
         country: Optional[Country] = None,
         state: Optional[State] = None,
         economic_activity: Optional[str] = None,
+        phone_number: Optional[str] = None,
+        email_address: Optional[str] = None,
         *,
         session: Session = global_session,
     ) -> 'Platform':
@@ -71,5 +73,7 @@ class Platform(Creatable):
             country=country,
             state=state,
             economic_activity=economic_activity,
+            phone_number=phone_number,
+            email_address=email_address,
         )
         return cast('Platform', cls._create(session=session, **req.dict()))
