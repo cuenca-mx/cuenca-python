@@ -49,8 +49,16 @@ def test_user_identity_retrieve():
 @pytest.mark.vcr
 def test_user_query_by_identity_id():
     identity_id = 'IDzqdGEBX_SMScteGcRDNtOg'
-    user = User.first(identity=identity_id)
-    users = [user for user in User.all(identity=identity_id)]
+    user = User.first(identity_uri=identity_id)
 
     assert identity_id in user.identity_uri
-    assert user == users[0]
+
+
+@pytest.mark.vcr
+def test_user_query_all_identity_id():
+    identity_id = 'IDzqdGEBX_SMScteGcRDNtOg'
+    users = [user for user in User.all(identity_uri=identity_id)]
+
+    assert len(users) == 2
+    assert users[0].id != users[1].id
+    assert users[0].identity_uri == users[1].identity_uri
