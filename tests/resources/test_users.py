@@ -44,3 +44,19 @@ def test_user_identity_retrieve():
     assert user_id == user.id
     identity = user.identity
     assert identity.id is not None
+
+
+@pytest.mark.vcr
+def test_user_query_by_identity_id():
+    identity_id = 'IDzqdGEBX_SMScteGcRDNtOg'
+    user = User.first(identity_uri=identity_id)
+    assert identity_id in user.identity_uri
+
+
+@pytest.mark.vcr
+def test_user_query_all_identity_id():
+    identity_id = 'IDzqdGEBX_SMScteGcRDNtOg'
+    users = [user for user in User.all(identity_uri=identity_id)]
+    assert len(users) == 2
+    assert users[0].id != users[1].id
+    assert users[0].identity_uri == users[1].identity_uri
