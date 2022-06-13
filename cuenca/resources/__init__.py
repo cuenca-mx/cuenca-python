@@ -19,6 +19,7 @@ __all__ = [
     'KYCVerification',
     'LimitedWallet',
     'LoginToken',
+    'Platform',
     'Saving',
     'ServiceProvider',
     'Session',
@@ -53,6 +54,7 @@ from .identity_events import IdentityEvent
 from .kyc_verifications import KYCVerification
 from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
+from .platforms import Platform
 from .resources import RESOURCES
 from .savings import Saving
 from .service_providers import ServiceProvider
@@ -103,6 +105,7 @@ resource_classes = [
     WalletTransaction,
     WhatsappTransfer,
     Webhook,
+    Platform,
 ]
 for resource_cls in resource_classes:
     RESOURCES[resource_cls._resource] = resource_cls  # type: ignore
