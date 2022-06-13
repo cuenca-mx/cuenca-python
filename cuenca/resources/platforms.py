@@ -12,7 +12,7 @@ class Platform(Creatable):
 
     created_at: dt.datetime
     name: str
-    rfc_curp: Optional[str] = None
+    rfc: Optional[str] = None
     establishment_date: Optional[dt.date] = None
     country: Optional[Country] = None
     state: Optional[State] = None
@@ -23,7 +23,7 @@ class Platform(Creatable):
     class Config:
         fields = {
             'name': {'description': 'name of the platform being created'},
-            'rfc_curp': {'description': 'RFC or CURP of the platform'},
+            'rfc': {'description': 'RFC or CURP of the platform'},
             'establishment_date': {
                 'description': 'when the platform was established'
             },
@@ -42,7 +42,7 @@ class Platform(Creatable):
                 'id': 'PT0123456789',
                 'name': 'Arteria',
                 'created_at': '2021-08-24T14:15:22Z',
-                'rfc_curp': 'ART123456FFF',
+                'rfc': 'ART123456FFF',
                 'establishment_date': '2021-08-24T14:15:22Z',
                 'country': 'MX',
                 'state': 'DF',
@@ -56,7 +56,7 @@ class Platform(Creatable):
     def create(
         cls,
         name: str,
-        rfc_curp: Optional[str] = None,
+        rfc: Optional[str] = None,
         establishment_date: Optional[str] = None,
         country: Optional[Country] = None,
         state: Optional[State] = None,
@@ -68,7 +68,7 @@ class Platform(Creatable):
     ) -> 'Platform':
         req = PlatformRequest(
             name=name,
-            rfc_curp=rfc_curp,
+            rfc=rfc,
             establishment_date=establishment_date,
             country=country,
             state=state,
