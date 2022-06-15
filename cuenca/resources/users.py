@@ -30,6 +30,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
 
     identity_uri: str
     level: int
+    required_level: int
     created_at: dt.datetime
     phone_number: Optional[PhoneNumber]
     email_address: Optional[EmailStr]
@@ -47,6 +48,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         fields = {
             'level': {
                 'description': 'Account level according to KYC information'
+            },
+            'required_level': {
+                'description': 'Maximum level User can reach. Set by platform'
             },
             'govt_id': {
                 'description': 'Detail of government id document validation'
@@ -68,6 +72,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
                 'updated_at': '2019-08-24T14:15:22Z',
                 'identity_uri': 'identities/IDNEUInh69SuKXXmK95sROwQ',
                 'level': 2,
+                'required_level': 3,
                 'phone_number': '+525511223344',
                 'email_address': 'user@example.com',
                 'profession': 'engineer',
@@ -94,6 +99,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         address: Optional[Address] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
+        required_level: Optional[int] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
@@ -105,6 +111,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             address=address,
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
+            required_level=required_level,
         )
         return cast('User', cls._create(session=session, **req.dict()))
 
