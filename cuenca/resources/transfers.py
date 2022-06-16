@@ -26,6 +26,7 @@ class Transfer(Transaction, Creatable):
     network: TransferNetwork
     destination_uri: str
     tracking_key: Optional[str]  # clave rastreo if network is SPEI
+    user_id: Optional[str]
 
     @property  # type: ignore
     def destination(self) -> Account:
