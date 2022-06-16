@@ -39,6 +39,7 @@ class Transfer(Transaction, Creatable):
         descriptor: str,
         recipient_name: str,
         idempotency_key: Optional[str] = None,
+        user_id: Optional[str] = None,
     ) -> 'Transfer':
         """
         :param account_number: CLABE
@@ -47,6 +48,7 @@ class Transfer(Transaction, Creatable):
         :param recipient_name: name of recipient
         :param idempotency_key: must be unique for each transfer to avoid
             duplicates
+        :param user_id: Source user to take the funds
         :return: Transfer object
 
         The recommended idempotency_key scheme:
@@ -65,6 +67,7 @@ class Transfer(Transaction, Creatable):
             descriptor=descriptor,
             recipient_name=recipient_name,
             idempotency_key=idempotency_key,
+            user_id=user_id,
         )
         return cast('Transfer', cls._create(**req.dict()))
 
