@@ -1,0 +1,98 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.13.0.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/users/USlen-v7UQSqqZTGVe3vQmLQ
+  response:
+    body:
+      string: '{"id":"USlen-v7UQSqqZTGVe3vQmLQ","created_at":"2022-06-16T17:25:41.983000","updated_at":"2022-06-16T17:28:15.920000","identity_uri":"/identities/IDtyYLgoJTRZq2xAabU5Mbzg","level":1,"required_level":4,"phone_number":"+525511223344","email_address":"jose@test.com","profession":"employee","terms_of_service":{"version":"2021-02-01","ip":"201.141.118.106","location":"9.3953792,-99.139584,12"},"status":"active","address":{"street":"calle
+        1","ext_number":"2","postal_code":"09900","state":"DF","country":"MX","city":null,"int_number":"3","full_name":null},"govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":null,"platform_id":"PTW68GgAc_QPmNCmgajmctLg","clabe":"646180157078771514"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '704'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 16 Jun 2022 18:10:07 GMT
+      x-amz-apigw-id:
+      - T06_7HcyIAMFojg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '704'
+      x-amzn-Remapped-Date:
+      - Thu, 16 Jun 2022 18:10:07 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-RequestId:
+      - 6ddcf474-f95c-453f-9529-f9558c88f45c
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.13.0.dev1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/balance_entries?limit=1&user_id=USlen-v7UQSqqZTGVe3vQmLQ
+  response:
+    body:
+      string: '{"items":[{"id":"LE2RIZfRqk2PKqgT3iKTODZF","created_at":"2022-06-16T17:28:43.893000","user_id":"USlen-v7UQSqqZTGVe3vQmLQ","name":"TECNOLOGIA
+        EN ENTRETENIMIENTO CALIPLAY S","amount":10000,"descriptor":"Test2","rolling_balance":10000,"type":"credit","related_transaction_uri":"/deposits/SP2XLNMGbLt795Wy8hrCrLL","funding_instrument_uri":"/accounts/ACr66xA29pWqOQOs3FLkH6oA","wallet_id":"default"}],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '417'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 16 Jun 2022 18:10:16 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-62ab7204-4c26d5e13c22e8ff1cc811d8;Sampled=0
+      X-Request-Time:
+      - 'value: 3.708'
+      x-amz-apigw-id:
+      - T07AwHGFIAMF5KA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '417'
+      x-amzn-Remapped-Date:
+      - Thu, 16 Jun 2022 18:10:16 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 480430da-0659-4277-a370-cb50f9c04dd0
+      x-amzn-RequestId:
+      - 9cad408b-e641-4cec-b289-7422a65b07f1
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -12,6 +12,8 @@ def test_user_create(user_request, curp_validation_request):
     user = User.create(**user_request)
     assert user.id is not None
     assert user.level == 0
+    assert not user.clabe
+    assert user.balance == 0
 
 
 @pytest.mark.vcr
@@ -35,6 +37,14 @@ def test_user_update():
     )
     user = User.update(user_id, **changes)
     assert all(item in user.to_dict().keys() for item in changes.keys())
+
+
+@pytest.mark.vcr
+def test_user_fetch_balance(user_request, curp_validation_request):
+    user_id = 'USlen-v7UQSqqZTGVe3vQmLQ'
+    user = User.retrieve(user_id)
+    assert user.clabe
+    assert user.balance == 10000
 
 
 @pytest.mark.vcr
