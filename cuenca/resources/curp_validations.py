@@ -77,12 +77,12 @@ class CurpValidation(Creatable, Retrievable):
     @classmethod
     def create(
         cls,
-        names: Optional[str],
-        first_surname: Optional[str],
-        date_of_birth: Optional[dt.date],
-        country_of_birth: Optional[str],
-        state_of_birth: Optional[State],
-        gender: Optional[Gender],
+        names: Optional[str] = None,
+        first_surname: Optional[str] = None,
+        date_of_birth: Optional[dt.date] = None,
+        country_of_birth: Optional[str] = None,
+        state_of_birth: Optional[State] = None,
+        gender: Optional[Gender] = None,
         second_surname: Optional[str] = None,
         manual_curp: Optional[CurpField] = None,
         *,
