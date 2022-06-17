@@ -99,6 +99,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         address: Optional[Address] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
+        status: Optional[UserStatus] = None,
         required_level: Optional[int] = None,
         *,
         session: Session = global_session,
@@ -112,6 +113,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
             required_level=required_level,
+            status=status,
         )
         return cast('User', cls._create(session=session, **req.dict()))
 
