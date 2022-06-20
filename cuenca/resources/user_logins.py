@@ -1,7 +1,7 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types.requests import UserCredentialRequest
+from cuenca_validations.types.requests import UserLoginRequest
 
 from ..http import Session, session as global_session
 from .base import Creatable
@@ -24,9 +24,13 @@ class UserLogin(Creatable):
 
     @classmethod
     def create(
-        cls, password: str, *, session: Session = global_session
+        cls,
+        password: str,
+        user_id: Optional[str] = None,
+        *,
+        session: Session = global_session,
     ) -> 'UserLogin':
-        req = UserCredentialRequest(password=password)
+        req = UserLoginRequest(password=password, user_id=user_id)
         login = cast('UserLogin', cls._create(session=session, **req.dict()))
         if login.success:
             session.session.headers['X-Cuenca-LoginId'] = login.id
