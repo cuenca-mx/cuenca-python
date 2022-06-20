@@ -17,37 +17,37 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.15.dev3
+      - cuenca-python/0.13.0.dev0
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/curp_validations
   response:
     body:
-      string: "{\"id\":\"CVkd_IzIDPTSOulVJpQY2urQ\",\"created_at\":\"2022-02-09T17:42:56.383485\",\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"date_of_birth\":\"1966-06-06\",\"country_of_birth\":\"MX\",\"state_of_birth\":\"DF\",\"gender\":\"male\",\"nationality\":\"MX\",\"manual_curp\":null,\"calculated_curp\":\"LOHJ660606HDFPRS02\",\"validated_curp\":\"LOHJ660606HDFPRS02\",\"renapo_curp_match\":true,\"renapo_full_match\":true}"
+      string: "{\"id\":\"CV82OsliJJRBazgSxh2wveXg\",\"created_at\":\"2022-06-16T17:25:41.655304\",\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"date_of_birth\":\"1966-06-06\",\"country_of_birth\":\"MX\",\"state_of_birth\":\"YN\",\"gender\":\"female\",\"nationality\":\"MX\",\"manual_curp\":null,\"calculated_curp\":\"LOHJ660606HDFPRS02\",\"validated_curp\":\"LOHJ660606HDFPRS02\",\"renapo_curp_match\":true,\"renapo_full_match\":false}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '402'
+      - '405'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Feb 2022 17:42:56 GMT
+      - Thu, 16 Jun 2022 17:25:41 GMT
       X-Request-Time:
-      - 'value: 0.282'
+      - 'value: 0.476'
       x-amz-apigw-id:
-      - NSR9EFulCYcFqRA=
+      - T00fWHuLIAMF3dg=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '402'
+      - '405'
       x-amzn-Remapped-Date:
-      - Wed, 09 Feb 2022 17:42:56 GMT
+      - Thu, 16 Jun 2022 17:25:41 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.20.2
+      - nginx/1.22.0
       x-amzn-RequestId:
-      - ae052cd0-e6d5-4b68-94fd-0ce487426564
+      - e1f4ecd5-a2e1-4816-97d6-f011bf3b8131
     status:
       code: 201
       message: Created
@@ -55,7 +55,8 @@ interactions:
     body: '{"curp": "LOHJ660606HDFPRS02", "phone_number": "+525511223344", "email_address":
       "jose@test.com", "profession": "employee", "address": {"street": "calle 1",
       "ext_number": "2", "postal_code": "09900", "state": "DF", "country": "MX", "city":
-      null, "int_number": "3"}}'
+      null, "int_number": "3", "full_name": null}, "required_level": null, "phone_verification_id":
+      null, "email_verification_id": null}'
     headers:
       Accept:
       - '*/*'
@@ -66,43 +67,91 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '265'
+      - '370'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.15.dev3
+      - cuenca-python/0.13.0.dev0
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/users
   response:
     body:
-      string: "{\"id\":\"USCM-zlFcNQk6ue4gZ_mTGeQ\",\"identity_uri\":\"/identities/IDKWLi_wUoTty6WXXg9xfKFQ\",\"created_at\":\"2022-02-09T17:42:56.965055\",\"updated_at\":\"2022-02-09T17:42:57.008600\",\"platform_id\":\"PTW68GgAc_QPmNCmgajmctLg\",\"level\":0,\"phone_number\":\"+525511223344\",\"email_address\":\"jose@test.com\",\"profession\":\"employee\",\"status\":\"active\",\"terms_of_service\":null,\"blacklist_validation_status\":\"not_verified\",\"address\":{\"street\":\"calle
-        1\",\"ext_number\":\"2\",\"int_number\":\"3\",\"postal_code\":\"09900\",\"state\":\"DF\",\"city\":null,\"country\":\"MX\",\"created_at\":\"2022-02-09T17:42:56.964930\"},\"govt_id\":null,\"proof_of_address\":null,\"proof_of_life\":null,\"beneficiaries\":null,\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"curp\":\"LOHJ660606HDFPRS02\",\"required_level\":4}"
+      string: "{\"id\":\"USlen-v7UQSqqZTGVe3vQmLQ\",\"identity_uri\":\"/identities/IDtyYLgoJTRZq2xAabU5Mbzg\",\"created_at\":\"2022-06-16T17:25:41.983660\",\"updated_at\":\"2022-06-16T17:25:41.984049\",\"platform_id\":\"PTW68GgAc_QPmNCmgajmctLg\",\"level\":0,\"required_level\":4,\"phone_number\":\"+525511223344\",\"email_address\":\"jose@test.com\",\"profession\":\"employee\",\"clabe\":null,\"status\":\"active\",\"terms_of_service\":null,\"blacklist_validation_status\":\"not_verified\",\"address\":{\"street\":\"calle
+        1\",\"ext_number\":\"2\",\"int_number\":\"3\",\"postal_code\":\"09900\",\"state\":\"DF\",\"city\":null,\"country\":\"MX\",\"created_at\":\"2022-06-16T17:25:41.983529\",\"full_name\":null},\"govt_id\":null,\"proof_of_address\":null,\"proof_of_life\":null,\"beneficiaries\":null,\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"curp\":\"LOHJ660606HDFPRS02\",\"rfc\":\"LOHJ660606MMA\"}"
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '745'
+      - '816'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Feb 2022 17:42:57 GMT
-      X-Request-Time:
-      - 'value: 0.955'
+      - Thu, 16 Jun 2022 17:25:43 GMT
       x-amz-apigw-id:
-      - NSR9JGSgCYcFgcQ=
+      - T00fcEBhoAMFYxw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '745'
+      - '816'
       x-amzn-Remapped-Date:
-      - Wed, 09 Feb 2022 17:42:57 GMT
+      - Thu, 16 Jun 2022 17:25:43 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.20.2
+      - nginx/1.22.0
       x-amzn-RequestId:
-      - 327dc915-14bd-46fe-9abe-288010257709
+      - 1ba15a8d-b928-47b8-b75e-2294787ad01a
     status:
       code: 201
       message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.13.0.dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/balance_entries?limit=1&user_id=USlen-v7UQSqqZTGVe3vQmLQ
+  response:
+    body:
+      string: '{"items":[],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 16 Jun 2022 17:25:47 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-62ab6797-5c1bf24d35a83e7325b4bb7c;Sampled=0
+      X-Request-Time:
+      - 'value: 4.092'
+      x-amz-apigw-id:
+      - T00fqEtPIAMFyfQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '33'
+      x-amzn-Remapped-Date:
+      - Thu, 16 Jun 2022 17:25:47 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 9e06c5b4-d3e5-431d-b82d-62025c522142
+      x-amzn-RequestId:
+      - acd5feab-4a37-4e63-bf2b-ad9acf471246
+    status:
+      code: 200
+      message: OK
 version: 1

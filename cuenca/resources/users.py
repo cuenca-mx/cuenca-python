@@ -1,6 +1,7 @@
 import datetime as dt
 from typing import ClassVar, List, Optional, cast
 
+from clabe import Clabe
 from cuenca_validations.types import (
     Address,
     AddressUpdateRequest,
@@ -19,6 +20,7 @@ from cuenca_validations.types.identities import CurpField
 from pydantic import EmailStr
 
 from ..http import Session, session as global_session
+from .balance_entries import BalanceEntry
 from .base import Creatable, Queryable, Retrievable, Updateable
 from .identities import Identity
 from .resources import retrieve_uri
@@ -43,6 +45,12 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     proof_of_life: Optional[KYCFile]
     beneficiaries: Optional[List[Beneficiary]]
     platform_id: Optional[str] = None
+    clabe: Optional[Clabe] = None
+
+    @property
+    def balance(self) -> int:
+        be = cast(BalanceEntry, BalanceEntry.first(user_id=self.id))
+        return be.rolling_balance if be else 0
 
     class Config:
         fields = {
