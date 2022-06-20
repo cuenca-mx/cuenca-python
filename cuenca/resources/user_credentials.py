@@ -18,9 +18,13 @@ class UserCredential(Creatable, Updateable):
 
     @classmethod
     def create(
-        cls, password: str, *, session: Session = global_session
+        cls,
+        password: str,
+        user_id: Optional[str] = None,
+        *,
+        session: Session = global_session,
     ) -> 'UserCredential':
-        req = UserCredentialRequest(password=password)
+        req = UserCredentialRequest(password=password, user_id=user_id)
         return cast(
             'UserCredential', cls._create(**req.dict(), session=session)
         )
