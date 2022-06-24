@@ -140,6 +140,8 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         terms_of_service: Optional[TOSUpdateRequest] = None,
         verification_id: Optional[str] = None,
         status: Optional[UserStatus] = None,
+        email_verification_id: Optional[str] = None,
+        phone_verification_id: Optional[str] = None,
         *,
         session: Session = global_session,
     ):
@@ -154,6 +156,8 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             proof_of_life=proof_of_life,
             terms_of_service=terms_of_service,
             verification_id=verification_id,
+            email_verification_id=email_verification_id,
+            phone_verification_id=phone_verification_id,
             status=status,
         )
         return cast(
