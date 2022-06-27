@@ -28,12 +28,6 @@ def test_user_update():
     changes = dict(
         profession='programmer',
         phone_number='+525555555555',
-        govt_id=dict(
-            type='ine',
-            uri_front='cuenca.com',
-            uri_back='cuenca.com',
-            is_mx=True,
-        ),
     )
     user = User.update(user_id, **changes)
     assert all(item in user.to_dict().keys() for item in changes.keys())
