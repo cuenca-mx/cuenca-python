@@ -1,5 +1,7 @@
 import pytest
+from cuenca_validations.types import VerificationType
 
+from cuenca import Verification
 from cuenca.resources import CurpValidation, User
 
 
@@ -70,3 +72,15 @@ def test_user_query_all_identity_id():
     assert len(users) == 2
     assert users[0].id != users[1].id
     assert users[0].identity_uri == users[1].identity_uri
+
+
+@pytest.mark.vcr
+def test_user_update_user_email_from_verification():
+    user_id = 'USV6ONckmjQNOM9p3_bRMyxg'
+    ver = Verification.create(
+        recipient='mail@cuenca.com',
+        type=VerificationType.email,
+        platform_id='PL01',
+    )
+    user = User.update(user_id, email_verification_id=ver.id)
+    assert user.to_dict()['email_address'] == ver.recipient
