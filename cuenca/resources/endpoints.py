@@ -83,6 +83,15 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         *,
         session: Session = global_session,
     ) -> 'Endpoint':
+        """
+        Updates endpoint properties. It allows reconfigure properties
+        like url and is_active.
+        :param endpoint_id: existing endpoint_id
+        :param url
+        :param is_enable
+        :param session
+        :return: Updated endpoint object
+        """
         req = EndpointUpdateRequest(url=url, is_enable=is_enable)
         resp = cls._update(endpoint_id, session=session, **req.dict())
         return cast('Endpoint', resp)
