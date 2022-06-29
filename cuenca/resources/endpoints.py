@@ -23,7 +23,8 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         fields = {
             'url': {'description': 'HTTPS url to send webhooks'},
             'secret': {
-                'description': 'token to verify the webhook is sent by Cuenca'
+                'description': 'token to verify the webhook is sent by Cuenca '
+                'using HMAC algorithm'
             },
             'is_enable': {
                 'description': 'Allows user to turn-off the endpoint '
@@ -36,20 +37,20 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         }
         schema_extra = {
             'example': {
-                "_id": "ENxxne2Z5VSTKZm_w8Hzffcw",
-                "platform_id": "PTZoPrrPT6Ts-9myamq5h1bA",
-                "created_at": {"$date": {"$numberLong": "1645752962234"}},
-                "updated_at": {"$date": {"$numberLong": "1645752962234"}},
-                "secret": "1234",
-                "url": "https://webhook.site/714ed1d8",
-                "events": [
-                    "transaction.create",
-                    "transaction.update",
-                    "user.create",
-                    "user.update",
-                    "user.delete",
+                '_id': 'ENxxne2Z5VSTKZm_w8Hzffcw',
+                'platform_id': 'PTZoPrrPT6Ts-9myamq5h1bA',
+                'created_at': '2022-06-29 22:00:00',
+                'updated_at': '2022-06-29 22:00:00',
+                'secret': '1234',
+                'url': 'https://webhook.site/714ed1d8',
+                'events': [
+                    'transaction.create',
+                    'transaction.update',
+                    'user.create',
+                    'user.update',
+                    'user.delete',
                 ],
-                "is_enable": True,
+                'is_enable': True,
             }
         }
 
@@ -61,6 +62,15 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         *,
         session: Session = global_session,
     ) -> 'Endpoint':
+        """
+        Creates and Endpoint, allowing to recieve Webhooks with the specified
+        events.
+        :param url: HTTPS url to send webhooks
+        :param events: list of enabled events. If None, all events will be
+            enabled for this Endpoint
+        :param session:
+        :return: New active endpoint
+        """
         req = EndpointRequest(url=url, events=events)
         return cast('Endpoint', cls._create(session=session, **req.dict()))
 
