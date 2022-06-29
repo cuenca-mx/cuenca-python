@@ -39,8 +39,8 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
             'example': {
                 '_id': 'ENxxne2Z5VSTKZm_w8Hzffcw',
                 'platform_id': 'PTZoPrrPT6Ts-9myamq5h1bA',
-                'created_at': '2022-06-29 22:00:00',
-                'updated_at': '2022-06-29 22:00:00',
+                'created_at': '2022-06-29T22:00:00Z',
+                'updated_at': '2022-06-29T22:00:00Z',
                 'secret': '1234',
                 'url': 'https://webhook.site/714ed1d8',
                 'events': [
