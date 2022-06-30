@@ -10,3 +10,9 @@ class Webhook(Retrievable, Queryable):
 
     payload: Dict[str, Any]
     event: WebhookEvent
+
+    class Config:
+        fields = {
+            'payload': {'description': 'object sent by the webhook'},
+            'event': {'description': 'type of event being reported'},
+        }
