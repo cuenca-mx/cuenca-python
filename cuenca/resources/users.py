@@ -34,6 +34,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     level: int
     required_level: int
     created_at: dt.datetime
+    names: Optional[str]
+    first_surname: Optional[str]
+    second_surname: Optional[str]
     phone_number: Optional[PhoneNumber]
     email_address: Optional[EmailStr]
     profession: Optional[str]
