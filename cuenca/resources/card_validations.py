@@ -25,7 +25,7 @@ class CardValidation(Creatable):
     is_valid_exp_date: Optional[bool]
     is_pin_attempts_exceeded: bool
     is_expired: bool
-    platform_id: Optional[bool] = None
+    platform_id: Optional[str] = None
 
     @classmethod
     def create(
