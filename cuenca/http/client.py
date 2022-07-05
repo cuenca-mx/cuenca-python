@@ -6,6 +6,7 @@ from urllib.parse import urljoin
 
 import requests
 from cuenca_validations.errors import ERROR_CODES
+from cuenca_validations.types import JSONEncoder
 from cuenca_validations.typing import (
     ClientRequestParams,
     DictStrAny,
@@ -110,21 +111,11 @@ class Session:
                 self.jwt_token = Jwt.create(self)
             self.session.headers['X-Cuenca-Token'] = self.jwt_token.token
 
-        if data is not None:
-            for key, value in data.items():
-                if isinstance(value, dt.date):
-                    data[key] = value.isoformat()
-                elif isinstance(value, list):
-                    for elem in value:
-                        for k, v in elem.items():
-                            if isinstance(v, dt.date):
-                                elem[k] = v.isoformat()
-
         resp = self.session.request(
             method=method,
             url='https://' + self.host + urljoin('/', endpoint),
             auth=self.auth,
-            json=data,
+            json=json.dumps(data, cls=JSONEncoder),
             params=params,
             **kwargs,
         )
