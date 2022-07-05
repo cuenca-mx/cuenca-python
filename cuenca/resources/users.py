@@ -145,6 +145,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         *,
         session: Session = global_session,
     ):
+        # breakpoint()
         request = UserUpdateRequest(
             phone_number=phone_number,
             email_address=email_address,
