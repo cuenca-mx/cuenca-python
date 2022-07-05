@@ -114,6 +114,11 @@ class Session:
             for key, value in data.items():
                 if isinstance(value, dt.date):
                     data[key] = value.isoformat()
+                elif isinstance(value, list):
+                    for elem in value:
+                        for k, v in elem.items():
+                            if isinstance(v, dt.date):
+                                elem[k] = v.isoformat()
 
         resp = self.session.request(
             method=method,
