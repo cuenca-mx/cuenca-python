@@ -114,7 +114,7 @@ class Session:
             method=method,
             url='https://' + self.host + urljoin('/', endpoint),
             auth=self.auth,
-            data=json.dumps(data, cls=JSONEncoder),
+            json=json.loads(JSONEncoder().encode(data)),
             params=params,
             **kwargs,
         )
