@@ -1,3 +1,5 @@
+import datetime as dt
+
 import pytest
 from cuenca_validations.types import VerificationType
 
@@ -84,3 +86,28 @@ def test_user_update_user_email_from_verification():
     )
     user = User.update(user_id, email_verification_id=ver.id)
     assert user.to_dict()['email_address'] == ver.recipient
+
+
+@pytest.mark.vcr
+def test_user_beneficiaries_update():
+    user_id = 'USw182B9fVTxK3J1A2ElKV7g'
+    request = dict(
+        beneficiaries=[
+            dict(
+                name='Pedro Pérez',
+                birth_date=dt.date(2020, 1, 1),
+                phone_number='+525555555555',
+                user_relationship='brother',
+                percentage=50,
+            ),
+            dict(
+                name='José Pérez',
+                birth_date=dt.date(2020, 1, 2),
+                phone_number='+525544444444',
+                user_relationship='brother',
+                percentage=50,
+            ),
+        ]
+    )
+    user = User.update(user_id, **request)
+    assert all(item in user.to_dict().keys() for item in request.keys())

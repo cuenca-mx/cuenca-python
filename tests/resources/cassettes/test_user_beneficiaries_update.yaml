@@ -1,0 +1,59 @@
+interactions:
+- request:
+    body: '{"phone_number": null, "email_address": null, "profession": null, "verification_id":
+      null, "email_verification_id": null, "phone_verification_id": null, "address":
+      null, "beneficiaries": [{"name": "Pedro P\u00e9rez", "birth_date": "2020-01-01T00:00:00",
+      "phone_number": "+525555555555", "user_relationship": "brother", "percentage":
+      50}, {"name": "Jos\u00e9 P\u00e9rez", "birth_date": "2020-01-02T00:00:00", "phone_number":
+      "+525544444444", "user_relationship": "brother", "percentage": 50}], "govt_id":
+      null, "proof_of_address": null, "proof_of_life": null, "status": null, "terms_of_service":
+      null, "platform_terms_of_service": null}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '635'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.13.6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: PATCH
+    uri: https://sandbox.cuenca.com/users/USw182B9fVTxK3J1A2ElKV7g
+  response:
+    body:
+      string: "{\"id\":\"USw182B9fVTxK3J1A2ElKV7g\",\"identity_uri\":\"/identities/IDYsENkazRRuuZ46KnlN0x1Q\",\"created_at\":\"2022-07-04T20:36:35.007000\",\"updated_at\":\"2022-07-05T18:32:38.470895\",\"platform_id\":\"PTk5UC6RWyQjmDR74oiHlFng\",\"level\":0,\"required_level\":4,\"phone_number\":\"+5299887766\",\"email_address\":\"danisan@mail.com\",\"profession\":null,\"clabe\":null,\"status\":\"active\",\"terms_of_service\":null,\"blacklist_validation_status\":\"not_verified\",\"address\":null,\"govt_id\":null,\"proof_of_address\":null,\"proof_of_life\":null,\"beneficiaries\":[{\"name\":\"Pedro
+        P\xE9rez\",\"birth_date\":\"2020-01-01\",\"phone_number\":\"+525555555555\",\"user_relationship\":\"brother\",\"percentage\":50,\"created_at\":\"2022-07-05T18:32:38.470632\"},{\"name\":\"Jos\xE9
+        P\xE9rez\",\"birth_date\":\"2020-01-02\",\"phone_number\":\"+525544444444\",\"user_relationship\":\"brother\",\"percentage\":50,\"created_at\":\"2022-07-05T18:32:38.470703\"}],\"names\":\"Daniel\",\"first_surname\":\"Sanchez\",\"second_surname\":\"Chavez\",\"curp\":\"LOHJ660606HDFPRS02\",\"rfc\":\"LOHJ660606HDF\"}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '978'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 05 Jul 2022 18:32:38 GMT
+      x-amz-apigw-id:
+      - UzmG_FEmCYcF_mA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '978'
+      x-amzn-Remapped-Date:
+      - Tue, 05 Jul 2022 18:32:38 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-RequestId:
+      - c6a60f58-418f-4157-b8dc-98a8b13096a5
+    status:
+      code: 200
+      message: OK
+version: 1
