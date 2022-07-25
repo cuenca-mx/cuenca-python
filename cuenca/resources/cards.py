@@ -58,9 +58,9 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         cls,
         issuer: CardIssuer,
         funding_type: CardFundingType,
-        is_dynamic_cvv: Optional[bool] = None,
         user_id: str = 'me',
         card_holder_user_id: Optional[str] = None,
+        is_dynamic_cvv: Optional[bool] = False,
         *,
         session: Session = global_session,
     ) -> 'Card':
