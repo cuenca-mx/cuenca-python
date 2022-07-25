@@ -30,7 +30,10 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     status: CardStatus
     issuer: CardIssuer
     funding_type: CardFundingType
+    dcvv: Optional[str] = None
+    dcvv_expires_at: Optional[str] = None
     pin_attempts_failed: Optional[int] = None
+    is_dynamic_cvv: Optional[bool] = None
 
     @property
     def last_4_digits(self):
@@ -53,6 +56,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         cls,
         issuer: CardIssuer,
         funding_type: CardFundingType,
+        is_dynamic_cvv: Optional[bool] = None,
         user_id: str = 'me',
         *,
         session: Session = global_session,
@@ -69,6 +73,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
             user_id=user_id,
             issuer=issuer,
             funding_type=funding_type,
+            is_dynamic_cvv=is_dynamic_cvv,
         )
         return cast('Card', cls._create(session=session, **req.dict()))
 
