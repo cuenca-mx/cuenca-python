@@ -101,7 +101,9 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         :param session:
         :return: Updated card object
         """
-        req = CardUpdateRequest(status=status, pin_block=pin_block, is_dynamic_cvv=is_dynamic_cvv)
+        req = CardUpdateRequest(
+            status=status, pin_block=pin_block, is_dynamic_cvv=is_dynamic_cvv
+        )
         resp = cls._update(card_id, session=session, **req.dict())
         return cast('Card', resp)
 
