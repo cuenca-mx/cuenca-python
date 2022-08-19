@@ -5,7 +5,7 @@ from ..http import Session, session as global_session
 from .base import Creatable, Retrievable
 
 
-class Clabes(Creatable, Retrievable):
+class Clabe(Creatable, Retrievable):
     _resource: ClassVar = 'clabes'
     clabe: str
     created_at: dt.datetime
@@ -14,4 +14,4 @@ class Clabes(Creatable, Retrievable):
     @classmethod
     def create(cls, user_id: str = 'me', session: Session = global_session):
         req = dict(user_id=user_id)
-        return cast('Clabes', cls._create(session=session, **req))
+        return cast('Clabe', cls._create(session=session, **req))
