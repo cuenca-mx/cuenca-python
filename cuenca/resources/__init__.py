@@ -83,6 +83,7 @@ resource_classes = [
     CardActivation,
     CardTransaction,
     CardValidation,
+    Clabe,
     CurpValidation,
     Commission,
     Deposit,
