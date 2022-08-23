@@ -18,11 +18,7 @@ interactions:
     uri: https://sandbox.cuenca.com/clabes
   response:
     body:
-      string: '{"items":[{"id":"CLD_zg463BQ6-yEjg8UE0jgQ","clabe":"646180157089988558","created_at":"2022-08-23T05:14:11.862000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLas7ZqaT5Quq6fgeiuel6KA","clabe":"646180157030689013","created_at":"2022-08-23T05:11:53.700000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLu4OYMy1USXOY4tGfGNUUsw","clabe":"646180157073856528","created_at":"2022-08-22T23:54:55.634000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLQSvYrsu7Qqm3WuhG0OVrlg","clabe":"646180157032158283","created_at":"2022-08-22T22:44:00.966000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLFyudOfs9Rt-ratC4WXJAoA","clabe":"646180157027880605","created_at":"2022-08-22T22:41:06.071000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"}],"next_page_uri":null,"count":null,"fields":{"items":{"description":"List
-        of Clabes that match with query filters"},"next_page_uri":{"description":"URL
-        to fetch the next page of results"},"count":{"description":"Counter of Clabes
-        objects that match with query filters.  \nIncluded in response only if `count`
-        param was `true`"}}}'
+      string: '{"items":[{"id":"CLD_zg463BQ6-yEjg8UE0jgQ","clabe":"646180157089988558","created_at":"2022-08-23T05:14:11.862000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLas7ZqaT5Quq6fgeiuel6KA","clabe":"646180157030689013","created_at":"2022-08-23T05:11:53.700000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLu4OYMy1USXOY4tGfGNUUsw","clabe":"646180157073856528","created_at":"2022-08-22T23:54:55.634000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLQSvYrsu7Qqm3WuhG0OVrlg","clabe":"646180157032158283","created_at":"2022-08-22T22:44:00.966000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLFyudOfs9Rt-ratC4WXJAoA","clabe":"646180157027880605","created_at":"2022-08-22T22:41:06.071000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"}],"next_page_uri":null,"count":null}'
     headers:
       Connection:
       - keep-alive
@@ -68,11 +64,7 @@ interactions:
     uri: https://sandbox.cuenca.com/clabes?count=1
   response:
     body:
-      string: '{"items":[],"next_page_uri":null,"count":5,"fields":{"items":{"description":"List
-        of Clabes that match with query filters"},"next_page_uri":{"description":"URL
-        to fetch the next page of results"},"count":{"description":"Counter of Clabes
-        objects that match with query filters.  \nIncluded in response only if `count`
-        param was `true`"}}}'
+      string: '{"items":[],"next_page_uri":null,"count":5,}}}'
     headers:
       Connection:
       - keep-alive
@@ -118,11 +110,7 @@ interactions:
     uri: https://sandbox.cuenca.com/clabes
   response:
     body:
-      string: '{"items":[{"id":"CLD_zg463BQ6-yEjg8UE0jgQ","clabe":"646180157089988558","created_at":"2022-08-23T05:14:11.862000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLas7ZqaT5Quq6fgeiuel6KA","clabe":"646180157030689013","created_at":"2022-08-23T05:11:53.700000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLu4OYMy1USXOY4tGfGNUUsw","clabe":"646180157073856528","created_at":"2022-08-22T23:54:55.634000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLQSvYrsu7Qqm3WuhG0OVrlg","clabe":"646180157032158283","created_at":"2022-08-22T22:44:00.966000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLFyudOfs9Rt-ratC4WXJAoA","clabe":"646180157027880605","created_at":"2022-08-22T22:41:06.071000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"}],"next_page_uri":null,"count":null,"fields":{"items":{"description":"List
-        of Clabes that match with query filters"},"next_page_uri":{"description":"URL
-        to fetch the next page of results"},"count":{"description":"Counter of Clabes
-        objects that match with query filters.  \nIncluded in response only if `count`
-        param was `true`"}}}'
+      string: '{"items":[{"id":"CLD_zg463BQ6-yEjg8UE0jgQ","clabe":"646180157089988558","created_at":"2022-08-23T05:14:11.862000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLas7ZqaT5Quq6fgeiuel6KA","clabe":"646180157030689013","created_at":"2022-08-23T05:11:53.700000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLu4OYMy1USXOY4tGfGNUUsw","clabe":"646180157073856528","created_at":"2022-08-22T23:54:55.634000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLQSvYrsu7Qqm3WuhG0OVrlg","clabe":"646180157032158283","created_at":"2022-08-22T22:44:00.966000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLFyudOfs9Rt-ratC4WXJAoA","clabe":"646180157027880605","created_at":"2022-08-22T22:41:06.071000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"}],"next_page_uri":null,"count":null}'
     headers:
       Connection:
       - keep-alive
