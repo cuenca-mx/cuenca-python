@@ -52,7 +52,7 @@ from .resources import (
     CardActivation,
     CardTransaction,
     CardValidation,
-    Clabe,  
+    Clabe,
     Commission,
     CurpValidation,
     Deposit,

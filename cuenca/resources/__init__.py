@@ -8,8 +8,7 @@ __all__ = [
     'CardActivation',
     'CardTransaction',
     'CardValidation',
-    'Clabe'
-    'Commission',
+    'Clabe' 'Commission',
     'CurpValidation',
     'Deposit',
     'Endpoint',
