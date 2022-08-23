@@ -8,6 +8,7 @@ __all__ = [
     'CardActivation',
     'CardTransaction',
     'CardValidation',
+    'Clabe',
     'Commission',
     'CurpValidation',
     'Deposit',
@@ -43,6 +44,7 @@ from .card_activations import CardActivation
 from .card_transactions import CardTransaction
 from .card_validations import CardValidation
 from .cards import Card
+from .clabes import Clabe
 from .commissions import Commission
 from .curp_validations import CurpValidation
 from .deposits import Deposit
@@ -81,6 +83,7 @@ resource_classes = [
     CardActivation,
     CardTransaction,
     CardValidation,
+    Clabe,
     CurpValidation,
     Commission,
     Deposit,
