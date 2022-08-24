@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.13.10
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/cash_references/CR4EI4kVBwHboi8gCUxMnP9q
+  response:
+    body:
+      string: '{"id":"CR4EI4kVBwHboi8gCUxMnP9q","number":"2718285113832091","user_id":"USlen-v7UQSqqZTGVe3vQmLQ","created_at":"2022-08-23T22:44:45.259000"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '140'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 23 Aug 2022 23:13:06 GMT
+      X-Request-Time:
+      - 'value: 0.126'
+      x-amz-apigw-id:
+      - XVvIcGW2IAMF4Zg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '140'
+      x-amzn-Remapped-Date:
+      - Tue, 23 Aug 2022 23:13:06 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-RequestId:
+      - 20d0f1fa-5bb2-4748-a464-de141117dcd4
+    status:
+      code: 200
+      message: OK
+version: 1
