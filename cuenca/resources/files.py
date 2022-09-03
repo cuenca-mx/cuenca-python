@@ -63,7 +63,7 @@ class File(Downloadable, Queryable, Uploadable):
         Bytes of the decrypted file.
         Format of the file is found on `file_type` property.
         """
-        return self.download(self, file_format=FileFormat.any).read()
+        return self.download(self.id).read()
 
     @property
     def pdf(self) -> bytes:
