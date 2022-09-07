@@ -2,6 +2,7 @@ __all__ = [
     'ApiKey',
     'Account',
     'Arpc',
+    'BankAccountValidations',
     'BalanceEntry',
     'BillPayment',
     'Card',
@@ -41,6 +42,7 @@ from .accounts import Account
 from .api_keys import ApiKey
 from .arpc import Arpc
 from .balance_entries import BalanceEntry
+from .bank_account_validations import BankAccountValidations
 from .bill_payments import BillPayment
 from .card_activations import CardActivation
 from .card_transactions import CardTransaction
@@ -81,6 +83,7 @@ resource_classes = [
     ApiKey,
     Account,
     Arpc,
+    BankAccountValidations,
     BalanceEntry,
     BillPayment,
     Card,
