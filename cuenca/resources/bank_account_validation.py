@@ -26,18 +26,20 @@ class BankAccountValidation(Creatable, Retrievable):
     class Config:
         fields = {
             'account_number': {
-                'description': 'Account number for validation, can be CARD_NUMBER or CLABE'
+                'description': 'Account number for validation, '
+                'can be CARD_NUMBER or CLABE'
             },
             'account_holder': {
                 'description': 'The fullname of the owner from the account'
             },
             'bank_code': {
-                'description': 'Code of the bank according to https://es.wikipedia.org/wiki/CLABE, this can '
-                'be retrived from our library https://github.com/cuenca-mx/clabe-python'
+                'description': 'Code of the bank according to '
+                'https://es.wikipedia.org/wiki/CLABE, this can be retrived from our '
+                'library https://github.com/cuenca-mx/clabe-python'
             },
             'status': {
-                'description': 'Initial status is submitted, then if everthing its fine or not the status can be '
-                'succeeded or failed'
+                'description': 'Initial status is submitted, then if everthing '
+                'its fine or not the status can be succeeded or failed'
             },
         }
         schema_extra = {
