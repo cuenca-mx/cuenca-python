@@ -4,10 +4,8 @@ from typing import ClassVar, List, Optional, cast
 from clabe import Clabe
 from cuenca_validations.types import (
     Address,
-    #AddressUpdateRequest,
     Beneficiary,
     KYCFile,
-    #KYCFileUpdateRequest,
     PhoneNumber,
     TOSAgreement,
     TOSRequest,

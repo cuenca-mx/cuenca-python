@@ -1,6 +1,6 @@
 import pytest
-
 from cuenca_validations.types import BillPaymentRequest
+
 from cuenca.resources import BillPayment
 
 
@@ -13,6 +13,7 @@ def test_bill_payment():
     provider = bill_payment.provider
     assert provider is not None
 
+
 @pytest.mark.vcr
 def test_create_bill_payment():
     bill_payment_request = BillPaymentRequest(
@@ -20,7 +21,7 @@ def test_create_bill_payment():
         amount='1000',
         provider_id='SP01',
         field_type='barcode',
-        user_id='US01'
+        user_id='US01',
     )
     bill_payment = BillPayment.create(**bill_payment_request.dict())
     assert bill_payment.id

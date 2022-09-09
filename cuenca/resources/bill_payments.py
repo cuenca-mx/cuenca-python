@@ -1,6 +1,10 @@
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import BillPaymentQuery, ServiceProviderFieldType, BillPaymentRequest
+from cuenca_validations.types import (
+    BillPaymentQuery,
+    BillPaymentRequest,
+    ServiceProviderFieldType,
+)
 
 from .base import Creatable, Transaction
 from .resources import retrieve_uri
