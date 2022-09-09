@@ -1,0 +1,108 @@
+interactions:
+- request:
+    body: '{"amount": 1000, "field_type": "barcode", "account_number": "000000000000000000000000000000",
+      "provider_id": "SP01", "user_id": "US01"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '175'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.14.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/bill_payments
+  response:
+    body:
+      string: '{"id":"ST01","created_at":"2022-09-09T21:08:11.115509","user_id":"US01","amount":1000,"status":"submitted","descriptor":"Pago
+        de Servicio","account_number":"000000000000000000000000000000","accountholder_name":null,"provider_uri":"/service_providers/SP01","field_type_id":"SP4qT51xTBPypWCNSBAuREL9","platform_id":"PTAW9CNmJSQ_O8piz-y1NyeA"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '400'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 09 Sep 2022 21:08:11 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-631bab3a-2cc747337a2b962347561ca6;Sampled=0
+      X-Request-Time:
+      - 'value: 0.774'
+      x-amz-apigw-id:
+      - YNexNGdYCYcFVKQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '400'
+      x-amzn-Remapped-Date:
+      - Fri, 09 Sep 2022 21:08:11 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - d9916014-0da1-46d5-9df7-f0a37b3dff21
+      x-amzn-RequestId:
+      - 6f46f9a0-1f1e-4cbf-9243-4ede2417576b
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.14.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/service_providers/SP01
+  response:
+    body:
+      string: '{"id":"SP01","created_at":"2019-07-15T23:21:48.020000","name":"CFE","provider_key":"electricity_cfe","categories":["electricity"],"field_types":[{"is_active":true,"requires_accountholder_name":false,"mask":"000000000000000000000000000000","topup_amounts":[],"type":"barcode"},{"is_active":true,"requires_accountholder_name":false,"mask":"000000000000","topup_amounts":[],"type":"account_number"}]}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '417'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 09 Sep 2022 21:08:12 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-631bab3b-744d7bf5658ed04767b13ed9;Sampled=0
+      X-Request-Time:
+      - 'value: 0.301'
+      x-amz-apigw-id:
+      - YNexYHYviYcFY2w=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '417'
+      x-amzn-Remapped-Date:
+      - Fri, 09 Sep 2022 21:08:12 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 2c115c13-b55f-4aed-bb08-974c9af67e8a
+      x-amzn-RequestId:
+      - ca5657f0-deae-4909-be5b-1a632cf20408
+    status:
+      code: 200
+      message: OK
+version: 1
