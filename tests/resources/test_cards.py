@@ -15,11 +15,12 @@ card_id = 'CAycvo_X9TQoKOKsaAvdqn3w'
 
 @pytest.mark.vcr
 def test_card_create():
-    card = Card.create(CardIssuer.cuenca, CardFundingType.credit, user_id)
+    card = Card.create(CardIssuer.cuenca, CardFundingType.credit, user_id, user_id)
     assert card.id
     assert len(card.number) == 16
     assert card.type == CardType.virtual
     assert card.user_id == user_id
+    assert card.card_holder_user_id == user_id
 
 
 @pytest.mark.vcr

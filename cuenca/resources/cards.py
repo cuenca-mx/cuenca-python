@@ -31,6 +31,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     issuer: CardIssuer
     funding_type: CardFundingType
     pin_attempts_failed: Optional[int] = None
+    card_holder_user_id: Optional[str] = None
 
     @property
     def last_4_digits(self):
@@ -54,6 +55,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         issuer: CardIssuer,
         funding_type: CardFundingType,
         user_id: str = 'me',
+        card_holder_user_id: Optional[str] = 'me',
         *,
         session: Session = global_session,
     ) -> 'Card':
@@ -69,6 +71,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
             user_id=user_id,
             issuer=issuer,
             funding_type=funding_type,
+            card_holder_user_id=card_holder_user_id
         )
         return cast('Card', cls._create(session=session, **req.dict()))
 
