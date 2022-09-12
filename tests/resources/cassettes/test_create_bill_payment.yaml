@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: null
+    body: '{"amount": 1000, "field_type": "barcode", "account_number": "000000000000000000000000000000",
+      "provider_id": "SP01", "user_id": "USMGZJ4vEYQ5SplZR5lcX5bg"}'
     headers:
       Accept:
       - '*/*'
@@ -10,46 +11,50 @@ interactions:
       - DUMMY
       Connection:
       - keep-alive
+      Content-Length:
+      - '175'
+      Content-Type:
+      - application/json
       User-Agent:
       - cuenca-python/0.14.2
       X-Cuenca-Api-Version:
       - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/bill_payments/ST01
+    method: POST
+    uri: https://sandbox.cuenca.com/bill_payments
   response:
     body:
-      string: '{"id":"ST01","created_at":"2022-09-09T21:08:11.115000","user_id":"US01","amount":1000,"status":"failed","descriptor":"Pago
-        de Servicio","account_number":"000000000000000000000000000000","accountholder_name":null,"provider_uri":"/service_providers/SP01","field_id":null,"platform_id":"PT01"}'
+      string: '{"id":"STGjSUx0_9Rym_ElZbn8gW5g","created_at":"2022-09-12T17:41:18.036250","user_id":"USMGZJ4vEYQ5SplZR5lcX5bg","amount":1000,"status":"submitted","descriptor":"Pago
+        de Servicio a CFE","account_number":"000000000000000000000000000000","accountholder_name":null,"provider_uri":"/service_providers/SP01","field_id":"SP4qT51xTBPypWCNSBAuREL9","platform_id":"PTAW9CNmJSQ_O8piz-y1NyeA"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '370'
+      - '401'
       Content-Type:
       - application/json
       Date:
-      - Mon, 12 Sep 2022 17:28:11 GMT
+      - Mon, 12 Sep 2022 17:41:18 GMT
       X-Amzn-Trace-Id:
-      - Root=1-631f6c2a-2730a57538a7cde575f11fcf;Sampled=0
+      - Root=1-631f6f3b-2a07ba063f555dae2e758be4;Sampled=0
       X-Request-Time:
-      - 'value: 0.648'
+      - 'value: 3.277'
       x-amz-apigw-id:
-      - YW3WpG2CCYcFTMw=
+      - YW5RSFYpCYcFbhg=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '370'
+      - '401'
       x-amzn-Remapped-Date:
-      - Mon, 12 Sep 2022 17:28:11 GMT
+      - Mon, 12 Sep 2022 17:41:18 GMT
       x-amzn-Remapped-Server:
       - nginx/1.22.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 297a93e0-26cd-4b05-a609-6f16fb9584ac
+      - d9e85c4b-f6d2-4909-80d9-f848720a12ec
       x-amzn-RequestId:
-      - e3e87aaf-cb0f-4064-9814-77aa97e395df
+      - fa9f577b-2d7f-4f42-8d51-2889420af5cd
     status:
-      code: 200
-      message: OK
+      code: 201
+      message: Created
 - request:
     body: null
     headers:
@@ -78,25 +83,25 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 12 Sep 2022 17:28:11 GMT
+      - Mon, 12 Sep 2022 17:41:18 GMT
       X-Amzn-Trace-Id:
-      - Root=1-631f6c2b-1f9b9aa63ad8b9080ad1aa8b;Sampled=0
+      - Root=1-631f6f3e-2b6d8b2936fcb61e07a9ccd7;Sampled=0
       X-Request-Time:
-      - 'value: 0.326'
+      - 'value: 0.344'
       x-amz-apigw-id:
-      - YW3WyE9JCYcFj4w=
+      - YW5RzGr9CYcFzmg=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '412'
       x-amzn-Remapped-Date:
-      - Mon, 12 Sep 2022 17:28:11 GMT
+      - Mon, 12 Sep 2022 17:41:18 GMT
       x-amzn-Remapped-Server:
       - nginx/1.22.0
       x-amzn-Remapped-x-amzn-RequestId:
-      - 71c5252e-89c9-45bf-905e-b0ea0048f8bd
+      - d45822cf-13eb-467b-82ba-f31af89f6bf5
       x-amzn-RequestId:
-      - 37186823-58eb-4675-a61c-8ac1eb394ce9
+      - 6071e186-dad0-421a-b301-1c4f371123b5
     status:
       code: 200
       message: OK

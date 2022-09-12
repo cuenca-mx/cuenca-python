@@ -1,5 +1,8 @@
 import pytest
-from cuenca_validations.types import ServiceProviderCategory
+from cuenca_validations.types import (
+    ServiceProviderCategory,
+    ServiceProviderFieldType,
+)
 
 from cuenca.resources import ServiceProvider
 
@@ -14,3 +17,8 @@ def test_service_provider():
     categories = service_provider.categories
     values = set(category.value for category in ServiceProviderCategory)
     assert all(category in values for category in categories)
+
+    # Check that all fields are in the FieldType Enum
+    fields = service_provider.fields
+    values = set(field.value for field in ServiceProviderFieldType)
+    assert all(field.type in values for field in fields)
