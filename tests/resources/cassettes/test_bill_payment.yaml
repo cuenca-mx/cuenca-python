@@ -11,38 +11,42 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.3.3
+      - cuenca-python/0.14.2
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
     uri: https://sandbox.cuenca.com/bill_payments/ST01
   response:
     body:
-      string: '{"id":"ST01","created_at":"2020-10-05T01:12:46.973000","user_id":"US01","amount":10000,"status":"succeeded","descriptor":"Pago
-        de servicio","account_number":"(111) 111-1111","provider_uri":"/service_providers/SP01"}'
+      string: '{"id":"ST01","created_at":"2022-09-09T21:08:11.115000","user_id":"US01","amount":1000,"status":"failed","descriptor":"Pago
+        de Servicio","account_number":"000000000000000000000000000000","accountholder_name":null,"provider_uri":"/service_providers/SP01","field_id":null,"platform_id":"PT01"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '224'
+      - '370'
       Content-Type:
       - application/json
       Date:
-      - Mon, 05 Oct 2020 23:56:54 GMT
-      Via:
-      - 1.1 72c5987cf6b5170991873937a6e36b80.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - vPUPB8XgktMziooNHnjTbP2v-wiXIZsW134XChHmw-lw885pV52hpw==
-      X-Amz-Cf-Pop:
-      - DFW50-C1
+      - Mon, 12 Sep 2022 17:28:11 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f7bb2c5-250155e014a2927a6d49f7f5;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-631f6c2a-2730a57538a7cde575f11fcf;Sampled=0
+      X-Request-Time:
+      - 'value: 0.648'
       x-amz-apigw-id:
-      - T9je0FM4IAMF5NQ=
+      - YW3WpG2CCYcFTMw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '370'
+      x-amzn-Remapped-Date:
+      - Mon, 12 Sep 2022 17:28:11 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 297a93e0-26cd-4b05-a609-6f16fb9584ac
       x-amzn-RequestId:
-      - 199a3e85-25c7-40b1-81e6-c45f2d81820b
+      - e3e87aaf-cb0f-4064-9814-77aa97e395df
     status:
       code: 200
       message: OK
@@ -58,37 +62,41 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.3.3
+      - cuenca-python/0.14.2
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
     uri: https://sandbox.cuenca.com/service_providers/SP01
   response:
     body:
-      string: '{"id":"SP01","created_at":"2020-10-05T00:00:48.020000","name":"Telcel","provider_key":"topup_telcel","categories":["mobile_telephone_prepaid"]}'
+      string: '{"id":"SP01","created_at":"2019-07-15T23:21:48.020000","name":"CFE","provider_key":"electricity_cfe","categories":["electricity"],"fields":[{"is_active":true,"requires_accountholder_name":false,"mask":"000000000000000000000000000000","topup_amounts":[],"type":"barcode"},{"is_active":true,"requires_accountholder_name":false,"mask":"000000000000","topup_amounts":[],"type":"account_number"}]}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '163'
+      - '412'
       Content-Type:
       - application/json
       Date:
-      - Mon, 05 Oct 2020 23:56:55 GMT
-      Via:
-      - 1.1 72c5987cf6b5170991873937a6e36b80.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - A9UIKYCnUwTC067I5RCn2e5D9A4wUWy-yeDFT3BMoUqVIzmX5RXaRw==
-      X-Amz-Cf-Pop:
-      - DFW50-C1
+      - Mon, 12 Sep 2022 17:28:11 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f7bb2c7-36ea3a3623a06c615355e8a7;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-631f6c2b-1f9b9aa63ad8b9080ad1aa8b;Sampled=0
+      X-Request-Time:
+      - 'value: 0.326'
       x-amz-apigw-id:
-      - T9jfMHpcoAMF14Q=
+      - YW3WyE9JCYcFj4w=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '412'
+      x-amzn-Remapped-Date:
+      - Mon, 12 Sep 2022 17:28:11 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 71c5252e-89c9-45bf-905e-b0ea0048f8bd
       x-amzn-RequestId:
-      - bacb6a7e-6fcc-4645-bd55-5d0dfc08f4e2
+      - 37186823-58eb-4675-a61c-8ac1eb394ce9
     status:
       code: 200
       message: OK

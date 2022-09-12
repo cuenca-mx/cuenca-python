@@ -11,37 +11,41 @@ interactions:
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.3.3
+      - cuenca-python/0.14.2
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
     uri: https://sandbox.cuenca.com/service_providers/SP01
   response:
     body:
-      string: '{"id":"SP01","created_at":"2020-10-05T00:00:48.020000","name":"Telcel","provider_key":"topup_telcel","categories":["mobile_telephone_prepaid"]}'
+      string: '{"id":"SP01","created_at":"2019-07-15T23:21:48.020000","name":"CFE","provider_key":"electricity_cfe","categories":["electricity"],"fields":[{"is_active":true,"requires_accountholder_name":false,"mask":"000000000000000000000000000000","topup_amounts":[],"type":"barcode"},{"is_active":true,"requires_accountholder_name":false,"mask":"000000000000","topup_amounts":[],"type":"account_number"}]}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '143'
+      - '412'
       Content-Type:
       - application/json
       Date:
-      - Mon, 05 Oct 2020 23:57:35 GMT
-      Via:
-      - 1.1 efcb172d06d66d2afa4eb747b3b88605.cloudfront.net (CloudFront)
-      X-Amz-Cf-Id:
-      - iWGW67QhiyoL-aZIypsTLH6C5bvPqRCgV_g44Fi0P4vOx333rMny_Q==
-      X-Amz-Cf-Pop:
-      - DFW50-C1
+      - Mon, 12 Sep 2022 17:04:32 GMT
       X-Amzn-Trace-Id:
-      - Root=1-5f7bb2ef-0ce8f8fa299012df0c8a8103;Sampled=0
-      X-Cache:
-      - Miss from cloudfront
+      - Root=1-631f669d-21de2ba7666426d91dcb9880;Sampled=0
+      X-Request-Time:
+      - 'value: 2.924'
       x-amz-apigw-id:
-      - T9jlZE16IAMFybg=
+      - YWz4sFA4iYcFpWA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '412'
+      x-amzn-Remapped-Date:
+      - Mon, 12 Sep 2022 17:04:32 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-Remapped-x-amzn-RequestId:
+      - 69191bbf-d841-4d7f-90aa-7d8e9e2585bd
       x-amzn-RequestId:
-      - 55e6aec9-7e04-4158-a418-478cc49101d4
+      - 4d1ea458-d9d5-47ec-893c-4b747cba50ef
     status:
       code: 200
       message: OK

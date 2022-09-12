@@ -18,7 +18,7 @@ def test_bill_payment():
 def test_create_bill_payment():
     bill_payment_request = BillPaymentRequest(
         account_number='000000000000000000000000000000',
-        amount='1000',
+        amount=1000,
         provider_id='SP01',
         field_type='barcode',
         user_id='US01',
