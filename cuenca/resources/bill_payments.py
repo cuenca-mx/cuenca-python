@@ -29,7 +29,7 @@ class BillPayment(Transaction, Creatable):
         user_id: Optional[str] = None,
     ) -> 'BillPayment':
         """
-        :param account_number: account id to be paid
+        :param account_number: account number to be paid
         :param amount: needs to be in centavos (not pesos)
         :param provider_id: ServiceProvider.id
         :param field_type: payment type you choose
