@@ -31,6 +31,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     issuer: CardIssuer
     funding_type: CardFundingType
     pin_attempts_failed: Optional[int] = None
+    card_holder_user_id: Optional[int] = None
 
     @property
     def last_4_digits(self):
@@ -54,21 +55,24 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         issuer: CardIssuer,
         funding_type: CardFundingType,
         user_id: str = 'me',
+        card_holder_user_id: Optional[str] = None,
         *,
         session: Session = global_session,
     ) -> 'Card':
         """
         Assigns user_id and ledger_account_id to a existing virtual card
 
-        :param user_id: associated user id
+        :param user_id: associated user id (Owner of card)
         :param funding_type: debit or credit
         :param issuer:
+        :param card_holder_user_id: Holder user of card, not is the owner
         :return: New assigned card
         """
         req = CardRequest(
             user_id=user_id,
             issuer=issuer,
             funding_type=funding_type,
+            card_holder_user_id=card_holder_user_id,
         )
         return cast('Card', cls._create(session=session, **req.dict()))
 
