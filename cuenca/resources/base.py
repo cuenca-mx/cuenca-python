@@ -97,25 +97,25 @@ class Downloadable(Resource):
     @classmethod
     def download(
         cls,
-        instance,
-        file_format: FileFormat,
+        id: str,
+        file_format: FileFormat = FileFormat.any,
         *,
         session: Session = global_session,
     ) -> BytesIO:
         resp = session.request(
             'get',
-            f'/{cls._resource}/{instance.id}',
+            f'/{cls._resource}/{id}',
             headers=dict(Accept=file_format.value),
         )
         return BytesIO(resp)
 
     @property
     def pdf(self) -> bytes:
-        return self.download(self, file_format=FileFormat.pdf).read()
+        return self.download(self.id, file_format=FileFormat.pdf).read()
 
     @property
     def xml(self) -> bytes:
-        return self.download(self, file_format=FileFormat.xml).read()
+        return self.download(self.id, file_format=FileFormat.xml).read()
 
 
 class Uploadable(Resource):

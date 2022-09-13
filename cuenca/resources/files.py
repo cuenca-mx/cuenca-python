@@ -1,12 +1,7 @@
 from io import BytesIO
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import (
-    FileFormat,
-    FileQuery,
-    FileUploadRequest,
-    KYCFileType,
-)
+from cuenca_validations.types import FileQuery, FileUploadRequest, KYCFileType
 from pydantic import HttpUrl
 
 from ..http import Session, session as global_session
@@ -63,7 +58,7 @@ class File(Downloadable, Queryable, Uploadable):
         Bytes of the decrypted file.
         Format of the file is found on `file_type` property.
         """
-        return self.download(self, file_format=FileFormat.any).read()
+        return self.download(self.id).read()
 
     @property
     def pdf(self) -> bytes:

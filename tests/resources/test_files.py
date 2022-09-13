@@ -22,6 +22,13 @@ def test_file_download():
 
 
 @pytest.mark.vcr
+def test_file_download_only_bytes():
+    # Only download Bytes
+    downloaded_file = File.download('EFXXX')
+    assert isinstance(downloaded_file.read(), bytes)
+
+
+@pytest.mark.vcr
 def test_file_error_on_xml_pdf():
     file: File = File.first(type=KYCFileType.ine)
     with pytest.raises(NotImplementedError):
