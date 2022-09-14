@@ -79,6 +79,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         cls,
         endpoint_id: str,
         url: Optional[HttpUrl] = None,
+        events: Optional[List[WebhookEvent]] = None,
         is_enable: Optional[bool] = None,
         *,
         session: Session = global_session,
@@ -92,6 +93,8 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         :param session
         :return: Updated endpoint object
         """
-        req = EndpointUpdateRequest(url=url, is_enable=is_enable)
+        req = EndpointUpdateRequest(
+            url=url, is_enable=is_enable, events=events
+        )
         resp = cls._update(endpoint_id, session=session, **req.dict())
         return cast('Endpoint', resp)
