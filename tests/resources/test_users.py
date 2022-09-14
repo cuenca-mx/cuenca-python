@@ -34,8 +34,8 @@ def test_user_update():
         phone_number='+525555555555',
         govt_id=dict(
             type='ine',
-            uri_front='cuenca.com',
-            uri_back='cuenca.com',
+            file_id_front='EN123',
+            file_id_back='EN456',
             is_mx=True,
         ),
     )
