@@ -1,6 +1,7 @@
 interactions:
 - request:
-    body: '{"url": "https://url.io", "is_active": false}'
+    body: '{"url": "https://url.io", "is_enable": false, "events": ["user.create",
+      "cash_deposit.create"]}'
     headers:
       Accept:
       - '*/*'
@@ -11,41 +12,43 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '45'
+      - '95'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.13
+      - cuenca-python/0.14.3
       X-Cuenca-Api-Version:
       - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULev1mLmNST6ie3wcket7c-w
     method: PATCH
     uri: https://sandbox.cuenca.com/endpoints/EN02
   response:
     body:
-      string: '{"id":"EN02","created_at":"2022-02-09T19:06:44.109000","updated_at":"2022-02-09T19:06:44.109000","deactivated_at":null,"secret":"********","is_enable":false,"url":"https://url.io","events":["user.create","user.update","user.delete","transaction.create","transaction.update"]}'
+      string: '{"id":"EN02","created_at":"2022-09-14T21:12:30.710000","updated_at":"2022-09-14T21:12:30.710000","deactivated_at":null,"secret":"********","is_enable":false,"url":"https://url.io","events":["user.create","cash_deposit.create"],"user_id":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '303'
+      - '262'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Feb 2022 19:12:09 GMT
+      - Wed, 14 Sep 2022 21:22:00 GMT
       X-Request-Time:
-      - 'value: 0.144'
+      - 'value: 0.168'
       x-amz-apigw-id:
-      - NSfBbFICiYcFzfA=
+      - Yd_exHKQIAMF6kA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '303'
+      - '262'
       x-amzn-Remapped-Date:
-      - Wed, 09 Feb 2022 19:12:09 GMT
+      - Wed, 14 Sep 2022 21:22:00 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.20.2
+      - nginx/1.22.0
       x-amzn-RequestId:
-      - f6ec4a97-3e7b-44c4-b632-ee24feef8976
+      - 6f27c80d-6e86-43ac-8d31-ed02cc64bd01
     status:
       code: 200
       message: OK

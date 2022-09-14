@@ -36,10 +36,13 @@ def test_endpoint_create_another():
 def test_endpoint_update():
     id_endpoint = 'EN02'
     endpoint: Endpoint = Endpoint.update(
-        endpoint_id=id_endpoint, url='https://url.io', is_enable=False
+        endpoint_id=id_endpoint,
+        url='https://url.io',
+        is_enable=False,
+        events=['user.create', 'cash_deposit.create'],
     )
     assert endpoint.id == id_endpoint
-    assert endpoint.events
+    assert len(endpoint.events) == 2
     assert endpoint.url == 'https://url.io'
     assert not endpoint.is_enable
     assert endpoint.is_active
