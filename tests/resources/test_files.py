@@ -11,7 +11,6 @@ def test_file_upload(file):
     )
     assert uploaded_file.id is not None
     assert uploaded_file.type == KYCFileType.ine
-    assert uploaded_file.url is not None
     assert uploaded_file.user_id is not None
 
 

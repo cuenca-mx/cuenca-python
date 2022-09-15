@@ -30,6 +30,5 @@ def test_file_batch_create():
 
     for file in batch.uploaded_files:
         assert file.id is not None
-        assert file.url is not None
         if file.type == KYCFileType.ine:
             assert file.is_back

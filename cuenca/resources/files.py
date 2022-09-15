@@ -2,7 +2,6 @@ from io import BytesIO
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import FileQuery, FileUploadRequest, KYCFileType
-from pydantic import HttpUrl
 
 from ..http import Session, session as global_session
 from .base import Downloadable, Queryable, Uploadable
@@ -14,7 +13,6 @@ class File(Downloadable, Queryable, Uploadable):
 
     extension: str
     type: KYCFileType
-    url: HttpUrl
     user_id: str
 
     @classmethod
