@@ -107,7 +107,7 @@ class Downloadable(Resource):
             f'/{cls._resource}/{id}',
             headers=dict(Accept=file_format.value),
         )
-        return BytesIO(resp)
+        return BytesIO(base64.b64decode(resp))
 
     @property
     def pdf(self) -> bytes:
