@@ -31,7 +31,8 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     issuer: CardIssuer
     funding_type: CardFundingType
     pin_attempts_failed: Optional[int] = None
-    card_holder_user_id: Optional[int] = None
+    platform_id: Optional[str] = None
+    card_holder_user_id: Optional[str] = None
 
     @property
     def last_4_digits(self):
