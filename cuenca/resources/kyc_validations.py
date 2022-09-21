@@ -30,6 +30,10 @@ class KYCValidation(Creatable, Retrievable):
         }
 
     @classmethod
-    def create(cls, user_id: str,  session: Session = global_session) -> 'KYCValidation':
+    def create(
+        cls, user_id: str, session: Session = global_session
+    ) -> 'KYCValidation':
         req = KYCValidationRequest(user_id=user_id)
-        return cast('KYCValidation', cls._create(**req.dict(), session=session))
+        return cast(
+            'KYCValidation', cls._create(**req.dict(), session=session)
+        )
