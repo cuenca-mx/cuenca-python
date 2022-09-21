@@ -1,7 +1,7 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import KYCFile
+from cuenca_validations.types import KYCFile, KYCValidationRequest
 
 from ..http import Session, session as global_session
 from .base import Creatable, Retrievable, Updateable
@@ -30,5 +30,6 @@ class KYCValidation(Creatable, Retrievable):
         }
 
     @classmethod
-    def create(cls, session: Session = global_session) -> 'KYCValidation':
-        return cast('KYCValidation', cls._create(session=session))
+    def create(cls, user_id: str,  session: Session = global_session) -> 'KYCValidation':
+        req = KYCValidationRequest(user_id=user_id)
+        return cast('KYCValidation', cls._create(**req.dict(), session=session))
