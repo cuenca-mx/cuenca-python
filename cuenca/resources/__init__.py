@@ -18,6 +18,7 @@ __all__ = [
     'FileBatch',
     'Identity',
     'IdentityEvent',
+    'KYCValidations',
     'KYCVerification',
     'LimitedWallet',
     'LoginToken',
@@ -55,6 +56,7 @@ from .file_batches import FileBatch
 from .files import File
 from .identities import Identity
 from .identity_events import IdentityEvent
+from .kyc_validations import KYCValidations
 from .kyc_verifications import KYCVerification
 from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
@@ -95,6 +97,7 @@ resource_classes = [
     FileBatch,
     Identity,
     IdentityEvent,
+    KYCValidations,
     KYCVerification,
     LimitedWallet,
     LoginToken,
