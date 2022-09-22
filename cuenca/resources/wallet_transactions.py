@@ -29,10 +29,12 @@ class WalletTransaction(Transaction, Creatable):
         wallet_uri: str,
         transaction_type: WalletTransactionType,
         amount: int,
+        user_id: Optional[str] = None,
     ):
         request = WalletTransactionRequest(
             wallet_uri=wallet_uri,
             transaction_type=transaction_type,
             amount=amount,
+            user_id=user_id,
         )
         return cast('WalletTransaction', cls._create(**request.dict()))
