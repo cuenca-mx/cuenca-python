@@ -27,12 +27,14 @@ class Saving(Wallet, Updateable):
         category: SavingCategory,
         goal_amount: Optional[int] = None,
         goal_date: Optional[dt.datetime] = None,
+        user_id: Optional[str] = None,
     ):
         request = SavingRequest(
             name=name,
             category=category,
             goal_amount=goal_amount,
             goal_date=goal_date,
+            user_id=user_id,
         )
         return cast('Saving', cls._create(**request.dict()))
 
