@@ -21,9 +21,8 @@ class KYCValidation(Creatable, Retrievable, Queryable):
                 'platform_id': 'PT8UEv02zBTcymd4Kd3MO6pg',
                 'created_at': '2020-05-24T14:15:22Z',
                 'verification_id': 'string',
-                'govt_id': KYCFile.schema().get('example'),
-                'proof_of_address': None,
-                'proof_of_life': None,
+                'files_uri': ['cuenca.com/files/id', 'cuenca.com/files/id2']
+                'attemps': '1',
             }
         }
 
