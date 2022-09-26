@@ -4,13 +4,12 @@ from typing import ClassVar, List, Optional, cast
 from cuenca_validations.types import KYCFile, KYCValidationRequest
 
 from ..http import Session, session as global_session
-from .base import Creatable, Retrievable
+from .base import Creatable, Queryable, Retrievable
 
 
-class KYCValidation(Creatable, Retrievable):
+class KYCValidation(Creatable, Retrievable, Queryable):
     _resource: ClassVar = 'kyc_validations'
     platform_id: str
-    created_at: dt.datetime
     attemps: Optional[int]
     verification_id: Optional[str]
     files_uri: Optional[List[str]]
