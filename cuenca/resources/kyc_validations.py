@@ -1,10 +1,10 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast, List
+from typing import ClassVar, List, Optional, cast
 
 from cuenca_validations.types import KYCFile, KYCValidationRequest
 
 from ..http import Session, session as global_session
-from .base import Creatable, Retrievable, Updateable
+from .base import Creatable, Retrievable
 
 
 class KYCValidation(Creatable, Retrievable):
