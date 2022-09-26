@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional, cast, List
 
 from cuenca_validations.types import KYCFile, KYCValidationRequest
 
@@ -8,13 +8,12 @@ from .base import Creatable, Retrievable, Updateable
 
 
 class KYCValidation(Creatable, Retrievable):
-    _resource: ClassVar = 'kyc_verifications'
+    _resource: ClassVar = 'kyc_validations'
     platform_id: str
     created_at: dt.datetime
+    attemps: Optional[int]
     verification_id: Optional[str]
-    govt_id: Optional[KYCFile]
-    proof_of_address: Optional[KYCFile]
-    proof_of_life: Optional[KYCFile]
+    files_uri: Optional[List[str]]
 
     class Config:
         schema_extra = {
