@@ -1,7 +1,7 @@
 interactions:
 - request:
     body: '{"user_id": "US1237", "issuer": "cuenca", "funding_type":
-      "credit", "is_dynamic_cvv": false}'
+      "credit", "is_dynamic_cvv": true}'
     headers:
       Accept:
       - '*/*'
@@ -12,7 +12,7 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '110'
+      - '109'
       Content-Type:
       - application/json
       User-Agent:
@@ -23,30 +23,30 @@ interactions:
     uri: https://sandbox.cuenca.com/cards
   response:
     body:
-      string: '{"id":"CAvrnMlojFRLuMyPPveULAoA","created_at":"2022-09-27T22:32:34.616733","updated_at":"2022-09-27T22:32:35.129133","user_id":"US1237","platform_id":"PTCHzhZ0ILRN-oxwd0u2coiQ","number":"5448750030324585","exp_month":9,"exp_year":27,"cvv2":"783","type":"virtual","status":"active","pin":null,"issuer":"cuenca","funding_type":"credit","card_holder_user_id":"US118qfWNLSaOaDSPxbPzdIg","manufacturer":null,"cvv":"540","icvv":null,"is_dynamic_cvv":false,"pin_block":null,"pin_block_switch":null,"pin_attempts_failed":0}'
+      string: '{"id":"CAXhjbtkPtR0mK4mB-qxAfTg","created_at":"2022-09-27T22:40:32.407778","updated_at":"2022-09-27T22:40:32.924951","user_id":"US1237","platform_id":"PTCHzhZ0ILRN-oxwd0u2coiQ","number":"5448750085957396","exp_month":9,"exp_year":27,"cvv2":"847","type":"virtual","status":"active","pin":null,"issuer":"cuenca","funding_type":"credit","card_holder_user_id":"US118qfWNLSaOaDSPxbPzdIg","manufacturer":null,"cvv":"323","icvv":null,"is_dynamic_cvv":true,"pin_block":null,"pin_block_switch":null,"pin_attempts_failed":0}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '533'
+      - '532'
       Content-Type:
       - application/json
       Date:
-      - Tue, 27 Sep 2022 22:32:35 GMT
+      - Tue, 27 Sep 2022 22:40:33 GMT
       X-Request-Time:
-      - 'value: 0.870'
+      - 'value: 0.953'
       x-amz-apigw-id:
-      - ZJAAaEt7CYcFcyA=
+      - ZJBLEF_5CYcFSBA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '533'
+      - '532'
       x-amzn-Remapped-Date:
-      - Tue, 27 Sep 2022 22:32:35 GMT
+      - Tue, 27 Sep 2022 22:40:33 GMT
       x-amzn-Remapped-Server:
       - nginx/1.22.0
       x-amzn-RequestId:
-      - f6dfb169-9440-4b5a-b2ae-267e87945de7
+      - b1364573-21c6-4c12-bcf7-fb294c66012e
     status:
       code: 201
       message: Created
