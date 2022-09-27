@@ -18,30 +18,30 @@ interactions:
     uri: https://sandbox.cuenca.com/cards/CAycvo_X9TQoKOKsaAvdqn3w
   response:
     body:
-      string: '{"id":"CAycvo_X9TQoKOKsaAvdqn3w","created_at":"2022-09-27T22:49:23.404000","updated_at":"2022-09-27T22:49:23.907000","user_id":"US118qfWNLSaOaDSPxbPzdIg","platform_id":"PTCHzhZ0ILRN-oxwd0u2coiQ","number":"5448750051287265","exp_month":9,"exp_year":27,"cvv2":"657","type":"virtual","status":"active","pin":null,"issuer":"cuenca","funding_type":"credit","card_holder_user_id":"US118qfWNLSaOaDSPxbPzdIg","manufacturer":null,"cvv":"100","icvv":null,"is_dynamic_cvv":false,"pin_block":null,"pin_block_switch":null,"pin_attempts_failed":0}'
+      string: '{"id":"CAycvo_X9TQoKOKsaAvdqn3w","created_at":"2022-09-27T22:49:23.404000","updated_at":"2022-09-27T22:51:24.249000","user_id":"US118qfWNLSaOaDSPxbPzdIg","platform_id":"PTCHzhZ0ILRN-oxwd0u2coiQ","number":"5448750051287265","exp_month":9,"exp_year":27,"cvv2":"657","type":"virtual","status":"active","pin":null,"issuer":"cuenca","funding_type":"credit","card_holder_user_id":"US118qfWNLSaOaDSPxbPzdIg","manufacturer":null,"cvv":"100","icvv":null,"is_dynamic_cvv":true,"pin_block":null,"pin_block_switch":null,"pin_attempts_failed":0,"dcvv":"829","dcvv_expires_at":"2022-09-27T22:59:10.066677"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '533'
+      - '592'
       Content-Type:
       - application/json
       Date:
-      - Tue, 27 Sep 2022 22:49:54 GMT
+      - Tue, 27 Sep 2022 22:54:10 GMT
       X-Request-Time:
-      - 'value: 0.507'
+      - 'value: 0.706'
       x-amz-apigw-id:
-      - ZJCi2GpqCYcFT5Q=
+      - ZJDKvFfBCYcFRDg=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '533'
+      - '592'
       x-amzn-Remapped-Date:
-      - Tue, 27 Sep 2022 22:49:54 GMT
+      - Tue, 27 Sep 2022 22:54:10 GMT
       x-amzn-Remapped-Server:
       - nginx/1.22.0
       x-amzn-RequestId:
-      - 17b3414e-88e4-41d6-8d3e-358a6cd6fd48
+      - 29809dfb-52f8-4ed9-8acc-c6335348c7db
     status:
       code: 200
       message: OK

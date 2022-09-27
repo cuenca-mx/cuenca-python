@@ -1,3 +1,5 @@
+import datetime as dt
+
 import pytest
 from cuenca_validations.types import (
     CardFundingType,
@@ -20,6 +22,19 @@ def test_card_create():
     assert len(card.number) == 16
     assert card.type == CardType.virtual
     assert card.user_id == user_id
+    assert card.is_dynamic_cvv is False
+
+
+@pytest.mark.vcr
+def test_card_create_dcvv():
+    card = Card.create(
+        CardIssuer.cuenca, CardFundingType.credit, user_id, is_dynamic_cvv=True
+    )
+    assert card.id
+    assert len(card.number) == 16
+    assert card.type == CardType.virtual
+    assert card.user_id == user_id
+    assert card.is_dynamic_cvv is True
 
 
 @pytest.mark.vcr
@@ -34,10 +49,26 @@ def test_card_retrieve():
     card: Card = Card.retrieve(card_id)
     assert card.id == card_id
     assert len(card.number) == 16
-    assert card.last_4_digits == '9849'
+    assert card.last_4_digits == '7265'
     assert card.bin == '544875'
     assert card.type == CardType.virtual
     assert not card.pin_attempts_exceeded
+    assert card.is_dynamic_cvv is False
+    assert card.dcvv is None
+
+
+@pytest.mark.vcr
+def test_card_retrieve_dcvv():
+    card: Card = Card.retrieve(card_id)
+    assert card.id == card_id
+    assert len(card.number) == 16
+    assert card.last_4_digits == '7265'
+    assert card.bin == '544875'
+    assert card.type == CardType.virtual
+    assert not card.pin_attempts_exceeded
+    assert card.is_dynamic_cvv is True
+    assert card.dcvv.isdigit()
+    assert isinstance(card.dcvv_expires_at, dt.datetime)
 
 
 @pytest.mark.vcr

@@ -1,3 +1,4 @@
+import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import (
@@ -31,11 +32,11 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     issuer: CardIssuer
     funding_type: CardFundingType
     dcvv: Optional[str] = None
-    dcvv_expires_at: Optional[str] = None
+    dcvv_expires_at: Optional[dt.datetime] = None
     pin_attempts_failed: Optional[int] = None
     platform_id: Optional[str] = None
     card_holder_user_id: Optional[str] = None
-    is_dynamic_cvv: Optional[bool] = None
+    is_dynamic_cvv: bool = False
 
     @property
     def last_4_digits(self):
@@ -60,7 +61,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         funding_type: CardFundingType,
         user_id: str = 'me',
         card_holder_user_id: Optional[str] = None,
-        is_dynamic_cvv: Optional[bool] = False,
+        is_dynamic_cvv: bool = False,
         *,
         session: Session = global_session,
     ) -> 'Card':
@@ -88,7 +89,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         card_id: str,
         status: Optional[CardStatus] = None,
         pin_block: Optional[str] = None,
-        is_dynamic_cvv: Optional[bool] = False,
+        is_dynamic_cvv: bool = False,
         *,
         session: Session = global_session,
     ) -> 'Card':
