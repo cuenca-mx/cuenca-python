@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: '{"user_id": "USFOOBAR"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '39'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.14.7.dev6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/kyc_validations
+  response:
+    body:
+      string: '{"id":"KVWZUhh-t_RUOPvU3hOnhbsQ","created_at":"2022-09-26T23:14:28.686030","verification_id":"6332324ca3b3cd001c6bcbf9","platform_id":"PTS7Wx1-1KRCKHQRWXsqxbMQ","user_id":"USOiwY3bhaRO-Or9koIBaehg","files_uri":["''https://sandbox.cuenca.com/files/EFfX_JE_wES3KA5cuR075rVA","https://sandbox.cuenca.com/files/EFWUXd3zl6Q6Gmd1tD2S65fw","https://sandbox.cuenca.com/files/EF2_YXyrMLSba7wpz-DQGgsw"]}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '393'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 26 Sep 2022 23:14:28 GMT
+      X-Request-Time:
+      - 'value: 27.792'
+      x-amz-apigw-id:
+      - ZFzI7GHfoAMF4jQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '393'
+      x-amzn-Remapped-Date:
+      - Mon, 26 Sep 2022 23:14:28 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-RequestId:
+      - 310039b7-a7dd-4980-bb0b-b5552c602d26
+    status:
+      code: 201
+      message: Created
+version: 1

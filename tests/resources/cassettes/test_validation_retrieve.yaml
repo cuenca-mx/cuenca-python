@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      User-Agent:
+      - cuenca-python/0.14.7.dev6
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/kyc_validations/KVFOO
+  response:
+    body:
+      string: '{"id":"KVWZUhh-t_RUOPvU3hOnhbsQ","platform_id":"PTS7Wx1-1KRCKHQRWXsqxbMQ","created_at":"2022-09-26T23:14:28.686000","verification_id":"6332324ca3b3cd001c6bcbf9","govt_id":null,"proof_of_address":null,"proof_of_life":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '221'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 26 Sep 2022 23:15:11 GMT
+      X-Request-Time:
+      - 'value: 0.074'
+      x-amz-apigw-id:
+      - ZFzT4HnLIAMFe1w=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '221'
+      x-amzn-Remapped-Date:
+      - Mon, 26 Sep 2022 23:15:11 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.0
+      x-amzn-RequestId:
+      - 54f8a828-94f3-4303-8c95-95e22472cbab
+    status:
+      code: 200
+      message: OK
+version: 1
