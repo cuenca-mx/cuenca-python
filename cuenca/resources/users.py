@@ -46,12 +46,6 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     platform_id: Optional[str] = None
     clabe: Optional[Clabe] = None
     blacklist_validation_status: Optional[VerificationStatus]
-    # These fields are added by identify when retrieving a User:
-    names: Optional[str]
-    first_surname: Optional[str]
-    second_surname: Optional[str]
-    curp: Optional[str]
-    rfc: Optional[str]
 
     @property
     def balance(self) -> int:
