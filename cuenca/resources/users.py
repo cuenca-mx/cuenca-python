@@ -52,7 +52,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     curp: Optional[str]
     rfc: Optional[str]
     gender: Optional[Gender]
-    date_of_birth: Optional[dt.datetime]
+    date_of_birth: Optional[dt.date]
     state_of_birth: Optional[State]
     nationality: Optional[Country]
     country_of_birth: Optional[Country]
