@@ -14,6 +14,7 @@ from cuenca_validations.types import (
     UserStatus,
     UserUpdateRequest,
 )
+from cuenca_validations.types.enums import Country, Gender, State
 from cuenca_validations.types.identities import CurpField
 from pydantic import EmailStr
 
@@ -44,6 +45,17 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     beneficiaries: Optional[List[Beneficiary]]
     platform_id: Optional[str] = None
     clabe: Optional[Clabe] = None
+    # These fields are added by identify when retrieving a User:
+    names: Optional[str]
+    first_surname: Optional[str]
+    second_surname: Optional[str]
+    curp: Optional[str]
+    rfc: Optional[str]
+    gender: Optional[Gender]
+    date_of_birth: Optional[dt.date]
+    state_of_birth: Optional[State]
+    nationality: Optional[Country]
+    country_of_birth: Optional[Country]
 
     @property
     def balance(self) -> int:
