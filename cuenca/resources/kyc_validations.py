@@ -1,6 +1,6 @@
 from typing import ClassVar, List, Optional, cast
 
-from cuenca_validations.types import KYCValidationRequest
+from cuenca_validations.types import KYCFile, KYCValidationRequest
 
 from ..http import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable
@@ -30,9 +30,14 @@ class KYCValidation(Creatable, Retrievable, Queryable):
         cls,
         user_id: str,
         force: bool = False,
+        documents: List[KYCFile] = [],
         session: Session = global_session,
     ) -> 'KYCValidation':
-        req = KYCValidationRequest(user_id=user_id, force=force)
+        req = KYCValidationRequest(
+            user_id=user_id,
+            force=force,
+            documents=documents,
+        )
         return cast(
             'KYCValidation', cls._create(**req.dict(), session=session)
         )
