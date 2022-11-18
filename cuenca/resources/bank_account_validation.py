@@ -1,71 +1,72 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
+from clabe import Clabe
 from cuenca_validations.types import (
     BankAccountStatus,
+    BankAccountValidationQuery,
     BankAccountValidationRequest,
+    Country,
     CurpField,
+    Gender,
     Rfc,
+    State,
 )
 
 from ..http import Session, session as global_session
-from .base import Creatable, Retrievable
+from .base import Creatable, Queryable, Retrievable
 
 
-class BankAccountValidation(Creatable, Retrievable):
+class BankAccountValidation(Creatable, Retrievable, Queryable):
     _resource: ClassVar = 'bank_account_validations'
+    _query_params: ClassVar = BankAccountValidationQuery
 
-    created_at: dt.datetime
-    account_number: Optional[str] = None
-    account_holder: Optional[str] = None
-    bank_code: Optional[str] = None
-    status: Optional[BankAccountStatus] = None
+    updated_at: dt.datetime
+    status: BankAccountStatus
+    platform_id: str
+    clabe: Clabe
+    transfer_id: str
+    names: Optional[str] = None
+    first_surname: Optional[str] = None
+    second_surname: Optional[str] = None
     curp: Optional[CurpField] = None
     rfc: Optional[Rfc] = None
+    gender: Optional[Gender] = None
+    date_of_birth: Optional[dt.date] = None
+    state_of_birth: Optional[State] = None
+    nationality: Optional[Country] = None
+    country_of_birth: Optional[Country] = None
 
     class Config:
-        fields = {
-            'account_number': {
-                'description': 'Account number for validation, '
-                'can be CARD_NUMBER or CLABE'
-            },
-            'account_holder': {
-                'description': 'The fullname of the owner from the account'
-            },
-            'bank_code': {
-                'description': 'Code of the bank according to '
-                'https://es.wikipedia.org/wiki/CLABE, this can be retrived from our '
-                'library https://github.com/cuenca-mx/clabe-python'
-            },
-            'status': {
-                'description': 'Initial status is submitted, then if everthing '
-                'its fine or not the status can be succeeded or failed'
-            },
-        }
         schema_extra = {
             'example': {
-                'id': 'CVNEUInh69SuKXXmK95sROwQ',
-                'created_at': '2019-08-24T14:15:22Z',
-                'account_number': '646180157098510917',
-                'account_holder': 'Pedrito Sola',
-                'bank_code': '90646',
-                'status': 'succedded',
-                'curp': 'GOCG650418HVZNML08',
-                'rfc': 'GOCG650418HV9',
+                'id': 'BAbUFjZTUbR3Oqj3vvzHcwBg',
+                'created_at': '2022-11-16T17:15:35.288128',
+                'updated_at': '2022-11-16T17:15:35.288128',
+                'status': 'succeeded',
+                'platform_id': 'PT-123',
+                'clabe': '127841000000000003',
+                'transfer_id': 'TR-123',
+                'names': 'José',
+                'first_surname': 'López',
+                'second_surname': 'Pérez',
+                'curp': 'LOPJ900101HDFPRS04',
+                'rfc': 'LOPJ9001016S5',
+                'gender': 'male',
+                'date_of_birth': '1990-01-01',
+                'state_of_birth': 'DF',
+                'nationality': 'MX',
+                'country_of_birth': 'MX',
             }
         }
 
     @classmethod
     def create(
         cls,
-        account_number: str,
-        bank_code: str,
+        clabe: Clabe,
         session: Session = global_session,
     ) -> 'BankAccountValidation':
-        req = BankAccountValidationRequest(
-            account_number=account_number,
-            bank_code=bank_code,
-        )
+        req = BankAccountValidationRequest(clabe=clabe)
         return cast(
             'BankAccountValidation',
             cls._create(session=session, **req.dict()),
