@@ -16,7 +16,7 @@ from cuenca_validations.types import (
 )
 from cuenca_validations.types.enums import Country, Gender, State
 from cuenca_validations.types.identities import CurpField
-from pydantic import EmailStr
+from pydantic import EmailStr, HttpUrl
 
 from ..http import Session, session as global_session
 from .balance_entries import BalanceEntry
@@ -154,6 +154,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         status: Optional[UserStatus] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
+        curp_document: Optional[HttpUrl] = None,
         *,
         session: Session = global_session,
     ):
@@ -170,6 +171,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             verification_id=verification_id,
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
+            curp_document=curp_document,
             status=status,
         )
         return cast(
