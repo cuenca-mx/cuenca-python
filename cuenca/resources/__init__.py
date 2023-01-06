@@ -6,6 +6,7 @@ __all__ = [
     'BillPayment',
     'Card',
     'CardActivation',
+    'CardRequest',
     'CardTransaction',
     'CardValidation',
     'CashReference',
@@ -43,6 +44,7 @@ from .arpc import Arpc
 from .balance_entries import BalanceEntry
 from .bill_payments import BillPayment
 from .card_activations import CardActivation
+from .card_requests import CardRequest
 from .card_transactions import CardTransaction
 from .card_validations import CardValidation
 from .cards import Card
