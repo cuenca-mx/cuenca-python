@@ -29,9 +29,9 @@ class CardRequest(Creatable, Queryable, Retrievable, Updateable):
     full_address: str
     delivery_type: DeliveryType
     status: DeliveryStatus
-    phone: str
-    name: str
-    email: str
+    recipient_phone: str
+    recipient_name: str
+    recipient_email: str
     comment: Optional[str]
     tracking_url: Optional[str]
     provider_order_id: Optional[str]
@@ -73,6 +73,10 @@ class CardRequest(Creatable, Queryable, Retrievable, Updateable):
         city: str,
         colonia: str,
         postal_code: str,
+        full_address: str,
+        recipient_phone: str,
+        recipient_name: str,
+        recipient_email: str,
         internal_number: Optional[str] = None,
         *,
         session: Session = global_session,
@@ -88,6 +92,10 @@ class CardRequest(Creatable, Queryable, Retrievable, Updateable):
             city=city,
             colonia=colonia,
             postal_code=postal_code,
+            full_address=full_address,
+            recipient_phone=recipient_phone,
+            recipient_name=recipient_name,
+            recipient_email=recipient_email,
         )
         resp = cls._create(session=session, **req.dict())
         return cast('CardRequest', resp)
