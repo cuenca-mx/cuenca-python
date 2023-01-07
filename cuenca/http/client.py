@@ -1,6 +1,6 @@
 import json
 import os
-from typing import Optional, Tuple, Dict, Any
+from typing import Any, Dict, Optional, Tuple
 from urllib.parse import urljoin
 
 import requests
@@ -30,8 +30,8 @@ class Session:
 
     def __init__(self):
         self.headers = {
-                'X-Cuenca-Api-Version': API_VERSION,
-                'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
+            'X-Cuenca-Api-Version': API_VERSION,
+            'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
         }
 
         # basic auth
