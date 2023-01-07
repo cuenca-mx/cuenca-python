@@ -42,7 +42,7 @@ class Jwt(BaseModel):
     @classmethod
     def create(cls, session: 'Session') -> 'Jwt':
         session.jwt_token = None
-        session.session.headers.pop('X-Cuenca-Token', None)
+        session.headers.pop('X-Cuenca-Token', None)
         token = session.post('/token', dict())['token']
         expires_at = Jwt.get_expiration_date(token)
         return cls(expires_at=expires_at, token=token)

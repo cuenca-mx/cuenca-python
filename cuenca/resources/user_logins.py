@@ -33,7 +33,7 @@ class UserLogin(Creatable):
         req = UserLoginRequest(password=password, user_id=user_id)
         login = cast('UserLogin', cls._create(session=session, **req.dict()))
         if login.success:
-            session.session.headers['X-Cuenca-LoginId'] = login.id
+            session.headers['X-Cuenca-LoginId'] = login.id
         return login
 
     @classmethod
@@ -43,4 +43,4 @@ class UserLogin(Creatable):
         # Using user_id vs user_login_id to avoid needing to store
         # user_login_id or perform a query to fetch it
         session.delete(f'{cls._resource}/{user_id}', dict())
-        session.session.headers.pop('X-Cuenca-LoginId', None)
+        session.headers.pop('X-Cuenca-LoginId', None)

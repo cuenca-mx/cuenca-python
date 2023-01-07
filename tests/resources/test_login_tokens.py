@@ -4,7 +4,7 @@ from cuenca import LoginToken, Transfer, UserLogin
 from cuenca.http.client import Session
 
 
-@pytest.fixture
+@pytest.fixture(scope='function')
 def session():
     session = Session()
     session.configure(
@@ -19,6 +19,6 @@ def session():
 def test_login_token(session):
     UserLogin.create('222222', session=session)
     login_token = LoginToken.create(session=session)
-    session.session.headers.pop('X-Cuenca-LoginId')
+    session.headers.pop('X-Cuenca-LoginId')
     session.configure(login_token=login_token.id)
     Transfer.count(session=session)
