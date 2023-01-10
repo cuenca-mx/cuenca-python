@@ -50,7 +50,6 @@ class Retrievable(Resource):
     def retrieve(
         cls, id: str, *, session: Session = global_session
     ) -> Resource:
-        # breakpoint()
         resp = session.get(f'/{cls._resource}/{id}')
         return cls._from_dict(resp)
 
