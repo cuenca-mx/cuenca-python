@@ -1,6 +1,6 @@
 import json
 import os
-from typing import Any, Dict, Optional, Tuple
+from typing import Optional, Tuple
 from urllib.parse import urljoin
 
 import requests
@@ -24,7 +24,7 @@ SANDBOX_HOST = 'sandbox.cuenca.com'
 class Session:
 
     host: str = API_HOST
-    headers: Dict[str, Any] = {}
+    headers: DictStrAny = {}
     basic_auth: Tuple[str, str]
     jwt_token: Optional[Jwt] = None
 
@@ -104,12 +104,12 @@ class Session:
     ) -> bytes:
         resp = None
         with requests.Session() as session:
-            session.headers = self.headers
+            session.headers = self.headers  # type: ignore
             if self.jwt_token:
                 if self.jwt_token.is_expired:
                     self.jwt_token = Jwt.create(self)
                 self.headers['X-Cuenca-Token'] = self.jwt_token.token
-                session.headers = self.headers
+                session.headers = self.headers  # type: ignore
             resp = session.request(
                 method=method,
                 url='https://' + self.host + urljoin('/', endpoint),
