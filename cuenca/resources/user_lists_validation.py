@@ -1,7 +1,6 @@
 import datetime as dt
-from typing import ClassVar, Optional, Union, cast
+from typing import ClassVar, Optional, cast
 
-from clabe import Clabe
 from cuenca_validations.types import UserListsRequest
 from cuenca_validations.types.identities import CurpField
 
