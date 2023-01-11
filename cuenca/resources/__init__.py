@@ -31,6 +31,7 @@ __all__ = [
     'User',
     'UserEvent',
     'UserLogin',
+    'UserListsValidation',
     'Verification',
     'WalletTransaction',
     'Webhook',
@@ -69,6 +70,7 @@ from .statements import Statement
 from .transfers import Transfer
 from .user_credentials import UserCredential
 from .user_events import UserEvent
+from .user_lists_validation import UserListsValidation
 from .user_logins import UserLogin
 from .users import User
 from .verifications import Verification
@@ -109,6 +111,7 @@ resource_classes = [
     User,
     UserCredential,
     UserEvent,
+    UserListsValidation,
     UserLogin,
     Verification,
     WalletTransaction,
