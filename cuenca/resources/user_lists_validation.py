@@ -1,7 +1,7 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import UserListsRequest
+from cuenca_validations.types import UserListsRequest, VerificationStatus
 from cuenca_validations.types.identities import CurpField
 
 from ..http import Session, session as global_session
@@ -16,6 +16,7 @@ class UserListsValidation(Creatable, Retrievable):
     second_surname: Optional[str] = None
     curp: Optional[CurpField] = None
     account_number: Optional[str] = None
+    status: Optional[VerificationStatus] = None
 
     @classmethod
     def create(
