@@ -64,6 +64,17 @@ def user_request() -> Dict:
 
 
 @pytest.fixture
+def user_lists_request() -> Dict:
+    user_dict = dict(
+        curp='LOHJ660606HDFPRS02',
+        names='Alejandro',
+        first_surname='Martinez',
+        second_surname='Viquez',
+    )
+    return user_dict
+
+
+@pytest.fixture
 def file() -> BytesIO:
     with open('tests/data/test_file.jpeg', 'rb') as image_file:
         return BytesIO(image_file.read())
