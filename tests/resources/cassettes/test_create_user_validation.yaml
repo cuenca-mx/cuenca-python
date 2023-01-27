@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: '{"curp": "LOHJ660606HDFPRS02", "account_number": null, "names": "Alejandro",
+      "first_surname": "Martinez", "second_surname": "Viquez"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '133'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.15.8.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/user_lists_validations
+  response:
+    body:
+      string: '{"id":"UVEb7dxQ9URaSPJ8T5AZx18w","created_at":"2023-01-26T22:31:43.776743","platform_id":"PTZbBlk__kQt-wfwzP5nwA9A","names":"Alejandro","first_surname":"Martinez","second_surname":"Viquez","curp":null,"status":"succeeded","error":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '235'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 26 Jan 2023 22:31:49 GMT
+      X-Request-Time:
+      - 'value: 5.414'
+      x-amz-apigw-id:
+      - fXzUdE5-CYcFjcQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '235'
+      x-amzn-Remapped-Date:
+      - Thu, 26 Jan 2023 22:31:49 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.1
+      x-amzn-RequestId:
+      - d6df16fc-7de4-491c-8355-750fea51aa84
+    status:
+      code: 201
+      message: Created
+version: 1

@@ -1,0 +1,51 @@
+interactions:
+- request:
+    body: '{"curp": null, "account_number": null, "names": null, "first_surname":
+      null, "second_surname": null}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '100'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.15.8.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/user_lists_validations
+  response:
+    body:
+      string: '{"error":"There is an error with the inputs"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '45'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 26 Jan 2023 22:34:19 GMT
+      x-amz-apigw-id:
+      - fXzszEKAiYcFpjA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '45'
+      x-amzn-Remapped-Date:
+      - Thu, 26 Jan 2023 22:34:19 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.1
+      x-amzn-RequestId:
+      - 7c91e271-c8ab-4fd7-a2c9-b7ab66f48daf
+    status:
+      code: 400
+      message: Bad Request
+version: 1
