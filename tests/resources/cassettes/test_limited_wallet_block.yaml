@@ -1,0 +1,54 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - cuenca-python/0.15.7
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: DELETE
+    uri: https://sandbox.cuenca.com/limited_wallets/LA3vx08KlQCXsaP9qyWfb680
+  response:
+    body:
+      string: '{"id":"LA3vx08KlQCXsaP9qyWfb680","created_at":"2023-01-27T06:03:55.129000","updated_at":"2023-01-27T06:03:55.129000","user_id":"US1le53HEq05OMrFTIlzqGJK","balance":0,"deactivated_at":"2023-01-27T16:20:27.834722","account_number":"646180157010224854","platform_id":"PTSFitwBYWROu-dAziDnSr4Q","allowed_rfc":"HEMA921130J86","allowed_curp":"HEMA921130HNERNN07"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '357'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 27 Jan 2023 16:20:28 GMT
+      X-Amzn-Trace-Id:
+      - Root=1-63d3f9cb-6e5574bd5ff5e1b65f703d33;Sampled=0
+      X-Request-Time:
+      - 'value: 0.646'
+      x-amz-apigw-id:
+      - faP31EirCYcFd5A=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '357'
+      x-amzn-Remapped-Date:
+      - Fri, 27 Jan 2023 16:20:28 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.22.1
+      x-amzn-Remapped-x-amzn-RequestId:
+      - f9740282-bc4c-4bdf-b149-3f56dd8668a8
+      x-amzn-RequestId:
+      - 9fffe518-9399-4a08-8be2-86d20e3840ff
+    status:
+      code: 200
+      message: OK
+version: 1
