@@ -110,7 +110,7 @@ class Session:
                     self.jwt_token = Jwt.create(self)
                 self.headers['X-Cuenca-Token'] = self.jwt_token.token
                 session.headers = self.headers  # type: ignore
-            resp = session.request(
+            resp = session.request(  # type: ignore
                 method=method,
                 url='https://' + self.host + urljoin('/', endpoint),
                 auth=self.auth,
