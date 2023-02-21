@@ -24,18 +24,15 @@ SANDBOX_HOST = 'sandbox.cuenca.com'
 class Session:
 
     host: str = API_HOST
+    headers: DictStrAny = {}
     basic_auth: Tuple[str, str]
     jwt_token: Optional[Jwt] = None
-    session: requests.Session
 
     def __init__(self):
-        self.session = requests.Session()
-        self.session.headers.update(
-            {
-                'X-Cuenca-Api-Version': API_VERSION,
-                'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
-            }
-        )
+        self.headers = {
+            'X-Cuenca-Api-Version': API_VERSION,
+            'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
+        }
 
         # basic auth
         api_key = os.getenv('CUENCA_API_KEY', '')
@@ -75,10 +72,10 @@ class Session:
             self.jwt_token = Jwt.create(self)
 
         if login_token:
-            self.session.headers['X-Cuenca-LoginToken'] = login_token
+            self.headers['X-Cuenca-LoginToken'] = login_token
 
         if session_token:
-            self.session.headers['X-Cuenca-SessionId'] = session_token
+            self.headers['X-Cuenca-SessionId'] = session_token
 
     def get(
         self, endpoint: str, params: ClientRequestParams = None
@@ -105,19 +102,22 @@ class Session:
         data: OptionalDict = None,
         **kwargs,
     ) -> bytes:
-        if self.jwt_token:
-            if self.jwt_token.is_expired:
-                self.jwt_token = Jwt.create(self)
-            self.session.headers['X-Cuenca-Token'] = self.jwt_token.token
-
-        resp = self.session.request(
-            method=method,
-            url='https://' + self.host + urljoin('/', endpoint),
-            auth=self.auth,
-            json=json.loads(JSONEncoder().encode(data)),
-            params=params,
-            **kwargs,
-        )
+        resp = None
+        with requests.Session() as session:
+            session.headers = self.headers  # type: ignore
+            if self.jwt_token:
+                if self.jwt_token.is_expired:
+                    self.jwt_token = Jwt.create(self)
+                self.headers['X-Cuenca-Token'] = self.jwt_token.token
+                session.headers = self.headers  # type: ignore
+            resp = session.request(  # type: ignore
+                method=method,
+                url='https://' + self.host + urljoin('/', endpoint),
+                auth=self.auth,
+                json=json.loads(JSONEncoder().encode(data)),
+                params=params,
+                **kwargs,
+            )
         self._check_response(resp)
         return resp.content
 
