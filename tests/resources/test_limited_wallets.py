@@ -19,3 +19,10 @@ def test_limited_wallet_retrieve():
     id = 'LA3vx08KlQCXsaP9qyWfb680'
     wallet = LimitedWallet.retrieve(id)
     assert wallet.id == id
+
+
+@pytest.mark.vcr
+def test_limited_wallet_block():
+    id = 'LA3vx08KlQCXsaP9qyWfb680'
+    wallet = LimitedWallet.block(id)
+    assert wallet.id == id

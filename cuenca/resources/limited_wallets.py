@@ -8,6 +8,7 @@ from cuenca_validations.types import (
     Rfc,
 )
 
+from ..http import Session, session as global_session
 from .base import Wallet
 
 
@@ -38,3 +39,17 @@ class LimitedWallet(Wallet):
             allowed_rfc=allowed_rfc,
         )
         return cast('LimitedWallet', cls._create(**request.dict()))
+
+    @classmethod
+    def block(
+        cls, limited_wallet_id: str, *, session: Session = global_session
+    ) -> 'LimitedWallet':
+        """
+        Blocks a Limited Wallet avoiding it to send and receive transactions
+
+        Args:
+            limited_wallet_id: Limited Wallet ID
+        """
+        url = f'{cls._resource}/{limited_wallet_id}'
+        resp = session.delete(url)
+        return cast('LimitedWallet', cls._from_dict(resp))
