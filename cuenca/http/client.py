@@ -12,6 +12,7 @@ from cuenca_validations.typing import (
     OptionalDict,
 )
 from requests import Response
+from requests.adapters import HTTPAdapter, Retry
 
 from ..exc import CuencaResponseException
 from ..jwt import Jwt
@@ -27,13 +28,18 @@ class Session:
     headers: DictStrAny = {}
     basic_auth: Tuple[str, str]
     jwt_token: Optional[Jwt] = None
+    session: requests.Session
+    timeout: int = 60
+    retries: int = 3
+    status_forcelist: Tuple[int, ...] = (401, 402)
+    backoff_factor: float = 0.4
 
     def __init__(self):
+        self.session = requests.Session()
         self.headers = {
             'X-Cuenca-Api-Version': API_VERSION,
             'User-Agent': f'cuenca-python/{CLIENT_VERSION}',
         }
-
         # basic auth
         api_key = os.getenv('CUENCA_API_KEY', '')
         api_secret = os.getenv('CUENCA_API_SECRET', '')
@@ -77,6 +83,14 @@ class Session:
         if session_token:
             self.headers['X-Cuenca-SessionId'] = session_token
 
+        retry = Retry(
+            total=self.retries,
+            status_forcelist=self.status_forcelist,
+            backoff_factor=self.backoff_factor,
+        )
+        adapter = HTTPAdapter(max_retries=retry)
+        self.session.mount("https://", adapter)
+
     def get(
         self, endpoint: str, params: ClientRequestParams = None
     ) -> DictStrAny:
@@ -102,22 +116,20 @@ class Session:
         data: OptionalDict = None,
         **kwargs,
     ) -> bytes:
-        resp = None
-        with requests.Session() as session:
-            session.headers = self.headers  # type: ignore
-            if self.jwt_token:
-                if self.jwt_token.is_expired:
-                    self.jwt_token = Jwt.create(self)
-                self.headers['X-Cuenca-Token'] = self.jwt_token.token
-                session.headers = self.headers  # type: ignore
-            resp = session.request(  # type: ignore
-                method=method,
-                url='https://' + self.host + urljoin('/', endpoint),
-                auth=self.auth,
-                json=json.loads(JSONEncoder().encode(data)),
-                params=params,
-                **kwargs,
-            )
+        if self.jwt_token:
+            if self.jwt_token.is_expired:
+                self.jwt_token = Jwt.create(self)
+            self.session.headers['X-Cuenca-Token'] = self.jwt_token.token
+
+        resp = self.session.request(
+            method=method,
+            url='https://' + self.host + urljoin('/', endpoint),
+            auth=self.auth,
+            json=json.loads(JSONEncoder().encode(data)),
+            params=params,
+            timeout=self.timeout,
+            **kwargs,
+        )
         self._check_response(resp)
         return resp.content
 
