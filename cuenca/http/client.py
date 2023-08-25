@@ -43,6 +43,14 @@ class Session:
         api_key = os.getenv('CUENCA_API_KEY', '')
         api_secret = os.getenv('CUENCA_API_SECRET', '')
         self.basic_auth = (api_key, api_secret)
+        retry = Retry(
+            total=self.retries,
+            backoff_factor=self.backoff_factor,
+            read=self.retries,
+        )
+        adapter = HTTPAdapter(max_retries=retry)
+        self.session.mount("https://", adapter)
+        print('Retry adapter mounted')
 
     @property
     def auth(self) -> Optional[Tuple[str, str]]:
@@ -81,13 +89,6 @@ class Session:
 
         if session_token:
             self.headers['X-Cuenca-SessionId'] = session_token
-
-        retry = Retry(
-            total=self.retries,
-            backoff_factor=self.backoff_factor,
-        )
-        adapter = HTTPAdapter(max_retries=retry)
-        self.session.mount("https://", adapter)
 
     def get(
         self, endpoint: str, params: ClientRequestParams = None
