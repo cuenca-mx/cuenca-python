@@ -1,6 +1,6 @@
 import datetime as dt
-from unittest.mock import patch
-
+from unittest.mock import patch, Mock
+from requests.exceptions import Timeout
 import pytest
 from cuenca_validations.errors import (
     NoPasswordFoundError,
@@ -90,3 +90,14 @@ def test_no_password():
 def test_no_session():
     with pytest.raises(UserNotLoggedInError):
         Transfer.count()
+
+
+def test_timeout_raises():
+    session = Session()
+    session.configure(
+        api_key='USER_API_KEY', api_secret='USER_SECRET', sandbox=True
+    )
+    with patch('requests.Session.request', side_effect=Timeout()) as mock_timeout:
+        with pytest.raises(Timeout):
+            Card.first(user_id='USER_ID', session=session)
+    assert mock_timeout.call_count == 3
