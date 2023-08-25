@@ -29,9 +29,8 @@ class Session:
     basic_auth: Tuple[str, str]
     jwt_token: Optional[Jwt] = None
     session: requests.Session
-    timeout: int = 60
+    timeout: int = 30
     retries: int = 3
-    status_forcelist: Tuple[int, ...] = (401, 402)
     backoff_factor: float = 0.4
 
     def __init__(self):
@@ -85,7 +84,6 @@ class Session:
 
         retry = Retry(
             total=self.retries,
-            status_forcelist=self.status_forcelist,
             backoff_factor=self.backoff_factor,
         )
         adapter = HTTPAdapter(max_retries=retry)
