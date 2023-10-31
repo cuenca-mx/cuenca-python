@@ -89,7 +89,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         card_id: str,
         status: Optional[CardStatus] = None,
         pin_block: Optional[str] = None,
-        is_dynamic_cvv: bool = None,
+        is_dynamic_cvv: Optional[bool] = None,
         *,
         session: Session = global_session,
     ) -> 'Card':
@@ -100,6 +100,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         :param card_id: existing card_id
         :param status:
         :param pin_block
+        :param is_dynamic_cvv: enable/disable dynamic cvv for virtual cards
         :param session:
         :return: Updated card object
         """
