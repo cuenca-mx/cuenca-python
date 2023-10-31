@@ -89,7 +89,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         card_id: str,
         status: Optional[CardStatus] = None,
         pin_block: Optional[str] = None,
-        is_dynamic_cvv: bool = False,
+        is_dynamic_cvv: bool = None,
         *,
         session: Session = global_session,
     ) -> 'Card':
