@@ -1,7 +1,7 @@
 import datetime as dt
 from typing import ClassVar, cast
 
-from cuenca_validations.types import QuestionnaireRequest
+from cuenca_validations.types import QuestionnairesRequest
 
 from ..http import Session, session as global_session
 from .base import Creatable, Retrievable
@@ -31,7 +31,7 @@ class Questionnaires(Creatable, Retrievable):
         *,
         session: Session = global_session,
     ) -> 'Questionnaires':
-        req = QuestionnaireRequest(
+        req = QuestionnairesRequest(
             user_id=user_id,
             token=token,
             alert_id=alert_id,
