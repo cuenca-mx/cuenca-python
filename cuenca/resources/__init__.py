@@ -23,6 +23,7 @@ __all__ = [
     'LimitedWallet',
     'LoginToken',
     'Platform',
+    'Questionnaires',
     'Saving',
     'ServiceProvider',
     'Session',
@@ -63,6 +64,7 @@ from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
 from .platforms import Platform
 from .resources import RESOURCES
+from .questionnaires import Questionnaires
 from .savings import Saving
 from .service_providers import ServiceProvider
 from .sessions import Session
@@ -103,6 +105,7 @@ resource_classes = [
     KYCVerification,
     LimitedWallet,
     LoginToken,
+    Questionnaires,
     Saving,
     Session,
     ServiceProvider,
