@@ -63,8 +63,8 @@ from .kyc_verifications import KYCVerification
 from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
 from .platforms import Platform
-from .resources import RESOURCES
 from .questionnaires import Questionnaires
+from .resources import RESOURCES
 from .savings import Saving
 from .service_providers import ServiceProvider
 from .sessions import Session

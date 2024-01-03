@@ -26,7 +26,6 @@ class Questionnaires(Creatable, Retrievable):
         cls,
         user_id: str,
         token: str,
-        alert_id: str,
         form_id: str,
         *,
         session: Session = global_session,
@@ -34,7 +33,6 @@ class Questionnaires(Creatable, Retrievable):
         req = QuestionnairesRequest(
             user_id=user_id,
             token=token,
-            alert_id=alert_id,
             form_id=form_id,
         )
         return cast(
