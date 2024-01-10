@@ -1,7 +1,7 @@
-import datetime as dt
-
 import pytest
-from  cuenca import Questionnaires
+
+from cuenca import Questionnaires
+
 
 @pytest.mark.vcr
 def test_create_questionnaire():
