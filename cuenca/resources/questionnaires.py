@@ -11,6 +11,9 @@ class Questionnaires(Creatable, Retrievable):
     _resource: ClassVar = 'questionnaires'
 
     created_at: dt.datetime
+    token: str
+    form_id: str
+    user_id: str
 
     class Config:
         schema_extra = {

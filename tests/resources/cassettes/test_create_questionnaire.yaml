@@ -1,0 +1,98 @@
+interactions:
+- request:
+    body: '{"user_id": "US2aaB809x842cq8PxhhdgyC", "token": "some_token",
+      "form_id": "some_form"}'
+    headers:
+      Authorization:
+      - DUMMY
+      Content-Length:
+      - '107'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/0.15.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/questionnaires
+  response:
+    body:
+      string: "{\"id\":\"QUqXfdjpsZRyuuh9MUW9Q-3Q\",\"created_at\":\"2024-01-03T22:29:11.051000\",\"token\":\"some_token\",\"form_id\":\"some_form\",\"user_id\":\"US2aaB809x842cq8PxhhdgyC\",\"form\":[{\"question\":\"\xBFNos
+        compartes tu n\xFAmero telef\xF3nico registrado en tu cuenta Cuenca?\",\"answer\":\"a\",\"response_id\":\"uTyodLrQ0wyW\"},{\"question\":\"Selecciona
+        bajo que r\xE9gimen fiscal realizas tu principal actividad econ\xF3mica \",\"answer\":\"{'id':
+        'CKsgoVykwW05', 'ref': '01HJRZNRKCBQ8VQFE4Z33J25XC', 'label': 'Sueldos y salarios'}\",\"response_id\":\"vD5T276dHEyT\"},{\"question\":\"Selecciona
+        bajo cuales reg\xEDmenes fiscales tributas:\",\"answer\":\"{'id': 'fnWb4meY0ZgO',
+        'ref': '01HJRZNRKC487ZPX6JW4CQPPTT', 'label': 'Sueldos y salarios y otro'}\",\"response_id\":\"DHSs4PjTxYLy\"},{\"question\":\"Especifica
+        cu\xE1l es el otro r\xE9gimen bajo el cual tributas:\",\"answer\":\"Actividad
+        empresarial o profesional\",\"response_id\":\"uZWUtfD4Tbdh\"},{\"question\":\"Selecciona
+        el motivo por el que no est\xE1s inscrito en el RFC\",\"answer\":\"{'id':
+        '1GaQx17R9jsJ', 'ref': '01HJRZNRKCG7JRCPBW2XKB0WET', 'label': 'Estudiante'}\",\"response_id\":\"qzhgw8sZFKEl\"},{\"question\":\"Selecciona
+        en que sector trabajas\",\"answer\":\"{'id': 'B4zGIvVH1rSA', 'ref': '01HJRZNRKCSMPH5E61ZZGVQ45K',
+        'label': 'Sector p\xFAblico'}\",\"response_id\":\"XmUCaI9SQrQz\"},{\"question\":\"Selecciona
+        en que Poder de la Federaci\xF3n trabajas\",\"answer\":\"{'id': 'XGZkWGhHDC6O',
+        'ref': '01HJRZNRKCQYVGVGDEMF796MNZ', 'label': 'Legislativo'}\",\"response_id\":\"rgXH4rWWWIDh\"},{\"question\":\"Selecciona
+        en que \xE1mbito es\",\"answer\":\"None\",\"response_id\":\"7m5gPCyj0vV0\"},{\"question\":\"Especifica
+        el nombre de la dependencia gubernamental\",\"answer\":\"1312\",\"response_id\":\"xl92fwD9t2uO\"},{\"question\":\"Especifica
+        que puesto desempe\xF1as\",\"answer\":\"12321\",\"response_id\":\"qJ1rrWUC93kC\"},{\"question\":\"Especifica
+        el nombre de la empresa privada en la que trabajas\",\"answer\":\"31312\",\"response_id\":\"QLSXgdaqzplR\"},{\"question\":\"Especifica
+        que puesto desempe\xF1as\",\"answer\":\"12312\",\"response_id\":\"xgrZiSA3hype\"},{\"question\":\"Selecciona
+        cu\xE1l es tu ingreso promedio mensual\",\"answer\":\"{'id': '2pCoii1owjDr',
+        'ref': '01HJRZNRKCSWJW3FQC41YBF8KT', 'label': '$100,000 - $200,000'}\",\"response_id\":\"a7fj4ANQOYay\"},{\"question\":\"Selecciona
+        cu\xE1l es tu ingreso promedio mensual\",\"answer\":\"{'id': 'wqVwW98JRrWa',
+        'ref': '01HJRZNRKDJ7M3A7EHZTCGCM40', 'label': '$25,000 a $50,000'}\",\"response_id\":\"ifh7tM7hy749\"},{\"question\":\"\xBFCu\xE1l
+        es la actividad econ\xF3mica predominante, giro y ocupaci\xF3n a la que te
+        dedicas?\\nEjemplos: M\xE9dico, compraventa de ropa, carpinter\xEDa\",\"answer\":\"211\",\"response_id\":\"ITHJFxFj8FCg\"},{\"question\":\"Selecciona
+        cu\xE1l es tu ingreso promedio mensual\",\"answer\":\"{'id': 'hVlmvHAOiIfs',
+        'ref': '01HJRZNRKD8HWQG28C6SSF3Y51', 'label': '$200,000 - $500,000'}\",\"response_id\":\"EPYdAz52N8dk\"},{\"question\":\"Favor
+        de especificar la cantidad de tu ingreso promedio mensual\",\"answer\":\"2112\",\"response_id\":\"3IpYyzuWzGDV\"},{\"question\":\"Favor
+        de indicar el motivo por el cu\xE1l hubo un incremento en el n\xFAmero de
+        operaciones en tu cuenta durante el \xFAltimo bimestre\",\"answer\":\"121\",\"response_id\":\"OZoZ3VGz8WQf\"},{\"question\":\"Especifica
+        cu\xE1l es el origen (de d\xF3nde viene el dinero) de las operaciones que
+        realizas desde tu cuenta y tu relaci\xF3n con quien te deposita.\",\"answer\":\"asd\",\"response_id\":\"BJx6m3xKfEAQ\"},{\"question\":\"\xBFPuedes
+        proporcionar las facturas y/o documentos que justifiquen las transacciones
+        con los mismos?\",\"answer\":\"{'id': 'xzMVhWY9VB2b', 'ref': '01HJRZNRKDW183FRGMM31TPKVT',
+        'label': 'No'}\",\"response_id\":\"JxSvlRwyQ2TA\"},{\"question\":\"Especifica
+        cu\xE1l es el destino (a d\xF3nde env\xEDas el dinero) de las operaciones
+        que realizas desde tu cuenta y tu relaci\xF3n con dichos beneficiarios.\",\"answer\":\"asad\",\"response_id\":\"Oxk0wJp811Uv\"},{\"question\":\"\xBFPuedes
+        proporcionar las facturas y/o documentos que justifiquen las transacciones
+        con los mismos?\",\"answer\":\"{'id': 'S9qvNFod6qVb', 'ref': '01HJRZNRKDE8YMMCHSRJDD2ZF0',
+        'label': 'No'}\",\"response_id\":\"dQcpm6VZfeRn\"},{\"question\":\"Especifica
+        el/los motivos por los que no cuentas con las facturas y/o documentos que
+        justifiquen las transacciones.\",\"answer\":\"sads\",\"response_id\":\"Xd5R4a2k8xHq\"},{\"question\":\"Especifica
+        el/los motivos por los que no cuentas con las facturas y/o documentos que
+        justifiquen las transacciones.\",\"answer\":\"asdasd\",\"response_id\":\"CVxD5E3TKGkf\"},{\"question\":\"\xBFRecibes
+        recursos en nombre y por cuenta de alg\xFAn tercero?\",\"answer\":\"{'id':
+        '1uvBgLOLLaJn', 'ref': '01HJRZNRKDRKBRYJRHX7TBRXZM', 'label': 'No'}\",\"response_id\":\"QWZ6KBYbJ0pp\"},{\"question\":\"Especifica
+        el nombre de dicha persona\",\"answer\":\"sddsds\",\"response_id\":\"5AxLkxI43fPc\"},{\"question\":\"Especifica
+        la relaci\xF3n que mantienes con dicha persona\",\"answer\":\"{'id': 'R4MCIs5FR3jy',
+        'ref': '01HJRZNRKDB0XZMWNSVJ0JS63R', 'label': 'Patr\xF3n'}\",\"response_id\":\"M9IvXhxgcixS\"},{\"question\":\"Declaro
+        que las respuestas a las preguntas anteriores son bajo protesta de decir verdad
+        y que la informaci\xF3n que he proporcionado es ver\xEDdica.\",\"answer\":\"{'id':
+        'arfd8aK9B72v', 'ref': '01HJRZNRKD75GTJSSZ2RQP6NWS', 'label': 'S\xED'}\",\"response_id\":\"igST89RXYtQz\"}]}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '5057'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 10 Jan 2024 18:25:56 GMT
+      X-Request-Time:
+      - 'value: 0.599'
+      x-amz-apigw-id:
+      - RVggIFpGiYcEC9A=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '5057'
+      x-amzn-Remapped-Date:
+      - Wed, 10 Jan 2024 18:25:56 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.24.0
+      x-amzn-RequestId:
+      - aba22cf5-522b-460d-b4b5-57670ee0569e
+    status:
+      code: 200
+      message: OK
+version: 1
