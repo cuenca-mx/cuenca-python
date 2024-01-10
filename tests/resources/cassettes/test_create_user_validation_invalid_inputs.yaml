@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: '{"curp": null, "account_number": null, "names": null, "first_surname":
+    body: '{"curp": "MAVM112222HWIERN02", "account_number": null, "names": null, "first_surname":
       null, "second_surname": null}'
     headers:
       Accept:
