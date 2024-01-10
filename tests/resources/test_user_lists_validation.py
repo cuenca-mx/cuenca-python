@@ -15,6 +15,6 @@ def test_create_user_validation(user_lists_request):
 @pytest.mark.vcr
 def test_create_user_validation_invalid_inputs():
     with pytest.raises(CuencaResponseException) as exc:
-        UserListsValidation.create(**dict())
+        UserListsValidation.create(**dict(curp='MAVM112222HWIERN02'))
         assert exc.status_code == 403
         assert exc.json['error'] == 'There is an error with the inputs'
