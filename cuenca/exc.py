@@ -4,7 +4,7 @@ from cuenca_validations.typing import DictStrAny
 
 
 class CuencaException(Exception):
-    ...
+    """Base Exception Class"""
 
 
 class MalformedJwtToken(CuencaException):

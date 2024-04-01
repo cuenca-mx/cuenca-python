@@ -21,16 +21,13 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data=dict(cuenca=['py.typed']),
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     install_requires=[
         'requests>=2.24,<28',
-        'dataclasses>=0.7;python_version<"3.7"',
+        'dataclasses>=0.7;python_version<"3.8"',
         'cuenca-validations>= 0.11.3,<0.12.0',
     ],
     classifiers=[
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
