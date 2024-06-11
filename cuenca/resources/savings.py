@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types import (
     SavingCategory,
@@ -34,7 +34,7 @@ class Saving(Wallet, Updateable):
             goal_amount=goal_amount,
             goal_date=goal_date,
         )
-        return cast('Saving', cls._create(**request.dict()))
+        return cls._create(**request.dict())
 
     @classmethod
     def update(
@@ -51,4 +51,4 @@ class Saving(Wallet, Updateable):
             goal_amount=goal_amount,
             goal_date=goal_date,
         )
-        return cast('Saving', cls._update(id=saving_id, **request.dict()))
+        return cls._update(id=saving_id, **request.dict())

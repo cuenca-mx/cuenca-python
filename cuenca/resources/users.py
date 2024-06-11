@@ -59,7 +59,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
 
     @property
     def balance(self) -> int:
-        be = cast(BalanceEntry, BalanceEntry.first(user_id=self.id))
+        be = BalanceEntry.first(user_id=self.id)
         return be.rolling_balance if be else 0
 
     class Config:
@@ -135,7 +135,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             status=status,
             terms_of_service=terms_of_service,
         )
-        return cast('User', cls._create(session=session, **req.dict()))
+        return cls._create(session=session, **req.dict())
 
     @classmethod
     def update(
@@ -174,10 +174,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             curp_document=curp_document,
             status=status,
         )
-        return cast(
-            'User',
-            cls._update(id=user_id, **request.dict(), session=session),
-        )
+        return cls._update(id=user_id, **request.dict(), session=session)
 
     @property
     def identity(self) -> Identity:

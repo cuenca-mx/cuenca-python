@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types import SessionRequest, SessionType
 from pydantic import AnyUrl
@@ -50,4 +50,4 @@ class Session(Creatable, Retrievable, Queryable):
             success_url=success_url,
             failure_url=failure_url,
         )
-        return cast('Session', cls._create(session=session, **req.dict()))
+        return cls._create(session=session, **req.dict())

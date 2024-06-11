@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, cast
+from typing import ClassVar
 
 from cuenca_validations.types import QuestionnairesRequest
 
@@ -38,6 +38,4 @@ class Questionnaires(Creatable, Retrievable):
             token=token,
             form_id=form_id,
         )
-        return cast(
-            'Questionnaires', cls._create(session=session, **req.dict())
-        )
+        return cls._create(session=session, **req.dict())

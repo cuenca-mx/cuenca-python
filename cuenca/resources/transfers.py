@@ -69,7 +69,7 @@ class Transfer(Transaction, Creatable):
             idempotency_key=idempotency_key,
             user_id=user_id,
         )
-        return cast('Transfer', cls._create(**req.dict()))
+        return cls._create(**req.dict())
 
     @classmethod
     def create_many(cls, requests: List[TransferRequest]) -> DictStrAny:

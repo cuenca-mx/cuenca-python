@@ -42,9 +42,7 @@ class CardActivation(Creatable):
             exp_year=exp_year,
             cvv2=cvv2,
         )
-        return cast(
-            'CardActivation', cls._create(session=session, **req.dict())
-        )
+        return cls._create(session=session, **req.dict())
 
     @property
     def card(self) -> Optional[Card]:
