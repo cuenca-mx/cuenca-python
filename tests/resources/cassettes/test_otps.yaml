@@ -1,0 +1,138 @@
+interactions:
+- request:
+    body: '{"password": "111111"}'
+    headers:
+      Authorization:
+      - DUMMY
+      Content-Length:
+      - '22'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/1.0.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/user_logins
+  response:
+    body:
+      string: '{"success":true,"id":"ULHErlEswQQOKUzDuXAwJJkw","last_login_at":"2024-06-04T19:23:14.810000Z"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 04 Jun 2024 19:24:17 GMT
+      X-Request-Time:
+      - 'value: 0.966'
+      x-amz-apigw-id:
+      - Y217JHAUiYcEJ4Q=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '94'
+      x-amzn-Remapped-Date:
+      - Tue, 04 Jun 2024 19:24:17 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.26.1
+      x-amzn-RequestId:
+      - 288bfa6d-285a-498a-8886-99260a06d126
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{}'
+    headers:
+      Authorization:
+      - DUMMY
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/1.0.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - ULHErlEswQQOKUzDuXAwJJkw
+    method: POST
+    uri: https://sandbox.cuenca.com/login_tokens
+  response:
+    body:
+      string: '{"id":"LTKtGqXPLCTXyRCrsIs6gKuQ"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 04 Jun 2024 19:24:18 GMT
+      X-Request-Time:
+      - 'value: 0.259'
+      x-amz-apigw-id:
+      - Y217VFCDiYcES9Q=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '33'
+      x-amzn-Remapped-Date:
+      - Tue, 04 Jun 2024 19:24:18 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.26.1
+      x-amzn-RequestId:
+      - 58bbb2f1-a71b-4261-98d4-27c7bbcc1276
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{}'
+    headers:
+      Authorization:
+      - DUMMY
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/1.0.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginToken:
+      - LTKtGqXPLCTXyRCrsIs6gKuQ
+    method: POST
+    uri: https://sandbox.cuenca.com/otps
+  response:
+    body:
+      string: '{"id":"OTlnzPI3L3TDGr7oOu1u1OmQ","created_at":"2024-06-04T19:24:18.484246","deactivated_at":null,"api_key_id":"AKVCW_e3u3RtuD8Zjl1skTsg","secret":"D2W32HMQLNOWHQOGN5LIHWNX2XRKUXTX"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '181'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 04 Jun 2024 19:24:18 GMT
+      X-Request-Time:
+      - 'value: 0.339'
+      x-amz-apigw-id:
+      - Y217aGweiYcEapg=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '181'
+      x-amzn-Remapped-Date:
+      - Tue, 04 Jun 2024 19:24:18 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.26.1
+      x-amzn-RequestId:
+      - 4a31636d-c821-42eb-965a-52184b4f8754
+    status:
+      code: 201
+      message: Created
+version: 1

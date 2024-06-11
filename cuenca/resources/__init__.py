@@ -22,6 +22,7 @@ __all__ = [
     'KYCVerification',
     'LimitedWallet',
     'LoginToken',
+    'Otp',
     'Platform',
     'Questionnaires',
     'Saving',
@@ -62,6 +63,7 @@ from .kyc_validations import KYCValidation
 from .kyc_verifications import KYCVerification
 from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
+from .otps import Otp
 from .platforms import Platform
 from .questionnaires import Questionnaires
 from .resources import RESOURCES
