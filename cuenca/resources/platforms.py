@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types import Country, PlatformRequest, State
 
@@ -76,4 +76,4 @@ class Platform(Creatable):
             phone_number=phone_number,
             email_address=email_address,
         )
-        return cast('Platform', cls._create(session=session, **req.dict()))
+        return cls._create(session=session, **req.dict())

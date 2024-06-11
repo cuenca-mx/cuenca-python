@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types.requests import (
     UserCredentialRequest,
@@ -25,9 +25,7 @@ class UserCredential(Creatable, Updateable):
         session: Session = global_session,
     ) -> 'UserCredential':
         req = UserCredentialRequest(password=password, user_id=user_id)
-        return cast(
-            'UserCredential', cls._create(**req.dict(), session=session)
-        )
+        return cls._create(**req.dict(), session=session)
 
     @classmethod
     def update(
@@ -42,7 +40,4 @@ class UserCredential(Creatable, Updateable):
             is_active=is_active,
             password=password,
         )
-        return cast(
-            'UserCredential',
-            cls._update(id=user_id, **req.dict(), session=session),
-        )
+        return cls._update(id=user_id, **req.dict(), session=session)

@@ -1,6 +1,6 @@
 import re
 from concurrent.futures import ThreadPoolExecutor
-from typing import Dict, List, cast
+from typing import Dict, List
 
 from .base import Retrievable
 
@@ -13,7 +13,7 @@ def retrieve_uri(uri: str) -> Retrievable:
     if not m:
         raise ValueError(f'uri is not a valid format: {uri}')
     resource, id_ = m.groups()
-    return cast(Retrievable, RESOURCES[resource].retrieve(id_))
+    return RESOURCES[resource].retrieve(id_)
 
 
 def retrieve_uris(uris: List[str]) -> List[Retrievable]:

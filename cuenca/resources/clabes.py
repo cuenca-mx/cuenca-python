@@ -1,4 +1,4 @@
-from typing import ClassVar, cast
+from typing import ClassVar
 
 from ..http import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable
@@ -11,4 +11,4 @@ class Clabe(Creatable, Queryable, Retrievable):
 
     @classmethod
     def create(cls, session: Session = global_session):
-        return cast('Clabe', cls._create(session=session))
+        return cls._create(session=session)

@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types import (
     Country,
@@ -98,7 +98,4 @@ class CurpValidation(Creatable, Retrievable):
             gender=gender,
             manual_curp=manual_curp,
         )
-        return cast(
-            'CurpValidation',
-            cls._create(session=session, **req.dict()),
-        )
+        return cls._create(session=session, **req.dict())

@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, Union, cast
+from typing import ClassVar, Optional, Union
 
 from cuenca_validations.types import (
     VerificationAttemptRequest,
@@ -44,7 +44,7 @@ class Verification(Creatable, Updateable):
         req = VerificationRequest(
             recipient=recipient, type=type, platform_id=platform_id
         )
-        return cast('Verification', cls._create(**req.dict(), session=session))
+        return cls._create(**req.dict(), session=session)
 
     @classmethod
     def verify(
@@ -54,7 +54,4 @@ class Verification(Creatable, Updateable):
         session: Session = global_session,
     ) -> 'Verification':
         req = VerificationAttemptRequest(code=code)
-        return cast(
-            'Verification',
-            cls._update(id=id, **req.dict(), session=session),
-        )
+        return cls._update(id=id, **req.dict(), session=session)

@@ -2,7 +2,7 @@ import base64
 import datetime as dt
 import json
 from io import BytesIO
-from typing import ClassVar, Dict, Generator, Optional, Union
+from typing import ClassVar, Dict, Generator, Optional, Type, TypeVar, Union
 from urllib.parse import urlencode
 
 from cuenca_validations.types import (
@@ -17,6 +17,9 @@ from pydantic import BaseModel
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import Session, session as global_session
 
+R = TypeVar('R', bound='Resource')
+Q = TypeVar('Q', bound='Queryable')
+
 
 class Resource(BaseModel):
     _resource: ClassVar[str]
@@ -24,12 +27,12 @@ class Resource(BaseModel):
     id: str
 
     @classmethod
-    def _from_dict(cls, obj_dict: Dict[str, Union[str, int]]) -> 'Resource':
+    def _from_dict(cls: Type[R], obj_dict: Dict[str, Union[str, int]]) -> R:
         cls._filter_excess_fields(obj_dict)
         return cls(**obj_dict)
 
     @classmethod
-    def _filter_excess_fields(cls, obj_dict):
+    def _filter_excess_fields(cls, obj_dict) -> None:
         """
         dataclasses don't allow __init__ to be called with excess fields. This
         method allows the API to add fields in the response body without
@@ -48,12 +51,12 @@ class Resource(BaseModel):
 class Retrievable(Resource):
     @classmethod
     def retrieve(
-        cls, id: str, *, session: Session = global_session
-    ) -> Resource:
+        cls: Type[R], id: str, *, session: Session = global_session
+    ) -> R:
         resp = session.get(f'/{cls._resource}/{id}')
         return cls._from_dict(resp)
 
-    def refresh(self, *, session: Session = global_session):
+    def refresh(self, *, session: Session = global_session) -> None:
         new = self.retrieve(self.id, session=session)
         for attr, value in new.__dict__.items():
             setattr(self, attr, value)
@@ -61,7 +64,9 @@ class Retrievable(Resource):
 
 class Creatable(Resource):
     @classmethod
-    def _create(cls, *, session: Session = global_session, **data) -> Resource:
+    def _create(
+        cls: Type[R], *, session: Session = global_session, **data
+    ) -> R:
         resp = session.post(cls._resource, data)
         return cls._from_dict(resp)
 
@@ -72,8 +77,8 @@ class Updateable(Resource):
 
     @classmethod
     def _update(
-        cls, id: str, *, session: Session = global_session, **data
-    ) -> Resource:
+        cls: Type[R], id: str, *, session: Session = global_session, **data
+    ) -> R:
         resp = session.patch(f'/{cls._resource}/{id}', data)
         return cls._from_dict(resp)
 
@@ -83,20 +88,20 @@ class Deactivable(Resource):
 
     @classmethod
     def deactivate(
-        cls, id: str, *, session: Session = global_session, **data
-    ) -> Resource:
+        cls: Type[R], id: str, *, session: Session = global_session, **data
+    ) -> R:
         resp = session.delete(f'/{cls._resource}/{id}', data)
         return cls._from_dict(resp)
 
     @property
-    def is_active(self):
+    def is_active(self) -> bool:
         return not self.deactivated_at
 
 
 class Downloadable(Resource):
     @classmethod
     def download(
-        cls,
+        cls: Type[R],
         id: str,
         file_format: FileFormat = FileFormat.any,
         *,
@@ -121,13 +126,13 @@ class Downloadable(Resource):
 class Uploadable(Resource):
     @classmethod
     def _upload(
-        cls,
+        cls: Type[R],
         file: bytes,
         user_id: str,
         *,
         session: Session = global_session,
         **data,
-    ) -> Resource:
+    ) -> R:
         encoded_file = base64.b64encode(file)
         resp = session.request(
             'post',
@@ -148,8 +153,8 @@ class Queryable(Resource):
 
     @classmethod
     def one(
-        cls, *, session: Session = global_session, **query_params
-    ) -> Resource:
+        cls: Type[Q], *, session: Session = global_session, **query_params
+    ) -> Q:
         q = cls._query_params(limit=2, **query_params)
         resp = session.get(cls._resource, q.dict())
         items = resp['items']
@@ -162,8 +167,8 @@ class Queryable(Resource):
 
     @classmethod
     def first(
-        cls, *, session: Session = global_session, **query_params
-    ) -> Optional[Resource]:
+        cls: Type[Q], *, session: Session = global_session, **query_params
+    ) -> Optional[Q]:
         q = cls._query_params(limit=1, **query_params)
         resp = session.get(cls._resource, q.dict())
         try:
@@ -176,7 +181,7 @@ class Queryable(Resource):
 
     @classmethod
     def count(
-        cls, *, session: Session = global_session, **query_params
+        cls: Type[Q], *, session: Session = global_session, **query_params
     ) -> int:
         q = cls._query_params(count=True, **query_params)
         resp = session.get(cls._resource, q.dict())
@@ -184,8 +189,8 @@ class Queryable(Resource):
 
     @classmethod
     def all(
-        cls, *, session: Session = global_session, **query_params
-    ) -> Generator[Resource, None, None]:
+        cls: Type[Q], *, session: Session = global_session, **query_params
+    ) -> Generator[Q, None, None]:
         session = session or global_session
         q = cls._query_params(**query_params)
         next_page_uri = f'{cls._resource}?{urlencode(q.dict())}'

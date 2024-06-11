@@ -1,4 +1,4 @@
-from typing import ClassVar, Dict, List, cast
+from typing import ClassVar, Dict, List
 
 from cuenca_validations.types import BatchFileMetadata, FileBatchUploadRequest
 
@@ -22,4 +22,4 @@ class FileBatch(Creatable, Queryable):
         session: Session = global_session,
     ) -> 'FileBatch':
         req = FileBatchUploadRequest(files=files, user_id=user_id)
-        return cast('FileBatch', cls._create(session=session, **req.dict()))
+        return cls._create(session=session, **req.dict())

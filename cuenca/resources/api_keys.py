@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types import ApiKeyQuery, ApiKeyUpdateRequest
 
@@ -36,7 +36,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
 
     @classmethod
     def create(cls, *, session: Session = global_session) -> 'ApiKey':
-        return cast('ApiKey', cls._create(session=session))
+        return cls._create(session=session)
 
     @classmethod
     def deactivate(
@@ -55,7 +55,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         """
         url = cls._resource + f'/{api_key_id}'
         resp = session.delete(url, dict(minutes=minutes))
-        return cast('ApiKey', cls._from_dict(resp))
+        return cls._from_dict(resp)
 
     @classmethod
     def update(
@@ -74,5 +74,4 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         req = ApiKeyUpdateRequest(
             metadata=metadata, user_id=user_id, platform_id=platform_id
         )
-        resp = cls._update(api_key_id, **req.dict(), session=session)
-        return cast('ApiKey', resp)
+        return cls._update(api_key_id, **req.dict(), session=session)
