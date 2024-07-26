@@ -41,7 +41,11 @@ class Session:
 
     @property
     def auth(self) -> Optional[Tuple[str, str]]:
-        return self.basic_auth if all(self.basic_auth) else None
+        return (
+            self.basic_auth
+            if all(self.basic_auth) and not self.jwt_token
+            else None
+        )
 
     def configure(
         self,
@@ -109,6 +113,9 @@ class Session:
                 if self.jwt_token.is_expired:
                     self.jwt_token = Jwt.create(self)
                 self.headers['X-Cuenca-Token'] = self.jwt_token.token
+                self.headers['Authorization'] = (
+                    f'Bearer {self.jwt_token.token}'
+                )
                 session.headers = self.headers  # type: ignore
             resp = session.request(  # type: ignore
                 method=method,
