@@ -117,4 +117,4 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         """
         url = f'{cls._resource}/{card_id}'
         resp = session.delete(url)
-        return cls._from_dict(resp)
+        return cls(**resp)

@@ -55,7 +55,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         """
         url = cls._resource + f'/{api_key_id}'
         resp = session.delete(url, dict(minutes=minutes))
-        return cls._from_dict(resp)
+        return cls(**resp)
 
     @classmethod
     def update(

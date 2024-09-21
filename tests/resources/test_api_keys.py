@@ -84,7 +84,7 @@ def test_api_key_from_dict():
         metadata=None,
         user_id=None,
     )
-    api_key = ApiKey._from_dict(api_keys_dict)
+    api_key = ApiKey(**api_keys_dict)
     assert not hasattr(api_key, 'extra_field_1')
     assert not hasattr(api_key, 'extra_field_2')
     assert api_key.id is not None
