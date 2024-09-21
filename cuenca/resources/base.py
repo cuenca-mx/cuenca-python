@@ -17,7 +17,8 @@ from pydantic import BaseModel
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import Session, session as global_session
 
-R = TypeVar('R', bound='Resource', covariant=True)
+R_co = TypeVar('R_co', bound='Resource', covariant=True)
+Q_co = TypeVar('Q_co', bound='Queryable', covariant=True)
 
 
 class Resource(BaseModel):
@@ -35,8 +36,8 @@ class Resource(BaseModel):
 class Retrievable(Resource):
     @classmethod
     def retrieve(
-        cls: Type[R], id: str, *, session: Session = global_session
-    ) -> R:
+        cls: Type[R_co], id: str, *, session: Session = global_session
+    ) -> R_co:
         resp = session.get(f'/{cls._resource}/{id}')
         return cls(**resp)
 
@@ -49,8 +50,8 @@ class Retrievable(Resource):
 class Creatable(Resource):
     @classmethod
     def _create(
-        cls: Type[R], *, session: Session = global_session, **data
-    ) -> R:
+        cls: Type[R_co], *, session: Session = global_session, **data
+    ) -> R_co:
         resp = session.post(cls._resource, data)
         return cls(**resp)
 
@@ -61,8 +62,8 @@ class Updateable(Resource):
 
     @classmethod
     def _update(
-        cls: Type[R], id: str, *, session: Session = global_session, **data
-    ) -> R:
+        cls: Type[R_co], id: str, *, session: Session = global_session, **data
+    ) -> R_co:
         resp = session.patch(f'/{cls._resource}/{id}', data)
         return cls(**resp)
 
@@ -72,8 +73,8 @@ class Deactivable(Resource):
 
     @classmethod
     def deactivate(
-        cls: Type[R], id: str, *, session: Session = global_session, **data
-    ) -> R:
+        cls: Type[R_co], id: str, *, session: Session = global_session, **data
+    ) -> R_co:
         resp = session.delete(f'/{cls._resource}/{id}', data)
         return cls(**resp)
 
@@ -85,7 +86,7 @@ class Deactivable(Resource):
 class Downloadable(Resource):
     @classmethod
     def download(
-        cls: Type[R],
+        cls: Type[R_co],
         id: str,
         file_format: FileFormat = FileFormat.any,
         *,
@@ -110,13 +111,13 @@ class Downloadable(Resource):
 class Uploadable(Resource):
     @classmethod
     def _upload(
-        cls: Type[R],
+        cls: Type[R_co],
         file: bytes,
         user_id: str,
         *,
         session: Session = global_session,
         **data,
-    ) -> R:
+    ) -> R_co:
         encoded_file = base64.b64encode(file)
         resp = session.request(
             'post',
@@ -137,8 +138,8 @@ class Queryable(Resource):
 
     @classmethod
     def one(
-        cls: Type[R], *, session: Session = global_session, **query_params
-    ) -> R:
+        cls: Type[Q_co], *, session: Session = global_session, **query_params
+    ) -> Q_co:
         q = cls._query_params(limit=2, **query_params)
         resp = session.get(cls._resource, q.dict())
         items = resp['items']
@@ -151,8 +152,8 @@ class Queryable(Resource):
 
     @classmethod
     def first(
-        cls: Type[R], *, session: Session = global_session, **query_params
-    ) -> Optional[R]:
+        cls: Type[Q_co], *, session: Session = global_session, **query_params
+    ) -> Optional[Q_co]:
         q = cls._query_params(limit=1, **query_params)
         resp = session.get(cls._resource, q.dict())
         try:
@@ -165,7 +166,7 @@ class Queryable(Resource):
 
     @classmethod
     def count(
-        cls: Type[R], *, session: Session = global_session, **query_params
+        cls: Type[Q_co], *, session: Session = global_session, **query_params
     ) -> int:
         q = cls._query_params(count=True, **query_params)
         resp = session.get(cls._resource, q.dict())
@@ -173,8 +174,8 @@ class Queryable(Resource):
 
     @classmethod
     def all(
-        cls: Type[R], *, session: Session = global_session, **query_params
-    ) -> Generator[R, None, None]:
+        cls: Type[Q_co], *, session: Session = global_session, **query_params
+    ) -> Generator[Q_co, None, None]:
         session = session or global_session
         q = cls._query_params(**query_params)
         next_page_uri = f'{cls._resource}?{urlencode(q.dict())}'
