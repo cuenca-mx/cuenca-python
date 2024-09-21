@@ -12,7 +12,7 @@ from cuenca_validations.types import (
     TransactionQuery,
     TransactionStatus,
 )
-from pydantic import BaseModel
+from pydantic import BaseModel, Extra
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import Session, session as global_session
@@ -27,7 +27,7 @@ class Resource(BaseModel):
     id: str
 
     class Config:
-        allow_extras = True
+        extra = Extra.ignore
 
     def to_dict(self):
         return SantizedDict(self.dict())
