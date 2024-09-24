@@ -29,7 +29,7 @@ class WalletTransaction(Transaction, Creatable):
         wallet_uri: str,
         transaction_type: WalletTransactionType,
         amount: int,
-    ):
+    ) -> 'WalletTransaction':
         request = WalletTransactionRequest(
             wallet_uri=wallet_uri,
             transaction_type=transaction_type,

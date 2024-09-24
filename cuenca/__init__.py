@@ -44,8 +44,6 @@ __all__ = [
     'get_balance',
 ]
 
-from typing import cast
-
 from . import http
 from .resources import (
     Account,
@@ -96,5 +94,5 @@ session = http.session
 
 
 def get_balance(session: http.Session = session) -> int:
-    balance_entry = cast('BalanceEntry', BalanceEntry.first(session=session))
+    balance_entry = BalanceEntry.first(session=session)
     return balance_entry.rolling_balance if balance_entry else 0

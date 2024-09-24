@@ -2,7 +2,7 @@ import base64
 import datetime as dt
 import json
 from io import BytesIO
-from typing import ClassVar, Generator, Optional, Type, TypeVar, cast
+from typing import Any, ClassVar, Generator, Optional, Type, TypeVar, cast
 from urllib.parse import urlencode
 
 from cuenca_validations.types import (
@@ -35,7 +35,10 @@ class Resource(BaseModel):
 class Retrievable(Resource):
     @classmethod
     def retrieve(
-        cls: Type[R_co], id: str, *, session: Session = global_session
+        cls: Type[R_co],
+        id: str,
+        *,
+        session: Session = global_session,
     ) -> R_co:
         resp = session.get(f'/{cls._resource}/{id}')
         return cls(**resp)
@@ -49,7 +52,10 @@ class Retrievable(Resource):
 class Creatable(Resource):
     @classmethod
     def _create(
-        cls: Type[R_co], *, session: Session = global_session, **data
+        cls: Type[R_co],
+        *,
+        session: Session = global_session,
+        **data: Any,
     ) -> R_co:
         resp = session.post(cls._resource, data)
         return cls(**resp)
@@ -61,7 +67,11 @@ class Updateable(Resource):
 
     @classmethod
     def _update(
-        cls: Type[R_co], id: str, *, session: Session = global_session, **data
+        cls: Type[R_co],
+        id: str,
+        *,
+        session: Session = global_session,
+        **data: Any,
     ) -> R_co:
         resp = session.patch(f'/{cls._resource}/{id}', data)
         return cls(**resp)
@@ -72,7 +82,11 @@ class Deactivable(Resource):
 
     @classmethod
     def deactivate(
-        cls: Type[R_co], id: str, *, session: Session = global_session, **data
+        cls: Type[R_co],
+        id: str,
+        *,
+        session: Session = global_session,
+        **data: Any,
     ) -> R_co:
         resp = session.delete(f'/{cls._resource}/{id}', data)
         return cls(**resp)
@@ -115,7 +129,7 @@ class Uploadable(Resource):
         user_id: str,
         *,
         session: Session = global_session,
-        **data,
+        **data: Any,
     ) -> R_co:
         encoded_file = base64.b64encode(file)
         resp = session.request(
@@ -137,7 +151,10 @@ class Queryable(Resource):
 
     @classmethod
     def one(
-        cls: Type[R_co], *, session: Session = global_session, **query_params
+        cls: Type[R_co],
+        *,
+        session: Session = global_session,
+        **query_params: Any,
     ) -> R_co:
         q = cast(Queryable, cls)._query_params(limit=2, **query_params)
         resp = session.get(cls._resource, q.dict())
@@ -151,7 +168,10 @@ class Queryable(Resource):
 
     @classmethod
     def first(
-        cls: Type[R_co], *, session: Session = global_session, **query_params
+        cls: Type[R_co],
+        *,
+        session: Session = global_session,
+        **query_params: Any,
     ) -> Optional[R_co]:
         q = cast(Queryable, cls)._query_params(limit=1, **query_params)
         resp = session.get(cls._resource, q.dict())
@@ -165,7 +185,10 @@ class Queryable(Resource):
 
     @classmethod
     def count(
-        cls: Type[R_co], *, session: Session = global_session, **query_params
+        cls: Type[R_co],
+        *,
+        session: Session = global_session,
+        **query_params: Any,
     ) -> int:
         q = cast(Queryable, cls)._query_params(count=True, **query_params)
         resp = session.get(cls._resource, q.dict())
@@ -173,7 +196,10 @@ class Queryable(Resource):
 
     @classmethod
     def all(
-        cls: Type[R_co], *, session: Session = global_session, **query_params
+        cls: Type[R_co],
+        *,
+        session: Session = global_session,
+        **query_params: Any,
     ) -> Generator[R_co, None, None]:
         session = session or global_session
         q = cast(Queryable, cls)._query_params(**query_params)

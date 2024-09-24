@@ -80,7 +80,7 @@ class Transfer(Transaction, Creatable):
             except (CuencaException, HTTPError) as e:
                 transfers['errors'].append(dict(request=req, error=e))
             else:
-                transfers['submitted'].append(cast('Transfer', transfer))
+                transfers['submitted'].append(transfer)
         return transfers
 
     @staticmethod

@@ -157,7 +157,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         curp_document: Optional[HttpUrl] = None,
         *,
         session: Session = global_session,
-    ):
+    ) -> 'User':
         request = UserUpdateRequest(
             phone_number=phone_number,
             email_address=email_address,

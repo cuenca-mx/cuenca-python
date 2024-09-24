@@ -89,6 +89,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         like url and is_active.
         :param endpoint_id: existing endpoint_id
         :param url
+        :param events: Optional list of enabled events to update
         :param is_enable
         :param session
         :return: Updated endpoint object

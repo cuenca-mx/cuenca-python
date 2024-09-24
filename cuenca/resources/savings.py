@@ -27,7 +27,7 @@ class Saving(Wallet, Updateable):
         category: SavingCategory,
         goal_amount: Optional[int] = None,
         goal_date: Optional[dt.datetime] = None,
-    ):
+    ) -> 'Saving':
         request = SavingRequest(
             name=name,
             category=category,
