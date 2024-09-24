@@ -2,7 +2,7 @@ import base64
 import datetime as dt
 import json
 from io import BytesIO
-from typing import ClassVar, Generator, Optional, Type, TypeVar
+from typing import ClassVar, Generator, Optional, Type, TypeVar, cast
 from urllib.parse import urlencode
 
 from cuenca_validations.types import (
@@ -18,7 +18,6 @@ from ..exc import MultipleResultsFound, NoResultFound
 from ..http import Session, session as global_session
 
 R_co = TypeVar('R_co', bound='Resource', covariant=True)
-Q_co = TypeVar('Q_co', bound='Queryable', covariant=True)
 
 
 class Resource(BaseModel):
@@ -138,9 +137,9 @@ class Queryable(Resource):
 
     @classmethod
     def one(
-        cls: Type[Q_co], *, session: Session = global_session, **query_params
-    ) -> Q_co:
-        q = cls._query_params(limit=2, **query_params)
+        cls: Type[R_co], *, session: Session = global_session, **query_params
+    ) -> R_co:
+        q = cast(Queryable, cls)._query_params(limit=2, **query_params)
         resp = session.get(cls._resource, q.dict())
         items = resp['items']
         len_items = len(items)
@@ -152,9 +151,9 @@ class Queryable(Resource):
 
     @classmethod
     def first(
-        cls: Type[Q_co], *, session: Session = global_session, **query_params
-    ) -> Optional[Q_co]:
-        q = cls._query_params(limit=1, **query_params)
+        cls: Type[R_co], *, session: Session = global_session, **query_params
+    ) -> Optional[R_co]:
+        q = cast(Queryable, cls)._query_params(limit=1, **query_params)
         resp = session.get(cls._resource, q.dict())
         try:
             item = resp['items'][0]
@@ -166,18 +165,18 @@ class Queryable(Resource):
 
     @classmethod
     def count(
-        cls: Type[Q_co], *, session: Session = global_session, **query_params
+        cls: Type[R_co], *, session: Session = global_session, **query_params
     ) -> int:
-        q = cls._query_params(count=True, **query_params)
+        q = cast(Queryable, cls)._query_params(count=True, **query_params)
         resp = session.get(cls._resource, q.dict())
         return resp['count']
 
     @classmethod
     def all(
-        cls: Type[Q_co], *, session: Session = global_session, **query_params
-    ) -> Generator[Q_co, None, None]:
+        cls: Type[R_co], *, session: Session = global_session, **query_params
+    ) -> Generator[R_co, None, None]:
         session = session or global_session
-        q = cls._query_params(**query_params)
+        q = cast(Queryable, cls)._query_params(**query_params)
         next_page_uri = f'{cls._resource}?{urlencode(q.dict())}'
         while next_page_uri:
             page = session.get(next_page_uri)
