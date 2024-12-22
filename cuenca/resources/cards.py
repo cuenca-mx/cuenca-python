@@ -21,12 +21,12 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     _resource: ClassVar = 'cards'
     _query_params: ClassVar = CardQuery
 
-    user_id: Optional[str]
+    user_id: Optional[str] = None
     number: str
     exp_month: int
     exp_year: int
     cvv2: str
-    pin: Optional[str]
+    pin: Optional[str] = None
     type: CardType
     status: CardStatus
     issuer: CardIssuer

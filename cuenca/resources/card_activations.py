@@ -15,7 +15,7 @@ class CardActivation(Creatable):
     created_at: dt.datetime
     user_id: str
     ip_address: str
-    card_uri: Optional[str]
+    card_uri: Optional[str] = None
     success: bool
 
     @classmethod
@@ -43,7 +43,7 @@ class CardActivation(Creatable):
             cvv2=cvv2,
         )
         return cast(
-            'CardActivation', cls._create(session=session, **req.dict())
+            'CardActivation', cls._create(session=session, **req.model_dump())
         )
 
     @property

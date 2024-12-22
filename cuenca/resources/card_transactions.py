@@ -24,7 +24,7 @@ class CardTransaction(Transaction):
     card_last4: str
     card_type: CardType
     metadata: dict
-    error_type: Optional[CardErrorType]
+    error_type: Optional[CardErrorType] = None
 
     @property  # type: ignore
     def related_card_transactions(self) -> Optional[List['CardTransaction']]:

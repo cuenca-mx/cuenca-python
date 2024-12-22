@@ -1,5 +1,7 @@
 from typing import ClassVar
 
+from pydantic import ConfigDict
+
 from .identity_events import IdentityEvent
 from .users import User
 
@@ -9,9 +11,8 @@ class UserEvent(IdentityEvent):
 
     user_id: str
     platform_id: str
-
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             'example': {
                 'id': 'UEYE4qnWs3Sm68tbgqkx_d5Q',
                 'created_at': '2022-05-24T14:15:22Z',
@@ -22,3 +23,4 @@ class UserEvent(IdentityEvent):
                 'new_model': User.schema().get('example'),
             }
         }
+    )

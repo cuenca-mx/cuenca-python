@@ -2,6 +2,7 @@ import datetime as dt
 from typing import ClassVar, cast
 
 from cuenca_validations.types import QuestionnairesRequest
+from pydantic import ConfigDict
 
 from ..http import Session, session as global_session
 from .base import Creatable, Retrievable
@@ -14,15 +15,15 @@ class Questionnaires(Creatable, Retrievable):
     token: str
     form_id: str
     user_id: str
-
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             'example': {
                 'user_id': 'US234i23jh23h4h23',
                 'token': '3223j23ij23ij3',
                 'alert_id': 'ALewifjwiejf',
             }
         }
+    )
 
     @classmethod
     def create(
@@ -39,5 +40,5 @@ class Questionnaires(Creatable, Retrievable):
             form_id=form_id,
         )
         return cast(
-            'Questionnaires', cls._create(session=session, **req.dict())
+            'Questionnaires', cls._create(session=session, **req.model_dump())
         )

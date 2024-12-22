@@ -17,8 +17,8 @@ class Saving(Wallet, Updateable):
     _query_params: ClassVar = WalletQuery
     name: str
     category: SavingCategory
-    goal_amount: Optional[StrictPositiveInt]
-    goal_date: Optional[dt.datetime]
+    goal_amount: Optional[StrictPositiveInt] = None
+    goal_date: Optional[dt.datetime] = None
 
     @classmethod
     def create(

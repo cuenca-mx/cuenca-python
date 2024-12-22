@@ -42,7 +42,7 @@ class Resource(BaseModel):
             del obj_dict[f]
 
     def to_dict(self):
-        return SantizedDict(self.dict())
+        return SantizedDict(self.model_dump())
 
 
 class Retrievable(Resource):
@@ -79,7 +79,7 @@ class Updateable(Resource):
 
 
 class Deactivable(Resource):
-    deactivated_at: Optional[dt.datetime]
+    deactivated_at: Optional[dt.datetime] = None
 
     @classmethod
     def deactivate(

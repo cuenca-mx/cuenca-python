@@ -2,6 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import Country, PlatformRequest, State
+from pydantic import ConfigDict, Field
 
 from ..http import Session, session as global_session
 from .base import Creatable
@@ -11,33 +12,28 @@ class Platform(Creatable):
     _resource: ClassVar = 'platforms'
 
     created_at: dt.datetime
-    name: str
-    rfc: Optional[str] = None
-    establishment_date: Optional[dt.date] = None
-    country: Optional[Country] = None
-    state: Optional[State] = None
-    economic_activity: Optional[str] = None
-    email_address: Optional[str] = None
-    phone_number: Optional[str] = None
-
-    class Config:
-        fields = {
-            'name': {'description': 'name of the platform being created'},
-            'rfc': {'description': 'RFC or CURP of the platform'},
-            'establishment_date': {
-                'description': 'when the platform was established'
-            },
-            'country': {'description': 'country where the platform resides'},
-            'state': {'description': 'state where the platform resides'},
-            'economic_activity': {'description': 'what the platform does'},
-            'phone_number': {
-                'description': 'phone number to contact the platform'
-            },
-            'email_address': {
-                'description': 'email address to contact the platform'
-            },
-        }
-        schema_extra = {
+    name: str = Field(..., description='name of the platform being created')
+    rfc: Optional[str] = Field(None, description='RFC or CURP of the platform')
+    establishment_date: Optional[dt.date] = Field(
+        None, description='when the platform was established'
+    )
+    country: Optional[Country] = Field(
+        None, description='country where the platform resides'
+    )
+    state: Optional[State] = Field(
+        None, description='state where the platform resides'
+    )
+    economic_activity: Optional[str] = Field(
+        None, description='what the platform does'
+    )
+    email_address: Optional[str] = Field(
+        None, description='email address to contact the platform'
+    )
+    phone_number: Optional[str] = Field(
+        None, description='phone number to contact the platform'
+    )
+    model_config = ConfigDict(
+        json_schema_extra={
             'example': {
                 'id': 'PT0123456789',
                 'name': 'Arteria',
@@ -50,7 +46,8 @@ class Platform(Creatable):
                 'phone_number': '+525555555555',
                 'email_address': 'art@eria.com',
             }
-        }
+        },
+    )
 
     @classmethod
     def create(
@@ -76,4 +73,6 @@ class Platform(Creatable):
             phone_number=phone_number,
             email_address=email_address,
         )
-        return cast('Platform', cls._create(session=session, **req.dict()))
+        return cast(
+            'Platform', cls._create(session=session, **req.model_dump())
+        )

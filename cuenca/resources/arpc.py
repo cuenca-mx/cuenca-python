@@ -23,8 +23,8 @@ class Arpc(Creatable):
 
     created_at: dt.datetime
     card_uri: str
-    is_valid_arqc: Optional[bool]
-    arpc: Optional[str]
+    is_valid_arqc: Optional[bool] = None
+    arpc: Optional[str] = None
 
     @classmethod
     def create(
@@ -52,4 +52,4 @@ class Arpc(Creatable):
             unique_number=unique_number,
             track_data_method=track_data_method,
         )
-        return cast('Arpc', cls._create(session=session, **req.dict()))
+        return cast('Arpc', cls._create(session=session, **req.model_dump()))

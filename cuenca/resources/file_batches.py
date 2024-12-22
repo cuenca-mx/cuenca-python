@@ -22,4 +22,6 @@ class FileBatch(Creatable, Queryable):
         session: Session = global_session,
     ) -> 'FileBatch':
         req = FileBatchUploadRequest(files=files, user_id=user_id)
-        return cast('FileBatch', cls._create(session=session, **req.dict()))
+        return cast(
+            'FileBatch', cls._create(session=session, **req.model_dump())
+        )

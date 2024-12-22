@@ -38,5 +38,5 @@ class UserListsValidation(Creatable, Retrievable):
         )
         return cast(
             'UserListsValidation',
-            cls._create(session=session, **req.dict()),
+            cls._create(session=session, **req.model_dump()),
         )

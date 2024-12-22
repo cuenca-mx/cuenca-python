@@ -15,7 +15,7 @@ class LimitedWallet(Wallet):
     _resource: ClassVar = 'limited_wallets'
     _query_params: ClassVar = AccountQuery
     account_number: Clabe
-    allowed_rfc: Optional[Rfc]
+    allowed_rfc: Optional[Rfc] = None
     allowed_curp: CurpField
 
     @classmethod

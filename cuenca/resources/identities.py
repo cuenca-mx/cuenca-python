@@ -23,17 +23,17 @@ class Identity(Retrievable, Queryable):
     created_at: dt.datetime
     names: str
     first_surname: str
-    second_surname: Optional[str]
-    curp: Optional[CurpField]
-    rfc: Optional[str]
+    second_surname: Optional[str] = None
+    curp: Optional[CurpField] = None
+    rfc: Optional[str] = None
     gender: Gender
-    date_of_birth: Optional[dt.date]
-    state_of_birth: Optional[State]
-    country_of_birth: Optional[str]
-    status: Optional[UserStatus]
-    tos_agreement: Optional[TOSAgreement]
-    blacklist_validation_status: Optional[VerificationStatus]
-    address: Optional[Address]
-    govt_id: Optional[KYCFile]
-    proof_of_address: Optional[KYCFile]
-    proof_of_life: Optional[KYCFile]
+    date_of_birth: Optional[dt.date] = None
+    state_of_birth: Optional[State] = None
+    country_of_birth: Optional[str] = None
+    status: Optional[UserStatus] = None
+    tos_agreement: Optional[TOSAgreement] = None
+    blacklist_validation_status: Optional[VerificationStatus] = None
+    address: Optional[Address] = None
+    govt_id: Optional[KYCFile] = None
+    proof_of_address: Optional[KYCFile] = None
+    proof_of_life: Optional[KYCFile] = None
