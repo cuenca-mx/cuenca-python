@@ -1,6 +1,7 @@
 import datetime as dt
 from typing import ClassVar, List, Optional, cast
 
+from clabe import Clabe
 from cuenca_validations.types import (
     TransferNetwork,
     TransferQuery,
@@ -62,7 +63,7 @@ class Transfer(Transaction, Creatable):
         if not idempotency_key:
             idempotency_key = cls._gen_idempotency_key(account_number, amount)
         req = TransferRequest(
-            account_number=account_number,
+            account_number=cast(Clabe, account_number),
             amount=amount,
             descriptor=descriptor,
             recipient_name=recipient_name,

@@ -1,6 +1,7 @@
 import datetime as dt
 from typing import ClassVar, Optional, cast
 
+from clabe import Clabe
 from cuenca_validations.types import UserListsRequest, VerificationStatus
 from cuenca_validations.types.identities import CurpField
 
@@ -34,7 +35,7 @@ class UserListsValidation(Creatable, Retrievable):
             first_surname=first_surname,
             second_surname=second_surname,
             curp=curp,
-            account_number=account_number,
+            account_number=cast(Clabe, account_number),
         )
         return cast(
             'UserListsValidation',

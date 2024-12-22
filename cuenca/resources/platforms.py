@@ -54,7 +54,7 @@ class Platform(Creatable):
         cls,
         name: str,
         rfc: Optional[str] = None,
-        establishment_date: Optional[str] = None,
+        establishment_date: Optional[dt.date] = None,
         country: Optional[Country] = None,
         state: Optional[State] = None,
         economic_activity: Optional[str] = None,

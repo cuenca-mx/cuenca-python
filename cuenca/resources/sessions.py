@@ -39,8 +39,8 @@ class Session(Creatable, Retrievable, Queryable):
         cls,
         user_id: str,
         type: SessionType,
-        success_url: Optional[str] = None,
-        failure_url: Optional[str] = None,
+        success_url=cast(Optional[AnyUrl], success_url),
+        failure_url=cast(Optional[AnyUrl], failure_url),
         *,
         session: http.Session = http.session,
     ) -> 'Session':

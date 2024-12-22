@@ -1,7 +1,12 @@
 from io import BytesIO
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import FileQuery, FileUploadRequest, KYCFileType
+from cuenca_validations.types import (
+    FileExtension,
+    FileQuery,
+    FileUploadRequest,
+    KYCFileType,
+)
 from pydantic import HttpUrl
 
 from ..http import Session, session as global_session
@@ -40,7 +45,7 @@ class File(Downloadable, Queryable, Uploadable):
         req = FileUploadRequest(
             file=file.read(),
             type=file_type,
-            extension=extension,
+            extension=cast(FileExtension, extension),
             is_back=is_back,
             user_id=user_id,
         )

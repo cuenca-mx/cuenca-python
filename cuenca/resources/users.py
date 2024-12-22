@@ -104,6 +104,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     def create(
         cls,
         curp: CurpField,
+        id: Optional[str] = None,
         phone_number: Optional[PhoneNumber] = None,
         email_address: Optional[EmailStr] = None,
         profession: Optional[str] = None,
@@ -117,6 +118,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         session: Session = global_session,
     ) -> 'User':
         req = UserRequest(
+            id=id,
             curp=curp,
             phone_number=phone_number,
             email_address=email_address,
@@ -147,7 +149,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         status: Optional[UserStatus] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
-        curp_document: Optional[HttpUrl] = None,
+        curp_document_uri: Optional[HttpUrl] = None,
         *,
         session: Session = global_session,
     ):
@@ -164,7 +166,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             verification_id=verification_id,
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
-            curp_document=curp_document,
+            curp_document_uri=curp_document_uri,
             status=status,
         )
         return cast(
