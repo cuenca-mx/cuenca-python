@@ -1,4 +1,4 @@
 requests==2.32.3
-cuenca-validations==2.0.0.dev5
+cuenca-validations==2.0.0.dev8
 dataclasses>=0.7;python_version<"3.7"
-pydantic-extra-types==2.10.1
+pydantic-extra-types==2.10.*
