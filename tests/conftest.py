@@ -9,20 +9,6 @@ import cuenca
 
 cuenca.configure(sandbox=True)
 
-# Temporary patch for the VCRHTTPResponse object to avoid
-# AttributeError: 'VCRHTTPResponse' object has no attribute 'version_string'
-# Occurs with urllib3>=2.3.0 and is being addressed in the following PR:
-# https://github.com/kevin1024/vcrpy/pull/889
-
-
-@pytest.fixture(autouse=True)
-def patch_VCRHTTPResponse_version_string():
-    from vcr.stubs import VCRHTTPResponse  # type: ignore
-
-    if not hasattr(VCRHTTPResponse, 'version_string'):
-        VCRHTTPResponse.version_string = None
-    yield
-
 
 @pytest.fixture(scope='module')
 def vcr_config():
