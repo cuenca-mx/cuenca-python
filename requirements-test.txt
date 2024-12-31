@@ -1,4 +1,4 @@
-black==22.8.0
+black==24.10.0
 flake8==5.0.4
 freezegun==1.5.1
 isort==5.11.5
@@ -9,5 +9,4 @@ pytest-vcr==1.0.*
 requests-mock==1.9.*
 types-freezegun==1.1.7
 types-requests
-#vcrpy==6.0.2
-git+https://github.com/kevin1024/vcrpy.git@master
+vcrpy==7.0.0

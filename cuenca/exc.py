@@ -1,5 +1,3 @@
-from dataclasses import dataclass
-
 from cuenca_validations.typing import DictStrAny
 
 
@@ -19,10 +17,11 @@ class MultipleResultsFound(CuencaException):
     """One result was expected but multiple were returned"""
 
 
-@dataclass
 class CuencaResponseException(CuencaException):
-    json: DictStrAny
-    status_code: int
+    def __init__(self, json: DictStrAny, status_code: int) -> None:
+        self.json = json
+        self.status_code = status_code
+        super().__init__()
 
     def __str__(self) -> str:
         return repr(self)

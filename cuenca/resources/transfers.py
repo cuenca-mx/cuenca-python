@@ -91,4 +91,4 @@ class Transfer(Transaction, Creatable):
         idempotency_key, but this provides some level of protection against
         submitting duplicate transfers
         """
-        return f'{dt.datetime.utcnow().date()}:{account_number}:{amount}'
+        return f'{dt.datetime.utcnow().date()}: {account_number}: {amount}'
