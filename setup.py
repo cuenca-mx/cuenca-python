@@ -24,7 +24,7 @@ setup(
     python_requires='>=3.9',
     install_requires=[
         'requests>=2.32.3',
-        'cuenca-validations==2.0.0.dev8',
+        'cuenca-validations==2.0.0.dev9',
         'pydantic-extra-types>=2.10.1',
     ],
     classifiers=[
