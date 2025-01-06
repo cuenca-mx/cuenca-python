@@ -1,11 +1,19 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import Annotated, ClassVar, Optional, cast
 
 from cuenca_validations.types import SessionRequest, SessionType
-from pydantic import AnyUrl, ConfigDict
+from pydantic import AfterValidator, AnyUrl, ConfigDict
 
 from .. import http
 from .base import Creatable, Queryable, Retrievable
+
+# In Pydantic v2, URL fields like `AnyUrl` are stored as internal objects
+# instead of `str`, which can break compatibility with code expecting str.
+# Using `AnyUrlString` ensures the field is validated as a URL but stored as
+# a `str` for compatibility.
+# https://github.com/pydantic/pydantic/discussions/6395
+
+AnyUrlString = Annotated[AnyUrl, AfterValidator(str)]
 
 
 class Session(Creatable, Retrievable, Queryable):
@@ -16,8 +24,8 @@ class Session(Creatable, Retrievable, Queryable):
     user_id: str
     platform_id: str
     expires_at: dt.datetime
-    success_url: Optional[AnyUrl] = None
-    failure_url: Optional[AnyUrl] = None
+    success_url: Optional[AnyUrlString] = None
+    failure_url: Optional[AnyUrlString] = None
     type: Optional[SessionType] = None
     model_config = ConfigDict(
         json_schema_extra={

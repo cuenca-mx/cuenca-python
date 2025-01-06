@@ -1,20 +1,28 @@
-from typing import ClassVar, List, Optional, cast
+from typing import Annotated, ClassVar, List, Optional, cast
 
 from cuenca_validations.types.enums import WebhookEvent
 from cuenca_validations.types.requests import (
     EndpointRequest,
     EndpointUpdateRequest,
 )
-from pydantic import ConfigDict, Field, HttpUrl
+from pydantic import AfterValidator, ConfigDict, Field, HttpUrl
 
 from ..http import Session, session as global_session
 from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
+
+# In Pydantic v2, URL fields like `HttpUrl` are stored as internal objects
+# instead of `str`, which can break compatibility with code expecting str.
+# Using `HttpUrlString` ensures the field is validated as a URL but stored as
+# a `str` for compatibility.
+# https://github.com/pydantic/pydantic/discussions/6395
+
+HttpUrlString = Annotated[HttpUrl, AfterValidator(str)]
 
 
 class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     _resource: ClassVar = 'endpoints'
 
-    url: HttpUrl = Field(..., description='HTTPS url to send webhooks')
+    url: HttpUrlString = Field(..., description='HTTPS url to send webhooks')
     secret: str = Field(
         ...,
         description='token to verify the webhook is sent by Cuenca '

@@ -43,7 +43,7 @@ def test_endpoint_update():
     )
     assert endpoint.id == id_endpoint
     assert len(endpoint.events) == 2
-    assert str(endpoint.url) == 'https://url.io/'
+    assert endpoint.url == 'https://url.io/'
     assert not endpoint.is_enable
     assert endpoint.is_active
 
