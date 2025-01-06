@@ -1,6 +1,7 @@
 import argparse
 import csv
 import logging
+from dataclasses import fields
 
 from cuenca.resources.transfers import Transfer, TransferRequest
 
@@ -24,7 +25,7 @@ def main():
         transfer_requests = [TransferRequest(**line) for line in reader]
     transfers = Transfer.create_many(transfer_requests)
     with open(args.output, 'w') as f:
-        fieldnames = list(transfers['submitted'][0].to_dict().keys())
+        fieldnames = [field.name for field in fields(Transfer)]
         writer = csv.DictWriter(f, fieldnames)
         writer.writeheader()
         for tr in transfers['submitted']:
