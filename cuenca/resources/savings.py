@@ -51,4 +51,6 @@ class Saving(Wallet, Updateable):
             goal_amount=goal_amount,
             goal_date=goal_date,
         )
-        return cast('Saving', cls._update(id=saving_id, **request.model_dump()))
+        return cast(
+            'Saving', cls._update(id=saving_id, **request.model_dump())
+        )

@@ -58,4 +58,6 @@ class Session(Creatable, Retrievable, Queryable):
             success_url=success_url,
             failure_url=failure_url,
         )
-        return cast('Session', cls._create(session=session, **req.model_dump()))
+        return cast(
+            'Session', cls._create(session=session, **req.model_dump())
+        )
