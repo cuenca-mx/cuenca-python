@@ -14,8 +14,6 @@ from .resources import retrieve_uri, retrieve_uris
 
 
 class CardTransaction(Transaction):
-    def __init__(self, *args, **kwargs):
-        super(CardTransaction, self).__init__(*args, **kwargs)
 
     _resource: ClassVar = 'card_transactions'
     _query_params: ClassVar = CardTransactionQuery
