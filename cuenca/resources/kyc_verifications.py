@@ -49,4 +49,4 @@ class KYCVerification(Creatable, Retrievable, Updateable):
         curp: CurpField,
     ) -> 'KYCVerification':
         req = KYCVerificationUpdateRequest(curp=curp)
-        return cast('KYCVerification', cls._update(id=kyc_id, **req.dict()))
+        return cast('KYCVerification', cls._update(id=kyc_id, **req.model_dump()))

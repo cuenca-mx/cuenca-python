@@ -81,7 +81,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
             card_holder_user_id=card_holder_user_id,
             is_dynamic_cvv=is_dynamic_cvv,
         )
-        return cast('Card', cls._create(session=session, **req.dict()))
+        return cast('Card', cls._create(session=session, **req.model_dump()))
 
     @classmethod
     def update(
@@ -106,7 +106,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         req = CardUpdateRequest(
             status=status, pin_block=pin_block, is_dynamic_cvv=is_dynamic_cvv
         )
-        resp = cls._update(card_id, session=session, **req.dict())
+        resp = cls._update(card_id, session=session, **req.model_dump())
         return cast('Card', resp)
 
     @classmethod

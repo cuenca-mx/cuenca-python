@@ -77,7 +77,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         :return: New active endpoint
         """
         req = EndpointRequest(url=url, events=events)
-        return cast('Endpoint', cls._create(session=session, **req.dict()))
+        return cast('Endpoint', cls._create(session=session, **req.model_dump()))
 
     @classmethod
     def update(
@@ -101,5 +101,5 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         req = EndpointUpdateRequest(
             url=url, is_enable=is_enable, events=events
         )
-        resp = cls._update(endpoint_id, session=session, **req.dict())
+        resp = cls._update(endpoint_id, session=session, **req.model_dump())
         return cast('Endpoint', resp)

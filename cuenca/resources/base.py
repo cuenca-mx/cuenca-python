@@ -151,7 +151,7 @@ class Queryable(Resource):
         cls, *, session: Session = global_session, **query_params
     ) -> Resource:
         q = cls._query_params(limit=2, **query_params)
-        resp = session.get(cls._resource, q.dict())
+        resp = session.get(cls._resource, q.model_dump())
         items = resp['items']
         len_items = len(items)
         if not len_items:
@@ -165,7 +165,7 @@ class Queryable(Resource):
         cls, *, session: Session = global_session, **query_params
     ) -> Optional[Resource]:
         q = cls._query_params(limit=1, **query_params)
-        resp = session.get(cls._resource, q.dict())
+        resp = session.get(cls._resource, q.model_dump())
         try:
             item = resp['items'][0]
         except IndexError:
@@ -179,7 +179,7 @@ class Queryable(Resource):
         cls, *, session: Session = global_session, **query_params
     ) -> int:
         q = cls._query_params(count=True, **query_params)
-        resp = session.get(cls._resource, q.dict())
+        resp = session.get(cls._resource, q.model_dump())
         return resp['count']
 
     @classmethod
@@ -188,7 +188,7 @@ class Queryable(Resource):
     ) -> Generator[Resource, None, None]:
         session = session or global_session
         q = cls._query_params(**query_params)
-        next_page_uri = f'{cls._resource}?{urlencode(q.dict())}'
+        next_page_uri = f'{cls._resource}?{urlencode(q.model_dump())}'
         while next_page_uri:
             page = session.get(next_page_uri)
             yield from (cls._from_dict(item) for item in page['items'])

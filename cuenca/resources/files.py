@@ -53,7 +53,7 @@ class File(Downloadable, Queryable, Uploadable):
             'File',
             cls._upload(
                 session=session,
-                **req.dict(),
+                **req.model_dump(),
             ),
         )
 

@@ -40,5 +40,5 @@ class KYCValidation(Creatable, Retrievable, Queryable):
             documents=documents,
         )
         return cast(
-            'KYCValidation', cls._create(**req.dict(), session=session)
+            'KYCValidation', cls._create(**req.model_dump(), session=session)
         )

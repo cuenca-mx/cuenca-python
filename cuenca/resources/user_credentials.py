@@ -26,7 +26,7 @@ class UserCredential(Creatable, Updateable):
     ) -> 'UserCredential':
         req = UserCredentialRequest(password=password, user_id=user_id)
         return cast(
-            'UserCredential', cls._create(**req.dict(), session=session)
+            'UserCredential', cls._create(**req.model_dump(), session=session)
         )
 
     @classmethod
@@ -44,5 +44,5 @@ class UserCredential(Creatable, Updateable):
         )
         return cast(
             'UserCredential',
-            cls._update(id=user_id, **req.dict(), session=session),
+            cls._update(id=user_id, **req.model_dump(), session=session),
         )

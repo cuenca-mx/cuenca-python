@@ -75,5 +75,5 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
         req = ApiKeyUpdateRequest(
             metadata=metadata, user_id=user_id, platform_id=platform_id
         )
-        resp = cls._update(api_key_id, **req.dict(), session=session)
+        resp = cls._update(api_key_id, **req.model_dump(), session=session)
         return cast('ApiKey', resp)

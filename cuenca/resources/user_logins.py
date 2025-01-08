@@ -32,7 +32,7 @@ class UserLogin(Creatable):
         session: Session = global_session,
     ) -> 'UserLogin':
         req = UserLoginRequest(password=password, user_id=user_id)
-        login = cast('UserLogin', cls._create(session=session, **req.dict()))
+        login = cast('UserLogin', cls._create(session=session, **req.model_dump()))
         if login.success:
             session.headers['X-Cuenca-LoginId'] = login.id
         return login

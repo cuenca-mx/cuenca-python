@@ -35,4 +35,4 @@ class WalletTransaction(Transaction, Creatable):
             transaction_type=transaction_type,
             amount=amount,
         )
-        return cast('WalletTransaction', cls._create(**request.dict()))
+        return cast('WalletTransaction', cls._create(**request.model_dump()))

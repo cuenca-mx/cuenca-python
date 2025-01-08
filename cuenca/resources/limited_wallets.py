@@ -37,4 +37,4 @@ class LimitedWallet(Wallet):
             allowed_curp=allowed_curp,
             allowed_rfc=allowed_rfc,
         )
-        return cast('LimitedWallet', cls._create(**request.dict()))
+        return cast('LimitedWallet', cls._create(**request.model_dump()))
