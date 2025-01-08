@@ -25,4 +25,4 @@ def test_otps(session):
     session.configure(login_token=login_token.id)
     otp = Otp.create()
     assert otp
-    assert type(otp.secret) == str
+    assert isinstance(otp.secret, str)
