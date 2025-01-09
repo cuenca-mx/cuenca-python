@@ -1,4 +1,4 @@
-from typing import ClassVar, List, Optional, cast
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import HttpUrlString
 from cuenca_validations.types.enums import WebhookEvent
@@ -26,7 +26,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         description='Allows user to turn-off the endpoint without the '
         'need of deleting it',
     )
-    events: List[WebhookEvent] = Field(
+    events: list[WebhookEvent] = Field(
         ...,
         description='list of enabled events. If None, all events will '
         'be enabled for this Endpoint',
@@ -56,7 +56,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     def create(
         cls,
         url: HttpUrl,
-        events: Optional[List[WebhookEvent]] = None,
+        events: Optional[list[WebhookEvent]] = None,
         *,
         session: Session = global_session,
     ) -> 'Endpoint':
@@ -79,7 +79,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         cls,
         endpoint_id: str,
         url: Optional[HttpUrl] = None,
-        events: Optional[List[WebhookEvent]] = None,
+        events: Optional[list[WebhookEvent]] = None,
         is_enable: Optional[bool] = None,
         *,
         session: Session = global_session,
