@@ -1,10 +1,10 @@
 import re
-from typing import Dict, List, cast
+from typing import cast
 
 from .base import Retrievable
 
 ENDPOINT_RE = re.compile(r'.*/(?P<resource>[a-z_]+)/(?P<id>.+)$')
-RESOURCES: Dict[str, Retrievable] = {}  # set in ./__init__.py after imports
+RESOURCES: dict[str, Retrievable] = {}  # set in ./__init__.py after imports
 
 
 def retrieve_uri(uri: str) -> Retrievable:
@@ -15,7 +15,7 @@ def retrieve_uri(uri: str) -> Retrievable:
     return cast(Retrievable, RESOURCES[resource].retrieve(id_))
 
 
-def retrieve_uris(uris: List[str]) -> List[Retrievable]:
+def retrieve_uris(uris: list[str]) -> list[Retrievable]:
     # Changed the implementation to use a simple for loop instead of
     # ThreadPoolExecutor. The list of URIs is small, so the performance
     # difference is negligible. Additionally, using ThreadPoolExecutor

@@ -1,5 +1,3 @@
-from typing import Dict
-
 import pytest
 from cuenca_validations.types import SessionType
 from pydantic import ValidationError
@@ -9,7 +7,7 @@ from cuenca.resources import CurpValidation, Session, User
 
 
 @pytest.mark.vcr
-def test_session_create(curp_validation_request: Dict, user_request: Dict):
+def test_session_create(curp_validation_request: dict, user_request: dict):
     curp_valdation = CurpValidation.create(**curp_validation_request)
     user_request['curp'] = curp_valdation.validated_curp
     user = User.create(**user_request)

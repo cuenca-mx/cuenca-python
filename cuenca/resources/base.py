@@ -2,7 +2,7 @@ import base64
 import datetime as dt
 import json
 from io import BytesIO
-from typing import Any, ClassVar, Dict, Generator, Optional
+from typing import Any, ClassVar, Generator, Optional
 from urllib.parse import urlencode
 
 from cuenca_validations.types import (
@@ -24,7 +24,7 @@ class Resource(BaseModel):
     id: str
 
     @classmethod
-    def _from_dict(cls, obj_dict: Dict[str, Any]) -> 'Resource':
+    def _from_dict(cls, obj_dict: dict[str, Any]) -> 'Resource':
         cls._filter_excess_fields(obj_dict)
         return cls(**obj_dict)
 
