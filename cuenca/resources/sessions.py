@@ -2,7 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import AnyUrlString, SessionRequest, SessionType
-from pydantic import AnyUrl, ConfigDict
+from pydantic import ConfigDict
 
 from .. import http
 from .base import Creatable, Queryable, Retrievable
@@ -39,16 +39,16 @@ class Session(Creatable, Retrievable, Queryable):
         cls,
         user_id: str,
         type: SessionType,
-        success_url=cast(Optional[AnyUrl], success_url),
-        failure_url=cast(Optional[AnyUrl], failure_url),
+        success_url: Optional[str] = None,
+        failure_url: Optional[str] = None,
         *,
         session: http.Session = http.session,
     ) -> 'Session':
         req = SessionRequest(
             user_id=user_id,
             type=type,
-            success_url=success_url,
-            failure_url=failure_url,
+            success_url=success_url,  # type: ignore
+            failure_url=failure_url,  # type: ignore
         )
         return cast(
             'Session', cls._create(session=session, **req.model_dump())
