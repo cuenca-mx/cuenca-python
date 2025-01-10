@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types.requests import ARPCRequest
 
@@ -52,4 +52,4 @@ class Arpc(Creatable):
             unique_number=unique_number,
             track_data_method=track_data_method,
         )
-        return cast('Arpc', cls._create(session=session, **req.dict()))
+        return cls._create(session=session, **req.dict())

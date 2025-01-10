@@ -51,9 +51,7 @@ class CardValidation(Creatable):
             pin_block=pin_block,
             pin_attempts_exceeded=pin_attempts_exceeded,
         )
-        return cast(
-            'CardValidation', cls._create(session=session, **req.dict())
-        )
+        return cls._create(session=session, **req.dict())
 
     @property
     def card(self) -> Card:

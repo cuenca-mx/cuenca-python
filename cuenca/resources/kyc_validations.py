@@ -1,4 +1,4 @@
-from typing import ClassVar, List, Optional, cast
+from typing import ClassVar, List, Optional
 
 from cuenca_validations.types import KYCFile, KYCValidationRequest
 
@@ -38,6 +38,4 @@ class KYCValidation(Creatable, Retrievable, Queryable):
             force=force,
             documents=documents,
         )
-        return cast(
-            'KYCValidation', cls._create(**req.dict(), session=session)
-        )
+        return cls._create(**req.dict(), session=session)

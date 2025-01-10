@@ -1,5 +1,5 @@
 from io import BytesIO
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types import FileQuery, FileUploadRequest, KYCFileType
 from pydantic import HttpUrl
@@ -44,13 +44,7 @@ class File(Downloadable, Queryable, Uploadable):
             is_back=is_back,
             user_id=user_id,
         )
-        return cast(
-            'File',
-            cls._upload(
-                session=session,
-                **req.dict(),
-            ),
-        )
+        return cls._upload(session=session, **req.dict())
 
     @property
     def file(self) -> bytes:

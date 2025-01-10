@@ -1,4 +1,4 @@
-from typing import ClassVar, cast
+from typing import ClassVar
 
 from ..http import Session, session as global_session
 from .base import Creatable
@@ -17,4 +17,4 @@ class LoginToken(Creatable):
         Make sure to store this token in a safe place
         :return: Token that you can use in cuenca.configure
         """
-        return cast('LoginToken', cls._create(session=session))
+        return cls._create(session=session)

@@ -1,4 +1,4 @@
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from clabe import Clabe
 from cuenca_validations.types import (
@@ -37,4 +37,4 @@ class LimitedWallet(Wallet):
             allowed_curp=allowed_curp,
             allowed_rfc=allowed_rfc,
         )
-        return cast('LimitedWallet', cls._create(**request.dict()))
+        return cls._create(**request.dict())

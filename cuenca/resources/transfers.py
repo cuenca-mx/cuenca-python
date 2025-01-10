@@ -69,7 +69,7 @@ class Transfer(Transaction, Creatable):
             idempotency_key=idempotency_key,
             user_id=user_id,
         )
-        return cast('Transfer', cls._create(**req.dict()))
+        return cls._create(**req.dict())
 
     @classmethod
     def create_many(cls, requests: List[TransferRequest]) -> DictStrAny:
@@ -80,7 +80,7 @@ class Transfer(Transaction, Creatable):
             except (CuencaException, HTTPError) as e:
                 transfers['errors'].append(dict(request=req, error=e))
             else:
-                transfers['submitted'].append(cast('Transfer', transfer))
+                transfers['submitted'].append(transfer)
         return transfers
 
     @staticmethod

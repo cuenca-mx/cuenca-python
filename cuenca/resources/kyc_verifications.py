@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types import (
     Address,
@@ -39,7 +39,7 @@ class KYCVerification(Creatable, Retrievable, Updateable):
 
     @classmethod
     def create(cls, session: Session = global_session) -> 'KYCVerification':
-        return cast('KYCVerification', cls._create(session=session))
+        return cls._create(session=session)
 
     @classmethod
     def update(
@@ -48,4 +48,4 @@ class KYCVerification(Creatable, Retrievable, Updateable):
         curp: Optional[CurpField] = None,
     ) -> 'KYCVerification':
         req = KYCVerificationUpdateRequest(curp=curp)
-        return cast('KYCVerification', cls._update(id=kyc_id, **req.dict()))
+        return cls._update(id=kyc_id, **req.dict())

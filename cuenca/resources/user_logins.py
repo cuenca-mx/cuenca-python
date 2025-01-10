@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types.requests import UserLoginRequest
 
@@ -31,7 +31,7 @@ class UserLogin(Creatable):
         session: Session = global_session,
     ) -> 'UserLogin':
         req = UserLoginRequest(password=password, user_id=user_id)
-        login = cast('UserLogin', cls._create(session=session, **req.dict()))
+        login = cls._create(session=session, **req.dict())
         if login.success:
             session.headers['X-Cuenca-LoginId'] = login.id
         return login

@@ -1,4 +1,4 @@
-from typing import ClassVar, List, Optional, cast
+from typing import ClassVar, List, Optional
 
 from cuenca_validations.types.enums import WebhookEvent
 from cuenca_validations.types.requests import (
@@ -72,7 +72,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         :return: New active endpoint
         """
         req = EndpointRequest(url=url, events=events)
-        return cast('Endpoint', cls._create(session=session, **req.dict()))
+        return cls._create(session=session, **req.dict())
 
     @classmethod
     def update(
@@ -89,6 +89,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         like url and is_active.
         :param endpoint_id: existing endpoint_id
         :param url
+        :param events: Optional list of enabled events to update
         :param is_enable
         :param session
         :return: Updated endpoint object
@@ -96,5 +97,4 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         req = EndpointUpdateRequest(
             url=url, is_enable=is_enable, events=events
         )
-        resp = cls._update(endpoint_id, session=session, **req.dict())
-        return cast('Endpoint', resp)
+        return cls._update(endpoint_id, session=session, **req.dict())

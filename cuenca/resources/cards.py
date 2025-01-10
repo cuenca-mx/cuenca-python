@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional, cast
+from typing import ClassVar, Optional
 
 from cuenca_validations.types import (
     CardFundingType,
@@ -81,7 +81,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
             card_holder_user_id=card_holder_user_id,
             is_dynamic_cvv=is_dynamic_cvv,
         )
-        return cast('Card', cls._create(session=session, **req.dict()))
+        return cls._create(session=session, **req.dict())
 
     @classmethod
     def update(
@@ -106,8 +106,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         req = CardUpdateRequest(
             status=status, pin_block=pin_block, is_dynamic_cvv=is_dynamic_cvv
         )
-        resp = cls._update(card_id, session=session, **req.dict())
-        return cast('Card', resp)
+        return cls._update(card_id, session=session, **req.dict())
 
     @classmethod
     def deactivate(
@@ -118,4 +117,4 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         """
         url = f'{cls._resource}/{card_id}'
         resp = session.delete(url)
-        return cast('Card', cls._from_dict(resp))
+        return cls(**resp)
