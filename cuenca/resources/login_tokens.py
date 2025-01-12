@@ -1,13 +1,19 @@
 from typing import ClassVar, cast
 
-from pydantic import ConfigDict
+from pydantic import ConfigDict, SecretStr
 
 from ..http import Session, session as global_session
 from .base import Creatable
 
 
+# mypy: disable-error-code=override
 class LoginToken(Creatable):
     _resource: ClassVar = 'login_tokens'
+
+    # Override the `id` field to be a `SecretStr`
+    # To ensure sensitive data is not exposed in logs.
+    id: SecretStr  # type: ignore
+
     model_config = ConfigDict(
         json_schema_extra={'example': {'id': 'LTNEUInh69SuKXXmK95sROwQ'}}
     )

@@ -36,6 +36,8 @@ def test_session_create(curp_validation_request: dict, user_request: dict):
     assert user_session.failure_url == failure_url
 
     ephimeral_cuenca_session = cuenca.http.Session()
-    ephimeral_cuenca_session.configure(session_token=user_session.id)
+    ephimeral_cuenca_session.configure(
+        session_token=user_session.id.get_secret_value()
+    )
     user = User.update(user.id, email_address='manu@example.com')
     assert user.email_address == 'manu@example.com'

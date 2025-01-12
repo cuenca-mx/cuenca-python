@@ -2,16 +2,19 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import AnyUrlString, SessionRequest, SessionType
-from pydantic import ConfigDict
+from pydantic import ConfigDict, SecretStr
 
 from .. import http
 from .base import Creatable, Queryable, Retrievable
 
 
+# mypy: disable-error-code=override
 class Session(Creatable, Retrievable, Queryable):
     _resource: ClassVar = 'sessions'
 
-    id: str
+    # Override the `id` field to be a `SecretStr`
+    # To ensure sensitive data is not exposed in logs.
+    id: SecretStr = None  # type: ignore
     created_at: dt.datetime
     user_id: str
     platform_id: str

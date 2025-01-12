@@ -1,6 +1,6 @@
 from typing import ClassVar, cast
 
-from pydantic import ConfigDict
+from pydantic import ConfigDict, SecretStr
 
 from ..http import Session, session as global_session
 from .base import Creatable
@@ -8,7 +8,7 @@ from .base import Creatable
 
 class Otp(Creatable):
     _resource: ClassVar = 'otps'
-    secret: str
+    secret: SecretStr
     model_config = ConfigDict(
         json_schema_extra={
             'example': {
