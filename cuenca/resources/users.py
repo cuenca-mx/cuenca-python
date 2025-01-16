@@ -31,10 +31,10 @@ class User(Creatable, Retrievable, Updateable, Queryable):
 
     identity_uri: str
     level: int = Field(
-        ..., description='Account level according to KYC information'
+        description='Account level according to KYC information'
     )
     required_level: int = Field(
-        ..., description='Maximum level User can reach. Set by platform'
+        description='Maximum level User can reach. Set by platform'
     )
     created_at: dt.datetime
     phone_number: Optional[PhoneNumber] = None

@@ -17,7 +17,7 @@ class Verification(Creatable, Updateable):
     _resource: ClassVar = 'verifications'
 
     recipient: Union[EmailStr, PhoneNumber] = Field(
-        ..., description='Phone or email to validate'
+        description='Phone or email to validate'
     )
     type: VerificationType
     created_at: dt.datetime

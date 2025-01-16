@@ -1,6 +1,5 @@
 from typing import ClassVar, Optional, cast
 
-from cuenca_validations.types import HttpUrlString
 from cuenca_validations.types.enums import WebhookEvent
 from cuenca_validations.types.requests import (
     EndpointRequest,
@@ -15,19 +14,16 @@ from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
 class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     _resource: ClassVar = 'endpoints'
 
-    url: HttpUrlString = Field(..., description='HTTPS url to send webhooks')
+    url: HttpUrl = Field(description='HTTPS url to send webhooks')
     secret: str = Field(
-        ...,
         description='token to verify the webhook is sent by Cuenca '
         'using HMAC algorithm',
     )
     is_enable: bool = Field(
-        ...,
         description='Allows user to turn-off the endpoint without the '
         'need of deleting it',
     )
     events: list[WebhookEvent] = Field(
-        ...,
         description='list of enabled events. If None, all events will '
         'be enabled for this Endpoint',
     )

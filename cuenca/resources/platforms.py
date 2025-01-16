@@ -12,7 +12,7 @@ class Platform(Creatable):
     _resource: ClassVar = 'platforms'
 
     created_at: dt.datetime
-    name: str = Field(..., description='name of the platform being created')
+    name: str = Field(description='name of the platform being created')
     rfc: Optional[str] = Field(None, description='RFC or CURP of the platform')
     establishment_date: Optional[dt.date] = Field(
         None, description='when the platform was established'

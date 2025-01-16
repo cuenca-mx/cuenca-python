@@ -40,16 +40,15 @@ class CurpValidation(Creatable, Retrievable):
         None, description='curp provided in request'
     )
     calculated_curp: CurpField = Field(
-        ..., description='Calculated CURP based on request data'
+        description='Calculated CURP based on request data'
     )
     validated_curp: Optional[CurpField] = Field(
         None, description='CURP validated in Renapo, null if not exists'
     )
     renapo_curp_match: bool = Field(
-        ..., description='True if CURP exists and is valid'
+        description='True if CURP exists and is valid'
     )
     renapo_full_match: bool = Field(
-        ...,
         description='True if all fields provided match the response from '
         'RENAPO. Accents in names are ignored',
     )
