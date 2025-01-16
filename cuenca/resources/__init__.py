@@ -38,7 +38,6 @@ __all__ = [
     'WalletTransaction',
     'Webhook',
     'WhatsappTransfer',
-    'Jwt',
 ]
 
 from .accounts import Account
@@ -60,7 +59,6 @@ from .file_batches import FileBatch
 from .files import File
 from .identities import Identity
 from .identity_events import IdentityEvent
-from .jwt import Jwt
 from .kyc_validations import KYCValidation
 from .kyc_verifications import KYCVerification
 from .limited_wallets import LimitedWallet
