@@ -18,7 +18,7 @@ def test_api_keys_retrieve():
     id_key = 'AKMPSxy2UeSKqU1J6spDNwqA'
     api_key: ApiKey = ApiKey.retrieve(id_key)
     assert api_key.id == id_key
-    assert api_key.secret.get_secret_value() == '********'
+    assert api_key.secret == '********'
 
 
 @pytest.mark.vcr
