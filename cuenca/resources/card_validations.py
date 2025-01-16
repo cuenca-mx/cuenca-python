@@ -3,6 +3,7 @@ from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import CardStatus, CardType
 from cuenca_validations.types.requests import CardValidationRequest
+from pydantic_extra_types.payment import PaymentCardNumber
 
 from ..http import Session, session as global_session
 from .base import Creatable
@@ -30,7 +31,7 @@ class CardValidation(Creatable):
     @classmethod
     def create(
         cls,
-        number: str,
+        number: PaymentCardNumber,
         cvv: Optional[str] = None,
         cvv2: Optional[str] = None,
         icvv: Optional[str] = None,

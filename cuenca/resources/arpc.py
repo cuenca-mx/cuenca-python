@@ -3,6 +3,7 @@ from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types.enums import TrackDataMethod
 from cuenca_validations.types.requests import ARPCRequest
+from pydantic_extra_types.payment import PaymentCardNumber
 
 from ..http import Session, session as global_session
 from .base import Creatable
@@ -30,7 +31,7 @@ class Arpc(Creatable):
     @classmethod
     def create(
         cls,
-        number: str,
+        number: PaymentCardNumber,
         arqc: str,
         arpc_method: str,
         transaction_data: str,
