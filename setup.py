@@ -23,9 +23,9 @@ setup(
     package_data=dict(cuenca=['py.typed']),
     python_requires='>=3.9',
     install_requires=[
-        'requests>=2.32.3',
-        'cuenca-validations==2.0.0.dev13',
-        'pydantic-extra-types>=2.10.1',
+        'requests>=2.32.0',
+        'cuenca-validations>=2.0.0',
+        'pydantic-extra-types>=2.10.0',
     ],
     classifiers=[
         "Programming Language :: Python :: 3.9",
