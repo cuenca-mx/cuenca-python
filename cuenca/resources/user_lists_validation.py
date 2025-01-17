@@ -2,7 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional
 
 from cuenca_validations.types import UserListsRequest, VerificationStatus
-from cuenca_validations.types.identities import CurpField
+from cuenca_validations.types.identities import Curp
 
 from ..http import Session, session as global_session
 from .base import Creatable, Retrievable
@@ -14,7 +14,7 @@ class UserListsValidation(Creatable, Retrievable):
     names: Optional[str] = None
     first_surname: Optional[str] = None
     second_surname: Optional[str] = None
-    curp: Optional[CurpField] = None
+    curp: Optional[Curp] = None
     account_number: Optional[str] = None
     status: Optional[VerificationStatus] = None
 
@@ -24,7 +24,7 @@ class UserListsValidation(Creatable, Retrievable):
         names: Optional[str] = None,
         first_surname: Optional[str] = None,
         second_surname: Optional[str] = None,
-        curp: Optional[CurpField] = None,
+        curp: Optional[Curp] = None,
         account_number: Optional[str] = None,
         *,
         session: Session = global_session,

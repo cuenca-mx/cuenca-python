@@ -7,7 +7,7 @@ from cuenca_validations.types import (
     Gender,
     State,
 )
-from cuenca_validations.types.identities import CurpField
+from cuenca_validations.types.identities import Curp
 from pydantic import ConfigDict, Field
 
 from ..http import Session, session as global_session
@@ -36,13 +36,13 @@ class CurpValidation(Creatable, Retrievable):
     nationality: Optional[Country] = Field(
         None, description='In format ISO 3166 Alpha-2'
     )
-    manual_curp: Optional[CurpField] = Field(
+    manual_curp: Optional[Curp] = Field(
         None, description='curp provided in request'
     )
-    calculated_curp: CurpField = Field(
+    calculated_curp: Curp = Field(
         description='Calculated CURP based on request data'
     )
-    validated_curp: Optional[CurpField] = Field(
+    validated_curp: Optional[Curp] = Field(
         None, description='CURP validated in Renapo, null if not exists'
     )
     renapo_curp_match: bool = Field(
@@ -84,7 +84,7 @@ class CurpValidation(Creatable, Retrievable):
         state_of_birth: Optional[State] = None,
         gender: Optional[Gender] = None,
         second_surname: Optional[str] = None,
-        manual_curp: Optional[CurpField] = None,
+        manual_curp: Optional[Curp] = None,
         *,
         session: Session = global_session,
     ) -> 'CurpValidation':

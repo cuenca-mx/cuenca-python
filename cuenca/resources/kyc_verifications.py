@@ -3,7 +3,7 @@ from typing import ClassVar, Optional
 
 from cuenca_validations.types import (
     Address,
-    CurpField,
+    Curp,
     KYCVerificationUpdateRequest,
     Rfc,
 )
@@ -20,7 +20,7 @@ class KYCVerification(Creatable, Retrievable, Updateable):
     created_at: dt.datetime
     deactivated_at: Optional[dt.datetime] = None
     verification_id: Optional[str] = None
-    curp: Optional[CurpField] = None
+    curp: Optional[Curp] = None
     rfc: Optional[Rfc] = None
     address: Optional[Address] = None
 
@@ -47,7 +47,7 @@ class KYCVerification(Creatable, Retrievable, Updateable):
     def update(
         cls,
         kyc_id: str,
-        curp: CurpField,
+        curp: Curp,
     ) -> 'KYCVerification':
         req = KYCVerificationUpdateRequest(curp=curp)
         return cls._update(id=kyc_id, **req.model_dump())

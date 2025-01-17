@@ -11,7 +11,7 @@ from cuenca_validations.types import (
     UserStatus,
     VerificationStatus,
 )
-from cuenca_validations.types.identities import CurpField
+from cuenca_validations.types.identities import Curp
 
 from .base import Queryable, Retrievable
 
@@ -24,7 +24,7 @@ class Identity(Retrievable, Queryable):
     names: str
     first_surname: str
     second_surname: Optional[str] = None
-    curp: Optional[CurpField] = None
+    curp: Optional[Curp] = None
     rfc: Optional[str] = None
     gender: Gender
     date_of_birth: Optional[dt.date] = None

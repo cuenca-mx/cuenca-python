@@ -15,7 +15,7 @@ from cuenca_validations.types import (
     UserUpdateRequest,
 )
 from cuenca_validations.types.enums import Country, Gender, State
-from cuenca_validations.types.identities import CurpField
+from cuenca_validations.types.identities import Curp
 from pydantic import ConfigDict, EmailStr, Field, HttpUrl
 
 from ..http import Session, session as global_session
@@ -103,7 +103,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     @classmethod
     def create(
         cls,
-        curp: CurpField,
+        curp: Curp,
         id: Optional[str] = None,
         phone_number: Optional[PhoneNumber] = None,
         email_address: Optional[EmailStr] = None,
