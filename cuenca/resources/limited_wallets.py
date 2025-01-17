@@ -21,7 +21,7 @@ class LimitedWallet(Wallet):
     @classmethod
     def create(
         cls,
-        allowed_curp: Curp,
+        allowed_curp: Optional[Curp] = None,
         allowed_rfc: Optional[Rfc] = None,
     ) -> 'LimitedWallet':
         """

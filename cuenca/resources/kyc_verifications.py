@@ -47,7 +47,7 @@ class KYCVerification(Creatable, Retrievable, Updateable):
     def update(
         cls,
         kyc_id: str,
-        curp: Curp,
+        curp: Optional[Curp] = None,
     ) -> 'KYCVerification':
         req = KYCVerificationUpdateRequest(curp=curp)
         return cls._update(id=kyc_id, **req.model_dump())

@@ -37,7 +37,7 @@ class CardValidation(Creatable):
         exp_month: Optional[int] = None,
         exp_year: Optional[int] = None,
         pin_block: Optional[str] = None,
-        pin_attempts_exceeded: Optional[bool] = None,
+        pin_attempts_exceeded: Optional[str] = None,
         *,
         session: Session = global_session,
     ) -> 'CardValidation':
