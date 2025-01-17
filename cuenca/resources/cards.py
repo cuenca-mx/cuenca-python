@@ -9,7 +9,6 @@ from cuenca_validations.types import (
 )
 from cuenca_validations.types.queries import CardQuery
 from cuenca_validations.types.requests import CardRequest, CardUpdateRequest
-from pydantic_extra_types.payment import PaymentCardNumber
 
 from cuenca.resources.base import Creatable, Queryable, Retrievable, Updateable
 
@@ -23,7 +22,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     _query_params: ClassVar = CardQuery
 
     user_id: Optional[str] = None
-    number: PaymentCardNumber
+    number: str
     exp_month: int
     exp_year: int
     cvv2: str
