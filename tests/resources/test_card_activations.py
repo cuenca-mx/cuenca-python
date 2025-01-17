@@ -8,17 +8,17 @@ from cuenca.resources import CardActivation
 @pytest.mark.vcr
 def test_card_activation():
     values = dict(
-        number='4122943400023502',
+        number='5448750001621241',
         exp_month=11,
         exp_year=24,
-        cvv2='123',
+        cvv2='111',
     )
     card_activation = CardActivation.create(**values)
     assert card_activation.success
-    assert card_activation.user_id == 'US1237'
+    assert card_activation.user_id == 'US1w9BJ0DZ9kSdac39ur14Nf'
     card = card_activation.card
     assert all(getattr(card, key) == value for key, value in values.items())
-    assert card.user_id == 'US1237'
+    assert card.user_id == 'US1w9BJ0DZ9kSdac39ur14Nf'
     assert card.status is CardStatus.active
 
 
