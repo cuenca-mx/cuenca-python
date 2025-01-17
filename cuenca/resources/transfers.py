@@ -25,7 +25,7 @@ class Transfer(Transaction, Creatable):
     idempotency_key: str
     network: TransferNetwork
     destination_uri: str
-    tracking_key: Optional[str]  # clave rastreo if network is SPEI
+    tracking_key: Optional[str] = None  # clave rastreo if network is SPEI
 
     @property  # type: ignore
     def destination(self) -> Account:
@@ -69,14 +69,14 @@ class Transfer(Transaction, Creatable):
             idempotency_key=idempotency_key,
             user_id=user_id,
         )
-        return cls._create(**req.dict())
+        return cls._create(**req.model_dump())
 
     @classmethod
     def create_many(cls, requests: List[TransferRequest]) -> DictStrAny:
         transfers: DictStrAny = dict(submitted=[], errors=[])
         for req in requests:
             try:
-                transfer = cls._create(**req.dict())
+                transfer = cls._create(**req.model_dump())
             except (CuencaException, HTTPError) as e:
                 transfers['errors'].append(dict(request=req, error=e))
             else:

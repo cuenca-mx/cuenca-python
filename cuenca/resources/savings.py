@@ -17,8 +17,8 @@ class Saving(Wallet, Updateable):
     _query_params: ClassVar = WalletQuery
     name: str
     category: SavingCategory
-    goal_amount: Optional[StrictPositiveInt]
-    goal_date: Optional[dt.datetime]
+    goal_amount: Optional[StrictPositiveInt] = None
+    goal_date: Optional[dt.datetime] = None
 
     @classmethod
     def create(
@@ -34,7 +34,7 @@ class Saving(Wallet, Updateable):
             goal_amount=goal_amount,
             goal_date=goal_date,
         )
-        return cls._create(**request.dict())
+        return cls._create(**request.model_dump())
 
     @classmethod
     def update(
@@ -51,4 +51,4 @@ class Saving(Wallet, Updateable):
             goal_amount=goal_amount,
             goal_date=goal_date,
         )
-        return cls._update(id=saving_id, **request.dict())
+        return cls._update(id=saving_id, **request.model_dump())

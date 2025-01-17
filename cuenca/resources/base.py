@@ -12,7 +12,7 @@ from cuenca_validations.types import (
     TransactionQuery,
     TransactionStatus,
 )
-from pydantic import BaseModel, Extra
+from pydantic import BaseModel, ConfigDict
 
 from ..exc import MultipleResultsFound, NoResultFound
 from ..http import Session, session as global_session
@@ -25,11 +25,12 @@ class Resource(BaseModel):
 
     id: str
 
-    class Config:
-        extra = Extra.ignore
+    model_config = ConfigDict(
+        extra="ignore",
+    )
 
     def to_dict(self):
-        return SantizedDict(self.dict())
+        return SantizedDict(self.model_dump())
 
 
 class Retrievable(Resource):
@@ -78,7 +79,7 @@ class Updateable(Resource):
 
 
 class Deactivable(Resource):
-    deactivated_at: Optional[dt.datetime]
+    deactivated_at: Optional[dt.datetime] = None
 
     @classmethod
     def deactivate(
@@ -157,7 +158,7 @@ class Queryable(Resource):
         **query_params: Any,
     ) -> R_co:
         q = cast(Queryable, cls)._query_params(limit=2, **query_params)
-        resp = session.get(cls._resource, q.dict())
+        resp = session.get(cls._resource, q.model_dump())
         items = resp['items']
         len_items = len(items)
         if not len_items:
@@ -174,7 +175,7 @@ class Queryable(Resource):
         **query_params: Any,
     ) -> Optional[R_co]:
         q = cast(Queryable, cls)._query_params(limit=1, **query_params)
-        resp = session.get(cls._resource, q.dict())
+        resp = session.get(cls._resource, q.model_dump())
         try:
             item = resp['items'][0]
         except IndexError:
@@ -191,7 +192,7 @@ class Queryable(Resource):
         **query_params: Any,
     ) -> int:
         q = cast(Queryable, cls)._query_params(count=True, **query_params)
-        resp = session.get(cls._resource, q.dict())
+        resp = session.get(cls._resource, q.model_dump())
         return resp['count']
 
     @classmethod
@@ -203,7 +204,7 @@ class Queryable(Resource):
     ) -> Generator[R_co, None, None]:
         session = session or global_session
         q = cast(Queryable, cls)._query_params(**query_params)
-        next_page_uri = f'{cls._resource}?{urlencode(q.dict())}'
+        next_page_uri = f'{cls._resource}?{urlencode(q.model_dump())}'
         while next_page_uri:
             page = session.get(next_page_uri)
             yield from (cls(**item) for item in page['items'])

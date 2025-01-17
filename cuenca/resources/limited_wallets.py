@@ -15,7 +15,7 @@ class LimitedWallet(Wallet):
     _resource: ClassVar = 'limited_wallets'
     _query_params: ClassVar = AccountQuery
     account_number: Clabe
-    allowed_rfc: Optional[Rfc]
+    allowed_rfc: Optional[Rfc] = None
     allowed_curp: CurpField
 
     @classmethod
@@ -37,4 +37,4 @@ class LimitedWallet(Wallet):
             allowed_curp=allowed_curp,
             allowed_rfc=allowed_rfc,
         )
-        return cls._create(**request.dict())
+        return cls._create(**request.model_dump())

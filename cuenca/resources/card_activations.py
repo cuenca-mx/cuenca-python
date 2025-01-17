@@ -2,6 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types.requests import CardActivationRequest
+from pydantic_extra_types.payment import PaymentCardNumber
 
 from ..http import Session, session as global_session
 from .base import Creatable
@@ -15,13 +16,13 @@ class CardActivation(Creatable):
     created_at: dt.datetime
     user_id: str
     ip_address: str
-    card_uri: Optional[str]
+    card_uri: Optional[str] = None
     success: bool
 
     @classmethod
     def create(
         cls,
-        number: str,
+        number: PaymentCardNumber,
         exp_month: int,
         exp_year: int,
         cvv2: str,
@@ -42,7 +43,7 @@ class CardActivation(Creatable):
             exp_year=exp_year,
             cvv2=cvv2,
         )
-        return cls._create(session=session, **req.dict())
+        return cls._create(session=session, **req.model_dump())
 
     @property
     def card(self) -> Optional[Card]:

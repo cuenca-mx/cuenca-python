@@ -2,6 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional
 
 from cuenca_validations.types.requests import UserLoginRequest
+from pydantic import ConfigDict
 
 from ..http import Session, session as global_session
 from .base import Creatable
@@ -10,17 +11,18 @@ from .base import Creatable
 class UserLogin(Creatable):
     _resource: ClassVar = 'user_logins'
 
-    last_login_at: Optional[dt.datetime]
+    last_login_at: Optional[dt.datetime] = None
     success: bool
 
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             'example': {
                 'id': 'ULNEUInh69SuKXXmK95sROwQ',
                 'last_login_at': '2022-01-01T14:15:22Z',
                 'success': True,
             }
         }
+    )
 
     @classmethod
     def create(
@@ -31,7 +33,7 @@ class UserLogin(Creatable):
         session: Session = global_session,
     ) -> 'UserLogin':
         req = UserLoginRequest(password=password, user_id=user_id)
-        login = cls._create(session=session, **req.dict())
+        login = cls._create(session=session, **req.model_dump())
         if login.success:
             session.headers['X-Cuenca-LoginId'] = login.id
         return login

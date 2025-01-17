@@ -1,6 +1,7 @@
 from typing import ClassVar, List, Optional
 
 from cuenca_validations.types import KYCFile, KYCValidationRequest
+from pydantic import ConfigDict
 
 from ..http import Session, session as global_session
 from .base import Creatable, Queryable, Retrievable
@@ -9,12 +10,12 @@ from .base import Creatable, Queryable, Retrievable
 class KYCValidation(Creatable, Retrievable, Queryable):
     _resource: ClassVar = 'kyc_validations'
     platform_id: str
-    attemps: Optional[int]
-    verification_id: Optional[str]
-    files_uri: Optional[List[str]]
+    attemps: Optional[int] = None
+    verification_id: Optional[str] = None
+    files_uri: Optional[List[str]] = None
 
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             'example': {
                 'id': 'KVNEUInh69SuKXXmK95sROwQ',
                 'platform_id': 'PT8UEv02zBTcymd4Kd3MO6pg',
@@ -24,6 +25,7 @@ class KYCValidation(Creatable, Retrievable, Queryable):
                 'attemps': '1',
             }
         }
+    )
 
     @classmethod
     def create(
@@ -38,4 +40,4 @@ class KYCValidation(Creatable, Retrievable, Queryable):
             force=force,
             documents=documents,
         )
-        return cls._create(**req.dict(), session=session)
+        return cls._create(**req.model_dump(), session=session)

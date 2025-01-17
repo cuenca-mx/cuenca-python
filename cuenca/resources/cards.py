@@ -9,6 +9,7 @@ from cuenca_validations.types import (
 )
 from cuenca_validations.types.queries import CardQuery
 from cuenca_validations.types.requests import CardRequest, CardUpdateRequest
+from pydantic_extra_types.payment import PaymentCardNumber
 
 from cuenca.resources.base import Creatable, Queryable, Retrievable, Updateable
 
@@ -21,12 +22,12 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     _resource: ClassVar = 'cards'
     _query_params: ClassVar = CardQuery
 
-    user_id: Optional[str]
-    number: str
+    user_id: Optional[str] = None
+    number: PaymentCardNumber
     exp_month: int
     exp_year: int
     cvv2: str
-    pin: Optional[str]
+    pin: Optional[str] = None
     type: CardType
     status: CardStatus
     issuer: CardIssuer
@@ -81,7 +82,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
             card_holder_user_id=card_holder_user_id,
             is_dynamic_cvv=is_dynamic_cvv,
         )
-        return cls._create(session=session, **req.dict())
+        return cls._create(session=session, **req.model_dump())
 
     @classmethod
     def update(
@@ -106,7 +107,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         req = CardUpdateRequest(
             status=status, pin_block=pin_block, is_dynamic_cvv=is_dynamic_cvv
         )
-        return cls._update(card_id, session=session, **req.dict())
+        return cls._update(card_id, session=session, **req.model_dump())
 
     @classmethod
     def deactivate(

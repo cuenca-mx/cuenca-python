@@ -3,6 +3,7 @@ from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import CardStatus, CardType
 from cuenca_validations.types.requests import CardValidationRequest
+from pydantic_extra_types.payment import PaymentCardNumber
 
 from ..http import Session, session as global_session
 from .base import Creatable
@@ -18,11 +19,11 @@ class CardValidation(Creatable):
     user_id: str
     card_status: CardStatus
     card_type: CardType
-    is_valid_cvv: Optional[bool]
-    is_valid_cvv2: Optional[bool]
-    is_valid_icvv: Optional[bool]
-    is_valid_pin_block: Optional[bool]
-    is_valid_exp_date: Optional[bool]
+    is_valid_cvv: Optional[bool] = None
+    is_valid_cvv2: Optional[bool] = None
+    is_valid_icvv: Optional[bool] = None
+    is_valid_pin_block: Optional[bool] = None
+    is_valid_exp_date: Optional[bool] = None
     is_pin_attempts_exceeded: bool
     is_expired: bool
     platform_id: Optional[str] = None
@@ -30,7 +31,7 @@ class CardValidation(Creatable):
     @classmethod
     def create(
         cls,
-        number: str,
+        number: PaymentCardNumber,
         cvv: Optional[str] = None,
         cvv2: Optional[str] = None,
         icvv: Optional[str] = None,
@@ -51,7 +52,7 @@ class CardValidation(Creatable):
             pin_block=pin_block,
             pin_attempts_exceeded=pin_attempts_exceeded,
         )
-        return cls._create(session=session, **req.dict())
+        return cls._create(session=session, **req.model_dump())
 
     @property
     def card(self) -> Card:

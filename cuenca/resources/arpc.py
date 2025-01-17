@@ -2,6 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional
 
 from cuenca_validations.types.requests import ARPCRequest
+from pydantic_extra_types.payment import PaymentCardNumber
 
 from ..http import Session, session as global_session
 from .base import Creatable
@@ -23,13 +24,13 @@ class Arpc(Creatable):
 
     created_at: dt.datetime
     card_uri: str
-    is_valid_arqc: Optional[bool]
-    arpc: Optional[str]
+    is_valid_arqc: Optional[bool] = None
+    arpc: Optional[str] = None
 
     @classmethod
     def create(
         cls,
-        number: str,
+        number: PaymentCardNumber,
         arqc: str,
         arpc_method: str,
         transaction_data: str,
@@ -52,4 +53,4 @@ class Arpc(Creatable):
             unique_number=unique_number,
             track_data_method=track_data_method,
         )
-        return cls._create(session=session, **req.dict())
+        return cls._create(session=session, **req.model_dump())

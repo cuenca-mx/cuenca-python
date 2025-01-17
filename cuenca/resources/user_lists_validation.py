@@ -36,4 +36,4 @@ class UserListsValidation(Creatable, Retrievable):
             curp=curp,
             account_number=account_number,
         )
-        return cls._create(session=session, **req.dict())
+        return cls._create(session=session, **req.model_dump())

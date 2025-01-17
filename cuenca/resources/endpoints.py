@@ -1,11 +1,11 @@
-from typing import ClassVar, List, Optional
+from typing import ClassVar, Optional
 
 from cuenca_validations.types.enums import WebhookEvent
 from cuenca_validations.types.requests import (
     EndpointRequest,
     EndpointUpdateRequest,
 )
-from pydantic import HttpUrl
+from pydantic import ConfigDict, Field, HttpUrl
 
 from ..http import Session, session as global_session
 from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
@@ -14,28 +14,21 @@ from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
 class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     _resource: ClassVar = 'endpoints'
 
-    url: HttpUrl
-    secret: str
-    is_enable: bool
-    events: List[WebhookEvent]
-
-    class Config:
-        fields = {
-            'url': {'description': 'HTTPS url to send webhooks'},
-            'secret': {
-                'description': 'token to verify the webhook is sent by Cuenca '
-                'using HMAC algorithm'
-            },
-            'is_enable': {
-                'description': 'Allows user to turn-off the endpoint '
-                'without the need of deleting it'
-            },
-            'events': {
-                'description': 'list of enabled events. If None, '
-                'all events will be enabled for this Endpoint'
-            },
-        }
-        schema_extra = {
+    url: HttpUrl = Field(description='HTTPS url to send webhooks')
+    secret: str = Field(
+        description='token to verify the webhook is sent by Cuenca '
+        'using HMAC algorithm',
+    )
+    is_enable: bool = Field(
+        description='Allows user to turn-off the endpoint without the '
+        'need of deleting it',
+    )
+    events: list[WebhookEvent] = Field(
+        description='list of enabled events. If None, all events will '
+        'be enabled for this Endpoint',
+    )
+    model_config = ConfigDict(
+        json_schema_extra={
             'example': {
                 '_id': 'ENxxne2Z5VSTKZm_w8Hzffcw',
                 'platform_id': 'PTZoPrrPT6Ts-9myamq5h1bA',
@@ -52,13 +45,14 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
                 ],
                 'is_enable': True,
             }
-        }
+        },
+    )
 
     @classmethod
     def create(
         cls,
         url: HttpUrl,
-        events: Optional[List[WebhookEvent]] = None,
+        events: Optional[list[WebhookEvent]] = None,
         *,
         session: Session = global_session,
     ) -> 'Endpoint':
@@ -72,14 +66,14 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         :return: New active endpoint
         """
         req = EndpointRequest(url=url, events=events)
-        return cls._create(session=session, **req.dict())
+        return cls._create(session=session, **req.model_dump())
 
     @classmethod
     def update(
         cls,
         endpoint_id: str,
         url: Optional[HttpUrl] = None,
-        events: Optional[List[WebhookEvent]] = None,
+        events: Optional[list[WebhookEvent]] = None,
         is_enable: Optional[bool] = None,
         *,
         session: Session = global_session,
@@ -97,4 +91,4 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
         req = EndpointUpdateRequest(
             url=url, is_enable=is_enable, events=events
         )
-        return cls._update(endpoint_id, session=session, **req.dict())
+        return cls._update(endpoint_id, session=session, **req.model_dump())

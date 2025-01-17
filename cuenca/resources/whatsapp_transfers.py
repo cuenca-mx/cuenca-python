@@ -14,12 +14,12 @@ class WhatsappTransfer(Transaction):
     updated_at: dt.datetime
     recipient_name: str
     phone_number: str
-    claim_url: Optional[str]
+    claim_url: Optional[str] = None
     expires_at: dt.datetime
     # defined after the transfer has been claimed
-    destination_uri: Optional[str]
-    network: Optional[TransferNetwork]
-    tracking_key: Optional[str]  # clave rastreo if network is SPEI
+    destination_uri: Optional[str] = None
+    network: Optional[TransferNetwork] = None
+    tracking_key: Optional[str] = None  # clave rastreo if network is SPEI
 
     @property  # type: ignore
     def destination(self) -> Optional[Account]:
