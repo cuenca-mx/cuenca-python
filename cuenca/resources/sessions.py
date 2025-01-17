@@ -48,7 +48,7 @@ class Session(Creatable, Retrievable, Queryable):
         req = SessionRequest(
             user_id=user_id,
             type=type,
-            success_url=success_url,  # type: ignore
-            failure_url=failure_url,  # type: ignore
+            success_url=success_url,
+            failure_url=failure_url,
         )
         return cls._create(session=session, **req.model_dump())

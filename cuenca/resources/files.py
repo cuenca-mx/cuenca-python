@@ -40,7 +40,7 @@ class File(Downloadable, Queryable, Uploadable):
         req = FileUploadRequest(
             file=file.read(),
             type=file_type,
-            extension=extension,  # type: ignore
+            extension=extension,
             is_back=is_back,
             user_id=user_id,
         )
