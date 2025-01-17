@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, List, Optional, cast
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import (
     TransferNetwork,
@@ -72,7 +72,7 @@ class Transfer(Transaction, Creatable):
         return cls._create(**req.model_dump())
 
     @classmethod
-    def create_many(cls, requests: List[TransferRequest]) -> DictStrAny:
+    def create_many(cls, requests: list[TransferRequest]) -> DictStrAny:
         transfers: DictStrAny = dict(submitted=[], errors=[])
         for req in requests:
             try:

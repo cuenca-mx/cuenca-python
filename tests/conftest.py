@@ -1,6 +1,5 @@
 import datetime as dt
 from io import BytesIO
-from typing import Dict
 
 import pytest
 from cuenca_validations.types import Country, Gender, State
@@ -31,7 +30,7 @@ def transfer():
 
 
 @pytest.fixture
-def curp_validation_request() -> Dict:
+def curp_validation_request() -> dict:
     curp_validation = dict(
         names='José',
         first_surname='López',
@@ -45,7 +44,7 @@ def curp_validation_request() -> Dict:
 
 
 @pytest.fixture
-def user_request() -> Dict:
+def user_request() -> dict:
     user_dict = dict(
         curp='LOHJ660606HDFPRS02',
         phone_number='+525511223344',
@@ -64,7 +63,7 @@ def user_request() -> Dict:
 
 
 @pytest.fixture
-def user_lists_request() -> Dict:
+def user_lists_request() -> dict:
     user_dict = dict(
         curp='LOHJ660606HDFPRS02',
         names='Alejandro',

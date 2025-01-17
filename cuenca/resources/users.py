@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, List, Optional, cast
+from typing import ClassVar, Optional, cast
 
 from clabe import Clabe
 from cuenca_validations.types import (
@@ -140,7 +140,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         email_address: Optional[str] = None,
         profession: Optional[str] = None,
         address: Optional[Address] = None,
-        beneficiaries: Optional[List[Beneficiary]] = None,
+        beneficiaries: Optional[list[Beneficiary]] = None,
         govt_id: Optional[KYCFile] = None,
         proof_of_address: Optional[KYCFile] = None,
         proof_of_life: Optional[KYCFile] = None,
