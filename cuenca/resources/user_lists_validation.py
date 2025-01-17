@@ -34,6 +34,6 @@ class UserListsValidation(Creatable, Retrievable):
             first_surname=first_surname,
             second_surname=second_surname,
             curp=curp,
-            account_number=account_number,
+            account_number=account_number,  # type: ignore
         )
         return cls._create(session=session, **req.model_dump())

@@ -94,7 +94,7 @@ class CurpValidation(Creatable, Retrievable):
             second_surname=second_surname,
             date_of_birth=date_of_birth,
             state_of_birth=state_of_birth,
-            country_of_birth=country_of_birth,
+            country_of_birth=country_of_birth,  # type: ignore
             gender=gender,
             manual_curp=manual_curp,
         )

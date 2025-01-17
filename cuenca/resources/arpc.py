@@ -51,6 +51,6 @@ class Arpc(Creatable):
             transaction_counter=transaction_counter,
             pan_sequence=pan_sequence,
             unique_number=unique_number,
-            track_data_method=track_data_method,
+            track_data_method=track_data_method,  # type: ignore
         )
         return cls._create(session=session, **req.model_dump())

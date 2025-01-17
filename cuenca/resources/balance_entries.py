@@ -1,4 +1,4 @@
-from typing import ClassVar, TypeVar, cast
+from typing import ClassVar, Union, cast
 
 from cuenca_validations.types import BalanceEntryQuery, EntryType
 
@@ -8,9 +8,7 @@ from .cards import Card
 from .resources import retrieve_uri
 from .service_providers import ServiceProvider
 
-FundingInstrument = TypeVar(
-    'FundingInstrument', Account, ServiceProvider, Card
-)
+FundingInstrument = Union[Account, ServiceProvider, Card]
 
 
 class BalanceEntry(Retrievable, Queryable):
