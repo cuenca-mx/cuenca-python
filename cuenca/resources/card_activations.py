@@ -15,7 +15,7 @@ class CardActivation(Creatable):
     created_at: dt.datetime
     user_id: str
     ip_address: str
-    card_uri: Optional[str]
+    card_uri: Optional[str] = None
     success: bool
 
     @classmethod
@@ -42,7 +42,7 @@ class CardActivation(Creatable):
             exp_year=exp_year,
             cvv2=cvv2,
         )
-        return cls._create(session=session, **req.dict())
+        return cls._create(session=session, **req.model_dump())
 
     @property
     def card(self) -> Optional[Card]:

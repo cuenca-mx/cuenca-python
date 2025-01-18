@@ -3,7 +3,7 @@ from typing import ClassVar, Optional
 from clabe import Clabe
 from cuenca_validations.types import (
     AccountQuery,
-    CurpField,
+    Curp,
     LimitedWalletRequest,
     Rfc,
 )
@@ -15,13 +15,13 @@ class LimitedWallet(Wallet):
     _resource: ClassVar = 'limited_wallets'
     _query_params: ClassVar = AccountQuery
     account_number: Clabe
-    allowed_rfc: Optional[Rfc]
-    allowed_curp: CurpField
+    allowed_rfc: Optional[Rfc] = None
+    allowed_curp: Curp
 
     @classmethod
     def create(
         cls,
-        allowed_curp: Optional[CurpField] = None,
+        allowed_curp: Optional[Curp] = None,
         allowed_rfc: Optional[Rfc] = None,
     ) -> 'LimitedWallet':
         """
@@ -37,4 +37,4 @@ class LimitedWallet(Wallet):
             allowed_curp=allowed_curp,
             allowed_rfc=allowed_rfc,
         )
-        return cls._create(**request.dict())
+        return cls._create(**request.model_dump())

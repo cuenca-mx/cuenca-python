@@ -21,12 +21,12 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     _resource: ClassVar = 'cards'
     _query_params: ClassVar = CardQuery
 
-    user_id: Optional[str]
+    user_id: Optional[str] = None
     number: str
     exp_month: int
     exp_year: int
     cvv2: str
-    pin: Optional[str]
+    pin: Optional[str] = None
     type: CardType
     status: CardStatus
     issuer: CardIssuer
@@ -81,7 +81,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
             card_holder_user_id=card_holder_user_id,
             is_dynamic_cvv=is_dynamic_cvv,
         )
-        return cls._create(session=session, **req.dict())
+        return cls._create(session=session, **req.model_dump())
 
     @classmethod
     def update(
@@ -106,7 +106,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
         req = CardUpdateRequest(
             status=status, pin_block=pin_block, is_dynamic_cvv=is_dynamic_cvv
         )
-        return cls._update(card_id, session=session, **req.dict())
+        return cls._update(card_id, session=session, **req.model_dump())
 
     @classmethod
     def deactivate(

@@ -1,4 +1,4 @@
-from typing import ClassVar, List, Optional, cast
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import (
     CardErrorType,
@@ -19,19 +19,19 @@ class CardTransaction(Transaction):
 
     type: CardTransactionType
     network: CardNetwork
-    related_card_transaction_uris: List[str]
+    related_card_transaction_uris: list[str]
     card_uri: str
     card_last4: str
     card_type: CardType
     metadata: dict
-    error_type: Optional[CardErrorType]
+    error_type: Optional[CardErrorType] = None
 
     @property  # type: ignore
-    def related_card_transactions(self) -> Optional[List['CardTransaction']]:
+    def related_card_transactions(self) -> Optional[list['CardTransaction']]:
         if not self.related_card_transaction_uris:
             return []
         return cast(
-            List['CardTransaction'],
+            list['CardTransaction'],
             retrieve_uris(self.related_card_transaction_uris),
         )
 

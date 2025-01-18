@@ -13,7 +13,7 @@ class Deposit(Transaction):
 
     network: DepositNetwork
     source_uri: str
-    tracking_key: Optional[str]  # clave rastreo if network is SPEI
+    tracking_key: Optional[str] = None  # clave rastreo if network is SPEI
 
     @property  # type: ignore
     def source(self) -> Account:

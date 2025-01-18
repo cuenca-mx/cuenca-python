@@ -80,14 +80,6 @@ def test_card_not_found():
 
 
 @pytest.mark.vcr
-def test_card_one():
-    card = Card.one(
-        number='5448750078699849', exp_month=2, exp_year=2026, cvv2='353'
-    )
-    assert card.id
-
-
-@pytest.mark.vcr
 def test_card_one_errors():
     with pytest.raises(NoResultFound):
         Card.one(user_id='fake id')

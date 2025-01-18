@@ -17,7 +17,7 @@ def test_commission_retrieve_with_cash_deposit():
     assert commission.id == id_commission
     related_transaction = commission.related_transaction
     assert related_transaction
-    assert type(related_transaction) == Deposit
+    assert isinstance(related_transaction, Deposit)
     assert related_transaction.network == 'cash'
 
 
@@ -28,5 +28,5 @@ def test_commission_retrieve_with_cash_transfer():
     assert commission.id == id_commission
     related_transaction = commission.related_transaction
     assert related_transaction
-    assert type(related_transaction) == Transfer
+    assert isinstance(related_transaction, Transfer)
     assert related_transaction.network == 'spei'

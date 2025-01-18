@@ -7,7 +7,8 @@ from cuenca_validations.types import (
     Gender,
     State,
 )
-from cuenca_validations.types.identities import CurpField
+from cuenca_validations.types.identities import Curp
+from pydantic import ConfigDict, Field
 
 from ..http import Session, session as global_session
 from .base import Creatable, Retrievable
@@ -17,44 +18,42 @@ class CurpValidation(Creatable, Retrievable):
     _resource: ClassVar = 'curp_validations'
 
     created_at: dt.datetime
-    names: Optional[str] = None
-    first_surname: Optional[str] = None
-    second_surname: Optional[str] = None
-    date_of_birth: Optional[dt.date] = None
-    country_of_birth: Optional[Country] = None
-    state_of_birth: Optional[State] = None
-    gender: Optional[Gender] = None
-    nationality: Optional[Country] = None
-    manual_curp: Optional[CurpField] = None
-    calculated_curp: CurpField
-    validated_curp: Optional[CurpField] = None
-    renapo_curp_match: bool
-    renapo_full_match: bool
-
-    class Config:
-        fields = {
-            'names': {'description': 'Official name from Renapo'},
-            'first_surname': {'description': 'Official surname from Renapo'},
-            'second_surname': {'description': 'Official surname from Renapo'},
-            'country_of_birth': {'description': 'In format ISO 3166 Alpha-2'},
-            'state_of_birth': {'description': 'In format ISO 3166 Alpha-2'},
-            'nationality': {'description': 'In format ISO 3166 Alpha-2'},
-            'manual_curp': {'description': 'curp provided in request'},
-            'calculated_curp': {
-                'description': 'Calculated CURP based on request data'
-            },
-            'validated_curp': {
-                'description': 'CURP validated in Renapo, null if not exists'
-            },
-            'renapo_curp_match': {
-                'description': 'True if CURP exists and is valid'
-            },
-            'renapo_full_match': {
-                'description': 'True if all fields provided match the response'
-                ' from RENAPO. Accents in names are ignored'
-            },
-        }
-        schema_extra = {
+    names: Optional[str] = Field(None, description='Official name from Renapo')
+    first_surname: Optional[str] = Field(
+        None, description='Official surname from Renapo'
+    )
+    second_surname: Optional[str] = Field(
+        None, description='Official surname from Renapo'
+    )
+    date_of_birth: Optional[dt.date] = Field(
+        None, description='In format ISO 3166 Alpha-2'
+    )
+    country_of_birth: Optional[Country] = Field(
+        None, description='In format ISO 3166 Alpha-2'
+    )
+    state_of_birth: Optional[State] = Field(None, description='State of birth')
+    gender: Optional[Gender] = Field(None, description='Gender')
+    nationality: Optional[Country] = Field(
+        None, description='In format ISO 3166 Alpha-2'
+    )
+    manual_curp: Optional[Curp] = Field(
+        None, description='curp provided in request'
+    )
+    calculated_curp: Curp = Field(
+        description='Calculated CURP based on request data'
+    )
+    validated_curp: Optional[Curp] = Field(
+        None, description='CURP validated in Renapo, null if not exists'
+    )
+    renapo_curp_match: bool = Field(
+        description='True if CURP exists and is valid'
+    )
+    renapo_full_match: bool = Field(
+        description='True if all fields provided match the response from '
+        'RENAPO. Accents in names are ignored',
+    )
+    model_config = ConfigDict(
+        json_schema_extra={
             'example': {
                 'id': 'CVNEUInh69SuKXXmK95sROwQ',
                 'created_at': '2019-08-24T14:15:22Z',
@@ -72,7 +71,8 @@ class CurpValidation(Creatable, Retrievable):
                 'renapo_curp_match': True,
                 'renapo_full_match': True,
             }
-        }
+        },
+    )
 
     @classmethod
     def create(
@@ -84,7 +84,7 @@ class CurpValidation(Creatable, Retrievable):
         state_of_birth: Optional[State] = None,
         gender: Optional[Gender] = None,
         second_surname: Optional[str] = None,
-        manual_curp: Optional[CurpField] = None,
+        manual_curp: Optional[Curp] = None,
         *,
         session: Session = global_session,
     ) -> 'CurpValidation':
@@ -98,4 +98,4 @@ class CurpValidation(Creatable, Retrievable):
             gender=gender,
             manual_curp=manual_curp,
         )
-        return cls._create(session=session, **req.dict())
+        return cls._create(session=session, **req.model_dump())

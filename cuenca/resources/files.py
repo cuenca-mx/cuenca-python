@@ -44,7 +44,7 @@ class File(Downloadable, Queryable, Uploadable):
             is_back=is_back,
             user_id=user_id,
         )
-        return cls._upload(session=session, **req.dict())
+        return cls._upload(session=session, **req.model_dump())
 
     @property
     def file(self) -> bytes:

@@ -2,7 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional
 
 from cuenca_validations.types import SessionRequest, SessionType
-from pydantic import AnyUrl
+from pydantic import AnyUrl, ConfigDict
 
 from .. import http
 from .base import Creatable, Queryable, Retrievable
@@ -16,12 +16,12 @@ class Session(Creatable, Retrievable, Queryable):
     user_id: str
     platform_id: str
     expires_at: dt.datetime
-    success_url: Optional[AnyUrl]
-    failure_url: Optional[AnyUrl]
-    type: Optional[SessionType]
+    success_url: Optional[AnyUrl] = None
+    failure_url: Optional[AnyUrl] = None
+    type: Optional[SessionType] = None
 
-    class Config:
-        schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             'example': {
                 'id': 'SENEUInh69SuKXXmK95sROwQ',
                 'created_at': '2022-08-24T14:15:22Z',
@@ -33,6 +33,7 @@ class Session(Creatable, Retrievable, Queryable):
                 'type': 'session.registration',
             }
         }
+    )
 
     @classmethod
     def create(
@@ -50,4 +51,4 @@ class Session(Creatable, Retrievable, Queryable):
             success_url=success_url,
             failure_url=failure_url,
         )
-        return cls._create(session=session, **req.dict())
+        return cls._create(session=session, **req.model_dump())

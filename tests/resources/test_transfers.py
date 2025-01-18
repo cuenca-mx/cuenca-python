@@ -129,4 +129,4 @@ def test_transfers_count_vs_all():
 def test_invalid_params():
     with pytest.raises(ValidationError) as e:
         Transfer.one(invalid_param='invalid_param')
-    assert 'extra fields not permitted' in str(e)
+    assert 'Extra inputs are not permitted' in str(e)

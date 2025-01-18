@@ -1,4 +1,4 @@
-from typing import ClassVar, List
+from typing import ClassVar
 
 from cuenca_validations.types import ServiceProviderCategory
 
@@ -10,4 +10,4 @@ class ServiceProvider(Retrievable, Queryable):
 
     name: str
     provider_key: str
-    categories: List[ServiceProviderCategory]
+    categories: list[ServiceProviderCategory]
