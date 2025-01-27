@@ -1,7 +1,7 @@
 from typing import ClassVar, Optional
 
 from cuenca_validations.types.enums import WebhookEvent
-from cuenca_validations.types.general import HttpUrlString
+from cuenca_validations.types.general import SerializableHttpUrl
 from cuenca_validations.types.requests import (
     EndpointRequest,
     EndpointUpdateRequest,
@@ -15,7 +15,7 @@ from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
 class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     _resource: ClassVar = 'endpoints'
 
-    url: HttpUrlString = Field(description='HTTPS url to send webhooks')
+    url: SerializableHttpUrl = Field(description='HTTPS url to send webhooks')
     secret: str = Field(
         description='token to verify the webhook is sent by Cuenca '
         'using HMAC algorithm',
@@ -52,7 +52,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     @classmethod
     def create(
         cls,
-        url: HttpUrlString,
+        url: SerializableHttpUrl,
         events: Optional[list[WebhookEvent]] = None,
         *,
         session: Session = global_session,
@@ -73,7 +73,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     def update(
         cls,
         endpoint_id: str,
-        url: Optional[HttpUrlString] = None,
+        url: Optional[SerializableHttpUrl] = None,
         events: Optional[list[WebhookEvent]] = None,
         is_enable: Optional[bool] = None,
         *,

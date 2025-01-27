@@ -2,7 +2,7 @@ import datetime as dt
 from typing import ClassVar, Optional
 
 from cuenca_validations.types import SessionRequest, SessionType
-from cuenca_validations.types.general import AnyUrlString
+from cuenca_validations.types.general import SerializableAnyUrl
 from pydantic import ConfigDict
 
 from .. import http
@@ -17,8 +17,8 @@ class Session(Creatable, Retrievable, Queryable):
     user_id: str
     platform_id: str
     expires_at: dt.datetime
-    success_url: Optional[AnyUrlString] = None
-    failure_url: Optional[AnyUrlString] = None
+    success_url: Optional[SerializableAnyUrl] = None
+    failure_url: Optional[SerializableAnyUrl] = None
     type: Optional[SessionType] = None
 
     model_config = ConfigDict(
