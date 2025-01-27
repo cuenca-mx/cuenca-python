@@ -1,11 +1,12 @@
 from typing import ClassVar, Optional
 
 from cuenca_validations.types.enums import WebhookEvent
+from cuenca_validations.types.general import HttpUrlString
 from cuenca_validations.types.requests import (
     EndpointRequest,
     EndpointUpdateRequest,
 )
-from pydantic import ConfigDict, Field, HttpUrl
+from pydantic import ConfigDict, Field
 
 from ..http import Session, session as global_session
 from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
@@ -14,7 +15,7 @@ from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
 class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     _resource: ClassVar = 'endpoints'
 
-    url: HttpUrl = Field(description='HTTPS url to send webhooks')
+    url: HttpUrlString = Field(description='HTTPS url to send webhooks')
     secret: str = Field(
         description='token to verify the webhook is sent by Cuenca '
         'using HMAC algorithm',
@@ -51,7 +52,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     @classmethod
     def create(
         cls,
-        url: HttpUrl,
+        url: HttpUrlString,
         events: Optional[list[WebhookEvent]] = None,
         *,
         session: Session = global_session,
@@ -72,7 +73,7 @@ class Endpoint(Creatable, Deactivable, Retrievable, Queryable, Updateable):
     def update(
         cls,
         endpoint_id: str,
-        url: Optional[HttpUrl] = None,
+        url: Optional[HttpUrlString] = None,
         events: Optional[list[WebhookEvent]] = None,
         is_enable: Optional[bool] = None,
         *,

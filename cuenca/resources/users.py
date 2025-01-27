@@ -15,8 +15,9 @@ from cuenca_validations.types import (
     UserUpdateRequest,
 )
 from cuenca_validations.types.enums import Country, Gender, State
+from cuenca_validations.types.general import HttpUrlString
 from cuenca_validations.types.identities import Curp
-from pydantic import ConfigDict, EmailStr, Field, HttpUrl
+from pydantic import ConfigDict, EmailStr, Field
 
 from ..http import Session, session as global_session
 from .balance_entries import BalanceEntry
@@ -147,7 +148,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         status: Optional[UserStatus] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
-        curp_document: Optional[HttpUrl] = None,
+        curp_document: Optional[HttpUrlString] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
