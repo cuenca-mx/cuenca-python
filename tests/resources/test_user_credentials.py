@@ -7,9 +7,9 @@ from cuenca.http import Session
 
 @pytest.mark.vcr
 def test_update_password():
-    UserCredential.create('222222')
-    UserLogin.create('222222')
-    UserCredential.update(password='111111')
+    UserCredential.create('22222222')
+    UserLogin.create('22222222')
+    UserCredential.update(password='11111111')
 
 
 @pytest.mark.vcr

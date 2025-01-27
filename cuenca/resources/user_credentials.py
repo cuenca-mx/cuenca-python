@@ -5,6 +5,7 @@ from cuenca_validations.types.requests import (
     UserCredentialRequest,
     UserCredentialUpdateRequest,
 )
+from pydantic import SecretStr
 
 from ..http import Session, session as global_session
 from .base import Creatable, Updateable
@@ -25,7 +26,10 @@ class UserCredential(Creatable, Updateable):
         session: Session = global_session,
     ) -> 'UserCredential':
         req = UserCredentialRequest(password=password, user_id=user_id)
-        return cls._create(**req.model_dump(), session=session)
+        data = req.model_dump()
+        if isinstance(data['password'], SecretStr):
+            data['password'] = data['password'].get_secret_value()
+        return cls._create(**data, session=session)
 
     @classmethod
     def update(
@@ -40,4 +44,7 @@ class UserCredential(Creatable, Updateable):
             is_active=is_active,
             password=password,
         )
-        return cls._update(id=user_id, **req.model_dump(), session=session)
+        data = req.model_dump()
+        if password and isinstance(data['password'], SecretStr):
+            data['password'] = data['password'].get_secret_value()
+        return cls._update(id=user_id, **data, session=session)
