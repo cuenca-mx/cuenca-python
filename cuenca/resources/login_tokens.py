@@ -1,5 +1,6 @@
-from typing import ClassVar
+from typing import Annotated, ClassVar
 
+from cuenca_validations.types import Metadata
 from pydantic import ConfigDict
 
 from ..http import Session, session as global_session
@@ -8,6 +9,8 @@ from .base import Creatable
 
 class LoginToken(Creatable):
     _resource: ClassVar = 'login_tokens'
+
+    id: Annotated[str, Metadata(sensitive=True, log_chars=4)]
 
     model_config = ConfigDict(
         json_schema_extra={'example': {'id': 'LTNEUInh69SuKXXmK95sROwQ'}}
