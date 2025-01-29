@@ -1,3 +1,3 @@
 requests==2.32.3
-cuenca-validations==2.0.5.dev3
+cuenca-validations==2.0.5.dev5
 pydantic-extra-types==2.10.2

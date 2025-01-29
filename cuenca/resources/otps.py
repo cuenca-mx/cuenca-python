@@ -1,6 +1,6 @@
 from typing import Annotated, ClassVar
 
-from cuenca_validations.types import Metadata
+from cuenca_validations.types import LogConfig
 from pydantic import ConfigDict
 
 from ..http import Session, session as global_session
@@ -9,7 +9,7 @@ from .base import Creatable
 
 class Otp(Creatable):
     _resource: ClassVar = 'otps'
-    secret: Annotated[str, Metadata(sensitive=True, log_chars=4)]
+    secret: Annotated[str, LogConfig(masked=True, unmasked_chars_length=4)]
 
     model_config = ConfigDict(
         json_schema_extra={

@@ -1,7 +1,7 @@
 import datetime as dt
 from typing import Annotated, ClassVar
 
-from cuenca_validations.types import Metadata
+from cuenca_validations.types import LogConfig
 from pydantic import ConfigDict
 
 from ..http import Session, session as global_session
@@ -11,8 +11,8 @@ from .base import Creatable
 class JwtToken(Creatable):
     _resource: ClassVar = 'token'
 
-    id: Annotated[str, Metadata(sensitive=True, log_chars=4)]
-    token: Annotated[str, Metadata(sensitive=True, log_chars=4)]
+    id: Annotated[str, LogConfig(masked=True, unmasked_chars_length=4)]
+    token: Annotated[str, LogConfig(masked=True, unmasked_chars_length=4)]
     created_at: dt.datetime
     api_key_uri: str
 
