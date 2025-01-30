@@ -9,7 +9,7 @@ from .base import Creatable
 
 class Otp(Creatable):
     _resource: ClassVar = 'otps'
-    secret: Annotated[str, LogConfig(masked=True, unmasked_chars_length=4)]
+    secret: Annotated[str, LogConfig(masked=True)]
 
     model_config = ConfigDict(
         json_schema_extra={
