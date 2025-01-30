@@ -19,20 +19,8 @@ class JwtToken(Creatable):
     model_config = ConfigDict(
         json_schema_extra={
             'example': {
-                'id': (
-                    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MzgzNjI'
-                    '4NzcsImlhdCI6MTczNzc1ODA3Nywic3ViIjoiQUtzY3p5N3RzaVJkMkl'
-                    'iakxfbllGb2xRIiwidWlkIjoiNjRiZmQ0OTItZGFhMy0xMWVmLWEyMWU'
-                    'tMGE1OGE5ZmVhYzAyIn0.Er8kDsw4rtGkwAXpEgUhwyXFiBjYlwDVTGF'
-                    'tYW7o0go'
-                ),
-                'token': (
-                    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MzgzNjI'
-                    '4NzcsImlhdCI6MTczNzc1ODA3Nywic3ViIjoiQUtzY3p5N3RzaVJkMkl'
-                    'iakxfbllGb2xRIiwidWlkIjoiNjRiZmQ0OTItZGFhMy0xMWVmLWEyMWU'
-                    'tMGE1OGE5ZmVhYzAyIn0.Er8kDsw4rtGkwAXpEgUhwyXFiBjYlwDVTGF'
-                    'tYW7o0go'
-                ),
+                'id': 'jwt_XXXX...redacted',
+                'token': 'jwt_XXXX...redacted',
                 'created_at': '2025-01-24T22:34:37.659667',
                 'api_key_uri': '/api_key/AKsczy7tsiRd2IbjL_nYFolQ',
             }
