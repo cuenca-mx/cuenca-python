@@ -1,6 +1,7 @@
 import datetime as dt
-from typing import ClassVar, Optional
+from typing import Annotated, ClassVar, Optional
 
+from cuenca_validations.types import LogConfig
 from cuenca_validations.types.requests import UserLoginRequest
 from pydantic import ConfigDict
 
@@ -10,6 +11,8 @@ from .base import Creatable
 
 class UserLogin(Creatable):
     _resource: ClassVar = 'user_logins'
+
+    id: Annotated[str, LogConfig(masked=True, unmasked_chars_length=4)]
 
     last_login_at: Optional[dt.datetime] = None
     success: bool

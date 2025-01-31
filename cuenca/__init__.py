@@ -42,6 +42,7 @@ __all__ = [
     'WhatsappTransfer',
     'configure',
     'get_balance',
+    'JwtToken',
 ]
 
 from . import http
@@ -65,6 +66,7 @@ from .resources import (
     FileBatch,
     Identity,
     IdentityEvent,
+    JwtToken,
     KYCValidation,
     KYCVerification,
     LimitedWallet,

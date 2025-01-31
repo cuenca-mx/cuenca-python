@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Optional
+from typing import Annotated, ClassVar, Optional
 
 from cuenca_validations.types import (
     CardFundingType,
@@ -7,6 +7,7 @@ from cuenca_validations.types import (
     CardStatus,
     CardType,
 )
+from cuenca_validations.types.general import LogConfig
 from cuenca_validations.types.queries import CardQuery
 from cuenca_validations.types.requests import CardRequest, CardUpdateRequest
 
@@ -22,7 +23,7 @@ class Card(Retrievable, Queryable, Creatable, Updateable):
     _query_params: ClassVar = CardQuery
 
     user_id: Optional[str] = None
-    number: str
+    number: Annotated[str, LogConfig(masked=True, unmasked_chars_length=4)]
     exp_month: int
     exp_year: int
     cvv2: str

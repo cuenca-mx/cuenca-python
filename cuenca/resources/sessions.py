@@ -1,7 +1,7 @@
 import datetime as dt
-from typing import ClassVar, Optional
+from typing import Annotated, ClassVar, Optional
 
-from cuenca_validations.types import SessionRequest, SessionType
+from cuenca_validations.types import LogConfig, SessionRequest, SessionType
 from cuenca_validations.types.general import SerializableAnyUrl
 from pydantic import ConfigDict
 
@@ -12,7 +12,7 @@ from .base import Creatable, Queryable, Retrievable
 class Session(Creatable, Retrievable, Queryable):
     _resource: ClassVar = 'sessions'
 
-    id: str
+    id: Annotated[str, LogConfig(masked=True, unmasked_chars_length=4)]
     created_at: dt.datetime
     user_id: str
     platform_id: str
