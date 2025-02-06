@@ -1,7 +1,11 @@
 import datetime as dt
-from typing import ClassVar, Optional
+from typing import Annotated, ClassVar, Optional
 
-from cuenca_validations.types import ApiKeyQuery, ApiKeyUpdateRequest
+from cuenca_validations.types import (
+    ApiKeyQuery,
+    ApiKeyUpdateRequest,
+    LogConfig,
+)
 from pydantic import ConfigDict
 
 from ..http import Session, session as global_session
@@ -12,7 +16,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
     _resource: ClassVar = 'api_keys'
     _query_params: ClassVar = ApiKeyQuery
 
-    secret: str
+    secret: Annotated[str, LogConfig(masked=True)]
     deactivated_at: Optional[dt.datetime] = None
     user_id: Optional[str] = None
     model_config = ConfigDict(

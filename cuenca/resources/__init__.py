@@ -38,6 +38,7 @@ __all__ = [
     'WalletTransaction',
     'Webhook',
     'WhatsappTransfer',
+    'JwtToken',
 ]
 
 from .accounts import Account
@@ -59,6 +60,7 @@ from .file_batches import FileBatch
 from .files import File
 from .identities import Identity
 from .identity_events import IdentityEvent
+from .jwt_tokens import JwtToken
 from .kyc_validations import KYCValidation
 from .kyc_verifications import KYCVerification
 from .limited_wallets import LimitedWallet
@@ -123,6 +125,7 @@ resource_classes = [
     WhatsappTransfer,
     Webhook,
     Platform,
+    JwtToken,
 ]
 for resource_cls in resource_classes:
     RESOURCES[resource_cls._resource] = resource_cls  # type: ignore
