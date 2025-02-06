@@ -16,7 +16,7 @@ class ApiKey(Creatable, Queryable, Retrievable, Updateable):
     _resource: ClassVar = 'api_keys'
     _query_params: ClassVar = ApiKeyQuery
 
-    secret: Annotated[str, LogConfig(masked=True, unmasked_chars_length=4)]
+    secret: Annotated[str, LogConfig(masked=True)]
     deactivated_at: Optional[dt.datetime] = None
     user_id: Optional[str] = None
     model_config = ConfigDict(
