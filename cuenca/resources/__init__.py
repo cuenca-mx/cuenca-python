@@ -28,6 +28,7 @@ __all__ = [
     'Saving',
     'ServiceProvider',
     'Session',
+    'Signature',
     'Statement',
     'Transfer',
     'User',
@@ -72,6 +73,7 @@ from .resources import RESOURCES
 from .savings import Saving
 from .service_providers import ServiceProvider
 from .sessions import Session
+from .signatures import Signature
 from .statements import Statement
 from .transfers import Transfer
 from .user_credentials import UserCredential
@@ -113,6 +115,7 @@ resource_classes = [
     Saving,
     Session,
     ServiceProvider,
+    Signature,
     Statement,
     Transfer,
     User,
