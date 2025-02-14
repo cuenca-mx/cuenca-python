@@ -19,6 +19,7 @@ from .base import Queryable, Retrievable
 class Identity(Retrievable, Queryable):
     _resource: ClassVar = 'identities'
     _query_params: ClassVar = IdentityQuery
+
     created_at: dt.datetime
     names: str
     first_surname: str
