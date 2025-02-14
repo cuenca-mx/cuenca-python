@@ -19,7 +19,6 @@ from .base import Queryable, Retrievable
 class Identity(Retrievable, Queryable):
     _resource: ClassVar = 'identities'
     _query_params: ClassVar = IdentityQuery
-
     created_at: dt.datetime
     names: str
     first_surname: str
@@ -37,3 +36,4 @@ class Identity(Retrievable, Queryable):
     govt_id: Optional[KYCFile] = None
     proof_of_address: Optional[KYCFile] = None
     proof_of_life: Optional[KYCFile] = None
+    signature: Optional[KYCFile] = None
