@@ -37,3 +37,4 @@ class Identity(Retrievable, Queryable):
     govt_id: Optional[KYCFile] = None
     proof_of_address: Optional[KYCFile] = None
     proof_of_life: Optional[KYCFile] = None
+    signature: Optional[KYCFile] = None

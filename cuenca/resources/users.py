@@ -56,6 +56,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     beneficiaries: Optional[list[Beneficiary]] = Field(
         None, description='Beneficiaries of account in case of death'
     )
+    signature: Optional[KYCFile] = Field(
+        None, description='Detail of signature validation'
+    )
     platform_id: Optional[str] = None
     clabe: Optional[Clabe] = None
     # These fields are added by identify when retrieving a User:
@@ -96,6 +99,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
                 'beneficiaries': [
                     Beneficiary.schema().get('example'),
                 ],
+                'signature': KYCFile.schema().get('example'),
                 'platform_id': 'PT8UEv02zBTcymd4Kd3MO6pg',
             }
         }
@@ -114,6 +118,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         status: Optional[UserStatus] = None,
         required_level: Optional[int] = None,
         terms_of_service: Optional[TOSRequest] = None,
+        signature: Optional[KYCFile] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
@@ -128,6 +133,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             required_level=required_level,
             status=status,
             terms_of_service=terms_of_service,
+            signature=signature,
         )
         return cls._create(session=session, **req.model_dump())
 
@@ -143,6 +149,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         govt_id: Optional[KYCFile] = None,
         proof_of_address: Optional[KYCFile] = None,
         proof_of_life: Optional[KYCFile] = None,
+        signature: Optional[KYCFile] = None,
         terms_of_service: Optional[TOSRequest] = None,
         verification_id: Optional[str] = None,
         status: Optional[UserStatus] = None,
@@ -161,6 +168,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             govt_id=govt_id,
             proof_of_address=proof_of_address,
             proof_of_life=proof_of_life,
+            signature=signature,
             terms_of_service=terms_of_service,
             verification_id=verification_id,
             email_verification_id=email_verification_id,
