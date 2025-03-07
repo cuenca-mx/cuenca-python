@@ -6,6 +6,18 @@ from cuenca.resources import UserListsValidation
 
 
 @pytest.mark.vcr
+def test_create_user_validation_with_response():
+    user_validation = UserListsValidation.create(
+        curp='LOBR810330HTCPLM05',
+        names='José Ramón',
+        first_surname='López',
+        second_surname='Beltrán',
+    )
+    assert user_validation.status == VerificationStatus.rejected
+    assert user_validation.response['persons'][0]['parentesco'] == 'HIJO'
+
+
+@pytest.mark.vcr
 def test_create_user_validation(user_lists_request):
     user_validation = UserListsValidation.create(**user_lists_request)
     assert user_validation.status == VerificationStatus.succeeded

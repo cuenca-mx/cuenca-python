@@ -17,6 +17,7 @@ class UserListsValidation(Creatable, Retrievable):
     curp: Optional[Curp] = None
     account_number: Optional[str] = None
     status: Optional[VerificationStatus] = None
+    response: Optional[dict] = None
 
     @classmethod
     def create(

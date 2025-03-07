@@ -1,0 +1,56 @@
+interactions:
+- request:
+    body: '{"curp": "LOBR810330HTCPLM05", "account_number": null, "names": "Jos\u00e9
+      Ram\u00f3n", "first_surname": "L\u00f3pez", "second_surname": "Beltr\u00e1n"}'
+    headers:
+      Authorization:
+      - DUMMY
+      Content-Length:
+      - '152'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/2.1.0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/user_lists_validations
+  response:
+    body:
+      string: "{\"id\":\"UVhK66y6cdS52zpxfs0y2feg\",\"created_at\":\"2025-03-05T23:34:16.818000\",\"platform_id\":\"PTvAEqw3XtSC2oRTfKg4FAGQ\",\"curp\":\"LOBR810330HTCPLM05\",\"names\":\"Jose
+        Ramon\",\"first_surname\":\"Lopez\",\"second_surname\":\"Beltran\",\"status\":\"rejected\",\"lists\":[\"PPE\"],\"response\":{\"resumen\":{\"id_resultado\":\"1\",\"num_registros\":\"3\",\"num_conex_dia\":\"642\"},\"persons\":[{\"id_persona\":\"QEQ0281541\",\"peso1\":\"100\",\"peso2\":\"0\",\"nombre\":\"Jos\xE9
+        Ram\xF3n\",\"paterno\":\"L\xF3pez\",\"materno\":\"Beltr\xE1n\",\"curp\":\"LOBR810330HTCPLM05\",\"rfc\":\"LOBR810330RB6\",\"fecha_nacimiento\":\"30/03/1981\",\"sexo\":\"Masculino\",\"lista\":\"PPE\",\"estatus\":\"Inactivo\",\"dependencia\":null,\"puesto\":\"OTRO\",\"area\":null,\"iddispo\":\"6\",\"idrel\":\"QEQ0281252\",\"parentesco\":\"HIJO\",\"razonsoc\":null,\"rfcmoral\":null,\"issste\":null,\"imss\":null,\"ingresos\":null,\"nombrecomp\":\"Jos\xE9
+        Ram\xF3n L\xF3pez Beltr\xE1n\",\"apellidos\":\"L\xF3pez Beltr\xE1n\",\"entidad\":null,\"curp_ok\":\"1\",\"fecha_cargo_ini\":\"05/12/2018\",\"fecha_cargo_fin\":null,\"domicilio_a\":null,\"colonia\":null,\"cp\":null,\"ciudad\":null,\"email\":null,\"pais\":null,\"buscado_en\":null,\"ciudadania\":null,\"gafi\":null},{\"id_persona\":\"QEQ0328670\",\"peso1\":\"100\",\"peso2\":\"0\",\"nombre\":\"Jos\xE9
+        Ram\xF3n\",\"paterno\":\"L\xF3pez\",\"materno\":\"Beltr\xE1n\",\"curp\":null,\"rfc\":null,\"fecha_nacimiento\":null,\"sexo\":\"Masculino\",\"lista\":\"VENC\",\"estatus\":\"3
+        a\xF1os\",\"dependencia\":null,\"puesto\":\"OTRO\",\"area\":null,\"iddispo\":\"6\",\"idrel\":\"QEQ0304602\",\"parentesco\":\"PRIMO\",\"razonsoc\":null,\"rfcmoral\":null,\"issste\":null,\"imss\":null,\"ingresos\":null,\"nombrecomp\":\"Jos\xE9
+        Ram\xF3n L\xF3pez Beltr\xE1n\",\"apellidos\":\"L\xF3pez Beltr\xE1n\",\"entidad\":null,\"curp_ok\":\"0\",\"fecha_cargo_ini\":\"30/04/2021\",\"fecha_cargo_fin\":null,\"domicilio_a\":null,\"colonia\":null,\"cp\":null,\"ciudad\":null,\"email\":null,\"pais\":null,\"buscado_en\":null,\"ciudadania\":null,\"gafi\":null},{\"id_persona\":\"QEQ0232657\",\"peso1\":\"100\",\"peso2\":\"0\",\"nombre\":\"Jos\xE9
+        Ram\xF3n\",\"paterno\":\"L\xF3pez\",\"materno\":\"Beltr\xE1n\",\"curp\":\"LOBR810330HTCPLM05\",\"rfc\":\"LOBR810330RB6\",\"fecha_nacimiento\":\"30/03/1981\",\"sexo\":\"Masculino\",\"lista\":\"VENC\",\"estatus\":\"7
+        a\xF1os\",\"dependencia\":null,\"puesto\":\"OTRO\",\"area\":null,\"iddispo\":\"6\",\"idrel\":\"QEQ0180416\",\"parentesco\":\"HIJO\",\"razonsoc\":null,\"rfcmoral\":null,\"issste\":null,\"imss\":null,\"ingresos\":null,\"nombrecomp\":\"Jos\xE9
+        Ram\xF3n L\xF3pez Beltr\xE1n\",\"apellidos\":\"L\xF3pez Beltr\xE1n\",\"entidad\":null,\"curp_ok\":\"1\",\"fecha_cargo_ini\":\"18/05/2016\",\"fecha_cargo_fin\":null,\"domicilio_a\":null,\"colonia\":null,\"cp\":null,\"ciudad\":null,\"email\":null,\"pais\":null,\"buscado_en\":null,\"ciudadania\":null,\"gafi\":null}]},\"identity_id\":\"IDxIOd5v3-SSWQ39qDAOdRNg\"}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2511'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 07 Mar 2025 23:04:56 GMT
+      X-Request-Time:
+      - 'value: 0.621'
+      x-amz-apigw-id:
+      - HFA_zE-JCYcERmw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '2511'
+      x-amzn-Remapped-Date:
+      - Fri, 07 Mar 2025 23:04:56 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.26.2
+      x-amzn-RequestId:
+      - 88c7aef2-2e7e-4f43-8632-568f339de896
+    status:
+      code: 201
+      message: Created
+version: 1
