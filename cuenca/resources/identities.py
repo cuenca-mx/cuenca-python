@@ -7,7 +7,6 @@ from cuenca_validations.types import (
     IdentityQuery,
     KYCFile,
     State,
-    TOSAgreement,
     UserStatus,
     VerificationStatus,
 )
@@ -31,7 +30,6 @@ class Identity(Retrievable, Queryable):
     state_of_birth: Optional[State] = None
     country_of_birth: Optional[str] = None
     status: Optional[UserStatus] = None
-    tos_agreement: Optional[TOSAgreement] = None
     blacklist_validation_status: Optional[VerificationStatus] = None
     address: Optional[Address] = None
     govt_id: Optional[KYCFile] = None
