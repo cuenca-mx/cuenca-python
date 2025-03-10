@@ -4,14 +4,18 @@ from typing import ClassVar
 from cuenca_validations.types import TermsOfService
 from cuenca_validations.types.general import SerializableHttpUrl
 
-from .base import Queryable, Retrievable
+from .base import Creatable, Queryable, Retrievable
 
 
-class TermsCatalog(Retrievable, Queryable):
-    _resource: ClassVar = 'terms_catalog'
+class UserTOSAgreement(Creatable, Retrievable, Queryable):
+    _resource: ClassVar = 'user_tos_agreements'
 
     id: str
     created_at: dt.datetime
+    user_id: str
     type: TermsOfService
     version: str
-    uri: SerializableHttpUrl
+    ip: str
+    location: str
+    hash: str
+    url: SerializableHttpUrl
