@@ -19,7 +19,6 @@ __all__ = [
     'Identity',
     'IdentityEvent',
     'KYCValidation',
-    'KYCVerification',
     'LimitedWallet',
     'LoginToken',
     'Otp',
@@ -62,7 +61,6 @@ from .identities import Identity
 from .identity_events import IdentityEvent
 from .jwt_tokens import JwtToken
 from .kyc_validations import KYCValidation
-from .kyc_verifications import KYCVerification
 from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
 from .otps import Otp
@@ -106,7 +104,6 @@ resource_classes = [
     Identity,
     IdentityEvent,
     KYCValidation,
-    KYCVerification,
     LimitedWallet,
     LoginToken,
     Questionnaires,
