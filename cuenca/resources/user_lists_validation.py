@@ -19,6 +19,17 @@ class UserListsValidation(Creatable, Retrievable):
     status: Optional[VerificationStatus] = None
     response: Optional[dict] = None
 
+    @property
+    def ppe_matches(self) -> list[dict]:
+        if not self.response or 'persons' not in self.response:
+            return []
+
+        return [
+            person
+            for person in self.response['persons']
+            if person.get('lista') == 'PPE'
+        ]
+
     @classmethod
     def create(
         cls,
