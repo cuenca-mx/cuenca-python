@@ -43,6 +43,8 @@ __all__ = [
     'configure',
     'get_balance',
     'JwtToken',
+    'TermsOfService',
+    'UserTOSAgreement',
 ]
 
 from . import http
@@ -78,12 +80,14 @@ from .resources import (
     ServiceProvider,
     Session,
     Statement,
+    TermsOfService,
     Transfer,
     User,
     UserCredential,
     UserEvent,
     UserListsValidation,
     UserLogin,
+    UserTOSAgreement,
     Verification,
     WalletTransaction,
     Webhook,
