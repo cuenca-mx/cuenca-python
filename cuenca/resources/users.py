@@ -7,6 +7,8 @@ from cuenca_validations.types import (
     Beneficiary,
     KYCFile,
     PhoneNumber,
+    TOSAgreement,
+    TOSRequest,
     UserQuery,
     UserRequest,
     UserStatus,
@@ -39,6 +41,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     phone_number: Optional[PhoneNumber] = None
     email_address: Optional[EmailStr] = None
     profession: Optional[str] = None
+    terms_of_service: Optional[TOSAgreement] = None
     status: Optional[UserStatus] = None
     address: Optional[Address] = None
     govt_id: Optional[KYCFile] = Field(
@@ -84,6 +87,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
                 'phone_number': '+525511223344',
                 'email_address': 'user@example.com',
                 'profession': 'engineer',
+                'terms_of_service': TOSAgreement.schema().get('example'),
                 'status': 'active',
                 'address': Address.schema().get('example'),
                 'govt_id': KYCFile.schema().get('example'),
@@ -109,6 +113,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         phone_verification_id: Optional[str] = None,
         status: Optional[UserStatus] = None,
         required_level: Optional[int] = None,
+        terms_of_service: Optional[TOSRequest] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
@@ -122,6 +127,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             phone_verification_id=phone_verification_id,
             required_level=required_level,
             status=status,
+            terms_of_service=terms_of_service,
         )
         return cls._create(session=session, **req.model_dump())
 
@@ -137,6 +143,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         govt_id: Optional[KYCFile] = None,
         proof_of_address: Optional[KYCFile] = None,
         proof_of_life: Optional[KYCFile] = None,
+        terms_of_service: Optional[TOSRequest] = None,
         verification_id: Optional[str] = None,
         status: Optional[UserStatus] = None,
         email_verification_id: Optional[str] = None,
@@ -154,6 +161,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             govt_id=govt_id,
             proof_of_address=proof_of_address,
             proof_of_life=proof_of_life,
+            terms_of_service=terms_of_service,
             verification_id=verification_id,
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
