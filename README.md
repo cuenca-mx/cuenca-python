@@ -17,7 +17,7 @@ library will automatically configure based on the values of those variables.
 To configure manually:
 ```python
 import cuenca
-
+cuenca.session.host='https://...'
 cuenca.configure(api_key='PKxxxx', api_secret='yyyyyy')
 ```
 
