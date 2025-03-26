@@ -1,5 +1,5 @@
 import pytest
-from cuenca_validations.types import KYCValidationType
+from cuenca_validations.types import KYCValidationFlow
 
 from cuenca import KYCValidation
 
@@ -8,7 +8,7 @@ from cuenca import KYCValidation
 def test_validation_create():
     kyc_validation: KYCValidation = KYCValidation.create(
         user_id="USFOOBAR",
-        validation_type=KYCValidationType.background,
+        validation_flow=KYCValidationFlow.server,
     )
     assert kyc_validation.id
     assert kyc_validation.verification_id
