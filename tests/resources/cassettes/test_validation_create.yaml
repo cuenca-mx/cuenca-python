@@ -1,51 +1,46 @@
 interactions:
 - request:
-    body: '{"user_id": "USFOOBAR"}'
+    body: '{"user_id": "USze_Bh1zhROKehtBOS7EHlw", "source_type": "server", "force":
+      false}'
     headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
       Authorization:
       - DUMMY
-      Connection:
-      - keep-alive
       Content-Length:
-      - '39'
+      - '80'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.14.7.dev6
+      - cuenca-python/2.1.3.dev2
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/kyc_validations
   response:
     body:
-      string: '{"id":"KVWZUhh-t_RUOPvU3hOnhbsQ","created_at":"2022-09-26T23:14:28.686030","verification_id":"6332324ca3b3cd001c6bcbf9","platform_id":"PTS7Wx1-1KRCKHQRWXsqxbMQ","user_id":"USOiwY3bhaRO-Or9koIBaehg","files_uri":["''https://sandbox.cuenca.com/files/EFfX_JE_wES3KA5cuR075rVA","https://sandbox.cuenca.com/files/EFWUXd3zl6Q6Gmd1tD2S65fw","https://sandbox.cuenca.com/files/EF2_YXyrMLSba7wpz-DQGgsw"]}'
+      string: '{"id":"KVvwIQTxHdQvOq769mEnoJsQ","created_at":"2025-03-27T20:10:03.783000","platform_id":"PTk5BbZcExRq-1u2W3J9mZpw","files_uri":["https://stage.cuenca.com/files/EF5pRc5dO4Q8WE6_zGCYUX6A","https://stage.cuenca.com/files/EF-y7kGVwlRESVGZOT-twioQ","https://stage.cuenca.com/files/EFB-J1hALOTPuuETDY5dtJJA","https://stage.cuenca.com/files/EFTrtO44_7QRiuRB8uXQizaw"],"user_id":"USze_Bh1zhROKehtBOS7EHlw","verification_id":"67e5b09c05c3102617d622b0","identity_id":"67e5b09c05c3101df5d622ad","source_type":"server","flow_id":"63486ce1e94af4001c126ccf"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '393'
+      - '545'
       Content-Type:
       - application/json
       Date:
-      - Mon, 26 Sep 2022 23:14:28 GMT
+      - Thu, 27 Mar 2025 20:41:36 GMT
       X-Request-Time:
-      - 'value: 27.792'
+      - 'value: 0.544'
       x-amz-apigw-id:
-      - ZFzI7GHfoAMF4jQ=
+      - IGmwBF8BiYcEFLA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '393'
+      - '545'
       x-amzn-Remapped-Date:
-      - Mon, 26 Sep 2022 23:14:28 GMT
+      - Thu, 27 Mar 2025 20:41:36 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.22.0
+      - nginx/1.26.3
       x-amzn-RequestId:
-      - 310039b7-a7dd-4980-bb0b-b5552c602d26
+      - 4fd4b9c9-08cf-44bb-b191-b8f18f10004c
     status:
       code: 201
       message: Created
