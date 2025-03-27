@@ -38,6 +38,6 @@ class KYCValidation(Creatable, Retrievable, Queryable):
         req = KYCValidationRequest(
             user_id=user_id,
             force=force,
-            source_type=KYCValidationSource,
+            source_type=source_type,
         )
         return cls._create(**req.model_dump(), session=session)
