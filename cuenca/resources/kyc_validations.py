@@ -1,6 +1,6 @@
 from typing import ClassVar, Optional
 
-from cuenca_validations.types import KYCValidationFlow, KYCValidationRequest
+from cuenca_validations.types import KYCValidationRequest, KYCValidationSource
 from pydantic import ConfigDict
 
 from ..http import Session, session as global_session
@@ -31,13 +31,13 @@ class KYCValidation(Creatable, Retrievable, Queryable):
     def create(
         cls,
         user_id: str,
-        validation_flow: KYCValidationFlow,
+        source_type: KYCValidationSource,
         force: bool = False,
         session: Session = global_session,
     ) -> 'KYCValidation':
         req = KYCValidationRequest(
             user_id=user_id,
             force=force,
-            validation_flow=validation_flow,
+            source_type=KYCValidationSource,
         )
         return cls._create(**req.model_dump(), session=session)
