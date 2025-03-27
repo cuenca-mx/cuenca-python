@@ -8,7 +8,7 @@ from .base import Queryable, Retrievable
 
 
 class TermsOfService(Retrievable, Queryable):
-    _resource: ClassVar = 'terms_of_services'
+    _resource: ClassVar = 'terms_of_service'
 
     id: str
     is_active: bool
