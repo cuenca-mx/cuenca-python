@@ -73,14 +73,14 @@ from .savings import Saving
 from .service_providers import ServiceProvider
 from .sessions import Session
 from .statements import Statement
-from .terms_of_services import TermsOfService
+from .terms_of_service import TermsOfService
 from .transfers import Transfer
 from .user_credentials import UserCredential
 from .user_events import UserEvent
 from .user_lists_validation import UserListsValidation
 from .user_logins import UserLogin
-from .user_tos_agreements import UserTOSAgreement
 from .users import User
+from .users_tos_agreements import UserTOSAgreement
 from .verifications import Verification
 from .wallet_transactions import WalletTransaction
 from .webhooks import Webhook

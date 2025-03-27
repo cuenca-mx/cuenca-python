@@ -8,7 +8,7 @@ from .base import Creatable, Queryable, Retrievable
 
 
 class UserTOSAgreement(Creatable, Retrievable, Queryable):
-    _resource: ClassVar = 'user_tos_agreements'
+    _resource: ClassVar = 'users_tos_agreements'
 
     id: str
     created_at: dt.datetime
