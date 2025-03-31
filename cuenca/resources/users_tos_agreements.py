@@ -17,5 +17,5 @@ class UserTOSAgreement(Creatable, Retrievable, Queryable):
     version: str
     ip: str
     location: str
-    hash: str
-    url: SerializableHttpUrl
+    digital_signature: str
+    signed_document_url: SerializableHttpUrl
