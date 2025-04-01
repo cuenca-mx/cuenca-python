@@ -12,6 +12,7 @@ class UserTOSAgreement(Creatable, Retrievable, Queryable):
 
     id: str
     created_at: dt.datetime
+    updated_at: dt.datetime
     user_id: str
     type: TermsOfService
     version: str
@@ -19,3 +20,4 @@ class UserTOSAgreement(Creatable, Retrievable, Queryable):
     location: str
     digital_signature: str
     signed_document_url: SerializableHttpUrl
+    notification_id: str
