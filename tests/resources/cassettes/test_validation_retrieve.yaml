@@ -2,46 +2,42 @@ interactions:
 - request:
     body: null
     headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
       Authorization:
       - DUMMY
       Connection:
       - keep-alive
       User-Agent:
-      - cuenca-python/0.14.7.dev6
+      - cuenca-python/2.1.3.dev2
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
     uri: https://sandbox.cuenca.com/kyc_validations/KVFOO
   response:
     body:
-      string: '{"id":"KVWZUhh-t_RUOPvU3hOnhbsQ","platform_id":"PTS7Wx1-1KRCKHQRWXsqxbMQ","created_at":"2022-09-26T23:14:28.686000","verification_id":"6332324ca3b3cd001c6bcbf9","govt_id":null,"proof_of_address":null,"proof_of_life":null}'
+      string: '{"id":"KVvwIQTxHdQvOq769mEnoJsQ","created_at":"2025-03-27T20:10:03.783000","platform_id":"PTk5BbZcExRq-1u2W3J9mZpw","files_uri":["https://stage.cuenca.com/files/EF5pRc5dO4Q8WE6_zGCYUX6A","https://stage.cuenca.com/files/EF-y7kGVwlRESVGZOT-twioQ","https://stage.cuenca.com/files/EFB-J1hALOTPuuETDY5dtJJA","https://stage.cuenca.com/files/EFTrtO44_7QRiuRB8uXQizaw"],"user_id":"USze_Bh1zhROKehtBOS7EHlw","verification_id":"67e5b09c05c3102617d622b0","identity_id":"67e5b09c05c3101df5d622ad","source_type":"server","flow_id":"63486ce1e94af4001c126ccf"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '221'
+      - '545'
       Content-Type:
       - application/json
       Date:
-      - Mon, 26 Sep 2022 23:15:11 GMT
+      - Thu, 27 Mar 2025 20:41:36 GMT
       X-Request-Time:
-      - 'value: 0.074'
+      - 'value: 0.544'
       x-amz-apigw-id:
-      - ZFzT4HnLIAMFe1w=
+      - IGmwBF8BiYcEFLA=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '221'
+      - '545'
       x-amzn-Remapped-Date:
-      - Mon, 26 Sep 2022 23:15:11 GMT
+      - Thu, 27 Mar 2025 20:41:36 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.22.0
+      - nginx/1.26.3
       x-amzn-RequestId:
-      - 54f8a828-94f3-4303-8c95-95e22472cbab
+      - 4fd4b9c9-08cf-44bb-b191-b8f18f10004c
     status:
       code: 200
       message: OK
