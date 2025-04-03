@@ -14,4 +14,5 @@ class TermsOfService(Retrievable, Queryable):
     is_active: bool
     created_at: dt.datetime
     type: TermsOfServiceEnum
+    version: str
     uri: SerializableHttpUrl
