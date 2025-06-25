@@ -40,6 +40,7 @@ __all__ = [
     'JwtToken',
     'TermsOfService',
     'UserTOSAgreement',
+    'PostalCodes',
 ]
 
 from .accounts import Account
@@ -67,6 +68,7 @@ from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
 from .otps import Otp
 from .platforms import Platform
+from .postal_codes import PostalCodes
 from .questionnaires import Questionnaires
 from .resources import RESOURCES
 from .savings import Saving
