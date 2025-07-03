@@ -128,6 +128,7 @@ resource_classes = [
     WhatsappTransfer,
     Webhook,
     Platform,
+    PostalCodes,
     JwtToken,
     TermsOfService,
     UserTOSAgreement,

@@ -1,0 +1,41 @@
+interactions:
+- request:
+    body: null
+    headers:
+      User-Agent:
+      - cuenca-python/2.1.5
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/postal_codes?postal_code=40100
+  response:
+    body:
+      string: "{\"items\":[{\"id\":\"PCHOECy9u6QQeXPR6HdR5Bgw\",\"created_at\":\"2025-06-25T18:44:14.409000\",\"postal_code\":\"40100\",\"colonia\":\"Metlapa\",\"city\":\"Iguala
+        de la Independencia\",\"state\":\"GR\",\"state_name\":\"Guerrero\",\"country\":\"MX\",\"country_name\":\"M\xE9xico\"}],\"next_page_uri\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '263'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 03 Jul 2025 18:42:12 GMT
+      X-Request-Time:
+      - 'value: 0.046'
+      x-amz-apigw-id:
+      - NJVIwHRyCYcEeIw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '263'
+      x-amzn-Remapped-Date:
+      - Thu, 03 Jul 2025 18:42:12 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.28.0
+      x-amzn-RequestId:
+      - 75a527b3-8a33-42ed-8633-23dd2b1ddeff
+    status:
+      code: 200
+      message: OK
+version: 1
