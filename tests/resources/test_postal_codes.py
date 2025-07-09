@@ -4,18 +4,14 @@ from cuenca.resources import PostalCodes
 
 
 @pytest.mark.vcr
-def test_postal_codes_retrieve_one_colony() -> None:
-    postal_codes = list(PostalCodes.all(postal_code='40100'))
-    assert len(postal_codes) == 1
-
-
-@pytest.mark.vcr
-def test_postal_codes_retrieve_multiple_colony() -> None:
-    postal_codes = list(PostalCodes.all(postal_code='40106'))
-    assert len(postal_codes) > 1
-
-
-@pytest.mark.vcr
-def test_postal_codes_retrieve_not_found() -> None:
-    postal_codes = list(PostalCodes.all(postal_code='401000'))
-    assert len(postal_codes) == 0
+@pytest.mark.parametrize(
+    "postal_code,expected_count",
+    [
+        ("40100", 1),
+        ("40106", 2),
+        ("00000", 0),
+    ],
+)
+def test_postal_codes_retrieve(postal_code: str, expected_count: int) -> None:
+    postal_codes = list(PostalCodes.all(postal_code=postal_code))
+    assert len(postal_codes) == expected_count

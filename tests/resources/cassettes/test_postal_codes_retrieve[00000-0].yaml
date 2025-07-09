@@ -7,7 +7,7 @@ interactions:
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/postal_codes?postal_code=401000
+    uri: https://sandbox.cuenca.com/postal_codes?postal_code=00000
   response:
     body:
       string: '{"items":[],"next_page_uri":null}'
