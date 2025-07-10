@@ -2,6 +2,7 @@ import datetime as dt
 
 import pytest
 from cuenca_validations.types import VerificationType
+from cuenca_validations.types.enums import Profession
 
 from cuenca import Verification
 from cuenca.resources import CurpValidation, User
@@ -30,7 +31,7 @@ def test_user_query():
 def test_user_update():
     user_id = 'USCM-zlFcNQk6ue4gZ_mTGeQ'
     changes = dict(
-        profession='programmer',
+        profession=Profession.sistemas,
         phone_number='+525555555555',
         govt_id=dict(
             type='ine',
