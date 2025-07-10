@@ -3,6 +3,7 @@ from io import BytesIO
 
 import pytest
 from cuenca_validations.types import Country, Gender, State
+from cuenca_validations.types.enums import Profession
 
 import cuenca
 
@@ -49,15 +50,15 @@ def user_request() -> dict:
         curp='LOHJ660606HDFPRS02',
         phone_number='+525511223344',
         email_address='jose@test.com',
-        profession='employee',
+        profession=Profession.empleado,
         address=dict(
             street='calle 1',
             ext_number='2',
             int_number='3',
-            postal_code='09900',
-            state=State.DF.value,
-            country=Country.MX,
+            postal_code_id='PC2ygq9j2bS9-9tsuVawzErA',
         ),
+        phone_verification_id='VERdkuqOCjSA2PSS-VCj7HhQ',
+        email_verification_id='VERppwdqsQSAQFFF-CDsWD8s',
     )
     return user_dict
 

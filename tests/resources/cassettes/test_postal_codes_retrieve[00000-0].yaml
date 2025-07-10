@@ -1,0 +1,40 @@
+interactions:
+- request:
+    body: null
+    headers:
+      User-Agent:
+      - cuenca-python/2.1.5
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: GET
+    uri: https://sandbox.cuenca.com/postal_codes?postal_code=00000
+  response:
+    body:
+      string: '{"items":[],"next_page_uri":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '33'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 03 Jul 2025 18:44:22 GMT
+      X-Request-Time:
+      - 'value: 0.044'
+      x-amz-apigw-id:
+      - NJVdIFzWCYcEQnA=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '33'
+      x-amzn-Remapped-Date:
+      - Thu, 03 Jul 2025 18:44:22 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.28.0
+      x-amzn-RequestId:
+      - 00d3f3a3-2fb5-4b74-8fbf-8ac6dc615ae7
+    status:
+      code: 200
+      message: OK
+version: 1

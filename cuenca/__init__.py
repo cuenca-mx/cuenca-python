@@ -44,6 +44,7 @@ __all__ = [
     'JwtToken',
     'TermsOfService',
     'UserTOSAgreement',
+    'PostalCodes',
 ]
 
 from . import http
@@ -73,6 +74,7 @@ from .resources import (
     LoginToken,
     Otp,
     Platform,
+    PostalCodes,
     Questionnaires,
     Saving,
     ServiceProvider,
