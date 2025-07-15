@@ -1,29 +1,20 @@
 interactions:
 - request:
-    body: '{"type": "phone", "sender": "+525555555555", "platform_id":
-      "PL01"}'
+    body: '{"type": "phone", "recipient": "+525555555555"}'
     headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - DUMMY
-      Connection:
-      - keep-alive
       Content-Length:
-      - '80'
+      - '47'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.8.0.dev0
+      - cuenca-python/2.1.5
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
     uri: https://sandbox.cuenca.com/verifications
   response:
     body:
-      string: '{"id":"VE02","recipient":"+525555555555","platform_id":"PL01","api_key":null,"type":"phone","created_at":"2022-03-16T22:33:22.657205","updated_at":"2022-03-16T22:33:22.657613","deactivated_at":null}'
+      string: '{"id":"VEPsf1IUMGT-C0bSFIvPZ17Q","identity_id":null,"platform_id":"PTZbBlk__kQt-wfwzP5nwA9A","created_at":"2025-07-15T22:31:24.231812","updated_at":"2025-07-15T22:31:24.232089","deactivated_at":null,"recipient":"+525555555555","language":"en","type":"phone"}'
     headers:
       Connection:
       - keep-alive
@@ -32,21 +23,19 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Mar 2022 22:33:22 GMT
-      X-Request-Time:
-      - 'value: 0.285'
+      - Tue, 15 Jul 2025 22:31:24 GMT
       x-amz-apigw-id:
-      - PGTT7EO2CYcFQ_w=
+      - NxZ9dHQeiYcEYyw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
       - '258'
       x-amzn-Remapped-Date:
-      - Wed, 16 Mar 2022 22:33:22 GMT
+      - Tue, 15 Jul 2025 22:31:24 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.20.2
+      - nginx/1.28.0
       x-amzn-RequestId:
-      - 7be1235d-09b6-4bc2-b1d9-93b96ac66519
+      - 742a0869-1f8f-487e-9e8c-bed92bb9a923
     status:
       code: 201
       message: Created
