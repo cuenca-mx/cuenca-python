@@ -4,6 +4,7 @@ from typing import ClassVar
 from cuenca_validations.types import TermsOfService as TermsOfServiceEnum
 
 from .base import Queryable, Retrievable
+from typing import Optional
 
 
 class TermsOfService(Retrievable, Queryable):
@@ -11,6 +12,6 @@ class TermsOfService(Retrievable, Queryable):
 
     id: str
     created_at: dt.datetime
-    deactivated_at: dt.datetime | None
+    deactivated_at: Optional[dt.datetime] = None
     type: TermsOfServiceEnum
     version: str
