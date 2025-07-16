@@ -1,10 +1,9 @@
 import datetime as dt
-from typing import ClassVar
+from typing import ClassVar, Optional
 
 from cuenca_validations.types import TermsOfService as TermsOfServiceEnum
 
 from .base import Queryable, Retrievable
-from typing import Optional
 
 
 class TermsOfService(Retrievable, Queryable):
