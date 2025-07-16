@@ -39,12 +39,9 @@ class Verification(Creatable, Updateable):
         cls,
         recipient: str,
         type: VerificationType,
-        platform_id: str,
         session: Session = global_session,
     ) -> 'Verification':
-        req = VerificationRequest(
-            recipient=recipient, type=type, platform_id=platform_id
-        )
+        req = VerificationRequest(recipient=recipient, type=type)
         return cls._create(**req.model_dump(), session=session)
 
     @classmethod

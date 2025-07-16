@@ -83,7 +83,6 @@ def test_user_update_user_email_from_verification():
     ver = Verification.create(
         recipient='mail@cuenca.com',
         type=VerificationType.email,
-        platform_id='PL01',
     )
     user = User.update(user_id, email_verification_id=ver.id)
     assert user.to_dict()['email_address'] == ver.recipient
