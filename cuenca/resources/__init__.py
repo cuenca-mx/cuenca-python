@@ -16,6 +16,7 @@ __all__ = [
     'Endpoint',
     'File',
     'FileBatch',
+    'ExistPhone',
     'Identity',
     'IdentityEvent',
     'KYCValidation',
@@ -58,6 +59,7 @@ from .commissions import Commission
 from .curp_validations import CurpValidation
 from .deposits import Deposit
 from .endpoints import Endpoint
+from .exist_phone import ExistPhone
 from .file_batches import FileBatch
 from .files import File
 from .identities import Identity
