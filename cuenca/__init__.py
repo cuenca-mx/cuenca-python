@@ -46,6 +46,7 @@ __all__ = [
     'UserTOSAgreement',
     'PostalCodes',
     'ExistPhone',
+    'PhoneVerificationAssociation',
 ]
 
 from . import http
@@ -75,6 +76,7 @@ from .resources import (
     LimitedWallet,
     LoginToken,
     Otp,
+    PhoneVerificationAssociation,
     Platform,
     PostalCodes,
     Questionnaires,

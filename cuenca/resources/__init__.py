@@ -24,6 +24,7 @@ __all__ = [
     'LoginToken',
     'Otp',
     'Platform',
+    'PhoneVerificationAssociation',
     'Questionnaires',
     'Saving',
     'ServiceProvider',
@@ -69,6 +70,7 @@ from .kyc_validations import KYCValidation
 from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
 from .otps import Otp
+from .phone_verification_association import PhoneVerificationAssociation
 from .platforms import Platform
 from .postal_codes import PostalCodes
 from .questionnaires import Questionnaires
@@ -134,6 +136,7 @@ resource_classes = [
     JwtToken,
     TermsOfService,
     UserTOSAgreement,
+    PhoneVerificationAssociation,
 ]
 for resource_cls in resource_classes:
     RESOURCES[resource_cls._resource] = resource_cls  # type: ignore
