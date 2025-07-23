@@ -9,11 +9,11 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/2.1.7
+      - cuenca-python/2.1.7.dev2
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: POST
-    uri: https://sandbox.cuenca.com/phone_verification_association
+    uri: https://sandbox.cuenca.com/phone_verification_associations
   response:
     body:
       string: '{"id":"PVuzCh7IsESSyGxyMdjgRY3A","verification_id":"VEeCjasQQWQM-Hr-odTGoKoQ","user_id":"USS2gTzkh_Sm2ZPZGtfNOK_Q","created_at":"2025-07-21T17:07:04.776955"}'

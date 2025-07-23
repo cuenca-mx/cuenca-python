@@ -9,8 +9,8 @@ from ..http import Session, session as global_session
 from .base import Creatable
 
 
-class PhoneVerificationAssociation(Creatable):
-    _resource: ClassVar = 'phone_verification_association'
+class PhoneVerificationAssociations(Creatable):
+    _resource: ClassVar = 'phone_verification_associations'
 
     verification_id: str
     user_id: str
@@ -19,7 +19,7 @@ class PhoneVerificationAssociation(Creatable):
     @classmethod
     def create(
         cls, verification_id: str, session: Session = global_session
-    ) -> 'PhoneVerificationAssociation':
+    ) -> 'PhoneVerificationAssociations':
         req = PhoneVerificationAssociationRequest(
             verification_id=verification_id
         )

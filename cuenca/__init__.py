@@ -45,8 +45,8 @@ __all__ = [
     'TermsOfService',
     'UserTOSAgreement',
     'PostalCodes',
-    'ExistPhone',
-    'PhoneVerificationAssociation',
+    'ExistPhones',
+    'PhoneVerificationAssociations',
 ]
 
 from . import http
@@ -66,7 +66,7 @@ from .resources import (
     CurpValidation,
     Deposit,
     Endpoint,
-    ExistPhone,
+    ExistPhones,
     File,
     FileBatch,
     Identity,
@@ -76,7 +76,7 @@ from .resources import (
     LimitedWallet,
     LoginToken,
     Otp,
-    PhoneVerificationAssociation,
+    PhoneVerificationAssociations,
     Platform,
     PostalCodes,
     Questionnaires,

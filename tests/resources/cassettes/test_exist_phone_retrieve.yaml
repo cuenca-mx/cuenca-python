@@ -3,11 +3,11 @@ interactions:
     body: null
     headers:
       User-Agent:
-      - cuenca-python/2.1.7.dev1
+      - cuenca-python/2.1.7.dev2
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/exist_phone/+527331256958
+    uri: https://sandbox.cuenca.com/exist_phones/+527331256958
   response:
     body:
       string: '{"id":"+527331256958","exist":true}'
