@@ -1,0 +1,46 @@
+interactions:
+- request:
+    body: '{"verification_id": "VEeCjasQQWQM-Hr-odTGoKoQ"}'
+    headers:
+      Authorization:
+      - DUMMY
+      Content-Length:
+      - '47'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/2.1.7.dev2
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/phone_verification_associations
+  response:
+    body:
+      string: '{"id":"PVuzCh7IsESSyGxyMdjgRY3A","verification_id":"VEeCjasQQWQM-Hr-odTGoKoQ","user_id":"USS2gTzkh_Sm2ZPZGtfNOK_Q","created_at":"2025-07-21T17:07:04.776955"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '157'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Jul 2025 17:07:04 GMT
+      X-Request-Time:
+      - 'value: 0.487'
+      x-amz-apigw-id:
+      - OEcE3FGUCYcEvbw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '157'
+      x-amzn-Remapped-Date:
+      - Mon, 21 Jul 2025 17:07:04 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.28.0
+      x-amzn-RequestId:
+      - f10e5016-1ce3-429d-9d00-027a4d018c71
+    status:
+      code: 201
+      message: Created
+version: 1

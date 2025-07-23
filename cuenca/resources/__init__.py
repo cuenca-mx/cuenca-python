@@ -16,6 +16,7 @@ __all__ = [
     'Endpoint',
     'File',
     'FileBatch',
+    'ExistPhones',
     'Identity',
     'IdentityEvent',
     'KYCValidation',
@@ -23,6 +24,7 @@ __all__ = [
     'LoginToken',
     'Otp',
     'Platform',
+    'PhoneVerificationAssociation',
     'Questionnaires',
     'Saving',
     'ServiceProvider',
@@ -58,6 +60,7 @@ from .commissions import Commission
 from .curp_validations import CurpValidation
 from .deposits import Deposit
 from .endpoints import Endpoint
+from .exist_phones import ExistPhones
 from .file_batches import FileBatch
 from .files import File
 from .identities import Identity
@@ -67,6 +70,7 @@ from .kyc_validations import KYCValidation
 from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
 from .otps import Otp
+from .phone_verification_associations import PhoneVerificationAssociations
 from .platforms import Platform
 from .postal_codes import PostalCodes
 from .questionnaires import Questionnaires
@@ -132,6 +136,7 @@ resource_classes = [
     JwtToken,
     TermsOfService,
     UserTOSAgreement,
+    PhoneVerificationAssociations,
 ]
 for resource_cls in resource_classes:
     RESOURCES[resource_cls._resource] = resource_cls  # type: ignore
