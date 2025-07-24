@@ -7,6 +7,7 @@ from cuenca_validations.types import (
     Beneficiary,
     KYCFile,
     PhoneNumber,
+    SATRegimeCode,
     TOSAgreement,
     TOSRequest,
     UserQuery,
@@ -58,6 +59,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     )
     platform_id: Optional[str] = None
     clabe: Optional[Clabe] = None
+    fiscal_regime_code: Optional[SATRegimeCode] = None
     # These fields are added by identify when retrieving a User:
     names: Optional[str] = None
     first_surname: Optional[str] = None
@@ -149,6 +151,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
         curp_document: Optional[SerializableHttpUrl] = None,
+        fiscal_regime_code: Optional[SATRegimeCode] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
