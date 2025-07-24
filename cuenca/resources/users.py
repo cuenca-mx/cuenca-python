@@ -169,6 +169,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
             curp_document=curp_document,
+            fiscal_regime_code=fiscal_regime_code,
             status=status,
         )
         return cls._update(id=user_id, **request.model_dump(), session=session)
