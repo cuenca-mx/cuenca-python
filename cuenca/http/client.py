@@ -3,7 +3,7 @@ import os
 from typing import Optional, Tuple
 from urllib.parse import urljoin
 
-import requests
+import httpx
 from cuenca_validations.errors import ERROR_CODES
 from cuenca_validations.types import JSONEncoder
 from cuenca_validations.typing import (
@@ -11,7 +11,6 @@ from cuenca_validations.typing import (
     DictStrAny,
     OptionalDict,
 )
-from requests import Response
 
 from ..exc import CuencaResponseException
 from ..jwt import Jwt
@@ -103,27 +102,32 @@ class Session:
         **kwargs,
     ) -> bytes:
         resp = None
-        with requests.Session() as session:
-            session.headers = self.headers  # type: ignore
+        with httpx.Client() as client:
+            # Set headers
+            headers = self.headers.copy()
+            
+            # Update JWT token if needed
             if self.jwt_token:
                 if self.jwt_token.is_expired:
                     self.jwt_token = Jwt.create(self)
-                self.headers['X-Cuenca-Token'] = self.jwt_token.token
-                session.headers = self.headers  # type: ignore
-            resp = session.request(  # type: ignore
+                headers['X-Cuenca-Token'] = self.jwt_token.token
+                
+            # Make request
+            resp = client.request(
                 method=method,
                 url='https://' + self.host + urljoin('/', endpoint),
                 auth=self.auth,
                 json=json.loads(JSONEncoder().encode(data)),
                 params=params,
+                headers=headers,
                 **kwargs,
             )
         self._check_response(resp)
         return resp.content
 
     @staticmethod
-    def _check_response(response: Response):
-        if response.ok:
+    def _check_response(response: httpx.Response):
+        if 200 <= response.status_code < 300:
             return
         json = response.json()
         if 'code' in json:

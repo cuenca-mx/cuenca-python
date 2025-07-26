@@ -1,9 +1,10 @@
-import requests_mock  # type: ignore
+import pytest
+from pytest_httpx import HTTPXMock
 
 import cuenca
 
 
-def test_get_balance():
+def test_get_balance(httpx_mock: HTTPXMock):
     # It is the case when the user has transactions in the account
     response_json = {
         'items': [
@@ -23,29 +24,27 @@ def test_get_balance():
         ],
         'next_page_uri': None,
     }
-    with requests_mock.mock() as m:
-        m.get(
-            'https://sandbox.cuenca.com/balance_entries?limit=1',
-            status_code=200,
-            json=response_json,
-        )
+    httpx_mock.add_response(
+        url='https://sandbox.cuenca.com/balance_entries?limit=1',
+        status_code=200,
+        json=response_json,
+    )
 
-        balance = cuenca.get_balance()
+    balance = cuenca.get_balance()
     assert balance == response_json['items'][0]['rolling_balance']
 
 
-def test_get_balance_before_first_transaction():
+def test_get_balance_before_first_transaction(httpx_mock: HTTPXMock):
     # When the user have no transactions at all
     # balance_entries endpoint returns `items` as empty list.
     # It means that its balance is Mx$0.00
     response_json = {'items': [], 'next_page_uri': None}
 
-    with requests_mock.mock() as m:
-        m.get(
-            'https://sandbox.cuenca.com/balance_entries?limit=1',
-            status_code=200,
-            json=response_json,
-        )
+    httpx_mock.add_response(
+        url='https://sandbox.cuenca.com/balance_entries?limit=1',
+        status_code=200,
+        json=response_json,
+    )
 
-        balance = cuenca.get_balance()
+    balance = cuenca.get_balance()
     assert balance == 0

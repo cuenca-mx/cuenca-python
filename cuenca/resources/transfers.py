@@ -7,7 +7,7 @@ from cuenca_validations.types import (
     TransferRequest,
 )
 from cuenca_validations.typing import DictStrAny
-from requests import HTTPError
+from httpx import HTTPError
 
 from ..exc import CuencaException
 from .accounts import Account
