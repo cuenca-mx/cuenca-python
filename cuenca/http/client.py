@@ -103,20 +103,15 @@ class Session:
     ) -> bytes:
         resp = None
         with httpx.Client() as client:
-            # Set headers
             headers = self.headers.copy()
 
-            # Update JWT token if needed
             if self.jwt_token:
                 if self.jwt_token.is_expired:
                     self.jwt_token = Jwt.create(self)
                 headers['X-Cuenca-Token'] = self.jwt_token.token
 
-            # Merge headers from kwargs if present
             if 'headers' in kwargs:
                 headers.update(kwargs.pop('headers'))
-
-            # Make request
             resp = client.request(
                 method=method,
                 url='https://' + self.host + urljoin('/', endpoint),

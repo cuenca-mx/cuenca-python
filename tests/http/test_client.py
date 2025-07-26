@@ -65,19 +65,14 @@ def test_request_expired_token():
 
 
 def test_overrides_session(httpx_mock: HTTPXMock):
-    # Setup mock response
     httpx_mock.add_response(status_code=200, json={"items": []})
 
-    # Configure session with custom credentials
     session = Session()
     session.configure(
         api_key='USER_API_KEY', api_secret='USER_SECRET', sandbox=True
     )
 
-    # Make the request
     Card.first(user_id='USER_ID', session=session)
-
-    # Verify the request was made with the correct auth
     request = httpx_mock.get_request()
     assert request is not None, "No request was captured"
     assert request.headers.get("authorization", "").startswith("Basic ")
