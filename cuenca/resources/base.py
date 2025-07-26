@@ -137,7 +137,7 @@ class Uploadable(Resource):
         files = {
             'file': encoded_file,
             'user_id': str(user_id),
-            **{k: str(v) if v is not None else '' for k, v in data.items()}
+            **{k: str(v) if v is not None else '' for k, v in data.items()},
         }
         resp = session.request(
             'post',

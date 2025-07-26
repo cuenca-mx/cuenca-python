@@ -1,12 +1,12 @@
 import datetime as dt
 
 import pytest
-from pytest_httpx import HTTPXMock
 from cuenca_validations.errors import (
     NoPasswordFoundError,
     UserNotLoggedInError,
 )
 from freezegun import freeze_time
+from pytest_httpx import HTTPXMock
 
 from cuenca.exc import CuencaResponseException
 from cuenca.http.client import Session
@@ -66,22 +66,20 @@ def test_request_expired_token():
 
 def test_overrides_session(httpx_mock: HTTPXMock):
     # Setup mock response
-    httpx_mock.add_response(
-        status_code=200,
-        json={"items": []}
-    )
-    
+    httpx_mock.add_response(status_code=200, json={"items": []})
+
     # Configure session with custom credentials
     session = Session()
     session.configure(
         api_key='USER_API_KEY', api_secret='USER_SECRET', sandbox=True
     )
-    
+
     # Make the request
     Card.first(user_id='USER_ID', session=session)
-    
+
     # Verify the request was made with the correct auth
     request = httpx_mock.get_request()
+    assert request is not None, "No request was captured"
     assert request.headers.get("authorization", "").startswith("Basic ")
     assert request.url.params.get("user_id") == "USER_ID"
 

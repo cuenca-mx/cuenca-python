@@ -1,4 +1,3 @@
-import pytest
 from pytest_httpx import HTTPXMock
 
 import cuenca
@@ -6,7 +5,7 @@ import cuenca
 
 def test_get_balance(httpx_mock: HTTPXMock):
     # It is the case when the user has transactions in the account
-    response_json = {
+    response_json: dict = {
         'items': [
             {
                 'id': 'LE6xvD1ocHmSIu7MgzlC9woj',
@@ -38,7 +37,7 @@ def test_get_balance_before_first_transaction(httpx_mock: HTTPXMock):
     # When the user have no transactions at all
     # balance_entries endpoint returns `items` as empty list.
     # It means that its balance is Mx$0.00
-    response_json = {'items': [], 'next_page_uri': None}
+    response_json: dict = {'items': [], 'next_page_uri': None}
 
     httpx_mock.add_response(
         url='https://sandbox.cuenca.com/balance_entries?limit=1',
