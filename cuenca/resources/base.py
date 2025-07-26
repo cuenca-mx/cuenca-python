@@ -111,6 +111,7 @@ class Downloadable(Resource):
             f'/{cls._resource}/{id}',
             headers=dict(Accept=file_format.value),
         )
+        # httpx returns bytes directly
         return BytesIO(resp)
 
     @property
@@ -133,14 +134,15 @@ class Uploadable(Resource):
         **data: Any,
     ) -> R_co:
         encoded_file = base64.b64encode(file)
+        files = {
+            'file': encoded_file,
+            'user_id': str(user_id),
+            **{k: str(v) if v is not None else '' for k, v in data.items()}
+        }
         resp = session.request(
             'post',
             cls._resource,
-            files=dict(
-                file=(None, encoded_file),
-                user_id=(None, user_id),
-                **{k: (None, v) for k, v in data.items()},
-            ),
+            files=files,
         )
         return cls(**json.loads(resp))
 

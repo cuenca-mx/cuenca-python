@@ -1,7 +1,7 @@
 import datetime as dt
-from unittest.mock import patch
 
 import pytest
+from pytest_httpx import HTTPXMock
 from cuenca_validations.errors import (
     NoPasswordFoundError,
     UserNotLoggedInError,
@@ -64,18 +64,26 @@ def test_request_expired_token():
     assert session.jwt_token != previous_jwt
 
 
-@patch('cuenca.http.client.requests.Session.request')
-def test_overrides_session(mock_request):
-    mock_request.return_value.ok = True
-    mock_request.return_value.content = '{"items": []}'
+def test_overrides_session(httpx_mock: HTTPXMock):
+    # Setup mock response
+    httpx_mock.add_response(
+        status_code=200,
+        json={"items": []}
+    )
+    
+    # Configure session with custom credentials
     session = Session()
     session.configure(
         api_key='USER_API_KEY', api_secret='USER_SECRET', sandbox=True
     )
+    
+    # Make the request
     Card.first(user_id='USER_ID', session=session)
-    mock_request.assert_called_once()
-    _, kwargs = mock_request.call_args_list[0]
-    assert kwargs['auth'] == session.auth
+    
+    # Verify the request was made with the correct auth
+    request = httpx_mock.get_request()
+    assert request.headers.get("authorization", "").startswith("Basic ")
+    assert request.url.params.get("user_id") == "USER_ID"
 
 
 @pytest.mark.vcr

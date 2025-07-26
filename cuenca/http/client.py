@@ -111,13 +111,17 @@ class Session:
                 if self.jwt_token.is_expired:
                     self.jwt_token = Jwt.create(self)
                 headers['X-Cuenca-Token'] = self.jwt_token.token
+            
+            # Merge headers from kwargs if present
+            if 'headers' in kwargs:
+                headers.update(kwargs.pop('headers'))
                 
             # Make request
             resp = client.request(
                 method=method,
                 url='https://' + self.host + urljoin('/', endpoint),
                 auth=self.auth,
-                json=json.loads(JSONEncoder().encode(data)),
+                json=json.loads(JSONEncoder().encode(data)) if data else None,
                 params=params,
                 headers=headers,
                 **kwargs,
