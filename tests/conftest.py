@@ -36,8 +36,8 @@ def curp_validation_request() -> dict:
         names='José',
         first_surname='López',
         second_surname='Hernández',
-        date_of_birth=dt.date(1966, 6, 6),
-        state_of_birth=State.DF,
+        date_of_birth=dt.date(1996, 6, 21),
+        state_of_birth=State.GR,
         country_of_birth=Country.MX,
         gender=Gender.male,
     )
@@ -48,17 +48,15 @@ def curp_validation_request() -> dict:
 def user_request() -> dict:
     user_dict = dict(
         curp='LOHJ660606HDFPRS02',
-        phone_number='+525511223344',
-        email_address='jose@test.com',
         profession=Profession.empleado,
         address=dict(
             street='calle 1',
             ext_number='2',
             int_number='3',
-            postal_code_id='PC2ygq9j2bS9-9tsuVawzErA',
+            postal_code_id='PCLo4hi65YTKaAnph27E_2SQ',
         ),
-        phone_verification_id='VERdkuqOCjSA2PSS-VCj7HhQ',
-        email_verification_id='VERppwdqsQSAQFFF-CDsWD8s',
+        phone_verification_id='VEJlFhtVOgQMG5EpkThHL5Tg',
+        email_verification_id='VE_r7hBIlaSfe2pEOvMtBEog',
     )
     return user_dict
 

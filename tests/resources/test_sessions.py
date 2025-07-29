@@ -1,5 +1,5 @@
 import pytest
-from cuenca_validations.types import SessionType
+from cuenca_validations.types import Profession, SessionType
 from pydantic import ValidationError
 
 import cuenca
@@ -35,5 +35,6 @@ def test_session_create(curp_validation_request: dict, user_request: dict):
 
     ephimeral_cuenca_session = cuenca.http.Session()
     ephimeral_cuenca_session.configure(session_token=user_session.id)
-    user = User.update(user.id, email_address='manu@example.com')
-    assert user.email_address == 'manu@example.com'
+
+    user = User.update(user.id, profession=Profession.comercio)
+    assert user.profession == Profession.comercio
