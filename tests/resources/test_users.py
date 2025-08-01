@@ -2,7 +2,7 @@ import datetime as dt
 
 import pytest
 from cuenca_validations.types import VerificationType
-from cuenca_validations.types.enums import Profession
+from cuenca_validations.types.enums import Profession, SATRegimeCode
 
 from cuenca import Verification
 from cuenca.resources import CurpValidation, User
@@ -29,16 +29,10 @@ def test_user_query():
 
 @pytest.mark.vcr
 def test_user_update():
-    user_id = 'USCM-zlFcNQk6ue4gZ_mTGeQ'
+    user_id = 'USPR4JxMuwSG60u2h4gBpB6Q'
     changes = dict(
         profession=Profession.sistemas,
-        phone_number='+525555555555',
-        govt_id=dict(
-            type='ine',
-            uri_front='cuenca.com',
-            uri_back='cuenca.com',
-            is_mx=True,
-        ),
+        fiscal_regime_code=SATRegimeCode.INT,
     )
     user = User.update(user_id, **changes)
     assert all(item in user.to_dict().keys() for item in changes.keys())

@@ -1,54 +1,49 @@
 interactions:
 - request:
-    body: '{"phone_number": "+525555555555", "profession": "programmer", "govt_id":
-      {"type": "ine", "uri_front": "cuenca.com", "uri_back": "cuenca.com", "is_mx":
-      true}}'
+    body: '{"profession": "Sistemas y Comunicaciones", "email_verification_id": null,
+      "phone_verification_id": null, "address": null, "beneficiaries": null, "govt_id":
+      null, "proof_of_address": null, "proof_of_life": null, "curp_document_uri":
+      null, "fiscal_regime_code": "614", "pronouns": null}'
     headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
       Authorization:
       - DUMMY
-      Connection:
-      - keep-alive
       Content-Length:
-      - '157'
+      - '285'
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/0.7.15.dev3
+      - cuenca-python/2.1.8
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: PATCH
-    uri: https://sandbox.cuenca.com/users/USCM-zlFcNQk6ue4gZ_mTGeQ
+    uri: https://sandbox.cuenca.com/users/USPR4JxMuwSG60u2h4gBpB6Q
   response:
     body:
-      string: "{\"id\":\"USCM-zlFcNQk6ue4gZ_mTGeQ\",\"identity_uri\":\"/identities/IDKWLi_wUoTty6WXXg9xfKFQ\",\"created_at\":\"2022-02-09T17:42:56.965000\",\"updated_at\":\"2022-02-09T17:50:41.964498\",\"platform_id\":\"PTW68GgAc_QPmNCmgajmctLg\",\"level\":0,\"phone_number\":\"+525555555555\",\"email_address\":\"jose@test.com\",\"profession\":\"programmer\",\"status\":\"active\",\"terms_of_service\":null,\"blacklist_validation_status\":\"succeeded\",\"address\":{\"street\":\"calle
-        1\",\"ext_number\":\"2\",\"int_number\":\"3\",\"postal_code\":\"09900\",\"state\":\"DF\",\"city\":null,\"country\":\"MX\",\"created_at\":\"2022-02-09T17:42:56.964000\"},\"govt_id\":{\"type\":\"ine\",\"uri_front\":\"cuenca.com\",\"uri_back\":\"cuenca.com\",\"is_mx\":true,\"data\":{},\"status\":\"not_verified\"},\"proof_of_address\":null,\"proof_of_life\":null,\"beneficiaries\":null,\"names\":\"Jos\xE9\",\"first_surname\":\"L\xF3pez\",\"second_surname\":\"Hern\xE1ndez\",\"curp\":\"LOHJ660606HDFPRS02\",\"required_level\":4}"
+      string: '{"id":"USPR4JxMuwSG60u2h4gBpB6Q","created_at":"2025-07-29T17:26:51.788000","updated_at":"2025-07-29T17:42:15.806372","platform_id":"PTZbBlk__kQt-wfwzP5nwA9A","user_type":"physical","level":0,"required_level":3,"phone_number":"+525555555552","phone_number_is_active":true,"email_address":"test-cuenca-06@yopmail.com","email_address_is_active":true,"clabe":"723324548297159645","status":"active","address":{"street":"calle
+        1","ext_number":"2","int_number":"3","postal_code":"40106","colonia":"El Naranjo","state":"GR","city":"Iguala
+        de la Independencia","country":"MX","created_at":"2025-07-29T17:26:51.788000","full_name":null},"identity_uri":"/identities/IDfN3QVig1Qui8oZNrmA4hfw","profession":"Sistemas
+        y Comunicaciones","user_tos_agreements_id":null,"blacklist_validation_status":"succeeded","govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":[],"curp_status":"succeeded","pronouns":null,"fiscal_regime_code":"614","cash_reference_number":null,"names":"José","first_surname":"López","second_surname":"Hernández","curp":"LOHJ660606HDFPRS02","rfc":"MOOG960621GJ1","gender":"male","date_of_birth":"1996-06-21","state_of_birth":"GR","nationality":"MX","country_of_birth":"MX"}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '850'
+      - '1200'
       Content-Type:
       - application/json
       Date:
-      - Wed, 09 Feb 2022 17:50:42 GMT
-      X-Request-Time:
-      - 'value: 0.341'
+      - Tue, 29 Jul 2025 17:42:16 GMT
       x-amz-apigw-id:
-      - NSTFzHTECYcFa0g=
+      - Oe4uwGA1CYcETkQ=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '850'
+      - '1200'
       x-amzn-Remapped-Date:
-      - Wed, 09 Feb 2022 17:50:42 GMT
+      - Tue, 29 Jul 2025 17:42:16 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.20.2
+      - nginx/1.28.0
       x-amzn-RequestId:
-      - a291c01c-352d-42a3-9d70-4bdce79c084e
+      - d5109d06-e8a3-45f2-b773-2d7658bf6fac
     status:
       code: 200
       message: OK

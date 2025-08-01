@@ -9,7 +9,6 @@ from cuenca_validations.types import (
     PhoneNumber,
     SATRegimeCode,
     TOSAgreement,
-    TOSRequest,
     UserQuery,
     UserRequest,
     UserStatus,
@@ -17,7 +16,7 @@ from cuenca_validations.types import (
 )
 from cuenca_validations.types.enums import Country, Gender, State
 from cuenca_validations.types.general import SerializableHttpUrl
-from cuenca_validations.types.identities import Curp
+from cuenca_validations.types.identities import AddressRequest, Curp
 from pydantic import ConfigDict, EmailStr, Field
 
 from ..http import Session, session as global_session
@@ -107,29 +106,19 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     def create(
         cls,
         curp: Curp,
-        phone_number: Optional[PhoneNumber] = None,
-        email_address: Optional[EmailStr] = None,
         profession: Optional[str] = None,
-        address: Optional[Address] = None,
+        address: Optional[AddressRequest] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
-        status: Optional[UserStatus] = None,
-        required_level: Optional[int] = None,
-        terms_of_service: Optional[TOSRequest] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
         req = UserRequest(
             curp=curp,
-            phone_number=phone_number,
-            email_address=email_address,
             profession=profession,
             address=address,
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
-            required_level=required_level,
-            status=status,
-            terms_of_service=terms_of_service,
         )
         return cls._create(session=session, **req.model_dump())
 
@@ -137,40 +126,34 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     def update(
         cls,
         user_id: str,
-        phone_number: Optional[PhoneNumber] = None,
-        email_address: Optional[str] = None,
         profession: Optional[str] = None,
-        address: Optional[Address] = None,
+        address: Optional[AddressRequest] = None,
         beneficiaries: Optional[list[Beneficiary]] = None,
         govt_id: Optional[KYCFile] = None,
         proof_of_address: Optional[KYCFile] = None,
         proof_of_life: Optional[KYCFile] = None,
-        terms_of_service: Optional[TOSRequest] = None,
-        verification_id: Optional[str] = None,
         status: Optional[UserStatus] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
         curp_document: Optional[SerializableHttpUrl] = None,
         fiscal_regime_code: Optional[SATRegimeCode] = None,
+        pronouns: Optional[str] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
         request = UserUpdateRequest(
-            phone_number=phone_number,
-            email_address=email_address,
             profession=profession,
             address=address,
             beneficiaries=beneficiaries,
             govt_id=govt_id,
             proof_of_address=proof_of_address,
             proof_of_life=proof_of_life,
-            terms_of_service=terms_of_service,
-            verification_id=verification_id,
+            status=status,
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
             curp_document=curp_document,
             fiscal_regime_code=fiscal_regime_code,
-            status=status,
+            pronouns=pronouns,
         )
         return cls._update(id=user_id, **request.model_dump(), session=session)
 
