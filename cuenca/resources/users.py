@@ -14,7 +14,14 @@ from cuenca_validations.types import (
     UserStatus,
     UserUpdateRequest,
 )
-from cuenca_validations.types.enums import Country, Gender, State
+from cuenca_validations.types.enums import (
+    AccountUseTypes,
+    Country,
+    Gender,
+    MonthlyMovementsTypes,
+    MonthlySpendingTypes,
+    State,
+)
 from cuenca_validations.types.general import SerializableHttpUrl
 from cuenca_validations.types.identities import AddressRequest, Curp
 from pydantic import ConfigDict, EmailStr, Field
@@ -59,6 +66,10 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     platform_id: Optional[str] = None
     clabe: Optional[Clabe] = None
     fiscal_regime_code: Optional[SATRegimeCode] = None
+    fiscal_address: Optional[Address] = None
+    account_use_type: Optional[AccountUseTypes] = None
+    monthly_spending_type: Optional[MonthlySpendingTypes] = None
+    monthly_movements_type: Optional[MonthlyMovementsTypes] = None
     # These fields are added by identify when retrieving a User:
     names: Optional[str] = None
     first_surname: Optional[str] = None
@@ -110,6 +121,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         address: Optional[AddressRequest] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
+        account_use_type: Optional[AccountUseTypes] = None,
+        monthly_spending_type: Optional[MonthlySpendingTypes] = None,
+        monthly_movements_type: Optional[MonthlyMovementsTypes] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
@@ -119,6 +133,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             address=address,
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
+            account_use_type=account_use_type,
+            monthly_spending_type=monthly_spending_type,
+            monthly_movements_type=monthly_movements_type,
         )
         return cls._create(session=session, **req.model_dump())
 
@@ -137,6 +154,10 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         phone_verification_id: Optional[str] = None,
         curp_document: Optional[SerializableHttpUrl] = None,
         fiscal_regime_code: Optional[SATRegimeCode] = None,
+        fiscal_address: Optional[AddressRequest] = None,
+        account_use_type: Optional[AccountUseTypes] = None,
+        monthly_spending_type: Optional[MonthlySpendingTypes] = None,
+        monthly_movements_type: Optional[MonthlyMovementsTypes] = None,
         pronouns: Optional[str] = None,
         *,
         session: Session = global_session,
@@ -153,6 +174,10 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             phone_verification_id=phone_verification_id,
             curp_document=curp_document,
             fiscal_regime_code=fiscal_regime_code,
+            fiscal_address=fiscal_address,
+            account_use_type=account_use_type,
+            monthly_spending_type=monthly_spending_type,
+            monthly_movements_type=monthly_movements_type,
             pronouns=pronouns,
         )
         return cls._update(id=user_id, **request.model_dump(), session=session)
