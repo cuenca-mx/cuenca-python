@@ -15,12 +15,12 @@ from cuenca_validations.types import (
     UserUpdateRequest,
 )
 from cuenca_validations.types.enums import (
-    AccountUseTypes,
+    AccountUseType,
     Country,
     Gender,
     IncomeType,
-    MonthlyMovementsTypes,
-    MonthlySpendingTypes,
+    MonthlyMovementsType,
+    MonthlySpendingType,
     State,
 )
 from cuenca_validations.types.general import SerializableHttpUrl
@@ -68,9 +68,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     clabe: Optional[Clabe] = None
     fiscal_regime_code: Optional[SATRegimeCode] = None
     fiscal_address: Optional[Address] = None
-    account_use_type: Optional[AccountUseTypes] = None
-    monthly_spending_type: Optional[MonthlySpendingTypes] = None
-    monthly_movements_type: Optional[MonthlyMovementsTypes] = None
+    account_use_type: Optional[AccountUseType] = None
+    monthly_spending_type: Optional[MonthlySpendingType] = None
+    monthly_movements_type: Optional[MonthlyMovementsType] = None
     income_type: Optional[IncomeType] = None
     # These fields are added by identify when retrieving a User:
     names: Optional[str] = None
@@ -123,9 +123,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         address: Optional[AddressRequest] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
-        account_use_type: Optional[AccountUseTypes] = None,
-        monthly_spending_type: Optional[MonthlySpendingTypes] = None,
-        monthly_movements_type: Optional[MonthlyMovementsTypes] = None,
+        account_use_type: Optional[AccountUseType] = None,
+        monthly_spending_type: Optional[MonthlySpendingType] = None,
+        monthly_movements_type: Optional[MonthlyMovementsType] = None,
         income_type: Optional[IncomeType] = None,
         *,
         session: Session = global_session,
@@ -158,9 +158,9 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         curp_document: Optional[SerializableHttpUrl] = None,
         fiscal_regime_code: Optional[SATRegimeCode] = None,
         fiscal_address: Optional[AddressRequest] = None,
-        account_use_type: Optional[AccountUseTypes] = None,
-        monthly_spending_type: Optional[MonthlySpendingTypes] = None,
-        monthly_movements_type: Optional[MonthlyMovementsTypes] = None,
+        account_use_type: Optional[AccountUseType] = None,
+        monthly_spending_type: Optional[MonthlySpendingType] = None,
+        monthly_movements_type: Optional[MonthlyMovementsType] = None,
         income_type: Optional[IncomeType] = None,
         pronouns: Optional[str] = None,
         *,
