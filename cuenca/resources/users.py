@@ -18,6 +18,7 @@ from cuenca_validations.types.enums import (
     AccountUseTypes,
     Country,
     Gender,
+    IncomeType,
     MonthlyMovementsTypes,
     MonthlySpendingTypes,
     State,
@@ -70,6 +71,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     account_use_type: Optional[AccountUseTypes] = None
     monthly_spending_type: Optional[MonthlySpendingTypes] = None
     monthly_movements_type: Optional[MonthlyMovementsTypes] = None
+    income_type: Optional[IncomeType] = None
     # These fields are added by identify when retrieving a User:
     names: Optional[str] = None
     first_surname: Optional[str] = None
@@ -124,6 +126,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         account_use_type: Optional[AccountUseTypes] = None,
         monthly_spending_type: Optional[MonthlySpendingTypes] = None,
         monthly_movements_type: Optional[MonthlyMovementsTypes] = None,
+        income_type: Optional[IncomeType] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
@@ -158,6 +161,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         account_use_type: Optional[AccountUseTypes] = None,
         monthly_spending_type: Optional[MonthlySpendingTypes] = None,
         monthly_movements_type: Optional[MonthlyMovementsTypes] = None,
+        income_type: Optional[IncomeType] = None,
         pronouns: Optional[str] = None,
         *,
         session: Session = global_session,
@@ -178,6 +182,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             account_use_type=account_use_type,
             monthly_spending_type=monthly_spending_type,
             monthly_movements_type=monthly_movements_type,
+            income_type=income_type,
             pronouns=pronouns,
         )
         return cls._update(id=user_id, **request.model_dump(), session=session)
