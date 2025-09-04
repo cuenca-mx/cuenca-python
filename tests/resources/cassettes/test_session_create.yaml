@@ -139,7 +139,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"profession": "Comercio", "email_verification_id": null, "phone_verification_id":
+    body: '{"profession": "comercio", "email_verification_id": null, "phone_verification_id":
       null, "address": null, "beneficiaries": null, "govt_id": null, "proof_of_address":
       null, "proof_of_life": null, "curp_document_uri": null, "fiscal_regime_code":
       null, "pronouns": null}'
@@ -160,7 +160,7 @@ interactions:
     body:
       string: '{"id":"USPR4JxMuwSG60u2h4gBpB6Q","created_at":"2025-07-29T17:26:51.788000","updated_at":"2025-07-29T17:26:56.475244","platform_id":"PTZbBlk__kQt-wfwzP5nwA9A","user_type":"physical","level":0,"required_level":3,"phone_number":"+525555555552","phone_number_is_active":true,"email_address":"test-cuenca-06@yopmail.com","email_address_is_active":true,"clabe":"723324548297159645","status":"active","address":{"street":"calle
         1","ext_number":"2","int_number":"3","postal_code":"40106","colonia":"El Naranjo","state":"GR","city":"Iguala
-        de la Independencia","country":"MX","created_at":"2025-07-29T17:26:51.788000","full_name":null},"identity_uri":"/identities/IDfN3QVig1Qui8oZNrmA4hfw","profession":"Comercio","user_tos_agreements_id":null,"blacklist_validation_status":"succeeded","govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":[],"curp_status":"succeeded","pronouns":null,"fiscal_regime_code":null,"cash_reference_number":null,"names":"José","first_surname":"López","second_surname":"Hernández","curp":"LOHJ660606HDFPRS02","rfc":"MOOG960621GJ1","gender":"male","date_of_birth":"1996-06-21","state_of_birth":"GR","nationality":"MX","country_of_birth":"MX"}'
+        de la Independencia","country":"MX","created_at":"2025-07-29T17:26:51.788000","full_name":null},"identity_uri":"/identities/IDfN3QVig1Qui8oZNrmA4hfw","profession":"comercio","user_tos_agreements_id":null,"blacklist_validation_status":"succeeded","govt_id":null,"proof_of_address":null,"proof_of_life":null,"beneficiaries":[],"curp_status":"succeeded","pronouns":null,"fiscal_regime_code":null,"cash_reference_number":null,"names":"José","first_surname":"López","second_surname":"Hernández","curp":"LOHJ660606HDFPRS02","rfc":"MOOG960621GJ1","gender":"male","date_of_birth":"1996-06-21","state_of_birth":"GR","nationality":"MX","country_of_birth":"MX"}'
     headers:
       Connection:
       - keep-alive
