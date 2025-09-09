@@ -33,7 +33,7 @@ class Session(Creatable, Retrievable, Queryable):
                 'success_url': 'http://example_success.com',
                 'failure_url': 'http://example_failure.com',
                 'type': 'session.registration',
-                'resource_id': 'some_resource_id'
+                'resource_id': 'some_resource_id',
             }
         }
     )
@@ -54,6 +54,6 @@ class Session(Creatable, Retrievable, Queryable):
             type=type,
             success_url=success_url,
             failure_url=failure_url,
-            resource_id=resource_id
+            resource_id=resource_id,
         )
         return cls._create(session=session, **req.model_dump())

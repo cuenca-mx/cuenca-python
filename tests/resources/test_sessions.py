@@ -37,4 +37,18 @@ def test_session_create(curp_validation_request: dict, user_request: dict):
     ephimeral_cuenca_session.configure(session_token=user_session.id)
 
     user = User.update(user.id, profession=Profession.comercio)
-    assert user.profession == str(Profession.comercio)
+    assert user.profession == Profession.comercio
+
+
+@pytest.mark.vcr
+def test_session_create_with_resource_id(
+    curp_validation_request: dict, user_request: dict
+) -> None:
+    session = Session.create(
+        'USPR4JxMuwSG60u2h4gBpB6Q',
+        SessionType.metamap_verification,
+        resource_id='68b887f60c33abad1ea841d3',
+    )
+
+    assert session.user_id == 'USPR4JxMuwSG60u2h4gBpB6Q'
+    assert session.resource_id == '68b887f60c33abad1ea841d3'

@@ -1,0 +1,47 @@
+interactions:
+  - request:
+      body:
+        '{"user_id": "USPR4JxMuwSG60u2h4gBpB6Q", "type": "session.metamap_verification",
+        "resource_id": "68b887f60c33abad1ea841d3"}'
+      headers:
+        Authorization:
+          - DUMMY
+        Content-Length:
+          - "122"
+        Content-Type:
+          - application/json
+        User-Agent:
+          - cuenca-python/2.1.11.dev1
+        X-Cuenca-Api-Version:
+          - "2020-03-19"
+      method: POST
+      uri: https://sandbox.cuenca.com/sessions
+    response:
+      body:
+        string: '{"id": "SSRk8W9VPBRgixHFh0rNOejg", "created_at": "2025-09-09T19:04:37.242865", "user_id": "USPR4JxMuwSG60u2h4gBpB6Q", "platform_id": "PTZbBlk__kQt-wfwzP5nwA9A", "expires_at": "2025-09-09T19:14:37.242877",
+         "success_url": null, "failure_url": null, "type": "session.metamap_verification", "resource_id": "68b887f60c33abad1ea841d3"}'
+      headers:
+        Connection:
+          - keep-alive
+        Content-Length:
+          - "49"
+        Content-Type:
+          - application/json
+        Date:
+          - Tue, 09 Sep 2025 19:10:56 GMT
+        x-amz-apigw-id:
+          - QphGKFeICYcEU6w=
+        x-amzn-Remapped-Connection:
+          - close
+        x-amzn-Remapped-Content-Length:
+          - "49"
+        x-amzn-Remapped-Date:
+          - Tue, 09 Sep 2025 19:10:56 GMT
+        x-amzn-Remapped-Server:
+          - nginx/1.28.0
+        x-amzn-RequestId:
+          - 0b3f6126-1702-42b2-934b-a69da53399e4
+      status:
+        code: 200
+        message: OK
+version: 1
