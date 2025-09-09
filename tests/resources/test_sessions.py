@@ -37,4 +37,4 @@ def test_session_create(curp_validation_request: dict, user_request: dict):
     ephimeral_cuenca_session.configure(session_token=user_session.id)
 
     user = User.update(user.id, profession=Profession.comercio)
-    assert user.profession == Profession.comercio
+    assert user.profession == str(Profession.comercio)
