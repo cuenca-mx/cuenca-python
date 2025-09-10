@@ -1,0 +1,87 @@
+interactions:
+- request:
+    body: '{"user_id": "USPR4JxMuwSG60u2h4gBpB6Q", "type": "session.onboarding_verification",
+      "resource_id": "68b887f60c33abad1ea841d3"}'
+    headers:
+      Authorization:
+      - DUMMY
+      Content-Length:
+      - '125'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/2.1.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/sessions
+  response:
+    body:
+      string: '{"id":"SSOXga_D_VQXCPsWQT7Z0ddQ","created_at":"2025-09-10T20:33:32.875517","user_id":"USPR4JxMuwSG60u2h4gBpB6Q","platform_id":"PTZbBlk__kQt-wfwzP5nwA9A","expires_at":"2025-09-10T20:43:32.875529","success_url":null,"failure_url":null,"type":"session.onboarding_verification","resource_id":"68b887f60c33abad1ea841d3"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '315'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 10 Sep 2025 20:33:32 GMT
+      X-Request-Time:
+      - 'value: 0.151'
+      x-amz-apigw-id:
+      - QtAIjGCGiYcEuZw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '315'
+      x-amzn-Remapped-Date:
+      - Wed, 10 Sep 2025 20:33:32 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.28.0
+      x-amzn-RequestId:
+      - 0d6c920d-4608-4d1c-9858-fe81fccba4b1
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      User-Agent:
+      - cuenca-python/2.1.11
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-SessionId:
+      - SSOXga_D_VQXCPsWQT7Z0ddQ
+    method: GET
+    uri: https://sandbox.cuenca.com/onboarding_verifications/68b887f60c33abad1ea841d3
+  response:
+    body:
+      string: '{"gov_id_document_number":"267202610","gov_id_front":"https://media-cdn.prod.metamap.com/documents/production/9b1bccd3-1cc2-4f94-b9bc-e416f23a685c.jpeg?Expires=1757795613&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9tZWRpYS1jZG4ucHJvZC5tZXRhbWFwLmNvbS9kb2N1bWVudHMvcHJvZHVjdGlvbi85YjFiY2NkMy0xY2MyLTRmOTQtYjliYy1lNDE2ZjIzYTY4NWMuanBlZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc1Nzc5NTYxM319fV19&Signature=kqeDz-ik5UJTUAC3JRN4y15BMyT-ruaExqM9vCuJQ1gVr8BYjFfwZENW4qDBU0-6c4J0zxkr853-IKeEwqus~Xxn7ui0jv5MGxt4HEZOGnv-CkKx2EENt-3-GelJ9EmiSUaUkIouHr-V1MNm8-Cuea1m1TMFjnOAXpoiEbudT0-RnILGKJui90DGWSEzQsLjwz0Y7wCS2KNaIOb~ors8V~WiwULVYSJh6L0IPPKUlbAch-HocVU3uQOlBTb3e-xSKsxcLVTLHTmnXefcZvPIHIiPWtOMwBQP7~AqesIszrHQVPAaS9VLkN~2md4zVwDb6VmBHCTqtg7sxJJMjGKiRQ__&Key-Pair-Id=K3UFJ5LH7J6562","proof_of_address":"https://media-cdn.prod.metamap.com/documents/production/52ac2e59-8416-49b0-bd56-9fe1f245a8d8.jpeg?Expires=1757795613&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9tZWRpYS1jZG4ucHJvZC5tZXRhbWFwLmNvbS9kb2N1bWVudHMvcHJvZHVjdGlvbi81MmFjMmU1OS04NDE2LTQ5YjAtYmQ1Ni05ZmUxZjI0NWE4ZDguanBlZyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc1Nzc5NTYxM319fV19&Signature=pET21fJJDoDHjd3agnQ1Aa-Ux9zuxGP9mAbrR7K4DLSeRq9tKzplchaWl3VZRBk2jeSSkcSLO0KhCmgFqGDj92SsPmIbJrB6Ay5XIjh6jQjrnGUIR3w8NFgSaxFeogoLBL5mzamyXf5KzRQ32I7xnWnIlLhhEzPGE3x74lZwIvZ04Gc1Vh5pLeBT-xFxlAtdlEW7HW3O8Y~GFo7TupQiH52YSx1c8us2URUCdXJxiRHId0-BHSTa~qk8uJghRNH~Q~4TQVlMS6LUDztvC0xaubmU7i0ArO8o3TMG~JYQcmil0kFq5XHcEwX734XyijRLRFkhWUrVLzojiSCXZwPPfA__&Key-Pair-Id=K3UFJ5LH7J6562","liveness_selfie":"https://media-cdn.prod.metamap.com/selfies/production/018fbc9f-085e-4a72-a2a4-8fe2e3d40473.jpeg?Expires=1757795613&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9tZWRpYS1jZG4ucHJvZC5tZXRhbWFwLmNvbS9zZWxmaWVzL3Byb2R1Y3Rpb24vMDE4ZmJjOWYtMDg1ZS00YTcyLWEyYTQtOGZlMmUzZDQwNDczLmpwZWciLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3NTc3OTU2MTN9fX1dfQ__&Signature=nkckXL3~GOgWMPVc9RZCTTFIoSRcaCynFSSJGwYp5FIrepxH5us8Gx-lSzyYLmse2aQZqHOudiX2MDdIJXQCXYbxuNbVPY0EtQ3AhAzDU-a4k6lh4qH0GAkuUINRjfSmpAcj6JtDqsx4icLImZlZ0CTsP8cEguJlUUW994zKqHyT0UyQRy7wB39zVKIx9arqzULKQe-RRimu1mMmRIkfo5k0ARrDQYbWNiGpxZTNaYmXayPkH2T1sSa~sIkLxjpJbWCNGZ0kMqMPuSFdWYg4RjIrHb2UHDubegi7rj5SmefeqSUCVgb7YVD1YWutXfogRIJraDm~Ph9qpLQfEvV4~Q__&Key-Pair-Id=K3UFJ5LH7J6562"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '2359'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 10 Sep 2025 20:33:33 GMT
+      X-Request-Time:
+      - 'value: 0.388'
+      x-amz-apigw-id:
+      - QtAImGe5iYcEi4g=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '2359'
+      x-amzn-Remapped-Date:
+      - Wed, 10 Sep 2025 20:33:33 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.28.0
+      x-amzn-RequestId:
+      - 848ed62c-6ec3-4150-a3fb-5a082cb313b4
+    status:
+      code: 200
+      message: OK
+version: 1

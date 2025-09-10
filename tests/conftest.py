@@ -1,11 +1,14 @@
 import datetime as dt
 from io import BytesIO
+from typing import Generator
 
 import pytest
-from cuenca_validations.types import Country, Gender, State
+from cuenca_validations.types import Country, Gender, SessionType, State
 from cuenca_validations.types.enums import Profession
 
 import cuenca
+from cuenca.http import Session as ClientSession
+from cuenca.resources.sessions import Session
 
 cuenca.configure(sandbox=True)
 
@@ -76,3 +79,23 @@ def user_lists_request() -> dict:
 def file() -> BytesIO:
     with open('tests/data/test_file.jpeg', 'rb') as image_file:
         return BytesIO(image_file.read())
+
+
+@pytest.fixture
+def session_with_resource_id() -> Generator[Session]:
+    session = Session.create(
+        'USPR4JxMuwSG60u2h4gBpB6Q',
+        SessionType.onboarding_verification,
+        resource_id='68b887f60c33abad1ea841d3',
+    )
+    yield session
+
+
+@pytest.fixture
+def client_authed_with_session(
+    session_with_resource_id: Session,
+) -> Generator[ClientSession]:
+    client = ClientSession()
+    client.configure(session_token=session_with_resource_id.id, sandbox=True)
+    client.basic_auth = ('', '')
+    yield client

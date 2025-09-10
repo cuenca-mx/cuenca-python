@@ -2,7 +2,8 @@ import pytest
 from cuenca_validations.types import Profession, SessionType
 from pydantic import ValidationError
 
-import cuenca
+from cuenca.exc import CuencaResponseException
+from cuenca.http import Session as ClientSession
 from cuenca.resources import CurpValidation, Session, User
 
 
@@ -33,7 +34,7 @@ def test_session_create(curp_validation_request: dict, user_request: dict):
     assert user_session.user_id == user.id
     assert user_session.type == SessionType.registration
 
-    ephimeral_cuenca_session = cuenca.http.Session()
+    ephimeral_cuenca_session = ClientSession()
     ephimeral_cuenca_session.configure(session_token=user_session.id)
 
     user = User.update(user.id, profession=Profession.comercio)
@@ -42,13 +43,31 @@ def test_session_create(curp_validation_request: dict, user_request: dict):
 
 @pytest.mark.vcr
 def test_session_create_with_resource_id(
-    curp_validation_request: dict, user_request: dict
+    session_with_resource_id: Session,
 ) -> None:
-    session = Session.create(
-        'USPR4JxMuwSG60u2h4gBpB6Q',
-        SessionType.metamap_verification,
-        resource_id='68b887f60c33abad1ea841d3',
+    assert session_with_resource_id.user_id == 'USPR4JxMuwSG60u2h4gBpB6Q'
+    assert session_with_resource_id.resource_id == '68b887f60c33abad1ea841d3'
+
+
+@pytest.mark.vcr
+def test_session_with_resource_id_authorized(
+    client_authed_with_session: ClientSession,
+) -> None:
+    resource_id = '68b887f60c33abad1ea841d3'
+    response = client_authed_with_session.get(
+        f'onboarding_verifications/{resource_id}'
     )
 
-    assert session.user_id == 'USPR4JxMuwSG60u2h4gBpB6Q'
-    assert session.resource_id == '68b887f60c33abad1ea841d3'
+    assert response['gov_id_document_number'] == '267202610'
+
+
+@pytest.mark.vcr
+def test_session_with_resource_id_unauthorized(
+    client_authed_with_session: ClientSession,
+) -> None:
+    resource_id = '68b887f60c33abad1ea841d4'
+    with pytest.raises(CuencaResponseException) as e:
+        client_authed_with_session.get(
+            f'onboarding_verifications/{resource_id}'
+        )
+    assert e.value.json['error'] == 'User has not enough permissions'
