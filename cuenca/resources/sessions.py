@@ -20,6 +20,7 @@ class Session(Creatable, Retrievable, Queryable):
     success_url: Optional[SerializableAnyUrl] = None
     failure_url: Optional[SerializableAnyUrl] = None
     type: Optional[SessionType] = None
+    resource_id: Optional[str] = None
 
     model_config = ConfigDict(
         json_schema_extra={
@@ -32,6 +33,7 @@ class Session(Creatable, Retrievable, Queryable):
                 'success_url': 'http://example_success.com',
                 'failure_url': 'http://example_failure.com',
                 'type': 'session.registration',
+                'resource_id': 'some_resource_id',
             }
         }
     )
@@ -43,6 +45,7 @@ class Session(Creatable, Retrievable, Queryable):
         type: SessionType,
         success_url: Optional[str] = None,
         failure_url: Optional[str] = None,
+        resource_id: Optional[str] = None,
         *,
         session: http.Session = http.session,
     ) -> 'Session':
@@ -51,5 +54,6 @@ class Session(Creatable, Retrievable, Queryable):
             type=type,
             success_url=success_url,
             failure_url=failure_url,
+            resource_id=resource_id,
         )
         return cls._create(session=session, **req.model_dump())
