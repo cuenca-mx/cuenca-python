@@ -1,6 +1,6 @@
 import datetime as dt
 from io import BytesIO
-from typing import Generator
+from typing import Any, Generator
 
 import pytest
 from cuenca_validations.types import Country, Gender, SessionType, State
@@ -82,7 +82,7 @@ def file() -> BytesIO:
 
 
 @pytest.fixture
-def session_with_resource_id() -> Generator[Session]:
+def session_with_resource_id() -> Generator[Session, Any, Any]:
     session = Session.create(
         'USPR4JxMuwSG60u2h4gBpB6Q',
         SessionType.onboarding_verification,
@@ -94,7 +94,7 @@ def session_with_resource_id() -> Generator[Session]:
 @pytest.fixture
 def client_authed_with_session(
     session_with_resource_id: Session,
-) -> Generator[ClientSession]:
+) -> Generator[ClientSession, Any, Any]:
     client = ClientSession()
     client.configure(session_token=session_with_resource_id.id, sandbox=True)
     client.basic_auth = ('', '')
