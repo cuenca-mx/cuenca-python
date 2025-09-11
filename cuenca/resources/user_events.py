@@ -21,7 +21,7 @@ class UserEvent(IdentityEvent):
                 'type': 'created',
                 'user_id': 'USWqY5cvkISJOxHyEKjAKf8w',
                 'platform_id': 'PT8UEv02zBTcymd4Kd3MO6pg',
-                'new_model': User.schema().get('example'),
+                'new_model': User.model_json_schema().get('example'),
             }
         }
     )

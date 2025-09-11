@@ -5,6 +5,7 @@ from clabe import Clabe
 from cuenca_validations.types import (
     Address,
     Beneficiary,
+    BeneficiaryRequest,
     KYCFile,
     PhoneNumber,
     SATRegimeCode,
@@ -101,14 +102,16 @@ class User(Creatable, Retrievable, Updateable, Queryable):
                 'phone_number': '+525511223344',
                 'email_address': 'user@example.com',
                 'profession': 'engineer',
-                'terms_of_service': TOSAgreement.schema().get('example'),
+                'terms_of_service': TOSAgreement.model_json_schema().get(
+                    'example'
+                ),
                 'status': 'active',
-                'address': Address.schema().get('example'),
-                'govt_id': KYCFile.schema().get('example'),
+                'address': Address.model_json_schema().get('example'),
+                'govt_id': KYCFile.model_json_schema().get('example'),
                 'proof_of_address': None,
                 'proof_of_life': None,
                 'beneficiaries': [
-                    Beneficiary.schema().get('example'),
+                    Beneficiary.model_json_schema().get('example'),
                 ],
                 'platform_id': 'PT8UEv02zBTcymd4Kd3MO6pg',
             }
@@ -139,6 +142,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             account_use_type=account_use_type,
             monthly_spending_type=monthly_spending_type,
             monthly_movements_type=monthly_movements_type,
+            income_type=income_type,
         )
         return cls._create(session=session, **req.model_dump())
 
@@ -148,14 +152,14 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         user_id: str,
         profession: Optional[str] = None,
         address: Optional[AddressRequest] = None,
-        beneficiaries: Optional[list[Beneficiary]] = None,
+        beneficiaries: Optional[list[BeneficiaryRequest]] = None,
         govt_id: Optional[KYCFile] = None,
         proof_of_address: Optional[KYCFile] = None,
         proof_of_life: Optional[KYCFile] = None,
         status: Optional[UserStatus] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
-        curp_document: Optional[SerializableHttpUrl] = None,
+        curp_document_uri: Optional[SerializableHttpUrl] = None,
         fiscal_regime_code: Optional[SATRegimeCode] = None,
         fiscal_address: Optional[AddressRequest] = None,
         account_use_type: Optional[AccountUseType] = None,
@@ -176,7 +180,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             status=status,
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
-            curp_document=curp_document,
+            curp_document_uri=curp_document_uri,
             fiscal_regime_code=fiscal_regime_code,
             fiscal_address=fiscal_address,
             account_use_type=account_use_type,
