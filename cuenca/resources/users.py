@@ -25,7 +25,7 @@ from cuenca_validations.types.enums import (
     State,
 )
 from cuenca_validations.types.general import SerializableHttpUrl
-from cuenca_validations.types.identities import AddressRequest, Curp
+from cuenca_validations.types.identities import AddressRequest, Curp, Rfc
 from pydantic import ConfigDict, EmailStr, Field
 
 from ..http import Session, session as global_session
@@ -160,6 +160,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
         curp_document_uri: Optional[SerializableHttpUrl] = None,
+        rfc: Optional[Rfc] = None,
         fiscal_regime_code: Optional[SATRegimeCode] = None,
         fiscal_address: Optional[AddressRequest] = None,
         account_use_type: Optional[AccountUseType] = None,
@@ -181,6 +182,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
             curp_document_uri=curp_document_uri,
+            rfc=rfc,
             fiscal_regime_code=fiscal_regime_code,
             fiscal_address=fiscal_address,
             account_use_type=account_use_type,
