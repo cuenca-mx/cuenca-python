@@ -17,7 +17,7 @@ class KYCValidation(Creatable, Retrievable, Queryable):
     user_id: str
     source_type: KYCValidationSource
     flow_id: str
-    status: VerificationStatus
+    status: VerificationStatus = VerificationStatus.created
     files_uri: Optional[list[str]] = None
     verification_id: Optional[str] = None
     identity_id: Optional[str] = None
