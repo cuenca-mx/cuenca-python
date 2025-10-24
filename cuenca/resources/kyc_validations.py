@@ -3,7 +3,7 @@ from typing import ClassVar, Optional
 from cuenca_validations.types import (
     KYCValidationRequest,
     KYCValidationSource,
-    KYCValidationStatus,
+    VerificationStatus,
 )
 from pydantic import ConfigDict
 
@@ -17,7 +17,7 @@ class KYCValidation(Creatable, Retrievable, Queryable):
     user_id: str
     source_type: KYCValidationSource
     flow_id: str
-    status: KYCValidationStatus
+    status: VerificationStatus
     files_uri: Optional[list[str]] = None
     verification_id: Optional[str] = None
     identity_id: Optional[str] = None
