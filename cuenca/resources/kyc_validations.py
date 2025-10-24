@@ -1,6 +1,10 @@
 from typing import ClassVar, Optional
 
-from cuenca_validations.types import KYCValidationRequest, KYCValidationSource
+from cuenca_validations.types import (
+    KYCValidationRequest,
+    KYCValidationSource,
+    VerificationStatus,
+)
 from pydantic import ConfigDict
 
 from ..http import Session, session as global_session
@@ -13,6 +17,7 @@ class KYCValidation(Creatable, Retrievable, Queryable):
     user_id: str
     source_type: KYCValidationSource
     flow_id: str
+    status: VerificationStatus = VerificationStatus.created
     files_uri: Optional[list[str]] = None
     verification_id: Optional[str] = None
     identity_id: Optional[str] = None
