@@ -87,6 +87,8 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     country_of_birth: Optional[Country] = None
     blacklist_validation_status: Optional[VerificationStatus] = None
     pronouns: Optional[str] = None
+    deactivated_at: Optional[dt.datetime] = None
+    user_tos_agreements_id: Optional[str] = None
 
     @property
     def balance(self) -> int:
