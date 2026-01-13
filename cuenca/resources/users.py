@@ -14,6 +14,7 @@ from cuenca_validations.types import (
     UserRequest,
     UserStatus,
     UserUpdateRequest,
+    VerificationStatus,
 )
 from cuenca_validations.types.enums import (
     AccountUseType,
@@ -84,6 +85,10 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     state_of_birth: Optional[State] = None
     nationality: Optional[Country] = None
     country_of_birth: Optional[Country] = None
+    blacklist_validation_status: Optional[VerificationStatus] = None
+    pronouns: Optional[str] = None
+    deactivated_at: Optional[dt.datetime] = None
+    user_tos_agreements_id: Optional[str] = None
 
     @property
     def balance(self) -> int:
@@ -168,6 +173,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
         monthly_movements_type: Optional[MonthlyMovementsType] = None,
         income_type: Optional[IncomeType] = None,
         pronouns: Optional[str] = None,
+        blacklist_validation_status: Optional[VerificationStatus] = None,
         *,
         session: Session = global_session,
     ) -> 'User':
@@ -190,6 +196,7 @@ class User(Creatable, Retrievable, Updateable, Queryable):
             monthly_movements_type=monthly_movements_type,
             income_type=income_type,
             pronouns=pronouns,
+            blacklist_validation_status=blacklist_validation_status,
         )
         return cls._update(id=user_id, **request.model_dump(), session=session)
 
