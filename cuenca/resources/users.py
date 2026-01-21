@@ -31,12 +31,12 @@ from pydantic import ConfigDict, EmailStr, Field
 
 from ..http import Session, session as global_session
 from .balance_entries import BalanceEntry
-from .base import Creatable, Queryable, Retrievable, Updateable
+from .base import Creatable, Deactivable, Queryable, Retrievable, Updateable
 from .identities import Identity
 from .resources import retrieve_uri
 
 
-class User(Creatable, Retrievable, Updateable, Queryable):
+class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
     _resource: ClassVar = 'users'
     _query_params: ClassVar = UserQuery
 
@@ -94,6 +94,11 @@ class User(Creatable, Retrievable, Updateable, Queryable):
     def balance(self) -> int:
         be = BalanceEntry.first(user_id=self.id)
         return be.rolling_balance if be else 0
+
+    @property
+    def full_name(self):
+        name = f'{self.names} {self.first_surname} {self.second_surname}'
+        return name.strip()
 
     model_config = ConfigDict(
         json_schema_extra={
