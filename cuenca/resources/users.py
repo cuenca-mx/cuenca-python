@@ -96,9 +96,9 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
         return be.rolling_balance if be else 0
 
     @property
-    def full_name(self):
-        name = f'{self.names} {self.first_surname} {self.second_surname}'
-        return name.strip()
+    def full_name(self) -> str:
+        parts = [self.names, self.first_surname, self.second_surname]
+        return ' '.join(p for p in parts if p)
 
     model_config = ConfigDict(
         json_schema_extra={
