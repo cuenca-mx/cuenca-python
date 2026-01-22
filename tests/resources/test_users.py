@@ -51,6 +51,7 @@ def test_user_identity_retrieve():
     user_id = 'USCM-zlFcNQk6ue4gZ_mTGeQ'
     user = User.retrieve(user_id)
     assert user_id == user.id
+    assert user.full_name == 'José López Hernández'
     identity = user.identity
     assert identity.id is not None
 
