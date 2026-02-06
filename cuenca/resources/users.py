@@ -53,6 +53,10 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
     profession: Optional[str] = None
     terms_of_service: Optional[TOSAgreement] = None
     status: Optional[UserStatus] = None
+    is_inactive: bool = False
+    is_fraud: bool = False
+    is_pld_blocked: bool = False
+    is_security_mode: bool = False
     address: Optional[Address] = None
     govt_id: Optional[KYCFile] = Field(
         None, description='Government ID document validation'
@@ -116,6 +120,10 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
                     'example'
                 ),
                 'status': 'active',
+                'is_inactive': False,
+                'is_fraud': False,
+                'is_pld_blocked': False,
+                'is_security_mode': False,
                 'address': Address.model_json_schema().get('example'),
                 'govt_id': KYCFile.model_json_schema().get('example'),
                 'proof_of_address': None,
@@ -167,6 +175,10 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
         proof_of_address: Optional[KYCFile] = None,
         proof_of_life: Optional[KYCFile] = None,
         status: Optional[UserStatus] = None,
+        is_inactive: Optional[bool] = None,
+        is_fraud: Optional[bool] = None,
+        is_pld_blocked: Optional[bool] = None,
+        is_security_mode: Optional[bool] = None,
         email_verification_id: Optional[str] = None,
         phone_verification_id: Optional[str] = None,
         curp_document_uri: Optional[SerializableHttpUrl] = None,
@@ -190,6 +202,10 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
             proof_of_address=proof_of_address,
             proof_of_life=proof_of_life,
             status=status,
+            is_inactive=is_inactive,
+            is_fraud=is_fraud,
+            is_pld_blocked=is_pld_blocked,
+            is_security_mode=is_security_mode,
             email_verification_id=email_verification_id,
             phone_verification_id=phone_verification_id,
             curp_document_uri=curp_document_uri,
