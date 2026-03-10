@@ -53,7 +53,7 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
     profession: Optional[str] = None
     terms_of_service: Optional[TOSAgreement] = None
     status: Optional[UserStatus] = None
-    is_inactive: bool = False
+    is_dormant: bool = False
     is_fraud: bool = False
     is_pld_blocked: bool = False
     is_security_mode: bool = False
@@ -120,7 +120,7 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
                     'example'
                 ),
                 'status': 'active',
-                'is_inactive': False,
+                'is_dormant': False,
                 'is_fraud': False,
                 'is_pld_blocked': False,
                 'is_security_mode': False,
@@ -175,7 +175,7 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
         proof_of_address: Optional[KYCFile] = None,
         proof_of_life: Optional[KYCFile] = None,
         status: Optional[UserStatus] = None,
-        is_inactive: Optional[bool] = None,
+        is_dormant: Optional[bool] = None,
         is_fraud: Optional[bool] = None,
         is_pld_blocked: Optional[bool] = None,
         is_security_mode: Optional[bool] = None,
@@ -202,7 +202,7 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
             proof_of_address=proof_of_address,
             proof_of_life=proof_of_life,
             status=status,
-            is_inactive=is_inactive,
+            is_dormant=is_dormant,
             is_fraud=is_fraud,
             is_pld_blocked=is_pld_blocked,
             is_security_mode=is_security_mode,
