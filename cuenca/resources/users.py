@@ -23,6 +23,7 @@ from cuenca_validations.types.enums import (
     IncomeType,
     MonthlyMovementsType,
     MonthlySpendingType,
+    RequiredAction,
     State,
 )
 from cuenca_validations.types.general import SerializableHttpUrl
@@ -93,6 +94,7 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
     pronouns: Optional[str] = None
     deactivated_at: Optional[dt.datetime] = None
     user_tos_agreements_id: Optional[str] = None
+    required_action: Optional[RequiredAction] = None
 
     @property
     def balance(self) -> int:
