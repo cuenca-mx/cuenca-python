@@ -23,6 +23,7 @@ __all__ = [
     'LimitedWallet',
     'LoginToken',
     'Otp',
+    'PasswordReset',
     'Platform',
     'PhoneVerificationAssociation',
     'Questionnaires',
@@ -70,6 +71,7 @@ from .kyc_validations import KYCValidation
 from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
 from .otps import Otp
+from .password_resets import PasswordReset
 from .phone_verification_associations import PhoneVerificationAssociations
 from .platforms import Platform
 from .postal_codes import PostalCodes
@@ -116,6 +118,7 @@ resource_classes = [
     KYCValidation,
     LimitedWallet,
     LoginToken,
+    PasswordReset,
     Questionnaires,
     Saving,
     Session,
