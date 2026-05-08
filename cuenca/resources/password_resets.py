@@ -7,10 +7,10 @@ from pydantic import ConfigDict
 from pydantic_extra_types.coordinate import Coordinate
 
 from ..http import Session, session as global_session
-from .base import Creatable, Queryable, Retrievable
+from .base import Creatable
 
 
-class PasswordReset(Creatable, Retrievable, Queryable):
+class PasswordReset(Creatable):
     _resource: ClassVar = 'password_resets'
 
     platform_id: str

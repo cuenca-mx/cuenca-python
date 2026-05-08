@@ -13,16 +13,3 @@ def test_password_resets_create() -> None:
         ),
     )
     assert password_reset.id.startswith('PR')
-
-
-@pytest.mark.vcr
-def test_password_resets_retrieve() -> None:
-    password_reset = PasswordReset.retrieve('PRFOO')
-    assert password_reset.id
-    assert password_reset.flow_id
-
-
-@pytest.mark.vcr
-def test_password_resets_all() -> None:
-    items = list(PasswordReset.all())
-    assert items
