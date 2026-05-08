@@ -7,7 +7,6 @@ from cuenca import PasswordReset
 @pytest.mark.vcr
 def test_password_resets_create() -> None:
     password_reset = PasswordReset.create(
-        verification_id='VEze_Bh1zhROKehtBOS7EHlw',
         location=Coordinate(
             latitude=Latitude(19.432608),
             longitude=Longitude(-99.133209),
@@ -20,7 +19,7 @@ def test_password_resets_create() -> None:
 def test_password_resets_retrieve() -> None:
     password_reset = PasswordReset.retrieve('PRFOO')
     assert password_reset.id
-    assert password_reset.verification_id
+    assert password_reset.flow_id
 
 
 @pytest.mark.vcr

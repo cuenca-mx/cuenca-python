@@ -14,7 +14,6 @@ class PasswordReset(Creatable, Retrievable, Queryable):
     _resource: ClassVar = 'password_resets'
 
     platform_id: str
-    verification_id: str
     flow_id: str
     status: VerificationStatus = VerificationStatus.created
     mati_verification_id: Optional[str] = None
@@ -29,7 +28,6 @@ class PasswordReset(Creatable, Retrievable, Queryable):
             'example': {
                 'id': 'PRNEUInh69SuKXXmK95sROwQ',
                 'platform_id': 'PT-1234567890',
-                'verification_id': 'VENEUInh69SuKXXmK95sROwQ',
                 'flow_id': '123e4567-e89b-12d3-a456-426614174000',
                 'status': 'created',
                 'mati_verification_id': 'metamap-verification-id',
@@ -42,13 +40,9 @@ class PasswordReset(Creatable, Retrievable, Queryable):
     @classmethod
     def create(
         cls,
-        verification_id: str,
         location: Coordinate,
         *,
         session: Session = global_session,
     ) -> 'PasswordReset':
-        req = PasswordResetRequest(
-            verification_id=verification_id,
-            location=location,
-        )
+        req = PasswordResetRequest(location=location)
         return cls._create(session=session, **req.model_dump())
