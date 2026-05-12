@@ -16,8 +16,6 @@ class PasswordReset(Creatable):
     platform_id: str
     flow_id: str
     status: VerificationStatus = VerificationStatus.created
-    mati_verification_id: Optional[str] = None
-    identity_id: Optional[str] = None
     provider_url: Optional[str] = None
     created_at: dt.datetime
     updated_at: Optional[dt.datetime] = None
@@ -30,8 +28,6 @@ class PasswordReset(Creatable):
                 'platform_id': 'PT-1234567890',
                 'flow_id': '123e4567-e89b-12d3-a456-426614174000',
                 'status': 'created',
-                'mati_verification_id': 'metamap-verification-id',
-                'identity_id': 'metamap-identity-id',
                 'created_at': '2026-05-06T14:15:22Z',
             }
         }
