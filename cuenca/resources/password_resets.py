@@ -27,8 +27,14 @@ class PasswordReset(Creatable):
                 'id': 'PRNEUInh69SuKXXmK95sROwQ',
                 'platform_id': 'PT-1234567890',
                 'flow_id': '123e4567-e89b-12d3-a456-426614174000',
-                'status': 'created',
+                'status': 'succeeded',
+                'provider_url': (
+                    'https://dashboard.metamap.com/identity/'
+                    'identity-id/verification/verification-id'
+                ),
                 'created_at': '2026-05-06T14:15:22Z',
+                'updated_at': '2026-05-06T14:18:22Z',
+                'deactivated_at': '2026-05-06T14:20:22Z',
             }
         }
     )
