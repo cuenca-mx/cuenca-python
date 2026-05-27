@@ -1,0 +1,35 @@
+interactions:
+- request:
+    body: '{"status": "succeeded"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - DUMMY
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '23'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/2.2.1
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: PATCH
+    uri: https://sandbox.cuenca.com/transfers/TR01
+  response:
+    body:
+      string: '{"id":"TR01","created_at":"2026-05-26T12:00:00.000000","updated_at":"2026-05-26T12:01:00.000000","account_number":"646180157046685645","recipient_name":"Rogelio
+        Lopez","amount":10000,"descriptor":"held transfer","idempotency_key":"idem-tr01","status":"succeeded","network":"internal","destination_uri":"/accounts/LA1CVCZVNLR4KM42kPcqhBLV","tracking_key":"tk01","user_id":"US4PCNV8rLB2wqBfORzIAXUl","reference_number":null}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+    status:
+      code: 200
+      message: OK
+version: 1

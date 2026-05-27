@@ -2,20 +2,23 @@ import datetime as dt
 from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import (
+    TransactionStatus,
     TransferNetwork,
     TransferQuery,
     TransferRequest,
+    UpdateTransferRequest,
 )
 from cuenca_validations.typing import DictStrAny
 from requests import HTTPError
 
 from ..exc import CuencaException
+from ..http import Session, session as global_session
 from .accounts import Account
-from .base import Creatable, Transaction
+from .base import Creatable, Transaction, Updateable
 from .resources import retrieve_uri
 
 
-class Transfer(Transaction, Creatable):
+class Transfer(Transaction, Creatable, Updateable):
     _resource: ClassVar = 'transfers'
     _query_params: ClassVar = TransferQuery
 
@@ -70,6 +73,17 @@ class Transfer(Transaction, Creatable):
             user_id=user_id,
         )
         return cls._create(**req.model_dump())
+
+    @classmethod
+    def update(
+        cls,
+        transfer_id: str,
+        status: TransactionStatus,
+        *,
+        session: Session = global_session,
+    ) -> 'Transfer':
+        req = UpdateTransferRequest(status=status)
+        return cls._update(transfer_id, session=session, **req.model_dump())
 
     @classmethod
     def create_many(cls, requests: list[TransferRequest]) -> DictStrAny:

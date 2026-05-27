@@ -130,3 +130,33 @@ def test_invalid_params():
     with pytest.raises(ValidationError) as e:
         Transfer.one(invalid_param='invalid_param')
     assert 'Extra inputs are not permitted' in str(e)
+
+
+@pytest.mark.vcr
+def test_transfers_update_succeeded():
+    transfer = Transfer.update('TR01', status=TransactionStatus.succeeded)
+    assert transfer.id == 'TR01'
+    assert transfer.status == TransactionStatus.succeeded
+
+
+@pytest.mark.vcr
+def test_transfers_update_failed():
+    transfer = Transfer.update('TR02', status=TransactionStatus.failed)
+    assert transfer.id == 'TR02'
+    assert transfer.status == TransactionStatus.failed
+
+
+@pytest.mark.parametrize(
+    'invalid_status',
+    [
+        TransactionStatus.created,
+        TransactionStatus.submitted,
+        TransactionStatus.in_review,
+        'cancelled',
+        'approve',
+        'reject',
+    ],
+)
+def test_transfers_update_rejects_invalid_status(invalid_status):
+    with pytest.raises(ValidationError):
+        Transfer.update('TR03', status=invalid_status)
