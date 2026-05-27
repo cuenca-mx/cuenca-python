@@ -1,5 +1,5 @@
 import datetime as dt
-from typing import ClassVar, Literal, Optional, cast
+from typing import ClassVar, Optional, cast
 
 from cuenca_validations.types import (
     TransactionStatus,
@@ -78,21 +78,10 @@ class Transfer(Transaction, Creatable, Updateable):
     def update(
         cls,
         transfer_id: str,
-        status: Literal[
-            TransactionStatus.succeeded,
-            TransactionStatus.failed,
-        ],
+        status: TransactionStatus,
         *,
         session: Session = global_session,
     ) -> 'Transfer':
-        """
-        Updates the status of a held transfer.
-
-        :param transfer_id: existing transfer_id
-        :param status: TransactionStatus.succeeded to approve, or
-            TransactionStatus.failed to reject
-        :return: Updated transfer object
-        """
         req = UpdateTransferRequest(status=status)
         return cls._update(transfer_id, session=session, **req.model_dump())
 

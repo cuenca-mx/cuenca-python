@@ -15,7 +15,7 @@ interactions:
       Content-Type:
       - application/json
       User-Agent:
-      - cuenca-python/2.1.21
+      - cuenca-python/2.2.1
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: PATCH
