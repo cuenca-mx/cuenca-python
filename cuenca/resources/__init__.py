@@ -1,4 +1,6 @@
 __all__ = [
+    'Agent',
+    'AgentVerification',
     'ApiKey',
     'Account',
     'Arpc',
@@ -47,6 +49,8 @@ __all__ = [
 ]
 
 from .accounts import Account
+from .agent_verifications import AgentVerification
+from .agents import Agent
 from .api_keys import ApiKey
 from .arpc import Arpc
 from .balance_entries import BalanceEntry
@@ -96,6 +100,8 @@ from .whatsapp_transfers import WhatsappTransfer
 
 # avoid circular imports
 resource_classes = [
+    Agent,
+    AgentVerification,
     ApiKey,
     Account,
     Arpc,
