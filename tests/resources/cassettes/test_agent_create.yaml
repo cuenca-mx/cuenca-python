@@ -1,0 +1,93 @@
+interactions:
+- request:
+    body: '{}'
+    headers:
+      Authorization:
+      - DUMMY
+      Content-Length:
+      - '2'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/2.2.2.dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+      X-Cuenca-LoginId:
+      - DUMMY
+    method: POST
+    uri: https://sandbox.cuenca.com/agent_verifications
+  response:
+    body:
+      string: '{"id":"AVGrMmja4vRpCs1L7q5oZaGg","created_at":"2026-06-29T21:12:29.455175","user_id":"USMP3EPgI4T4CPFyVmXUPi8A","platform_id":"PTZbBlk__kQt-wfwzP5nwA9A","phone_number":"+525520902020","pairing_code":"E89U5U","deactivated_at":"2026-06-29T21:17:29.455186"}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '254'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 29 Jun 2026 21:12:29 GMT
+      X-Request-Time:
+      - 'value: 0.433'
+      x-amz-apigw-id:
+      - fvjWTGVvCYcEcIQ=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '254'
+      x-amzn-Remapped-Date:
+      - Mon, 29 Jun 2026 21:12:29 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.30.3
+      x-amzn-RequestId:
+      - e418d89f-5e4f-4540-8334-d81914362ad9
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"pairing_code": "E89U5U", "phone_number": "+525520902020", "device_info":
+      {"client": "cursor", "os": "macOS"}}'
+    headers:
+      Authorization:
+      - DUMMY
+      Content-Length:
+      - '111'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - cuenca-python/2.2.2.dev0
+      X-Cuenca-Api-Version:
+      - '2020-03-19'
+    method: POST
+    uri: https://sandbox.cuenca.com/agents
+  response:
+    body:
+      string: '{"id":"AG7eGV9zSIR92V7fNKnM57UA","created_at":"2026-06-29T21:12:34.918228","user_id":"USMP3EPgI4T4CPFyVmXUPi8A","platform_id":"PTZbBlk__kQt-wfwzP5nwA9A","agent_verification_id":"AVGrMmja4vRpCs1L7q5oZaGg","session_id":"SSHdQzltPgQByBqJYGXcBJUg","device_info":{}}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '261'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 29 Jun 2026 21:12:34 GMT
+      X-Request-Time:
+      - 'value: 0.283'
+      x-amz-apigw-id:
+      - fvjWeF6iiYcEGYw=
+      x-amzn-Remapped-Connection:
+      - keep-alive
+      x-amzn-Remapped-Content-Length:
+      - '261'
+      x-amzn-Remapped-Date:
+      - Mon, 29 Jun 2026 21:12:34 GMT
+      x-amzn-Remapped-Server:
+      - nginx/1.30.3
+      x-amzn-RequestId:
+      - babb4d7a-b745-46f8-894d-fb2a070f8484
+    status:
+      code: 201
+      message: Created
+version: 1
