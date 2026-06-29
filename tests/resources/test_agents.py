@@ -3,9 +3,10 @@ import pytest
 from cuenca.http.client import Session
 from cuenca.resources import Agent, AgentVerification
 
+
 @pytest.mark.vcr
 def test_agent_create():
-    verification = AgentVerification.create() # Created by user in APP
+    verification = AgentVerification.create()  # Created by user in APP
     agent_session = Session()
     agent_session.configure(sandbox=True)
     agent = Agent.create(
