@@ -1,5 +1,7 @@
 __all__ = [
     '__version__',
+    'Agent',
+    'AgentVerification',
     'ApiKey',
     'Account',
     'Arpc',
@@ -53,6 +55,8 @@ __all__ = [
 from . import http
 from .resources import (
     Account,
+    Agent,
+    AgentVerification,
     ApiKey,
     Arpc,
     BalanceEntry,
