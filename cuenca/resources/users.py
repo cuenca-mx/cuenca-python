@@ -95,6 +95,7 @@ class User(Creatable, Retrievable, Updateable, Queryable, Deactivable):
     deactivated_at: Optional[dt.datetime] = None
     user_tos_agreements_id: Optional[str] = None
     required_action: Optional[RequiredAction] = None
+    curp_document_uri: Optional[SerializableHttpUrl] = None
 
     @property
     def balance(self) -> int:
