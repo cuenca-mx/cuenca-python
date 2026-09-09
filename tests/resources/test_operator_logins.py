@@ -18,7 +18,7 @@ def session() -> Session:
 def test_operator_login_create(mock_request: MagicMock, session: Session):
     mock_request.return_value.ok = True
     mock_request.return_value.content = (
-        b'{"session_token":"SEWqY5cvkISJOxHyEKjAKf8w",'
+        b'{"id":"SEWqY5cvkISJOxHyEKjAKf8w",'
         b'"operator_id":"OPWqY5cvkISJOxHyEKjAKf8w",'
         b'"role":"operator",'
         b'"legal_person_id":"USWqY5cvkISJOxHyEKjAKf8w"}'
@@ -30,12 +30,11 @@ def test_operator_login_create(mock_request: MagicMock, session: Session):
         session=session,
     )
 
-    assert login.session_token == 'SEWqY5cvkISJOxHyEKjAKf8w'
-    assert login.id == login.session_token
+    assert login.id == 'SEWqY5cvkISJOxHyEKjAKf8w'
     assert login.operator_id == 'OPWqY5cvkISJOxHyEKjAKf8w'
     assert login.role == OperatorRole.operator
     assert login.legal_person_id == 'USWqY5cvkISJOxHyEKjAKf8w'
-    assert session.headers['X-Cuenca-SessionId'] == login.session_token
+    assert session.headers['X-Cuenca-SessionId'] == login.id
     assert 'X-Cuenca-LoginId' not in session.headers
 
     mock_request.assert_called_once()
