@@ -1,4 +1,5 @@
-from typing import ClassVar
+import datetime as dt
+from typing import ClassVar, Optional
 
 from pydantic import ConfigDict
 
@@ -8,8 +9,8 @@ from .base import Creatable
 
 class EmailOtp(Creatable):
     _resource: ClassVar = 'email_otps'
-    owner_id: str | None = None
-    expires_at: str | None = None
+    owner_id: Optional[str] = None
+    expires_at: Optional[dt.datetime] = None
 
     model_config = ConfigDict(
         json_schema_extra={
