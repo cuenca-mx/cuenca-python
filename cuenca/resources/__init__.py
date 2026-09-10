@@ -25,6 +25,7 @@ __all__ = [
     'LimitedWallet',
     'LoginToken',
     'Otp',
+    'EmailOtp',
     'OperatorLogin',
     'PasswordReset',
     'Platform',
@@ -65,6 +66,7 @@ from .clabes import Clabe
 from .commissions import Commission
 from .curp_validations import CurpValidation
 from .deposits import Deposit
+from .email_otps import EmailOtp
 from .endpoints import Endpoint
 from .exist_phones import ExistPhones
 from .file_batches import FileBatch
