@@ -1,6 +1,5 @@
 import pytest
 
-import cuenca
 from cuenca import Clabe
 
 LEGAL_PERSON_ID = 'USmI9NnHJXTKi9ILP1aaWjlQ'
