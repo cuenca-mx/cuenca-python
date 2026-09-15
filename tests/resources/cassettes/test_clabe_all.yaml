@@ -2,138 +2,40 @@ interactions:
 - request:
     body: null
     headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
       Authorization:
       - DUMMY
-      Connection:
-      - keep-alive
       User-Agent:
-      - cuenca-python/0.13.10.dev102
+      - cuenca-python/2.2.5
       X-Cuenca-Api-Version:
       - '2020-03-19'
     method: GET
-    uri: https://sandbox.cuenca.com/clabes
+    uri: https://sandbox.cuenca.com/clabes?allowed_curp_rfc=LOPJ900101XXX
   response:
     body:
-      string: '{"items":[{"id":"CLD_zg463BQ6-yEjg8UE0jgQ","clabe":"646180157089988558","created_at":"2022-08-23T05:14:11.862000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLas7ZqaT5Quq6fgeiuel6KA","clabe":"646180157030689013","created_at":"2022-08-23T05:11:53.700000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLu4OYMy1USXOY4tGfGNUUsw","clabe":"646180157073856528","created_at":"2022-08-22T23:54:55.634000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLQSvYrsu7Qqm3WuhG0OVrlg","clabe":"646180157032158283","created_at":"2022-08-22T22:44:00.966000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLFyudOfs9Rt-ratC4WXJAoA","clabe":"646180157027880605","created_at":"2022-08-22T22:41:06.071000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"}],"next_page_uri":null,"count":null}'
+      string: '{"items":[{"id":"723548437718857180","clabe":"723548437718857180","created_at":"2026-02-04T19:57:26.392000","updated_at":"2026-02-04T19:57:26.392000","deactivated_at":null,"provider":"cuenca","user_id":"USmI9NnHJXTKi9ILP1aaWjlQ","allowed_curp_rfc":"LOPJ900101XXX","is_default":false}],"next_page_uri":null,"count":null}'
     headers:
       Connection:
       - keep-alive
       Content-Length:
-      - '1049'
+      - '319'
       Content-Type:
       - application/json
       Date:
-      - Tue, 23 Aug 2022 05:21:51 GMT
+      - Tue, 15 Sep 2026 18:24:23 GMT
       X-Request-Time:
-      - 'value: 0.083'
+      - 'value: 1.314'
       x-amz-apigw-id:
-      - XTSNeEoIIAMFoDQ=
+      - DwMFlEmHCYcEXIw=
       x-amzn-Remapped-Connection:
       - keep-alive
       x-amzn-Remapped-Content-Length:
-      - '1049'
+      - '319'
       x-amzn-Remapped-Date:
-      - Tue, 23 Aug 2022 05:21:51 GMT
+      - Tue, 15 Sep 2026 18:24:23 GMT
       x-amzn-Remapped-Server:
-      - nginx/1.22.0
+      - nginx/1.30.4
       x-amzn-RequestId:
-      - 6f394c5e-b5ff-44fa-9733-3cfb9b965360
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - DUMMY
-      Connection:
-      - keep-alive
-      User-Agent:
-      - cuenca-python/0.13.10.dev102
-      X-Cuenca-Api-Version:
-      - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/clabes?count=1
-  response:
-    body:
-      string: '{"items":[],"next_page_uri":null,"count":5,}}}'
-    headers:
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '337'
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 23 Aug 2022 05:22:45 GMT
-      X-Request-Time:
-      - 'value: 0.067'
-      x-amz-apigw-id:
-      - XTSV2FbBoAMFgYA=
-      x-amzn-Remapped-Connection:
-      - keep-alive
-      x-amzn-Remapped-Content-Length:
-      - '337'
-      x-amzn-Remapped-Date:
-      - Tue, 23 Aug 2022 05:22:45 GMT
-      x-amzn-Remapped-Server:
-      - nginx/1.22.0
-      x-amzn-RequestId:
-      - 91aa3a7f-6d68-44b4-85fb-4192dc51276e
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - DUMMY
-      Connection:
-      - keep-alive
-      User-Agent:
-      - cuenca-python/0.13.10.dev102
-      X-Cuenca-Api-Version:
-      - '2020-03-19'
-    method: GET
-    uri: https://sandbox.cuenca.com/clabes
-  response:
-    body:
-      string: '{"items":[{"id":"CLD_zg463BQ6-yEjg8UE0jgQ","clabe":"646180157089988558","created_at":"2022-08-23T05:14:11.862000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLas7ZqaT5Quq6fgeiuel6KA","clabe":"646180157030689013","created_at":"2022-08-23T05:11:53.700000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLu4OYMy1USXOY4tGfGNUUsw","clabe":"646180157073856528","created_at":"2022-08-22T23:54:55.634000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLQSvYrsu7Qqm3WuhG0OVrlg","clabe":"646180157032158283","created_at":"2022-08-22T22:44:00.966000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"},{"id":"CLFyudOfs9Rt-ratC4WXJAoA","clabe":"646180157027880605","created_at":"2022-08-22T22:41:06.071000","user_id":"USbDnHlZYDShGoTS2NTD-Lmg"}],"next_page_uri":null,"count":null}'
-    headers:
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '1049'
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 23 Aug 2022 05:23:36 GMT
-      X-Request-Time:
-      - 'value: 0.070'
-      x-amz-apigw-id:
-      - XTSd5EarIAMF42A=
-      x-amzn-Remapped-Connection:
-      - keep-alive
-      x-amzn-Remapped-Content-Length:
-      - '1049'
-      x-amzn-Remapped-Date:
-      - Tue, 23 Aug 2022 05:23:36 GMT
-      x-amzn-Remapped-Server:
-      - nginx/1.22.0
-      x-amzn-RequestId:
-      - 21c1a41f-857a-4d6f-8ceb-944b4dfa5ffc
+      - 37828c23-0ec9-4f12-8db0-08f5778509f8
     status:
       code: 200
       message: OK
