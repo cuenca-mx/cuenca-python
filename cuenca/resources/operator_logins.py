@@ -6,10 +6,56 @@ from cuenca_validations.types.requests import (
     OperatorLoginRequest,
     OperatorLoginUpdateRequest,
 )
-from pydantic import ConfigDict
+from pydantic import BaseModel, ConfigDict
 
 from ..http import Session, session as global_session
 from .base import Creatable
+
+
+class OperatorLoginResponse(BaseModel):
+    """POST /operator-logins response (OTP challenge pending).
+
+    Requires cuenca-validations >= 2.1.48.
+    """
+
+    id: str
+    operator_id: str
+    expires_at: dt.datetime
+    email_hint: str
+
+    model_config = ConfigDict(
+        json_schema_extra={
+            'example': {
+                'id': 'OLWqY5cvkISJOxHyEKjAKf8w',
+                'operator_id': 'OPWqY5cvkISJOxHyEKjAKf8w',
+                'expires_at': '2026-09-21T20:15:22Z',
+                'email_hint': 'ma****@aceros.com',
+            }
+        },
+    )
+
+
+class OperatorLoginSessionResponse(BaseModel):
+    """PATCH /operator-logins/{id} response (session after OTP).
+
+    Requires cuenca-validations >= 2.1.48.
+    """
+
+    id: str
+    operator_id: str
+    role: OperatorRole
+    legal_person_id: str
+
+    model_config = ConfigDict(
+        json_schema_extra={
+            'example': {
+                'id': 'SEWqY5cvkISJOxHyEKjAKf8w',
+                'operator_id': 'OPWqY5cvkISJOxHyEKjAKf8w',
+                'role': 'authorizer',
+                'legal_person_id': 'USWqY5cvkISJOxHyEKjAKf8w',
+            }
+        },
+    )
 
 
 class OperatorLogin(Creatable):
