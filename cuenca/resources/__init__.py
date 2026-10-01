@@ -27,6 +27,7 @@ __all__ = [
     'Otp',
     'OperatorLogin',
     'OperatorOtp',
+    'OperatorToken',
     'PasswordReset',
     'Platform',
     'PhoneVerificationAssociation',
@@ -78,6 +79,7 @@ from .limited_wallets import LimitedWallet
 from .login_tokens import LoginToken
 from .operator_logins import OperatorLogin
 from .operator_otps import OperatorOtp
+from .operator_tokens import OperatorToken
 from .otps import Otp
 from .password_resets import PasswordReset
 from .phone_verification_associations import PhoneVerificationAssociations
@@ -130,6 +132,7 @@ resource_classes = [
     LoginToken,
     OperatorLogin,
     OperatorOtp,
+    OperatorToken,
     PasswordReset,
     Questionnaires,
     Saving,
